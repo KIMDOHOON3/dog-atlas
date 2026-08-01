@@ -38,6 +38,7 @@ const draftBreeds = [
     tagline: "하얀 이중모와 또렷한 표정 뒤에, 사람 곁을 좋아하는 활기찬 일상이 있어요.",
     palette: { primary: "#dce9e2", secondary: "#f6f1e7", ink: "#18382e" },
     illustration: "/illustrations/japanese-spitz.svg",
+    catalog: { group: "companion", discoveryTags: ["스피츠 계열", "가족과의 교감", "이중모 관리"] },
     historyVisual: {
       src: "/illustrations/v3/japanese-spitz-history.webp",
       alt: "일본식 주택 마당에서 흰 스피츠형 개와 마주 보는 사람을 그린 편집 삽화",
@@ -93,6 +94,7 @@ const draftBreeds = [
     tagline: "작은 체구만으로는 설명되지 않는, 오랜 반려의 역사와 생기 있는 성격을 만나요.",
     palette: { primary: "#f1e7d6", secondary: "#fbfaf6", ink: "#473625" },
     illustration: "/illustrations/maltese.svg",
+    catalog: { group: "companion", discoveryTags: ["작은 체격", "사람 곁을 선호", "피모 관리"] },
     historyVisual: {
       src: "/illustrations/v3/maltese-history.webp",
       alt: "지중해 연안으로 보이는 마을에서 사람 곁에 앉은 흰 소형견을 그린 편집 삽화",
@@ -137,6 +139,7 @@ const draftBreeds = [
     tagline: "목초지의 판단력과 집중력은 가정에서도 사라지지 않아요.",
     palette: { primary: "#cad7c4", secondary: "#e9e2d1", ink: "#26362b" },
     illustration: "/illustrations/border-collie.svg",
+    catalog: { group: "herding", discoveryTags: ["목양견", "높은 활동", "정신적 자극"] },
     historyVisual: {
       src: "/illustrations/v3/border-collie-history.webp",
       alt: "돌담이 있는 목초지에서 목자의 신호에 맞춰 양 떼를 모는 보더콜리를 그린 편집 삽화",
@@ -181,6 +184,7 @@ const draftBreeds = [
     tagline: "빠르게 달리는 순간과 집에서 쉬는 시간은 서로 모순되지 않아요.",
     palette: { primary: "#ddd4c8", secondary: "#eef0ea", ink: "#3f342d" },
     illustration: "/illustrations/greyhound.svg",
+    catalog: { group: "sighthound", discoveryTags: ["시각 하운드", "질주와 휴식", "큰 체격"] },
     historyVisual: {
       src: "/illustrations/v3/greyhound-history.webp",
       alt: "건조한 들판에서 먼 대상을 바라보는 사람과 시각 하운드형 개를 그린 편집 삽화",
@@ -225,6 +229,7 @@ const draftBreeds = [
     tagline: "눈밭의 아름다움 뒤에는 사람과 함께 일해온 힘과 두꺼운 털의 관리가 있어요.",
     palette: { primary: "#dbe7e5", secondary: "#e9edf2", ink: "#1f3c43" },
     illustration: "/illustrations/samoyed.svg",
+    catalog: { group: "northern-working", discoveryTags: ["북방 작업견", "사람과의 협력", "이중모 관리"] },
     historyVisual: {
       src: "/illustrations/v3/samoyed-history.webp",
       alt: "눈 덮인 북방 환경에서 사람, 흰 스피츠형 작업견, 짐을 실은 썰매를 그린 편집 삽화",

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "./data";
 
 describe("breed content", () => {
-  it("loads exactly five schema-validated MVP breeds", () => {
+  it("loads the five currently published schema-validated MVP breeds", () => {
     expect(breeds).toHaveLength(5);
     expect(breeds.every((breed) => breed.contentStatus === "mvp-editorial-draft")).toBe(true);
   });

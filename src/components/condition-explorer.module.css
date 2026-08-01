@@ -1,0 +1,134 @@
+.explorer {
+  width: min(calc(100% - var(--page-inline)), var(--max));
+  margin: 0 auto;
+  padding: 0 0 76px;
+}
+
+.explorer > header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.explorer > header p {
+  margin: 0 0 7px;
+  color: var(--moss);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+
+.explorer h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+  line-height: 1.28;
+  letter-spacing: -.03em;
+}
+
+.explorer > header > span {
+  color: var(--ink-soft);
+  font-size: .82rem;
+}
+
+.explorer fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.explorer fieldset button {
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--panel);
+  cursor: pointer;
+  transition: border-color .18s ease, color .18s ease, background-color .18s ease;
+}
+
+.explorer fieldset button:hover {
+  border-color: var(--moss);
+  background: var(--moss-light);
+}
+
+.explorer fieldset button[aria-pressed="true"] {
+  border-color: var(--moss);
+  color: white;
+  background: var(--moss);
+}
+
+.explorer fieldset button[aria-pressed="true"]:hover { background: var(--moss); }
+.explorer fieldset button:focus-visible { outline: 3px solid rgb(63 102 83 / 20%); outline-offset: 2px; }
+
+.explorer fieldset button span { display: inline-block; width: 1.25em; }
+
+.contextNote {
+  max-width: var(--measure);
+  margin: 14px 0 0;
+  color: var(--ink-soft);
+  font-size: .84rem;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.results article {
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.breedHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.breedHead strong, .breedHead span { display: block; }
+.breedHead strong { font-size: .98rem; }
+.breedHead span { margin-top: 2px; color: var(--ink-soft); font-size: .7rem; }
+.breedHead a { color: var(--moss); text-decoration: none; }
+
+.results dl { margin: 18px 0 0; }
+.results dl div { padding: 11px 0; border-top: 1px solid var(--line); }
+.results dt { color: var(--ink-soft); font-size: .7rem; }
+.results dd { margin: 4px 0 0; }
+.results dd strong, .results dd span { display: block; }
+.results dd strong { font-size: .85rem; }
+.results dd span { margin-top: 3px; color: var(--ink-soft); font-size: .72rem; line-height: 1.5; }
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 960px) { .results { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 767px) {
+  .explorer { padding-bottom: 56px; }
+  .explorer > header { align-items: start; flex-direction: column; gap: 6px; }
+  .results { grid-template-columns: 1fr; }
+  .results article { padding: 16px; }
+  .results dl { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explorer fieldset button { transition: none; }
+}

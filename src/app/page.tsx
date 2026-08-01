@@ -1,13 +1,21 @@
 import Link from "next/link";
 import { BreedVisual } from "@/components/breed-visual";
+import { ConditionExplorer } from "@/components/condition-explorer";
 import { SearchBox } from "@/components/search-box";
 import { SiteHeader } from "@/components/site-header";
+import { StoryGlyph } from "@/components/story-glyph";
+import { TodayBreedCarousel } from "@/components/today-breed-carousel";
 import { breeds, getBreed } from "@/content/breeds/data";
 import styles from "./page.module.css";
 
 const spitz = getBreed("japanese-spitz")!;
 const borderCollie = getBreed("border-collie")!;
 const greyhound = getBreed("greyhound")!;
+
+export const revalidate = 86400;
+
+const dayInKorea = Math.floor((Date.now() + 9 * 60 * 60 * 1000) / 86400000);
+const initialTodayIndex = dayInKorea % breeds.length;
 
 const cardTraits: Record<string, string> = {
   "japanese-spitz": "가족과의 교감",
@@ -26,13 +34,12 @@ export default function Home() {
         <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>살아 있는 강아지 도감</p>
-            <h1 id="hero-title">아직 모르는 강아지를<br />만나보세요.</h1>
+            <h1 id="hero-title">아직 모르는 강아지를 만나보세요.</h1>
             <p className={styles.lead}>생김새 너머의 역사와, 함께 사는 현실까지.</p>
           </div>
-          <BreedVisual breed={spitz} variant="hero" label="오늘의 강아지 · 재패니즈 스피츠" priority />
+          <TodayBreedCarousel breeds={breeds} initialIndex={initialTodayIndex} />
           <div className={styles.heroSearch}>
             <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn }) => ({ slug, nameKo, nameEn }))} />
-            <Link className={styles.todayLink} href="/breeds/japanese-spitz">오늘의 강아지 자세히 보기 <span aria-hidden="true">→</span></Link>
           </div>
         </section>
 
@@ -48,12 +55,14 @@ export default function Home() {
           </div>
         </section>
 
+        <ConditionExplorer breeds={breeds} />
+
         <section className={styles.curations} aria-label="편집 추천">
           <article className={styles.feature}>
             <BreedVisual breed={spitz} variant="card" />
             <div>
-              <p className={styles.eyebrow}>오늘 처음 만나는 강아지</p>
-              <h2>익숙한 흰 털 뒤에 기민하고 다정한 일상이 있어요.</h2>
+              <div className={styles.sectionCue}><StoryGlyph kind="discover" /><p className={styles.eyebrow}>오늘 처음 만나는 강아지</p></div>
+              <h2>가족과의 교감, 알림 행동, 이중모 관리를 함께 살펴봐요.</h2>
               <p>{spitz.story.roleToHome}</p>
               <dl><div><dt>형성 지역</dt><dd>{spitz.identity.origin}</dd></div><div><dt>원래 역할</dt><dd>{spitz.identity.originalRole}</dd></div></dl>
               <Link href={`/breeds/${spitz.slug}`}>재패니즈 스피츠 알아보기 →</Link>
@@ -61,7 +70,7 @@ export default function Home() {
           </article>
 
           <div className={styles.rhythmSection}>
-            <header><p className={styles.eyebrow}>외모만 보면 놓치는 것</p><h2>달리는 모습이 닮아도 필요한 하루는 달라요.</h2></header>
+            <header><div className={styles.sectionCue}><StoryGlyph kind="daily" /><p className={styles.eyebrow}>외모만 보면 놓치는 것</p></div><h2>달리는 모습이 닮아도 필요한 하루는 달라요.</h2></header>
             <div>
               {[borderCollie, greyhound].map((breed) => (
                 <Link className={styles.rhythmCard} href={`/breeds/${breed.slug}`} key={breed.slug}>

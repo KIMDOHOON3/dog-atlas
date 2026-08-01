@@ -3,7 +3,7 @@
   --paper-deep: #efe9dd;
   --panel: #fffdf8;
   --ink: #24302b;
-  --ink-soft: #69736e;
+  --ink-soft: #55615b;
   --line: #d9d4c8;
   --moss: #3f6653;
   --moss-light: #dfece6;
@@ -19,6 +19,10 @@
   --radius-sm: 12px;
   --radius-md: 22px;
   --radius-lg: 34px;
+  --measure: 68ch;
+  --text-body: clamp(1rem, .96rem + .14vw, 1.075rem);
+  --text-small: .875rem;
+  --leading-body: 1.72;
 }
 
 * { box-sizing: border-box; }
@@ -28,14 +32,21 @@ body {
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
   text-rendering: optimizeLegibility;
 }
 button, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; }
 img { display: block; max-width: 100%; }
-h1, h2, h3 { word-break: keep-all; overflow-wrap: normal; }
+h1, h2, h3 {
+  color: var(--ink);
+  word-break: keep-all;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
 ::selection { background: var(--moss-light); }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
 

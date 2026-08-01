@@ -24,6 +24,10 @@ export const breedSchema = z.object({
     ink: z.string(),
   }),
   illustration: z.string().startsWith("/"),
+  catalog: z.object({
+    group: z.enum(["companion", "herding", "sighthound", "northern-working"]),
+    discoveryTags: z.array(z.string().min(1)).min(2),
+  }),
   historyVisual: z.object({
     src: z.string().startsWith("/"),
     alt: z.string().min(1),
@@ -73,7 +77,7 @@ export const breedSchema = z.object({
 
 export const breedCollectionSchema = z
   .array(breedSchema)
-  .length(5)
+  .min(1)
   .superRefine((breeds, context) => {
     const slugs = breeds.map((breed) => breed.slug);
     if (new Set(slugs).size !== slugs.length) {

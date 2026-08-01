@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreedVisual } from "@/components/breed-visual";
 import { SiteHeader } from "@/components/site-header";
+import { StoryGlyph } from "@/components/story-glyph";
 import { getBreed } from "@/content/breeds/data";
 import styles from "./page.module.css";
 
@@ -41,7 +42,7 @@ export default function ComparePage() {
       <main className={styles.main}>
         <nav className={styles.breadcrumb} aria-label="현재 위치"><Link href="/">도감</Link><span aria-hidden="true">/</span><span aria-current="page">비교하기</span></nav>
         <header className={styles.intro}>
-          <p>Same silhouette, different life</p>
+          <div className={styles.introMark}><StoryGlyph kind="compare" /><p>견종 비교</p></div>
           <h1>하얗고 풍성한 외모가 닮아도 함께할 하루는 다를 수 있어요.</h1>
           <span>이 비교는 우열이나 정답을 정하지 않습니다. 관심을 가진 이유와 현실적인 차이를 함께 확인하세요.</span>
         </header>
