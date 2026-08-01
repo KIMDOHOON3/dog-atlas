@@ -1,0 +1,16 @@
+.visual { position: relative; margin: 0; overflow: hidden; border: 1px solid rgb(63 102 83 / 12%); border-radius: 18px; background: linear-gradient(145deg, #f8f4e9, #e7eee9); box-shadow: 0 8px 24px rgb(36 48 43 / 6%); }
+.image { object-fit: contain; transition: transform .25s ease; }
+.visual figcaption { position: absolute; left: 14px; bottom: 12px; padding: 5px 10px; border-radius: 999px; background: rgb(255 253 248 / 88%); backdrop-filter: blur(6px); color: var(--ink); font-size: .75rem; font-weight: 500; }
+.hero { width: 100%; height: min(480px, 52vw); min-height: 420px; border-radius: 28px; box-shadow: 0 18px 50px rgb(36 48 43 / 12%); }
+.card, .landscape, .portrait, .tile, .detail, .compare { aspect-ratio: 1 / 1; min-height: 0; }
+.history { width: 100%; aspect-ratio: 3 / 2; min-height: 0; }
+.history .image { object-fit: contain; }
+.card { width: 100%; }
+.landscape { width: 100%; }
+.portrait { width: 100%; }
+.tile { width: 100%; border-radius: 14px 14px 8px 8px; box-shadow: none; }
+.detail { width: 100%; border-radius: 28px; box-shadow: 0 16px 42px rgb(36 48 43 / 10%); }
+.compare { width: 100%; }
+a:hover .tile .image, a:hover .card .image { transform: scale(1.015); }
+@media (max-width: 767px) { .hero { height: 260px; min-height: 260px; } .detail, .compare { aspect-ratio: 1 / 1; min-height: 0; } }
+@media (prefers-reduced-motion: reduce) { .image { transition: none; } a:hover .tile .image, a:hover .card .image { transform: none; } }

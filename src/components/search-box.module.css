@@ -1,0 +1,8 @@
+.form { width: min(100%, 540px); }
+.form label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.row { display: flex; align-items: center; gap: 8px; height: 56px; padding: 4px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); box-shadow: 0 8px 24px rgb(42 52 46 / 7%); }
+.row input { min-width: 0; flex: 1; padding: 8px 12px; border: 0; color: var(--ink); background: transparent; outline: 0; }
+.row:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
+.row button { width: 46px; height: 46px; flex: 0 0 46px; padding: 0; display: inline-grid; place-items: center; border: 0; border-radius: 11px; color: white; background: var(--moss); cursor: pointer; }
+.row button span { font-size: 1.25rem; line-height: 1; }
+.error { min-height: 1.5em; margin: 5px 8px 0; color: #923c28; font-size: .78rem; }
