@@ -1,4 +1,7 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { getBreedCardImage } from "@/components/breed-visual";
 import { breeds } from "./data";
 import { detailBatchE, detailBatchESlugs } from "./detail-batch-e";
 import { getMasterBreed } from "./master-catalog";
@@ -51,6 +54,24 @@ describe("detail batch E", () => {
       expect(breed.sources).toHaveLength(2);
       expect(breed.sources[0].organization).toBe("Fédération Cynologique Internationale");
       expect(breed.sources[1].organization).toBe("American Kennel Club");
+    }
+  });
+
+  it("links every card and history scene to an existing WebP asset", () => {
+    for (const breed of detailBatchE) {
+      expect(breed.illustration).toBe(getBreedCardImage(breed.slug));
+      expect(breed.illustration).toMatch(/\.webp$/);
+      expect(breed.historyVisual?.src).toMatch(/\.webp$/);
+
+      const cardPath = join(process.cwd(), "public", breed.illustration.replace(/^\//, ""));
+      const historyPath = join(
+        process.cwd(),
+        "public",
+        breed.historyVisual!.src.replace(/^\//, ""),
+      );
+
+      expect(existsSync(cardPath), cardPath).toBe(true);
+      expect(existsSync(historyPath), historyPath).toBe(true);
     }
   });
 });

@@ -303,10 +303,10 @@ export const detailBatchE = seeds.map((seed) => ({
   nameEn: seed.nameEn,
   tagline: seed.tagline,
   palette: { primary: seed.colors[0], secondary: seed.colors[1], ink: seed.colors[2] },
-  illustration: `/illustrations/v2/${seed.slug}-card.png`,
+  illustration: `/illustrations/v2/${seed.slug}-card.webp`,
   catalog: { group: seed.group, discoveryTags: seed.tags },
   historyVisual: {
-    src: `/illustrations/v3/${seed.slug}-history.png`,
+    src: `/illustrations/v3/${seed.slug}-history.webp`,
     alt: `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화`,
   },
   identity: { origin: seed.origin, lineage: seed.lineage, originalRole: seed.role, size: seed.size, lifespan: seed.lifespan },
