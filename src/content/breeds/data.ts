@@ -1,6 +1,8 @@
 import { breedCollectionSchema, sourceSchema, type Breed } from "./schema";
 import { detailBatchA } from "./detail-batch-a";
 import { detailBatchB } from "./detail-batch-b";
+import { detailBatchC } from "./detail-batch-c";
+import { detailBatchD } from "./detail-batch-d";
 
 const checkedAt = "2026-08-01";
 
@@ -270,6 +272,8 @@ const draftBreeds = [
   },
   ...detailBatchA,
   ...detailBatchB,
+  ...detailBatchC,
+  ...detailBatchD,
 ] satisfies Breed[];
 
 export const breeds = breedCollectionSchema.parse(draftBreeds);

@@ -29,3 +29,7 @@ Existing component breakpoints remain purpose-specific: home reflows at 960/767/
 ## 2026-08-03 — First catalog expansion
 
 Keep the original five breeds as the core editorial cohort and publish the next fifteen as the first complete 20-breed collection. Every detailed breed must include a full-body card illustration, a role-specific history scene, source-backed copy, six shared tendency axes, care notes, and related-breed links. The remaining 140 master entries stay discovery metadata until the same content standard can be met.
+
+## 2026-08-03 — Second catalog expansion
+
+Add ten more source-backed detailed breeds with the same card and history illustration standard, bringing the published collection to 30. Keep every discovery card consistently oriented with the dog's head on the right and hindquarters on the left. The remaining 130 master entries stay discovery metadata.

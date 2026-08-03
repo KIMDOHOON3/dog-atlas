@@ -1,6 +1,6 @@
 # MVP scope
 
-## Detailed collection: 20 breeds
+## Detailed collection: 30 breeds
 
 ### Core editorial set
 
@@ -27,6 +27,19 @@
 - Pyrenean Mountain Dog
 - French Bulldog
 - Basenji
+
+### Second expansion
+
+- Pembroke Welsh Corgi
+- Miniature Schnauzer
+- Yorkshire Terrier
+- Shiba
+- Akita
+- Bichon Frise
+- Cavalier King Charles Spaniel
+- Pug
+- Bernese Mountain Dog
+- Dobermann
 
 ## First complete journey
 

@@ -123,8 +123,17 @@ function getVerificationNotes(status: RegistryStatus, flags: readonly Verificati
   return notes;
 }
 
+const publishedExpansionSlugs = new Set([
+  "welsh-corgi-pembroke", "miniature-schnauzer", "yorkshire-terrier", "shiba", "akita",
+  "bichon-frise", "cavalier-king-charles-spaniel", "pug", "bernese-mountain-dog", "dobermann",
+  "german-spitz", "shetland-sheepdog", "australian-shepherd", "rottweiler", "boxer",
+  "great-dane", "alaskan-malamute", "jack-russell-terrier", "boston-terrier", "newfoundland",
+]);
+
 const masterEntries = masterInventorySeeds.map(
-  ([slug, nameKo, nameEn, groupNumber, registryStatus, detailPriority, verificationFlags = []]) => ({
+  ([slug, nameKo, nameEn, groupNumber, registryStatus, detailPriority, verificationFlags = []]) => {
+    const resolvedDetailPriority = publishedExpansionSlugs.has(slug) ? "next" : detailPriority;
+    return ({
     slug,
     nameKo,
     nameEn,
@@ -133,11 +142,12 @@ const masterEntries = masterInventorySeeds.map(
     varieties: varieties[slug] ?? [],
     fciGroup: groupNumber === null ? null : getFciGroupDefinition(groupNumber),
     registryStatus,
-    detailPriority,
-    detailStatus: detailPriority === "core" || detailPriority === "next" ? "published" : "none",
+    detailPriority: resolvedDetailPriority,
+    detailStatus: resolvedDetailPriority === "core" || resolvedDetailPriority === "next" ? "published" : "none",
     sourceIds: getSourceIds(slug, groupNumber, registryStatus),
     verificationNotes: getVerificationNotes(registryStatus, verificationFlags),
-  } satisfies MasterBreed),
+    } satisfies MasterBreed);
+  },
 );
 
 export const masterCatalog = masterBreedCollectionSchema.parse(masterEntries);
