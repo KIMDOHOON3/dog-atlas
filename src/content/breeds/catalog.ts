@@ -8,6 +8,11 @@ export const catalogGroupLabels: Record<Breed["catalog"]["group"], string> = {
   herding: "움직임을 읽고 협력해 온 목양견",
   sighthound: "시각으로 추적해 온 하운드",
   "northern-working": "북방 환경에서 일해 온 작업견",
+  dachshund: "땅속 사냥을 위해 발달한 닥스훈트",
+  "scent-hound": "냄새의 길을 따라가는 후각 하운드",
+  "retriever-spaniel": "찾고 운반하며 협력해 온 조렵견",
+  "spitz-primitive": "오래된 지역의 삶을 간직한 스피츠·원시견",
+  "guardian-working": "넓은 영역과 무리를 지켜 온 보호견",
 };
 
 export const catalogGroups = Object.entries(catalogGroupLabels).map(([key, label]) => ({

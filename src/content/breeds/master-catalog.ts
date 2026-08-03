@@ -1,0 +1,179 @@
+import { masterInventorySeeds, type VerificationFlag } from "./master-inventory";
+import {
+  getFciGroupDefinition,
+  masterBreedCollectionSchema,
+  type BreedVariety,
+  type FciGroupNumber,
+  type MasterBreed,
+} from "./master-schema";
+
+type RegistryStatus = MasterBreed["registryStatus"];
+
+const aliasesKo: Partial<Record<string, string[]>> = {
+  "belgian-shepherd-dog": ["벨지안 셰퍼드", "말리노이즈", "말리누아", "그로넨달", "테르뷰런", "라케노이즈"],
+  "german-shepherd-dog": ["저먼 세퍼드", "독일 셰퍼드"],
+  "old-english-sheepdog": ["올드 잉글리시 쉽독", "올드 잉글리쉬 쉽독"],
+  "shetland-sheepdog": ["셰틀랜드 쉽독", "셔틀랜드 쉽독", "셸티", "쉘티"],
+  "miniature-pinscher": ["미니핀"],
+  "west-highland-white-terrier": ["웨스티"],
+  "yorkshire-terrier": ["요키", "요크셔"],
+  dachshund: ["미니어처 닥스훈트", "카니헨 닥스훈트", "장모 닥스훈트", "단모 닥스훈트", "와이어 닥스훈트"],
+  "german-spitz": ["포메라니안", "포메라니언", "포메", "키스혼드", "울프스피츠"],
+  "korea-jindo-dog": ["진도개", "진도견", "코리아 진도 독"],
+  xoloitzcuintle: ["솔로이츠퀸틀리", "숄로이츠퀸틀리"],
+  "labrador-retriever": ["라브라도 리트리버", "래브라도", "라브라도", "랩"],
+  "bichon-frise": ["비숑", "비숑프리제"],
+  maltese: ["말티즈"],
+  "french-bulldog": ["프렌치 불독"],
+  poodle: ["스탠더드 푸들", "미디엄 푸들", "미니어처 푸들", "토이 푸들", "토이푸들"],
+  "pyrenean-mountain-dog": ["피레니언 마운틴 독", "피레니안 마운틴독"],
+  "continental-toy-spaniel": ["빠삐용", "파렌", "파렌느"],
+  whippet: ["휘핏"],
+  "italian-sighthound": ["이탈리언 그레이하운드", "이태리 그레이하운드", "이탈리언 사이트하운드", "IG"],
+};
+
+const aliasesEn: Partial<Record<string, string[]>> = {
+  "belgian-shepherd-dog": ["Belgian Malinois", "Malinois", "Groenendael", "Tervueren", "Laekenois"],
+  "german-spitz": ["Pomeranian", "Keeshond", "Wolfspitz"],
+  "continental-toy-spaniel": ["Papillon", "Phalene"],
+  "italian-sighthound": ["Italian Greyhound"],
+};
+
+function variety(
+  id: string,
+  nameKo: string,
+  nameEn: string,
+  varietyAliasesKo: string[] = [],
+  varietyAliasesEn: string[] = [],
+): BreedVariety {
+  return { id, nameKo, nameEn, aliasesKo: varietyAliasesKo, aliasesEn: varietyAliasesEn };
+}
+
+const varieties: Partial<Record<string, BreedVariety[]>> = {
+  "belgian-shepherd-dog": [
+    variety("groenendael", "그로넨달", "Groenendael"),
+    variety("laekenois", "라케노이즈", "Laekenois"),
+    variety("malinois", "말리노이즈", "Malinois", ["말리누아"], ["Belgian Malinois"]),
+    variety("tervueren", "테르뷰런", "Tervueren", ["터뷰렌"]),
+  ],
+  dachshund: [
+    variety("standard-smooth", "스탠더드 단모", "Standard Smooth-haired", ["단모 닥스훈트"]),
+    variety("standard-long", "스탠더드 장모", "Standard Long-haired", ["장모 닥스훈트"]),
+    variety("standard-wire", "스탠더드 와이어", "Standard Wire-haired", ["와이어 닥스훈트"]),
+    variety("miniature-smooth", "미니어처 단모", "Miniature Smooth-haired"),
+    variety("miniature-long", "미니어처 장모", "Miniature Long-haired"),
+    variety("miniature-wire", "미니어처 와이어", "Miniature Wire-haired"),
+    variety("rabbit-smooth", "카니헨 단모", "Rabbit Smooth-haired"),
+    variety("rabbit-long", "카니헨 장모", "Rabbit Long-haired"),
+    variety("rabbit-wire", "카니헨 와이어", "Rabbit Wire-haired"),
+  ],
+  "german-spitz": [
+    variety("wolfspitz", "울프스피츠", "Wolfspitz", ["키스혼드"], ["Keeshond"]),
+    variety("giant", "자이언트 스피츠", "Giant Spitz"),
+    variety("medium", "미디엄 스피츠", "Medium Size Spitz"),
+    variety("miniature", "미니어처 스피츠", "Miniature Spitz"),
+    variety("pomeranian", "포메라니안", "Pomeranian", ["포메", "포메라니언"]),
+  ],
+  poodle: [
+    variety("standard", "스탠더드 푸들", "Standard Poodle"),
+    variety("medium", "미디엄 푸들", "Medium Poodle"),
+    variety("miniature", "미니어처 푸들", "Miniature Poodle"),
+    variety("toy", "토이 푸들", "Toy Poodle", ["토이푸들"]),
+  ],
+  "continental-toy-spaniel": [
+    variety("papillon", "파피용", "Papillon", ["빠삐용"]),
+    variety("phalene", "파렌", "Phalene", ["파렌느"], ["Phalène"]),
+  ],
+};
+
+const publishedSourceIds: Partial<Record<string, string>> = {
+  "japanese-spitz": "fci-standard-262",
+  maltese: "fci-standard-65",
+  "border-collie": "fci-standard-297",
+  greyhound: "fci-standard-158",
+  samoyed: "fci-standard-212",
+};
+
+function getSourceIds(slug: string, groupNumber: FciGroupNumber | null, status: RegistryStatus) {
+  if (status === "non-fci") {
+    return [slug === "american-bully" ? "ukc-american-bully" : "ukc-american-pit-bull-terrier"];
+  }
+
+  const sourceIds = ["fci-nomenclature", `kkf-group-${groupNumber}`];
+  if (status === "provisional") sourceIds.push("fci-provisional");
+  const standardSourceId = publishedSourceIds[slug];
+  if (standardSourceId) sourceIds.push(standardSourceId);
+  return sourceIds;
+}
+
+function getVerificationNotes(status: RegistryStatus, flags: readonly VerificationFlag[]) {
+  const notes: string[] = [];
+  if (status === "provisional") {
+    notes.push("FCI 잠정 인정 상태이므로 발행 전에 최신 인정 상태를 다시 확인해야 합니다.");
+  }
+  if (status === "non-fci") {
+    notes.push("FCI 미인정 견종이며, 다른 등록 단체의 정의와 국내 법적 맥락을 별도로 검수해야 합니다.");
+  }
+  if (flags.includes("fci-varieties")) {
+    notes.push("FCI가 여러 바라이어티를 한 품종으로 분류합니다. 상세 정보는 타입별 차이를 구분해야 합니다.");
+  }
+  if (flags.includes("ko-name-review")) {
+    notes.push("국내 공개 전 한글 통용명 표기를 추가 검수해야 합니다.");
+  }
+  return notes;
+}
+
+const masterEntries = masterInventorySeeds.map(
+  ([slug, nameKo, nameEn, groupNumber, registryStatus, detailPriority, verificationFlags = []]) => ({
+    slug,
+    nameKo,
+    nameEn,
+    aliasesKo: aliasesKo[slug] ?? [],
+    aliasesEn: aliasesEn[slug] ?? [],
+    varieties: varieties[slug] ?? [],
+    fciGroup: groupNumber === null ? null : getFciGroupDefinition(groupNumber),
+    registryStatus,
+    detailPriority,
+    detailStatus: detailPriority === "core" || detailPriority === "next" ? "published" : "none",
+    sourceIds: getSourceIds(slug, groupNumber, registryStatus),
+    verificationNotes: getVerificationNotes(registryStatus, verificationFlags),
+  } satisfies MasterBreed),
+);
+
+export const masterCatalog = masterBreedCollectionSchema.parse(masterEntries);
+
+const masterBreedBySlug = new Map(masterCatalog.map((breed) => [breed.slug, breed]));
+
+export function getMasterBreed(slug: string) {
+  return masterBreedBySlug.get(slug);
+}
+
+export function getMasterCatalogStats() {
+  const byFciGroup = Object.fromEntries(
+    Array.from({ length: 10 }, (_, index) => {
+      const groupNumber = index + 1;
+      return [groupNumber, masterCatalog.filter((breed) => breed.fciGroup?.number === groupNumber).length];
+    }),
+  ) as Record<number, number>;
+
+  return {
+    total: masterCatalog.length,
+    byFciGroup,
+    registryStatus: {
+      definitive: masterCatalog.filter((breed) => breed.registryStatus === "definitive").length,
+      provisional: masterCatalog.filter((breed) => breed.registryStatus === "provisional").length,
+      nonFci: masterCatalog.filter((breed) => breed.registryStatus === "non-fci").length,
+      verificationNeeded: masterCatalog.filter((breed) => breed.registryStatus === "verification-needed").length,
+    },
+    detailPriority: {
+      core: masterCatalog.filter((breed) => breed.detailPriority === "core").length,
+      next: masterCatalog.filter((breed) => breed.detailPriority === "next").length,
+      later: masterCatalog.filter((breed) => breed.detailPriority === "later").length,
+    },
+    detailStatus: {
+      published: masterCatalog.filter((breed) => breed.detailStatus === "published").length,
+      planned: masterCatalog.filter((breed) => breed.detailStatus === "planned").length,
+      none: masterCatalog.filter((breed) => breed.detailStatus === "none").length,
+    },
+  };
+}

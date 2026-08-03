@@ -11,6 +11,7 @@ vi.mock("next/navigation", () => ({
 const breeds = [
   { slug: "japanese-spitz", nameKo: "재패니즈 스피츠", nameEn: "Japanese Spitz" },
   { slug: "samoyed", nameKo: "사모예드", nameEn: "Samoyed" },
+  { slug: "french-bulldog", nameKo: "프렌치 불도그", nameEn: "French Bulldog", aliases: ["프렌치 불독"] },
 ];
 
 describe("SearchBox", () => {
@@ -27,7 +28,14 @@ describe("SearchBox", () => {
     render(<SearchBox breeds={breeds} />);
     fireEvent.change(screen.getByLabelText("견종 이름 검색"), { target: { value: "진돗개" } });
     fireEvent.click(screen.getByRole("button", { name: "찾기" }));
-    expect(screen.getByText(/첫 도감에는 다섯 견종이 있어요/)).toBeInTheDocument();
+    expect(screen.getByText(/현재 도감에는 3종의 강아지가 있어요/)).toBeInTheDocument();
     expect(push).not.toHaveBeenCalled();
+  });
+
+  it("navigates from a common Korean alias", () => {
+    render(<SearchBox breeds={breeds} />);
+    fireEvent.change(screen.getByLabelText("견종 이름 검색"), { target: { value: "프렌치 불독" } });
+    fireEvent.click(screen.getByRole("button", { name: "찾기" }));
+    expect(push).toHaveBeenCalledWith("/breeds/french-bulldog");
   });
 });

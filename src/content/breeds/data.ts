@@ -1,4 +1,6 @@
 import { breedCollectionSchema, sourceSchema, type Breed } from "./schema";
+import { detailBatchA } from "./detail-batch-a";
+import { detailBatchB } from "./detail-batch-b";
 
 const checkedAt = "2026-08-01";
 
@@ -37,7 +39,7 @@ const draftBreeds = [
     nameEn: "Japanese Spitz",
     tagline: "하얀 이중모와 또렷한 표정 뒤에, 사람 곁을 좋아하는 활기찬 일상이 있어요.",
     palette: { primary: "#dce9e2", secondary: "#f6f1e7", ink: "#18382e" },
-    illustration: "/illustrations/japanese-spitz.svg",
+    illustration: "/illustrations/v2/japanese-spitz-card.webp",
     catalog: { group: "companion", discoveryTags: ["스피츠 계열", "가족과의 교감", "이중모 관리"] },
     historyVisual: {
       src: "/illustrations/v3/japanese-spitz-history.webp",
@@ -93,7 +95,7 @@ const draftBreeds = [
     nameEn: "Maltese",
     tagline: "작은 체구만으로는 설명되지 않는, 오랜 반려의 역사와 생기 있는 성격을 만나요.",
     palette: { primary: "#f1e7d6", secondary: "#fbfaf6", ink: "#473625" },
-    illustration: "/illustrations/maltese.svg",
+    illustration: "/illustrations/v2/maltese-card.webp",
     catalog: { group: "companion", discoveryTags: ["작은 체격", "사람 곁을 선호", "피모 관리"] },
     historyVisual: {
       src: "/illustrations/v3/maltese-history.webp",
@@ -138,7 +140,7 @@ const draftBreeds = [
     nameEn: "Border Collie",
     tagline: "목초지의 판단력과 집중력은 가정에서도 사라지지 않아요.",
     palette: { primary: "#cad7c4", secondary: "#e9e2d1", ink: "#26362b" },
-    illustration: "/illustrations/border-collie.svg",
+    illustration: "/illustrations/v2/border-collie-card.webp",
     catalog: { group: "herding", discoveryTags: ["목양견", "높은 활동", "정신적 자극"] },
     historyVisual: {
       src: "/illustrations/v3/border-collie-history.webp",
@@ -183,7 +185,7 @@ const draftBreeds = [
     nameEn: "Greyhound",
     tagline: "빠르게 달리는 순간과 집에서 쉬는 시간은 서로 모순되지 않아요.",
     palette: { primary: "#ddd4c8", secondary: "#eef0ea", ink: "#3f342d" },
-    illustration: "/illustrations/greyhound.svg",
+    illustration: "/illustrations/v2/greyhound-card.webp",
     catalog: { group: "sighthound", discoveryTags: ["시각 하운드", "질주와 휴식", "큰 체격"] },
     historyVisual: {
       src: "/illustrations/v3/greyhound-history.webp",
@@ -228,7 +230,7 @@ const draftBreeds = [
     nameEn: "Samoyed",
     tagline: "눈밭의 아름다움 뒤에는 사람과 함께 일해온 힘과 두꺼운 털의 관리가 있어요.",
     palette: { primary: "#dbe7e5", secondary: "#e9edf2", ink: "#1f3c43" },
-    illustration: "/illustrations/samoyed.svg",
+    illustration: "/illustrations/v2/samoyed-card.webp",
     catalog: { group: "northern-working", discoveryTags: ["북방 작업견", "사람과의 협력", "이중모 관리"] },
     historyVisual: {
       src: "/illustrations/v3/samoyed-history.webp",
@@ -266,6 +268,8 @@ const draftBreeds = [
     ],
     sources: [{ title: "Samoyed Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/samoyed/", checkedAt }],
   },
+  ...detailBatchA,
+  ...detailBatchB,
 ] satisfies Breed[];
 
 export const breeds = breedCollectionSchema.parse(draftBreeds);

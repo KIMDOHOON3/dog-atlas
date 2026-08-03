@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { BreedVisual } from "@/components/breed-visual";
-import { ConditionExplorer } from "@/components/condition-explorer";
 import { SearchBox } from "@/components/search-box";
 import { SiteHeader } from "@/components/site-header";
 import { StoryGlyph } from "@/components/story-glyph";
 import { TodayBreedCarousel } from "@/components/today-breed-carousel";
 import { breeds, getBreed } from "@/content/breeds/data";
+import { getMasterBreed } from "@/content/breeds/master-catalog";
 import styles from "./page.module.css";
 
 const spitz = getBreed("japanese-spitz")!;
@@ -39,7 +39,10 @@ export default function Home() {
           </div>
           <TodayBreedCarousel breeds={breeds} initialIndex={initialTodayIndex} />
           <div className={styles.heroSearch}>
-            <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn }) => ({ slug, nameKo, nameEn }))} />
+            <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn }) => {
+              const master = getMasterBreed(slug);
+              return { slug, nameKo, nameEn, aliases: [...(master?.aliasesKo ?? []), ...(master?.aliasesEn ?? [])] };
+            })} />
           </div>
         </section>
 
@@ -49,13 +52,11 @@ export default function Home() {
             {breeds.map((breed) => (
               <Link className={styles.breedCard} href={`/breeds/${breed.slug}`} key={breed.slug} aria-label={`${breed.nameKo} 상세 정보 보기`}>
                 <BreedVisual breed={breed} variant="tile" />
-                <div><strong>{breed.nameKo}</strong><span aria-hidden="true">↗</span><small>{breed.identity.origin} · {cardTraits[breed.slug]}</small></div>
+                <div><strong>{breed.nameKo}</strong><span aria-hidden="true">↗</span><small>{breed.identity.origin} · {cardTraits[breed.slug] ?? breed.catalog.discoveryTags[0]}</small></div>
               </Link>
             ))}
           </div>
         </section>
-
-        <ConditionExplorer breeds={breeds} />
 
         <section className={styles.curations} aria-label="편집 추천">
           <article className={styles.feature}>

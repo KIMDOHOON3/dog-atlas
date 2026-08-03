@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { InterestBreedTray } from "@/components/interest-breed-tray";
+import { InterestBreedsProvider } from "@/components/interest-breeds";
+import { breeds } from "@/content/breeds/data";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -25,8 +28,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body>{children}</body>
+    <html lang="ko" data-scroll-behavior="smooth">
+      <body>
+        <InterestBreedsProvider breeds={breeds.map(({ slug, nameKo }) => ({ slug, nameKo }))}>
+          {children}
+          <InterestBreedTray />
+        </InterestBreedsProvider>
+      </body>
     </html>
   );
 }

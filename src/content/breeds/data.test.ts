@@ -1,9 +1,15 @@
 import { describe, expect, it } from "vitest";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "./data";
 
+function publicAssetExists(publicPath: string) {
+  return existsSync(join(process.cwd(), "public", publicPath.replace(/^\//, "")));
+}
+
 describe("breed content", () => {
-  it("loads the five currently published schema-validated MVP breeds", () => {
-    expect(breeds).toHaveLength(5);
+  it("loads the twenty currently published schema-validated MVP breeds", () => {
+    expect(breeds).toHaveLength(20);
     expect(breeds.every((breed) => breed.contentStatus === "mvp-editorial-draft")).toBe(true);
   });
 
@@ -15,8 +21,15 @@ describe("breed content", () => {
 
   it("provides a dedicated history illustration for every breed", () => {
     for (const breed of breeds) {
-      expect(breed.historyVisual?.src).toBe(`/illustrations/v3/${breed.slug}-history.webp`);
-      expect(breed.historyVisual?.alt).toContain("편집 삽화");
+      expect(breed.historyVisual?.src).toMatch(new RegExp(`/illustrations/v3/${breed.slug}-history\\.(webp|png)$`));
+      expect(breed.historyVisual?.alt).toContain("편집");
+    }
+  });
+
+  it("keeps every published card and history image reference on disk", () => {
+    for (const breed of breeds) {
+      expect(publicAssetExists(breed.illustration), `${breed.slug} card`).toBe(true);
+      expect(publicAssetExists(breed.historyVisual!.src), `${breed.slug} history`).toBe(true);
     }
   });
 

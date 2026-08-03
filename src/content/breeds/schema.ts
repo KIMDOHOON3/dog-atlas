@@ -25,7 +25,17 @@ export const breedSchema = z.object({
   }),
   illustration: z.string().startsWith("/"),
   catalog: z.object({
-    group: z.enum(["companion", "herding", "sighthound", "northern-working"]),
+    group: z.enum([
+      "companion",
+      "herding",
+      "sighthound",
+      "northern-working",
+      "dachshund",
+      "scent-hound",
+      "retriever-spaniel",
+      "spitz-primitive",
+      "guardian-working",
+    ]),
     discoveryTags: z.array(z.string().min(1)).min(2),
   }),
   historyVisual: z.object({

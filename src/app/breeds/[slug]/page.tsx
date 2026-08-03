@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
+import { InterestBreedToggle } from "@/components/interest-breed-toggle";
 import { SiteHeader } from "@/components/site-header";
 import { OriginMark } from "@/components/origin-mark";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
@@ -50,6 +51,10 @@ export default async function BreedDetail({ params }: PageProps) {
   const samoyed = getBreed("samoyed")!;
   const maltese = getBreed("maltese")!;
   const allSources = [...breed.sources, ...behaviorContextSources];
+  const responsibilities = realityLabels[breed.slug] ?? breed.careNotes.slice(0, 3).map((note, index) => [
+    breed.catalog.discoveryTags[index] ?? `생활 조건 ${index + 1}`,
+    note,
+  ] as [string, string]);
 
   return (
     <>
@@ -63,6 +68,7 @@ export default async function BreedDetail({ params }: PageProps) {
             <p className={styles.originLine}><span>{breed.nameEn} ·</span><OriginMark slug={breed.slug} /><span>{breed.identity.origin}</span></p>
             <h1 id="breed-title">{breed.nameKo}</h1>
             <strong>{breed.tagline}</strong>
+            <InterestBreedToggle slug={breed.slug} nameKo={breed.nameKo} />
           </div>
           <BreedVisual breed={breed} variant="detail" priority />
           <div className={styles.atAGlance}>
@@ -112,7 +118,7 @@ export default async function BreedDetail({ params }: PageProps) {
 
           <section className={styles.reality} aria-labelledby="reality-title">
             <header><p className={styles.eyebrow}>함께 사는 현실</p><h2 id="reality-title">매력적인 특징에는 필요한 책임이 따라와요.</h2></header>
-            <div className={styles.responsibilityList}>{realityLabels[breed.slug].map(([trait, responsibility]) => <div key={trait}><strong>{trait}</strong><span aria-hidden="true">→</span><p>{responsibility}</p></div>)}</div>
+            <div className={styles.responsibilityList}>{responsibilities.map(([trait, responsibility]) => <div key={trait}><strong>{trait}</strong><span aria-hidden="true">→</span><p>{responsibility}</p></div>)}</div>
             <div className={styles.day}><h3>평범한 하루</h3><ol>{breed.daySnapshot.map((step) => <li key={step.time}><span>{step.time}</span><strong>{step.title}</strong><p>{step.description}</p></li>)}</ol></div>
           </section>
 

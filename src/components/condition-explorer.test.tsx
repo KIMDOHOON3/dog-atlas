@@ -13,9 +13,9 @@ describe("ConditionExplorer", () => {
     expect(screen.getAllByText("털 관리").length).toBeGreaterThan(1);
   });
 
-  it("shows five breeds without ranking them", () => {
+  it("shows every published breed without ranking them", () => {
     render(<ConditionExplorer breeds={breeds} />);
-    expect(screen.getAllByRole("article")).toHaveLength(5);
+    expect(screen.getAllByRole("article")).toHaveLength(breeds.length);
     expect(screen.getByText(/견종을 거르는 필터가 아니라/)).toBeInTheDocument();
   });
 });

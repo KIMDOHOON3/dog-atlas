@@ -1,12 +1,32 @@
 # MVP scope
 
-## First five breeds
+## Detailed collection: 20 breeds
+
+### Core editorial set
 
 - Japanese Spitz
 - Maltese
 - Border Collie
 - Greyhound
 - Samoyed
+
+### First expansion
+
+- Chihuahua
+- Shih Tzu
+- Poodle
+- Dachshund
+- Beagle
+- English Cocker Spaniel
+- Labrador Retriever
+- Golden Retriever
+- German Shepherd Dog
+- Korea Jindo Dog
+- Siberian Husky
+- Whippet
+- Pyrenean Mountain Dog
+- French Bulldog
+- Basenji
 
 ## First complete journey
 
@@ -30,4 +50,4 @@ Edited discovery home → Japanese Spitz story detail → related breeds → two
 - AI breed recommendation
 - Long-form virtual pet game
 - PWA or native app
-- Full breed catalog
+- Detailed pages for all 160 master-catalog breeds
