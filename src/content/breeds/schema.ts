@@ -35,6 +35,8 @@ export const breedSchema = z.object({
       "retriever-spaniel",
       "spitz-primitive",
       "guardian-working",
+      "pointing",
+      "terrier",
     ]),
     discoveryTags: z.array(z.string().min(1)).min(2),
   }),

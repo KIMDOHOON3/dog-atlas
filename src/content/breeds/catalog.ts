@@ -1,7 +1,7 @@
 import { breeds } from "./data";
 import type { Breed } from "./schema";
 
-export const catalogGoal = 40;
+export const catalogGoal = 50;
 
 export const catalogGroupLabels: Record<Breed["catalog"]["group"], string> = {
   companion: "사람 곁에서 살아온 반려견",
@@ -13,6 +13,8 @@ export const catalogGroupLabels: Record<Breed["catalog"]["group"], string> = {
   "retriever-spaniel": "찾고 운반하며 협력해 온 조렵견",
   "spitz-primitive": "오래된 지역의 삶을 간직한 스피츠·원시견",
   "guardian-working": "넓은 영역과 무리를 지켜 온 보호견",
+  pointing: "사냥감의 위치를 알리며 협력해 온 포인팅견",
+  terrier: "목표를 끈기 있게 찾아온 테리어",
 };
 
 export const catalogGroups = Object.entries(catalogGroupLabels).map(([key, label]) => ({

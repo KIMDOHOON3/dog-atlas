@@ -1,6 +1,6 @@
 # MVP scope
 
-## Detailed collection: 30 breeds
+## Detailed collection: 50 breeds
 
 ### Core editorial set
 
@@ -40,6 +40,32 @@
 - Pug
 - Bernese Mountain Dog
 - Dobermann
+
+### Third expansion
+
+- German Spitz
+- Shetland Sheepdog
+- Australian Shepherd
+- Rottweiler
+- Boxer
+- Great Dane
+- Alaskan Malamute
+- Jack Russell Terrier
+- Boston Terrier
+- Newfoundland
+
+### Fourth expansion
+
+- Dalmatian
+- Italian Sighthound
+- Continental Toy Spaniel
+- Chow Chow
+- St. Bernard
+- Weimaraner
+- Nova Scotia Duck Tolling Retriever
+- Old English Sheepdog
+- Italian Cane Corso
+- Bull Terrier
 
 ## First complete journey
 

@@ -128,6 +128,8 @@ const publishedExpansionSlugs = new Set([
   "bichon-frise", "cavalier-king-charles-spaniel", "pug", "bernese-mountain-dog", "dobermann",
   "german-spitz", "shetland-sheepdog", "australian-shepherd", "rottweiler", "boxer",
   "great-dane", "alaskan-malamute", "jack-russell-terrier", "boston-terrier", "newfoundland",
+  "dalmatian", "italian-sighthound", "continental-toy-spaniel", "chow-chow", "saint-bernard",
+  "weimaraner", "nova-scotia-duck-tolling-retriever", "old-english-sheepdog", "cane-corso", "bull-terrier",
 ]);
 
 const masterEntries = masterInventorySeeds.map(
