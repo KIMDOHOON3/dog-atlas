@@ -1,6 +1,6 @@
 # MVP scope
 
-## Detailed collection: 60 breeds
+## Detailed collection: 80 breeds
 
 ### Core editorial set
 
@@ -79,6 +79,32 @@
 - English Springer Spaniel
 - Havanese
 - Borzoi
+
+### Sixth expansion
+
+- Australian Cattle Dog
+- Giant Schnauzer
+- Scottish Terrier
+- Norwegian Elkhound Grey
+- Bloodhound
+- Hungarian Short-Haired Pointer (Vizsla)
+- Flat Coated Retriever
+- Coton de Tulear
+- Afghan Hound
+- Lhasa Apso
+
+### Seventh expansion
+
+- Beauceron
+- Bullmastiff
+- Border Terrier
+- Icelandic Sheepdog
+- Rhodesian Ridgeback
+- English Setter
+- Chesapeake Bay Retriever
+- Portuguese Water Dog
+- Chinese Crested Dog
+- Saluki
 
 ## First complete journey
 

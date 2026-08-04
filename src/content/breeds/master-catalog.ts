@@ -10,6 +10,10 @@ import {
 type RegistryStatus = MasterBreed["registryStatus"];
 
 const aliasesKo: Partial<Record<string, string[]>> = {
+  beauceron: ["보스롱"],
+  "icelandic-sheepdog": ["아이슬란딕 시프도그"],
+  "portuguese-water-dog": ["포르투갈 워터 도그"],
+  "chinese-crested-dog": ["차이니즈 크레스티드 도그"],
   "belgian-shepherd-dog": ["벨지안 셰퍼드", "말리노이즈", "말리누아", "그로넨달", "테르뷰런", "라케노이즈"],
   "german-shepherd-dog": ["저먼 세퍼드", "독일 셰퍼드"],
   "old-english-sheepdog": ["올드 잉글리시 쉽독", "올드 잉글리쉬 쉽독"],
@@ -132,6 +136,10 @@ const publishedExpansionSlugs = new Set([
   "weimaraner", "nova-scotia-duck-tolling-retriever", "old-english-sheepdog", "cane-corso", "bull-terrier",
   "australian-kelpie", "miniature-pinscher", "airedale-terrier", "welsh-corgi-cardigan", "finnish-spitz",
   "basset-hound", "german-short-haired-pointing-dog", "english-springer-spaniel", "havanese", "borzoi",
+  "australian-cattle-dog", "giant-schnauzer", "scottish-terrier", "norwegian-elkhound-grey", "bloodhound",
+  "vizsla", "flat-coated-retriever", "coton-de-tulear", "afghan-hound", "lhasa-apso",
+  "beauceron", "bullmastiff", "border-terrier", "icelandic-sheepdog", "rhodesian-ridgeback",
+  "english-setter", "chesapeake-bay-retriever", "portuguese-water-dog", "chinese-crested-dog", "saluki",
 ]);
 
 const masterEntries = masterInventorySeeds.map(

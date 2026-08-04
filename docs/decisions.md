@@ -45,3 +45,11 @@ Add ten detailed breeds spanning coach dog, toy companion, sighthound, pointing,
 ## 2026-08-04 — Fifth catalog expansion in a controlled batch
 
 Add ten more source-backed detailed breeds across all ten FCI groups, bringing the published collection to 60 while keeping the remaining 100 entries as discovery metadata. Produce and verify this batch independently before continuing so card gaze, breed-specific adult proportions, role-based history scenes, WebP optimization, and data-to-asset links can be checked as one bounded unit.
+
+## 2026-08-04 — Sixth catalog expansion
+
+Add ten source-backed detailed breeds spanning cattle work, guarding, terrier work, northern hunting, scent tracking, pointing, retrieving, companionship, and sighthound histories. Bring the published collection to 70 and keep the remaining 90 entries as discovery metadata. Continue the bounded ten-breed workflow with direct-gaze full-body cards, role-and-region history scenes, WebP-only delivery, and browser-level asset verification.
+
+## 2026-08-04 — Seventh catalog expansion
+
+Add ten source-backed detailed breeds across herding, guarding, terrier, spitz, hound, pointing, retrieving, companion, and sighthound histories. Bring the published collection to 80 and keep the remaining 80 entries as discovery metadata. Complete and connect the data first, then create direct-gaze full-body cards and role-based history scenes as WebP assets, and finish with a focused data-to-asset mapping check.

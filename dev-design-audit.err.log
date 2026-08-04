@@ -1191,3 +1191,6 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (f
 ⨯ The requested resource isn't a valid image for /illustrations/v2/basset-hound-card.webp received null
 ⨯ The requested resource isn't a valid image for /illustrations/v2/havanese-card.webp received null
 ⨯ The requested resource isn't a valid image for /illustrations/v2/german-short-haired-pointing-dog-card.webp received null
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+[browser] Image with src "/illustrations/v3/bloodhound-history.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/ss/OneDrive/바탕 화면/dog-atlas/.next/dev/static/chunks/0a48_next_dist_1dtl2yb._.js:2489:13)
