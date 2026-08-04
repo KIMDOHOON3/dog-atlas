@@ -130,6 +130,8 @@ const publishedExpansionSlugs = new Set([
   "great-dane", "alaskan-malamute", "jack-russell-terrier", "boston-terrier", "newfoundland",
   "dalmatian", "italian-sighthound", "continental-toy-spaniel", "chow-chow", "saint-bernard",
   "weimaraner", "nova-scotia-duck-tolling-retriever", "old-english-sheepdog", "cane-corso", "bull-terrier",
+  "australian-kelpie", "miniature-pinscher", "airedale-terrier", "welsh-corgi-cardigan", "finnish-spitz",
+  "basset-hound", "german-short-haired-pointing-dog", "english-springer-spaniel", "havanese", "borzoi",
 ]);
 
 const masterEntries = masterInventorySeeds.map(

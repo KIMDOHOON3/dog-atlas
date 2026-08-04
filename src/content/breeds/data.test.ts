@@ -8,8 +8,8 @@ function publicAssetExists(publicPath: string) {
 }
 
 describe("breed content", () => {
-  it("loads the fifty currently published schema-validated MVP breeds", () => {
-    expect(breeds).toHaveLength(50);
+  it("loads the sixty currently published schema-validated MVP breeds", () => {
+    expect(breeds).toHaveLength(60);
     expect(breeds.every((breed) => breed.contentStatus === "mvp-editorial-draft")).toBe(true);
   });
 
@@ -21,7 +21,7 @@ describe("breed content", () => {
 
   it("provides a dedicated history illustration for every breed", () => {
     for (const breed of breeds) {
-      expect(breed.historyVisual?.src).toMatch(new RegExp(`/illustrations/v3/${breed.slug}-history\\.(webp|png)$`));
+      expect(breed.historyVisual?.src).toBe(`/illustrations/v3/${breed.slug}-history.webp`);
       expect(breed.historyVisual?.alt).toContain("편집");
     }
   });

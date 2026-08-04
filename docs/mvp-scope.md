@@ -1,6 +1,6 @@
 # MVP scope
 
-## Detailed collection: 50 breeds
+## Detailed collection: 60 breeds
 
 ### Core editorial set
 
@@ -66,6 +66,19 @@
 - Old English Sheepdog
 - Italian Cane Corso
 - Bull Terrier
+
+### Fifth expansion
+
+- Australian Kelpie
+- Miniature Pinscher
+- Airedale Terrier
+- Cardigan Welsh Corgi
+- Finnish Spitz
+- Basset Hound
+- German Short-Haired Pointing Dog
+- English Springer Spaniel
+- Havanese
+- Borzoi
 
 ## First complete journey
 
