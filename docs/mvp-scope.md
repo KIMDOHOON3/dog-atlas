@@ -1,6 +1,6 @@
 # MVP scope
 
-## Detailed collection: 80 breeds
+## Detailed collection: 100 breeds
 
 ### Core editorial set
 
@@ -105,6 +105,29 @@
 - Portuguese Water Dog
 - Chinese Crested Dog
 - Saluki
+
+### Eighth expansion
+
+- Dutch Shepherd Dog
+- Briard
+- Collie Rough
+- Puli
+- Schnauzer
+- Shar Pei
+- Mastiff
+- Leonberger
+- West Highland White Terrier
+- Staffordshire Bull Terrier
+- Irish Soft Coated Wheaten Terrier
+- Karelian Bear Dog
+- Norwegian Lundehund
+- Xoloitzcuintle
+- Otterhound
+- Brittany Spaniel
+- Irish Red Setter
+- Lagotto Romagnolo
+- Pekingese
+- Irish Wolfhound
 
 ## First complete journey
 

@@ -140,6 +140,10 @@ const publishedExpansionSlugs = new Set([
   "vizsla", "flat-coated-retriever", "coton-de-tulear", "afghan-hound", "lhasa-apso",
   "beauceron", "bullmastiff", "border-terrier", "icelandic-sheepdog", "rhodesian-ridgeback",
   "english-setter", "chesapeake-bay-retriever", "portuguese-water-dog", "chinese-crested-dog", "saluki",
+  "dutch-shepherd-dog", "briard", "collie-rough", "puli", "schnauzer",
+  "shar-pei", "mastiff", "leonberger", "west-highland-white-terrier", "staffordshire-bull-terrier",
+  "soft-coated-wheaten-terrier", "karelian-bear-dog", "norwegian-lundehund", "xoloitzcuintle", "otterhound",
+  "brittany-spaniel", "irish-red-setter", "lagotto-romagnolo", "pekingese", "irish-wolfhound",
 ]);
 
 const masterEntries = masterInventorySeeds.map(

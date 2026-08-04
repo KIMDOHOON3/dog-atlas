@@ -53,3 +53,7 @@ Add ten source-backed detailed breeds spanning cattle work, guarding, terrier wo
 ## 2026-08-04 — Seventh catalog expansion
 
 Add ten source-backed detailed breeds across herding, guarding, terrier, spitz, hound, pointing, retrieving, companion, and sighthound histories. Bring the published collection to 80 and keep the remaining 80 entries as discovery metadata. Complete and connect the data first, then create direct-gaze full-body cards and role-based history scenes as WebP assets, and finish with a focused data-to-asset mapping check.
+
+## 2026-08-05 — Eighth catalog expansion
+
+Add twenty source-backed detailed breeds across herding, farm work, guarding, terrier work, northern hunting, scent tracking, pointing, water work, companionship, and sighthound histories. Bring the published collection to 100 and keep the remaining 60 entries as discovery metadata. Preserve breed-specific adult proportions and direct-gaze full-body cards, depict difficult histories without harmful spectacle, deliver WebP-only assets, and validate only the new batch's data-to-asset mapping.
