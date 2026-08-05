@@ -53,8 +53,8 @@ describe("master breed catalog", () => {
       total: 160,
       byFciGroup: { 1: 20, 2: 23, 3: 18, 4: 1, 5: 27, 6: 12, 7: 11, 8: 16, 9: 20, 10: 10 },
       registryStatus: { definitive: 154, provisional: 4, nonFci: 2, verificationNeeded: 0 },
-      detailPriority: { core: 5, next: 95, later: 60 },
-      detailStatus: { published: 100, planned: 0, none: 60 },
+      detailPriority: { core: 5, next: 115, later: 40 },
+      detailStatus: { published: 120, planned: 0, none: 40 },
     });
   });
 

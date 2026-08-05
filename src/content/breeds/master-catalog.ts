@@ -144,6 +144,10 @@ const publishedExpansionSlugs = new Set([
   "shar-pei", "mastiff", "leonberger", "west-highland-white-terrier", "staffordshire-bull-terrier",
   "soft-coated-wheaten-terrier", "karelian-bear-dog", "norwegian-lundehund", "xoloitzcuintle", "otterhound",
   "brittany-spaniel", "irish-red-setter", "lagotto-romagnolo", "pekingese", "irish-wolfhound",
+  "belgian-shepherd-dog", "czechoslovakian-wolfdog", "bearded-collie", "white-swiss-shepherd-dog", "bouvier-des-flandres",
+  "miniature-american-shepherd", "dogo-argentino", "dogue-de-bordeaux", "bulldog", "neapolitan-mastiff",
+  "tibetan-mastiff", "continental-bulldog", "smooth-fox-terrier", "wire-fox-terrier", "kerry-blue-terrier",
+  "cairn-terrier", "norfolk-terrier", "norwich-terrier", "miniature-bull-terrier", "american-staffordshire-terrier",
 ]);
 
 const masterEntries = masterInventorySeeds.map(
