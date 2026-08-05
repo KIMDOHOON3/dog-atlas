@@ -148,6 +148,12 @@ const publishedExpansionSlugs = new Set([
   "miniature-american-shepherd", "dogo-argentino", "dogue-de-bordeaux", "bulldog", "neapolitan-mastiff",
   "tibetan-mastiff", "continental-bulldog", "smooth-fox-terrier", "wire-fox-terrier", "kerry-blue-terrier",
   "cairn-terrier", "norfolk-terrier", "norwich-terrier", "miniature-bull-terrier", "american-staffordshire-terrier",
+  "australian-silky-terrier", "finnish-lapponian-dog", "swedish-vallhund", "italian-volpino", "eurasier",
+  "american-akita", "hokkaido", "kai", "kishu", "shikoku", "canaan-dog", "yakutian-laika",
+  "harrier", "english-foxhound", "petit-basset-griffon-vendeen", "finnish-hound", "alpine-dachsbracke",
+  "bavarian-mountain-scent-hound", "german-wire-haired-pointing-dog", "italian-pointing-dog", "small-munsterlander",
+  "wire-haired-pointing-griffon-korthals", "english-pointer", "curly-coated-retriever", "clumber-spaniel",
+  "american-cocker-spaniel", "barbet", "irish-water-spaniel", "spanish-water-dog", "american-water-spaniel",
 ]);
 
 const masterEntries = masterInventorySeeds.map(
