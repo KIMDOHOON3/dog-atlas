@@ -164,6 +164,15 @@ const publishedExpansionSlugs = new Set([
   "field-spaniel", "sussex-spaniel", "wetterhoun", "kooikerhondje", "drentsche-patrijshond",
   "griffon-bruxellois", "petit-brabancon", "russian-toy", "lowchen", "english-toy-spaniel",
   "scottish-deerhound", "hungarian-greyhound",
+  "catalan-sheepdog", "croatian-sheepdog", "komondor", "kuvasz", "schapendoes", "portuguese-sheepdog",
+  "maremma-sheepdog", "polish-tatra-sheepdog", "romanian-mioritic-shepherd-dog", "romanian-carpathian-shepherd-dog",
+  "broholmer", "fila-brasileiro", "hovawart", "landseer", "pyrenean-mastiff", "sarplaninac", "tosa", "tornjak",
+  "central-asian-shepherd-dog", "spanish-mastiff", "australian-terrier", "irish-terrier", "lakeland-terrier", "skye-terrier",
+  "dandie-dinmont-terrier", "glen-of-imaal-terrier", "japanese-terrier", "german-hunting-terrier", "norwegian-buhund",
+  "russian-european-laika", "east-siberian-laika", "west-siberian-laika", "norrbottenspets", "jamthund", "ariegeois",
+  "anglo-francais-de-petite-venerie", "billy", "briquet-griffon-vendeen", "dunker", "halden-hound", "hygen-hound",
+  "transylvanian-hound", "tyrolean-hound", "braque-francais-type-gascogne", "braque-d-auvergne", "german-stichelhaar",
+  "spinone-italiano", "large-munsterlander", "irish-red-and-white-setter", "hungarian-wirehaired-vizsla",
 ]);
 
 const masterEntries = masterInventorySeeds.map(
