@@ -10,7 +10,7 @@ describe("master breed catalog", () => {
   });
 
   it("contains the 160-breed discovery inventory and the seventy detailed breeds", () => {
-    expect(masterCatalog).toHaveLength(160);
+    expect(masterCatalog).toHaveLength(202);
     for (const breed of breeds) {
       expect(getMasterBreed(breed.slug)?.nameKo).toBe(breed.nameKo);
     }
@@ -50,11 +50,11 @@ describe("master breed catalog", () => {
 
   it("reports catalog status without depending on UI data", () => {
     expect(getMasterCatalogStats()).toEqual({
-      total: 160,
-      byFciGroup: { 1: 20, 2: 23, 3: 18, 4: 1, 5: 27, 6: 12, 7: 11, 8: 16, 9: 20, 10: 10 },
-      registryStatus: { definitive: 154, provisional: 4, nonFci: 2, verificationNeeded: 0 },
-      detailPriority: { core: 5, next: 145, later: 10 },
-      detailStatus: { published: 150, planned: 0, none: 10 },
+      total: 202,
+      byFciGroup: { 1: 25, 2: 28, 3: 23, 4: 1, 5: 32, 6: 17, 7: 16, 8: 21, 9: 25, 10: 12 },
+      registryStatus: { definitive: 196, provisional: 4, nonFci: 2, verificationNeeded: 0 },
+      detailPriority: { core: 5, next: 195, later: 2 },
+      detailStatus: { published: 200, planned: 0, none: 2 },
     });
   });
 

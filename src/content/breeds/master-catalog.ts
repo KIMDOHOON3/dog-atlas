@@ -154,6 +154,16 @@ const publishedExpansionSlugs = new Set([
   "bavarian-mountain-scent-hound", "german-wire-haired-pointing-dog", "italian-pointing-dog", "small-munsterlander",
   "wire-haired-pointing-griffon-korthals", "english-pointer", "curly-coated-retriever", "clumber-spaniel",
   "american-cocker-spaniel", "barbet", "irish-water-spaniel", "spanish-water-dog", "american-water-spaniel",
+  "bolognese", "tibetan-spaniel", "tibetan-terrier", "japanese-chin", "prague-ratter", "azawakh", "sloughi", "galgo-espanol",
+  "bergamasco-shepherd", "mudi", "schipperke", "slovakian-cuvac", "polish-lowland-sheepdog",
+  "appenzeller-cattle-dog", "entlebucher-mountain-dog", "greater-swiss-mountain-dog", "german-pinscher", "kangal-shepherd-dog",
+  "bedlington-terrier", "parson-russell-terrier", "sealyham-terrier", "manchester-terrier", "cesky-terrier",
+  "thai-ridgeback", "portuguese-podengo", "greenland-dog", "peruvian-hairless-dog", "cirneco-dell-etna",
+  "gascon-saintongeois", "grand-basset-griffon-vendeen", "schweizer-laufhund", "porcelaine", "petit-bleu-de-gascogne",
+  "gordon-setter", "german-long-haired-pointer", "french-spaniel", "braque-saint-germain", "blue-picardy-spaniel",
+  "field-spaniel", "sussex-spaniel", "wetterhoun", "kooikerhondje", "drentsche-patrijshond",
+  "griffon-bruxellois", "petit-brabancon", "russian-toy", "lowchen", "english-toy-spaniel",
+  "scottish-deerhound", "hungarian-greyhound",
 ]);
 
 const masterEntries = masterInventorySeeds.map(
