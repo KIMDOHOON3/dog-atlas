@@ -173,6 +173,16 @@ const publishedExpansionSlugs = new Set([
   "anglo-francais-de-petite-venerie", "billy", "briquet-griffon-vendeen", "dunker", "halden-hound", "hygen-hound",
   "transylvanian-hound", "tyrolean-hound", "braque-francais-type-gascogne", "braque-d-auvergne", "german-stichelhaar",
   "spinone-italiano", "large-munsterlander", "irish-red-and-white-setter", "hungarian-wirehaired-vizsla",
+  "berger-picard", "pumi", "pyrenean-sheepdog", "lancashire-heeler", "saarloos-wolfdog",
+  "aidi", "caucasian-shepherd-dog", "presa-canario", "black-russian-terrier", "austrian-pinscher",
+  "danish-swedish-farmdog", "estrela-mountain-dog", "welsh-terrier", "brazilian-terrier", "english-toy-terrier",
+  "pharaoh-hound", "ibizan-hound", "lapponian-herder", "swedish-lapphund", "podenco-canario",
+  "austrian-black-and-tan-hound", "styrian-coarse-haired-hound", "slovakian-hound", "posavac-hound",
+  "bosnian-broken-haired-hound", "serbian-hound", "montenegrin-mountain-hound", "greek-harehound", "italian-segugio",
+  "spanish-hound", "grand-bleu-de-gascogne", "basset-bleu-de-gascogne", "basset-fauve-de-bretagne", "basset-artesien-normand",
+  "poitevin", "hamiltonstovare", "schillerstovare", "smaland-hound", "drever", "old-danish-pointer",
+  "slovakian-wirehaired-pointer", "burgos-pointer", "picardy-spaniel", "pont-audemer-spaniel", "stabyhoun",
+  "welsh-springer-spaniel", "affenpinscher", "kromfohrlander", "biewer-terrier", "polish-greyhound",
 ]);
 
 const masterEntries = masterInventorySeeds.map(
