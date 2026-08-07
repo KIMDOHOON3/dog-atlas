@@ -100,7 +100,9 @@ const publishedSourceIds: Partial<Record<string, string>> = {
 
 function getSourceIds(slug: string, groupNumber: FciGroupNumber | null, status: RegistryStatus) {
   if (status === "non-fci") {
-    return [slug === "american-bully" ? "ukc-american-bully" : "ukc-american-pit-bull-terrier"];
+    if (slug === "american-bully") return ["ukc-american-bully"];
+    if (slug === "american-pit-bull-terrier") return ["ukc-american-pit-bull-terrier"];
+    return ["kkf-non-fci-breeds"];
   }
 
   const sourceIds = ["fci-nomenclature", `kkf-group-${groupNumber}`];
@@ -183,6 +185,19 @@ const publishedExpansionSlugs = new Set([
   "poitevin", "hamiltonstovare", "schillerstovare", "smaland-hound", "drever", "old-danish-pointer",
   "slovakian-wirehaired-pointer", "burgos-pointer", "picardy-spaniel", "pont-audemer-spaniel", "stabyhoun",
   "welsh-springer-spaniel", "affenpinscher", "kromfohrlander", "biewer-terrier", "polish-greyhound",
+  "smooth-collie", "bouvier-des-ardennes", "majorca-shepherd-dog", "south-russian-shepherd-dog", "chodsky-pes",
+  "dutch-smoushond", "saint-miguel-cattle-dog", "majorca-mastiff", "cimarron-uruguayo", "castro-laboreiro-dog",
+  "rafeiro-do-alentejo", "romanian-bucovina-shepherd-dog", "karst-shepherd-dog", "canadian-eskimo-dog", "norwegian-elkhound-black",
+  "thai-bangkaew-dog", "taiwan-dog", "brazilian-tracker", "french-tricolour-hound", "french-white-and-black-hound",
+  "french-white-and-orange-hound", "great-anglo-french-tricolour-hound", "great-anglo-french-white-and-black-hound", "great-anglo-french-white-and-orange-hound",
+  "polish-hound", "american-foxhound", "black-and-tan-coonhound", "beagle-harrier", "griffon-blue-gascony",
+  "griffon-fauve-de-bretagne", "griffon-nivernais", "hellenic-hound", "serbian-tricolour-hound", "german-hound",
+  "westphalian-dachsbracke", "small-swiss-hound", "hanoverian-scent-hound", "artois-hound", "istrian-short-haired-hound",
+  "istrian-wire-haired-hound", "braque-francais-type-pyrenees", "braque-bourbonnais", "ariege-pointing-dog", "portuguese-pointing-dog",
+  "pudelpointer", "bohemian-wire-haired-pointing-griffon", "german-spaniel", "king-charles-spaniel", "griffon-belge",
+  "eesti-hound", "kintamani-bali-dog", "kazakh-tazy", "ratonero-bodeguero-andaluz", "valencian-terrier",
+  "romanian-raven-shepherd-dog", "tatra-hound", "transmontano-mastiff", "brazilian-campeiro-bulldog", "segugio-dell-appennino",
+  "sabueso-fino-colombiano", "macedonian-shepherd-dog-karaman", "sapsaree", "pungsan-dog", "donggyeongi", "jeju-dog",
 ]);
 
 const masterEntries = masterInventorySeeds.map(

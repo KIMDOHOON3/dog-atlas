@@ -83,6 +83,14 @@ export const masterSources = masterSourceCollectionSchema.parse([
     scope: "breed-standard",
   },
   {
+    id: "kkf-non-fci-breeds",
+    title: "FCI 미등록 견종 안내(풍산개·삽살개·동경이·제주개)",
+    organization: "한국애견연맹 (KKF)",
+    url: "https://www.thekkf.or.kr/new_home/06_studbook/02.studbook_request.php?request=2",
+    checkedAt,
+    scope: "breed-standard",
+  },
+  {
     id: "fci-standard-262",
     title: "FCI Standard No. 262 — Japanese Spitz",
     organization: "Fédération Cynologique Internationale (FCI)",
