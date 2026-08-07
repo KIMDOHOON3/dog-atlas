@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -31,5 +32,20 @@ describe("detail batch O mapping", () => {
         expect(readFileSync(filePath).subarray(8, 12).toString("ascii")).toBe("WEBP");
       }
     }
+  });
+
+  it("uses a distinct card and history image for every added breed", () => {
+    const cardHashes = new Set<string>();
+    const historyHashes = new Set<string>();
+
+    for (const breed of detailBatchO) {
+      const cardPath = join(process.cwd(), "public", breed.illustration.slice(1));
+      const historyPath = join(process.cwd(), "public", breed.historyVisual!.src.slice(1));
+      cardHashes.add(createHash("sha256").update(readFileSync(cardPath)).digest("hex"));
+      historyHashes.add(createHash("sha256").update(readFileSync(historyPath)).digest("hex"));
+    }
+
+    expect(cardHashes.size).toBe(detailBatchO.length);
+    expect(historyHashes.size).toBe(detailBatchO.length);
   });
 });
