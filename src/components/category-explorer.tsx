@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { BreedVisual } from "@/components/breed-visual";
 import type { Breed } from "@/content/breeds/schema";
 import styles from "./category-explorer.module.css";
 
-type CategoryKey = "role" | "rhythm" | "care" | "relationship" | "stimulus" | "space";
+type CategoryKey = "life" | "home" | "relationship";
 
 type Category = {
   key: CategoryKey;
@@ -16,21 +17,23 @@ type Category = {
 };
 
 const categories: Category[] = [
-  { key: "role", title: "어떤 일을 해왔을까", description: "목양·수호·사냥·반려의 역사적 역할", resultLabel: "역할과 형성 배경", slugs: ["mongolian-bankhar", "tibetan-mastiff", "central-asian-shepherd-dog", "bernese-mountain-dog"] },
-  { key: "rhythm", title: "하루를 어떻게 움직일까", description: "지속적인 활동부터 짧은 질주와 휴식까지", resultLabel: "활동 리듬", slugs: ["border-collie", "greyhound", "samoyed", "japanese-spitz"] },
-  { key: "care", title: "털과 날씨를 어떻게 돌볼까", description: "빗질·미용·더위·추위 관리", resultLabel: "피모와 기후 관리", slugs: ["mongolian-bankhar", "samoyed", "japanese-spitz", "maltese"] },
-  { key: "relationship", title: "사람과 어떻게 관계 맺을까", description: "교감·협력·독립적 판단을 나누어 보기", resultLabel: "교감과 독립", slugs: ["maltese", "cavalier-king-charles-spaniel", "border-collie", "mongolian-bankhar"] },
-  { key: "stimulus", title: "주변 자극에 어떻게 반응할까", description: "알림·소리·낯선 변화에 대한 경향", resultLabel: "자극과 알림 행동", slugs: ["mongolian-bankhar", "tibetan-mastiff", "german-shepherd-dog", "japanese-spitz"] },
-  { key: "space", title: "몸과 생활 동선은 어떨까", description: "체격·힘·울타리·이동 조건", resultLabel: "체격과 생활 동선", slugs: ["maltese", "japanese-spitz", "bernese-mountain-dog", "great-dane"] },
+  { key: "life", title: "어떤 삶을 살아왔나", description: "반려·목양·수호·사냥·북방 작업의 배경", resultLabel: "역할과 형성 배경", slugs: ["mongolian-bankhar", "tibetan-mastiff", "central-asian-shepherd-dog", "bernese-mountain-dog"] },
+  { key: "home", title: "함께 살 때 무엇이 필요하나", description: "활동·공간·털·기후·관리 시간", resultLabel: "생활 조건과 관리", slugs: ["mongolian-bankhar", "samoyed", "greyhound", "maltese"] },
+  { key: "relationship", title: "어떤 방식으로 관계 맺나", description: "교감·협력·독립적 판단·주변 반응", resultLabel: "교감과 반응", slugs: ["maltese", "cavalier-king-charles-spaniel", "border-collie", "mongolian-bankhar"] },
+];
+
+const quickFilters = [
+  { key: "new", label: "처음 보는 견종", category: "life" as CategoryKey, slugs: ["mongolian-bankhar", "karelian-bear-dog", "norwegian-lundehund", "mudi"] },
+  { key: "active", label: "활동적인 견종", category: "home" as CategoryKey, slugs: ["border-collie", "australian-shepherd", "greyhound", "siberian-husky"] },
+  { key: "guardian", label: "큰 작업견", category: "life" as CategoryKey, slugs: ["mongolian-bankhar", "tibetan-mastiff", "central-asian-shepherd-dog", "great-dane"] },
+  { key: "companion", label: "사람 곁을 좋아하는 견종", category: "relationship" as CategoryKey, slugs: ["maltese", "cavalier-king-charles-spaniel", "japanese-spitz", "havanese"] },
+  { key: "coat", label: "털과 기후 관리", category: "home" as CategoryKey, slugs: ["mongolian-bankhar", "samoyed", "japanese-spitz", "maltese"] },
 ];
 
 const categoryMarks: Record<CategoryKey, string> = {
-  role: styles.roleMark,
-  rhythm: styles.rhythmMark,
-  care: styles.careMark,
+  life: styles.roleMark,
+  home: styles.rhythmMark,
   relationship: styles.relationshipMark,
-  stimulus: styles.stimulusMark,
-  space: styles.spaceMark,
 };
 
 const registryLabels: Record<string, string> = {
@@ -49,10 +52,12 @@ const registryLabels: Record<string, string> = {
 };
 
 export function CategoryExplorer({ breeds }: { breeds: readonly Breed[] }) {
-  const [activeKey, setActiveKey] = useState<CategoryKey>("role");
+  const [activeKey, setActiveKey] = useState<CategoryKey>("life");
+  const [activeLabel, setActiveLabel] = useState(categories[0].resultLabel);
+  const [activeSlugs, setActiveSlugs] = useState(categories[0].slugs);
   const activeCategory = categories.find((category) => category.key === activeKey) ?? categories[0];
   const breedBySlug = useMemo(() => new Map(breeds.map((breed) => [breed.slug, breed])), [breeds]);
-  const results = activeCategory.slugs.flatMap((slug) => {
+  const results = activeSlugs.flatMap((slug) => {
     const breed = breedBySlug.get(slug);
     return breed ? [breed] : [];
   });
@@ -65,7 +70,7 @@ export function CategoryExplorer({ breeds }: { breeds: readonly Breed[] }) {
 
       <div className={styles.categoryHeading}>
         <h3>먼저 큰 질문을 골라보세요</h3>
-        <p>복수 관점으로 다시 살펴볼 수 있어요</p>
+        <p>세 가지 방향으로 빠르게 둘러볼 수 있어요</p>
       </div>
       <div className={styles.categoryGrid} role="list" aria-label="견종 탐색 카테고리">
         {categories.map((category) => {
@@ -76,7 +81,7 @@ export function CategoryExplorer({ breeds }: { breeds: readonly Breed[] }) {
               key={category.key}
               type="button"
               aria-pressed={isActive}
-              onClick={() => setActiveKey(category.key)}
+              onClick={() => { setActiveKey(category.key); setActiveLabel(category.resultLabel); setActiveSlugs(category.slugs); }}
             >
               <span className={`${styles.categoryMark} ${categoryMarks[category.key]}`} aria-hidden="true" />
               <strong>{category.title}</strong>
@@ -86,21 +91,33 @@ export function CategoryExplorer({ breeds }: { breeds: readonly Breed[] }) {
         })}
       </div>
 
+      <div className={styles.quickFilters} aria-label="빠른 탐색">
+        <span>빠른 탐색</span>
+        {quickFilters.map((filter) => (
+          <button className={activeLabel === filter.label ? styles.quickActive : ""} type="button" key={filter.key} onClick={() => { setActiveKey(filter.category); setActiveLabel(filter.label); setActiveSlugs(filter.slugs); }}>
+            {filter.label}
+          </button>
+        ))}
+      </div>
+
       <div className={styles.results} aria-live="polite">
         <div className={styles.resultsHeading}>
           <h3>{activeCategory.title}</h3>
           <p>이 관점으로 살펴볼 견종</p>
         </div>
         <div className={styles.chips} aria-label={`${activeCategory.resultLabel} 선택`}>
-          <span className={styles.selectedChip}>{activeCategory.resultLabel}</span>
+          <span className={styles.selectedChip}>{activeLabel}</span>
           <span className={styles.chipHint}>순위 없이 편집된 대표 견종을 먼저 보여드려요</span>
         </div>
         <div className={styles.resultGrid}>
           {results.map((breed) => (
             <Link className={styles.resultCard} href={`/breeds/${breed.slug}`} key={breed.slug}>
-              <span>{breed.identity.origin} · {registryLabels[breed.slug] ?? breed.catalog.discoveryTags[0]}</span>
-              <strong>{breed.nameKo}</strong>
-              <em>{breed.catalog.discoveryTags[0]}</em>
+              <BreedVisual breed={breed} variant="tile" />
+              <div className={styles.resultCopy}>
+                <span>{breed.identity.origin} · {registryLabels[breed.slug] ?? breed.catalog.discoveryTags[0]}</span>
+                <strong>{breed.nameKo}</strong>
+                <em>{breed.catalog.discoveryTags[0]}</em>
+              </div>
             </Link>
           ))}
         </div>

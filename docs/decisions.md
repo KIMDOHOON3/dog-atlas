@@ -80,3 +80,7 @@ Add Mongolian Bankhar as a source-backed detailed catalog entry, while describin
 # 2026-08-10 — Add multi-perspective category exploration to home
 
 Add a responsive home explorer built around six question-shaped lenses: original work, daily rhythm, coat and climate care, human relationship, stimulus response, and living space. Keep the existing catalog group as internal data, use curated representative breed sets for the first UI pass, and avoid recommendation scores or one-breed answers. The full taxonomy can expand behind these lenses after source-reviewed fields are normalized.
+
+# 2026-08-10 — Reduce home category choice and add visual results
+
+Collapse the six home questions into three faster entry points: life and original work, living requirements, and relationship and responses. Keep finer axes available through quick-exploration chips, and show representative result breeds with their existing full-body illustrations so users can scan visually before opening a detail page.
