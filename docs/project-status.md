@@ -8,7 +8,7 @@
 
 Dog Atlas(살아 있는 견종도감)는 강아지를 고려하는 사람이 외모와 인지도만으로 선택하지 않도록 돕는 한국어 편집형 웹 도감이다. 사용자는 견종을 발견하고, 역사와 원래 역할이 행동 경향과 현대의 돌봄 요구에 어떻게 이어질 수 있는지 읽고, 관심 후보를 저장해 같은 기준으로 비교한다.
 
-현재는 초기 5종 또는 100종 MVP 계획을 넘어 **367종의 상세 콘텐츠와 시각 자산을 제공하는 로컬 데이터 기반 구현**까지 확장된 상태다. 마스터 카탈로그의 367종 모두 상세 페이지가 있다.
+현재는 초기 5종 또는 100종 MVP 계획을 넘어 **368종의 상세 콘텐츠와 시각 자산을 제공하는 로컬 데이터 기반 구현**까지 확장된 상태다. 마스터 카탈로그의 368종 모두 상세 페이지가 있다. 몽골 방카르는 첫 `verified-landrace` 편집 사례로 발행됐으며, 전용 포함 유형 스키마가 생기기 전까지 등록 상태는 `non-fci`로 유지한다.
 
 ## 2. 변하지 않는 제품 원칙
 
@@ -25,7 +25,7 @@ Dog Atlas(살아 있는 견종도감)는 강아지를 고려하는 사람이 외
 ### 홈 `/`
 
 - 날짜에 따라 시작 견종이 달라지는 수동 ‘오늘의 강아지’ 캐러셀
-- 367종의 한글명·영문명·등록 별칭 검색
+- 368종의 한글명·영문명·등록 별칭 검색
 - 전체 견종 카드 탐색
 - 재패니즈 스피츠, 보더 콜리, 그레이하운드를 활용한 편집형 발견 섹션
 
@@ -75,8 +75,8 @@ Dog Atlas(살아 있는 견종도감)는 강아지를 고려하는 사람이 외
 |---|---|
 | 라우트 | `src/app/` |
 | 공통 UI | `src/components/` |
-| 상세 견종 367종 | `src/content/breeds/data.ts`, `detail-batch-*.ts` |
-| 마스터 카탈로그 367종 | `src/content/breeds/master-catalog.ts` |
+| 상세 견종 368종 | `src/content/breeds/data.ts`, `detail-batch-*.ts` |
+| 마스터 카탈로그 368종 | `src/content/breeds/master-catalog.ts` |
 | 데이터 스키마 | `src/content/breeds/schema.ts`, `master-schema.ts` |
 | 출처 레지스트리 | `src/content/breeds/master-sources.ts` |
 | 카드 삽화 | `public/illustrations/v2/` |
@@ -90,20 +90,20 @@ Dog Atlas(살아 있는 견종도감)는 강아지를 고려하는 사람이 외
 
 | 항목 | 현재 값 | 근거 |
 |---|---:|---|
-| 상세 견종 | 367 | `src/content/breeds/data.test.ts` |
-| 마스터 카탈로그 | 367 | `src/content/breeds/master-catalog.test.ts` |
-| 상세 발행 상태 | 367 published | `getMasterCatalogStats()` 테스트 |
+| 상세 견종 | 368 | `src/content/breeds/data.test.ts` |
+| 마스터 카탈로그 | 368 | `src/content/breeds/master-catalog.test.ts` |
+| 상세 발행 상태 | 368 published | `getMasterCatalogStats()` 테스트 |
 | 상세 없는 마스터 항목 | 0 | 같은 테스트의 `detailStatus.none` |
 | FCI definitive | 344 | 같은 테스트의 `registryStatus` |
 | FCI provisional | 17 | 같은 테스트의 `registryStatus` |
 | non-FCI | 6 | 같은 테스트의 `registryStatus` |
-| 카드·역사 이미지 | 상세 367종 모두 로컬 경로 존재 | `data.test.ts`, `visual-assets.test.ts` |
+| 카드·역사 이미지 | 상세 368종 모두 로컬 경로 존재 | `data.test.ts`, `visual-assets.test.ts` |
 
 모든 상세 항목의 현재 `contentStatus`는 `mvp-editorial-draft`다. 이는 스키마 검증과 편집·출처 작업이 존재한다는 뜻이지, 수의학 또는 행동 전문가 검수를 완료했다는 뜻이 아니다.
 
 ## 7. 현재 알려진 문서 차이와 주의점
 
-- [`mvp-scope.md`](mvp-scope.md)는 100종까지의 확장 기록을 담고 있으나 구현은 367종까지 진행됐다.
+- [`mvp-scope.md`](mvp-scope.md)는 100종까지의 확장 기록을 담고 있으나 구현은 368종까지 진행됐다.
 - [`catalog-20-proposal.md`](catalog-20-proposal.md)와 초기 디자인 명세의 ‘20종’ 표현은 역사적 계획이다.
 - 이미지 프롬프트 배치 A·B 문서는 초기 15종의 제작 기록이며 전체 자산 제작 이력을 대표하지 않는다.
 - 제품명은 코드 메타데이터에서 ‘살아 있는 견종도감’, 저장소와 문서에서는 ‘Dog Atlas’를 함께 사용한다.
@@ -124,12 +124,12 @@ npm run build
 
 UI 변경은 추가로 390px, 768px, 1440px, 1920px 폭에서 확인한다. 비교 화면은 최대 1440px까지 확장할 수 있으며, 필수 정보는 모션이나 이미지가 없어도 접근 가능해야 한다.
 
-최근 검증 결과(2026-08-09):
+최근 검증 결과(2026-08-10):
 
 - `npm run lint` 통과
 - `npm run typecheck` 통과
-- `npm test` 통과 — 21개 파일, 72개 테스트
-- `npm run build` 통과 — 367개 견종 상세 경로를 포함해 374개 정적 페이지 생성
+- `npm test` 통과 — 22개 파일, 74개 테스트
+- `npm run build` 통과 — 368개 견종 상세 경로를 포함해 375개 정적 페이지 생성
 
 이 문서를 갱신할 때 실제로 실행한 검증만 결과로 기록한다.
 

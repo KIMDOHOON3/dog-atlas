@@ -10,6 +10,6 @@ describe("breed catalog", () => {
   });
 
   it("keeps the expansion target separate from published content", () => {
-    expect(getCatalogProgress()).toEqual({ published: 367, target: catalogGoal, remaining: 0 });
+    expect(getCatalogProgress()).toEqual({ published: 368, target: catalogGoal, remaining: 0 });
   });
 });

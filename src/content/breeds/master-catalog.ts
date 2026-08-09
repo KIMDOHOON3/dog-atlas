@@ -100,6 +100,7 @@ const publishedSourceIds: Partial<Record<string, string>> = {
 
 function getSourceIds(slug: string, groupNumber: FciGroupNumber | null, status: RegistryStatus) {
   if (status === "non-fci") {
+    if (slug === "mongolian-bankhar") return ["mongolian-bankhar-project", "bankhar-predation-study"];
     if (slug === "american-bully") return ["ukc-american-bully"];
     if (slug === "american-pit-bull-terrier") return ["ukc-american-pit-bull-terrier"];
     return ["kkf-non-fci-breeds"];
@@ -198,7 +199,7 @@ const publishedExpansionSlugs = new Set([
   "eesti-hound", "kintamani-bali-dog", "kazakh-tazy", "ratonero-bodeguero-andaluz", "valencian-terrier",
   "romanian-raven-shepherd-dog", "tatra-hound", "transmontano-mastiff", "brazilian-campeiro-bulldog", "segugio-dell-appennino",
   "sabueso-fino-colombiano", "macedonian-shepherd-dog-karaman", "sapsaree", "pungsan-dog", "donggyeongi", "jeju-dog",
-  "american-pit-bull-terrier", "american-bully",
+  "american-pit-bull-terrier", "american-bully", "mongolian-bankhar",
 ]);
 
 const masterEntries = masterInventorySeeds.map(

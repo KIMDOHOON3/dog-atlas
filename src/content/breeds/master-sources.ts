@@ -67,6 +67,22 @@ export const masterSources = masterSourceCollectionSchema.parse([
   },
   ...kkfGroupSources,
   {
+    id: "mongolian-bankhar-project",
+    title: "Mongolian Bankhar Dog Project Media Kit",
+    organization: "Mongolian Bankhar Dog Project",
+    url: "https://www.bankhar.org/press-kit/",
+    checkedAt: "2026-08-10",
+    scope: "breed-list",
+  },
+  {
+    id: "bankhar-predation-study",
+    title: "Impact of livestock guardian dogs on livestock predation in rural Mongolia",
+    organization: "Conservation Science and Practice",
+    url: "https://conbio.onlinelibrary.wiley.com/doi/10.1111/csp2.509",
+    checkedAt: "2026-08-10",
+    scope: "breed-list",
+  },
+  {
     id: "ukc-american-pit-bull-terrier",
     title: "Official UKC Breed Standard — American Pit Bull Terrier",
     organization: "United Kennel Club (UKC)",
