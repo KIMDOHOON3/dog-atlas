@@ -57,3 +57,19 @@ Add ten source-backed detailed breeds across herding, guarding, terrier, spitz, 
 ## 2026-08-05 — Eighth catalog expansion
 
 Add twenty source-backed detailed breeds across herding, farm work, guarding, terrier work, northern hunting, scent tracking, pointing, water work, companionship, and sighthound histories. Bring the published collection to 100 and keep the remaining 60 entries as discovery metadata. Preserve breed-specific adult proportions and direct-gaze full-body cards, depict difficult histories without harmful spectacle, deliver WebP-only assets, and validate only the new batch's data-to-asset mapping.
+
+## 2026-08-09 — Living project status document
+
+Use `docs/project-status.md` as the single current-state entry point for product, design, code, content coverage, assets, and verification. Keep detailed specifications and historical proposals in their existing documents, indexed by `docs/README.md`. Every material change to scope, UI, architecture, content counts, asset coverage, or verification status must update the living status document in the same change. When historical documents disagree with the implementation state, record the difference and use current code and tests for factual counts without overriding the product principles in the brief and decision log.
+
+## 2026-08-09 — Complete the registered non-FCI catalog entries
+
+Publish source-backed detail pages and distinct visual assets for the American Pit Bull Terrier and American Bully, bringing all 367 current master entries to detailed status. Attribute their identity and conformation information to the United Kennel Club rather than presenting them as FCI breeds. Keep behavior language individual and contextual, avoid stigmatizing or promotional claims, and foreground functional anatomy, safe management, local regulations, and housing constraints.
+
+The next inclusion policy should consider well-documented regional landraces such as the Mongolian Bankhar without mislabeling them as standardized registry breeds. Require a stable local identity, a documented continuing role, institutional or peer-reviewed evidence, and a clear boundary from aliases or neighboring dog populations before adding a landrace track.
+
+## 2026-08-10 — Broaden catalog inclusion beyond registry breed lists
+
+Adopt `docs/catalog-inclusion-policy.md` as the editorial basis for distinguishing internationally registered breeds, nationally protected heritage dogs, nationally registered populations, verified landraces, documented candidates, and unverified names. FCI absence is not an exclusion criterion, and online name repetition is not sufficient evidence for inclusion.
+
+Treat Gyeongju Donggyeongi as a nationally protected heritage dog and the Mongolian Bankhar as a candidate verified landrace. Preserve registration and evidence provenance in the UI and content instead of forcing every population into a single standardized-breed model. Schema and UI support remain follow-up work; do not present the proposed categories as already implemented.

@@ -1,7 +1,14 @@
 # Dog Atlas project guidance
 
-Read `docs/product-brief.md`, `docs/mvp-scope.md`, `docs/decisions.md`, and
-`docs/design-visual-guide.md` before changing product behavior or UI.
+Read `docs/project-status.md` first for the current product, design, code, and
+delivery state. Then read `docs/product-brief.md`, `docs/mvp-scope.md`,
+`docs/decisions.md`, and `docs/design-visual-guide.md` before changing product
+behavior or UI. Use `docs/README.md` to find more specialized documents.
+
+After a material change to product scope, UI, architecture, content coverage,
+assets, or verification status, update `docs/project-status.md` in the same
+change. Keep it concise and factual; detailed history belongs in the decision
+log or a specialized document.
 
 ## Product principles
 

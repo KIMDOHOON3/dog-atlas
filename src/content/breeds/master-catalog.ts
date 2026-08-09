@@ -198,6 +198,7 @@ const publishedExpansionSlugs = new Set([
   "eesti-hound", "kintamani-bali-dog", "kazakh-tazy", "ratonero-bodeguero-andaluz", "valencian-terrier",
   "romanian-raven-shepherd-dog", "tatra-hound", "transmontano-mastiff", "brazilian-campeiro-bulldog", "segugio-dell-appennino",
   "sabueso-fino-colombiano", "macedonian-shepherd-dog-karaman", "sapsaree", "pungsan-dog", "donggyeongi", "jeju-dog",
+  "american-pit-bull-terrier", "american-bully",
 ]);
 
 const masterEntries = masterInventorySeeds.map(
