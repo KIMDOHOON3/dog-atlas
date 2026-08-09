@@ -76,3 +76,7 @@ Treat Gyeongju Donggyeongi as a nationally protected heritage dog and the Mongol
 # 2026-08-10 — Publish Mongolian Bankhar as the first verified landrace case
 
 Add Mongolian Bankhar as a source-backed detailed catalog entry, while describing it as a regional livestock-guardian landrace rather than a standardized international breed. Keep the current `non-fci` registry value until the inclusion-type schema is implemented, state that limitation in the editorial policy, avoid fixed conformation and lifespan claims, and center the detail page and visual assets on pastoral working context, population variation, experienced management, and heat-safe care.
+
+# 2026-08-10 — Add multi-perspective category exploration to home
+
+Add a responsive home explorer built around six question-shaped lenses: original work, daily rhythm, coat and climate care, human relationship, stimulus response, and living space. Keep the existing catalog group as internal data, use curated representative breed sets for the first UI pass, and avoid recommendation scores or one-breed answers. The full taxonomy can expand behind these lenses after source-reviewed fields are normalized.
