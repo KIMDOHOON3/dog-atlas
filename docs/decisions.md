@@ -84,3 +84,7 @@ Add a responsive home explorer built around six question-shaped lenses: original
 # 2026-08-10 — Reduce home category choice and add visual results
 
 Collapse the six home questions into three faster entry points: life and original work, living requirements, and relationship and responses. Keep finer axes available through quick-exploration chips, and show representative result breeds with their existing full-body illustrations so users can scan visually before opening a detail page.
+
+# 2026-08-10 — Make breed discovery a URL-addressable filter page
+
+Add `/discover` as the dedicated discovery route. Normalize the existing Korean tendency labels and free-form size strings in a filter-only adapter, preserve the original Breed data, use OR within a filter axis and AND across axes, and synchronize valid selections to query parameters. Do not invent housing suitability, exercise hours, beginner suitability, management scores, popularity, or recommendation rankings. Keep the existing editorial role/history explorer below the factual condition filters.

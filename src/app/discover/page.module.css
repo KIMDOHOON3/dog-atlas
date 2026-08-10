@@ -1,0 +1,14 @@
+.main { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; padding: 24px 0 96px; }
+.breadcrumb { display: flex; gap: 9px; color: var(--ink-soft); font-size: .8rem; }
+.breadcrumb a { color: var(--moss); text-underline-offset: 3px; }
+.intro { padding: 56px 0 36px; }
+.intro p { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
+.intro h1 { max-width: 14ch; margin: 0; font-size: clamp(2.7rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -.06em; }
+.intro span { display: block; margin-top: 17px; color: var(--ink-soft); font-size: 1.08rem; }
+.history { margin-top: 92px; padding-top: 52px; border-top: 1px solid var(--line); }
+.history > h2 { margin: 0; font-size: clamp(1.75rem, 3vw, 2.4rem); letter-spacing: -.04em; }
+.history > p { margin: 10px 0 32px; color: var(--ink-soft); }
+.loading { min-height: 220px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 22px; color: var(--ink-soft); background: var(--panel); }
+.history :global(.explorer) { width: 100%; padding-top: 0; }
+.history :global(.explorer > .eyebrow), .history :global(.explorer > h2), .history :global(.explorer > .intro) { display: none; }
+@media (max-width: 767px) { .main { width: calc(100% - var(--page-inline)); padding-top: 16px; } .intro { padding: 38px 0 28px; } .intro h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); } .intro span { font-size: .98rem; } .history { margin-top: 66px; padding-top: 36px; } }

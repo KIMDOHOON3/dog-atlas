@@ -121,7 +121,7 @@ export function CategoryExplorer({ breeds }: { breeds: readonly Breed[] }) {
             </Link>
           ))}
         </div>
-        <Link className={styles.allLink} href="#discover">전체 도감에서 더 살펴보기 →</Link>
+        <Link className={styles.allLink} href="/discover">전체 도감에서 더 살펴보기 →</Link>
       </div>
     </section>
   );

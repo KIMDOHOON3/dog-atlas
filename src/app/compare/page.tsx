@@ -84,7 +84,7 @@ export default async function ComparePage({ searchParams }: PageProps) {
               ? "관심 가는 견종의 정보를 읽고, 더 알아보고 싶은 견종을 후보에 담아보세요."
               : `${selectedBreeds[0].nameKo}의 관련 견종을 살펴보거나 도감에서 다른 견종을 발견해보세요.`}</span>
             <div>
-              <Link href="/#discover">{selectedBreeds.length === 0 ? "견종 둘러보기" : "다른 견종 둘러보기"}</Link>
+              <Link href="/discover">{selectedBreeds.length === 0 ? "견종 둘러보기" : "다른 견종 둘러보기"}</Link>
               {selectedBreeds[0] && <Link href={`/breeds/${selectedBreeds[0].slug}`}>{selectedBreeds[0].nameKo} 상세로 돌아가기</Link>}
             </div>
           </section>
@@ -130,7 +130,7 @@ export default async function ComparePage({ searchParams }: PageProps) {
                 {selectedBreeds.map((breed) => <article key={breed.slug}><span>{breed.nameKo}</span><h3>함께 살기 전에 확인할 현실</h3><p>{breed.story.reality}</p></article>)}
               </div>
             </section>
-            <aside className={styles.notice}><strong>비교 뒤에 남겨야 할 질문</strong><p>어느 견종이 더 좋은가가 아니라, 내가 매일 제공할 수 있는 활동·공간·관리와 실제 입양 대상 개체의 성격이 맞는지 확인하세요. 지금은 입양을 미루는 선택도 유효합니다.</p><Link href="/#discover">다른 견종 더 발견하기</Link></aside>
+            <aside className={styles.notice}><strong>비교 뒤에 남겨야 할 질문</strong><p>어느 견종이 더 좋은가가 아니라, 내가 매일 제공할 수 있는 활동·공간·관리와 실제 입양 대상 개체의 성격이 맞는지 확인하세요. 지금은 입양을 미루는 선택도 유효합니다.</p><Link href="/discover">다른 견종 더 발견하기</Link></aside>
           </>
         )}
       </main>

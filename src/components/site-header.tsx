@@ -15,7 +15,7 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
         <span>강아지 도감</span>
       </Link>
       <nav aria-label="주요 탐색">
-        <Link href="/#discover">견종 발견</Link>
+        <Link href="/discover">견종 발견</Link>
         <Link href={compareHref}>비교하기{hydrated && slugs.length > 0 ? ` · ${slugs.length}` : ""}</Link>
         <Link className={styles.searchIcon} href="/#breed-search" aria-label="견종 검색으로 이동"><span className={styles.searchGlyph} aria-hidden="true" /></Link>
       </nav>
