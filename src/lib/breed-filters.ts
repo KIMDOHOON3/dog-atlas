@@ -41,6 +41,7 @@ export function normalizeTendencyLabel(label: string): TendencyLevel {
 export function getBreedSizeCategories(size: string): BreedSize[] {
   const normalized = size.replace(/\s+/g, "");
   if (normalized.includes("초대형")) return ["giant"];
+  if (normalized.includes("미니어처") && normalized.includes("스탠더드")) return [];
 
   const categories: BreedSize[] = [];
   if (normalized.includes("초소형") || normalized.includes("소형") || normalized.includes("토이") || normalized.includes("미니어처")) categories.push("small");

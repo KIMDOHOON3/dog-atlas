@@ -22,7 +22,7 @@ describe("breed filter normalization", () => {
     expect(getBreedSizeCategories("소형~중소형")).toEqual(["small", "medium"]);
     expect(getBreedSizeCategories("중대형")).toEqual(["medium", "large"]);
     expect(getBreedSizeCategories("초대형 · 약 65~80cm")).toEqual(["giant"]);
-    expect(getBreedSizeCategories("미니어처와 스탠더드, 세 가지 피모 유형")).toEqual(["small"]);
+    expect(getBreedSizeCategories("미니어처와 스탠더드, 세 가지 피모 유형")).toEqual([]);
     expect(getBreedSizeCategories("크기 정보 확인 중")).toEqual([]);
   });
 });
