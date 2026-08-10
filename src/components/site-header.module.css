@@ -21,4 +21,13 @@
 .searchGlyph { position: relative; width: 16px; height: 16px; display: block; translate: -.5px -1px; }
 .searchGlyph::before { content: ""; position: absolute; left: 1px; top: 1px; width: 9px; height: 9px; border: 1.5px solid currentColor; border-radius: 50%; }
 .searchGlyph::after { content: ""; position: absolute; left: 11px; top: 11px; width: 5px; height: 1.5px; border-radius: 999px; background: currentColor; transform: rotate(45deg); transform-origin: left center; }
+.mobileBottomNav { display: none; }
 @media (max-width: 560px) { .header { height: 56px; } .header nav a:not(.searchIcon) { display: none; } .brand { font-size: .92rem; } .mark { width: 30px; height: 30px; flex-basis: 30px; } }
+@media (max-width: 767px) {
+  .mobileBottomNav { position: fixed; z-index: 50; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: repeat(2, 1fr); padding: 7px 12px max(7px, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgb(255 253 248 / 96%); box-shadow: 0 -8px 24px rgb(42 52 46 / 9%); backdrop-filter: blur(14px); }
+  .mobileBottomNav a { min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 7px; border-radius: 13px; color: var(--ink-soft); font-size: .78rem; font-weight: 700; text-decoration: none; }
+  .mobileBottomNav a:hover, .mobileBottomNav a:focus-visible { color: var(--ink); background: var(--paper-deep); }
+  .mobileBottomNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .mobileBottomNav svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+  .mobileBottomNav .mobileNavActive { color: var(--moss); background: var(--moss-light); }
+}

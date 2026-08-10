@@ -88,3 +88,7 @@ Collapse the six home questions into three faster entry points: life and origina
 # 2026-08-10 — Make breed discovery a URL-addressable filter page
 
 Add `/discover` as the dedicated discovery route. Normalize the existing Korean tendency labels and free-form size strings in a filter-only adapter, preserve the original Breed data, use OR within a filter axis and AND across axes, and synchronize valid selections to query parameters. Do not invent housing suitability, exercise hours, beginner suitability, management scores, popularity, or recommendation rankings. Keep the existing editorial role/history explorer below the factual condition filters.
+
+# 2026-08-11 ??Add mobile primary navigation for discovery and comparison
+
+On viewports up to 767px, keep `견종 발견` and `비교하기` reachable through a fixed bottom navigation shared by the site header. Reuse the existing compare selection state and route links, use small inline SVG icons instead of adding an icon dependency, and account for safe-area insets plus bottom content padding. Offset the floating interest-breed tray so it does not overlap the navigation.

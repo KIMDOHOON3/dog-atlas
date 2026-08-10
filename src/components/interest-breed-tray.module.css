@@ -33,7 +33,7 @@
 
 @media (max-width: 767px) {
   .spacer { height: 164px; }
-  .tray { bottom: max(8px, env(safe-area-inset-bottom)); width: calc(100% - 16px); border-radius: 22px 22px 14px 14px; }
+  .tray { bottom: calc(72px + env(safe-area-inset-bottom)); width: calc(100% - 16px); border-radius: 22px 22px 14px 14px; }
   .inner { gap: 9px; }
   .summary { min-height: 48px; grid-column: 1 / 3; }
   .heading small { font-size: .78rem; }
