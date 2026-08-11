@@ -13,6 +13,18 @@
   min-width: 0;
   touch-action: pan-y;
   user-select: none;
+  animation: carousel-enter .32s ease both;
+}
+
+@keyframes carousel-enter {
+  from {
+    opacity: .35;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .summary {
@@ -104,5 +116,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .controls button { transition: none; }
+  .visualFrame,
+  .controls button { animation: none; transition: none; }
 }

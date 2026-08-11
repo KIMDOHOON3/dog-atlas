@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import Link from "next/link";
 import { BreedVisual } from "./breed-visual";
 import type { Breed } from "@/content/breeds/schema";
@@ -13,8 +13,27 @@ type Props = {
 
 export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [isPaused, setIsPaused] = useState(false);
+  const [motionAllowed, setMotionAllowed] = useState(true);
   const swipeStartX = useRef<number | null>(null);
   const current = breeds[currentIndex];
+
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotion = () => setMotionAllowed(!media.matches);
+    updateMotion();
+    media.addEventListener("change", updateMotion);
+    return () => media.removeEventListener("change", updateMotion);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || !motionAllowed || breeds.length < 2) return;
+    const timer = window.setInterval(() => {
+      setCurrentIndex((index) => (index + 1) % breeds.length);
+    }, 700);
+    return () => window.clearInterval(timer);
+  }, [breeds.length, isPaused, motionAllowed]);
 
   function move(direction: -1 | 1) {
     setCurrentIndex((index) => (index + direction + breeds.length) % breeds.length);
@@ -32,19 +51,24 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
   }
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    setIsPaused(true);
     swipeStartX.current = event.clientX;
   }
 
   function handlePointerUp(event: PointerEvent<HTMLDivElement>) {
-    if (swipeStartX.current === null) return;
+    if (swipeStartX.current === null) {
+      setIsPaused(false);
+      return;
+    }
     const distance = event.clientX - swipeStartX.current;
     swipeStartX.current = null;
-    if (Math.abs(distance) < 42) return;
-    move(distance > 0 ? -1 : 1);
+    if (Math.abs(distance) >= 42) move(distance > 0 ? -1 : 1);
+    setIsPaused(false);
   }
 
   function clearSwipeStart() {
     swipeStartX.current = null;
+    setIsPaused(false);
   }
 
   return (
@@ -53,9 +77,14 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
       aria-roledescription="캐러셀"
       aria-label="오늘의 강아지"
       onKeyDown={handleKeyDown}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
     >
-      <div className={styles.stage} aria-live="polite" aria-atomic="true">
+      <div className={styles.stage} aria-live={isPaused ? "polite" : "off"} aria-atomic="true">
         <div
+          key={current.slug}
           className={styles.visualFrame}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
@@ -73,7 +102,7 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
             <button type="button" onClick={() => move(1)} aria-label="다음 강아지 보기">→</button>
           </div>
         </div>
-        <div className={styles.summary}>
+        <div className={styles.summary} key={current.slug}>
           <span>{current.identity.origin} · {current.identity.lineage}</span>
           <strong>{current.nameKo}</strong>
           <p>{current.tagline}</p>
