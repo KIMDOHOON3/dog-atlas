@@ -47,7 +47,7 @@ export default function Home() {
           </div>
         </section>
 
-        <CategoryExplorer breeds={breeds} />
+        <CategoryExplorer breeds={breeds} mode="quick" />
 
         <section className={styles.browse} id="discover" aria-labelledby="browse-title">
           <header><h2 id="browse-title">강아지 둘러보기</h2><p>관심 가는 한 마리부터 천천히 알아보세요.</p></header>

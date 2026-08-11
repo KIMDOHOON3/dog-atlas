@@ -100,3 +100,7 @@ Anchor the home carousel arrows and position indicator to the lower edge of the 
 # 2026-08-11 ??Match carousel image box proportions
 
 Use a shared 1:1 aspect ratio for the home hero visual across desktop and mobile, matching the existing card illustration format. Let the image frame define its own height from the available width and anchor carousel controls inside that frame, avoiding a viewport-based fixed height that can create mismatched boxes.
+
+# 2026-08-11 ??Simplify first-time discovery on home
+
+Replace the home explorer's hardcoded representative slug groups with six plain-language entry points backed by existing tendency filters. Each entry links to `/discover` with a valid query, while role/history exploration remains a separate section so beginners are not asked to interpret multiple taxonomies at once.

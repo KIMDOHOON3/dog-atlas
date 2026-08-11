@@ -30,6 +30,15 @@ const quickFilters = [
   { key: "coat", label: "털과 기후 관리", category: "home" as CategoryKey, slugs: ["mongolian-bankhar", "samoyed", "japanese-spitz", "maltese"] },
 ];
 
+const firstExploreOptions = [
+  { label: "느긋하게 지내는 편", description: "활동량이 낮은 편인 견종부터 살펴봐요.", query: "activity=low" },
+  { label: "함께 많이 움직이는", description: "활동량이 높은 편인 견종을 찾아봐요.", query: "activity=high" },
+  { label: "사람과 교감이 많은", description: "사람과의 교감이 높은 편인 견종을 봐요.", query: "social=high" },
+  { label: "혼자서도 쉬는 시간이 필요한", description: "독립성이 높은 편인 견종을 살펴봐요.", query: "independence=high" },
+  { label: "털 관리가 비교적 단순한", description: "털 관리가 낮은 편인 견종부터 확인해요.", query: "grooming=low" },
+  { label: "아직 잘 모르겠어요", description: "필터 없이 전체 견종을 천천히 둘러봐요.", query: "" },
+];
+
 const categoryMarks: Record<CategoryKey, string> = {
   life: styles.roleMark,
   home: styles.rhythmMark,
@@ -51,7 +60,7 @@ const registryLabels: Record<string, string> = {
   "great-dane": "대형 동반견",
 };
 
-export function CategoryExplorer({ breeds }: { breeds: readonly Breed[] }) {
+export function CategoryExplorer({ breeds, mode = "history" }: { breeds: readonly Breed[]; mode?: "history" | "quick" }) {
   const [activeKey, setActiveKey] = useState<CategoryKey>("life");
   const [activeLabel, setActiveLabel] = useState(categories[0].resultLabel);
   const [activeSlugs, setActiveSlugs] = useState(categories[0].slugs);
@@ -61,6 +70,25 @@ export function CategoryExplorer({ breeds }: { breeds: readonly Breed[] }) {
     const breed = breedBySlug.get(slug);
     return breed ? [breed] : [];
   });
+
+  if (mode === "quick") {
+    return (
+      <section className={`${styles.explorer} ${styles.quickExplorer}`} id="lenses" aria-labelledby="explorer-title">
+        <div className={styles.eyebrow}>처음이라면 여기부터</div>
+        <h2 id="explorer-title">내가 원하는 생활부터 골라보세요.</h2>
+        <p className={styles.intro}>정답이나 순위 대신, 실제 견종 데이터에 있는 생활 경향부터 가볍게 살펴볼 수 있어요.</p>
+        <div className={styles.quickStartGrid} role="list" aria-label="견종 발견 빠른 시작">
+          {firstExploreOptions.map((option) => (
+            <Link className={styles.quickStartCard} href={option.query ? `/discover?${option.query}` : "/discover"} key={option.label}>
+              <strong>{option.label}</strong>
+              <span>{option.description}</span>
+              <b aria-hidden="true">→</b>
+            </Link>
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className={styles.explorer} id="lenses" aria-labelledby="explorer-title">
