@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { BreedVisual } from "@/components/breed-visual";
 import { CategoryExplorer } from "@/components/category-explorer";
-import { DogIcon } from "@/components/dog-icon";
 import { SearchBox } from "@/components/search-box";
 import { SiteHeader } from "@/components/site-header";
 import { StoryGlyph } from "@/components/story-glyph";
@@ -45,13 +44,6 @@ export default function Home() {
             })} />
           </div>
         </section>
-
-        <nav className={styles.homeShortcuts} aria-label="홈 바로가기">
-          <Link href="/discover"><DogIcon name="discover" className={styles.homeIcon} /><span>견종 발견</span></Link>
-          <Link href="/compare"><DogIcon name="compare" className={styles.homeIcon} /><span>견종 비교</span></Link>
-          <Link href="/discover#history-title"><DogIcon name="history" className={styles.homeIcon} /><span>역할과 역사</span></Link>
-          <Link href="/discover"><DogIcon name="unfamiliar" className={styles.homeIcon} /><span>처음 보는 견종</span></Link>
-        </nav>
 
         <CategoryExplorer breeds={breeds} mode="quick" />
 

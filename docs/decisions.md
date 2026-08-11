@@ -121,6 +121,10 @@ Show four illustrated representative breeds in each home name-story card and lab
 
 Group the mobile filter trigger, active-condition count, and clear action into one aligned toolbar. Use `선택 지우기` instead of the broader `전체 초기화`, hide the duplicate clear action beside the mobile result heading, and shorten the result count copy. Present quick presets as an equal-width two-column grid on mobile and let an active preset toggle off when selected again.
 
+# 2026-08-11 — Remove redundant home shortcut cards
+
+Remove the four-card home shortcut block for discovery, comparison, role/history, and unfamiliar breeds. The same destinations remain available through the shared header, the fixed mobile bottom navigation, the search flow, and the lifestyle discovery section, so the extra block adds height and repeats choices without adding a distinct task.
+
 # 2026-08-11 ??Use dog-motif icons for home shortcuts
 
 Use dedicated transparent WebP illustration sprites based on clearly differentiated dog gestures and props for the home shortcut and condition menus. Treat them as large watercolor character icons rather than small decorative thumbnails: mobile shortcuts use a two-column horizontal layout, and condition cards give at least half their visual weight to the illustration. Let the card surface show naturally around each cutout instead of embedding a separate paper-colored rectangle. Keep accessible text labels alongside every image, use the atlas's watercolor-and-pencil palette, and avoid emoji or a generic icon-library aesthetic.
