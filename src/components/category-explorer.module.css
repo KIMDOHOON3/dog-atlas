@@ -2,7 +2,13 @@
 .quickExplorer { padding-top: 34px; padding-bottom: 52px; }
 .quickStartGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
 .quickStartCard { position: relative; min-height: 122px; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border: 1px solid var(--line); border-radius: 18px; color: var(--ink); background: var(--panel); text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
-.quickStartCard svg { width: 38px; height: 38px; margin-bottom: 14px; stroke: var(--moss); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.quickIcon { display: block; width: 48px; height: 48px; margin-bottom: 8px; background-image: url('/illustrations/ui/dog-discovery-icons-v1.png'); background-size: 300% 200%; background-repeat: no-repeat; mix-blend-mode: multiply; }
+.quickIcon[data-dog-icon="calm"] { background-position: 100% 100%; }
+.quickIcon[data-dog-icon="active"] { background-position: 50% 100%; }
+.quickIcon[data-dog-icon="social"] { background-position: 50% 0; }
+.quickIcon[data-dog-icon="independent"] { background-position: 0 100%; }
+.quickIcon[data-dog-icon="grooming"] { background-position: 100% 100%; }
+.quickIcon[data-dog-icon="unfamiliar"] { background-position: 0 100%; }
 .quickStartCard:hover { transform: translateY(-2px); border-color: var(--moss); box-shadow: 0 10px 24px rgb(42 52 46 / 8%); }
 .quickStartCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .quickStartCard strong { max-width: 15ch; font-size: 1rem; line-height: 1.35; }

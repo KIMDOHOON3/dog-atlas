@@ -1,6 +1,6 @@
 type DogIconName = "discover" | "compare" | "history" | "unfamiliar" | "calm" | "active" | "social" | "independent" | "grooming" | "alert";
 
-type IconProps = { name: DogIconName };
+type IconProps = { name: DogIconName; className?: string };
 
 function Face({ variant = "plain" }: { variant?: "plain" | "profile" }) {
   return (
@@ -13,7 +13,8 @@ function Face({ variant = "plain" }: { variant?: "plain" | "profile" }) {
 
 const base = { viewBox: "0 0 64 64", fill: "none", "aria-hidden": true as const };
 
-export function DogIcon({ name }: IconProps) {
+export function DogIcon({ name, className }: IconProps) {
+  if (className) return <span className={className} data-dog-icon={name} aria-hidden="true" />;
   if (name === "discover") return <svg {...base}><Face /><circle cx="44" cy="43" r="10" /><path d="m51 50 7 7" /></svg>;
   if (name === "compare") return <svg {...base}><path d="M7 24 10 16l7 4c2-1 4-1 6 0l7-4 3 8c0 7-4 12-13 12S7 31 7 24Z" /><path d="M34 24 37 16l7 4c2-1 4-1 6 0l7-4 3 8c0 7-4 12-13 12s-13-5-13-12Z" /><path d="M22 25h.01M47 25h.01M25 31h-3M44 31h-3" /></svg>;
   if (name === "history") return <svg {...base}><path d="M10 35c0-14 9-24 23-24 7 0 13 2 18 7" /><path d="m44 10 8 8-11 2" /><path d="M12 43h14M12 51h25" /><path d="M22 27c-3 0-6 3-6 6s3 6 6 6 6-3 6-6-3-6-6-6Z" /></svg>;

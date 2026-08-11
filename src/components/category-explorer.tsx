@@ -81,7 +81,7 @@ export function CategoryExplorer({ breeds, mode = "history" }: { breeds: readonl
         <div className={styles.quickStartGrid} role="list" aria-label="견종 발견 빠른 시작">
           {firstExploreOptions.map((option) => (
             <Link className={styles.quickStartCard} href={option.query ? `/discover?${option.query}` : "/discover"} key={option.label}>
-              <DogIcon name={option.icon} />
+              <DogIcon name={option.icon} className={styles.quickIcon} />
               <strong>{option.label}</strong>
               <span>{option.description}</span>
               <b aria-hidden="true">→</b>

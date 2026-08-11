@@ -111,4 +111,4 @@ Replace the undifferentiated 368-breed home grid with three non-ranking collecti
 
 # 2026-08-11 ??Use dog-motif icons for home shortcuts
 
-Use a small inline SVG icon set based on dog faces, noses, ears, paws, and behavior gestures for the home shortcut and condition menus. Keep icon geometry and stroke treatment consistent, use accessible text labels alongside every icon, and avoid emoji or an external icon dependency.
+Use a small raster illustration set based on dog gestures, props, and watercolor-and-pencil texture for the home shortcut and condition menus. Keep the six-cell sprite's palette and character language consistent with the existing breed illustrations, use accessible text labels alongside every image, and avoid emoji or a generic icon-library aesthetic.
