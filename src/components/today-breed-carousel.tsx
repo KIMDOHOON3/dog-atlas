@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import Link from "next/link";
 import { BreedVisual } from "./breed-visual";
 import type { Breed } from "@/content/breeds/schema";
@@ -15,7 +15,10 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isPaused, setIsPaused] = useState(false);
   const [motionAllowed, setMotionAllowed] = useState(true);
+  const [isChanging, setIsChanging] = useState(false);
   const swipeStartX = useRef<number | null>(null);
+  const changeTimer = useRef<number | null>(null);
+  const changingRef = useRef(false);
   const current = breeds[currentIndex];
 
   useEffect(() => {
@@ -27,15 +30,39 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
     return () => media.removeEventListener("change", updateMotion);
   }, []);
 
+  const transitionMove = useCallback((direction: -1 | 1) => {
+    if (breeds.length < 2 || changingRef.current) return;
+
+    if (!motionAllowed) {
+      setCurrentIndex((index) => (index + direction + breeds.length) % breeds.length);
+      return;
+    }
+
+    changingRef.current = true;
+    setIsChanging(true);
+    changeTimer.current = window.setTimeout(() => {
+      setCurrentIndex((index) => (index + direction + breeds.length) % breeds.length);
+      setIsChanging(false);
+      changingRef.current = false;
+      changeTimer.current = null;
+    }, 160);
+  }, [breeds.length, motionAllowed]);
+
   useEffect(() => {
     if (isPaused || !motionAllowed || breeds.length < 2) return;
-    const timer = window.setInterval(() => {
-      setCurrentIndex((index) => (index + 1) % breeds.length);
-    }, 700);
+    const timer = window.setInterval(() => transitionMove(1), 700);
     return () => window.clearInterval(timer);
-  }, [breeds.length, isPaused, motionAllowed]);
+  }, [breeds.length, isPaused, motionAllowed, transitionMove]);
+
+  useEffect(() => () => {
+    if (changeTimer.current !== null) window.clearTimeout(changeTimer.current);
+  }, []);
 
   function move(direction: -1 | 1) {
+    if (changeTimer.current !== null) window.clearTimeout(changeTimer.current);
+    changeTimer.current = null;
+    changingRef.current = false;
+    setIsChanging(false);
     setCurrentIndex((index) => (index + direction + breeds.length) % breeds.length);
   }
 
@@ -84,8 +111,7 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
     >
       <div className={styles.stage} aria-live={isPaused ? "polite" : "off"} aria-atomic="true">
         <div
-          key={current.slug}
-          className={styles.visualFrame}
+          className={`${styles.visualFrame} ${isChanging ? styles.visualFrameChanging : ""}`}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
           onPointerCancel={clearSwipeStart}
@@ -102,7 +128,7 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
             <button type="button" onClick={() => move(1)} aria-label="다음 강아지 보기">→</button>
           </div>
         </div>
-        <div className={styles.summary} key={current.slug}>
+        <div className={styles.summary}>
           <span>{current.identity.origin} · {current.identity.lineage}</span>
           <strong>{current.nameKo}</strong>
           <p>{current.tagline}</p>

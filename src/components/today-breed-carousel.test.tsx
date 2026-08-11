@@ -1,10 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { breeds } from "@/content/breeds/data";
 import { TodayBreedCarousel } from "./today-breed-carousel";
 
 vi.mock("./breed-visual", () => ({
-  BreedVisual: ({ breed }: { breed: { nameKo: string } }) => <div aria-label={`${breed.nameKo} 일러스트`} />,
+  BreedVisual: ({ breed }: { breed: { nameKo: string } }) => <div data-testid="breed-visual" aria-label={`${breed.nameKo} 일러스트`} />,
 }));
 
 describe("TodayBreedCarousel", () => {
@@ -21,5 +21,22 @@ describe("TodayBreedCarousel", () => {
     render(<TodayBreedCarousel breeds={breeds} initialIndex={0} />);
 
     expect(screen.queryByText(`오늘의 강아지 · ${breeds[0].nameKo}`)).not.toBeInTheDocument();
+  });
+
+  it("keeps one stable visual frame while autoplay advances", () => {
+    vi.useFakeTimers();
+    try {
+      const { container, unmount } = render(<TodayBreedCarousel breeds={breeds} initialIndex={0} />);
+      const initialFrame = container.querySelector('[class*="visualFrame"]');
+
+      act(() => vi.advanceTimersByTime(860));
+
+      expect(screen.getAllByTestId("breed-visual")).toHaveLength(1);
+      expect(container.querySelector('[class*="visualFrame"]')).toBe(initialFrame);
+
+      unmount();
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });

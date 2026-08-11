@@ -11,20 +11,17 @@
 .visualFrame {
   position: relative;
   min-width: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  isolation: isolate;
   touch-action: pan-y;
   user-select: none;
-  animation: carousel-enter .32s ease both;
+  opacity: 1;
+  transition: opacity .16s ease;
 }
 
-@keyframes carousel-enter {
-  from {
-    opacity: .35;
-    transform: translateX(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.visualFrameChanging {
+  opacity: 0;
 }
 
 .summary {
@@ -117,5 +114,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .visualFrame,
-  .controls button { animation: none; transition: none; }
+  .controls button { transition: none; }
 }
