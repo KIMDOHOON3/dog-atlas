@@ -1,16 +1,27 @@
 type DogIconName = "discover" | "compare" | "history" | "unfamiliar" | "calm" | "active" | "social" | "independent" | "grooming" | "alert";
 
-export function DogIcon({ name }: { name: DogIconName }) {
-  const common = { viewBox: "0 0 48 48", fill: "none", "aria-hidden": true as const };
+type IconProps = { name: DogIconName };
 
-  if (name === "compare") return <svg {...common}><path d="M11 17 15 9l7 5v16l-7 5-4-8V17ZM37 17l-4-8-7 5v16l7 5 4-8V17Z" /><path d="M22 20h4M22 28h4" /></svg>;
-  if (name === "history") return <svg {...common}><path d="M12 31c0-10 6-17 16-17 4 0 7 1 9 3" /><path d="m34 11 4 6-7 2" /><path d="M13 34h9M13 39h16" /><circle cx="18" cy="25" r="3" /></svg>;
-  if (name === "unfamiliar") return <svg {...common}><path d="M14 18 11 9l9 5c3-1 5-1 8 0l9-5-3 10c1 3 1 8-1 12-3 5-16 5-19 0-2-4-2-9 0-13Z" /><path d="M19 25h.01M29 25h.01M21 31c2 1 4 1 6 0" /><path d="m39 9 .8 2.2L42 12l-2.2.8L39 15l-.8-2.2L36 12l2.2-.8L39 9Z" /></svg>;
-  if (name === "calm") return <svg {...common}><path d="M14 18 11 9l9 5c3-1 5-1 8 0l9-5-3 10c1 3 1 8-1 12-3 5-16 5-19 0-2-4-2-9 0-13Z" /><path d="M19 25h.01M29 25h.01M20 31c3 2 5 2 8 0" /><path d="M10 40h28" /></svg>;
-  if (name === "active") return <svg {...common}><path d="m10 31 7-8 6 4 7-10" /><path d="m27 17 3-1 1 3" /><path d="M13 36c3-5 7-5 10 0M28 36c2-4 5-4 8 0" /><path d="M17 25c-3-3-5-7-3-11l7 5" /></svg>;
-  if (name === "social") return <svg {...common}><path d="M10 19 13 11l7 4c3-1 5-1 8 0l7-4 3 8c1 5-2 12-14 12S9 24 10 19Z" /><path d="M19 23h.01M29 23h.01M21 28c2 2 4 2 6 0" /><path d="M18 38c4-4 8-4 12 0" /></svg>;
-  if (name === "independent") return <svg {...common}><path d="M14 19 11 10l9 5c3-1 5-1 8 0l9-5-3 10c1 4 0 9-2 12-4 4-15 4-19 0-2-3-3-8 1-13Z" /><path d="M19 25h.01M29 25h.01M21 31c2 1 4 1 6 0" /><path d="M7 39h34" /></svg>;
-  if (name === "grooming") return <svg {...common}><path d="M13 18 10 10l9 5c3-1 7-1 10 0l9-5-3 10c1 4 0 9-2 12-4 4-15 4-19 0-2-3-3-8-1-14Z" /><path d="M19 25h.01M29 25h.01M22 31h4" /><path d="M8 39h15M27 39h13M25 35v8M29 35v8" /></svg>;
-  if (name === "alert") return <svg {...common}><path d="M13 18 10 10l9 5c3-1 7-1 10 0l9-5-3 10c1 4 0 9-2 12-4 4-15 4-19 0-2-3-3-8-1-14Z" /><path d="M19 25h.01M29 25h.01M21 31c2 1 4 1 6 0" /><path d="M39 15V8M35 12l-4-4M43 12l4-4" /></svg>;
-  return <svg {...common}><path d="M13 18 10 10l9 5c3-1 7-1 10 0l9-5-3 10c1 4 0 9-2 12-4 4-15 4-19 0-2-3-3-8-1-14Z" /><path d="M19 25h.01M29 25h.01M21 31c2 1 4 1 6 0" /><circle cx="36" cy="36" r="7" /><path d="m36 32-1 4 3 2" /></svg>;
+function Face({ variant = "plain" }: { variant?: "plain" | "profile" }) {
+  return (
+    <>
+      <path d="M19 22 14 12l10 5c5-2 9-2 14 0l10-5-5 11c1 5-1 12-5 15-7 5-17 5-24 0-4-3-6-10-5-16Z" />
+      {variant === "profile" ? <path d="M27 25c2-2 5-2 7 0M28 32c2 1 4 1 6 0" /> : <><path d="M25 25h.01M39 25h.01" /><path d="M29 32c2 2 5 2 7 0" /></>}
+    </>
+  );
+}
+
+const base = { viewBox: "0 0 64 64", fill: "none", "aria-hidden": true as const };
+
+export function DogIcon({ name }: IconProps) {
+  if (name === "discover") return <svg {...base}><Face /><circle cx="44" cy="43" r="10" /><path d="m51 50 7 7" /></svg>;
+  if (name === "compare") return <svg {...base}><path d="M7 24 10 16l7 4c2-1 4-1 6 0l7-4 3 8c0 7-4 12-13 12S7 31 7 24Z" /><path d="M34 24 37 16l7 4c2-1 4-1 6 0l7-4 3 8c0 7-4 12-13 12s-13-5-13-12Z" /><path d="M22 25h.01M47 25h.01M25 31h-3M44 31h-3" /></svg>;
+  if (name === "history") return <svg {...base}><path d="M10 35c0-14 9-24 23-24 7 0 13 2 18 7" /><path d="m44 10 8 8-11 2" /><path d="M12 43h14M12 51h25" /><path d="M22 27c-3 0-6 3-6 6s3 6 6 6 6-3 6-6-3-6-6-6Z" /></svg>;
+  if (name === "unfamiliar") return <svg {...base}><Face /><path d="M49 9v12M43 15h12M53 29v7M49.5 32.5h7" /></svg>;
+  if (name === "calm") return <svg {...base}><Face /><path d="M12 51h40" /><path d="M18 45c4 3 8 3 12 0M34 45c4 3 8 3 12 0" /></svg>;
+  if (name === "active") return <svg {...base}><path d="M9 45c7-2 10-7 13-13l8 5 9-13" /><path d="m35 23 6 1-1 6" /><path d="M17 48c3-4 7-4 10 0M35 48c3-4 7-4 10 0" /><path d="m20 31-6-6" /></svg>;
+  if (name === "social") return <svg {...base}><Face /><path d="M19 50c4-5 9-7 14-7s10 2 14 7" /><path d="M27 53c3-2 7-2 10 0" /></svg>;
+  if (name === "independent") return <svg {...base}><Face /><path d="M9 52h46" /><path d="M15 45h7M42 45h7" /></svg>;
+  if (name === "grooming") return <svg {...base}><Face /><path d="M11 49h42M18 45v10M25 45v10M32 45v10M39 45v10M46 45v10" /></svg>;
+  return <svg {...base}><Face /><path d="M51 13v12M45 19h12M55 35v7M51.5 38.5h7" /></svg>;
 }
