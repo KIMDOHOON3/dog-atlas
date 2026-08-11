@@ -2,7 +2,7 @@
 .quickExplorer { padding-top: 34px; padding-bottom: 52px; }
 .quickStartGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
 .quickStartCard { position: relative; min-height: 122px; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border: 1px solid var(--line); border-radius: 18px; color: var(--ink); background: var(--panel); text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
-.quickIcon { display: block; width: 48px; height: 48px; margin-bottom: 8px; background-image: url('/illustrations/ui/dog-discovery-icons-v1.png'); background-size: 300% 200%; background-repeat: no-repeat; mix-blend-mode: multiply; }
+.quickIcon { display: block; width: 52px; height: 52px; margin-bottom: 8px; border-radius: 50%; background-color: #fbf1dd; background-image: url('/illustrations/ui/dog-discovery-icons-v1.png'); background-size: 300% 200%; background-repeat: no-repeat; mix-blend-mode: multiply; }
 .quickIcon[data-dog-icon="calm"] { background-position: 100% 100%; }
 .quickIcon[data-dog-icon="active"] { background-position: 50% 100%; }
 .quickIcon[data-dog-icon="social"] { background-position: 50% 0; }
