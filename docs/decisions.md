@@ -132,3 +132,7 @@ Use dedicated transparent WebP illustration sprites based on clearly differentia
 # 2026-08-11 Add gentle autoplay to the home carousel
 
 Start the home carousel at the first catalog breed on every visit instead of deriving its initial position from the date. Advance every 2 seconds and crossfade the current and preloaded next image over 600ms so no empty frame appears. Keep one stable outer frame with at most two bounded image layers instead of remounting and transforming the large frame, which can leave stale compositor layers on some mobile browsers. Pause while the carousel is hovered, focused, or being swiped so controls remain usable, and disable autoplay and motion for users who prefer reduced motion. Keep the existing arrows, keyboard navigation, and pointer swipe behavior.
+
+# 2026-08-11 — Remove role/history exploration from discovery
+
+Remove the editorial role/history explorer from the bottom of `/discover` so the route has one clear purpose: factual condition filtering and result browsing. Remove its now-unused interactive state, curated slug groups, result cards, and styles from `CategoryExplorer`, while retaining the six home lifestyle shortcuts that link into factual filters. Historical context remains available in breed detail pages and the source-backed breed-name stories.

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { CategoryExplorer } from "@/components/category-explorer";
 import { DiscoverExplorer } from "@/components/discover-explorer";
 import { SiteHeader } from "@/components/site-header";
 import { breeds } from "@/content/breeds/data";
@@ -27,11 +26,6 @@ export default function DiscoverPage() {
         <Suspense fallback={<div className={styles.loading}>견종 필터를 준비하고 있어요.</div>}>
           <DiscoverExplorer breeds={breeds} />
         </Suspense>
-        <section className={styles.history} aria-labelledby="history-title">
-          <h2 id="history-title">역할과 역사로 견종 발견하기</h2>
-          <p>어떤 배경의 강아지가 궁금한가요? 사람과 어떤 일을 해왔는지부터 살펴볼 수 있어요.</p>
-          <CategoryExplorer breeds={breeds} />
-        </section>
       </main>
     </>
   );

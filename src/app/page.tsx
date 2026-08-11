@@ -45,7 +45,7 @@ export default function Home() {
           </div>
         </section>
 
-        <CategoryExplorer breeds={breeds} mode="quick" />
+        <CategoryExplorer />
 
         <section className={styles.browseCollections} id="breed-name-stories" aria-labelledby="browse-collections-title">
           <header><p className={styles.eyebrow}>이름 속 견종</p><h2 id="browse-collections-title">견종 이름은 어디에서 왔을까요?</h2><span>이름에 남은 옛 역할과 역사를 대표 견종부터 가볍게 살펴보세요.</span></header>
