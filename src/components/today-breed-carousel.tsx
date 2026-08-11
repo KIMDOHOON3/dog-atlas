@@ -11,15 +11,25 @@ type Props = {
   initialIndex: number;
 };
 
+const AUTOPLAY_INTERVAL_MS = 2000;
+const CROSSFADE_DURATION_MS = 600;
+
 export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isPaused, setIsPaused] = useState(false);
   const [motionAllowed, setMotionAllowed] = useState(true);
-  const [isChanging, setIsChanging] = useState(false);
+  const [preparedIndex, setPreparedIndex] = useState(() => (
+    breeds.length > 1 ? (initialIndex + 1) % breeds.length : initialIndex
+  ));
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const swipeStartX = useRef<number | null>(null);
   const changeTimer = useRef<number | null>(null);
+  const firstAnimationFrame = useRef<number | null>(null);
+  const secondAnimationFrame = useRef<number | null>(null);
   const changingRef = useRef(false);
+  const currentIndexRef = useRef(initialIndex);
   const current = breeds[currentIndex];
+  const prepared = breeds[preparedIndex];
 
   useEffect(() => {
     if (typeof window.matchMedia !== "function") return;
@@ -33,37 +43,50 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
   const transitionMove = useCallback((direction: -1 | 1) => {
     if (breeds.length < 2 || changingRef.current) return;
 
+    const targetIndex = (currentIndexRef.current + direction + breeds.length) % breeds.length;
+
     if (!motionAllowed) {
-      setCurrentIndex((index) => (index + direction + breeds.length) % breeds.length);
+      currentIndexRef.current = targetIndex;
+      setCurrentIndex(targetIndex);
+      setPreparedIndex((targetIndex + 1) % breeds.length);
       return;
     }
 
     changingRef.current = true;
-    setIsChanging(true);
-    changeTimer.current = window.setTimeout(() => {
-      setCurrentIndex((index) => (index + direction + breeds.length) % breeds.length);
-      setIsChanging(false);
-      changingRef.current = false;
-      changeTimer.current = null;
-    }, 160);
+    setPreparedIndex(targetIndex);
+    setIsTransitioning(false);
+
+    firstAnimationFrame.current = window.requestAnimationFrame(() => {
+      secondAnimationFrame.current = window.requestAnimationFrame(() => {
+        setIsTransitioning(true);
+        changeTimer.current = window.setTimeout(() => {
+          currentIndexRef.current = targetIndex;
+          setCurrentIndex(targetIndex);
+          setPreparedIndex((targetIndex + 1) % breeds.length);
+          setIsTransitioning(false);
+          changingRef.current = false;
+          changeTimer.current = null;
+          firstAnimationFrame.current = null;
+          secondAnimationFrame.current = null;
+        }, CROSSFADE_DURATION_MS);
+      });
+    });
   }, [breeds.length, motionAllowed]);
 
   useEffect(() => {
     if (isPaused || !motionAllowed || breeds.length < 2) return;
-    const timer = window.setInterval(() => transitionMove(1), 2000);
+    const timer = window.setInterval(() => transitionMove(1), AUTOPLAY_INTERVAL_MS);
     return () => window.clearInterval(timer);
   }, [breeds.length, isPaused, motionAllowed, transitionMove]);
 
   useEffect(() => () => {
     if (changeTimer.current !== null) window.clearTimeout(changeTimer.current);
+    if (firstAnimationFrame.current !== null) window.cancelAnimationFrame(firstAnimationFrame.current);
+    if (secondAnimationFrame.current !== null) window.cancelAnimationFrame(secondAnimationFrame.current);
   }, []);
 
   function move(direction: -1 | 1) {
-    if (changeTimer.current !== null) window.clearTimeout(changeTimer.current);
-    changeTimer.current = null;
-    changingRef.current = false;
-    setIsChanging(false);
-    setCurrentIndex((index) => (index + direction + breeds.length) % breeds.length);
+    transitionMove(direction);
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
@@ -111,17 +134,28 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
     >
       <div className={styles.stage} aria-live={isPaused ? "polite" : "off"} aria-atomic="true">
         <div
-          className={`${styles.visualFrame} ${isChanging ? styles.visualFrameChanging : ""}`}
+          className={styles.visualFrame}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
           onPointerCancel={clearSwipeStart}
           onPointerLeave={clearSwipeStart}
         >
-          <BreedVisual
-            breed={current}
-            variant="hero"
-            priority={currentIndex === initialIndex}
-          />
+          <div key={current.slug} className={`${styles.slide} ${isTransitioning ? styles.currentSlideLeaving : ""}`}>
+            <BreedVisual
+              breed={current}
+              variant="hero"
+              priority={currentIndex === initialIndex}
+            />
+          </div>
+          {prepared && preparedIndex !== currentIndex && (
+            <div
+              key={prepared.slug}
+              className={`${styles.slide} ${styles.preparedSlide} ${isTransitioning ? styles.preparedSlideEntering : ""}`}
+              aria-hidden="true"
+            >
+              <BreedVisual breed={prepared} variant="hero" />
+            </div>
+          )}
           <div className={styles.controls}>
             <button type="button" onClick={() => move(-1)} aria-label="이전 강아지 보기">←</button>
             <span aria-label={`${breeds.length}개 중 ${currentIndex + 1}번째`}>{currentIndex + 1} / {breeds.length}</span>

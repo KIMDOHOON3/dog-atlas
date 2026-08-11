@@ -16,9 +16,6 @@ const greyhound = getBreed("greyhound")!;
 
 export const revalidate = 86400;
 
-const dayInKorea = Math.floor((Date.now() + 9 * 60 * 60 * 1000) / 86400000);
-const initialTodayIndex = dayInKorea % breeds.length;
-
 const cardTraits: Record<string, string> = {
   "japanese-spitz": "가족과의 교감",
   maltese: "사람 곁을 선호",
@@ -45,7 +42,7 @@ export default function Home() {
             <h1 id="hero-title">아직 모르는 강아지를 만나보세요.</h1>
             <p className={styles.lead}>생김새 너머의 역사와, 함께 사는 현실까지.</p>
           </div>
-          <TodayBreedCarousel breeds={breeds} initialIndex={initialTodayIndex} />
+          <TodayBreedCarousel breeds={breeds} initialIndex={0} />
           <div className={styles.heroSearch}>
             <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn }) => {
               const master = getMasterBreed(slug);

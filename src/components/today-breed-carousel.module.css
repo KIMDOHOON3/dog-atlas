@@ -10,19 +10,36 @@
 
 .visualFrame {
   position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   min-width: 0;
   overflow: hidden;
   border-radius: 28px;
   isolation: isolate;
   touch-action: pan-y;
   user-select: none;
-  opacity: 1;
-  transition: opacity .16s ease;
 }
 
-.visualFrameChanging {
+.slide {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 1;
+  transition: opacity .6s cubic-bezier(.4, 0, .2, 1);
+}
+
+.slide > figure {
+  width: 100%;
+  height: 100%;
+}
+
+.preparedSlide {
+  z-index: 1;
   opacity: 0;
 }
+
+.currentSlideLeaving { opacity: 0; }
+.preparedSlideEntering { opacity: 1; }
 
 .summary {
   display: grid;
@@ -113,6 +130,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .visualFrame,
+  .slide,
   .controls button { transition: none; }
 }
