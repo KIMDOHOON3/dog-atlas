@@ -6,6 +6,7 @@ import { SearchBox } from "@/components/search-box";
 import { SiteHeader } from "@/components/site-header";
 import { StoryGlyph } from "@/components/story-glyph";
 import { TodayBreedCarousel } from "@/components/today-breed-carousel";
+import { breedNameStories } from "@/content/breed-name-stories";
 import { breeds, getBreed } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
 import styles from "./page.module.css";
@@ -61,8 +62,60 @@ export default function Home() {
         <CategoryExplorer breeds={breeds} mode="quick" />
 
         <section className={styles.browseCollections} aria-labelledby="browse-collections-title">
-          <header><p className={styles.eyebrow}>편집 큐레이션</p><h2 id="browse-collections-title">이야기로 강아지를 둘러보세요.</h2><span>순위가 아니라 역할과 지역, 낯선 배경을 따라 골라볼 수 있어요.</span></header>
+          <header><p className={styles.eyebrow}>편집 큐레이션</p><h2 id="browse-collections-title">이야기로 강아지를 둘러보세요.</h2><span>이름 속 단서와 역할, 지역, 낯선 배경을 따라 골라볼 수 있어요.</span></header>
           <div className={styles.collectionList}>
+            <section className={`${styles.collection} ${styles.nameStoryCollection}`} aria-labelledby="name-story-title">
+              <div className={styles.collectionHeading}>
+                <div>
+                  <h3 id="name-story-title">이름을 읽으면 옛일이 보여요.</h3>
+                  <p>Pointer, Retriever, Spaniel 같은 말에 어떤 역할과 역사가 남았는지 살펴보세요.</p>
+                </div>
+                <span className={styles.storySwipeHint}>옆으로 넘겨 보기 →</span>
+              </div>
+              <div className={styles.nameStoryGrid}>
+                {breedNameStories.map((story) => {
+                  const leadBreed = getBreed(story.examples[0].slug);
+                  if (!leadBreed) return null;
+
+                  return (
+                    <article className={styles.nameStoryCard} key={story.key}>
+                      <Link className={styles.nameStoryLead} href={`/breeds/${leadBreed.slug}`} aria-label={`${leadBreed.nameKo} 상세 정보 보기`}>
+                        <BreedVisual breed={leadBreed} variant="tile" />
+                      </Link>
+                      <div className={styles.nameStoryHead}>
+                        <span>{story.term}</span>
+                        <h4>{story.meaning}</h4>
+                      </div>
+                      <p className={styles.nameStoryDescription}>{story.description}</p>
+                      <ul className={styles.nameStoryExamples} aria-label={`${story.term} 관련 견종`}>
+                        {story.examples.map((example) => {
+                          const breed = getBreed(example.slug);
+                          if (!breed) return null;
+
+                          return (
+                            <li key={example.slug}>
+                              <Link href={`/breeds/${breed.slug}`}>
+                                <strong>{breed.nameKo}</strong>
+                                <span>{example.cue}</span>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <div className={styles.nameStorySources}>
+                        <span>자료</span>
+                        {story.sources.map((source) => (
+                          <a href={source.url} key={source.url} target="_blank" rel="noreferrer" aria-label={`${source.organization} 자료 새 창에서 열기`}>
+                            {source.label} ↗
+                          </a>
+                        ))}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+              <p className={styles.nameStoryDisclaimer}>이름은 역사적 역할을 읽는 단서예요. 같은 이름군의 모든 견종이나 오늘의 개체가 똑같이 행동한다는 뜻은 아닙니다.</p>
+            </section>
             {browseCollections.map((collection) => {
               const collectionBreeds = collection.slugs.map((slug) => getBreed(slug)).filter((breed): breed is NonNullable<typeof breed> => Boolean(breed));
               return (
