@@ -113,6 +113,10 @@ Replace the undifferentiated 368-breed home grid with three non-ranking collecti
 
 Add a compact editorial collection that explains how Pointer, Retriever, Setter, Spaniel, Sheepdog/Shepherd, and Terrier names relate to historical work or word origin. Keep each story source-backed, connect it to existing detailed breeds, and expose the original references in the UI. Explicitly distinguish direct work terms from broader or regional names: Spaniel does not itself name one task, and Shepherd or Sheepdog can refer to either moving livestock or guarding it. Treat names as historical clues rather than predictions of a modern individual dog's behavior.
 
+# 2026-08-11 — Expand name stories into their own browse path
+
+Show four illustrated representative breeds in each home name-story card and label them as representatives rather than the full set. Add `/breed-names/[key]` pages that collect every matching breed already present in the atlas, disclose the matching rule, and preserve links to the original source material. Retire the overlapping home collections for work roles, regional environments, and unfamiliar breeds so the editorial area has one clear purpose. Keep role and history discovery available on `/discover`.
+
 # 2026-08-11 ??Use dog-motif icons for home shortcuts
 
 Use dedicated transparent WebP illustration sprites based on clearly differentiated dog gestures and props for the home shortcut and condition menus. Treat them as large watercolor character icons rather than small decorative thumbnails: mobile shortcuts use a two-column horizontal layout, and condition cards give at least half their visual weight to the illustration. Let the card surface show naturally around each cutout instead of embedding a separate paper-colored rectangle. Keep accessible text labels alongside every image, use the atlas's watercolor-and-pencil palette, and avoid emoji or a generic icon-library aesthetic.

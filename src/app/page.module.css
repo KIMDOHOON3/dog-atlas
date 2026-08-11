@@ -21,30 +21,32 @@
 .browseCollections > header { margin-bottom: 28px; }
 .browseCollections > header h2 { max-width: 18ch; margin: 0; font-size: clamp(1.8rem, 2.5vw, 2.25rem); line-height: 1.28; letter-spacing: -.03em; }
 .browseCollections > header span { display: block; margin-top: 8px; color: var(--ink-soft); font-size: .94rem; }
-.collection + .collection { margin-top: 34px; }
 .collectionHeading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
 .collectionHeading h3 { margin: 0; font-size: 1.25rem; letter-spacing: -.025em; }
 .collectionHeading p { margin: 4px 0 0; color: var(--ink-soft); font-size: .86rem; }
 .collectionHeading a { flex: none; color: var(--moss); font-size: .82rem; font-weight: 700; text-underline-offset: 4px; }
-.collectionGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .nameStoryCollection { padding: 24px; border: 1px solid color-mix(in srgb, var(--moss) 15%, transparent); border-radius: 26px; background: color-mix(in srgb, var(--moss-light) 64%, var(--panel)); }
 .storySwipeHint { display: none; color: var(--moss); font-size: .76rem; font-weight: 700; white-space: nowrap; }
 .nameStoryGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.nameStoryCard { display: grid; grid-template-columns: 104px minmax(0, 1fr); align-content: start; gap: 0 14px; min-width: 0; padding: 12px; border: 1px solid rgb(36 48 43 / 7%); border-radius: 20px; background: var(--panel); box-shadow: 0 8px 22px rgb(36 48 43 / 5%); }
-.nameStoryLead { display: block; width: 104px; color: inherit; text-decoration: none; }
-.nameStoryLead > figure { border-radius: 14px; }
-.nameStoryLead:focus-visible { border-radius: 14px; outline: 3px solid var(--focus); outline-offset: 3px; }
-.nameStoryHead { align-self: center; min-width: 0; }
+.nameStoryCard { min-width: 0; padding: 14px; border: 1px solid rgb(36 48 43 / 7%); border-radius: 20px; background: var(--panel); box-shadow: 0 8px 22px rgb(36 48 43 / 5%); }
+.nameStoryHead { min-width: 0; }
 .nameStoryHead > span { display: block; color: var(--moss); font-size: .72rem; font-weight: 800; letter-spacing: .035em; line-height: 1.3; overflow-wrap: anywhere; }
 .nameStoryHead h4 { margin: 6px 0 0; font-size: 1.02rem; line-height: 1.35; letter-spacing: -.025em; word-break: keep-all; }
-.nameStoryDescription { grid-column: 1 / -1; margin: 13px 2px 12px; color: var(--ink-soft); font-size: .82rem; line-height: 1.62; word-break: keep-all; }
-.nameStoryExamples { grid-column: 1 / -1; display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
-.nameStoryExamples a { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 8px; padding: 7px 9px; border-radius: 10px; color: var(--ink); background: color-mix(in srgb, var(--moss-light) 58%, transparent); text-decoration: none; }
-.nameStoryExamples a:hover { background: var(--moss-light); }
+.nameStoryDescription { min-height: 5.1em; margin: 10px 0 12px; color: var(--ink-soft); font-size: .82rem; line-height: 1.62; word-break: keep-all; }
+.nameStoryRepresentative { display: flex; align-items: center; justify-content: space-between; margin: 0 1px 7px; color: var(--ink-soft); font-size: .7rem; }
+.nameStoryRepresentative strong { color: var(--moss); }
+.nameStoryExamples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.nameStoryExamples a { overflow: hidden; display: block; height: 100%; border: 1px solid rgb(36 48 43 / 7%); border-radius: 13px; color: var(--ink); background: color-mix(in srgb, var(--moss-light) 42%, var(--panel)); text-decoration: none; }
+.nameStoryExamples a:hover { border-color: color-mix(in srgb, var(--moss) 42%, transparent); background: var(--moss-light); }
 .nameStoryExamples a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-.nameStoryExamples strong { font-size: .76rem; white-space: nowrap; }
-.nameStoryExamples span { min-width: 0; color: var(--ink-soft); font-size: .7rem; text-align: right; overflow-wrap: anywhere; }
-.nameStorySources { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 5px 9px; margin-top: 11px; padding: 9px 2px 1px; border-top: 1px solid var(--line); font-size: .68rem; }
+.nameStoryExamples figure { border: 0; border-radius: 12px 12px 5px 5px; }
+.nameStoryExamples a > div { min-height: 58px; padding: 7px 8px 8px; }
+.nameStoryExamples strong { display: block; font-size: .73rem; line-height: 1.35; word-break: keep-all; }
+.nameStoryExamples a > div span { display: block; margin-top: 3px; color: var(--ink-soft); font-size: .64rem; line-height: 1.35; word-break: keep-all; }
+.nameStoryMore { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 11px; padding: 10px 11px; border-radius: 11px; color: var(--moss); background: var(--moss-light); font-size: .74rem; font-weight: 800; text-decoration: none; }
+.nameStoryMore:hover { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--moss) 30%, transparent); }
+.nameStoryMore:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.nameStorySources { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 9px; margin-top: 11px; padding: 9px 2px 1px; border-top: 1px solid var(--line); font-size: .68rem; }
 .nameStorySources > span { color: var(--ink-soft); }
 .nameStorySources a { color: var(--moss); font-weight: 700; text-underline-offset: 3px; }
 .nameStoryDisclaimer { margin: 14px 2px 0; color: var(--ink-soft); font-size: .75rem; line-height: 1.55; }
@@ -82,8 +84,8 @@
 .sectionCue svg { width: 28px; height: 28px; fill: none; stroke: var(--moss); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .footer { padding: 28px 16px; border-top: 1px solid var(--line); color: var(--ink-soft); text-align: center; font-size: .84rem; }
 @media (max-width: 960px) { .hero { gap: 18px 24px; grid-template-columns: minmax(0, 44fr) minmax(380px, 56fr); } .breedGrid { grid-template-columns: repeat(3, 1fr); } .rhythmCard { grid-template-columns: 1fr; } }
-@media (max-width: 960px) { .collectionGrid, .nameStoryGrid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 767px) { .hero { margin-top: 14px; grid-template: "copy" auto "visual" auto "search" auto / 1fr; gap: 16px; } .heroCopy { padding-top: 14px; } .hero h1 { max-width: none; font-size: clamp(2.15rem, 9.2vw, 2.55rem); } .lead { margin-top: 10px; font-size: 1rem; } .heroSearch { width: 100%; } .homeShortcuts { margin-top: 18px; grid-template-columns: repeat(4, 1fr); gap: 7px; } .homeShortcuts a { min-height: 82px; border-radius: 14px; gap: 5px; } .homeIcon { width: 42px; height: 42px; } .homeShortcuts span { font-size: .7rem; } .browseCollections { padding-top: 12px; padding-bottom: 54px; } .browseCollections > header h2 { font-size: 1.65rem; } .collectionHeading { display: block; } .collectionHeading a { display: inline-block; margin-top: 8px; } .collectionGrid { gap: 10px; } .browse { padding-top: 32px; } .browse > header { display: block; } .browse > header p { margin-top: 2px; } .browse h2, .curations h2 { font-size: 1.65rem; } .breedGrid { grid-template-columns: 1fr 1fr; gap: 10px; } .curations { padding: 10px 0 64px; } .feature { grid-template-columns: 1fr; padding: 14px; } .feature > div { padding: 12px 8px 18px; } .rhythmSection { margin-top: 48px; } .rhythmSection > div { grid-template-columns: 1fr; } .rhythmCard { grid-template-columns: 42fr 58fr; } }
+@media (max-width: 960px) { .nameStoryGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 767px) { .hero { margin-top: 14px; grid-template: "copy" auto "visual" auto "search" auto / 1fr; gap: 16px; } .heroCopy { padding-top: 14px; } .hero h1 { max-width: none; font-size: clamp(2.15rem, 9.2vw, 2.55rem); } .lead { margin-top: 10px; font-size: 1rem; } .heroSearch { width: 100%; } .homeShortcuts { margin-top: 18px; grid-template-columns: repeat(4, 1fr); gap: 7px; } .homeShortcuts a { min-height: 82px; border-radius: 14px; gap: 5px; } .homeIcon { width: 42px; height: 42px; } .homeShortcuts span { font-size: .7rem; } .browseCollections { padding-top: 12px; padding-bottom: 54px; } .browseCollections > header h2 { font-size: 1.65rem; } .collectionHeading { display: block; } .collectionHeading a { display: inline-block; margin-top: 8px; } .browse { padding-top: 32px; } .browse > header { display: block; } .browse > header p { margin-top: 2px; } .browse h2, .curations h2 { font-size: 1.65rem; } .breedGrid { grid-template-columns: 1fr 1fr; gap: 10px; } .curations { padding: 10px 0 64px; } .feature { grid-template-columns: 1fr; padding: 14px; } .feature > div { padding: 12px 8px 18px; } .rhythmSection { margin-top: 48px; } .rhythmSection > div { grid-template-columns: 1fr; } .rhythmCard { grid-template-columns: 42fr 58fr; } }
 @media (max-width: 420px) { .hero, .browse, .curations { width: calc(100% - var(--page-inline)); } .breedCard > div { padding: 10px 11px 12px; } .breedCard strong { font-size: .92rem; } .breedCard small { font-size: .76rem; } .rhythmCard { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .breedCard { transition: none; } .breedCard:hover { transform: none; } }
 
@@ -97,6 +99,6 @@
   .storySwipeHint { display: inline; }
   .nameStoryGrid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(286px, 84vw); gap: 10px; overflow-x: auto; padding: 2px 2px 10px; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-inline: contain; }
   .nameStoryGrid::-webkit-scrollbar { display: none; }
-  .nameStoryCard { grid-template-columns: 94px minmax(0, 1fr); scroll-snap-align: start; }
-  .nameStoryLead { width: 94px; }
+  .nameStoryCard { scroll-snap-align: start; }
+  .nameStoryDescription { min-height: 0; }
 }
