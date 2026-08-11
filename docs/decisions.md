@@ -108,3 +108,7 @@ Replace the home explorer's hardcoded representative slug groups with six plain-
 # 2026-08-11 ??Add editorial browse collections to home
 
 Replace the undifferentiated 368-breed home grid with three non-ranking collections: working roles, regional environments, and unfamiliar breeds. Use existing breed identity and role copy for the cards, and keep the full factual filter experience on `/discover`. Do not label collections as popularity or national top lists without dated, sourced data.
+
+# 2026-08-11 ??Use dog-motif icons for home shortcuts
+
+Use a small inline SVG icon set based on dog faces, noses, ears, paws, and behavior gestures for the home shortcut and condition menus. Keep icon geometry and stroke treatment consistent, use accessible text labels alongside every icon, and avoid emoji or an external icon dependency.

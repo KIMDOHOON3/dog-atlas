@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { BreedVisual } from "@/components/breed-visual";
+import { DogIcon } from "@/components/dog-icon";
 import type { Breed } from "@/content/breeds/schema";
 import styles from "./category-explorer.module.css";
 
@@ -31,12 +32,12 @@ const quickFilters = [
 ];
 
 const firstExploreOptions = [
-  { label: "느긋하게 지내는 편", description: "활동량이 낮은 편인 견종부터 살펴봐요.", query: "activity=low" },
-  { label: "함께 많이 움직이는", description: "활동량이 높은 편인 견종을 찾아봐요.", query: "activity=high" },
-  { label: "사람과 교감이 많은", description: "사람과의 교감이 높은 편인 견종을 봐요.", query: "social=high" },
-  { label: "혼자서도 쉬는 시간이 필요한", description: "독립성이 높은 편인 견종을 살펴봐요.", query: "independence=high" },
-  { label: "털 관리가 비교적 단순한", description: "털 관리가 낮은 편인 견종부터 확인해요.", query: "grooming=low" },
-  { label: "아직 잘 모르겠어요", description: "필터 없이 전체 견종을 천천히 둘러봐요.", query: "" },
+  { label: "느긋한 활동", description: "활동량이 낮은 편", query: "activity=low", icon: "calm" as const },
+  { label: "많이 움직이기", description: "활동량이 높은 편", query: "activity=high", icon: "active" as const },
+  { label: "사람과 교감", description: "교감이 높은 편", query: "social=high", icon: "social" as const },
+  { label: "독립적인 성향", description: "독립성이 높은 편", query: "independence=high", icon: "independent" as const },
+  { label: "털 관리 적게", description: "털 관리가 낮은 편", query: "grooming=low", icon: "grooming" as const },
+  { label: "아직 잘 모르겠어요", description: "전체 견종 둘러보기", query: "", icon: "unfamiliar" as const },
 ];
 
 const categoryMarks: Record<CategoryKey, string> = {
@@ -76,10 +77,11 @@ export function CategoryExplorer({ breeds, mode = "history" }: { breeds: readonl
       <section className={`${styles.explorer} ${styles.quickExplorer}`} id="lenses" aria-labelledby="explorer-title">
         <div className={styles.eyebrow}>처음이라면 여기부터</div>
         <h2 id="explorer-title">내가 원하는 생활부터 골라보세요.</h2>
-        <p className={styles.intro}>정답이나 순위 대신, 실제 견종 데이터에 있는 생활 경향부터 가볍게 살펴볼 수 있어요.</p>
+        <p className={styles.intro}>원하는 생활을 하나 골라 가볍게 시작해보세요.</p>
         <div className={styles.quickStartGrid} role="list" aria-label="견종 발견 빠른 시작">
           {firstExploreOptions.map((option) => (
             <Link className={styles.quickStartCard} href={option.query ? `/discover?${option.query}` : "/discover"} key={option.label}>
+              <DogIcon name={option.icon} />
               <strong>{option.label}</strong>
               <span>{option.description}</span>
               <b aria-hidden="true">→</b>
