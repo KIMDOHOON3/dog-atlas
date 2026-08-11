@@ -84,7 +84,7 @@ export default async function BreedDetail({ params }: PageProps) {
           </div>
         </section>
 
-        <aside className={styles.appearanceNote}><strong>대표 형태 살펴보기</strong><span>{breed.identity.size} · {breed.identity.lineage}</span><small>외형 자료: 검수된 일러스트 참고</small></aside>
+        <aside className={styles.appearanceNote}><strong>대표 형태 살펴보기</strong><span>{breed.identity.size} · {breed.identity.lineage}</span><small>외형 자료: 편집 일러스트 참고</small></aside>
 
         <article className={styles.content}>
           <section className={`${styles.history} ${breed.historyVisual ? styles.historyWithVisual : ""}`} aria-labelledby="history-title">

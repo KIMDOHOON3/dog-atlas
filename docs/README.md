@@ -31,10 +31,12 @@
 
 ### 이미지 제작 기록
 
+- [`breed-visual-audit.md`](breed-visual-audit.md) — 368종 카드 1차 외형 점검, 교체 완료·필요·재확인 상태
+- [`image-prompts-sapsaree.md`](image-prompts-sapsaree.md) — 삽살개 카드·역사 이미지 재제작 근거와 전체 프롬프트
 - [`image-prompts-batch-a.md`](image-prompts-batch-a.md) — 초기 확장 배치 A의 카드·역사 이미지 프롬프트와 QA 기록
 - [`image-prompts-batch-b.md`](image-prompts-batch-b.md) — 초기 확장 배치 B의 카드·역사 이미지 프롬프트와 QA 기록
 
-두 이미지 문서는 현재 전체 365종 자산 목록이 아니라 초기 제작 배치의 재현 기록이다.
+배치 A·B 문서는 현재 전체 368종 자산 목록이 아니라 초기 제작 배치의 재현 기록이다. 최신 외형 점검 상태는 `breed-visual-audit.md`를 기준으로 본다.
 
 ## 문서 유지 규칙
 

@@ -136,3 +136,9 @@ Start the home carousel at the first catalog breed on every visit instead of der
 # 2026-08-11 — Remove role/history exploration from discovery
 
 Remove the editorial role/history explorer from the bottom of `/discover` so the route has one clear purpose: factual condition filtering and result browsing. Remove its now-unused interactive state, curated slug groups, result cards, and styles from `CategoryExplorer`, while retaining the six home lifestyle shortcuts that link into factual filters. Historical context remains available in breed detail pages and the source-backed breed-name stories.
+
+# 2026-08-11 — Separate image integrity from breed-appearance approval
+
+Treat local file existence, WebP validity, dimensions, and uniqueness as asset-integrity checks only. They do not establish that an illustration accurately represents a breed. Do not label generated or editorial artwork as `검수된 일러스트` until its morphology has been compared breed by breed with an official standard, national conservation source, or peer-reviewed source.
+
+Review card and history images as one visual unit, recording the source, date, changed paths, and generation prompt. Replace the incorrect spitz-like Sapsaree artwork first and track the seven confirmed high-priority mismatches in `docs/breed-visual-audit.md`. Keep the rest in an unapproved first-pass state rather than claiming that the full 368-image set is accurate.
