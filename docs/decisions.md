@@ -96,3 +96,7 @@ On viewports up to 767px, keep `견종 발견` and `비교하기` reachable thro
 # 2026-08-11 ??Move carousel controls below the image and support swipe
 
 Anchor the home carousel arrows and position indicator to the lower edge of the hero image so they do not cover the upper illustration. Add horizontal pointer-swipe navigation to the image frame while retaining keyboard arrows and explicit buttons for accessibility and desktop use.
+
+# 2026-08-11 ??Match carousel image box proportions
+
+Use a shared 5:4 aspect ratio for the home hero visual across desktop and mobile. Let the image frame define its own height from the available width and anchor carousel controls inside that frame, avoiding a viewport-based fixed height that can create mismatched boxes.

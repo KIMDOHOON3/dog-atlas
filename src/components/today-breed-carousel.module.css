@@ -9,6 +9,7 @@
 }
 
 .visualFrame {
+  position: relative;
   min-width: 0;
   touch-action: pan-y;
   user-select: none;
@@ -55,7 +56,8 @@
 .controls {
   position: absolute;
   right: 14px;
-  top: calc(min(480px, 52vw) - 56px);
+  top: auto;
+  bottom: 14px;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -67,6 +69,8 @@
   box-shadow: 0 6px 18px rgb(36 48 43 / 8%);
   backdrop-filter: blur(8px);
 }
+
+.stage > .controls { display: none; }
 
 .swipeHint {
   position: absolute;
@@ -96,7 +100,7 @@
 @media (max-width: 767px) {
   .summary p { display: none; }
   .summary a { margin-top: 2px; }
-  .controls { right: 10px; top: 204px; }
+  .controls { right: 10px; bottom: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
