@@ -50,7 +50,7 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
 
   useEffect(() => {
     if (isPaused || !motionAllowed || breeds.length < 2) return;
-    const timer = window.setInterval(() => transitionMove(1), 700);
+    const timer = window.setInterval(() => transitionMove(1), 2000);
     return () => window.clearInterval(timer);
   }, [breeds.length, isPaused, motionAllowed, transitionMove]);
 

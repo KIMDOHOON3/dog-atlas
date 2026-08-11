@@ -29,7 +29,7 @@ describe("TodayBreedCarousel", () => {
       const { container, unmount } = render(<TodayBreedCarousel breeds={breeds} initialIndex={0} />);
       const initialFrame = container.querySelector('[class*="visualFrame"]');
 
-      act(() => vi.advanceTimersByTime(860));
+      act(() => vi.advanceTimersByTime(2160));
 
       expect(screen.getAllByTestId("breed-visual")).toHaveLength(1);
       expect(container.querySelector('[class*="visualFrame"]')).toBe(initialFrame);
