@@ -42,6 +42,23 @@ describe("breed content", () => {
     expect(behaviorContextSources).toHaveLength(4);
   });
 
+  it("keeps published source URLs secure and individual FCI standards unique per breed", () => {
+    const fciUrls = new Map<string, string[]>();
+
+    for (const breed of breeds) {
+      for (const source of breed.sources) {
+        expect(source.url, `${breed.slug} source`).toMatch(/^https:\/\//);
+        if (source.organization !== "Fédération Cynologique Internationale") continue;
+        const fileName = new URL(source.url).pathname.split("/").at(-1) ?? "";
+        if (/^\d+-/u.test(fileName)) continue;
+        fciUrls.set(source.url, [...(fciUrls.get(source.url) ?? []), breed.slug]);
+      }
+    }
+
+    const duplicates = [...fciUrls.entries()].filter(([, slugs]) => slugs.length > 1);
+    expect(duplicates).toEqual([]);
+  });
+
   it("finds the Japanese Spitz detail entry", () => {
     expect(getBreed("japanese-spitz")?.nameKo).toBe("재패니즈 스피츠");
   });

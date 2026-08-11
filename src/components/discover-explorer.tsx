@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BreedVisual } from "@/components/breed-visual";
 import type { Breed } from "@/content/breeds/schema";
 import {
@@ -42,6 +42,9 @@ const tendencyOptions: Array<{ value: TendencyLevel; label: string }> = [
   { value: "high", label: "높은 편" },
 ];
 
+const INITIAL_RESULT_COUNT = 48;
+const RESULT_BATCH_SIZE = 48;
+
 function cloneFilters(filters: BreedFilters): BreedFilters {
   return {
     size: [...filters.size],
@@ -59,25 +62,94 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [filterOpen, setFilterOpen] = useState(false);
+  const filterTriggerRef = useRef<HTMLButtonElement>(null);
+  const filterPanelRef = useRef<HTMLElement>(null);
+  const closeFilterRef = useRef<HTMLButtonElement>(null);
+  const pendingQueryRef = useRef<string | null>(null);
   const queryString = searchParams.toString();
-  const filters = useMemo(() => parseBreedFilters(new URLSearchParams(queryString)), [queryString]);
+  const urlFilters = useMemo(() => parseBreedFilters(new URLSearchParams(queryString)), [queryString]);
+  const [filters, setFilters] = useState<BreedFilters>(() => urlFilters);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_RESULT_COUNT);
+  const filtersRef = useRef(filters);
   const results = useMemo(() => filterBreeds(breeds, filters), [breeds, filters]);
+  const visibleResults = useMemo(() => results.slice(0, visibleCount), [results, visibleCount]);
   const activeCount = Object.values(filters).reduce((count, values) => count + values.length, 0);
 
+  useEffect(() => {
+    if (pendingQueryRef.current !== null) {
+      if (queryString === pendingQueryRef.current) pendingQueryRef.current = null;
+      return;
+    }
+
+    filtersRef.current = urlFilters;
+    setFilters(urlFilters);
+    setVisibleCount(INITIAL_RESULT_COUNT);
+  }, [queryString, urlFilters]);
+
+  useEffect(() => {
+    if (!filterOpen) return;
+
+    const previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeFilterRef.current?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setFilterOpen(false);
+        requestAnimationFrame(() => filterTriggerRef.current?.focus());
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusable = [...(filterPanelRef.current?.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ) ?? [])].filter((element) => element.getClientRects().length > 0);
+
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [filterOpen]);
+
+  function closeMobileFilters() {
+    setFilterOpen(false);
+    requestAnimationFrame(() => filterTriggerRef.current?.focus());
+  }
+
   function commitFilters(nextFilters: BreedFilters) {
+    filtersRef.current = nextFilters;
+    setFilters(nextFilters);
+    setVisibleCount(INITIAL_RESULT_COUNT);
     const query = filtersToSearchParams(nextFilters).toString();
+    pendingQueryRef.current = query;
     router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
   }
 
   function toggleFilter(key: "size" | TendencyFilterKey, value: string) {
-    const next = cloneFilters(filters);
+    const next = cloneFilters(filtersRef.current);
     const values = next[key] as string[];
     next[key] = (values.includes(value) ? values.filter((item) => item !== value) : [...values, value]) as never;
     commitFilters(next);
   }
 
   function clearOne(key: "size" | TendencyFilterKey, value: string) {
-    const next = cloneFilters(filters);
+    const next = cloneFilters(filtersRef.current);
     next[key] = (next[key] as string[]).filter((item) => item !== value) as never;
     commitFilters(next);
   }
@@ -94,7 +166,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
   return (
     <div className={styles.explorer}>
       <div className={styles.mobileFilterBar}>
-        <button className={styles.filterTrigger} type="button" aria-expanded={filterOpen} onClick={() => setFilterOpen(true)}>
+        <button ref={filterTriggerRef} className={styles.filterTrigger} type="button" aria-controls="breed-filter-panel" aria-expanded={filterOpen} onClick={() => setFilterOpen(true)}>
           <span>필터</span>
           {activeCount > 0 && <strong aria-label={`선택한 필터 ${activeCount}개`}>{activeCount}</strong>}
         </button>
@@ -102,11 +174,11 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
       </div>
 
       <div className={`${styles.filterLayout} ${filterOpen ? styles.filterOpen : ""}`}>
-        {filterOpen && <button className={styles.backdrop} type="button" aria-label="필터 닫기" onClick={() => setFilterOpen(false)} />}
-        <aside className={styles.filterPanel} aria-label="견종 필터">
+        {filterOpen && <button className={styles.backdrop} type="button" aria-label="필터 닫기" onClick={closeMobileFilters} />}
+        <aside ref={filterPanelRef} id="breed-filter-panel" className={styles.filterPanel} role={filterOpen ? "dialog" : undefined} aria-modal={filterOpen || undefined} aria-labelledby="breed-filter-title">
           <div className={styles.filterPanelHeader}>
-            <div><span>조건 선택</span><h2>어떤 기준으로 살펴볼까요?</h2></div>
-            <button className={styles.closeFilter} type="button" aria-label="필터 닫기" onClick={() => setFilterOpen(false)}>×</button>
+            <div><span>조건 선택</span><h2 id="breed-filter-title">어떤 기준으로 살펴볼까요?</h2></div>
+            <button ref={closeFilterRef} className={styles.closeFilter} type="button" aria-label="필터 닫기" onClick={closeMobileFilters}>×</button>
           </div>
 
           <fieldset>
@@ -125,7 +197,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
             </fieldset>
           ))}
 
-          <button className={styles.applyFilter} type="button" onClick={() => setFilterOpen(false)}>{activeCount > 0 ? `${results.length}종 결과 보기` : `전체 ${results.length}종 보기`}</button>
+          <button className={styles.applyFilter} type="button" onClick={closeMobileFilters}>{activeCount > 0 ? `${results.length}종 결과 보기` : `전체 ${results.length}종 보기`}</button>
         </aside>
 
         <section className={styles.resultsPanel} aria-live="polite" aria-labelledby="discover-results-title">
@@ -152,9 +224,17 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
           )}
 
           <div className={styles.resultGrid}>
-            {results.map((breed) => {
+            {visibleResults.map((breed) => {
               const highlights = activeCount > 0
-                ? selectedEntries.slice(0, 3).map(({ key }) => key === "size" ? sizeOptions.find((option) => getBreedFilterValue(breed, "size").includes(option.value))?.label : tendencyOptions.find((option) => option.value === getBreedFilterValue(breed, key))?.label).filter(Boolean)
+                ? selectedEntries
+                  .map(({ key, value }) => {
+                    const matches = key === "size"
+                      ? getBreedFilterValue(breed, "size").includes(value as BreedSize)
+                      : getBreedFilterValue(breed, key) === value;
+                    return matches ? selectedLabel(key, value) : undefined;
+                  })
+                  .filter((highlight): highlight is string => Boolean(highlight))
+                  .slice(0, 3)
                 : [sizeOptions.find((option) => getBreedFilterValue(breed, "size").includes(option.value))?.label, breed.tendencies.activity.label].filter(Boolean);
               return (
                 <article className={styles.resultCard} key={breed.slug}>
@@ -170,6 +250,14 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
               );
             })}
           </div>
+          {visibleResults.length < results.length && (
+            <div className={styles.loadMore}>
+              <button type="button" onClick={() => setVisibleCount((count) => Math.min(count + RESULT_BATCH_SIZE, results.length))}>
+                견종 더 보기
+                <span>{visibleResults.length} / {results.length}</span>
+              </button>
+            </div>
+          )}
           {results.length === 0 && <div className={styles.emptyState}><h2>이 조건에 맞는 견종이 아직 없어요.</h2><p>조건을 하나씩 줄이거나 선택을 모두 지우고 다시 살펴보세요.</p><button type="button" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button></div>}
         </section>
       </div>

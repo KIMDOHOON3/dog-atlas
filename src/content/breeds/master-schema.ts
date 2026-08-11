@@ -44,6 +44,15 @@ export const breedVarietySchema = z.object({
   aliasesEn: z.array(z.string().min(1)).default([]),
 });
 
+export const inclusionTypeSchema = z.enum([
+  "international-registered",
+  "national-heritage",
+  "national-registered",
+  "verified-landrace",
+  "documented-population",
+  "unverified-name",
+]);
+
 export const masterBreedSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   nameKo: z.string().min(1),
@@ -53,6 +62,8 @@ export const masterBreedSchema = z.object({
   varieties: z.array(breedVarietySchema).default([]),
   fciGroup: fciGroupSchema.nullable(),
   registryStatus: z.enum(["definitive", "provisional", "non-fci", "verification-needed"]),
+  inclusionType: inclusionTypeSchema,
+  evidenceAuthority: z.string().min(1),
   detailPriority: z.enum(["core", "next", "later"]),
   detailStatus: z.enum(["published", "planned", "none"]),
   sourceIds: z.array(z.string().min(1)).min(1),
@@ -82,6 +93,7 @@ export const masterBreedCollectionSchema = z.array(masterBreedSchema).superRefin
 
 export type FciGroup = z.infer<typeof fciGroupSchema>;
 export type BreedVariety = z.infer<typeof breedVarietySchema>;
+export type InclusionType = z.infer<typeof inclusionTypeSchema>;
 export type MasterBreed = z.infer<typeof masterBreedSchema>;
 
 export function getFciGroupDefinition(number: FciGroupNumber): FciGroup {

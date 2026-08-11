@@ -184,7 +184,7 @@ const draftBreeds = [
     healthEditorialNote: "건강 정보는 품종 클럽 자료와 수의학 검수를 추가한 뒤 공개 범위를 넓힐 예정입니다.",
     daySnapshot: [
       { time: "아침", title: "활동과 탐색", description: "움직임과 냄새 탐색을 함께 구성해요." },
-      { time: "낮", title: "차분히 쉬기", description: "항상 자극받지 않는 휴식 능력도 중요해요." },
+      { time: "낮", title: "차분히 쉬기", description: "자극이 이어지지 않는 휴식 시간도 중요해요." },
       { time: "저녁", title: "협력 과제", description: "짧은 교육과 문제 해결 놀이를 함께해요." },
     ],
     related: [

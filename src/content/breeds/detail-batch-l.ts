@@ -1,4 +1,5 @@
 import type { Breed } from "./schema";
+import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-06";
 type Group = Exclude<Breed["catalog"]["group"], "northern-working" | "dachshund">;
@@ -125,11 +126,11 @@ const seeds: Seed[] = [
   { slug: "greenland-dog", nameKo: "그린란드 도그", nameEn: "Greenland Dog", group: "spitz-primitive", origin: "그린란드", role: "북극권 썰매 운송과 사냥 협력", size: "대형 · 약 55~68cm, 25~35kg", fciUrl: "https://www.fci.be/en/nomenclature/GREENLAND-DOG-274.html" },
   { slug: "peruvian-hairless-dog", nameKo: "페루비안 헤어리스 도그", nameEn: "Peruvian Hairless Dog", group: "spitz-primitive", origin: "페루", role: "고대 가정의 동반과 경계 알림", size: "소형~대형 · 유형별 약 25~65cm", fciUrl: "https://www.fci.be/en/nomenclature/PERUVIAN-HAIRLESS-DOG-310.html" },
   { slug: "cirneco-dell-etna", nameKo: "치르네코 델에트나", nameEn: "Cirneco dell'Etna", group: "spitz-primitive", origin: "이탈리아 시칠리아", role: "바위 지형에서 토끼를 시각·후각으로 추적", size: "중형 · 약 42~52cm, 8~12kg", fciUrl: "https://www.fci.be/en/nomenclature/CIRNECO-DELL'ETNA-199.html" },
-  { slug: "gascon-saintongeois", nameKo: "가스콩 생통주아", nameEn: "Gascon Saintongeois", group: "scent-hound", origin: "프랑스", role: "큰 사냥감을 무리로 추적하는 후각 작업", size: "대형 · 약 62~72cm, 25~35kg", fciUrl: "https://www.fci.be/en/nomenclature/GASCON-SAINTONGEOIS-22.html" },
+  { slug: "gascon-saintongeois", nameKo: "가스콩 생통주아", nameEn: "Gascon Saintongeois", group: "scent-hound", origin: "프랑스", role: "큰 사냥감을 무리로 추적하는 후각 작업", size: "대형 · 약 62~72cm, 25~35kg", fciUrl: "https://www.fci.be/en/nomenclature/GASCON-SAINTONGEOIS-21.html" },
   { slug: "grand-basset-griffon-vendeen", nameKo: "그랑 바셋 그리폰 방데앙", nameEn: "Grand Basset Griffon Vendeen", group: "scent-hound", origin: "프랑스 방데", role: "거친 지형에서 토끼와 작은 사냥감 추적", size: "중형 · 약 39~43cm, 18~20kg", fciUrl: "https://www.fci.be/en/nomenclature/GRAND-BASSET-GRIFFON-VENDEEN-33.html" },
   { slug: "schweizer-laufhund", nameKo: "슈바이처 라우프훈트", nameEn: "Schweizer Laufhund", group: "scent-hound", origin: "스위스", role: "산악 지형에서 사냥감을 냄새로 추적", size: "중형 · 약 47~59cm, 15~20kg", fciUrl: "https://www.fci.be/en/nomenclature/SWISS-HOUND-59.html" },
   { slug: "porcelaine", nameKo: "포셀린", nameEn: "Porcelaine", group: "scent-hound", origin: "프랑스", role: "토끼와 작은 사냥감을 향기로 추적", size: "중형 · 약 53~58cm, 23~28kg", fciUrl: "https://www.fci.be/en/nomenclature/PORCELAINE-30.html" },
-  { slug: "petit-bleu-de-gascogne", nameKo: "프티 블뢰 드 가스코뉴", nameEn: "Petit Bleu de Gascogne", group: "scent-hound", origin: "프랑스 가스코뉴", role: "작은 사냥감을 무리로 추적하는 후각 작업", size: "중형 · 약 43~58cm, 18~23kg", fciUrl: "https://www.fci.be/en/nomenclature/PETIT-BLEU-DE-GASCOGNE-22.html" },
+  { slug: "petit-bleu-de-gascogne", nameKo: "프티 블뢰 드 가스코뉴", nameEn: "Petit Bleu de Gascogne", group: "scent-hound", origin: "프랑스 가스코뉴", role: "작은 사냥감을 무리로 추적하는 후각 작업", size: "중형 · 약 43~58cm, 18~23kg", fciUrl: "https://www.fci.be/en/nomenclature/PETIT-BLEU-DE-GASCOGNE-31.html" },
   { slug: "gordon-setter", nameKo: "고든 세터", nameEn: "Gordon Setter", group: "pointing", origin: "스코틀랜드", role: "새의 위치를 알려 주고 사냥을 돕는 포인팅", size: "대형 · 약 58~69cm, 20~36kg", fciUrl: "https://www.fci.be/en/nomenclature/GORDON-SETTER-6.html" },
   { slug: "german-long-haired-pointer", nameKo: "저먼 롱헤어드 포인터", nameEn: "German Long-Haired Pointing Dog", group: "pointing", origin: "독일", role: "새와 작은 사냥감의 위치 알림 및 회수", size: "대형 · 약 58~70cm, 27~32kg", fciUrl: "https://www.fci.be/en/nomenclature/GERMAN-LONG-HAIRED-POINTER-117.html" },
   { slug: "french-spaniel", nameKo: "프렌치 스패니얼", nameEn: "French Spaniel", group: "pointing", origin: "프랑스·캐나다", role: "새를 찾아 알리고 회수하는 조렵 작업", size: "대형 · 약 55~61cm, 20~27kg", fciUrl: "https://www.fci.be/en/nomenclature/FRENCH-SPANIEL-175.html" },
@@ -169,19 +170,19 @@ const makeBreed = (seed: Seed): Breed => {
     contentStatus: "mvp-editorial-draft",
     nameKo: seed.nameKo,
     nameEn: seed.nameEn,
-    tagline: `${seed.nameKo}는 ${seed.role}을 위해 형성된 품종으로, 오늘의 생활에서는 개체 차이와 환경을 함께 살펴야 합니다.`,
+    tagline: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역사적 배경을 지녔으며, 오늘의 생활에서는 개체 차이와 환경을 함께 살펴야 합니다.`,
     palette: { primary: meta.colors[0], secondary: meta.colors[1], ink: meta.colors[2] },
     illustration: `/illustrations/v2/${seed.slug}-card.webp`,
     catalog: { group: seed.group, discoveryTags: [...meta.tags, seed.origin] },
     historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 기원과 역할을 보여 주는 편집 초안 역사 장면` },
     identity: { origin: seed.origin, lineage: `${seed.origin}의 오래된 ${meta.label} 계통에서 발전한 품종`, originalRole: seed.role, size: seed.size, lifespan: "개체와 관리 환경에 따라 달라지며 공식 자료와 수의사 상담을 함께 확인하세요." },
     behaviorClues: {
-      originalRole: `${seed.nameKo}는 ${seed.role}을 위해 형성된 배경이 있습니다. 과거의 역할은 현재 개체의 행동을 단정하지 않지만 생활 설계의 참고 단서가 될 수 있습니다.`,
+      originalRole: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역할과 환경 속에서 형성되었습니다. 과거의 역할은 현재 개체의 행동을 단정하지 않지만 생활 설계의 참고 단서가 될 수 있습니다.`,
       today: `오늘날에는 ${seed.role}과 연결된 욕구를 놀이·탐색·협력 과제로 전환할 수 있습니다. 반응과 필요한 활동량은 개체마다 다릅니다.`,
       guardianContext: `보호자는 ${seed.nameKo}의 체격(${seed.size})과 생활 환경을 고려해 운동, 휴식, 사회화, 안전 관리를 함께 계획해야 합니다.`,
     },
     story: {
-      opening: `${seed.nameKo}는 ${seed.origin}에서 ${seed.role}을 맡으며 발전한 품종입니다. 이름과 외형만으로 생활 난이도를 판단하기보다 형성 배경과 개체의 신호를 함께 살펴보세요.`,
+      opening: `${withTopicParticle(seed.nameKo)} ${seed.origin}에서 ${seed.role}이라는 역사적 배경과 함께 발전했습니다. 이름과 외형만으로 생활 난이도를 판단하기보다 형성 배경과 개체의 신호를 함께 살펴보세요.`,
       roleToHome: roleHomeText,
       reality: `품종의 경향은 개인의 성격을 보장하지 않습니다. ${seed.nameKo}에게는 ${seed.size}에 맞는 공간과 일상, 건강 상태, 보호자와의 경험을 함께 고려하는 준비가 필요합니다.`,
     },

@@ -1,4 +1,5 @@
 import type { Breed } from "./schema";
+import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-07";
 type Group = "herding" | "guardian-working" | "terrier" | "spitz-primitive" | "scent-hound" | "pointing" | "retriever-spaniel" | "companion" | "sighthound";
@@ -115,7 +116,7 @@ const seeds: Seed[] = [
   { slug: "macedonian-shepherd-dog-karaman", nameKo: "마케도니안 셰퍼드 도그 카라만", nameEn: "Macedonian Shepherd Dog Karaman", group: "guardian-working", origin: "북마케도니아", role: "산악 목장의 가축과 사람을 지키는 경비 작업", size: "대형 · 약 60~75cm, 35~55kg" },
   { slug: "sapsaree", nameKo: "삽살개", nameEn: "Sapsaree", group: "spitz-primitive", origin: "대한민국 경산", role: "사람 곁에서 생활하며 집과 마을을 지키던 토종견", size: "중형 · 약 49~58cm, 17~25kg", registry: "non-fci", sourceUrl: "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?VdkVgwKey=16%2C03680000%2C37&pageNo=1_1_1_1", sourceTitle: "경산의 삽살개 국가유산포털", sourceOrganization: "국가유산청" },
   { slug: "pungsan-dog", nameKo: "풍산개", nameEn: "Pungsan Dog", group: "spitz-primitive", origin: "한반도 북부", role: "산악 지형에서 사냥과 마을 경계를 돕던 토종견", size: "중형~대형 · 약 50~60cm, 20~30kg", registry: "non-fci", sourceUrl: kkfNonFciUrl, sourceTitle: "FCI 미등록 견종 안내(풍산개)", sourceOrganization: "한국애견연맹" },
-  { slug: "donggyeongi", nameKo: "동경이", nameEn: "Donggyeongi", group: "spitz-primitive", origin: "대한민국 경주", role: "마을에서 사람과 함께 생활하며 집 주변을 살피던 토종견", size: "중형 · 약 40~50cm, 15~25kg", registry: "non-fci", sourceUrl: kkfNonFciUrl, sourceTitle: "FCI 미등록 견종 안내(동경이)", sourceOrganization: "한국애견연맹" },
+  { slug: "donggyeongi", nameKo: "경주개 동경이", nameEn: "Donggyeongi", group: "spitz-primitive", origin: "대한민국 경주", role: "마을에서 사람과 함께 생활하며 집 주변을 살피던 토종견", size: "중형 · 약 40~50cm, 15~25kg", registry: "non-fci", sourceUrl: "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1363705400000", sourceTitle: "천연기념물 경주개 동경이", sourceOrganization: "국가유산청 국가유산포털" },
   { slug: "jeju-dog", nameKo: "제주개", nameEn: "Jeju Dog", group: "spitz-primitive", origin: "대한민국 제주", role: "섬의 농가에서 사람과 가축 곁을 지키던 토종견", size: "중형 · 약 45~55cm, 15~25kg", registry: "non-fci", sourceUrl: kkfNonFciUrl, sourceTitle: "FCI 미등록 견종 안내(제주개)", sourceOrganization: "한국애견연맹" },
 ];
 
@@ -142,19 +143,19 @@ const makeBreed = (seed: Seed): Breed => {
     contentStatus: "mvp-editorial-draft",
     nameKo: seed.nameKo,
     nameEn: seed.nameEn,
-    tagline: `${seed.nameKo}는 ${seed.role}을 위해 형성된 배경이 있으며, 오늘날에는 개체 차이와 생활 조건을 함께 살펴야 합니다.`,
+    tagline: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역사적 배경을 지녔으며, 오늘날에는 개체 차이와 생활 조건을 함께 살펴야 합니다.`,
     palette: { primary: m.colors[0], secondary: m.colors[1], ink: m.colors[2] },
     illustration: `/illustrations/v2/${seed.slug}-card.webp`,
     catalog: { group: seed.group, discoveryTags: [...m.tags, seed.origin] },
     historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 기원과 원래 역할을 보여 주는 편집 수채화 역사 장면` },
     identity: { origin: seed.origin, lineage: `${seed.origin}의 ${m.label} 계통에서 발전한 견종`, originalRole: seed.role, size: seed.size, lifespan: "개체와 생활 환경에 따라 달라지므로 공식 자료와 수의학적 상담을 함께 확인하세요." },
     behaviorClues: {
-      originalRole: `${seed.nameKo}는 ${seed.role}을 위해 선택된 배경이 있습니다. 과거 역할이 현재 개체의 행동을 보장하지는 않지만 생활 과제를 설계할 때 참고가 됩니다.`,
+      originalRole: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역할과 환경 속에서 형성되었습니다. 과거 역할이 현재 개체의 행동을 보장하지는 않지만 생활 과제를 설계할 때 참고가 됩니다.`,
       today: `오늘날에는 원래 역할과 연결된 탐색·협력 욕구를 안전한 산책과 짧은 학습 과제로 전환할 수 있습니다. 반응과 회복 속도는 개체마다 다릅니다.`,
       guardianContext: `${seed.nameKo}와 함께 살 때는 ${seed.size}에 맞는 공간, 휴식, 사회화, 건강 관리를 함께 계획해야 합니다. 보호자의 경험과 환경도 중요한 변수입니다.`,
     },
     story: {
-      opening: `${seed.nameKo}는 ${seed.origin}에서 ${seed.role}을 맡으며 발전한 배경이 있습니다. 이름이나 외형만으로 생활 적합성을 단정하기보다 역사와 개체 차이를 함께 살펴보세요.`,
+      opening: `${withTopicParticle(seed.nameKo)} ${seed.origin}에서 ${seed.role}이라는 역사적 배경과 함께 발전했습니다. 이름이나 외형만으로 생활 적합성을 단정하기보다 역사와 개체 차이를 함께 살펴보세요.`,
       roleToHome: roleHome[seed.group],
       reality: `품종의 경향은 개체의 성격을 보장하지 않습니다. ${seed.nameKo}와 살려면 ${seed.size}에 맞는 공간과 일상, 건강 상태, 보호자의 경험을 함께 점검하는 준비가 필요합니다.${registryNote}`,
     },

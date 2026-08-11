@@ -378,7 +378,7 @@ export const masterInventorySeeds = [
   ["macedonian-shepherd-dog-karaman", "마케도니안 셰퍼드 도그 카라만", "Macedonian Shepherd Dog Karaman", 2, "provisional", "later"],
   ["sapsaree", "삽살개", "Sapsaree", null, "non-fci", "later", ["ko-name-review"]],
   ["pungsan-dog", "풍산개", "Pungsan Dog", null, "non-fci", "later", ["ko-name-review"]],
-  ["donggyeongi", "동경이", "Donggyeongi", null, "non-fci", "later", ["ko-name-review"]],
+  ["donggyeongi", "경주개 동경이", "Donggyeongi", null, "non-fci", "later"],
   ["jeju-dog", "제주개", "Jeju Dog", null, "non-fci", "later", ["ko-name-review"]],
   ["mongolian-bankhar", "몽골 방카르", "Mongolian Bankhar", null, "non-fci", "later"],
 ] satisfies readonly MasterInventorySeed[];

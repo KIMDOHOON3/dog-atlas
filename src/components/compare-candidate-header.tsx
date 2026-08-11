@@ -11,16 +11,14 @@ type Candidate = { slug: string; nameKo: string };
 
 export function CompareCandidateHeader({ candidates }: { candidates: Candidate[] }) {
   const router = useRouter();
-  const { hydrated, slugs, remove, replaceAll } = useInterestBreeds();
+  const { hydrated, remove, replaceAll } = useInterestBreeds();
 
   useEffect(() => {
     if (!hydrated) return;
     if (candidates.length > 0) {
       replaceAll(candidates.map((candidate) => candidate.slug));
-    } else if (slugs.length > 0) {
-      router.replace(`/compare?breeds=${slugs.join(",")}`);
     }
-  }, [candidates, hydrated, replaceAll, router, slugs]);
+  }, [candidates, hydrated, replaceAll]);
 
   function removeCandidate(slug: string) {
     remove(slug);

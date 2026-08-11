@@ -28,6 +28,8 @@ describe("published breed visual assets", () => {
       const historyBytes = readFileSync(historyPath);
       expect(cardBytes.subarray(8, 12).toString("ascii")).toBe("WEBP");
       expect(historyBytes.subarray(8, 12).toString("ascii")).toBe("WEBP");
+      expect(cardBytes.byteLength, `${breed.slug} card bytes`).toBeLessThanOrEqual(550_000);
+      expect(historyBytes.byteLength, `${breed.slug} history bytes`).toBeLessThanOrEqual(700_000);
 
       cardPaths.add(breed.illustration);
       historyPaths.add(breed.historyVisual!.src);

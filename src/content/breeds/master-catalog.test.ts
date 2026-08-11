@@ -53,6 +53,14 @@ describe("master breed catalog", () => {
       total: 368,
       byFciGroup: { 1: 46, 2: 56, 3: 36, 4: 1, 5: 48, 6: 72, 7: 35, 8: 23, 9: 30, 10: 14 },
       registryStatus: { definitive: 344, provisional: 17, nonFci: 7, verificationNeeded: 0 },
+      inclusionType: {
+        internationalRegistered: 363,
+        nationalHeritage: 2,
+        nationalRegistered: 0,
+        verifiedLandrace: 1,
+        documentedPopulation: 2,
+        unverifiedName: 0,
+      },
       detailPriority: { core: 5, next: 363, later: 0 },
       detailStatus: { published: 368, planned: 0, none: 0 },
     });
@@ -63,6 +71,26 @@ describe("master breed catalog", () => {
     expect(getMasterBreed("belgian-shepherd-dog")?.aliasesKo).toContain("말리노이즈");
     expect(getMasterBreed("poodle")?.aliasesKo).toContain("토이 푸들");
     expect(getMasterBreed("maltese")?.aliasesKo).toContain("말티즈");
+    expect(getMasterBreed("donggyeongi")?.aliasesKo).toContain("동경이");
+  });
+
+  it("separates registry status from the evidence-based inclusion type", () => {
+    expect(getMasterBreed("american-bully")).toMatchObject({
+      registryStatus: "non-fci",
+      inclusionType: "international-registered",
+      evidenceAuthority: "United Kennel Club (UKC)",
+    });
+    expect(getMasterBreed("sapsaree")).toMatchObject({
+      inclusionType: "national-heritage",
+      sourceIds: expect.arrayContaining(["heritage-sapsaree"]),
+    });
+    expect(getMasterBreed("donggyeongi")).toMatchObject({
+      nameKo: "경주개 동경이",
+      inclusionType: "national-heritage",
+      sourceIds: expect.arrayContaining(["heritage-donggyeongi"]),
+    });
+    expect(getMasterBreed("mongolian-bankhar")?.inclusionType).toBe("verified-landrace");
+    expect(getMasterBreed("pungsan-dog")?.inclusionType).toBe("documented-population");
   });
 
   it("keeps FCI varieties under one breed identity without losing discovery names", () => {

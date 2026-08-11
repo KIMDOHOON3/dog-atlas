@@ -34,6 +34,11 @@
 .resultHighlights span { padding: 4px 7px; border-radius: 999px; color: var(--moss); background: var(--moss-light); font-size: .68rem; }
 .resultCopy p { display: -webkit-box; min-height: 3.1em; margin: 10px 0 12px; overflow: hidden; color: var(--ink-soft); font-size: .78rem; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .resultCopy a { color: var(--moss); font-size: .78rem; font-weight: 700; text-underline-offset: 4px; }
+.loadMore { display: flex; justify-content: center; padding-top: 24px; }
+.loadMore button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-width: 180px; min-height: 46px; padding: 10px 16px; border: 1px solid var(--moss); border-radius: 999px; color: var(--moss); background: var(--panel); font-weight: 700; cursor: pointer; }
+.loadMore button:hover, .loadMore button:focus-visible { color: white; background: var(--moss); }
+.loadMore button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.loadMore span { font-size: .72rem; font-weight: 500; }
 .emptyState { margin-top: 18px; padding: 34px 20px; border: 1px dashed var(--line); border-radius: 18px; text-align: center; }
 .emptyState h2 { margin: 0; font-size: 1.2rem; }
 .emptyState p { margin: 7px 0 14px; color: var(--ink-soft); font-size: .85rem; }
@@ -47,8 +52,8 @@
   .filterTrigger strong { min-width: 28px; height: 28px; display: grid; place-items: center; padding: 0 7px; border-radius: 999px; color: var(--moss); background: var(--panel); font-size: .72rem; }
   .mobileFilterBar .clearFilters { padding: 8px 11px; border: 0; color: var(--moss); background: transparent; font-weight: 700; white-space: nowrap; }
   .filterLayout { display: block; }
-  .filterPanel { position: fixed; z-index: 80; right: 0; bottom: 0; left: 0; max-height: min(88vh, 760px); overflow-y: auto; border-radius: 22px 22px 0 0; transform: translateY(110%); transition: transform .22s ease; }
-  .filterOpen .filterPanel { transform: translateY(0); }
+  .filterPanel { position: fixed; z-index: 80; right: 0; bottom: 0; left: 0; max-height: min(88vh, 760px); overflow-y: auto; overscroll-behavior: contain; border-radius: 22px 22px 0 0; visibility: hidden; transform: translateY(110%); transition: transform .22s ease, visibility 0s linear .22s; }
+  .filterOpen .filterPanel { visibility: visible; transform: translateY(0); transition-delay: 0s; }
   .filterOpen .backdrop { position: fixed; z-index: 70; inset: 0; display: block; border: 0; background: rgb(36 48 43 / 38%); cursor: pointer; }
   .filterPanelHeader { align-items: start; }
   .closeFilter { display: block; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: var(--panel); font-size: 1.4rem; line-height: 1; cursor: pointer; }

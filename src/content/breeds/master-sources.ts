@@ -6,7 +6,16 @@ export const masterSourceSchema = z.object({
   organization: z.string().min(1),
   url: z.url(),
   checkedAt: z.iso.date(),
-  scope: z.enum(["registry", "provisional-registry", "breed-list", "group-list", "breed-standard"]),
+  scope: z.enum([
+    "registry",
+    "provisional-registry",
+    "breed-list",
+    "group-list",
+    "breed-standard",
+    "heritage-record",
+    "conservation-program",
+    "research",
+  ]),
 });
 
 const masterSourceCollectionSchema = z.array(masterSourceSchema).superRefine((sources, context) => {
@@ -72,7 +81,7 @@ export const masterSources = masterSourceCollectionSchema.parse([
     organization: "Mongolian Bankhar Dog Project",
     url: "https://www.bankhar.org/press-kit/",
     checkedAt: "2026-08-10",
-    scope: "breed-list",
+    scope: "conservation-program",
   },
   {
     id: "bankhar-predation-study",
@@ -80,7 +89,7 @@ export const masterSources = masterSourceCollectionSchema.parse([
     organization: "Conservation Science and Practice",
     url: "https://conbio.onlinelibrary.wiley.com/doi/10.1111/csp2.509",
     checkedAt: "2026-08-10",
-    scope: "breed-list",
+    scope: "research",
   },
   {
     id: "ukc-american-pit-bull-terrier",
@@ -105,6 +114,22 @@ export const masterSources = masterSourceCollectionSchema.parse([
     url: "https://www.thekkf.or.kr/new_home/06_studbook/02.studbook_request.php?request=2",
     checkedAt,
     scope: "breed-standard",
+  },
+  {
+    id: "heritage-sapsaree",
+    title: "천연기념물 경산의 삽살개",
+    organization: "국가유산청 국가유산포털",
+    url: "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?VdkVgwKey=16%2C03680000%2C37&pageNo=1_1_1_1",
+    checkedAt: "2026-08-11",
+    scope: "heritage-record",
+  },
+  {
+    id: "heritage-donggyeongi",
+    title: "천연기념물 경주개 동경이",
+    organization: "국가유산청 국가유산포털",
+    url: "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1363705400000",
+    checkedAt: "2026-08-11",
+    scope: "heritage-record",
   },
   {
     id: "fci-standard-262",

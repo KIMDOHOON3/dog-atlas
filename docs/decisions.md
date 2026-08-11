@@ -89,23 +89,23 @@ Collapse the six home questions into three faster entry points: life and origina
 
 Add `/discover` as the dedicated discovery route. Normalize the existing Korean tendency labels and free-form size strings in a filter-only adapter, preserve the original Breed data, use OR within a filter axis and AND across axes, and synchronize valid selections to query parameters. Do not invent housing suitability, exercise hours, beginner suitability, management scores, popularity, or recommendation rankings. Keep the existing editorial role/history explorer below the factual condition filters.
 
-# 2026-08-11 ??Add mobile primary navigation for discovery and comparison
+# 2026-08-11 — Add mobile primary navigation for discovery and comparison
 
 On viewports up to 767px, keep `견종 발견` and `비교하기` reachable through a fixed bottom navigation shared by the site header. Reuse the existing compare selection state and route links, use small inline SVG icons instead of adding an icon dependency, and account for safe-area insets plus bottom content padding. Offset the floating interest-breed tray so it does not overlap the navigation.
 
-# 2026-08-11 ??Move carousel controls below the image and support swipe
+# 2026-08-11 — Move carousel controls below the image and support swipe
 
 Anchor the home carousel arrows and position indicator to the lower edge of the hero image so they do not cover the upper illustration. Add horizontal pointer-swipe navigation to the image frame while retaining keyboard arrows and explicit buttons for accessibility and desktop use.
 
-# 2026-08-11 ??Match carousel image box proportions
+# 2026-08-11 — Match carousel image box proportions
 
 Use a shared 1:1 aspect ratio for the home hero visual across desktop and mobile, matching the existing card illustration format. Let the image frame define its own height from the available width and anchor carousel controls inside that frame, avoiding a viewport-based fixed height that can create mismatched boxes.
 
-# 2026-08-11 ??Simplify first-time discovery on home
+# 2026-08-11 — Simplify first-time discovery on home
 
 Replace the home explorer's hardcoded representative slug groups with six plain-language entry points backed by existing tendency filters. Each entry links to `/discover` with a valid query, while role/history exploration remains a separate section so beginners are not asked to interpret multiple taxonomies at once.
 
-# 2026-08-11 ??Add editorial browse collections to home
+# 2026-08-11 — Add editorial browse collections to home
 
 Replace the undifferentiated 368-breed home grid with three non-ranking collections: working roles, regional environments, and unfamiliar breeds. Use existing breed identity and role copy for the cards, and keep the full factual filter experience on `/discover`. Do not label collections as popularity or national top lists without dated, sourced data.
 
@@ -125,7 +125,7 @@ Group the mobile filter trigger, active-condition count, and clear action into o
 
 Remove the four-card home shortcut block for discovery, comparison, role/history, and unfamiliar breeds. The same destinations remain available through the shared header, the fixed mobile bottom navigation, the search flow, and the lifestyle discovery section, so the extra block adds height and repeats choices without adding a distinct task.
 
-# 2026-08-11 ??Use dog-motif icons for home shortcuts
+# 2026-08-11 — Use dog-motif icons for home shortcuts
 
 Use dedicated transparent WebP illustration sprites based on clearly differentiated dog gestures and props for the home shortcut and condition menus. Treat them as large watercolor character icons rather than small decorative thumbnails: mobile shortcuts use a two-column horizontal layout, and condition cards give at least half their visual weight to the illustration. Let the card surface show naturally around each cutout instead of embedding a separate paper-colored rectangle. Keep accessible text labels alongside every image, use the atlas's watercolor-and-pencil palette, and avoid emoji or a generic icon-library aesthetic.
 
@@ -148,3 +148,15 @@ Review card and history images as one visual unit, recording the source, date, c
 Replace the seven confirmed high-priority mismatches and the three additional mismatches found during focused review as card/history pairs, bringing the corrected set to eleven breeds including Sapsaree. Base each new illustration on written morphology from the FCI, the relevant national kennel club, or an official conservation source; do not transform or copy a standard illustration. Preserve the project’s watercolor-and-pencil language while making diagnostic features such as ear set, topline, coat, tail carriage, markings, and the Lundehund’s functional extra toes readable at card size.
 
 Keep the distinction between `교체 완료`, `유지`, `집중 재확인`, and unapproved `1차 점검`. A generated replacement is an editorial correction against the cited source, not expert conformation certification, and the remaining catalog must not be described as fully verified.
+
+# 2026-08-11 — Separate registry status from catalog inclusion
+
+Keep `registryStatus` as a factual description of a registry relationship and add a separate `inclusionType` for the atlas's editorial inclusion basis. An FCI or UKC registration, a nationally protected heritage status, a verified landrace, and a documented local population are different claims and must not be collapsed into one `non-fci` bucket.
+
+Expose the inclusion label and its evidence authority on breed detail pages without changing the original breed copy. Use official heritage records for Sapsaree and Gyeongju Donggyeongi, keep Mongolian Bankhar as `verified-landrace`, and keep Pungsan Dog and Jeju Dog at `documented-population` until stronger first-party conservation evidence is connected.
+
+# 2026-08-11 — Render discovery results progressively
+
+Keep filtering all 368 breeds in memory and keep the result count exact, but render only the first 48 result cards initially and reveal the next 48 on request. This reduces the unfiltered `/discover` DOM from roughly 4,958 elements to roughly 801 without introducing a server API, virtualization dependency, ranking, or pagination state in the URL.
+
+Reset the visible slice whenever the filter query changes. The filter state remains shareable through the existing query parameters; the progressive display count is temporary view state and is not part of the shared condition set.

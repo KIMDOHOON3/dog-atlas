@@ -5,6 +5,9 @@
 .summary { grid-area: summary; align-self: end; }
 .summary > p, .eyebrow { margin: 0 0 8px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .05em; }
 .summary .originLine { display: flex; align-items: center; gap: 6px; letter-spacing: .03em; }
+.inclusionMeta { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin: 9px 0 11px; }
+.inclusionMeta strong { padding: 5px 9px; border: 1px solid color-mix(in srgb, var(--moss) 35%, transparent); border-radius: 999px; color: var(--moss); background: var(--moss-light); font-size: .72rem; }
+.inclusionMeta span { color: var(--ink-soft); font-size: .72rem; }
 .summary h1 { margin: 0; font-size: clamp(3rem, 4.2vw, 3.5rem); line-height: 1.1; letter-spacing: -.04em; }
 .summary > strong { display: block; max-width: 26ch; margin-top: 12px; font-size: 1.25rem; font-weight: 500; line-height: 1.5; }
 .atAGlance { grid-area: details; align-self: start; }

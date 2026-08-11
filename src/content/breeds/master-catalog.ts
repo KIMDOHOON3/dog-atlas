@@ -4,10 +4,60 @@ import {
   masterBreedCollectionSchema,
   type BreedVariety,
   type FciGroupNumber,
+  type InclusionType,
   type MasterBreed,
 } from "./master-schema";
 
 type RegistryStatus = MasterBreed["registryStatus"];
+type InclusionDetails = {
+  inclusionType: InclusionType;
+  evidenceAuthority: string;
+};
+
+const nonFciInclusionDetails: Record<string, InclusionDetails> = {
+  "american-pit-bull-terrier": {
+    inclusionType: "international-registered",
+    evidenceAuthority: "United Kennel Club (UKC)",
+  },
+  "american-bully": {
+    inclusionType: "international-registered",
+    evidenceAuthority: "United Kennel Club (UKC)",
+  },
+  sapsaree: {
+    inclusionType: "national-heritage",
+    evidenceAuthority: "국가유산청",
+  },
+  donggyeongi: {
+    inclusionType: "national-heritage",
+    evidenceAuthority: "국가유산청",
+  },
+  "mongolian-bankhar": {
+    inclusionType: "verified-landrace",
+    evidenceAuthority: "현지 보존사업·동료평가 연구",
+  },
+  "pungsan-dog": {
+    inclusionType: "documented-population",
+    evidenceAuthority: "한국애견연맹(KKF) 공개 목록",
+  },
+  "jeju-dog": {
+    inclusionType: "documented-population",
+    evidenceAuthority: "한국애견연맹(KKF) 공개 목록",
+  },
+};
+
+function getInclusionDetails(slug: string, status: RegistryStatus): InclusionDetails {
+  if (status === "definitive" || status === "provisional") {
+    return {
+      inclusionType: "international-registered",
+      evidenceAuthority: "Fédération Cynologique Internationale (FCI)",
+    };
+  }
+
+  return nonFciInclusionDetails[slug] ?? {
+    inclusionType: "unverified-name",
+    evidenceAuthority: "추가 검증 필요",
+  };
+}
 
 const aliasesKo: Partial<Record<string, string[]>> = {
   beauceron: ["보스롱"],
@@ -24,6 +74,7 @@ const aliasesKo: Partial<Record<string, string[]>> = {
   dachshund: ["미니어처 닥스훈트", "카니헨 닥스훈트", "장모 닥스훈트", "단모 닥스훈트", "와이어 닥스훈트"],
   "german-spitz": ["포메라니안", "포메라니언", "포메", "키스혼드", "울프스피츠"],
   "korea-jindo-dog": ["진도개", "진도견", "코리아 진도 독"],
+  donggyeongi: ["동경이"],
   xoloitzcuintle: ["솔로이츠퀸틀리", "숄로이츠퀸틀리"],
   "labrador-retriever": ["라브라도 리트리버", "래브라도", "라브라도", "랩"],
   "bichon-frise": ["비숑", "비숑프리제"],
@@ -103,6 +154,8 @@ function getSourceIds(slug: string, groupNumber: FciGroupNumber | null, status: 
     if (slug === "mongolian-bankhar") return ["mongolian-bankhar-project", "bankhar-predation-study"];
     if (slug === "american-bully") return ["ukc-american-bully"];
     if (slug === "american-pit-bull-terrier") return ["ukc-american-pit-bull-terrier"];
+    if (slug === "sapsaree") return ["heritage-sapsaree", "kkf-non-fci-breeds"];
+    if (slug === "donggyeongi") return ["heritage-donggyeongi", "kkf-non-fci-breeds"];
     return ["kkf-non-fci-breeds"];
   }
 
@@ -205,6 +258,7 @@ const publishedExpansionSlugs = new Set([
 const masterEntries = masterInventorySeeds.map(
   ([slug, nameKo, nameEn, groupNumber, registryStatus, detailPriority, verificationFlags = []]) => {
     const resolvedDetailPriority = publishedExpansionSlugs.has(slug) ? "next" : detailPriority;
+    const inclusion = getInclusionDetails(slug, registryStatus);
     return ({
     slug,
     nameKo,
@@ -214,6 +268,7 @@ const masterEntries = masterInventorySeeds.map(
     varieties: varieties[slug] ?? [],
     fciGroup: groupNumber === null ? null : getFciGroupDefinition(groupNumber),
     registryStatus,
+    ...inclusion,
     detailPriority: resolvedDetailPriority,
     detailStatus: resolvedDetailPriority === "core" || resolvedDetailPriority === "next" ? "published" : "none",
     sourceIds: getSourceIds(slug, groupNumber, registryStatus),
@@ -246,6 +301,14 @@ export function getMasterCatalogStats() {
       provisional: masterCatalog.filter((breed) => breed.registryStatus === "provisional").length,
       nonFci: masterCatalog.filter((breed) => breed.registryStatus === "non-fci").length,
       verificationNeeded: masterCatalog.filter((breed) => breed.registryStatus === "verification-needed").length,
+    },
+    inclusionType: {
+      internationalRegistered: masterCatalog.filter((breed) => breed.inclusionType === "international-registered").length,
+      nationalHeritage: masterCatalog.filter((breed) => breed.inclusionType === "national-heritage").length,
+      nationalRegistered: masterCatalog.filter((breed) => breed.inclusionType === "national-registered").length,
+      verifiedLandrace: masterCatalog.filter((breed) => breed.inclusionType === "verified-landrace").length,
+      documentedPopulation: masterCatalog.filter((breed) => breed.inclusionType === "documented-population").length,
+      unverifiedName: masterCatalog.filter((breed) => breed.inclusionType === "unverified-name").length,
     },
     detailPriority: {
       core: masterCatalog.filter((breed) => breed.detailPriority === "core").length,

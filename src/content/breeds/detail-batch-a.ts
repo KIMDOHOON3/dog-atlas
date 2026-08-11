@@ -37,7 +37,7 @@ export const detailBatchA = [
       reality: "작은 체구는 좁은 집에서도 눈에 띄게 편해 보일 수 있지만 안전한 이동과 부드러운 신체 다루기, 추위 대비, 혼자 쉬는 연습은 별도로 필요합니다. 어린이와 다른 동물이 있는 집에서는 실제 만남의 속도와 상호작용을 직접 살펴보세요.",
     },
     tendencies: {
-      activity: { label: "중간", note: "짧은 산책과 실내 놀이를 여러 번 나누는 생활이 잘 맞을 수 있어요." },
+      activity: { label: "중간", note: "짧은 산책과 실내 놀이를 여러 번으로 나누어 제공할 수 있어요." },
       mentalStimulation: { label: "중간", note: "냄새 찾기와 짧은 협력 과제로 일상의 자극을 구성해보세요." },
       independence: { label: "개체별 확인 필요", note: "사람 곁을 찾는 정도와 혼자 쉬는 능력은 경험에 따라 크게 달라져요." },
       socialConnection: { label: "높은 편", note: "익숙한 사람과 가까이 지내려는 모습이 소개되지만 실제 선호는 확인해야 해요." },
@@ -102,7 +102,7 @@ export const detailBatchA = [
       reality: "격한 운동량만으로 생활 적합성을 판단하기보다 얼굴과 피모를 매일 관리할 시간, 더위와 실내 온도를 조절할 환경, 짧고 편안한 산책을 제공할 수 있는지 살펴야 합니다. 관리 접촉을 싫어하는 개체라면 적응 과정에 더 많은 시간이 듭니다.",
     },
     tendencies: {
-      activity: { label: "중간", note: "짧은 산책과 실내 놀이를 무리하지 않게 나누는 구성이 잘 맞을 수 있어요." },
+      activity: { label: "중간", note: "짧은 산책과 실내 놀이를 무리하지 않게 나누어 제공할 수 있어요." },
       mentalStimulation: { label: "중간", note: "간단한 냄새 찾기와 선택 과제로 지루함을 줄여주세요." },
       independence: { label: "개체별 확인 필요", note: "사람 곁에 있으려는 정도와 혼자 쉬는 능력은 개별 경험을 확인해야 해요." },
       socialConnection: { label: "높은 편", note: "반려 역할의 역사가 있지만 사람과 동물에 대한 반응은 직접 살펴보세요." },
@@ -363,7 +363,7 @@ export const detailBatchA = [
     },
     tendencies: {
       activity: { label: "높은 편", note: "민첩하게 움직이는 산책과 탐색 활동을 규칙적으로 제공해야 해요." },
-      mentalStimulation: { label: "높은 편", note: "냄새 찾기와 운반·회수처럼 역할과 연결된 과제가 잘 맞을 수 있어요." },
+      mentalStimulation: { label: "높은 편", note: "냄새 찾기와 운반·회수처럼 역할과 연결된 과제를 활용할 수 있어요." },
       independence: { label: "중간", note: "사람과 협력하면서도 냄새를 따라 탐색하는 시간을 균형 있게 마련하세요." },
       socialConnection: { label: "높은 편", note: "가까이 협력한 배경이 있지만 낯선 대상에 대한 반응은 직접 확인해야 해요." },
       alerting: { label: "중간", note: "환경 변화에 대한 소리 반응은 사회화와 생활 공간에 따라 달라질 수 있어요." },

@@ -1,4 +1,5 @@
 import type { Breed } from "./schema";
+import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-06";
 type Group = "herding" | "guardian-working" | "terrier" | "spitz-primitive" | "scent-hound" | "pointing";
@@ -94,18 +95,18 @@ const makeBreed = (seed: Seed): Breed => {
   const m = meta[seed.group];
   return {
     slug: seed.slug, contentStatus: "mvp-editorial-draft", nameKo: seed.nameKo, nameEn: seed.nameEn,
-    tagline: `${seed.nameKo}는 ${seed.role}을 위해 형성된 품종으로, 오늘의 생활에서는 개체 차이와 환경을 함께 살펴야 합니다.`,
+    tagline: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역사적 배경을 지녔으며, 오늘의 생활에서는 개체 차이와 환경을 함께 살펴야 합니다.`,
     palette: { primary: m.colors[0], secondary: m.colors[1], ink: m.colors[2] },
     illustration: `/illustrations/v2/${seed.slug}-card.webp`, catalog: { group: seed.group, discoveryTags: [...m.tags, seed.origin] },
     historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 기원과 역할을 보여 주는 편집 초안 역사 장면` },
     identity: { origin: seed.origin, lineage: `${seed.origin}의 오래된 ${m.label} 계통에서 발전한 품종`, originalRole: seed.role, size: seed.size, lifespan: "개체와 관리 환경에 따라 달라지며 공식 자료와 수의사 상담을 함께 확인하세요." },
     behaviorClues: {
-      originalRole: `${seed.nameKo}는 ${seed.role}을 위해 형성된 배경이 있습니다. 과거의 역할은 현재 개체의 행동을 단정하지 않지만 생활 설계의 참고 단서가 될 수 있습니다.`,
+      originalRole: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역할과 환경 속에서 형성되었습니다. 과거의 역할은 현재 개체의 행동을 단정하지 않지만 생활 설계의 참고 단서가 될 수 있습니다.`,
       today: `오늘날에는 ${seed.role}과 연결된 욕구를 놀이·탐색·협력 과제로 전환할 수 있습니다. 반응과 필요한 활동량은 개체마다 다릅니다.`,
       guardianContext: `보호자는 ${seed.nameKo}의 체격(${seed.size})과 생활 환경을 고려해 운동, 휴식, 사회화, 안전 관리를 함께 계획해야 합니다.`,
     },
     story: {
-      opening: `${seed.nameKo}는 ${seed.origin}에서 ${seed.role}을 맡으며 발전한 품종입니다. 이름과 외형만으로 생활 난이도를 판단하기보다 형성 배경과 개체의 신호를 함께 살펴보세요.`,
+      opening: `${withTopicParticle(seed.nameKo)} ${seed.origin}에서 ${seed.role}이라는 역사적 배경과 함께 발전했습니다. 이름과 외형만으로 생활 난이도를 판단하기보다 형성 배경과 개체의 신호를 함께 살펴보세요.`,
       roleToHome: roleHome(seed.group),
       reality: `품종의 경향은 개인의 성격을 보장하지 않습니다. ${seed.nameKo}에게는 ${seed.size}에 맞는 공간과 일상, 건강 상태, 보호자와의 경험을 함께 고려하는 준비가 필요합니다.`,
     },

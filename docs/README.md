@@ -17,6 +17,7 @@
 ### 콘텐츠와 데이터
 
 - [`content-copy-guide.md`](content-copy-guide.md) — 단정적 추천을 피하는 카피 규칙과 검수 기준
+- [`korean-copy-audit.md`](korean-copy-audit.md) — 368종 한국어 표시 카피 전수 점검, 교정 범위와 재발 방지 테스트
 - [`catalog-data-architecture.md`](catalog-data-architecture.md) — 마스터 카탈로그와 상세 콘텐츠 분리 설계
 - [`catalog-taxonomy-spec.md`](catalog-taxonomy-spec.md) — 탐색 분류와 통제 어휘
 - [`catalog-inclusion-policy.md`](catalog-inclusion-policy.md) — 국제 등록견·국가 보존 토착견·랜드레이스의 포함 및 근거 기준
@@ -29,11 +30,16 @@
 - [`shortlist-design-spec.md`](shortlist-design-spec.md) — 관심 견종 보관함과 2~3종 비교 설계
 - [`design-redesign-spec.md`](design-redesign-spec.md) — 타이포, 캐러셀, 생활조건 탐색을 포함한 초기 개선 명세
 
+### 검증과 출시 준비
+
+- [`release-readiness.md`](release-readiness.md) — 자동 검사, 반응형 QA, 외부 전문가 검수와 배포 차단 기준
+
 ### 이미지 제작 기록
 
-- [`breed-visual-audit.md`](breed-visual-audit.md) — 368종 카드 1차 외형 점검, 교체 완료·필요·재확인 상태
+- [`breed-visual-audit.md`](breed-visual-audit.md) — 368종 카드 1차 외형 점검과 고위험 묶음별 교체·유지·재확인 상태
 - [`image-prompts-sapsaree.md`](image-prompts-sapsaree.md) — 삽살개 카드·역사 이미지 재제작 근거와 전체 프롬프트
 - [`image-prompts-breed-visual-replacements-2026-08-11.md`](image-prompts-breed-visual-replacements-2026-08-11.md) — 공식 외형 자료와 대조해 교체한 10종·20개 자산의 생성 방식, 프롬프트와 파일 매핑
+- [`image-prompts-breed-visual-replacements-batch-2-2026-08-11.md`](image-prompts-breed-visual-replacements-batch-2-2026-08-11.md) — 후각하운드·흰 가축보호견·스피츠 30종 재검수에서 교체한 11종·13개 자산의 근거와 프롬프트
 - [`image-prompts-batch-a.md`](image-prompts-batch-a.md) — 초기 확장 배치 A의 카드·역사 이미지 프롬프트와 QA 기록
 - [`image-prompts-batch-b.md`](image-prompts-batch-b.md) — 초기 확장 배치 B의 카드·역사 이미지 프롬프트와 QA 기록
 

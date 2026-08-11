@@ -1,4 +1,5 @@
 import type { Breed } from "./schema";
+import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-05";
 type Level = "낮은 편" | "중간" | "높은 편";
@@ -63,12 +64,12 @@ const makeBreed = (seed: Seed): Breed => ({
   historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
   identity: { origin: seed.origin, lineage: seed.lineage, originalRole: seed.role, size: seed.size, lifespan: seed.lifespan },
   behaviorClues: {
-    originalRole: `${seed.nameKo}는 ${seed.role}을 위해 형성된 견종입니다. 과거의 역할은 현재 개체의 행동을 결정하지 않지만 살펴볼 단서가 될 수 있어요.`,
+    originalRole: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역할과 환경 속에서 형성된 견종입니다. 과거의 역할은 현재 개체의 행동을 결정하지 않지만 살펴볼 단서가 될 수 있어요.`,
     today: `현재 가정에서는 ${seed.role}의 흔적이 움직임·탐색·경계 방식으로 다르게 나타날 수 있습니다. 사회성과 반응은 개체마다 달라요.`,
     guardianContext: `보호자는 ${seed.nameKo}의 체격과 활동, 자극 반응에 맞는 거리와 회복 시간을 준비해야 합니다. 품종만으로 성격이나 위험을 단정하지 마세요.`,
   },
   story: {
-    opening: `${seed.nameKo}는 ${seed.origin}에서 ${seed.role}을 해온 견종입니다. ${seed.lineage}라는 배경을 알면 외형만으로는 보이지 않는 생활 조건을 생각할 수 있어요.`,
+    opening: `${withTopicParticle(seed.nameKo)} ${seed.origin}에서 ${seed.role}이라는 역사적 배경을 지닌 견종입니다. ${seed.lineage}라는 배경을 알면 외형만으로는 보이지 않는 생활 조건을 생각할 수 있어요.`,
     roleToHome: roleHome(seed),
     reality: `귀엽거나 강인해 보이는 인상만으로는 충분하지 않습니다. ${seed.nameKo}와 살려면 ${seed.size}에 맞는 공간과 일상, 교육·관리 비용을 미리 확인해야 해요.`,
   },

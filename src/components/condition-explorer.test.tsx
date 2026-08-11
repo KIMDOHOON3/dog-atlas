@@ -5,7 +5,7 @@ import { ConditionExplorer } from "./condition-explorer";
 
 describe("ConditionExplorer", () => {
   it("switches the single comparison condition", () => {
-    render(<ConditionExplorer breeds={breeds} />);
+    render(<ConditionExplorer breeds={breeds.slice(0, 3)} />);
     fireEvent.click(screen.getByRole("button", { name: /털 관리/ }));
 
     expect(screen.getByRole("button", { name: /매일의 활동/ })).toHaveAttribute("aria-pressed", "false");

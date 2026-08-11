@@ -6,7 +6,9 @@ import { InterestBreedToggle } from "@/components/interest-breed-toggle";
 import { SiteHeader } from "@/components/site-header";
 import { OriginMark } from "@/components/origin-mark";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
+import { getMasterBreed } from "@/content/breeds/master-catalog";
 import type { Breed } from "@/content/breeds/schema";
+import { getBreedInclusionPresentation } from "@/lib/breed-inclusion";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -32,7 +34,7 @@ const coreTendencies = ["activity", "socialConnection", "grooming"] as const;
 const extraTendencies = ["mentalStimulation", "independence", "alerting"] as const;
 
 const realityLabels: Record<string, [string, string][]> = {
-  "japanese-spitz": [["풍성한 이중모", "정기적인 빗질과 털갈이 관리"], ["주변 변화에 기민함", "소리 자극과 알림 행동을 차분히 관리"], ["가족과의 교감", "혼자 편안히 쉬는 연습도 천천히"]],
+  "japanese-spitz": [["풍성한 이중모", "정기적인 빗질과 털갈이 관리"], ["주변 변화를 빠르게 알아차림", "소리 자극과 알림 행동을 차분히 관리"], ["가족과의 교감", "혼자 편안히 쉬는 연습도 천천히"]],
   maltese: [["사람을 좋아하는 성향", "짧은 시간부터 혼자 쉬는 연습"], ["길고 흰 피모", "엉킴을 줄이는 규칙적인 관리"], ["작은 체구", "낙상과 거친 상호작용을 예방"]],
   "border-collie": [["높은 집중력", "매일 문제를 해결할 과제 제공"], ["빠른 움직임", "충분한 활동과 차분한 휴식의 균형"], ["몰이 행동의 배경", "움직임 자극을 세심하게 관리"]],
   greyhound: [["폭발적인 질주", "안전한 환경에서의 운동 기회"], ["시각으로 쫓는 본능", "리드와 울타리 환경을 꼼꼼히 확인"], ["짧은 털과 마른 체형", "추위와 단단한 바닥에 대비"]],
@@ -47,6 +49,9 @@ function TendencyCard({ breed, name }: { breed: Breed; name: keyof Breed["tenden
 export default async function BreedDetail({ params }: PageProps) {
   const breed = getBreed((await params).slug);
   if (!breed) notFound();
+  const masterBreed = getMasterBreed(breed.slug);
+  if (!masterBreed) notFound();
+  const inclusion = getBreedInclusionPresentation(masterBreed);
   const related = getRelatedBreeds(breed);
   const samoyed = getBreed("samoyed")!;
   const maltese = getBreed("maltese")!;
@@ -66,6 +71,7 @@ export default async function BreedDetail({ params }: PageProps) {
         <section className={styles.hero} aria-labelledby="breed-title">
           <div className={styles.summary}>
             <p className={styles.originLine}><span>{breed.nameEn} ·</span><OriginMark slug={breed.slug} /><span>{breed.identity.origin}</span></p>
+            <div className={styles.inclusionMeta} title={inclusion.description}><strong>{inclusion.label}</strong><span>{inclusion.authority}</span></div>
             <h1 id="breed-title">{breed.nameKo}</h1>
             <strong>{breed.tagline}</strong>
             <InterestBreedToggle slug={breed.slug} nameKo={breed.nameKo} />
