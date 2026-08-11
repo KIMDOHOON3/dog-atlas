@@ -1,19 +1,19 @@
 .explorer { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; padding: 10px 0 68px; }
-.quickExplorer { padding-top: 34px; padding-bottom: 52px; }
+.quickExplorer { padding-top: 42px; padding-bottom: 58px; }
 .quickStartGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
-.quickStartCard { position: relative; min-height: 122px; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border: 1px solid var(--line); border-radius: 18px; color: var(--ink); background: var(--panel); text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
-.quickIcon { display: block; width: 52px; height: 52px; margin-bottom: 8px; border-radius: 50%; background-color: #fbf1dd; background-image: url('/illustrations/ui/dog-discovery-icons-v1.png'); background-size: 300% 200%; background-repeat: no-repeat; mix-blend-mode: multiply; }
-.quickIcon[data-dog-icon="calm"] { background-position: 100% 100%; }
-.quickIcon[data-dog-icon="active"] { background-position: 50% 100%; }
-.quickIcon[data-dog-icon="social"] { background-position: 50% 0; }
+.quickStartCard { position: relative; min-height: 258px; overflow: hidden; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 14px 16px 16px; border: 1px solid var(--line); border-radius: 20px; color: var(--ink); background: var(--panel); text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.quickIcon { align-self: center; display: block; width: 156px; height: 156px; margin: 0 auto 6px; border-radius: 18px; background-color: #fbf7ed; background-image: url('/illustrations/ui/dog-lifestyle-icons-v2.jpg'); background-size: 300% 200%; background-repeat: no-repeat; mix-blend-mode: multiply; }
+.quickIcon[data-dog-icon="calm"] { background-position: 0 0; }
+.quickIcon[data-dog-icon="active"] { background-position: 50% 0; }
+.quickIcon[data-dog-icon="social"] { background-position: 100% 0; }
 .quickIcon[data-dog-icon="independent"] { background-position: 0 100%; }
-.quickIcon[data-dog-icon="grooming"] { background-position: 100% 100%; }
-.quickIcon[data-dog-icon="unfamiliar"] { background-position: 0 100%; }
+.quickIcon[data-dog-icon="grooming"] { background-position: 50% 100%; }
+.quickIcon[data-dog-icon="unfamiliar"] { background-position: 100% 100%; }
 .quickStartCard:hover { transform: translateY(-2px); border-color: var(--moss); box-shadow: 0 10px 24px rgb(42 52 46 / 8%); }
 .quickStartCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-.quickStartCard strong { max-width: 15ch; font-size: 1rem; line-height: 1.35; }
-.quickStartCard span { margin-top: 4px; color: var(--ink-soft); font-size: .78rem; line-height: 1.5; }
-.quickStartCard b { align-self: flex-end; margin-top: 10px; color: var(--moss); font-size: 1.1rem; }
+.quickStartCard strong { max-width: 15ch; font-size: 1.04rem; line-height: 1.35; }
+.quickStartCard span { margin-top: 4px; padding-right: 38px; color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
+.quickStartCard b { position: absolute; right: 14px; bottom: 14px; display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; color: var(--moss); background: var(--moss-light); font-size: 1rem; }
 .eyebrow { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .06em; }
 .explorer h2 { max-width: 22ch; margin: 0; font-size: clamp(2rem, 3.8vw, 3.1rem); line-height: 1.15; letter-spacing: -.045em; }
 .intro { max-width: 62ch; margin: 14px 0 30px; color: var(--ink-soft); line-height: 1.7; }
@@ -58,3 +58,14 @@
 @media (max-width: 767px) { .quickExplorer { padding-top: 12px; } .quickStartGrid { grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 18px; } .quickStartCard { min-height: 132px; padding: 14px; } .quickStartCard strong { font-size: .9rem; } .quickStartCard span { font-size: .75rem; } }
 @media (max-width: 420px) { .categoryGrid { grid-template-columns: 1fr; } .categoryCard { min-height: 106px; } .chipHint { width: 100%; } .resultCopy { min-height: 86px; padding: 8px 10px 10px; } .resultCopy strong { font-size: .88rem; } }
 @media (prefers-reduced-motion: reduce) { .categoryCard, .resultCard { transition: none; } .categoryCard:hover, .resultCard:hover { transform: none; } }
+
+@media (max-width: 767px) {
+  .quickExplorer { padding-top: 22px; }
+  .quickExplorer h2 { font-size: clamp(1.9rem, 8.2vw, 2.25rem); }
+  .quickStartGrid { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+  .quickStartCard { min-height: 226px; padding: 10px 12px 14px; border-radius: 18px; }
+  .quickIcon { width: 132px; height: 132px; margin-bottom: 7px; border-radius: 16px; }
+  .quickStartCard strong { font-size: .96rem; }
+  .quickStartCard span { font-size: .75rem; }
+  .quickStartCard b { right: 11px; bottom: 11px; width: 30px; height: 30px; }
+}

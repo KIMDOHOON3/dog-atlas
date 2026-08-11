@@ -111,7 +111,7 @@ Replace the undifferentiated 368-breed home grid with three non-ranking collecti
 
 # 2026-08-11 ??Use dog-motif icons for home shortcuts
 
-Use a small raster illustration set based on dog gestures, props, and watercolor-and-pencil texture for the home shortcut and condition menus. Keep the six-cell sprite's palette and character language consistent with the existing breed illustrations, use accessible text labels alongside every image, and avoid emoji or a generic icon-library aesthetic.
+Use dedicated raster illustration sprites based on clearly differentiated dog gestures and props for the home shortcut and condition menus. Treat them as large watercolor character icons rather than small decorative thumbnails: mobile shortcuts use a two-column horizontal layout, and condition cards give at least half their visual weight to the illustration. Keep accessible text labels alongside every image, use the atlas's watercolor-and-pencil palette, and avoid emoji or a generic icon-library aesthetic.
 
 # 2026-08-11 Add gentle autoplay to the home carousel
 
