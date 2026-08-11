@@ -33,6 +33,7 @@
 
 - [`breed-visual-audit.md`](breed-visual-audit.md) — 368종 카드 1차 외형 점검, 교체 완료·필요·재확인 상태
 - [`image-prompts-sapsaree.md`](image-prompts-sapsaree.md) — 삽살개 카드·역사 이미지 재제작 근거와 전체 프롬프트
+- [`image-prompts-breed-visual-replacements-2026-08-11.md`](image-prompts-breed-visual-replacements-2026-08-11.md) — 공식 외형 자료와 대조해 교체한 10종·20개 자산의 생성 방식, 프롬프트와 파일 매핑
 - [`image-prompts-batch-a.md`](image-prompts-batch-a.md) — 초기 확장 배치 A의 카드·역사 이미지 프롬프트와 QA 기록
 - [`image-prompts-batch-b.md`](image-prompts-batch-b.md) — 초기 확장 배치 B의 카드·역사 이미지 프롬프트와 QA 기록
 

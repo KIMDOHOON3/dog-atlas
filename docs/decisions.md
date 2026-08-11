@@ -142,3 +142,9 @@ Remove the editorial role/history explorer from the bottom of `/discover` so the
 Treat local file existence, WebP validity, dimensions, and uniqueness as asset-integrity checks only. They do not establish that an illustration accurately represents a breed. Do not label generated or editorial artwork as `검수된 일러스트` until its morphology has been compared breed by breed with an official standard, national conservation source, or peer-reviewed source.
 
 Review card and history images as one visual unit, recording the source, date, changed paths, and generation prompt. Replace the incorrect spitz-like Sapsaree artwork first and track the seven confirmed high-priority mismatches in `docs/breed-visual-audit.md`. Keep the rest in an unapproved first-pass state rather than claiming that the full 368-image set is accurate.
+
+# 2026-08-11 — Replace morphology mismatches as card/history pairs
+
+Replace the seven confirmed high-priority mismatches and the three additional mismatches found during focused review as card/history pairs, bringing the corrected set to eleven breeds including Sapsaree. Base each new illustration on written morphology from the FCI, the relevant national kennel club, or an official conservation source; do not transform or copy a standard illustration. Preserve the project’s watercolor-and-pencil language while making diagnostic features such as ear set, topline, coat, tail carriage, markings, and the Lundehund’s functional extra toes readable at card size.
+
+Keep the distinction between `교체 완료`, `유지`, `집중 재확인`, and unapproved `1차 점검`. A generated replacement is an editorial correction against the cited source, not expert conformation certification, and the remaining catalog must not be described as fully verified.
