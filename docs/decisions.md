@@ -99,4 +99,4 @@ Anchor the home carousel arrows and position indicator to the lower edge of the 
 
 # 2026-08-11 ??Match carousel image box proportions
 
-Use a shared 5:4 aspect ratio for the home hero visual across desktop and mobile. Let the image frame define its own height from the available width and anchor carousel controls inside that frame, avoiding a viewport-based fixed height that can create mismatched boxes.
+Use a shared 1:1 aspect ratio for the home hero visual across desktop and mobile, matching the existing card illustration format. Let the image frame define its own height from the available width and anchor carousel controls inside that frame, avoiding a viewport-based fixed height that can create mismatched boxes.
