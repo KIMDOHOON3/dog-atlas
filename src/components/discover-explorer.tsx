@@ -94,8 +94,11 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
   return (
     <div className={styles.explorer}>
       <div className={styles.mobileFilterBar}>
-        <button type="button" aria-expanded={filterOpen} onClick={() => setFilterOpen(true)}>필터{activeCount > 0 ? ` ${activeCount}` : ""}</button>
-        {activeCount > 0 && <button type="button" onClick={() => commitFilters(emptyBreedFilters())}>전체 초기화</button>}
+        <button className={styles.filterTrigger} type="button" aria-expanded={filterOpen} onClick={() => setFilterOpen(true)}>
+          <span>필터</span>
+          {activeCount > 0 && <strong aria-label={`선택한 필터 ${activeCount}개`}>{activeCount}</strong>}
+        </button>
+        {activeCount > 0 && <button className={styles.clearFilters} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button>}
       </div>
 
       <div className={`${styles.filterLayout} ${filterOpen ? styles.filterOpen : ""}`}>
@@ -122,24 +125,24 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
             </fieldset>
           ))}
 
-          <button className={styles.applyFilter} type="button" onClick={() => setFilterOpen(false)}>선택한 조건 적용하기</button>
+          <button className={styles.applyFilter} type="button" onClick={() => setFilterOpen(false)}>{activeCount > 0 ? `${results.length}종 결과 보기` : `전체 ${results.length}종 보기`}</button>
         </aside>
 
         <section className={styles.resultsPanel} aria-live="polite" aria-labelledby="discover-results-title">
           <div className={styles.quickExplore}>
-            <div><span>빠른 탐색</span><p>기존 필터 조건으로 바로 살펴보기</p></div>
+            <div><span>빠른 탐색</span><p>한 번 눌러 바로 살펴보세요.</p></div>
             <div className={styles.presetList}>
               {breedFilterPresets.map((preset) => {
                 const presetFilters = applyBreedFilterPreset(preset);
                 const active = JSON.stringify(filters) === JSON.stringify(presetFilters);
-                return <button type="button" className={active ? styles.presetActive : ""} aria-pressed={active} key={preset.key} onClick={() => commitFilters(presetFilters)}>{preset.label}</button>;
+                return <button type="button" className={active ? styles.presetActive : ""} aria-pressed={active} key={preset.key} onClick={() => commitFilters(active ? emptyBreedFilters() : presetFilters)}>{preset.label}</button>;
               })}
             </div>
           </div>
 
           <div className={styles.resultHeader}>
-            <div><span>견종 발견</span><h1 id="discover-results-title">{activeCount > 0 ? `${results.length}종의 견종을 찾았어요` : `${breeds.length}종의 견종을 살펴보세요`}</h1></div>
-            {activeCount > 0 && <button type="button" onClick={() => commitFilters(emptyBreedFilters())}>전체 초기화</button>}
+            <div><span>견종 발견</span><h1 id="discover-results-title">{activeCount > 0 ? `${results.length}종을 찾았어요` : `${breeds.length}종을 살펴보세요`}</h1></div>
+            {activeCount > 0 && <button className={styles.resultClear} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button>}
           </div>
 
           {selectedEntries.length > 0 && (
@@ -167,7 +170,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
               );
             })}
           </div>
-          {results.length === 0 && <div className={styles.emptyState}><h2>이 조건에 맞는 견종이 아직 없어요.</h2><p>조건을 하나씩 줄이거나 전체 초기화 후 다른 생활 특성을 살펴보세요.</p><button type="button" onClick={() => commitFilters(emptyBreedFilters())}>전체 견종 보기</button></div>}
+          {results.length === 0 && <div className={styles.emptyState}><h2>이 조건에 맞는 견종이 아직 없어요.</h2><p>조건을 하나씩 줄이거나 선택을 모두 지우고 다시 살펴보세요.</p><button type="button" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button></div>}
         </section>
       </div>
     </div>

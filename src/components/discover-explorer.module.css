@@ -19,7 +19,7 @@
 .presetList button { background: var(--panel); }
 .resultHeader { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 34px 0 16px; }
 .resultHeader h1 { font-size: clamp(1.75rem, 3vw, 2.4rem); }
-.resultHeader button, .emptyState button { border: 0; color: var(--moss); background: transparent; font-size: .8rem; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.resultHeader button, .emptyState button { border: 0; color: var(--moss); background: transparent; font-size: .8rem; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; cursor: pointer; }
 .selectedChips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
 .selectedChips button { padding: 7px 10px; border: 1px solid var(--moss); border-radius: 999px; color: var(--moss); background: var(--moss-light); font-size: .76rem; cursor: pointer; }
 .selectedChips button span { margin-left: 4px; font-weight: 700; }
@@ -41,9 +41,11 @@
 @media (max-width: 960px) { .filterLayout { grid-template-columns: 230px minmax(0, 1fr); gap: 18px; } .quickExplore { display: block; } .presetList { justify-content: flex-start; margin-top: 12px; } .resultGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .explorer { width: calc(100% - var(--page-inline)); }
-  .mobileFilterBar { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 14px; }
-  .mobileFilterBar button { padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--panel); font-size: .82rem; cursor: pointer; }
-  .mobileFilterBar button:first-child { border-color: var(--moss); color: white; background: var(--moss); }
+  .mobileFilterBar { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px; margin-bottom: 18px; padding: 6px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); box-shadow: 0 6px 20px rgb(36 48 43 / 5%); }
+  .mobileFilterBar button { min-height: 44px; border-radius: 11px; font-size: .82rem; cursor: pointer; }
+  .mobileFilterBar .filterTrigger { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; padding: 7px 8px 7px 14px; border: 1px solid var(--moss); color: white; background: var(--moss); font-weight: 700; }
+  .filterTrigger strong { min-width: 28px; height: 28px; display: grid; place-items: center; padding: 0 7px; border-radius: 999px; color: var(--moss); background: var(--panel); font-size: .72rem; }
+  .mobileFilterBar .clearFilters { padding: 8px 11px; border: 0; color: var(--moss); background: transparent; font-weight: 700; white-space: nowrap; }
   .filterLayout { display: block; }
   .filterPanel { position: fixed; z-index: 80; right: 0; bottom: 0; left: 0; max-height: min(88vh, 760px); overflow-y: auto; border-radius: 22px 22px 0 0; transform: translateY(110%); transition: transform .22s ease; }
   .filterOpen .filterPanel { transform: translateY(0); }
@@ -51,8 +53,13 @@
   .filterPanelHeader { align-items: start; }
   .closeFilter { display: block; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: var(--panel); font-size: 1.4rem; line-height: 1; cursor: pointer; }
   .applyFilter { display: block; width: 100%; margin-top: 8px; padding: 12px; border: 0; border-radius: 12px; color: white; background: var(--moss); font-weight: 700; cursor: pointer; }
-  .quickExplore { padding: 15px; }
-  .resultHeader { align-items: start; margin-top: 26px; }
+  .quickExplore { padding: 18px; border-radius: 20px; }
+  .quickExplore p { margin-top: 5px; font-size: .76rem; }
+  .presetList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 15px; }
+  .presetList button { width: 100%; min-height: 46px; padding: 8px 10px; border-radius: 13px; font-size: .74rem; font-weight: 700; line-height: 1.35; word-break: keep-all; }
+  .presetList button:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .resultHeader { display: block; margin: 30px 0 14px; }
+  .resultHeader .resultClear { display: none; }
   .resultHeader h1 { font-size: 1.7rem; }
   .resultGrid { gap: 10px; }
   .resultCopy { padding: 10px 11px 13px; }
