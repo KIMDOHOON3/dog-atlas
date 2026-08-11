@@ -104,3 +104,7 @@ Use a shared 1:1 aspect ratio for the home hero visual across desktop and mobile
 # 2026-08-11 ??Simplify first-time discovery on home
 
 Replace the home explorer's hardcoded representative slug groups with six plain-language entry points backed by existing tendency filters. Each entry links to `/discover` with a valid query, while role/history exploration remains a separate section so beginners are not asked to interpret multiple taxonomies at once.
+
+# 2026-08-11 ??Add editorial browse collections to home
+
+Replace the undifferentiated 368-breed home grid with three non-ranking collections: working roles, regional environments, and unfamiliar breeds. Use existing breed identity and role copy for the cards, and keep the full factual filter experience on `/discover`. Do not label collections as popularity or national top lists without dated, sourced data.

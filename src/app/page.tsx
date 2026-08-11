@@ -26,6 +26,12 @@ const cardTraits: Record<string, string> = {
   samoyed: "교감과 털 관리",
 };
 
+const browseCollections = [
+  { key: "roles", title: "사람과 함께 일해 온 견종", description: "목양·수호·사냥처럼 원래 역할의 흔적을 살펴보세요.", slugs: ["border-collie", "mongolian-bankhar", "greyhound", "samoyed"] },
+  { key: "origins", title: "각 지역의 환경에서 형성된 견종", description: "서로 다른 기후와 지형이 견종의 모습과 생활에 남긴 이야기를 봐요.", slugs: ["japanese-spitz", "norwegian-lundehund", "saluki", "newfoundland"] },
+  { key: "unfamiliar", title: "처음 보면 낯선 견종", description: "이름은 낯설어도, 각자의 역할과 배경이 분명한 견종들이에요.", slugs: ["mudi", "karelian-bear-dog", "sapsaree", "icelandic-sheepdog"] },
+] as const;
+
 export default function Home() {
   return (
     <>
@@ -48,6 +54,28 @@ export default function Home() {
         </section>
 
         <CategoryExplorer breeds={breeds} mode="quick" />
+
+        <section className={styles.browseCollections} aria-labelledby="browse-collections-title">
+          <header><p className={styles.eyebrow}>편집 큐레이션</p><h2 id="browse-collections-title">이야기로 강아지를 둘러보세요.</h2><span>순위가 아니라 역할과 지역, 낯선 배경을 따라 골라볼 수 있어요.</span></header>
+          <div className={styles.collectionList}>
+            {browseCollections.map((collection) => {
+              const collectionBreeds = collection.slugs.map((slug) => getBreed(slug)).filter((breed): breed is NonNullable<typeof breed> => Boolean(breed));
+              return (
+                <section className={styles.collection} key={collection.key} aria-labelledby={`${collection.key}-title`}>
+                  <div className={styles.collectionHeading}><div><h3 id={`${collection.key}-title`}>{collection.title}</h3><p>{collection.description}</p></div><Link href="/discover">전체 견종 보기 →</Link></div>
+                  <div className={styles.collectionGrid}>
+                    {collectionBreeds.map((breed) => (
+                      <Link className={styles.breedCard} href={`/breeds/${breed.slug}`} key={breed.slug} aria-label={`${breed.nameKo} 상세 정보 보기`}>
+                        <BreedVisual breed={breed} variant="tile" />
+                        <div><strong>{breed.nameKo}</strong><span aria-hidden="true">↗</span><small>{breed.identity.origin} · {breed.identity.originalRole}</small></div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </section>
 
         <section className={styles.browse} id="discover" aria-labelledby="browse-title">
           <header><h2 id="browse-title">강아지 둘러보기</h2><p>관심 가는 한 마리부터 천천히 알아보세요.</p></header>
