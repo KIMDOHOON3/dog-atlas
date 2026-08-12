@@ -37,8 +37,8 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
         </Link>
         <nav aria-label="주요 탐색">
           <Link href="/discover">견종 발견</Link>
-          <Link href="/breed-names">이름 속 견종</Link>
-          <Link href="/curiosity">호기심 탐험</Link>
+          <Link href="/breed-names/pointer">이름 속 견종</Link>
+          <Link href="/curiosity/distinctive-coats">호기심 탐험</Link>
           <Link href={compareHref}>비교하기{hydrated && slugs.length > 0 ? ` · ${slugs.length}` : ""}</Link>
           <Link className={styles.searchIcon} href="/#breed-search" aria-label="견종 검색으로 이동"><span className={styles.searchGlyph} aria-hidden="true" /></Link>
         </nav>
@@ -48,11 +48,11 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
           <DiscoveryIcon />
           <span>견종 발견</span>
         </Link>
-        <Link className={breedNamesActive ? styles.mobileNavActive : ""} href="/breed-names">
+        <Link className={breedNamesActive ? styles.mobileNavActive : ""} href="/breed-names/pointer">
           <StoriesIcon />
           <span>이름 속 견종</span>
         </Link>
-        <Link className={curiosityActive ? styles.mobileNavActive : ""} href="/curiosity">
+        <Link className={curiosityActive ? styles.mobileNavActive : ""} href="/curiosity/distinctive-coats">
           <CuriosityIcon />
           <span>호기심 탐험</span>
         </Link>

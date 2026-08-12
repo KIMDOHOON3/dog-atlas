@@ -33,11 +33,13 @@ Dog Atlas(살아 있는 견종도감)는 강아지를 고려하는 사람이 외
 
 ### 이름 속 견종 `/breed-names`
 
-- Pointer·Retriever·Setter·Spaniel·Sheepdog/Shepherd·Terrier를 독립 카드로 보여주며, 카드를 선택하면 중간 견종 미리보기 없이 해당 이름 이야기 상세로 바로 이동한다.
+- 대메뉴를 선택하면 별도 인덱스 없이 `Pointer` 상세(`/breed-names/pointer`)로 바로 진입한다.
+- 상세 화면의 가로 주제 내비게이션에서 Retriever·Setter·Spaniel·Sheepdog/Shepherd·Terrier로 바로 이동한다.
 
 ### 견종 호기심 탐험 `/curiosity`
 
-- 큰 체구·작은 체구·주름진 얼굴·독특한 털·이름 속 직업·연도와 대회를 명시한 도그쇼 기록의 6개 호기심 테마를 제공한다. 테마 카드를 선택하면 중간 견종 미리보기 없이 해당 테마 상세로 바로 이동한다.
+- 대메뉴를 선택하면 별도 인덱스 없이 기본 주제 `독특한 털` 상세(`/curiosity/distinctive-coats`)로 바로 진입한다.
+- 상세 화면의 가로 주제 내비게이션에서 큰 체구·작은 체구·주름진 얼굴·이름 속 직업·도그쇼 이야기로 바로 이동한다.
 - 데스크톱 헤더와 모바일 하단 내비게이션에서 두 편집 영역을 각각 독립된 대메뉴로 제공한다.
 
 ### 견종 발견 `/discover`
@@ -159,8 +161,7 @@ UI 변경은 추가로 390px, 768px, 1440px, 1920px 폭에서 확인한다. 비�
 
 최근 검증 결과(2026-08-13):
 
-- 두 편집 인덱스의 대표 견종·선택형 미리보기를 제거하고 각 주제 카드를 상세 페이지 직접 링크로 바꾼 뒤 변경 파일 ESLint와 전체 TypeScript 검사 통과. 호기심 인덱스 직접 링크 테스트 2개 통과, `npm run build` 통과 — 390개 정적 페이지 생성.
-- `이름 속 견종`과 `견종 호기심 탐험`을 각각 `/breed-names`, `/curiosity` 독립 대메뉴와 인덱스 페이지로 분리한 뒤 변경 파일 ESLint와 전체 TypeScript 검사 통과. `npm run build` 통과 — 두 인덱스를 포함한 390개 정적 페이지 생성. 두 경로의 로컬 HTTP 200 응답과 제목 렌더링을 확인했으며, 연결 가능한 앱 브라우저가 없어 이번 변경의 390px·1440px 시각 검증은 실행하지 못했다.
+- 편집 대메뉴의 기본 진입점을 `Pointer`와 `독특한 털` 상세로 변경하고 기존 인덱스용 미리보기 코드를 제거한 뒤 변경 파일 ESLint와 전체 TypeScript 검사 통과. `npm run build` 통과 — 390개 정적 페이지 생성. 로컬 production server에서 `/breed-names` → `/breed-names/pointer`, `/curiosity` → `/curiosity/distinctive-coats`의 HTTP 307 응답과 목적지를 확인했다.
 - 홈 첫 히어로 목적·CTA·검색 위계 변경 뒤 변경 파일 ESLint와 전체 TypeScript 검사 통과, `npm run build` 통과 — 388개 정적 페이지 생성. 390px·1440px 브라우저에서 가로 넘침 없이 모바일 세로 CTA와 데스크톱 2열 배치를 확인했다.
 - `npm run lint` 통과
 - `npm run typecheck` 통과

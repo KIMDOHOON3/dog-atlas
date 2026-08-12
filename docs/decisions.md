@@ -182,3 +182,7 @@ Replace the shared `/stories` destination with independent `/breed-names` and `/
 # 2026-08-13 — Make editorial indexes direct navigation
 
 Use the `/breed-names` and `/curiosity` indexes as simple topic directories. Each topic card links directly to its matching detail page; do not insert representative-breed previews or an interactive theme preview between the index and detail.
+
+# 2026-08-13 — Enter editorial menus through a default detail
+
+Remove the topic-directory step from the primary journey. Link `이름 속 견종` directly to `/breed-names/pointer` and `호기심 탐험` directly to `/curiosity/distinctive-coats`, while keeping `/breed-names` and `/curiosity` as compatibility redirects. Users switch topics with the horizontal navigation already present on each detail page.
