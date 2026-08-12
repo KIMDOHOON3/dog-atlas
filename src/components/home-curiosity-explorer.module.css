@@ -1,74 +1,37 @@
 .section { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; padding: 48px 0 82px; }
-.intro { max-width: 760px; }
+.intro { max-width: 760px; margin-bottom: 28px; }
 .eyebrow { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; color: var(--moss); font-size: .8rem; font-weight: 800; letter-spacing: .055em; }
 .eyebrow svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .intro h2 { max-width: 18ch; margin: 0; font-size: clamp(2rem, 3.2vw, 3.2rem); line-height: 1.12; letter-spacing: -.045em; word-break: keep-all; }
 .intro > p:last-child { margin: 14px 0 0; color: var(--ink-soft); font-size: .96rem; line-height: 1.65; word-break: keep-all; }
-.themeScroller { margin: 26px -3px 20px; overflow-x: auto; padding: 3px 3px 9px; scrollbar-width: none; overscroll-behavior-inline: contain; }
-.themeScroller::-webkit-scrollbar { display: none; }
-.themeList { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; min-width: 860px; }
-.themeButton { position: relative; overflow: hidden; display: grid; grid-template-rows: 1fr auto; min-width: 0; min-height: 176px; padding: 8px 8px 12px; border: 1px solid color-mix(in srgb, var(--moss) 16%, transparent); border-radius: 20px; color: var(--ink); background: var(--panel); box-shadow: 0 5px 18px rgb(36 48 43 / 4%); cursor: pointer; font: inherit; transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
-.themeButton:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--moss) 42%, transparent); box-shadow: 0 11px 24px rgb(36 48 43 / 8%); }
-.themeButton:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-.themeButton[aria-pressed="true"] { border: 2px solid var(--moss); padding: 7px 7px 11px; box-shadow: 0 10px 28px rgb(36 48 43 / 10%); }
-.themeButton figure { align-self: stretch; border: 0; border-radius: 14px; background: color-mix(in srgb, var(--paper-deep) 62%, var(--panel)); }
-.themeButton > span:not(.check) { padding-top: 9px; font-size: .86rem; font-weight: 800; line-height: 1.3; word-break: keep-all; }
-.check { position: absolute; top: 10px; right: 10px; display: grid; width: 26px; height: 26px; place-items: center; border-radius: 50%; color: var(--panel); background: var(--moss); box-shadow: 0 3px 10px rgb(36 48 43 / 18%); }
-.check svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.featurePanel { padding: 28px; border: 1px solid color-mix(in srgb, var(--moss) 12%, transparent); border-radius: 30px; background: color-mix(in srgb, var(--moss-light) 72%, var(--panel)); }
-.featureHeader { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin: 0 6px 20px; }
-.featureHeader h3 { margin: 0; font-size: clamp(1.55rem, 2.2vw, 2.25rem); line-height: 1.2; letter-spacing: -.035em; word-break: keep-all; }
-.featureHeader p { margin: 7px 0 0; color: var(--ink-soft); font-size: .9rem; line-height: 1.55; word-break: keep-all; }
-.featureHeader > a { flex: none; padding-bottom: 3px; color: var(--moss); font-size: .83rem; font-weight: 800; text-underline-offset: 4px; }
-.featureHeader > a:focus-visible, .mobileMore:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 5px; }
-.breedGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.breedCard { overflow: hidden; display: flex; min-width: 0; flex-direction: column; border: 1px solid rgb(36 48 43 / 7%); border-radius: 22px; color: var(--ink); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 6%); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
-.breedCard:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgb(36 48 43 / 11%); }
-.breedCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-.breedCard figure { border: 0; border-radius: 20px 20px 8px 8px; box-shadow: none; }
-.breedCard > div { position: relative; display: flex; flex: 1; min-height: 122px; flex-direction: column; padding: 15px 48px 17px 17px; }
-.breedCard small { color: var(--ink-soft); font-size: .68rem; line-height: 1.35; overflow-wrap: anywhere; }
-.breedCard strong { margin-top: 3px; font-size: 1.08rem; line-height: 1.35; word-break: keep-all; }
-.breedCard p { margin: 8px 0 0; color: var(--ink-soft); font-size: .78rem; line-height: 1.48; word-break: keep-all; }
-.breedCard > div > span { position: absolute; right: 17px; bottom: 17px; color: var(--moss); font-size: 1.2rem; }
-.context { max-width: 860px; margin: 16px 6px 0; color: var(--ink-soft); font-size: .72rem; line-height: 1.55; word-break: keep-all; }
-.mobileMore { display: none; }
-@media (max-width: 960px) {
-  .themeList { min-width: 800px; }
-  .themeButton { min-height: 164px; }
-}
+.themeGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.themeCard { overflow: hidden; display: grid; grid-template-columns: minmax(120px, 40%) 1fr; min-width: 0; border: 1px solid color-mix(in srgb, var(--moss) 15%, transparent); border-radius: 24px; color: var(--ink); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 5%); text-decoration: none; transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+.themeCard:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--moss) 42%, transparent); box-shadow: 0 15px 32px rgb(36 48 43 / 10%); }
+.themeCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.themeCard figure { height: 100%; border: 0; border-radius: 22px 8px 8px 22px; background: color-mix(in srgb, var(--paper-deep) 62%, var(--panel)); }
+.themeCard > div { display: flex; min-width: 0; flex-direction: column; padding: 20px 18px; }
+.label { color: var(--moss); font-size: .72rem; font-weight: 800; letter-spacing: .04em; }
+.themeCard h3 { margin: 7px 0 0; font-size: 1.05rem; line-height: 1.35; letter-spacing: -.025em; word-break: keep-all; }
+.themeCard p { margin: 9px 0 18px; color: var(--ink-soft); font-size: .78rem; line-height: 1.55; word-break: keep-all; }
+.more { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; color: var(--moss); font-size: .76rem; font-weight: 800; }
+@media (max-width: 1080px) { .themeGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .section { padding: 34px 0 58px; }
+  .intro { margin-bottom: 20px; }
   .intro h2 { font-size: clamp(2rem, 9vw, 2.55rem); }
   .intro > p:last-child { margin-top: 10px; font-size: .9rem; }
-  .themeScroller { margin-top: 20px; margin-right: calc(var(--page-inline) / -2); }
-  .themeList { display: flex; min-width: 0; gap: 9px; padding-right: var(--page-inline); }
-  .themeButton { flex: 0 0 118px; min-height: 144px; border-radius: 18px; }
-  .themeButton > span:not(.check) { font-size: .8rem; }
-  .check { width: 24px; height: 24px; }
-  .featurePanel { padding: 18px 14px 16px; border-radius: 24px; }
-  .featureHeader { display: block; margin: 2px 4px 16px; }
-  .featureHeader h3 { font-size: 1.65rem; }
-  .featureHeader p { font-size: .84rem; }
-  .featureHeader > a { display: none; }
-  .breedGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .breedCard:first-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 58fr) minmax(0, 42fr); }
-  .breedCard:first-child figure { border-radius: 18px 8px 8px 18px; }
-  .breedCard:first-child > div { justify-content: center; min-height: 0; padding: 14px 36px 14px 14px; }
-  .breedCard > div { min-height: 120px; padding: 12px 30px 14px 12px; }
-  .breedCard small { font-size: .62rem; }
-  .breedCard strong { font-size: .92rem; }
-  .breedCard p { font-size: .7rem; }
-  .breedCard > div > span { right: 11px; bottom: 12px; }
-  .mobileMore { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; min-height: 52px; padding: 12px 16px; border-radius: 15px; color: var(--panel); background: var(--moss); font-size: .86rem; font-weight: 800; text-decoration: none; }
-  .context { margin: 13px 4px 0; font-size: .68rem; }
+  .themeGrid { grid-template-columns: 1fr; gap: 10px; }
+  .themeCard { grid-template-columns: 124px 1fr; border-radius: 20px; }
+  .themeCard figure { border-radius: 18px 8px 8px 18px; }
+  .themeCard > div { padding: 17px 15px; }
+  .themeCard p { margin-bottom: 14px; }
 }
-@media (max-width: 420px) {
-  .breedCard:first-child { grid-template-columns: 1fr; }
-  .breedCard:first-child figure { border-radius: 18px 18px 8px 8px; }
-  .breedCard:first-child > div { min-height: 108px; }
+@media (max-width: 390px) {
+  .themeCard { grid-template-columns: 108px 1fr; }
+  .themeCard > div { padding: 15px 13px; }
+  .themeCard p { font-size: .73rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .themeButton, .breedCard { transition: none; }
-  .themeButton:hover, .breedCard:hover { transform: none; }
+  .themeCard { transition: none; }
+  .themeCard:hover { transform: none; }
 }

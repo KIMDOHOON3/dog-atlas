@@ -174,3 +174,11 @@ Keep transient exploration choices in the current browser history entry rather t
 # 2026-08-12 — Separate editorial stories from the home journey
 
 Move `이름 속 견종` and `견종 호기심 탐험` from the home page into a shared `/stories` top-level destination named `견종 이야기`. Keep their existing content, theme interaction, and detail routes, while making the home page focus on service identity, search, and lifestyle-based discovery. Expose the new destination in both the desktop header and mobile bottom navigation.
+
+# 2026-08-13 — Split editorial areas into independent top-level destinations
+
+Replace the shared `/stories` destination with independent `/breed-names` and `/curiosity` top-level pages. Expose both directly in the desktop header and mobile bottom navigation, and keep their existing detail routes beneath the matching top-level path. The home page remains focused on service identity, search, and lifestyle discovery.
+
+# 2026-08-13 — Make editorial indexes direct navigation
+
+Use the `/breed-names` and `/curiosity` indexes as simple topic directories. Each topic card links directly to its matching detail page; do not insert representative-breed previews or an interactive theme preview between the index and detail.
