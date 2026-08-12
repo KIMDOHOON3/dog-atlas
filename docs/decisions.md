@@ -170,3 +170,7 @@ Use playful editorial headings, but do not present subjective beauty, popularity
 # 2026-08-12 — Restore exploration state on browser back
 
 Keep transient exploration choices in the current browser history entry rather than in global storage or permanent URL parameters when they do not define a shareable page. Restore the home carousel breed, home curiosity theme, and expanded discovery result count after a user opens a breed detail and returns with browser back. Preserve the existing rule that a genuinely new home visit starts from the first catalog breed, and keep factual discovery filters in the URL as before.
+
+# 2026-08-12 — Separate editorial stories from the home journey
+
+Move `이름 속 견종` and `견종 호기심 탐험` from the home page into a shared `/stories` top-level destination named `견종 이야기`. Keep their existing content, theme interaction, and detail routes, while making the home page focus on service identity, search, and lifestyle-based discovery. Expose the new destination in both the desktop header and mobile bottom navigation.

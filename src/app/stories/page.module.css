@@ -1,0 +1,5 @@
+.hero { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 30px auto 0; padding: clamp(28px, 5vw, 58px); border: 1px solid color-mix(in srgb, var(--moss) 15%, transparent); border-radius: 30px; background: color-mix(in srgb, var(--moss-light) 68%, var(--panel)); }
+.hero p { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 800; letter-spacing: .06em; }
+.hero h1 { max-width: 17ch; margin: 0; font-size: clamp(2.3rem, 4.2vw, 4rem); line-height: 1.08; letter-spacing: -.045em; word-break: keep-all; }
+.hero span { display: block; max-width: 650px; margin-top: 18px; color: var(--ink-soft); font-size: 1rem; line-height: 1.72; word-break: keep-all; }
+@media (max-width: 767px) { .hero { margin-top: 16px; padding: 25px 19px; border-radius: 24px; } .hero h1 { font-size: clamp(2.1rem, 10vw, 2.7rem); } .hero span { margin-top: 14px; font-size: .92rem; } }

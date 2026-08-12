@@ -45,7 +45,7 @@ export default async function BreedNameStoryPage({ params }: PageProps) {
       <SiteHeader wide />
       <main className={styles.main}>
         <nav className={styles.breadcrumb} aria-label="현재 위치">
-          <Link href="/">도감</Link><span aria-hidden="true">/</span><Link href="/#breed-name-stories">이름 속 견종</Link><span aria-hidden="true">/</span><span aria-current="page">{story.term}</span>
+          <Link href="/">도감</Link><span aria-hidden="true">/</span><Link href="/stories#breed-name-stories">이름 속 견종</Link><span aria-hidden="true">/</span><span aria-current="page">{story.term}</span>
         </nav>
 
         <section className={styles.hero} aria-labelledby="name-story-title">

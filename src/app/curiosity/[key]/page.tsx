@@ -35,7 +35,7 @@ export default async function CuriosityThemePage({ params }: PageProps) {
       <SiteHeader wide />
       <main className={styles.main}>
         <nav className={styles.breadcrumb} aria-label="현재 위치">
-          <Link href="/">도감</Link><span aria-hidden="true">/</span><Link href="/#curiosity">견종 호기심 탐험</Link><span aria-hidden="true">/</span><span aria-current="page">{theme.label}</span>
+          <Link href="/">도감</Link><span aria-hidden="true">/</span><Link href="/stories#curiosity">견종 호기심 탐험</Link><span aria-hidden="true">/</span><span aria-current="page">{theme.label}</span>
         </nav>
 
         <section className={styles.hero} aria-labelledby="curiosity-theme-title">

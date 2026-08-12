@@ -1,14 +1,11 @@
 import Link from "next/link";
 import { BreedVisual } from "@/components/breed-visual";
 import { CategoryExplorer } from "@/components/category-explorer";
-import { HomeCuriosityExplorer } from "@/components/home-curiosity-explorer";
 import { SearchBox } from "@/components/search-box";
 import { SiteHeader } from "@/components/site-header";
 import { TodayBreedCarousel } from "@/components/today-breed-carousel";
-import { breedNameStories, getBreedNameStoryBreeds } from "@/content/breed-name-stories";
-import { breeds, getBreed } from "@/content/breeds/data";
+import { breeds } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
-import { homeCuriosityThemes } from "@/content/home-curiosity";
 import styles from "./page.module.css";
 
 export const revalidate = 86400;
@@ -20,19 +17,6 @@ const cardTraits: Record<string, string> = {
   greyhound: "질주와 휴식의 리듬",
   samoyed: "교감과 털 관리",
 };
-
-const curiosityThemes = homeCuriosityThemes.map(({ key, label, thumbnailSlug, heading, description, selectionNote, moreLabel, items }) => ({
-  key,
-  label,
-  thumbnailSlug,
-  heading,
-  description,
-  selectionNote,
-  moreLabel,
-  items: items.slice(0, 3),
-}));
-const curiosityBreedSlugs = new Set(curiosityThemes.flatMap((theme) => [theme.thumbnailSlug, ...theme.items.map((item) => item.slug)]));
-const curiosityBreeds = breeds.filter((breed) => curiosityBreedSlugs.has(breed.slug));
 
 export default function Home() {
   return (
@@ -62,67 +46,6 @@ export default function Home() {
 
         <CategoryExplorer />
 
-        <section className={styles.browseCollections} id="breed-name-stories" aria-labelledby="browse-collections-title">
-          <header><p className={styles.eyebrow}>이름 속 견종</p><h2 id="browse-collections-title">견종 이름은 어디에서 왔을까요?</h2><span>이름에 남은 옛 역할과 역사를 대표 견종부터 가볍게 살펴보세요.</span></header>
-          <div className={styles.collectionList}>
-            <section className={`${styles.collection} ${styles.nameStoryCollection}`} aria-labelledby="name-story-title">
-              <div className={styles.collectionHeading}>
-                <div>
-                  <h3 id="name-story-title">이름을 읽으면 옛일이 보여요.</h3>
-                  <p>각 이름마다 대표 견종 4종을 먼저 보고, 더보기에서 연결된 견종을 모두 만날 수 있어요.</p>
-                </div>
-                <span className={styles.storySwipeHint}>옆으로 넘겨 보기 →</span>
-              </div>
-              <div className={styles.nameStoryGrid}>
-                {breedNameStories.map((story) => {
-                  const storyBreeds = getBreedNameStoryBreeds(story.key, breeds);
-
-                  return (
-                    <article className={styles.nameStoryCard} key={story.key} aria-labelledby={`${story.key}-story-title`}>
-                      <div className={styles.nameStoryHead}>
-                        <span>{story.term}</span>
-                        <h4 id={`${story.key}-story-title`}>{story.meaning}</h4>
-                      </div>
-                      <p className={styles.nameStoryDescription}>{story.description}</p>
-                      <div className={styles.nameStoryRepresentative}><span>대표 견종</span><strong>4종</strong></div>
-                      <ul className={styles.nameStoryExamples} aria-label={`${story.term} 관련 견종`}>
-                        {story.examples.map((example) => {
-                          const breed = getBreed(example.slug);
-                          if (!breed) return null;
-
-                          return (
-                            <li key={example.slug}>
-                              <Link href={`/breeds/${breed.slug}`} aria-label={`${breed.nameKo} 상세 정보 보기`}>
-                                <BreedVisual breed={breed} variant="tile" />
-                                <div>
-                                  <strong>{breed.nameKo}</strong>
-                                  <span>{example.cue}</span>
-                                </div>
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                      <Link className={styles.nameStoryMore} href={`/breed-names/${story.key}`}>
-                        현재 도감에서 {storyBreeds.length}종 더 보기 <span aria-hidden="true">→</span>
-                      </Link>
-                      <div className={styles.nameStorySources}>
-                        <span>자료</span>
-                        {story.sources.map((source) => (
-                          <a href={source.url} key={source.url} target="_blank" rel="noreferrer" aria-label={`${source.organization} 자료 새 창에서 열기`}>
-                            {source.label} ↗
-                          </a>
-                        ))}
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
-              <p className={styles.nameStoryDisclaimer}>이름은 역사적 역할을 읽는 단서예요. 같은 이름군의 모든 견종이나 오늘의 개체가 똑같이 행동한다는 뜻은 아닙니다.</p>
-            </section>
-          </div>
-        </section>
-
         <section className={styles.browse} id="discover" aria-labelledby="browse-title">
           <header><h2 id="browse-title">강아지 둘러보기</h2><p>관심 가는 한 마리부터 천천히 알아보세요.</p></header>
           <div className={styles.breedGrid}>
@@ -135,7 +58,6 @@ export default function Home() {
           </div>
         </section>
 
-        <HomeCuriosityExplorer breeds={curiosityBreeds} themes={curiosityThemes} />
       </main>
       <footer className={styles.footer}>견종의 특성은 일반적 경향이며 실제 개체와 환경에 따라 달라질 수 있어요.</footer>
     </>
