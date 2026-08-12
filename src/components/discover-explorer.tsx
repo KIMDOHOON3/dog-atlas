@@ -18,6 +18,7 @@ import {
   type TendencyFilterKey,
   type TendencyLevel,
 } from "@/lib/breed-filters";
+import { useHistoryEntryState } from "@/lib/history-entry-state";
 import styles from "./discover-explorer.module.css";
 
 const sizeOptions: Array<{ value: BreedSize; label: string }> = [
@@ -44,6 +45,9 @@ const tendencyOptions: Array<{ value: TendencyLevel; label: string }> = [
 
 const INITIAL_RESULT_COUNT = 48;
 const RESULT_BATCH_SIZE = 48;
+const isValidVisibleCount = (value: unknown): value is number => (
+  Number.isInteger(value) && Number(value) >= INITIAL_RESULT_COUNT
+);
 
 function cloneFilters(filters: BreedFilters): BreedFilters {
   return {
@@ -67,9 +71,14 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
   const closeFilterRef = useRef<HTMLButtonElement>(null);
   const pendingQueryRef = useRef<string | null>(null);
   const queryString = searchParams.toString();
+  const syncedQueryRef = useRef(queryString);
   const urlFilters = useMemo(() => parseBreedFilters(new URLSearchParams(queryString)), [queryString]);
   const [filters, setFilters] = useState<BreedFilters>(() => urlFilters);
-  const [visibleCount, setVisibleCount] = useState(INITIAL_RESULT_COUNT);
+  const [visibleCount, setVisibleCount] = useHistoryEntryState(
+    "discoverVisibleCount",
+    INITIAL_RESULT_COUNT,
+    isValidVisibleCount,
+  );
   const filtersRef = useRef(filters);
   const results = useMemo(() => filterBreeds(breeds, filters), [breeds, filters]);
   const visibleResults = useMemo(() => results.slice(0, visibleCount), [results, visibleCount]);
@@ -77,14 +86,20 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
 
   useEffect(() => {
     if (pendingQueryRef.current !== null) {
-      if (queryString === pendingQueryRef.current) pendingQueryRef.current = null;
+      if (queryString === pendingQueryRef.current) {
+        pendingQueryRef.current = null;
+        syncedQueryRef.current = queryString;
+      }
       return;
     }
 
+    if (queryString === syncedQueryRef.current) return;
+
+    syncedQueryRef.current = queryString;
     filtersRef.current = urlFilters;
     setFilters(urlFilters);
     setVisibleCount(INITIAL_RESULT_COUNT);
-  }, [queryString, urlFilters]);
+  }, [queryString, setVisibleCount, urlFilters]);
 
   useEffect(() => {
     if (!filterOpen) return;

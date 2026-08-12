@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import Link from "next/link";
 import { BreedVisual } from "./breed-visual";
 import type { Breed } from "@/content/breeds/schema";
+import { useHistoryEntryState } from "@/lib/history-entry-state";
 import styles from "./today-breed-carousel.module.css";
 
 type Props = {
@@ -13,9 +14,21 @@ type Props = {
 
 const AUTOPLAY_INTERVAL_MS = 2000;
 const CROSSFADE_DURATION_MS = 600;
+const INITIAL_AUTOPLAY_DELAY_MS = 6000;
 
 export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const initialSlug = breeds[initialIndex]?.slug ?? breeds[0]?.slug ?? "";
+  const validSlugs = useMemo(() => new Set(breeds.map((breed) => breed.slug)), [breeds]);
+  const isValidCarouselSlug = useCallback(
+    (value: unknown): value is string => typeof value === "string" && validSlugs.has(value),
+    [validSlugs],
+  );
+  const [currentSlug, setCurrentSlug] = useHistoryEntryState(
+    "homeCarouselSlug",
+    initialSlug,
+    isValidCarouselSlug,
+  );
+  const currentIndex = Math.max(0, breeds.findIndex((breed) => breed.slug === currentSlug));
   const [isPaused, setIsPaused] = useState(false);
   const [motionAllowed, setMotionAllowed] = useState(true);
   const [preparedIndex, setPreparedIndex] = useState(() => (
@@ -28,8 +41,16 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
   const secondAnimationFrame = useRef<number | null>(null);
   const changingRef = useRef(false);
   const currentIndexRef = useRef(initialIndex);
+  const autoplayReadyRef = useRef(false);
   const current = breeds[currentIndex];
   const prepared = breeds[preparedIndex];
+
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+    if (!changingRef.current) {
+      setPreparedIndex(breeds.length > 1 ? (currentIndex + 1) % breeds.length : currentIndex);
+    }
+  }, [breeds.length, currentIndex]);
 
   useEffect(() => {
     if (typeof window.matchMedia !== "function") return;
@@ -47,7 +68,7 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
 
     if (!motionAllowed) {
       currentIndexRef.current = targetIndex;
-      setCurrentIndex(targetIndex);
+      setCurrentSlug(breeds[targetIndex].slug);
       setPreparedIndex((targetIndex + 1) % breeds.length);
       return;
     }
@@ -61,7 +82,7 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
         setIsTransitioning(true);
         changeTimer.current = window.setTimeout(() => {
           currentIndexRef.current = targetIndex;
-          setCurrentIndex(targetIndex);
+          setCurrentSlug(breeds[targetIndex].slug);
           setPreparedIndex((targetIndex + 1) % breeds.length);
           setIsTransitioning(false);
           changingRef.current = false;
@@ -71,12 +92,21 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
         }, CROSSFADE_DURATION_MS);
       });
     });
-  }, [breeds.length, motionAllowed]);
+  }, [breeds, motionAllowed, setCurrentSlug]);
 
   useEffect(() => {
     if (isPaused || !motionAllowed || breeds.length < 2) return;
-    const timer = window.setInterval(() => transitionMove(1), AUTOPLAY_INTERVAL_MS);
-    return () => window.clearInterval(timer);
+    let timer: number | null = null;
+    const startDelay = autoplayReadyRef.current ? AUTOPLAY_INTERVAL_MS : INITIAL_AUTOPLAY_DELAY_MS;
+    autoplayReadyRef.current = true;
+    const startTimer = window.setTimeout(() => {
+      transitionMove(1);
+      timer = window.setInterval(() => transitionMove(1), AUTOPLAY_INTERVAL_MS);
+    }, startDelay);
+    return () => {
+      window.clearTimeout(startTimer);
+      if (timer !== null) window.clearInterval(timer);
+    };
   }, [breeds.length, isPaused, motionAllowed, transitionMove]);
 
   useEffect(() => () => {

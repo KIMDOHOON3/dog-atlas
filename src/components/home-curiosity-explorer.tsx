@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { BreedVisual } from "@/components/breed-visual";
 import type { Breed } from "@/content/breeds/schema";
 import type { HomeCuriosityTheme, HomeCuriosityThemeKey } from "@/content/home-curiosity";
+import { useHistoryEntryState } from "@/lib/history-entry-state";
 import styles from "./home-curiosity-explorer.module.css";
 
 type Props = {
@@ -13,7 +14,17 @@ type Props = {
 };
 
 export function HomeCuriosityExplorer({ breeds, themes }: Props) {
-  const [activeKey, setActiveKey] = useState<HomeCuriosityThemeKey>("distinctive-coats");
+  const themeKeys = useMemo(() => new Set(themes.map((theme) => theme.key)), [themes]);
+  const defaultThemeKey = themeKeys.has("distinctive-coats") ? "distinctive-coats" : (themes[0]?.key ?? "distinctive-coats");
+  const isValidThemeKey = useCallback(
+    (value: unknown): value is HomeCuriosityThemeKey => typeof value === "string" && themeKeys.has(value as HomeCuriosityThemeKey),
+    [themeKeys],
+  );
+  const [activeKey, setActiveKey] = useHistoryEntryState(
+    "homeCuriosityTheme",
+    defaultThemeKey,
+    isValidThemeKey,
+  );
   const themeScrollerRef = useRef<HTMLDivElement>(null);
   const activeThemeButtonRef = useRef<HTMLButtonElement>(null);
   const hasAlignedTheme = useRef(false);

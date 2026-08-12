@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { breeds } from "@/content/breeds/data";
 import { TodayBreedCarousel } from "./today-breed-carousel";
 
@@ -8,6 +8,10 @@ vi.mock("./breed-visual", () => ({
 }));
 
 describe("TodayBreedCarousel", () => {
+  beforeEach(() => {
+    window.history.replaceState({}, "", "/");
+  });
+
   it("moves to the next breed and wraps around", () => {
     vi.useFakeTimers();
     try {
@@ -37,7 +41,7 @@ describe("TodayBreedCarousel", () => {
       const { container, unmount } = render(<TodayBreedCarousel breeds={breeds} initialIndex={0} />);
       const initialFrame = container.querySelector('[class*="visualFrame"]');
 
-      act(() => vi.advanceTimersByTime(2035));
+      act(() => vi.advanceTimersByTime(6035));
 
       expect(screen.getAllByTestId("breed-visual")).toHaveLength(2);
       expect(container.querySelector('[class*="preparedSlideEntering"]')).toBeInTheDocument();
@@ -49,6 +53,26 @@ describe("TodayBreedCarousel", () => {
       expect(screen.getByLabelText(`${breeds.length}개 중 2번째`)).toHaveTextContent(`2 / ${breeds.length}`);
 
       unmount();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it("restores the last visible breed when the home history entry mounts again", () => {
+    vi.useFakeTimers();
+    try {
+      const firstVisit = render(<TodayBreedCarousel breeds={breeds} initialIndex={0} />);
+
+      fireEvent.click(screen.getByRole("button", { name: "다음 강아지 보기" }));
+      act(() => vi.advanceTimersByTime(700));
+      expect(screen.getByLabelText(`${breeds.length}개 중 2번째`)).toHaveTextContent(`2 / ${breeds.length}`);
+      firstVisit.unmount();
+
+      const returnVisit = render(<TodayBreedCarousel breeds={breeds} initialIndex={0} />);
+
+      expect(screen.getByLabelText(`${breeds.length}개 중 2번째`)).toHaveTextContent(`2 / ${breeds.length}`);
+      expect(screen.getByRole("link", { name: /이 강아지 이야기 보기/ })).toHaveAttribute("href", `/breeds/${breeds[1].slug}`);
+      returnVisit.unmount();
     } finally {
       vi.useRealTimers();
     }

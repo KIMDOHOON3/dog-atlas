@@ -166,3 +166,7 @@ Reset the visible slice whenever the filter query changes. The filter state rema
 Replace the long static home curation about a few individual breeds with an interactive curiosity explorer. Show six visual themes—large build, small build, wrinkled skin, distinctive coats, names at work, and dated dog-show stories—and reveal three existing breed cards immediately when a theme is selected. Link each theme to a dedicated six-breed collection page with its selection note and sources.
 
 Use playful editorial headings, but do not present subjective beauty, popularity, or unsupported world rankings. Treat size collections as examples selected from documented measurements, coat and wrinkle collections as source-framed morphology stories, and dog-show content as a named competition with explicit years. A theme is an invitation to open breed details, not a recommendation or a claim that one feature defines an individual dog.
+
+# 2026-08-12 — Restore exploration state on browser back
+
+Keep transient exploration choices in the current browser history entry rather than in global storage or permanent URL parameters when they do not define a shareable page. Restore the home carousel breed, home curiosity theme, and expanded discovery result count after a user opens a breed detail and returns with browser back. Preserve the existing rule that a genuinely new home visit starts from the first catalog breed, and keep factual discovery filters in the URL as before.
