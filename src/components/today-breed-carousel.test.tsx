@@ -47,11 +47,14 @@ describe("TodayBreedCarousel", () => {
       expect(container.querySelector('[class*="preparedSlideEntering"]')).toBeInTheDocument();
       expect(container.querySelector('[class*="currentSummaryLeaving"]')).toBeInTheDocument();
       expect(container.querySelector('[class*="preparedSummaryEntering"]')).toBeInTheDocument();
+      expect(container.querySelector('[class*="currentSummaryLeaving"]')).toHaveAttribute("data-breed-slug", breeds[0].slug);
+      expect(container.querySelector('[class*="preparedSummaryEntering"]')).toHaveAttribute("data-breed-slug", breeds[1].slug);
 
       act(() => vi.advanceTimersByTime(600));
 
       expect(screen.getAllByTestId("breed-visual")).toHaveLength(2);
       expect(container.querySelector('[class*="visualFrame"]')).toBe(initialFrame);
+      expect(container.querySelector('[data-breed-slug]')).toHaveAttribute("data-breed-slug", breeds[1].slug);
       expect(screen.getByLabelText(`${breeds.length}개 중 2번째`)).toHaveTextContent(`2 / ${breeds.length}`);
 
       unmount();

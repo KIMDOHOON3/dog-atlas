@@ -53,12 +53,21 @@
   gap: 2px 14px;
   padding: 0 6px;
   opacity: 1;
-  transition: opacity .6s cubic-bezier(.4, 0, .2, 1);
 }
 
 .preparedSummary { opacity: 0; pointer-events: none; }
-.currentSummaryLeaving { opacity: 0; }
-.preparedSummaryEntering { opacity: 1; }
+.currentSummaryLeaving { animation: summary-leave .6s cubic-bezier(.4, 0, .2, 1) both; }
+.preparedSummaryEntering { animation: summary-enter .6s cubic-bezier(.4, 0, .2, 1) both; }
+
+@keyframes summary-leave {
+  0% { opacity: 1; }
+  45%, 100% { opacity: 0; }
+}
+
+@keyframes summary-enter {
+  0%, 55% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
 .summary > span {
   grid-column: 1 / -1;
@@ -142,6 +151,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .slide,
-  .summary,
   .controls button { transition: none; }
+  .currentSummaryLeaving,
+  .preparedSummaryEntering { animation: none; }
 }

@@ -194,11 +194,13 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
         </div>
         <div className={styles.summaryFrame}>
           <BreedSummary
+            key={current.slug}
             breed={current}
             className={isTransitioning ? styles.currentSummaryLeaving : ""}
           />
           {prepared && preparedIndex !== currentIndex && (
             <BreedSummary
+              key={prepared.slug}
               breed={prepared}
               className={`${styles.preparedSummary} ${isTransitioning ? styles.preparedSummaryEntering : ""}`}
               hidden
@@ -213,7 +215,7 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
 
 function BreedSummary({ breed, className = "", hidden = false }: { breed: Breed; className?: string; hidden?: boolean }) {
   return (
-    <div className={`${styles.summary} ${className}`} aria-hidden={hidden || undefined}>
+    <div className={`${styles.summary} ${className}`} data-breed-slug={breed.slug} aria-hidden={hidden || undefined}>
       <span>{breed.identity.origin} · {breed.identity.lineage}</span>
       <strong>{breed.nameKo}</strong>
       <p>{breed.tagline}</p>
