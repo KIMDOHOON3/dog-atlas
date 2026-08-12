@@ -1,18 +1,15 @@
 import Link from "next/link";
 import { BreedVisual } from "@/components/breed-visual";
 import { CategoryExplorer } from "@/components/category-explorer";
+import { HomeCuriosityExplorer } from "@/components/home-curiosity-explorer";
 import { SearchBox } from "@/components/search-box";
 import { SiteHeader } from "@/components/site-header";
-import { StoryGlyph } from "@/components/story-glyph";
 import { TodayBreedCarousel } from "@/components/today-breed-carousel";
 import { breedNameStories, getBreedNameStoryBreeds } from "@/content/breed-name-stories";
 import { breeds, getBreed } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
+import { homeCuriosityThemes } from "@/content/home-curiosity";
 import styles from "./page.module.css";
-
-const spitz = getBreed("japanese-spitz")!;
-const borderCollie = getBreed("border-collie")!;
-const greyhound = getBreed("greyhound")!;
 
 export const revalidate = 86400;
 
@@ -23,6 +20,19 @@ const cardTraits: Record<string, string> = {
   greyhound: "질주와 휴식의 리듬",
   samoyed: "교감과 털 관리",
 };
+
+const curiosityThemes = homeCuriosityThemes.map(({ key, label, thumbnailSlug, heading, description, selectionNote, moreLabel, items }) => ({
+  key,
+  label,
+  thumbnailSlug,
+  heading,
+  description,
+  selectionNote,
+  moreLabel,
+  items: items.slice(0, 3),
+}));
+const curiosityBreedSlugs = new Set(curiosityThemes.flatMap((theme) => [theme.thumbnailSlug, ...theme.items.map((item) => item.slug)]));
+const curiosityBreeds = breeds.filter((breed) => curiosityBreedSlugs.has(breed.slug));
 
 export default function Home() {
   return (
@@ -120,30 +130,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.curations} aria-label="편집 추천">
-          <article className={styles.feature}>
-            <BreedVisual breed={spitz} variant="card" />
-            <div>
-              <div className={styles.sectionCue}><StoryGlyph kind="discover" /><p className={styles.eyebrow}>오늘 처음 만나는 강아지</p></div>
-              <h2>가족과의 교감, 알림 행동, 이중모 관리를 함께 살펴봐요.</h2>
-              <p>{spitz.story.roleToHome}</p>
-              <dl><div><dt>형성 지역</dt><dd>{spitz.identity.origin}</dd></div><div><dt>원래 역할</dt><dd>{spitz.identity.originalRole}</dd></div></dl>
-              <Link href={`/breeds/${spitz.slug}`}>재패니즈 스피츠 알아보기 →</Link>
-            </div>
-          </article>
-
-          <div className={styles.rhythmSection}>
-            <header><div className={styles.sectionCue}><StoryGlyph kind="daily" /><p className={styles.eyebrow}>외모만 보면 놓치는 것</p></div><h2>달리는 모습이 닮아도 필요한 하루는 달라요.</h2></header>
-            <div>
-              {[borderCollie, greyhound].map((breed) => (
-                <Link className={styles.rhythmCard} href={`/breeds/${breed.slug}`} key={breed.slug}>
-                  <BreedVisual breed={breed} variant="landscape" />
-                  <div><strong>{breed.nameKo}</strong><p>{breed.story.roleToHome}</p><span>생활 리듬 살펴보기 →</span></div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+        <HomeCuriosityExplorer breeds={curiosityBreeds} themes={curiosityThemes} />
       </main>
       <footer className={styles.footer}>견종의 특성은 일반적 경향이며 실제 개체와 환경에 따라 달라질 수 있어요.</footer>
     </>

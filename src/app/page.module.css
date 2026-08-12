@@ -5,7 +5,7 @@
 .eyebrow { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .06em; }
 .hero h1 { max-width: 10.5ch; margin: 0; font-size: clamp(2.8rem, 3.8vw, 3.65rem); font-weight: 700; letter-spacing: -.045em; line-height: 1.08; }
 .lead { max-width: 32ch; margin: 18px 0 0; color: var(--ink-soft); font-size: 1.12rem; line-height: 1.65; }
-.browse, .curations { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; }
+.browse { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; }
 .browse { display: none; }
 .browseCollections { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; padding: 24px 0 72px; }
 .browseCollections > header { margin-bottom: 28px; }
@@ -42,7 +42,7 @@
 .nameStoryDisclaimer { margin: 14px 2px 0; color: var(--ink-soft); font-size: .75rem; line-height: 1.55; }
 .browse { padding: 32px 0 72px; }
 .browse > header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; }
-.browse h2, .curations h2 { margin: 0; font-size: clamp(1.8rem, 2.5vw, 2.25rem); line-height: 1.28; letter-spacing: -.03em; }
+.browse h2 { margin: 0; font-size: clamp(1.8rem, 2.5vw, 2.25rem); line-height: 1.28; letter-spacing: -.03em; }
 .browse > header p { margin: 0; color: var(--ink-soft); font-size: .94rem; }
 .breedGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
 .breedCard { overflow: hidden; display: flex; flex-direction: column; border-radius: 18px; background: var(--panel); text-decoration: none; box-shadow: inset 0 0 0 1px rgb(36 48 43 / 5%); transition: transform .2s ease, box-shadow .2s ease; }
@@ -51,32 +51,11 @@
 .breedCard strong { font-size: 1rem; }
 .breedCard span { color: var(--moss); }
 .breedCard small { grid-column: 1 / -1; min-height: 2.5em; color: var(--ink-soft); font-size: .8rem; line-height: 1.38; word-break: keep-all; }
-.curations { padding: 6px 0 88px; }
-.feature { display: grid; grid-template-columns: 44fr 56fr; gap: 32px; align-items: center; padding: 22px; border-radius: 28px; background: var(--moss-light); }
-.feature > div { padding: 20px 32px 20px 0; }
-.feature h2 { max-width: 19ch; }
-.feature p:not(.eyebrow) { max-width: 38rem; color: var(--ink-soft); line-height: 1.72; }
-.feature dl { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 22px 0; }
-.feature dl div { padding-top: 10px; border-top: 1px solid rgb(36 48 43 / 18%); }
-.feature dt { color: var(--ink-soft); font-size: .78rem; }
-.feature dd { margin: 3px 0 0; font-weight: 700; }
-.feature a, .rhythmCard span { color: var(--moss); font-weight: 700; text-underline-offset: 4px; }
-.rhythmSection { margin-top: 72px; }
-.rhythmSection > header { max-width: 580px; margin-bottom: 22px; }
-.rhythmSection > div { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.rhythmCard { overflow: hidden; display: grid; grid-template-columns: 44fr 56fr; gap: 0; border-radius: 22px; background: var(--panel); text-decoration: none; }
-.rhythmCard > div { padding: 24px; }
-.rhythmCard strong { font-size: 1.2rem; }
-.rhythmCard p { color: var(--ink-soft); font-size: .92rem; line-height: 1.66; }
-.rhythmCard span { font-size: .82rem; }
-.sectionCue { display: flex; align-items: center; gap: 9px; margin-bottom: 9px; }
-.sectionCue .eyebrow { margin: 0; }
-.sectionCue svg { width: 28px; height: 28px; fill: none; stroke: var(--moss); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .footer { padding: 28px 16px; border-top: 1px solid var(--line); color: var(--ink-soft); text-align: center; font-size: .84rem; }
-@media (max-width: 960px) { .hero { gap: 18px 24px; grid-template-columns: minmax(0, 44fr) minmax(380px, 56fr); } .breedGrid { grid-template-columns: repeat(3, 1fr); } .rhythmCard { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .hero { gap: 18px 24px; grid-template-columns: minmax(0, 44fr) minmax(380px, 56fr); } .breedGrid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 960px) { .nameStoryGrid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 767px) { .hero { margin-top: 14px; grid-template: "copy" auto "visual" auto "search" auto / 1fr; gap: 16px; } .heroCopy { padding-top: 14px; } .hero h1 { max-width: none; font-size: clamp(2.15rem, 9.2vw, 2.55rem); } .lead { margin-top: 10px; font-size: 1rem; } .heroSearch { width: 100%; } .browseCollections { padding-top: 12px; padding-bottom: 54px; } .browseCollections > header h2 { font-size: 1.65rem; } .collectionHeading { display: block; } .collectionHeading a { display: inline-block; margin-top: 8px; } .browse { padding-top: 32px; } .browse > header { display: block; } .browse > header p { margin-top: 2px; } .browse h2, .curations h2 { font-size: 1.65rem; } .breedGrid { grid-template-columns: 1fr 1fr; gap: 10px; } .curations { padding: 10px 0 64px; } .feature { grid-template-columns: 1fr; padding: 14px; } .feature > div { padding: 12px 8px 18px; } .rhythmSection { margin-top: 48px; } .rhythmSection > div { grid-template-columns: 1fr; } .rhythmCard { grid-template-columns: 42fr 58fr; } }
-@media (max-width: 420px) { .hero, .browse, .curations { width: calc(100% - var(--page-inline)); } .breedCard > div { padding: 10px 11px 12px; } .breedCard strong { font-size: .92rem; } .breedCard small { font-size: .76rem; } .rhythmCard { grid-template-columns: 1fr; } }
+@media (max-width: 767px) { .hero { margin-top: 14px; grid-template: "copy" auto "visual" auto "search" auto / 1fr; gap: 16px; } .heroCopy { padding-top: 14px; } .hero h1 { max-width: none; font-size: clamp(2.15rem, 9.2vw, 2.55rem); } .lead { margin-top: 10px; font-size: 1rem; } .heroSearch { width: 100%; } .browseCollections { padding-top: 12px; padding-bottom: 54px; } .browseCollections > header h2 { font-size: 1.65rem; } .collectionHeading { display: block; } .collectionHeading a { display: inline-block; margin-top: 8px; } .browse { padding-top: 32px; } .browse > header { display: block; } .browse > header p { margin-top: 2px; } .browse h2 { font-size: 1.65rem; } .breedGrid { grid-template-columns: 1fr 1fr; gap: 10px; } }
+@media (max-width: 420px) { .hero, .browse { width: calc(100% - var(--page-inline)); } .breedCard > div { padding: 10px 11px 12px; } .breedCard strong { font-size: .92rem; } .breedCard small { font-size: .76rem; } }
 @media (prefers-reduced-motion: reduce) { .breedCard { transition: none; } .breedCard:hover { transform: none; } }
 
 @media (max-width: 767px) {

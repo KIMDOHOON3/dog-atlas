@@ -1,0 +1,51 @@
+.main { width: min(calc(100% - var(--page-inline)), var(--compare-max)); margin: 0 auto; padding-bottom: 104px; }
+.breadcrumb { min-height: 52px; display: flex; align-items: center; gap: 8px; color: var(--ink-soft); font-size: .8rem; }
+.breadcrumb a { color: inherit; text-underline-offset: 3px; }
+.hero { padding: clamp(28px, 5vw, 62px); border: 1px solid color-mix(in srgb, var(--moss) 15%, transparent); border-radius: 30px; background: color-mix(in srgb, var(--moss-light) 68%, var(--panel)); }
+.eyebrow { margin: 0 0 10px; color: var(--moss); font-size: .78rem; font-weight: 800; letter-spacing: .06em; }
+.term { display: inline-block; margin-bottom: 10px; padding: 6px 11px; border-radius: 999px; color: var(--moss); background: var(--panel); font-size: .8rem; font-weight: 800; }
+.hero h1 { max-width: 18ch; margin: 0; font-size: clamp(2.15rem, 4vw, 3.7rem); line-height: 1.08; letter-spacing: -.045em; word-break: keep-all; }
+.hero > p:not(.eyebrow) { max-width: 680px; margin: 18px 0 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.76; word-break: keep-all; }
+.count { display: flex; align-items: baseline; gap: 10px; margin-top: 24px; }
+.count strong { color: var(--moss); font-size: 1.5rem; }
+.count span { color: var(--ink-soft); font-size: .82rem; }
+.themeNav { display: flex; gap: 8px; margin: 18px 0 54px; overflow-x: auto; padding: 2px 1px 8px; scrollbar-width: none; }
+.themeNav::-webkit-scrollbar { display: none; }
+.themeNav a { flex: none; padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); background: var(--panel); font-size: .76rem; font-weight: 700; text-decoration: none; }
+.themeNav a[aria-current="page"] { border-color: var(--moss); color: var(--panel); background: var(--moss); }
+.themeNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.results > header { display: grid; grid-template-columns: minmax(260px, 42fr) minmax(0, 58fr); gap: 24px; align-items: end; margin-bottom: 20px; }
+.results h2 { max-width: 20ch; margin: 0; font-size: clamp(1.65rem, 2.5vw, 2.3rem); line-height: 1.28; letter-spacing: -.035em; word-break: keep-all; }
+.results > header > p { max-width: 650px; margin: 0; color: var(--ink-soft); font-size: .88rem; line-height: 1.7; word-break: keep-all; }
+.breedGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.breedCard { overflow: hidden; display: flex; min-width: 0; flex-direction: column; border: 1px solid rgb(36 48 43 / 7%); border-radius: 20px; color: var(--ink); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 5%); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.breedCard:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgb(36 48 43 / 10%); }
+.breedCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.breedCard > div { flex: 1; padding: 14px 15px 16px; }
+.breedCard small { display: block; min-height: 2.6em; color: var(--ink-soft); font-size: .68rem; line-height: 1.35; overflow-wrap: anywhere; }
+.breedCard h3 { margin: 3px 0 8px; font-size: 1.04rem; letter-spacing: -.02em; word-break: keep-all; }
+.breedCard p { min-height: 2.9em; margin: 0; color: var(--ink-soft); font-size: .78rem; line-height: 1.48; word-break: keep-all; }
+.breedCard > div > span { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 13px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--moss); font-size: .7rem; font-weight: 700; }
+.guide { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 38%); gap: 28px; margin-top: 64px; padding: clamp(22px, 4vw, 40px); border-radius: 26px; background: var(--paper-deep); }
+.guide h2 { max-width: 18ch; margin: 0; font-size: clamp(1.45rem, 2.3vw, 2rem); line-height: 1.35; letter-spacing: -.03em; word-break: keep-all; }
+.guide p:not(.eyebrow) { max-width: 650px; margin: 12px 0 0; color: var(--ink-soft); font-size: .88rem; line-height: 1.7; word-break: keep-all; }
+.sources { display: flex; flex-direction: column; align-self: center; gap: 8px; }
+.sources > strong { margin-bottom: 2px; font-size: .78rem; }
+.sources a { padding: 10px 12px; border-radius: 11px; color: var(--moss); background: var(--panel); font-size: .73rem; font-weight: 700; line-height: 1.4; text-decoration: none; }
+.sources a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.sources a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+@media (max-width: 900px) { .breedGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767px) {
+  .main { padding-bottom: 112px; }
+  .breadcrumb { min-height: 44px; }
+  .hero { padding: 25px 19px; border-radius: 24px; }
+  .count { align-items: flex-start; flex-direction: column; gap: 2px; }
+  .themeNav { margin-bottom: 42px; }
+  .results > header { grid-template-columns: 1fr; gap: 10px; }
+  .breedGrid { gap: 10px; }
+  .breedCard > div { padding: 11px 11px 13px; }
+  .breedCard p { min-height: 0; }
+  .guide { grid-template-columns: 1fr; gap: 20px; margin-top: 46px; border-radius: 22px; }
+}
+@media (max-width: 390px) { .breedGrid { grid-template-columns: 1fr; } .breedCard { display: grid; grid-template-columns: 42% 58%; } }
+@media (prefers-reduced-motion: reduce) { .breedCard { transition: none; } .breedCard:hover { transform: none; } }
