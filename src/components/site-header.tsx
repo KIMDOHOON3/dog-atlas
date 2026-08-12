@@ -32,7 +32,8 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
         </Link>
         <nav aria-label="주요 탐색">
           <Link href="/discover">견종 발견</Link>
-          <Link href="/stories">견종 이야기</Link>
+          <Link href="/stories#breed-name-stories">이름 속 견종</Link>
+          <Link href="/stories#curiosity">호기심 탐험</Link>
           <Link href={compareHref}>비교하기{hydrated && slugs.length > 0 ? ` · ${slugs.length}` : ""}</Link>
           <Link className={styles.searchIcon} href="/#breed-search" aria-label="견종 검색으로 이동"><span className={styles.searchGlyph} aria-hidden="true" /></Link>
         </nav>
