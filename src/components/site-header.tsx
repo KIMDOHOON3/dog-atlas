@@ -5,6 +5,10 @@ import { usePathname } from "next/navigation";
 import { useInterestBreeds } from "./interest-breeds";
 import styles from "./site-header.module.css";
 
+function HomeIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 11 8-7 8 7v9h-6v-6h-4v6H4v-9Z" /></svg>;
+}
+
 function DiscoveryIcon() {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25" /><path d="m14.9 9.1-1.7 4.1-4.1 1.7 1.7-4.1 4.1-1.7Z" /></svg>;
 }
@@ -44,6 +48,10 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
         </nav>
       </header>
       <nav className={styles.mobileBottomNav} aria-label="모바일 주요 탐색">
+        <Link className={pathname === "/" ? styles.mobileNavActive : ""} href="/">
+          <HomeIcon />
+          <span>홈</span>
+        </Link>
         <Link className={pathname === "/discover" ? styles.mobileNavActive : ""} href="/discover">
           <DiscoveryIcon />
           <span>견종 발견</span>

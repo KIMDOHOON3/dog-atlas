@@ -192,14 +192,32 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
             <button type="button" onClick={() => move(1)} aria-label="다음 강아지 보기">→</button>
           </div>
         </div>
-        <div className={styles.summary}>
-          <span>{current.identity.origin} · {current.identity.lineage}</span>
-          <strong>{current.nameKo}</strong>
-          <p>{current.tagline}</p>
-          <Link href={`/breeds/${current.slug}`}>이 강아지 이야기 보기 <span aria-hidden="true">→</span></Link>
+        <div className={styles.summaryFrame}>
+          <BreedSummary
+            breed={current}
+            className={isTransitioning ? styles.currentSummaryLeaving : ""}
+          />
+          {prepared && preparedIndex !== currentIndex && (
+            <BreedSummary
+              breed={prepared}
+              className={`${styles.preparedSummary} ${isTransitioning ? styles.preparedSummaryEntering : ""}`}
+              hidden
+            />
+          )}
         </div>
       </div>
       <p className={styles.swipeHint}>이미지를 좌우로 밀어 다음 견종을 살펴보세요.</p>
     </section>
+  );
+}
+
+function BreedSummary({ breed, className = "", hidden = false }: { breed: Breed; className?: string; hidden?: boolean }) {
+  return (
+    <div className={`${styles.summary} ${className}`} aria-hidden={hidden || undefined}>
+      <span>{breed.identity.origin} · {breed.identity.lineage}</span>
+      <strong>{breed.nameKo}</strong>
+      <p>{breed.tagline}</p>
+      <Link href={`/breeds/${breed.slug}`} tabIndex={hidden ? -1 : undefined}>이 강아지 이야기 보기 <span aria-hidden="true">→</span></Link>
+    </div>
   );
 }

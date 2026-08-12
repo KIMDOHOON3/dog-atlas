@@ -41,13 +41,24 @@
 .currentSlideLeaving { opacity: 0; }
 .preparedSlideEntering { opacity: 1; }
 
+.summaryFrame {
+  display: grid;
+}
+
 .summary {
+  grid-area: 1 / 1;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: baseline;
   gap: 2px 14px;
   padding: 0 6px;
+  opacity: 1;
+  transition: opacity .6s cubic-bezier(.4, 0, .2, 1);
 }
+
+.preparedSummary { opacity: 0; pointer-events: none; }
+.currentSummaryLeaving { opacity: 0; }
+.preparedSummaryEntering { opacity: 1; }
 
 .summary > span {
   grid-column: 1 / -1;
@@ -131,5 +142,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .slide,
+  .summary,
   .controls button { transition: none; }
 }

@@ -45,6 +45,8 @@ describe("TodayBreedCarousel", () => {
 
       expect(screen.getAllByTestId("breed-visual")).toHaveLength(2);
       expect(container.querySelector('[class*="preparedSlideEntering"]')).toBeInTheDocument();
+      expect(container.querySelector('[class*="currentSummaryLeaving"]')).toBeInTheDocument();
+      expect(container.querySelector('[class*="preparedSummaryEntering"]')).toBeInTheDocument();
 
       act(() => vi.advanceTimersByTime(600));
 
