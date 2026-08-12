@@ -26,9 +26,7 @@ export function BreedVisual({ breed, variant, label, priority = false }: Props) 
   const isHistory = variant === "history";
   const src = isHistory
     ? breed.historyVisual!.src
-    : variant === "hero" && breed.slug === "japanese-spitz"
-      ? "/illustrations/v2/japanese-spitz-hero.webp"
-      : getBreedCardImage(breed.slug);
+    : getBreedCardImage(breed.slug);
   const alt = isHistory ? breed.historyVisual!.alt : `${breed.nameKo}의 대표적인 체형과 피모가 보이는 전신 일러스트`;
 
   return (
