@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import { breeds } from "@/content/breeds/data";
 import {
   emptyBreedFilters,
+  applyBreedFilterPreset,
+  breedFilterPresets,
   filterBreeds,
   filtersToSearchParams,
   getBreedSizeCategories,
@@ -28,6 +30,19 @@ describe("breed filter normalization", () => {
 });
 
 describe("breed filters", () => {
+  it("keeps the home and discover quick exploration options in one six-item set", () => {
+    expect(breedFilterPresets.map((preset) => preset.label)).toEqual([
+      "느긋한 활동",
+      "많이 움직이기",
+      "사람과 교감",
+      "독립적인 성향",
+      "털 관리 적게",
+      "아직 잘 모르겠어요",
+    ]);
+    expect(filtersToSearchParams(applyBreedFilterPreset(breedFilterPresets[0])).toString()).toBe("activity=low");
+    expect(filtersToSearchParams(applyBreedFilterPreset(breedFilterPresets[5])).toString()).toBe("");
+  });
+
   it("uses OR within a category and AND across categories", () => {
     const filters = emptyBreedFilters();
     filters.size = ["small", "medium"];

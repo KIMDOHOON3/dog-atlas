@@ -108,11 +108,12 @@ export function filtersToSearchParams(filters: BreedFilters): URLSearchParams {
 export type BreedFilterPreset = { key: string; label: string; filters: Partial<BreedFilters> };
 
 export const breedFilterPresets: BreedFilterPreset[] = [
-  { key: "active", label: "함께 많이 움직이는 견종", filters: { activity: ["high"] } },
-  { key: "social", label: "사람과 교감이 많은 견종", filters: { socialConnection: ["high"] } },
-  { key: "independent", label: "독립적인 성향의 견종", filters: { independence: ["high"] } },
-  { key: "alerting", label: "주변 변화를 잘 살피는 견종", filters: { alerting: ["high"] } },
-  { key: "grooming-light", label: "털 관리가 비교적 단순한 견종", filters: { grooming: ["low"] } },
+  { key: "calm", label: "느긋한 활동", filters: { activity: ["low"] } },
+  { key: "active", label: "많이 움직이기", filters: { activity: ["high"] } },
+  { key: "social", label: "사람과 교감", filters: { socialConnection: ["high"] } },
+  { key: "independent", label: "독립적인 성향", filters: { independence: ["high"] } },
+  { key: "grooming-light", label: "털 관리 적게", filters: { grooming: ["low"] } },
+  { key: "all", label: "아직 잘 모르겠어요", filters: {} },
 ];
 
 export function applyBreedFilterPreset(preset: BreedFilterPreset): BreedFilters {

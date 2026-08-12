@@ -1,15 +1,22 @@
 import Link from "next/link";
 import { DogIcon } from "@/components/dog-icon";
+import { applyBreedFilterPreset, breedFilterPresets, filtersToSearchParams } from "@/lib/breed-filters";
 import styles from "./category-explorer.module.css";
 
-const firstExploreOptions = [
-  { label: "느긋한 활동", description: "활동량이 낮은 편", query: "activity=low", icon: "calm" as const },
-  { label: "많이 움직이기", description: "활동량이 높은 편", query: "activity=high", icon: "active" as const },
-  { label: "사람과 교감", description: "교감이 높은 편", query: "social=high", icon: "social" as const },
-  { label: "독립적인 성향", description: "독립성이 높은 편", query: "independence=high", icon: "independent" as const },
-  { label: "털 관리 적게", description: "털 관리가 낮은 편", query: "grooming=low", icon: "grooming" as const },
-  { label: "아직 잘 모르겠어요", description: "전체 견종 둘러보기", query: "", icon: "unfamiliar" as const },
-];
+const optionDetails = {
+  calm: { description: "활동량이 낮은 편", icon: "calm" as const },
+  active: { description: "활동량이 높은 편", icon: "active" as const },
+  social: { description: "교감이 높은 편", icon: "social" as const },
+  independent: { description: "독립성이 높은 편", icon: "independent" as const },
+  "grooming-light": { description: "털 관리가 낮은 편", icon: "grooming" as const },
+  all: { description: "전체 견종 둘러보기", icon: "unfamiliar" as const },
+};
+
+const firstExploreOptions = breedFilterPresets.map((preset) => ({
+  ...preset,
+  ...optionDetails[preset.key as keyof typeof optionDetails],
+  query: filtersToSearchParams(applyBreedFilterPreset(preset)).toString(),
+}));
 
 export function CategoryExplorer() {
   return (
