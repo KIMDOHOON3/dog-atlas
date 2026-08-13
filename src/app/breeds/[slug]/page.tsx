@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
+import { BeginnerGuideLink } from "@/components/beginner-guide-link";
 import { InterestBreedToggle } from "@/components/interest-breed-toggle";
 import { SiteHeader } from "@/components/site-header";
 import { OriginMark } from "@/components/origin-mark";
@@ -74,7 +75,10 @@ export default async function BreedDetail({ params }: PageProps) {
             <div className={styles.inclusionMeta} title={inclusion.description}><strong>{inclusion.label}</strong><span>{inclusion.authority}</span></div>
             <h1 id="breed-title">{breed.nameKo}</h1>
             <strong>{breed.tagline}</strong>
-            <InterestBreedToggle slug={breed.slug} nameKo={breed.nameKo} />
+            <div className={styles.summaryActions}>
+              <BeginnerGuideLink slug={breed.slug} nameKo={breed.nameKo} />
+              <InterestBreedToggle slug={breed.slug} nameKo={breed.nameKo} />
+            </div>
           </div>
           <BreedVisual breed={breed} variant="detail" priority />
           <div className={styles.atAGlance}>

@@ -1,0 +1,23 @@
+.main { width: min(calc(100% - var(--page-inline)), 1000px); margin: 0 auto; padding-bottom: 64px; }
+.breadcrumb { margin: 18px 0 34px; color: var(--moss); font-size: .84rem; }
+.breadcrumb a { text-decoration: none; }
+.hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr); gap: 44px; align-items: end; }
+.eyebrow { margin: 0 0 9px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .05em; }
+.hero h1 { margin: 0; font-size: clamp(2.6rem, 5vw, 4.2rem); line-height: 1.08; letter-spacing: -.05em; }
+.hero > div > p:last-child { max-width: 39rem; margin: 18px 0 0; color: var(--ink-soft); line-height: 1.75; }
+.breedCard { padding: 12px; display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 14px; align-items: center; border: 1px solid var(--line); border-radius: 20px; background: var(--panel); }
+.breedCard > figure { width: 100px; border-radius: 14px; }
+.breedCard small, .breedCard strong, .breedCard span { display: block; }
+.breedCard small { margin-bottom: 3px; color: var(--moss); font-size: .74rem; font-weight: 700; }
+.breedCard strong { font-size: 1rem; }
+.breedCard span { margin-top: 3px; color: var(--ink-soft); font-size: .76rem; line-height: 1.45; }
+.disclaimer { margin: 20px 0 0; color: var(--ink-soft); font-size: .78rem; line-height: 1.55; }
+@media (max-width: 760px) {
+  .main { padding-bottom: 36px; }
+  .breadcrumb { margin-bottom: 24px; }
+  .hero { grid-template-columns: 1fr; gap: 22px; }
+  .hero h1 { font-size: 2.35rem; }
+  .breedCard { grid-template-columns: 74px minmax(0, 1fr); }
+  .breedCard > figure { width: 74px; }
+}
+

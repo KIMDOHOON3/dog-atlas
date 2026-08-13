@@ -1,0 +1,35 @@
+.progress { margin: 34px 0 22px; }
+.progress > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.progress strong { font-size: 1rem; }
+.progress div > span { color: var(--moss); font-size: .88rem; font-weight: 700; }
+.track { height: 8px; margin-top: 10px; overflow: hidden; border-radius: 999px; background: var(--line); }
+.track span { display: block; height: 100%; border-radius: inherit; background: var(--moss); transition: width .25s ease; }
+.steps { display: grid; gap: 14px; }
+.step { padding: 22px; display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 18px; align-items: start; border: 1px solid var(--line); border-radius: 22px; background: var(--panel); }
+.active { border-color: var(--moss); box-shadow: 0 12px 32px rgb(42 52 46 / 8%); }
+.locked { color: var(--ink-soft); background: color-mix(in srgb, var(--paper-deep) 68%, var(--panel)); }
+.number { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; font-weight: 700; }
+.done .number { border-color: var(--moss); color: white; background: var(--moss); }
+.stepBody h2 { margin: 2px 0 6px; font-size: 1.2rem; }
+.stepBody > p { margin: 0; color: var(--ink-soft); font-size: .92rem; line-height: 1.62; }
+.stepBody ul { margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; list-style: none; }
+.stepBody li { display: flex; gap: 8px; align-items: flex-start; font-size: .92rem; }
+.stepBody li span { color: var(--moss); font-weight: 700; }
+.step button { min-width: 172px; min-height: 46px; align-self: center; padding: 10px 16px; border: 1px solid var(--moss); border-radius: 999px; color: white; background: var(--moss); cursor: pointer; font-weight: 700; }
+.step button:disabled { color: var(--moss); background: transparent; cursor: default; opacity: 1; }
+.lockLabel { min-width: 150px; align-self: center; color: var(--ink-soft); font-size: .82rem; text-align: center; }
+.safety { margin-top: 22px; padding: 22px; display: flex; gap: 14px; border-left: 4px solid var(--moss); background: var(--moss-light); }
+.safetyMark { width: 30px; height: 30px; flex: 0 0 30px; display: grid; place-items: center; border: 1px solid var(--moss); border-radius: 50%; color: var(--moss); font-weight: 700; }
+.eyebrow { margin: 0 0 4px; color: var(--moss); font-size: .76rem; font-weight: 700; letter-spacing: .04em; }
+.safety h2 { margin: 0; font-size: 1.1rem; }
+.safety div > p:not(.eyebrow) { margin: 7px 0; color: var(--ink-soft); font-size: .88rem; line-height: 1.65; }
+.safety a { color: var(--moss); font-size: .84rem; font-weight: 700; }
+@media (max-width: 760px) {
+  .step { grid-template-columns: 38px minmax(0, 1fr); gap: 12px; padding: 17px; border-radius: 18px; }
+  .number { width: 34px; height: 34px; }
+  .stepBody h2 { font-size: 1.08rem; }
+  .stepBody ul { grid-template-columns: 1fr; margin-top: 13px; }
+  .step button, .lockLabel { grid-column: 1 / -1; width: 100%; }
+  .safety { padding: 17px; }
+}
+

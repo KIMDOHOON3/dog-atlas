@@ -1,0 +1,6 @@
+.wrapper { margin-top: 20px; display: grid; gap: 8px; justify-items: start; }
+.link { min-height: 48px; padding: 11px 18px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--moss); border-radius: 999px; color: white; background: var(--moss); text-decoration: none; font-weight: 700; }
+.link span { font-size: 1.05rem; }
+.hint { max-width: 38rem; color: var(--ink-soft); font-size: .78rem; line-height: 1.5; }
+@media (max-width: 767px) { .wrapper, .link { width: 100%; } .link { justify-content: center; } }
+

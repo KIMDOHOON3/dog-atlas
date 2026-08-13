@@ -186,3 +186,9 @@ Use the `/breed-names` and `/curiosity` indexes as simple topic directories. Eac
 # 2026-08-13 — Enter editorial menus through a default detail
 
 Remove the topic-directory step from the primary journey. Link `이름 속 견종` directly to `/breed-names/pointer` and `호기심 탐험` directly to `/curiosity/distinctive-coats`, while keeping `/breed-names` and `/curiosity` as compatibility redirects. Users switch topics with the horizontal navigation already present on each detail page.
+
+# 2026-08-13 — Add a minimal post-selection beginner guide
+
+Split the breed-detail next action between people still comparing and people who have chosen a breed and need practical first steps. Link every breed detail to one shared `/beginner-guide?breed=[slug]` experience instead of maintaining 368 separate care pages.
+
+Keep the guide intentionally small: what to ask before bringing the dog home, what is actually needed on the first day, and how to spend the first three days. Unlock the steps in order and store progress per breed in local browser storage without authentication. Never hide urgent veterinary signs behind progress, and do not present the guide as individualized medical advice.
