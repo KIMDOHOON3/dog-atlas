@@ -10,6 +10,12 @@ import {
 } from "@/lib/beginner-guide-progress";
 import styles from "./beginner-guide-link.module.css";
 
+function objectParticle(word: string) {
+  const lastCode = word.charCodeAt(word.length - 1);
+  const hasBatchim = lastCode >= 0xac00 && lastCode <= 0xd7a3 && (lastCode - 0xac00) % 28 !== 0;
+  return hasBatchim ? "을" : "를";
+}
+
 export function BeginnerGuideLink({ slug, nameKo }: { slug: string; nameKo: string }) {
   const [completed, setCompleted] = useState(0);
   const [hydrated, setHydrated] = useState(false);
@@ -52,8 +58,9 @@ export function BeginnerGuideLink({ slug, nameKo }: { slug: string; nameKo: stri
         <span aria-hidden="true">→</span>
         {label}
       </Link>
-      <span className={styles.hint}>{nameKo}를 데려오기 전 필요한 것만 차례로 확인해요.</span>
+      <span className={styles.hint}>
+        {nameKo}{objectParticle(nameKo)} 데려오기 전 필요한 것만 차례로 확인해요.
+      </span>
     </div>
   );
 }
-

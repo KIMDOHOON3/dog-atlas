@@ -16,6 +16,7 @@ import { detailBatchN } from "./detail-batch-n";
 import { detailBatchO } from "./detail-batch-o";
 import { detailBatchP } from "./detail-batch-p";
 import { detailBatchQ } from "./detail-batch-q";
+import { detailBatchR } from "./detail-batch-r";
 
 const checkedAt = "2026-08-01";
 
@@ -300,6 +301,7 @@ const draftBreeds = [
   ...detailBatchO,
   ...detailBatchP,
   ...detailBatchQ,
+  ...detailBatchR,
 ] satisfies Breed[];
 
 export const breeds = breedCollectionSchema.parse(draftBreeds);

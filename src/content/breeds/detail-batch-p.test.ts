@@ -12,7 +12,7 @@ describe("detail batch P mapping", () => {
       "american-pit-bull-terrier",
       "american-bully",
     ]);
-    expect(breeds).toHaveLength(368);
+    expect(breeds).toHaveLength(370);
     for (const breed of detailBatchP) {
       expect(getMasterBreed(breed.slug)?.detailStatus).toBe("published");
       expect(breed.sources[0].organization).toBe("United Kennel Club");

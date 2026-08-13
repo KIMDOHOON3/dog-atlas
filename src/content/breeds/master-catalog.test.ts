@@ -9,8 +9,8 @@ describe("master breed catalog", () => {
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it("contains the discovery inventory and all 368 detailed breeds", () => {
-    expect(masterCatalog).toHaveLength(368);
+  it("contains the discovery inventory and all 370 detailed entries", () => {
+    expect(masterCatalog).toHaveLength(370);
     for (const breed of breeds) {
       expect(getMasterBreed(breed.slug)?.nameKo).toBe(breed.nameKo);
     }
@@ -50,19 +50,20 @@ describe("master breed catalog", () => {
 
   it("reports catalog status without depending on UI data", () => {
     expect(getMasterCatalogStats()).toEqual({
-      total: 368,
+      total: 370,
       byFciGroup: { 1: 46, 2: 56, 3: 36, 4: 1, 5: 48, 6: 72, 7: 35, 8: 23, 9: 30, 10: 14 },
-      registryStatus: { definitive: 344, provisional: 17, nonFci: 7, verificationNeeded: 0 },
+      registryStatus: { definitive: 344, provisional: 17, nonFci: 9, verificationNeeded: 0 },
       inclusionType: {
         internationalRegistered: 363,
         nationalHeritage: 2,
         nationalRegistered: 0,
         verifiedLandrace: 1,
         documentedPopulation: 2,
+        designerCross: 2,
         unverifiedName: 0,
       },
-      detailPriority: { core: 5, next: 363, later: 0 },
-      detailStatus: { published: 368, planned: 0, none: 0 },
+      detailPriority: { core: 5, next: 365, later: 0 },
+      detailStatus: { published: 370, planned: 0, none: 0 },
     });
   });
 
@@ -91,6 +92,8 @@ describe("master breed catalog", () => {
     });
     expect(getMasterBreed("mongolian-bankhar")?.inclusionType).toBe("verified-landrace");
     expect(getMasterBreed("pungsan-dog")?.inclusionType).toBe("documented-population");
+    expect(getMasterBreed("goldendoodle")?.inclusionType).toBe("designer-cross");
+    expect(getMasterBreed("maltipoo")?.inclusionType).toBe("designer-cross");
   });
 
   it("keeps FCI varieties under one breed identity without losing discovery names", () => {

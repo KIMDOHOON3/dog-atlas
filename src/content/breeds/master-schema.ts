@@ -50,6 +50,7 @@ export const inclusionTypeSchema = z.enum([
   "national-registered",
   "verified-landrace",
   "documented-population",
+  "designer-cross",
   "unverified-name",
 ]);
 

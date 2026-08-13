@@ -192,3 +192,9 @@ Remove the topic-directory step from the primary journey. Link `이름 속 견�
 Split the breed-detail next action between people still comparing and people who have chosen a breed and need practical first steps. Link every breed detail to one shared `/beginner-guide?breed=[slug]` experience instead of maintaining 368 separate care pages.
 
 Keep the guide intentionally small: what to ask before bringing the dog home, what is actually needed on the first day, how to spend the first three days, and the mindset required for ongoing guardianship. Unlock the steps in order and store progress per breed in local browser storage without authentication. Frame learning as a lifelong practice of observing the individual dog, using reward-based guidance, and seeking trustworthy expertise when needed; do not imply that a beginner must master everything before starting.
+
+# 2026-08-14 — Include established designer-cross names without calling them registered breeds
+
+Add Goldendoodle and Maltipoo as independently searchable detail entries because both names are widely used and users need practical information about them. Introduce a dedicated `designer-cross` inclusion type instead of treating either name as an FCI/UKC breed, landrace, or unverified commercial label.
+
+Lead with the parent-breed combination and variability across Poodle size, cross generation, coat, body size, and behavior. Do not promise hypoallergenicity, non-shedding coats, hybrid vigor, or a fixed temperament. Use Naver results only to identify recurring Korean search questions and rely on GANA, OFA, veterinary references, registered parent-breed sources, and peer-reviewed research for factual copy.

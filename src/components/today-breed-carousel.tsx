@@ -155,7 +155,7 @@ export function TodayBreedCarousel({ breeds, initialIndex }: Props) {
     <section
       className={styles.carousel}
       aria-roledescription="캐러셀"
-      aria-label="368종 중 한 마리를 먼저 만나보세요"
+      aria-label="370개 견종·교배견 중 한 마리를 먼저 만나보세요"
       onKeyDown={handleKeyDown}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}

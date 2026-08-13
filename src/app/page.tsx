@@ -26,12 +26,12 @@ export default function Home() {
       <main id="main">
         <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>368종의 성격과 생활 정보를 담은 강아지 도감</p>
+            <p className={styles.eyebrow}>370개 견종·교배견의 성격과 생활 정보를 담은 강아지 도감</p>
             <h1 id="hero-title"><span>나와 잘 맞는 강아지를</span>{" "}<span>찾아보세요.</span></h1>
             <p className={styles.lead}>활동량, 성격, 크기, 털 관리부터 실제 양육 난이도까지 비교하고 나에게 맞는 견종을 발견할 수 있어요.</p>
             <div className={styles.heroActions}>
               <Link className={styles.primaryAction} href="/discover">내게 맞는 견종 찾기</Link>
-              <Link className={styles.secondaryAction} href="/discover">368종 도감 둘러보기</Link>
+              <Link className={styles.secondaryAction} href="/discover">370개 견종·교배견 둘러보기</Link>
             </div>
           </div>
           <TodayBreedCarousel breeds={breeds} initialIndex={0} />

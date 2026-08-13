@@ -15,6 +15,7 @@ export const masterSourceSchema = z.object({
     "heritage-record",
     "conservation-program",
     "research",
+    "veterinary-guide",
   ]),
 });
 
@@ -114,6 +115,30 @@ export const masterSources = masterSourceCollectionSchema.parse([
     url: "https://www.thekkf.or.kr/new_home/06_studbook/02.studbook_request.php?request=2",
     checkedAt,
     scope: "breed-standard",
+  },
+  {
+    id: "gana-goldendoodle-health-standard",
+    title: "Health Testing Standards",
+    organization: "Goldendoodle Association of North America (GANA)",
+    url: "https://www.goldendoodleassociation.com/for-breeders/health-standards-and-ethical-breeding/",
+    checkedAt: "2026-08-14",
+    scope: "breed-standard",
+  },
+  {
+    id: "goldendoodle-behavior-study",
+    title: "Expression of Behavioural Traits in Goldendoodles and Labradoodles",
+    organization: "Animals (Basel) / PubMed Central",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6940824/",
+    checkedAt: "2026-08-14",
+    scope: "research",
+  },
+  {
+    id: "petmd-maltipoo-guide",
+    title: "Maltipoo Dog Breed Health and Care",
+    organization: "PetMD",
+    url: "https://www.petmd.com/dog/breeds/maltipoo",
+    checkedAt: "2026-08-14",
+    scope: "veterinary-guide",
   },
   {
     id: "heritage-sapsaree",

@@ -42,6 +42,10 @@ export function getBreedInclusionPresentation(
       label: "기록된 토종 개체군",
       description: "지역명과 역할은 확인되지만 독립성·보존체계는 더 검토해야 해요.",
     },
+    "designer-cross": {
+      label: "디자이너 교배견",
+      description: "둘 이상의 등록 견종을 의도적으로 교배한 유형으로, 크기·피모·행동 편차를 개체별로 확인해야 해요.",
+    },
     "unverified-name": {
       label: "검증 중인 이름",
       description: "독립된 견종 또는 개체군인지 확인할 근거가 더 필요해요.",

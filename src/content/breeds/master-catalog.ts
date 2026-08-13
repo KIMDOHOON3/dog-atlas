@@ -43,6 +43,14 @@ const nonFciInclusionDetails: Record<string, InclusionDetails> = {
     inclusionType: "documented-population",
     evidenceAuthority: "한국애견연맹(KKF) 공개 목록",
   },
+  goldendoodle: {
+    inclusionType: "designer-cross",
+    evidenceAuthority: "GANA·동료평가 행동 연구",
+  },
+  maltipoo: {
+    inclusionType: "designer-cross",
+    evidenceAuthority: "부모견 등록자료·수의학 자료",
+  },
 };
 
 function getInclusionDetails(slug: string, status: RegistryStatus): InclusionDetails {
@@ -151,6 +159,8 @@ const publishedSourceIds: Partial<Record<string, string>> = {
 
 function getSourceIds(slug: string, groupNumber: FciGroupNumber | null, status: RegistryStatus) {
   if (status === "non-fci") {
+    if (slug === "goldendoodle") return ["gana-goldendoodle-health-standard", "goldendoodle-behavior-study"];
+    if (slug === "maltipoo") return ["petmd-maltipoo-guide", "akc-breed-list"];
     if (slug === "mongolian-bankhar") return ["mongolian-bankhar-project", "bankhar-predation-study"];
     if (slug === "american-bully") return ["ukc-american-bully"];
     if (slug === "american-pit-bull-terrier") return ["ukc-american-pit-bull-terrier"];
@@ -166,13 +176,17 @@ function getSourceIds(slug: string, groupNumber: FciGroupNumber | null, status: 
   return sourceIds;
 }
 
-function getVerificationNotes(status: RegistryStatus, flags: readonly VerificationFlag[]) {
+function getVerificationNotes(slug: string, status: RegistryStatus, flags: readonly VerificationFlag[]) {
   const notes: string[] = [];
   if (status === "provisional") {
     notes.push("FCI 잠정 인정 상태이므로 발행 전에 최신 인정 상태를 다시 확인해야 합니다.");
   }
   if (status === "non-fci") {
-    notes.push("FCI 미인정 견종이며, 다른 등록 단체의 정의와 국내 법적 맥락을 별도로 검수해야 합니다.");
+    if (slug === "goldendoodle" || slug === "maltipoo") {
+      notes.push("FCI 미인정 디자이너 교배견이며, 부모견 조합과 교배 세대에 따른 편차를 개체별로 확인해야 합니다.");
+    } else {
+      notes.push("FCI 미인정 견종이며, 다른 등록 단체의 정의와 국내 법적 맥락을 별도로 검수해야 합니다.");
+    }
   }
   if (flags.includes("fci-varieties")) {
     notes.push("FCI가 여러 바라이어티를 한 품종으로 분류합니다. 상세 정보는 타입별 차이를 구분해야 합니다.");
@@ -272,7 +286,7 @@ const masterEntries = masterInventorySeeds.map(
     detailPriority: resolvedDetailPriority,
     detailStatus: resolvedDetailPriority === "core" || resolvedDetailPriority === "next" ? "published" : "none",
     sourceIds: getSourceIds(slug, groupNumber, registryStatus),
-    verificationNotes: getVerificationNotes(registryStatus, verificationFlags),
+    verificationNotes: getVerificationNotes(slug, registryStatus, verificationFlags),
     } satisfies MasterBreed);
   },
 );
@@ -308,6 +322,7 @@ export function getMasterCatalogStats() {
       nationalRegistered: masterCatalog.filter((breed) => breed.inclusionType === "national-registered").length,
       verifiedLandrace: masterCatalog.filter((breed) => breed.inclusionType === "verified-landrace").length,
       documentedPopulation: masterCatalog.filter((breed) => breed.inclusionType === "documented-population").length,
+      designerCross: masterCatalog.filter((breed) => breed.inclusionType === "designer-cross").length,
       unverifiedName: masterCatalog.filter((breed) => breed.inclusionType === "unverified-name").length,
     },
     detailPriority: {
