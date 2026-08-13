@@ -27,9 +27,22 @@ const steps = [
   {
     title: "첫 3일 함께 보내기",
     description: "새로운 환경을 한꺼번에 보여주기보다 조용한 생활 리듬부터 만들어요.",
-    items: ["낯선 사람과 외출을 서두르지 않기", "먹은 양과 배변 상태 기록하기", "혼내기보다 안전한 공간을 먼저 알려주기", "이상 신호가 보이면 동물병원에 문의하기"],
+    items: ["낯선 사람과 외출을 서두르지 않기", "먹은 양과 배변 상태 기록하기", "혼내기보다 안전한 공간을 먼저 알려주기"],
     action: "첫 생활 가이드를 확인했어요",
     done: "가이드 확인 완료 ✓",
+  },
+  {
+    title: "보호자로서 마음 준비하기",
+    description: "한 번에 전문가가 될 필요는 없어요. 기본 생활부터 익히고, 새로운 상황이 생길 때마다 계속 배우면 돼요.",
+    items: [
+      "강아지를 통제 대상이 아닌 감정과 선택이 있는 존재로 대하기",
+      "불편한 행동을 혼내기 전에 몸짓과 환경의 원인 살펴보기",
+      "겁주거나 아프게 하기보다 원하는 행동을 알려주고 보상하기",
+      "견종 정보보다 내 강아지의 속도와 개체 차이 존중하기",
+      "평생 필요한 시간과 비용을 책임지고, 모르면 신뢰할 수 있는 전문가에게 배우기",
+    ],
+    action: "보호자의 마음 준비를 확인했어요",
+    done: "마음 준비 완료 ✓",
   },
 ] as const;
 
@@ -95,16 +108,6 @@ export function BeginnerGuide({ slug, nameKo }: { slug: string; nameKo: string }
         })}
       </section>
 
-      <aside className={styles.safety} aria-labelledby="safety-title">
-        <span className={styles.safetyMark} aria-hidden="true">＋</span>
-        <div>
-          <p className={styles.eyebrow}>진행 상태와 관계없이 확인하세요</p>
-          <h2 id="safety-title">동물병원에 바로 문의해야 할 신호</h2>
-          <p>반복되는 구토·설사, 피가 섞인 변이나 구토, 먹지 않으면서 축 처지는 모습, 호흡 곤란, 경련, 독성물질이나 이물 섭취가 의심되면 기다리지 말고 가까운 동물병원에 문의하세요.</p>
-          <a href="https://vcahospitals.com/west-suburban/know-your-pet/common-emergencies-in-dogs" target="_blank" rel="noreferrer">응급 신호 참고 자료 보기 →</a>
-        </div>
-      </aside>
     </>
   );
 }
-

@@ -1,6 +1,6 @@
 export const BEGINNER_GUIDE_STORAGE_PREFIX = "dog-atlas:beginner-guide:v1:";
 export const BEGINNER_GUIDE_PROGRESS_EVENT = "dog-atlas:beginner-guide-progress";
-export const BEGINNER_GUIDE_STEP_COUNT = 3;
+export const BEGINNER_GUIDE_STEP_COUNT = 4;
 
 export function getBeginnerGuideStorageKey(slug: string) {
   return `${BEGINNER_GUIDE_STORAGE_PREFIX}${slug}`;
@@ -25,4 +25,3 @@ export function writeBeginnerGuideProgress(slug: string, completed: number) {
   window.dispatchEvent(new CustomEvent(BEGINNER_GUIDE_PROGRESS_EVENT, { detail: { slug, completed: safeValue } }));
   return safeValue;
 }
-

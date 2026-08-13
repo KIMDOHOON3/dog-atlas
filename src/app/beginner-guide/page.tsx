@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "처음 함께 살기 가이드",
-  description: "강아지를 데려오기 전부터 첫 3일까지 꼭 필요한 준비만 차례로 확인합니다.",
+  description: "강아지를 데려오기 전부터 첫 생활과 보호자의 마음가짐까지 꼭 필요한 준비를 차례로 확인합니다.",
 };
 
 type PageProps = { searchParams: Promise<{ breed?: string | string[] }> };
@@ -30,9 +30,9 @@ export default async function BeginnerGuidePage({ searchParams }: PageProps) {
 
         <header className={styles.hero}>
           <div>
-            <p className={styles.eyebrow}>처음 함께 살기 위한 3단계</p>
+            <p className={styles.eyebrow}>처음 함께 살기 위한 4단계</p>
             <h1>{breed.nameKo}를<br />맞이할 준비를 해볼까요?</h1>
-            <p>많이 준비할 필요는 없어요. 데려오기 전 꼭 확인할 것부터 첫 3일까지, 지금 필요한 내용만 차례로 살펴보세요.</p>
+            <p>많이 준비할 필요는 없어요. 데려오기 전 꼭 확인할 것부터 첫 생활과 보호자의 마음가짐까지, 지금 필요한 내용만 차례로 살펴보세요.</p>
           </div>
           <aside className={styles.breedCard} aria-label={`선택한 강아지 ${breed.nameKo}`}>
             <BreedVisual breed={breed} variant="tile" />
@@ -41,9 +41,8 @@ export default async function BeginnerGuidePage({ searchParams }: PageProps) {
         </header>
 
         <BeginnerGuide slug={breed.slug} nameKo={breed.nameKo} />
-        <p className={styles.disclaimer}>이 가이드는 처음 준비할 내용을 정리한 편집 안내이며, 개별 강아지의 건강 상태에 대한 수의사의 진료를 대신하지 않습니다.</p>
+        <p className={styles.disclaimer}>이 가이드는 첫 준비를 위한 출발점이에요. 함께 살면서 보이는 반응과 생활 변화를 관찰하고, 필요한 주제는 신뢰할 수 있는 전문가 자료로 계속 배워가세요.</p>
       </main>
     </>
   );
 }
-

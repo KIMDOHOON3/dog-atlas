@@ -18,18 +18,10 @@
 .step button { min-width: 172px; min-height: 46px; align-self: center; padding: 10px 16px; border: 1px solid var(--moss); border-radius: 999px; color: white; background: var(--moss); cursor: pointer; font-weight: 700; }
 .step button:disabled { color: var(--moss); background: transparent; cursor: default; opacity: 1; }
 .lockLabel { min-width: 150px; align-self: center; color: var(--ink-soft); font-size: .82rem; text-align: center; }
-.safety { margin-top: 22px; padding: 22px; display: flex; gap: 14px; border-left: 4px solid var(--moss); background: var(--moss-light); }
-.safetyMark { width: 30px; height: 30px; flex: 0 0 30px; display: grid; place-items: center; border: 1px solid var(--moss); border-radius: 50%; color: var(--moss); font-weight: 700; }
-.eyebrow { margin: 0 0 4px; color: var(--moss); font-size: .76rem; font-weight: 700; letter-spacing: .04em; }
-.safety h2 { margin: 0; font-size: 1.1rem; }
-.safety div > p:not(.eyebrow) { margin: 7px 0; color: var(--ink-soft); font-size: .88rem; line-height: 1.65; }
-.safety a { color: var(--moss); font-size: .84rem; font-weight: 700; }
 @media (max-width: 760px) {
   .step { grid-template-columns: 38px minmax(0, 1fr); gap: 12px; padding: 17px; border-radius: 18px; }
   .number { width: 34px; height: 34px; }
   .stepBody h2 { font-size: 1.08rem; }
   .stepBody ul { grid-template-columns: 1fr; margin-top: 13px; }
   .step button, .lockLabel { grid-column: 1 / -1; width: 100%; }
-  .safety { padding: 17px; }
 }
-
