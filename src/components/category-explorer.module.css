@@ -2,7 +2,7 @@
 .quickExplorer { padding-top: 42px; padding-bottom: 58px; }
 .quickStartGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
 .quickStartCard { position: relative; min-height: 258px; overflow: hidden; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 14px 16px 16px; border: 1px solid var(--line); border-radius: 20px; color: var(--ink); background: var(--panel); text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
-.quickIcon { align-self: center; display: block; width: 156px; height: 156px; margin: 0 auto 6px; border-radius: 18px; background-color: transparent; background-image: url('/illustrations/ui/dog-lifestyle-icons-v3.webp'); background-size: 300% 200%; background-repeat: no-repeat; }
+.quickIcon { align-self: center; display: block; width: 156px; height: 156px; margin: 0 auto 6px; background-color: transparent; background-image: url('/illustrations/ui/dog-lifestyle-icons-v4.webp'); background-size: 300% 200%; background-repeat: no-repeat; }
 .quickIcon[data-dog-icon="calm"] { background-position: 0 0; }
 .quickIcon[data-dog-icon="active"] { background-position: 50% 0; }
 .quickIcon[data-dog-icon="social"] { background-position: 100% 0; }
@@ -24,7 +24,7 @@
   .quickExplorer h2 { font-size: clamp(1.9rem, 8.2vw, 2.25rem); }
   .quickStartGrid { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
   .quickStartCard { min-height: 226px; padding: 10px 12px 14px; border-radius: 18px; }
-  .quickIcon { width: 132px; height: 132px; margin-bottom: 7px; border-radius: 16px; }
+  .quickIcon { width: 132px; height: 132px; margin-bottom: 7px; }
   .quickStartCard strong { font-size: .96rem; }
   .quickStartCard span { font-size: .75rem; }
   .quickStartCard b { right: 11px; bottom: 11px; width: 30px; height: 30px; }
