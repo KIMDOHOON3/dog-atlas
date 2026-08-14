@@ -28,7 +28,11 @@
   .mobileBottomNav a { min-width: 0; min-height: 54px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border-radius: 12px; color: var(--ink-soft); font-size: .65rem; font-weight: 700; line-height: 1.15; text-decoration: none; white-space: nowrap; }
   .mobileBottomNav a:hover, .mobileBottomNav a:focus-visible { color: var(--ink); background: var(--paper-deep); }
   .mobileBottomNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .mobileBottomNav svg { width: 21px; height: 21px; flex: 0 0 21px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
-  .mobileBottomNav svg .solidIcon { fill: currentColor; stroke: none; }
+  .mobileNavIcon { width: 25px; height: 25px; flex: 0 0 25px; display: block; background: currentColor; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: contain; mask-size: contain; }
+  .homeIcon { -webkit-mask-image: url("/illustrations/ui/mobile-nav/home.png"); mask-image: url("/illustrations/ui/mobile-nav/home.png"); }
+  .discoveryIcon { -webkit-mask-image: url("/illustrations/ui/mobile-nav/discover.png"); mask-image: url("/illustrations/ui/mobile-nav/discover.png"); }
+  .storiesIcon { -webkit-mask-image: url("/illustrations/ui/mobile-nav/names.png"); mask-image: url("/illustrations/ui/mobile-nav/names.png"); }
+  .curiosityIcon { -webkit-mask-image: url("/illustrations/ui/mobile-nav/collections.png"); mask-image: url("/illustrations/ui/mobile-nav/collections.png"); }
+  .compareIcon { -webkit-mask-image: url("/illustrations/ui/mobile-nav/compare.png"); mask-image: url("/illustrations/ui/mobile-nav/compare.png"); }
   .mobileBottomNav .mobileNavActive { color: var(--moss); background: var(--moss-light); }
 }
