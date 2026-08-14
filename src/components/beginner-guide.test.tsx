@@ -31,7 +31,7 @@ describe("BeginnerGuide", () => {
   });
 
   it("keeps the guardian mindset step locked until earlier preparation is complete", async () => {
-    render(<BeginnerGuide slug="maltese" nameKo="몰티즈" />);
+    render(<BeginnerGuide slug="maltese" nameKo="말티즈" />);
     expect(await screen.findByRole("heading", { name: "보호자로서 마음 준비하기" })).toBeVisible();
     expect(screen.queryByText("강아지를 통제 대상이 아닌 감정과 선택이 있는 존재로 대하기")).not.toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: "동물병원에 바로 문의해야 할 신호" })).not.toBeInTheDocument();

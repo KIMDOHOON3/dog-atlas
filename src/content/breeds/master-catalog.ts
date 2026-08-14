@@ -86,7 +86,7 @@ const aliasesKo: Partial<Record<string, string[]>> = {
   xoloitzcuintle: ["솔로이츠퀸틀리", "숄로이츠퀸틀리"],
   "labrador-retriever": ["라브라도 리트리버", "래브라도", "라브라도", "랩"],
   "bichon-frise": ["비숑", "비숑프리제"],
-  maltese: ["말티즈"],
+  maltese: ["몰티즈"],
   "french-bulldog": ["프렌치 불독"],
   poodle: ["스탠더드 푸들", "미디엄 푸들", "미니어처 푸들", "토이 푸들", "토이푸들"],
   "pyrenean-mountain-dog": ["피레니언 마운틴 독", "피레니안 마운틴독"],

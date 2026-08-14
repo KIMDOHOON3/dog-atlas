@@ -107,7 +107,7 @@ const draftBreeds = [
   {
     slug: "maltese",
     contentStatus: "mvp-editorial-draft",
-    nameKo: "몰티즈",
+    nameKo: "말티즈",
     nameEn: "Maltese",
     tagline: "작은 체구만으로는 설명되지 않는, 오랜 반려의 역사와 생기 있는 성격을 만나요.",
     palette: { primary: "#f1e7d6", secondary: "#fbfaf6", ink: "#473625" },
@@ -124,7 +124,7 @@ const draftBreeds = [
       guardianContext: "몸을 만지고 관리하는 과정은 짧고 편안한 단계부터 보상과 함께 긍정적인 경험으로 쌓아야 합니다.",
     },
     story: {
-      opening: "몰티즈는 지중해권에서 오랫동안 사람 곁의 반려견으로 기록된 품종입니다. 길고 흰 털과 작은 체구가 가장 익숙한 인상을 만듭니다.",
+      opening: "말티즈는 지중해권에서 오랫동안 사람 곁의 반려견으로 기록된 품종입니다. 길고 흰 털과 작은 체구가 가장 익숙한 인상을 만듭니다.",
       roleToHome: "사람과 가까이 생활해온 역사는 오늘날에도 강한 교감 욕구로 이어질 수 있습니다. 작지만 놀이와 교육을 즐길 수 있는 개라는 점을 놓치기 쉬워요.",
       reality: "작은 체격은 관리가 쉽다는 뜻이 아닙니다. 털과 치아 관리, 안전한 환경, 혼자 있는 시간에 대한 점진적인 연습을 함께 고려해야 합니다.",
     },

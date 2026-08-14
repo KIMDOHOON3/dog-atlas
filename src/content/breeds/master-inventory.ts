@@ -142,7 +142,7 @@ export const masterInventorySeeds = [
   ["spanish-water-dog", "스페니시 워터 도그", "Spanish Water Dog", 8, "definitive", "later"],
   ["american-water-spaniel", "아메리칸 워터 스패니얼", "American Water Spaniel", 8, "definitive", "later"],
   ["bichon-frise", "비숑 프리제", "Bichon Frise", 9, "definitive", "later"],
-  ["maltese", "몰티즈", "Maltese", 9, "definitive", "core"],
+  ["maltese", "말티즈", "Maltese", 9, "definitive", "core"],
   ["havanese", "하바니즈", "Havanese", 9, "definitive", "later"],
   ["bolognese", "볼로네즈", "Bolognese", 9, "definitive", "later"],
   ["coton-de-tulear", "코톤 드 툴레아르", "Coton de Tulear", 9, "definitive", "later"],

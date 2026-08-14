@@ -204,3 +204,9 @@ Lead with the parent-breed combination and variability across Poodle size, cross
 Remove the rotating breed carousel, both catalog CTAs, and the large home slogan. Keep the short coverage line and place known-breed search directly in the hero, then offer the six lifestyle choices under `처음이라면 여기부터` as the next path.
 
 The carousel remains available as unused component code for now, but it is no longer part of the home journey. Remove the hidden 370-card home list as well because it provides no visible path and adds unnecessary rendering work. Breed browsing already has a dedicated top-level destination, so the home should expose only the two explicit intents: search a known name or browse by lifestyle.
+
+# 2026-08-14 — Standardize reusable lifestyle product icons
+
+Use one shared product icon for each repeated lifestyle concept instead of creating breed-specific graphics. Build icons from one clear object and at most one supporting cue, use the project moss-and-mint two-tone palette, and keep the final asset transparent and readable at small UI sizes.
+
+Document the system in `docs/product-icon-guide.md`, require creators and generation tools to check existing concept IDs before adding an asset, and preview new icons in their real card context before implementation. Keep company, service, designer, and commercial icon-library names out of generation prompts; references may inform general principles such as clarity and consistency but must not be copied.

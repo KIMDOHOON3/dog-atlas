@@ -29,6 +29,7 @@
 - [`redesign-v2.md`](redesign-v2.md) — 현재 화면 방향의 기반이 된 홈·상세 재설계안
 - [`shortlist-design-spec.md`](shortlist-design-spec.md) — 관심 견종 보관함과 2~3종 비교 설계
 - [`design-redesign-spec.md`](design-redesign-spec.md) — 타이포, 캐러셀, 생활조건 탐색을 포함한 초기 개선 명세
+- [`product-icon-guide.md`](product-icon-guide.md) — 재사용 가능한 생활 정보 제품 아이콘의 시각 규격, AI 프롬프트와 검수 기준
 
 ### 검증과 출시 준비
 

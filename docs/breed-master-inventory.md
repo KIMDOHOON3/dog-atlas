@@ -177,7 +177,7 @@
 | spanish-water-dog | 스페니시 워터 독 | Spanish Water Dog | 8 | definitive | later | verified-fci |
 | american-water-spaniel | 아메리칸 워터 스패니얼 | American Water Spaniel | 8 | definitive | later | verified-fci |
 | bichon-frise | 비숑 프리제 | Bichon Frise | 9 | definitive | later | verified-fci |
-| maltese | 몰티즈 | Maltese | 9 | definitive | core | verified-fci |
+| maltese | 말티즈 | Maltese | 9 | definitive | core | verified-fci |
 | havanese | 하바니즈 | Havanese | 9 | definitive | later | verified-fci |
 | bolognese | 볼로네즈 | Bolognese | 9 | definitive | later | verified-fci |
 | coton-de-tulear | 코톤 드 툴레아르 | Coton de Tulear | 9 | definitive | later | verified-fci |
@@ -229,7 +229,7 @@
 | xoloitzcuintle | 솔로이츠퀸틀리, 숄로이츠퀸틀리 |
 | labrador-retriever | 라브라도 리트리버, 래브라도, 라브라도, 랩 |
 | bichon-frise | 비숑, 비숑프리제 |
-| maltese | 말티즈 |
+| maltese | 몰티즈 |
 | pyrenean-mountain-dog | 그레이트 피레니즈, 피레니안 마운틴독 |
 | continental-toy-spaniel | 파피용, 빠삐용, 파렌, 파렌느 |
 | italian-sighthound | 이탈리안 그레이하운드, 이탈리언 그레이하운드, 이태리 그레이하운드, 이탈리언 사이트하운드, IG |

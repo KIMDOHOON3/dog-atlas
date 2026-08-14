@@ -71,7 +71,8 @@ describe("master breed catalog", () => {
     expect(getMasterBreed("german-spitz")?.aliasesKo).toContain("포메라니안");
     expect(getMasterBreed("belgian-shepherd-dog")?.aliasesKo).toContain("말리노이즈");
     expect(getMasterBreed("poodle")?.aliasesKo).toContain("토이 푸들");
-    expect(getMasterBreed("maltese")?.aliasesKo).toContain("말티즈");
+    expect(getMasterBreed("maltese")?.nameKo).toBe("말티즈");
+    expect(getMasterBreed("maltese")?.aliasesKo).toContain("몰티즈");
     expect(getMasterBreed("donggyeongi")?.aliasesKo).toContain("동경이");
   });
 
