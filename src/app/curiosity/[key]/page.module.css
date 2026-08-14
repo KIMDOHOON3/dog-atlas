@@ -39,6 +39,8 @@
   .main { padding-bottom: 112px; }
   .breadcrumb { min-height: 44px; }
   .hero { padding: 25px 19px; border-radius: 24px; }
+  .hero h1 { font-size: clamp(1.9rem, 8.6vw, 2.35rem); line-height: 1.12; }
+  .hero > p:not(.eyebrow) { margin-top: 14px; font-size: .91rem; line-height: 1.68; }
   .count { align-items: flex-start; flex-direction: column; gap: 2px; }
   .themeNav { margin-bottom: 42px; }
   .results > header { grid-template-columns: 1fr; gap: 10px; }

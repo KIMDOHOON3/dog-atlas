@@ -38,4 +38,18 @@ describe("SearchBox", () => {
     fireEvent.click(screen.getByRole("button", { name: "찾기" }));
     expect(push).toHaveBeenCalledWith("/breeds/french-bulldog");
   });
+
+  it("shows related breeds while typing and opens a suggestion", () => {
+    render(<SearchBox breeds={breeds} />);
+    fireEvent.change(screen.getByLabelText("견종 이름 검색"), { target: { value: "프렌치" } });
+    expect(screen.getByRole("listbox", { name: "관련 견종" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("option", { name: /프렌치 불도그/ }));
+    expect(push).toHaveBeenCalledWith("/breeds/french-bulldog");
+  });
+
+  it("finds a breed from a partial alias", () => {
+    render(<SearchBox breeds={breeds} />);
+    fireEvent.change(screen.getByLabelText("견종 이름 검색"), { target: { value: "불독" } });
+    expect(screen.getByRole("option", { name: /프렌치 불도그/ })).toBeInTheDocument();
+  });
 });

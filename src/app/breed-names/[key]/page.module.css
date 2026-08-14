@@ -45,6 +45,8 @@
   .main { padding-bottom: 112px; }
   .breadcrumb { min-height: 44px; }
   .hero { grid-template-columns: 1fr; gap: 22px; padding: 22px 18px 18px; border-radius: 24px; }
+  .hero h1 { font-size: clamp(1.9rem, 8.6vw, 2.35rem); line-height: 1.12; }
+  .description { margin-top: 14px; font-size: .91rem; line-height: 1.68; }
   .heroVisual { width: min(100%, 360px); margin: 0 auto; }
   .count { align-items: flex-start; flex-direction: column; gap: 2px; }
   .storyNav { margin-bottom: 42px; }

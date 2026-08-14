@@ -1,8 +1,16 @@
-.form { width: min(100%, 540px); }
+.form { position: relative; width: min(100%, 540px); }
 .form label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .row { display: flex; align-items: center; gap: 8px; height: 56px; padding: 4px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); box-shadow: 0 8px 24px rgb(42 52 46 / 7%); }
 .row input { min-width: 0; flex: 1; padding: 8px 12px; border: 0; color: var(--ink); background: transparent; outline: 0; }
 .row:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
 .row button { width: 46px; height: 46px; flex: 0 0 46px; padding: 0; display: inline-grid; place-items: center; border: 0; border-radius: 11px; color: white; background: var(--moss); cursor: pointer; }
 .row button span { font-size: 1.25rem; line-height: 1; }
+.suggestions { position: absolute; z-index: 15; top: 62px; right: 0; left: 0; overflow: hidden; margin: 0; padding: 5px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); box-shadow: 0 14px 34px rgb(42 52 46 / 14%); list-style: none; }
+.suggestions button { width: 100%; min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 11px; border: 0; border-radius: 11px; color: var(--ink); background: transparent; cursor: pointer; text-align: left; }
+.suggestions button:hover, .suggestions button[aria-selected="true"] { background: var(--moss-light); }
+.suggestions button:focus-visible { outline: 3px solid var(--focus); outline-offset: -2px; }
+.suggestions span { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.suggestions strong { font-size: .88rem; line-height: 1.25; }
+.suggestions small { overflow: hidden; color: var(--ink-soft); font-size: .69rem; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+.suggestions em { flex: none; max-width: 42%; overflow: hidden; color: var(--moss); font-size: .67rem; font-style: normal; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
 .error { min-height: 1.5em; margin: 5px 8px 0; color: #923c28; font-size: .78rem; }
