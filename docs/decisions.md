@@ -201,6 +201,6 @@ Lead with the parent-breed combination and variability across Poodle size, cross
 
 # 2026-08-14 — Simplify the home entry path
 
-Remove the rotating breed carousel and both catalog CTAs from the home hero. Keep only the short coverage line and main title, then lead first-time visitors directly into the six lifestyle choices under `처음이라면 여기부터`. Place known-breed search after those choices as the secondary path.
+Remove the rotating breed carousel, both catalog CTAs, and the large home slogan. Keep the short coverage line and place known-breed search directly in the hero, then offer the six lifestyle choices under `처음이라면 여기부터` as the next path.
 
-The carousel remains available as unused component code for now, but it is no longer part of the home journey. Remove the hidden 370-card home list as well because it provides no visible path and adds unnecessary rendering work. Breed browsing already has a dedicated top-level destination, so the home should prioritize the two explicit intents: browse by lifestyle or search a known name.
+The carousel remains available as unused component code for now, but it is no longer part of the home journey. Remove the hidden 370-card home list as well because it provides no visible path and adds unnecessary rendering work. Breed browsing already has a dedicated top-level destination, so the home should expose only the two explicit intents: search a known name or browse by lifestyle.

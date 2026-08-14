@@ -15,20 +15,16 @@ export default function Home() {
       <main id="main">
         <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>370개 견종·교배견의 성격과 생활 정보를 비교해</p>
-            <h1 id="hero-title"><span>나와 잘 맞는 강아지를</span>{" "}<span>찾아보세요.</span></h1>
+            <h1 className={styles.eyebrow} id="hero-title">370개 견종·교배견의 성격과 생활 정보를 비교해</h1>
+            <p className={styles.searchPrompt}>궁금한 견종이 있다면 이름으로 검색해보세요.</p>
+            <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn }) => {
+              const master = getMasterBreed(slug);
+              return { slug, nameKo, nameEn, aliases: [...(master?.aliasesKo ?? []), ...(master?.aliasesEn ?? [])] };
+            })} />
           </div>
         </section>
 
         <CategoryExplorer />
-
-        <section className={styles.breedSearch} aria-labelledby="breed-search-title">
-          <h2 id="breed-search-title">궁금한 견종이 있다면 이름으로 검색해보세요.</h2>
-          <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn }) => {
-            const master = getMasterBreed(slug);
-            return { slug, nameKo, nameEn, aliases: [...(master?.aliasesKo ?? []), ...(master?.aliasesEn ?? [])] };
-          })} />
-        </section>
       </main>
       <footer className={styles.footer}>견종의 특성은 일반적 경향이며 실제 개체와 환경에 따라 달라질 수 있어요.</footer>
     </>

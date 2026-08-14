@@ -1,11 +1,7 @@
-.hero { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 22px auto 0; padding: clamp(38px, 6vw, 72px) 0 0; }
-.heroCopy { max-width: 760px; }
+.hero { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 22px auto 0; padding: clamp(38px, 6vw, 72px) 0 6px; }
+.heroCopy { max-width: 620px; }
 .eyebrow { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .06em; }
-.hero h1 { margin: 0; font-size: clamp(2.8rem, 3.8vw, 3.65rem); font-weight: 700; letter-spacing: -.045em; line-height: 1.08; }
-.hero h1 span { display: block; }
-.breedSearch { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; padding: 0 0 72px; }
-.breedSearch h2 { margin: 0 0 12px; color: var(--ink); font-size: 1.08rem; line-height: 1.5; letter-spacing: -.015em; word-break: keep-all; }
-.breedSearch > form { width: min(100%, 620px); }
+.searchPrompt { margin: 0 0 12px; color: var(--ink); font-size: 1.08rem; font-weight: 700; line-height: 1.5; letter-spacing: -.015em; word-break: keep-all; }
 .footer { padding: 28px 16px; border-top: 1px solid var(--line); color: var(--ink-soft); text-align: center; font-size: .84rem; }
-@media (max-width: 767px) { .hero { margin-top: 14px; padding: 30px 0 0; } .hero h1 { max-width: none; font-size: clamp(2.15rem, 9.2vw, 2.55rem); } .breedSearch { padding-bottom: 54px; } .breedSearch h2 { font-size: 1rem; } }
-@media (max-width: 420px) { .hero, .breedSearch { width: calc(100% - var(--page-inline)); } }
+@media (max-width: 767px) { .hero { margin-top: 14px; padding: 30px 0 4px; } .searchPrompt { font-size: 1rem; } }
+@media (max-width: 420px) { .hero { width: calc(100% - var(--page-inline)); } }
