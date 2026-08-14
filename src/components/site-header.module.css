@@ -29,5 +29,6 @@
   .mobileBottomNav a:hover, .mobileBottomNav a:focus-visible { color: var(--ink); background: var(--paper-deep); }
   .mobileBottomNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   .mobileBottomNav svg { width: 21px; height: 21px; flex: 0 0 21px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+  .mobileBottomNav svg .solidIcon { fill: currentColor; stroke: none; }
   .mobileBottomNav .mobileNavActive { color: var(--moss); background: var(--moss-light); }
 }
