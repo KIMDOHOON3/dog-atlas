@@ -3,7 +3,6 @@ import { BreedVisual } from "@/components/breed-visual";
 import { CategoryExplorer } from "@/components/category-explorer";
 import { SearchBox } from "@/components/search-box";
 import { SiteHeader } from "@/components/site-header";
-import { TodayBreedCarousel } from "@/components/today-breed-carousel";
 import { breeds } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
 import styles from "./page.module.css";
@@ -31,10 +30,8 @@ export default function Home() {
             <p className={styles.lead}>활동량, 성격, 크기, 털 관리부터 실제 양육 난이도까지 비교하고 나에게 맞는 견종을 발견할 수 있어요.</p>
             <div className={styles.heroActions}>
               <Link className={styles.primaryAction} href="/discover">내게 맞는 견종 찾기</Link>
-              <Link className={styles.secondaryAction} href="/discover">370개 견종·교배견 둘러보기</Link>
             </div>
           </div>
-          <TodayBreedCarousel breeds={breeds} initialIndex={0} />
           <div className={styles.heroSearch}>
             <p>이미 궁금한 견종이 있나요?</p>
             <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn }) => {

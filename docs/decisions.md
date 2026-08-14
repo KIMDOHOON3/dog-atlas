@@ -198,3 +198,9 @@ Keep the guide intentionally small: what to ask before bringing the dog home, wh
 Add Goldendoodle and Maltipoo as independently searchable detail entries because both names are widely used and users need practical information about them. Introduce a dedicated `designer-cross` inclusion type instead of treating either name as an FCI/UKC breed, landrace, or unverified commercial label.
 
 Lead with the parent-breed combination and variability across Poodle size, cross generation, coat, body size, and behavior. Do not promise hypoallergenicity, non-shedding coats, hybrid vigor, or a fixed temperament. Use Naver results only to identify recurring Korean search questions and rely on GANA, OFA, veterinary references, registered parent-breed sources, and peer-reviewed research for factual copy.
+
+# 2026-08-14 — Simplify the home entry path
+
+Remove the rotating breed carousel and the secondary catalog CTA from the home hero. Keep one primary discovery CTA and the known-breed search, then move directly into the six lifestyle choices under `처음이라면 여기부터`.
+
+The carousel remains available as unused component code for now, but it is no longer part of the home journey. Breed browsing already has a dedicated top-level destination, so the home should prioritize a short choice path over another showcase.

@@ -1,7 +1,6 @@
-.hero { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 22px auto 0; display: grid; grid-template: "copy visual" auto "search visual" auto / minmax(0, 44fr) minmax(460px, 56fr); align-items: center; gap: 24px 42px; }
-.heroCopy { grid-area: copy; align-self: end; padding-top: 38px; }
-.hero > section { grid-area: visual; }
-.heroSearch { grid-area: search; align-self: start; width: min(100%, 520px); }
+.hero { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 22px auto 0; padding: clamp(38px, 6vw, 72px) 0 18px; }
+.heroCopy { max-width: 760px; }
+.heroSearch { width: min(100%, 620px); margin-top: 30px; }
 .heroSearch > p { margin: 0 0 9px; color: var(--ink-soft); font-size: .88rem; font-weight: 700; }
 .eyebrow { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .06em; }
 .hero h1 { margin: 0; font-size: clamp(2.8rem, 3.8vw, 3.65rem); font-weight: 700; letter-spacing: -.045em; line-height: 1.08; }
@@ -13,8 +12,6 @@
 .heroActions a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .primaryAction { color: white; background: var(--moss); box-shadow: 0 10px 24px rgb(55 83 67 / 18%); }
 .primaryAction:hover { box-shadow: 0 14px 30px rgb(55 83 67 / 24%); }
-.secondaryAction { color: var(--moss); background: color-mix(in srgb, var(--panel) 82%, transparent); }
-.secondaryAction:hover { background: var(--moss-light); }
 .browse { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; }
 .browse { display: none; }
 .browse { padding: 32px 0 72px; }
@@ -29,7 +26,7 @@
 .breedCard span { color: var(--moss); }
 .breedCard small { grid-column: 1 / -1; min-height: 2.5em; color: var(--ink-soft); font-size: .8rem; line-height: 1.38; word-break: keep-all; }
 .footer { padding: 28px 16px; border-top: 1px solid var(--line); color: var(--ink-soft); text-align: center; font-size: .84rem; }
-@media (max-width: 960px) { .hero { gap: 18px 24px; grid-template-columns: minmax(0, 44fr) minmax(380px, 56fr); } .breedGrid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 767px) { .hero { margin-top: 14px; grid-template: "copy" auto "search" auto "visual" auto / 1fr; gap: 20px; } .heroCopy { padding-top: 14px; } .hero h1 { max-width: none; font-size: clamp(2.15rem, 9.2vw, 2.55rem); } .lead { margin-top: 12px; font-size: 1rem; } .heroActions { margin-top: 20px; } .heroSearch { width: 100%; } .browse { padding-top: 32px; } .browse > header { display: block; } .browse > header p { margin-top: 2px; } .browse h2 { font-size: 1.65rem; } .breedGrid { grid-template-columns: 1fr 1fr; gap: 10px; } }
+@media (max-width: 960px) { .breedGrid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 767px) { .hero { margin-top: 14px; padding: 30px 0 10px; } .hero h1 { max-width: none; font-size: clamp(2.15rem, 9.2vw, 2.55rem); } .lead { margin-top: 12px; font-size: 1rem; } .heroActions { margin-top: 20px; } .heroSearch { width: 100%; margin-top: 24px; } .browse { padding-top: 32px; } .browse > header { display: block; } .browse > header p { margin-top: 2px; } .browse h2 { font-size: 1.65rem; } .breedGrid { grid-template-columns: 1fr 1fr; gap: 10px; } }
 @media (max-width: 420px) { .hero, .browse { width: calc(100% - var(--page-inline)); } .heroActions { display: grid; } .heroActions a { width: 100%; } .breedCard > div { padding: 10px 11px 12px; } .breedCard strong { font-size: .92rem; } .breedCard small { font-size: .76rem; } }
 @media (prefers-reduced-motion: reduce) { .breedCard, .heroActions a { transition: none; } .breedCard:hover, .heroActions a:hover { transform: none; } }
