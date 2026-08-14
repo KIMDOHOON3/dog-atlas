@@ -182,8 +182,17 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
     <div className={styles.explorer}>
       <div className={styles.mobileFilterBar}>
         <button ref={filterTriggerRef} className={styles.filterTrigger} type="button" aria-controls="breed-filter-panel" aria-expanded={filterOpen} onClick={() => setFilterOpen(true)}>
-          <span>필터</span>
-          {activeCount > 0 && <strong aria-label={`선택한 필터 ${activeCount}개`}>{activeCount}</strong>}
+          <span className={styles.filterLabel}>
+            <svg className={styles.filterIcon} viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h5m4 0h7M4 17h9m4 0h3M9 4v6m4 4v6" />
+            </svg>
+            <span>조건 필터</span>
+          </span>
+          <span className={styles.filterAction}>
+            {activeCount > 0 && <strong aria-label={`선택한 필터 ${activeCount}개`}>{activeCount}</strong>}
+            <span>열기</span>
+            <span className={styles.filterChevron} aria-hidden="true">›</span>
+          </span>
         </button>
         {activeCount > 0 && <button className={styles.clearFilters} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button>}
       </div>

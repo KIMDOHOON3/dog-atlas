@@ -46,10 +46,15 @@
 @media (max-width: 960px) { .filterLayout { grid-template-columns: 230px minmax(0, 1fr); gap: 18px; } .quickExplore { display: block; } .presetList { justify-content: flex-start; margin-top: 12px; } .resultGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .explorer { width: calc(100% - var(--page-inline)); }
-  .mobileFilterBar { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px; margin-bottom: 18px; padding: 6px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); box-shadow: 0 6px 20px rgb(36 48 43 / 5%); }
+  .mobileFilterBar { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 7px; margin-bottom: 18px; }
   .mobileFilterBar button { min-height: 44px; border-radius: 11px; font-size: .82rem; cursor: pointer; }
-  .mobileFilterBar .filterTrigger { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; padding: 7px 8px 7px 14px; border: 1px solid var(--moss); color: white; background: var(--moss); font-weight: 700; }
-  .filterTrigger strong { min-width: 28px; height: 28px; display: grid; place-items: center; padding: 0 7px; border-radius: 999px; color: var(--moss); background: var(--panel); font-size: .72rem; }
+  .mobileFilterBar .filterTrigger { min-width: 0; min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 7px 12px 7px 8px; border: 1.5px solid var(--moss); color: var(--ink); background: var(--panel); box-shadow: 0 7px 20px rgb(36 48 43 / 8%); font-weight: 700; }
+  .filterLabel, .filterAction { display: flex; align-items: center; }
+  .filterLabel { min-width: 0; gap: 9px; font-size: .88rem; }
+  .filterIcon { width: 36px; height: 36px; flex: 0 0 36px; padding: 8px; border-radius: 10px; color: var(--moss); background: var(--moss-light); fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+  .filterAction { flex: none; gap: 5px; color: var(--moss); font-size: .74rem; }
+  .filterTrigger strong { min-width: 23px; height: 23px; display: grid; place-items: center; padding: 0 6px; border-radius: 999px; color: white; background: var(--moss); font-size: .68rem; }
+  .filterChevron { translate: 0 -1px; font-size: 1.25rem; font-weight: 500; line-height: 1; }
   .mobileFilterBar .clearFilters { padding: 8px 11px; border: 0; color: var(--moss); background: transparent; font-weight: 700; white-space: nowrap; }
   .filterLayout { display: block; }
   .filterPanel { position: fixed; z-index: 80; right: 0; bottom: 0; left: 0; max-height: min(88vh, 760px); overflow-y: auto; overscroll-behavior: contain; border-radius: 22px 22px 0 0; visibility: hidden; transform: translateY(110%); transition: transform .22s ease, visibility 0s linear .22s; }
