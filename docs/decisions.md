@@ -216,3 +216,9 @@ Document the system in `docs/product-icon-guide.md`, require creators and genera
 Apply the information hierarchy first validated on the Maltese detail to all 370 catalog entries. Keep one shared detail template, but derive the three priority living points and daily-scene icons from each entry's own care notes, tendency axes, and guardian context instead of copying Maltese-specific advice.
 
 Reuse normalized lifestyle concepts across breeds and add a concept only when a recurring meaning cannot be represented by the existing registry. Require three distinct concepts in each breed's priority cards, keep all six tendency axes available in the expandable section, and preserve the original related-breed and source data. This is an editorial presentation rule, not a claim that three cards exhaust the needs of an individual dog.
+
+# 2026-08-15 — Separate concise facts from source notes
+
+Show size and average lifespan in breed-detail fact rows only when a supported numeric measurement or range is available. Normalize visible values to `cm`, `kg`, and `년`, and keep organization names, source caveats, and editorial status wording in the source section instead of mixing them into the fact value.
+
+Do not invent a standard range for designer crosses, landraces, or breeds whose linked references do not provide one. Omit that fact row until a numeric range is supported, while preserving the original editorial data and linked sources for later review.

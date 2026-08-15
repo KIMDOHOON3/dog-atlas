@@ -13,6 +13,7 @@ import {
   getBreedLifePoints,
   type LifestyleIconId,
 } from "@/lib/breed-life-presentation";
+import { getBreedFactPresentation } from "@/lib/breed-fact-presentation";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -52,11 +53,15 @@ function TendencyCard({ breed, name }: { breed: Breed; name: keyof Breed["tenden
 }
 
 function getLifestyleDifference(left: Breed, right: Breed) {
+  const leftFacts = getBreedFactPresentation(left);
+  const rightFacts = getBreedFactPresentation(right);
   return [
-    `체격 ${left.identity.size} ↔ ${right.identity.size}`,
+    leftFacts.size && rightFacts.size
+      ? `체격 ${leftFacts.size} ↔ ${rightFacts.size}`
+      : undefined,
     `활동량 ${left.tendencies.activity.label} ↔ ${right.tendencies.activity.label}`,
     `털 관리 ${left.tendencies.grooming.label} ↔ ${right.tendencies.grooming.label}`,
-  ].join(" · ");
+  ].filter(Boolean).join(" · ");
 }
 
 const lifestyleIconSources: Record<LifestyleIconId, string> = {
@@ -144,6 +149,7 @@ export default async function BreedDetail({ params }: PageProps) {
   const related = getRelatedBreeds(breed);
   const [featuredRelated, ...otherRelated] = related;
   const allSources = [...breed.sources, ...behaviorContextSources];
+  const facts = getBreedFactPresentation(breed);
 
   return (
     <>
@@ -159,8 +165,8 @@ export default async function BreedDetail({ params }: PageProps) {
           <BreedVisual breed={breed} variant="detail" priority />
           <div className={styles.atAGlance}>
             <dl className={styles.facts}>
-              <div><dt>크기</dt><dd>{breed.identity.size}</dd></div>
-              <div><dt>평균 수명</dt><dd>{breed.identity.lifespan}</dd></div>
+              {facts.size && <div><dt>크기</dt><dd>{facts.size}</dd></div>}
+              {facts.lifespan && <div><dt>평균 수명</dt><dd>{facts.lifespan}</dd></div>}
               <div><dt>계통</dt><dd>{breed.identity.lineage}</dd></div>
               <div><dt>원래 역할</dt><dd>{breed.identity.originalRole}</dd></div>
             </dl>
@@ -170,7 +176,7 @@ export default async function BreedDetail({ params }: PageProps) {
           </div>
         </section>
 
-        <aside className={styles.appearanceNote}><strong>대표 형태 살펴보기</strong><span>{breed.identity.size} · {breed.identity.lineage}</span><small>외형 자료: 편집 일러스트 참고</small></aside>
+        <aside className={styles.appearanceNote}><strong>대표 형태 살펴보기</strong><span>{facts.size ? `${facts.size} · ` : ""}{breed.identity.lineage}</span><small>외형 자료: 편집 일러스트 참고</small></aside>
 
         <article className={styles.content}>
           <BreedDetailExperience breed={breed} />
