@@ -34,11 +34,10 @@
 .resultHighlights span { padding: 4px 7px; border-radius: 999px; color: var(--moss); background: var(--moss-light); font-size: .68rem; }
 .resultCopy p { display: -webkit-box; min-height: 3.1em; margin: 10px 0 12px; overflow: hidden; color: var(--ink-soft); font-size: .78rem; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .resultCopy a { color: var(--moss); font-size: .78rem; font-weight: 700; text-underline-offset: 4px; }
-.loadMore { display: flex; justify-content: center; padding-top: 24px; }
-.loadMore button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-width: 180px; min-height: 46px; padding: 10px 16px; border: 1px solid var(--moss); border-radius: 999px; color: var(--moss); background: var(--panel); font-weight: 700; cursor: pointer; }
-.loadMore button:hover, .loadMore button:focus-visible { color: white; background: var(--moss); }
-.loadMore button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-.loadMore span { font-size: .72rem; font-weight: 500; }
+.infiniteScroll { min-height: 78px; padding-top: 24px; display: flex; align-items: center; justify-content: center; gap: 9px; color: var(--ink-soft); font-size: .76rem; }
+.loadingMark { width: 8px; height: 8px; border-radius: 50%; background: var(--moss); animation: loading-pulse 1.2s ease-in-out infinite; }
+@keyframes loading-pulse { 50% { opacity: .35; transform: scale(.72); } }
+@media (prefers-reduced-motion: reduce) { .loadingMark { animation: none; } }
 .emptyState { margin-top: 18px; padding: 34px 20px; border: 1px dashed var(--line); border-radius: 18px; text-align: center; }
 .emptyState h2 { margin: 0; font-size: 1.2rem; }
 .emptyState p { margin: 7px 0 14px; color: var(--ink-soft); font-size: .85rem; }

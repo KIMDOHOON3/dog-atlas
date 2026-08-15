@@ -222,3 +222,9 @@ Reuse normalized lifestyle concepts across breeds and add a concept only when a 
 Show size and average lifespan in breed-detail fact rows only when a supported numeric measurement or range is available. Normalize visible values to `cm`, `kg`, and `년`, and keep organization names, source caveats, and editorial status wording in the source section instead of mixing them into the fact value.
 
 Do not invent a standard range for designer crosses, landraces, or breeds whose linked references do not provide one. Omit that fact row until a numeric range is supported, while preserving the original editorial data and linked sources for later review.
+
+# 2026-08-15 — Continue discovery results on scroll
+
+Replace the manual `견종 더 보기` action on `/discover` with incremental infinite scrolling. Render the first 48 results, append another 48 as the user approaches the end, and preserve the expanded count in the current history entry so returning from a breed detail restores the same exploration depth.
+
+Keep a visible, screen-reader-announced loading sentinel and respect reduced-motion preferences. If intersection observation is unavailable, expose all matching results rather than leaving part of the catalog inaccessible.

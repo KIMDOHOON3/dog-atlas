@@ -69,6 +69,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
   const filterTriggerRef = useRef<HTMLButtonElement>(null);
   const filterPanelRef = useRef<HTMLElement>(null);
   const closeFilterRef = useRef<HTMLButtonElement>(null);
+  const infiniteScrollRef = useRef<HTMLDivElement>(null);
   const pendingQueryRef = useRef<string | null>(null);
   const queryString = searchParams.toString();
   const syncedQueryRef = useRef(queryString);
@@ -141,6 +142,25 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [filterOpen]);
+
+  useEffect(() => {
+    const sentinel = infiniteScrollRef.current;
+    if (!sentinel || visibleResults.length >= results.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setVisibleCount(results.length);
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) return;
+      observer.disconnect();
+      setVisibleCount((count) => Math.min(count + RESULT_BATCH_SIZE, results.length));
+    }, { rootMargin: "600px 0px" });
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [results.length, setVisibleCount, visibleResults.length]);
 
   function closeMobileFilters() {
     setFilterOpen(false);
@@ -275,11 +295,9 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
             })}
           </div>
           {visibleResults.length < results.length && (
-            <div className={styles.loadMore}>
-              <button type="button" onClick={() => setVisibleCount((count) => Math.min(count + RESULT_BATCH_SIZE, results.length))}>
-                견종 더 보기
-                <span>{visibleResults.length} / {results.length}</span>
-              </button>
+            <div className={styles.infiniteScroll} ref={infiniteScrollRef} role="status" aria-live="polite">
+              <span className={styles.loadingMark} aria-hidden="true" />
+              <span>{visibleResults.length} / {results.length}마리 · 아래로 내리면 계속 보여요</span>
             </div>
           )}
           {results.length === 0 && <div className={styles.emptyState}><h2>이 조건에 맞는 견종이 아직 없어요.</h2><p>조건을 하나씩 줄이거나 선택을 모두 지우고 다시 살펴보세요.</p><button type="button" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button></div>}
