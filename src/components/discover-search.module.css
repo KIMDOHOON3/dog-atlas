@@ -1,0 +1,14 @@
+.source { margin: 0 0 34px; }
+.source h2 { margin: 0 0 12px; font-size: 1rem; letter-spacing: -.02em; }
+.dock { position: fixed; z-index: 46; top: 16px; right: max(18px, calc((100vw - var(--max)) / 2 + 18px)); display: flex; flex-direction: column; align-items: end; gap: 8px; }
+.trigger { min-height: 42px; display: flex; align-items: center; gap: 7px; padding: 8px 14px; border: 1px solid rgb(63 111 88 / 34%); border-radius: 999px; color: white; background: rgb(63 111 88 / 94%); box-shadow: 0 7px 20px rgb(36 48 43 / 16%); font-weight: 700; cursor: pointer; }
+.trigger span { font-size: 1.15rem; }
+.trigger:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.panel { width: min(380px, calc(100vw - 32px)); padding: 10px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); box-shadow: 0 16px 38px rgb(36 48 43 / 18%); }
+
+@media (max-width: 767px) {
+  .source { margin-bottom: 28px; }
+  .source h2 { font-size: .92rem; }
+  .dock { top: 10px; right: 12px; }
+  .trigger { min-height: 40px; padding: 7px 12px; font-size: .78rem; }
+}

@@ -232,3 +232,15 @@ Keep a visible, screen-reader-announced loading sentinel and respect reduced-mot
 # 2026-08-15 — Keep long discovery lists easy to traverse
 
 Show one compact directional control after the user has moved well into the `/discover` results. Scrolling down exposes a jump-to-top action; scrolling up changes it to a jump toward the currently rendered list end. Keep it above the mobile bottom navigation and move it above the interest tray when that tray is present.
+
+# 2026-08-16 — Build size collections from the full catalog
+
+Generate the `큰 체구` collection from every catalog entry classified as large or giant by the shared discovery filter. Generate `작은 체구` from every entry classified as small plus every companion-group entry. Do not maintain arbitrary hand-picked limits for these two collections; catalog additions and classification corrections must flow into them automatically.
+
+Replace `이름 속 직업` in `견종 모아보기` with a responsibility-focused collection. Clearly separate the five types managed as dangerous dogs under Korean law from examples restricted in other jurisdictions, and never use breed membership alone to predict an individual dog's behavior. Surface the Korean legal classification on relevant discovery cards, details, and beginner guides with links to official guidance.
+
+Use the global directional scroll control on any sufficiently long page. On `/discover`, keep the main search in normal document flow and expose only a compact, user-opened search dock after the original field has scrolled away.
+
+Apply the same 48-item incremental rendering to every `견종 모아보기` theme, while small collections naturally render in one batch. A jump-to-bottom action must continue following the document end while an infinite list appends new batches.
+
+Keep Pomeranian within the registered German Spitz entry rather than creating a duplicate catalog breed. Use `포메라이언` as the user-facing Korean label and retain common Korean spelling variants as search aliases.

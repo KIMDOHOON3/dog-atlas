@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InterestBreedTray } from "@/components/interest-breed-tray";
 import { InterestBreedsProvider } from "@/components/interest-breeds";
+import { PageScrollControl } from "@/components/page-scroll-control";
 import { breeds } from "@/content/breeds/data";
 import "./globals.css";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body>
         <InterestBreedsProvider breeds={breeds.map(({ slug, nameKo }) => ({ slug, nameKo }))}>
           {children}
+          <PageScrollControl />
           <InterestBreedTray />
         </InterestBreedsProvider>
       </body>

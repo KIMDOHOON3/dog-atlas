@@ -1,0 +1,12 @@
+.control { position: fixed; z-index: 60; right: max(18px, calc((100vw - var(--max)) / 2 + 18px)); bottom: 24px; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid rgb(255 253 248 / 72%); border-radius: 50%; color: white; background: rgb(63 111 88 / 96%); box-shadow: 0 8px 24px rgb(36 48 43 / 24%); backdrop-filter: blur(8px); cursor: pointer; }
+.control svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.control:hover { background: var(--moss); transform: translateY(-1px); }
+.control:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+:global(body:has([data-interest-tray])) .control { bottom: 116px; }
+
+@media (max-width: 767px) {
+  .control { right: 14px; bottom: calc(78px + env(safe-area-inset-bottom)); width: 42px; height: 42px; }
+  :global(body:has([data-interest-tray])) .control { bottom: calc(224px + env(safe-area-inset-bottom)); }
+}
+
+@media (prefers-reduced-motion: reduce) { .control:hover { transform: none; } }

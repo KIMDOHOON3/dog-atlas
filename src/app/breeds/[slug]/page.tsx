@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
 import { BeginnerGuideLink } from "@/components/beginner-guide-link";
 import { InterestBreedToggle } from "@/components/interest-breed-toggle";
+import { LegalCareNotice } from "@/components/legal-care-notice";
 import { SiteHeader } from "@/components/site-header";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
 import type { Breed } from "@/content/breeds/schema";
@@ -14,6 +15,7 @@ import {
   type LifestyleIconId,
 } from "@/lib/breed-life-presentation";
 import { getBreedFactPresentation } from "@/lib/breed-fact-presentation";
+import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -177,6 +179,7 @@ export default async function BreedDetail({ params }: PageProps) {
         </section>
 
         <aside className={styles.appearanceNote}><strong>대표 형태 살펴보기</strong><span>{facts.size ? `${facts.size} · ` : ""}{breed.identity.lineage}</span><small>외형 자료: 편집 일러스트 참고</small></aside>
+        {isKoreanManagedBreed(breed.slug) && <LegalCareNotice breedName={breed.nameKo} />}
 
         <article className={styles.content}>
           <BreedDetailExperience breed={breed} />

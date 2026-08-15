@@ -4,7 +4,9 @@ import { redirect } from "next/navigation";
 import { BeginnerGuide } from "@/components/beginner-guide";
 import { BreedVisual } from "@/components/breed-visual";
 import { SiteHeader } from "@/components/site-header";
+import { LegalCareNotice } from "@/components/legal-care-notice";
 import { getBreed } from "@/content/breeds/data";
+import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -40,6 +42,7 @@ export default async function BeginnerGuidePage({ searchParams }: PageProps) {
           </aside>
         </header>
 
+        {isKoreanManagedBreed(breed.slug) && <LegalCareNotice breedName={breed.nameKo} />}
         <BeginnerGuide slug={breed.slug} nameKo={breed.nameKo} />
         <p className={styles.disclaimer}>이 가이드는 첫 준비를 위한 출발점이에요. 함께 살면서 보이는 반응과 생활 변화를 관찰하고, 필요한 주제는 신뢰할 수 있는 전문가 자료로 계속 배워가세요.</p>
       </main>

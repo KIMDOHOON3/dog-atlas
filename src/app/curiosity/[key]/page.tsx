@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { BreedVisual } from "@/components/breed-visual";
+import { notFound, redirect } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { breeds } from "@/content/breeds/data";
 import { getHomeCuriosityBreeds, getHomeCuriosityTheme, homeCuriosityThemes } from "@/content/home-curiosity";
+import { CuriosityBreedGrid } from "./curiosity-breed-grid";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ key: string }> };
@@ -24,7 +24,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function CuriosityThemePage({ params }: PageProps) {
-  const theme = getHomeCuriosityTheme((await params).key);
+  const key = (await params).key;
+  if (key === "names-at-work") redirect("/curiosity/regulated-care");
+  const theme = getHomeCuriosityTheme(key);
   if (!theme) notFound();
 
   const themeBreeds = getHomeCuriosityBreeds(theme, breeds);
@@ -58,19 +60,7 @@ export default async function CuriosityThemePage({ params }: PageProps) {
             <p>{theme.selectionNote}</p>
           </header>
 
-          <div className={styles.breedGrid}>
-            {themeBreeds.map(({ breed, fact }) => (
-              <Link className={styles.breedCard} href={`/breeds/${breed.slug}`} key={breed.slug} aria-label={`${breed.nameKo} 상세 정보 보기`}>
-                <BreedVisual breed={breed} variant="tile" />
-                <div>
-                  <small>{breed.nameEn}</small>
-                  <h3>{breed.nameKo}</h3>
-                  <p>{fact}</p>
-                  <span>{breed.identity.origin} <b aria-hidden="true">→</b></span>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <CuriosityBreedGrid breeds={themeBreeds} />
         </section>
 
         <aside className={styles.guide} aria-labelledby="curiosity-guide-title">

@@ -19,6 +19,7 @@ import {
   type TendencyLevel,
 } from "@/lib/breed-filters";
 import { useHistoryEntryState } from "@/lib/history-entry-state";
+import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
 import styles from "./discover-explorer.module.css";
 
 const sizeOptions: Array<{ value: BreedSize; label: string }> = [
@@ -45,7 +46,6 @@ const tendencyOptions: Array<{ value: TendencyLevel; label: string }> = [
 
 const INITIAL_RESULT_COUNT = 48;
 const RESULT_BATCH_SIZE = 48;
-type ScrollControl = "top" | "bottom";
 const isValidVisibleCount = (value: unknown): value is number => (
   Number.isInteger(value) && Number(value) >= INITIAL_RESULT_COUNT
 );
@@ -67,7 +67,6 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [filterOpen, setFilterOpen] = useState(false);
-  const [scrollControl, setScrollControl] = useState<ScrollControl | null>(null);
   const filterTriggerRef = useRef<HTMLButtonElement>(null);
   const filterPanelRef = useRef<HTMLElement>(null);
   const closeFilterRef = useRef<HTMLButtonElement>(null);
@@ -83,7 +82,6 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
     isValidVisibleCount,
   );
   const filtersRef = useRef(filters);
-  const lastScrollYRef = useRef(0);
   const results = useMemo(() => filterBreeds(breeds, filters), [breeds, filters]);
   const visibleResults = useMemo(() => results.slice(0, visibleCount), [results, visibleCount]);
   const activeCount = Object.values(filters).reduce((count, values) => count + values.length, 0);
@@ -149,60 +147,45 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
   useEffect(() => {
     const sentinel = infiniteScrollRef.current;
     if (!sentinel || visibleResults.length >= results.length) return;
-
-    if (!("IntersectionObserver" in window)) {
-      setVisibleCount(results.length);
-      return;
-    }
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry?.isIntersecting) return;
-      observer.disconnect();
-      setVisibleCount((count) => Math.min(count + RESULT_BATCH_SIZE, results.length));
-    }, { rootMargin: "600px 0px" });
-
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, [results.length, setVisibleCount, visibleResults.length]);
-
-  useEffect(() => {
-    lastScrollYRef.current = window.scrollY;
+    const sentinelElement = sentinel;
     let animationFrame = 0;
+    let loaded = false;
+    let observer: IntersectionObserver | undefined;
 
-    function updateScrollControl() {
-      const currentScrollY = window.scrollY;
-      const scrollDelta = currentScrollY - lastScrollYRef.current;
-
-      if (currentScrollY < 240) {
-        setScrollControl(null);
-        lastScrollYRef.current = currentScrollY;
-        return;
-      }
-
-      if (Math.abs(scrollDelta) < 12) return;
-      setScrollControl(scrollDelta > 0 ? "top" : "bottom");
-      lastScrollYRef.current = currentScrollY;
+    function loadNextBatch() {
+      if (loaded) return;
+      loaded = true;
+      observer?.disconnect();
+      window.removeEventListener("scroll", checkSentinelPosition);
+      window.removeEventListener("resize", checkSentinelPosition);
+      setVisibleCount((count) => Math.min(count + RESULT_BATCH_SIZE, results.length));
     }
 
-    function handleScroll() {
+    function checkSentinelPosition() {
       cancelAnimationFrame(animationFrame);
-      animationFrame = requestAnimationFrame(updateScrollControl);
+      animationFrame = requestAnimationFrame(() => {
+        if (sentinelElement.getBoundingClientRect().top <= window.innerHeight + 600) loadNextBatch();
+      });
     }
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    if ("IntersectionObserver" in window) {
+      observer = new IntersectionObserver(([entry]) => {
+        if (entry?.isIntersecting) loadNextBatch();
+      }, { rootMargin: "600px 0px" });
+      observer.observe(sentinelElement);
+    }
+
+    window.addEventListener("scroll", checkSentinelPosition, { passive: true });
+    window.addEventListener("resize", checkSentinelPosition);
+    checkSentinelPosition();
+
     return () => {
       cancelAnimationFrame(animationFrame);
-      window.removeEventListener("scroll", handleScroll);
+      observer?.disconnect();
+      window.removeEventListener("scroll", checkSentinelPosition);
+      window.removeEventListener("resize", checkSentinelPosition);
     };
-  }, []);
-
-  function moveThroughResults(direction: ScrollControl) {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({
-      top: direction === "top" ? 0 : document.documentElement.scrollHeight,
-      behavior: reduceMotion ? "auto" : "smooth",
-    });
-  }
+  }, [results.length, setVisibleCount, visibleResults.length]);
 
   function closeMobileFilters() {
     setFilterOpen(false);
@@ -327,6 +310,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
                   <BreedVisual breed={breed} variant="tile" />
                   <div className={styles.resultCopy}>
                     <div className={styles.resultMeta}><span>{breed.nameEn}</span><span>{breed.identity.origin}</span></div>
+                    {isKoreanManagedBreed(breed.slug) && <span className={styles.legalBadge}>대한민국 법령상 맹견</span>}
                     <h2>{breed.nameKo}</h2>
                     <div className={styles.resultHighlights}>{highlights.map((highlight) => <span key={highlight}>{highlight}</span>)}</div>
                     <p>{breed.tagline}</p>
@@ -345,18 +329,6 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
           {results.length === 0 && <div className={styles.emptyState}><h2>이 조건에 맞는 견종이 아직 없어요.</h2><p>조건을 하나씩 줄이거나 선택을 모두 지우고 다시 살펴보세요.</p><button type="button" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button></div>}
         </section>
       </div>
-      {scrollControl && (
-        <button
-          className={styles.scrollControl}
-          type="button"
-          aria-label={scrollControl === "top" ? "견종 목록 맨 위로 이동" : "현재 견종 목록 아래로 이동"}
-          onClick={() => moveThroughResults(scrollControl)}
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d={scrollControl === "top" ? "M6 14l6-6 6 6" : "M6 10l6 6 6-6"} />
-          </svg>
-        </button>
-      )}
     </div>
   );
 }

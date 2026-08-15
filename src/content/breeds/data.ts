@@ -304,7 +304,11 @@ const draftBreeds = [
   ...detailBatchR,
 ] satisfies Breed[];
 
-export const breeds = breedCollectionSchema.parse(draftBreeds);
+export const breeds = breedCollectionSchema.parse(draftBreeds.map((breed) => (
+  breed.slug === "german-spitz"
+    ? { ...breed, nameKo: "포메라이언" }
+    : breed
+)));
 
 export function getBreed(slug: string) {
   return breeds.find((breed) => breed.slug === slug);

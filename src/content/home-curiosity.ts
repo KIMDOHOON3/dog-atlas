@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { sourceSchema, type Breed } from "@/content/breeds/schema";
+import { getBreedFilterValue } from "@/lib/breed-filters";
 
 const curiositySourceSchema = sourceSchema.extend({
   label: z.string().min(2),
@@ -16,9 +17,10 @@ const homeCuriosityThemeSchema = z.object({
     "small-build",
     "wrinkled-skin",
     "distinctive-coats",
-    "names-at-work",
+    "regulated-care",
     "westminster-stories",
   ]),
+  catalogRule: z.enum(["large-and-giant", "small-and-companion"]).optional(),
   label: z.string().min(2),
   thumbnailSlug: z.string().regex(/^[a-z0-9-]+$/),
   heading: z.string().min(10),
@@ -27,8 +29,10 @@ const homeCuriosityThemeSchema = z.object({
   collectionDescription: z.string().min(20),
   selectionNote: z.string().min(20),
   moreLabel: z.string().min(4),
-  items: z.array(curiosityItemSchema).min(6),
+  items: z.array(curiosityItemSchema).default([]),
   sources: z.array(curiositySourceSchema).min(1),
+}).refine((theme) => theme.catalogRule || theme.items.length >= 6, {
+  message: "A curiosity theme needs a catalog rule or at least six curated items.",
 });
 
 const checkedAt = "2026-08-12";
@@ -36,25 +40,18 @@ const checkedAt = "2026-08-12";
 export type HomeCuriosityTheme = z.infer<typeof homeCuriosityThemeSchema>;
 export type HomeCuriosityThemeKey = HomeCuriosityTheme["key"];
 
-export const homeCuriosityThemes = z.array(homeCuriosityThemeSchema).length(6).parse([
+const parsedHomeCuriosityThemes = z.array(homeCuriosityThemeSchema).length(6).parse([
   {
     key: "giant-build",
+    catalogRule: "large-and-giant",
     label: "큰 체구",
     thumbnailSlug: "great-dane",
     heading: "서 있기만 해도 압도적인 체구",
-    description: "초대형으로 분류된 견종 중 서로 다른 체형과 역할을 가진 세 견종을 살펴봐요.",
+    description: "현재 도감에서 대형 또는 초대형으로 분류되는 견종을 빠짐없이 살펴봐요.",
     collectionTitle: "큰 체구 안에도 서로 다른 삶이 있어요.",
     collectionDescription: "키와 몸무게가 큰 견종을 한데 모았어요. 크기만 비슷할 뿐, 형성 지역과 원래 역할, 필요한 생활 준비는 서로 다릅니다.",
-    selectionNote: "세계 순위가 아니라 현재 도감의 체구 정보에서 초대형으로 확인되는 견종을 편집해 보여주는 목록입니다.",
+    selectionNote: "세계 순위가 아니라 현재 370종 도감의 체구 정보에서 대형 또는 초대형으로 분류되는 모든 견종을 보여줍니다.",
     moreLabel: "큰 체구 견종 더 보기",
-    items: [
-      { slug: "great-dane", fact: "약 72~90cm의 초대형견" },
-      { slug: "irish-wolfhound", fact: "약 76~81cm 이상의 시각하운드" },
-      { slug: "newfoundland", fact: "약 50~68kg의 수상 작업견" },
-      { slug: "saint-bernard", fact: "알프스 산악 작업의 역사를 지닌 큰 개" },
-      { slug: "mastiff", fact: "묵직한 체형의 영국 마스티프" },
-      { slug: "leonberger", fact: "큰 체격과 풍성한 이중모" },
-    ],
     sources: [
       { label: "FCI · Great Dane", title: "Great Dane — Standard No. 235", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/en/nomenclature/GREAT-DANE-235.html", checkedAt },
       { label: "FCI · Irish Wolfhound", title: "Irish Wolfhound — Standard No. 160", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/en/nomenclature/IRISH-WOLFHOUND-160.html", checkedAt },
@@ -63,22 +60,15 @@ export const homeCuriosityThemes = z.array(homeCuriosityThemeSchema).length(6).p
   },
   {
     key: "small-build",
+    catalogRule: "small-and-companion",
     label: "작은 체구",
     thumbnailSlug: "chihuahua",
     heading: "작지만 존재감은 큰 견종들",
     description: "작은 체구 안에서도 몸의 비율과 역사, 필요한 관리가 얼마나 다른지 만나보세요.",
     collectionTitle: "작은 몸을 같은 생활로 묶을 수는 없어요.",
     collectionDescription: "공식 표준과 도감의 체구 정보에서 작은 편으로 확인되는 견종을 모았어요. 작은 몸이 낮은 활동량이나 쉬운 돌봄을 뜻하지는 않습니다.",
-    selectionNote: "정확한 세계 최저 순위가 아니라 체고와 체중이 작은 견종을 서로 다른 계통에서 편집한 목록입니다.",
+    selectionNote: "현재 370종 도감에서 소형·초소형·토이로 분류되거나 컴패니언 그룹에 속하는 모든 견종을 보여줍니다.",
     moreLabel: "작은 체구 견종 더 보기",
-    items: [
-      { slug: "chihuahua", fact: "약 1.5~3kg의 초소형 반려견" },
-      { slug: "russian-toy", fact: "약 20~28cm, 1.5~3kg" },
-      { slug: "prague-ratter", fact: "약 21~23cm, 2~3kg" },
-      { slug: "maltese", fact: "사람 곁에서 발전한 초소형 반려견" },
-      { slug: "english-toy-terrier", fact: "약 2.7~3.6kg의 작은 테리어" },
-      { slug: "japanese-chin", fact: "작고 가벼운 궁정 반려견" },
-    ],
     sources: [
       { label: "FCI · Chihuahua", title: "Chihuahua — Standard No. 218", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/en/nomenclature/CHIHUAHUA-218.html", checkedAt },
       { label: "FCI · Russian Toy", title: "Russian Toy — Standard No. 352", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/en/nomenclature/RUSSIAN-TOY-352.html", checkedAt },
@@ -134,27 +124,30 @@ export const homeCuriosityThemes = z.array(homeCuriosityThemeSchema).length(6).p
     ],
   },
   {
-    key: "names-at-work",
-    label: "이름 속 직업",
-    thumbnailSlug: "shetland-sheepdog",
-    heading: "이름을 읽으면 옛일이 보여요",
-    description: "Pointer, Retriever, Setter처럼 이름에 남은 작업의 단서를 세 견종부터 읽어봐요.",
-    collectionTitle: "견종 이름에는 사람이 불렀던 일이 남아 있어요.",
-    collectionDescription: "가리키고, 되가져오고, 자리를 잡고, 가축과 일하던 방식이 이름에 남은 견종을 한자리에 모았어요.",
-    selectionNote: "이름은 역사적 역할을 이해하는 시작점입니다. 같은 이름군의 모든 견종이나 오늘의 개체가 똑같이 행동한다는 뜻은 아닙니다.",
-    moreLabel: "이름 속 역할 더 보기",
+    key: "regulated-care",
+    label: "법과 책임",
+    thumbnailSlug: "rottweiler",
+    heading: "멋보다 먼저 확인할 책임",
+    description: "국내 법령상 맹견과 해외에서 별도 관리되는 견종의 안전 기준을 확인해요.",
+    collectionTitle: "키우기 전에 법과 안전 기준부터 확인해요.",
+    collectionDescription: "견종의 인상만으로 개체의 행동을 단정할 수는 없지만, 법적 의무와 안전 관리 기준은 보호자가 선택 전에 반드시 알아야 합니다.",
+    selectionNote: "대한민국 법령상 맹견 5종과 영국·호주에서 별도 규제되는 견종 중 현재 도감에 있는 항목을 구분해 보여줍니다. 교배견은 외형과 법적 판단에 따라 적용 범위가 달라질 수 있습니다.",
+    moreLabel: "법과 안전 기준 보기",
     items: [
-      { slug: "english-pointer", fact: "사냥감 방향을 몸으로 가리키던 이름" },
-      { slug: "labrador-retriever", fact: "사냥한 새를 찾아 되가져오던 이름" },
-      { slug: "english-setter", fact: "새 앞에서 자리를 잡아 알리던 이름" },
-      { slug: "english-cocker-spaniel", fact: "덤불 속 새와 연결된 스패니얼 이름" },
-      { slug: "shetland-sheepdog", fact: "양과 가축을 다루던 역할이 남은 이름" },
-      { slug: "airedale-terrier", fact: "땅과 굴 작업 계통을 가리키는 이름" },
+      { slug: "tosa", fact: "대한민국 동물보호법령상 맹견" },
+      { slug: "american-pit-bull-terrier", fact: "대한민국 동물보호법령상 맹견" },
+      { slug: "american-staffordshire-terrier", fact: "대한민국 동물보호법령상 맹견" },
+      { slug: "staffordshire-bull-terrier", fact: "대한민국 동물보호법령상 맹견" },
+      { slug: "rottweiler", fact: "대한민국 동물보호법령상 맹견" },
+      { slug: "dogo-argentino", fact: "영국 금지 유형·호주 수입 금지 견종" },
+      { slug: "fila-brasileiro", fact: "영국 금지 유형·호주 수입 금지 견종" },
+      { slug: "presa-canario", fact: "호주 수입 금지 견종" },
     ],
     sources: [
-      { label: "AKC · Pointer", title: "Get to Know the Pointer Breeds", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/sporting-group-pointer-breeds/", checkedAt },
-      { label: "AKC · Retriever", title: "Get to Know the Retriever Breeds", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/meet-retriever-breeds/", checkedAt },
-      { label: "AKC · Setter", title: "Get to Know the Setter Breeds", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/meet-setter-breeds/", checkedAt },
+      { label: "국가법령정보센터 · 동물보호법령", title: "동물보호법 및 시행규칙의 맹견 기준", organization: "대한민국 국가법령정보센터", url: "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1028781793", checkedAt: "2026-08-16" },
+      { label: "찾기쉬운 생활법령 · 맹견 사육", title: "맹견의 사육과 관리", organization: "대한민국 법제처", url: "https://easylaw.go.kr/CSP/CnpClsMain.laf?ccfNo=2&cciNo=1&cnpClsNo=2&csmSeq=1968&menuType=cnpcls&popMenu=ov", checkedAt: "2026-08-16" },
+      { label: "영국 정부 · 금지견", title: "Controlling your dog in public: banned dogs", organization: "GOV.UK", url: "https://www.gov.uk/control-dog-public/banned-dogs", checkedAt: "2026-08-16" },
+      { label: "호주 연방법 · 수입 금지견", title: "Customs (Prohibited Imports) Regulations 1956", organization: "Australian Government", url: "https://www.legislation.gov.au/F1996B03651/latest/text", checkedAt: "2026-08-16" },
     ],
   },
   {
@@ -165,7 +158,7 @@ export const homeCuriosityThemes = z.array(homeCuriosityThemeSchema).length(6).p
     description: "최근 웨스트민스터 Best in Show 기록을 연도와 함께 살펴봐요.",
     collectionTitle: "한 대회의 기록으로 도그쇼 역사를 읽어봐요.",
     collectionDescription: "웨스트민스터 켄넬 클럽이 공개한 최근 Best in Show 수상 견종을 연도순으로 모았어요. 대회 수상은 반려 적합성이나 견종의 우열을 뜻하지 않습니다.",
-    selectionNote: "2021~2026 Westminster Best in Show 공식 기록을 사용했습니다. 2024년 수상견은 미니어처 푸들이며, 도감에서는 크기 변종을 함께 다루는 푸들 상세로 연결합니다.",
+    selectionNote: "2015~2026 Westminster Best in Show 공식 기록을 빠짐없이 사용했습니다. 푸들의 크기 변종과 비글의 규격은 도감의 통합 상세로 연결합니다.",
     moreLabel: "최근 도그쇼 기록 더 보기",
     items: [
       { slug: "dobermann", fact: "2026 Westminster Best in Show" },
@@ -174,6 +167,12 @@ export const homeCuriosityThemes = z.array(homeCuriosityThemeSchema).length(6).p
       { slug: "petit-basset-griffon-vendeen", fact: "2023 Westminster Best in Show" },
       { slug: "bloodhound", fact: "2022 Westminster Best in Show" },
       { slug: "pekingese", fact: "2021 Westminster Best in Show" },
+      { slug: "poodle", fact: "2020 스탠더드 푸들이 최고상" },
+      { slug: "wire-fox-terrier", fact: "2019 Westminster Best in Show" },
+      { slug: "bichon-frise", fact: "2018 Westminster Best in Show" },
+      { slug: "german-shepherd-dog", fact: "2017 Westminster Best in Show" },
+      { slug: "german-short-haired-pointing-dog", fact: "2016 Westminster Best in Show" },
+      { slug: "beagle", fact: "2015 15인치 비글이 최고상" },
     ],
     sources: [
       { label: "WKC · 2026 결과", title: "2026 Best in Show", organization: "The Westminster Kennel Club", url: "https://www.westminsterkennelclub.org/best-in-show-26/", checkedAt },
@@ -182,11 +181,35 @@ export const homeCuriosityThemes = z.array(homeCuriosityThemeSchema).length(6).p
   },
 ]);
 
+const curiosityThemeOrder: HomeCuriosityThemeKey[] = [
+  "regulated-care",
+  "giant-build",
+  "small-build",
+  "wrinkled-skin",
+  "distinctive-coats",
+  "westminster-stories",
+];
+
+export const homeCuriosityThemes = parsedHomeCuriosityThemes.sort(
+  (a, b) => curiosityThemeOrder.indexOf(a.key) - curiosityThemeOrder.indexOf(b.key),
+);
+
 export function getHomeCuriosityTheme(key: string) {
   return homeCuriosityThemes.find((theme) => theme.key === key);
 }
 
 export function getHomeCuriosityBreeds(theme: HomeCuriosityTheme, allBreeds: readonly Breed[]) {
+  if (theme.catalogRule) {
+    return allBreeds
+      .filter((breed) => {
+        const sizes = getBreedFilterValue(breed, "size");
+        if (theme.catalogRule === "large-and-giant") return sizes.includes("large") || sizes.includes("giant");
+        return sizes.includes("small") || breed.catalog.group === "companion";
+      })
+      .sort((a, b) => a.nameKo.localeCompare(b.nameKo, "ko"))
+      .map((breed) => ({ breed, fact: breed.identity.size }));
+  }
+
   const breedsBySlug = new Map(allBreeds.map((breed) => [breed.slug, breed]));
   return theme.items.flatMap((item) => {
     const breed = breedsBySlug.get(item.slug);

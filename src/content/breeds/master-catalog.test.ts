@@ -100,7 +100,7 @@ describe("master breed catalog", () => {
   it("keeps FCI varieties under one breed identity without losing discovery names", () => {
     expect(getMasterBreed("belgian-shepherd-dog")?.varieties).toHaveLength(4);
     expect(getMasterBreed("dachshund")?.varieties).toHaveLength(9);
-    expect(getMasterBreed("german-spitz")?.varieties.map((variety) => variety.nameKo)).toContain("포메라니안");
+    expect(getMasterBreed("german-spitz")?.varieties.map((variety) => variety.nameKo)).toContain("포메라이언");
     expect(getMasterBreed("poodle")?.varieties.map((variety) => variety.nameKo)).toContain("토이 푸들");
     expect(getMasterBreed("continental-toy-spaniel")?.varieties).toHaveLength(2);
   });

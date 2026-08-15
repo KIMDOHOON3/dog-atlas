@@ -85,7 +85,7 @@ export const masterInventorySeeds = [
   ["finnish-lapponian-dog", "핀니시 라포니안 독", "Finnish Lapponian Dog", 5, "definitive", "later", ["ko-name-review"]],
   ["icelandic-sheepdog", "아이슬란딕 시프도그", "Icelandic Sheepdog", 5, "definitive", "later"],
   ["swedish-vallhund", "스웨디시 발훈트", "Swedish Vallhund", 5, "definitive", "later", ["ko-name-review"]],
-  ["german-spitz", "저먼 스피츠", "German Spitz", 5, "definitive", "later", ["fci-varieties"]],
+  ["german-spitz", "포메라이언", "German Spitz", 5, "definitive", "later", ["fci-varieties"]],
   ["italian-volpino", "볼피노 이탈리아노", "Italian Volpino", 5, "definitive", "later", ["ko-name-review"]],
   ["chow-chow", "차우차우", "Chow Chow", 5, "definitive", "later"],
   ["eurasier", "유라시어", "Eurasian", 5, "definitive", "later", ["ko-name-review"]],

@@ -4,7 +4,7 @@ import { FormEvent, KeyboardEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./search-box.module.css";
 
-type BreedOption = { slug: string; nameKo: string; nameEn: string; aliases?: string[] };
+export type BreedOption = { slug: string; nameKo: string; nameEn: string; aliases?: string[] };
 
 function normalize(value: string) {
   return value.trim().toLocaleLowerCase().replace(/[\s-]/g, "");

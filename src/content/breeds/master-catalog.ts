@@ -80,7 +80,7 @@ const aliasesKo: Partial<Record<string, string[]>> = {
   "west-highland-white-terrier": ["웨스티"],
   "yorkshire-terrier": ["요키", "요크셔"],
   dachshund: ["미니어처 닥스훈트", "카니헨 닥스훈트", "장모 닥스훈트", "단모 닥스훈트", "와이어 닥스훈트"],
-  "german-spitz": ["포메라니안", "포메라니언", "포메", "키스혼드", "울프스피츠"],
+  "german-spitz": ["저먼 스피츠", "포메라니안", "포메라니언", "포메리안", "포메라이언", "포메", "키스혼드", "울프스피츠"],
   "korea-jindo-dog": ["진도개", "진도견", "코리아 진도 독"],
   donggyeongi: ["동경이"],
   xoloitzcuintle: ["솔로이츠퀸틀리", "숄로이츠퀸틀리"],
@@ -135,7 +135,7 @@ const varieties: Partial<Record<string, BreedVariety[]>> = {
     variety("giant", "자이언트 스피츠", "Giant Spitz"),
     variety("medium", "미디엄 스피츠", "Medium Size Spitz"),
     variety("miniature", "미니어처 스피츠", "Miniature Spitz"),
-    variety("pomeranian", "포메라니안", "Pomeranian", ["포메", "포메라니언"]),
+    variety("pomeranian", "포메라이언", "Pomeranian", ["포메", "포메라니안", "포메라니언", "포메리안"]),
   ],
   poodle: [
     variety("standard", "스탠더드 푸들", "Standard Poodle"),
