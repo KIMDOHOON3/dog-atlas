@@ -40,6 +40,12 @@
 | `walk` | 가벼운 산책, 일상적인 바깥 활동 | 산책화 + 움직임 표시 | `walk.png` |
 | `sofa-rest` | 낮 시간의 편안한 휴식 | 소파 + 견종 특징이 없는 작은 강아지 | `sofa-rest.png` |
 | `hygiene` | 목욕, 샴푸, 위생 관리 | 샴푸 펌프 + 거품 | `hygiene.png` |
+| `enrichment` | 문제 해결, 학습, 냄새 탐색 같은 정신적 자극 | 퍼즐 보드 + 뼈 모양 단서 | `enrichment.png` |
+| `connection` | 사람과의 교감, 가까운 상호작용 | 펼친 손 + 작은 하트 | `connection.png` |
+| `climate` | 더위·추위와 기온 변화에 맞춘 관리 | 온도계 + 중립적인 날씨 다이얼 | `climate.png` |
+| `health-check` | 관절·호흡·체중 등 몸 상태 관찰 | 돋보기 + 발바닥 | `health-check.png` |
+| `feeding` | 식사량, 급여와 체중 관리 | 사료 그릇 + 사료 알갱이 | `feeding.png` |
+| `calm-alert` | 짖음·소리·알림 행동의 차분한 관리 | 종 + 부드러운 소리 파동 | `calm-alert.png` |
 
 `혼자 쉬기`, `낮잠`, `안정적인 휴식`은 모두 `rest`를 쓸 수 있다. 말티즈용 휴식 아이콘, 푸들용 휴식 아이콘처럼 견종별 변형을 만들지 않는다.
 

@@ -6,11 +6,13 @@ import { BreedVisual } from "@/components/breed-visual";
 import { BeginnerGuideLink } from "@/components/beginner-guide-link";
 import { InterestBreedToggle } from "@/components/interest-breed-toggle";
 import { SiteHeader } from "@/components/site-header";
-import { OriginMark } from "@/components/origin-mark";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
-import { getMasterBreed } from "@/content/breeds/master-catalog";
 import type { Breed } from "@/content/breeds/schema";
-import { getBreedInclusionPresentation } from "@/lib/breed-inclusion";
+import {
+  getBreedDayIcons,
+  getBreedLifePoints,
+  type LifestyleIconId,
+} from "@/lib/breed-life-presentation";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -35,82 +37,96 @@ const tendencyNames = {
 const coreTendencies = ["activity", "socialConnection", "grooming"] as const;
 const extraTendencies = ["mentalStimulation", "independence", "alerting"] as const;
 
-const realityLabels: Record<string, [string, string][]> = {
-  "japanese-spitz": [["풍성한 이중모", "정기적인 빗질과 털갈이 관리"], ["주변 변화를 빠르게 알아차림", "소리 자극과 알림 행동을 차분히 관리"], ["가족과의 교감", "혼자 편안히 쉬는 연습도 천천히"]],
-  maltese: [["사람을 좋아하는 성향", "짧은 시간부터 혼자 쉬는 연습"], ["길고 흰 피모", "엉킴을 줄이는 규칙적인 관리"], ["작은 체구", "낙상과 거친 상호작용을 예방"]],
-  "border-collie": [["높은 집중력", "매일 문제를 해결할 과제 제공"], ["빠른 움직임", "충분한 활동과 차분한 휴식의 균형"], ["몰이 행동의 배경", "움직임 자극을 세심하게 관리"]],
-  greyhound: [["폭발적인 질주", "안전한 환경에서의 운동 기회"], ["시각으로 쫓는 본능", "리드와 울타리 환경을 꼼꼼히 확인"], ["짧은 털과 마른 체형", "추위와 단단한 바닥에 대비"]],
-  samoyed: [["두꺼운 이중모", "털갈이 관리와 더운 날씨 대비"], ["작업견의 힘과 활동성", "규칙적인 움직임과 생활 참여"], ["사람과 가까운 역사", "충분한 교감과 혼자 쉬는 연습"]],
+const tendencyQuestions: Record<keyof Breed["tendencies"], string> = {
+  activity: "얼마나 움직이나요?",
+  mentalStimulation: "머리를 쓰는 놀이는 얼마나 필요한가요?",
+  independence: "혼자 쉬는 성향은 어떤가요?",
+  socialConnection: "사람과 얼마나 가까이 지내나요?",
+  alerting: "소리와 주변 변화에 얼마나 반응하나요?",
+  grooming: "털 관리는 얼마나 필요한가요?",
 };
 
 function TendencyCard({ breed, name }: { breed: Breed; name: keyof Breed["tendencies"] }) {
   const tendency = breed.tendencies[name];
-  return <article><span>{tendencyNames[name]}</span><strong>{tendency.label}</strong><p>{tendency.note}</p></article>;
+  return <article><span>{tendencyQuestions[name]}</span><strong>{tendency.label}</strong><p>{tendency.note}</p></article>;
 }
 
-type MalteseLifeIconName = "rest" | "grooming" | "safety" | "walk" | "sofa-rest" | "hygiene";
+function getLifestyleDifference(left: Breed, right: Breed) {
+  return [
+    `체격 ${left.identity.size} ↔ ${right.identity.size}`,
+    `활동량 ${left.tendencies.activity.label} ↔ ${right.tendencies.activity.label}`,
+    `털 관리 ${left.tendencies.grooming.label} ↔ ${right.tendencies.grooming.label}`,
+  ].join(" · ");
+}
 
-const malteseLifeIconSources: Record<MalteseLifeIconName, string> = {
+const lifestyleIconSources: Record<LifestyleIconId, string> = {
   rest: "/images/lifestyle-icons/rest.png",
   grooming: "/images/lifestyle-icons/grooming.png",
   safety: "/images/lifestyle-icons/safety.png",
   walk: "/images/lifestyle-icons/walk.png",
   "sofa-rest": "/images/lifestyle-icons/sofa-rest.png",
   hygiene: "/images/lifestyle-icons/hygiene.png",
+  enrichment: "/images/lifestyle-icons/enrichment.png",
+  connection: "/images/lifestyle-icons/connection.png",
+  climate: "/images/lifestyle-icons/climate.png",
+  "health-check": "/images/lifestyle-icons/health-check.png",
+  feeding: "/images/lifestyle-icons/feeding.png",
+  "calm-alert": "/images/lifestyle-icons/calm-alert.png",
 };
 
-function MalteseProductIcon({ name }: { name: MalteseLifeIconName }) {
-  return <Image src={malteseLifeIconSources[name]} alt="" width={72} height={72} aria-hidden className={styles.malteseProductIcon} />;
+function LifestyleProductIcon({ name }: { name: LifestyleIconId }) {
+  return <Image src={lifestyleIconSources[name]} alt="" width={72} height={72} aria-hidden className={styles.malteseProductIcon} />;
 }
 
-function MalteseDetailSample({ breed, responsibilities }: { breed: Breed; responsibilities: [string, string][] }) {
-  const lifePoints: Array<{ icon: MalteseLifeIconName; label: string; title: string; description: string }> = [
-    { icon: "rest", label: responsibilities[0]?.[0] ?? "사람과의 교감", title: "혼자 편안히 쉬는 연습", description: responsibilities[0]?.[1] ?? "짧은 시간부터 혼자 쉬는 연습을 시작해요." },
-    { icon: "grooming", label: responsibilities[1]?.[0] ?? "피모 관리", title: "매일 이어지는 털 관리", description: responsibilities[1]?.[1] ?? "엉킴을 줄이는 규칙적인 관리가 필요해요." },
-    { icon: "safety", label: responsibilities[2]?.[0] ?? "작은 체구", title: "작은 몸을 지키는 생활 환경", description: responsibilities[2]?.[1] ?? "낙상과 거친 상호작용을 예방해요." },
-  ];
-  const dayIcons: MalteseLifeIconName[] = ["walk", "sofa-rest", "hygiene"];
+function BreedDetailExperience({ breed }: { breed: Breed }) {
+  const lifePoints = getBreedLifePoints(breed);
+  const dayIcons = getBreedDayIcons(breed);
 
   return (
     <>
-      <section className={styles.malteseEssentials} aria-labelledby="maltese-essentials-title">
+      <section className={styles.malteseEssentials} aria-labelledby="breed-essentials-title">
         <header>
           <p className={styles.eyebrow}>함께 살기 전에</p>
-          <h2 id="maltese-essentials-title">{breed.nameKo}와 살면 먼저 챙길 세 가지</h2>
+          <h2 id="breed-essentials-title">{breed.nameKo}와 살면 먼저 챙길 세 가지</h2>
           <p>귀여운 외모보다 매일 반복될 생활을 먼저 확인해보세요.</p>
         </header>
         <div className={styles.malteseLifeGrid}>
           {lifePoints.map((point) => (
             <article key={point.title}>
-              <MalteseProductIcon name={point.icon} />
+              <LifestyleProductIcon name={point.icon} />
               <div><span>{point.label}</span><h3>{point.title}</h3><p>{point.description}</p></div>
             </article>
           ))}
         </div>
         <div className={styles.malteseDay}>
           <div><p className={styles.eyebrow}>평범한 하루</p><h3>하루 안에서 이렇게 이어져요.</h3></div>
-          <ol>{breed.daySnapshot.map((step, index) => <li key={step.time}><MalteseProductIcon name={dayIcons[index] ?? "rest"} /><div><span>{step.time}</span><strong>{step.title}</strong><p>{step.description}</p></div></li>)}</ol>
+          <ol>{breed.daySnapshot.map((step, index) => <li key={step.time}><LifestyleProductIcon name={dayIcons[index] ?? "sofa-rest"} /><div><span>{step.time}</span><strong>{step.title}</strong><p>{step.description}</p></div></li>)}</ol>
         </div>
       </section>
 
-      <section className={styles.malteseStory} aria-labelledby="maltese-story-title">
+      <section className={styles.malteseStory} aria-labelledby="breed-story-title">
         {breed.historyVisual && <BreedVisual breed={breed} variant="history" />}
         <div className={styles.malteseStoryCopy}>
           <p className={styles.eyebrow}>역사에서 오늘까지</p>
-          <h2 id="maltese-story-title">사람 곁에서 살아온 시간이 오늘의 생활로 이어져요.</h2>
+          <h2 id="breed-story-title">{breed.nameKo}의 과거가 오늘의 생활로 이어져요.</h2>
           <p className={styles.malteseStoryLead}>{breed.story.opening}</p>
+          <p className={styles.malteseStoryLead}>{breed.story.roleToHome}</p>
         </div>
       </section>
 
       <details className={styles.malteseTendencies}>
-        <summary><span>6가지 행동 경향 자세히 보기</span><small>필요할 때 펼쳐보세요.</small></summary>
-        <div><p>견종의 일반적 경향이며 개체와 환경에 따라 달라질 수 있어요.</p><div>{([...coreTendencies, ...extraTendencies] as const).map((name) => <TendencyCard breed={breed} name={name} key={name} />)}</div></div>
+        <summary>
+          <span className={styles.malteseTendencyIcon}><LifestyleProductIcon name="health-check" /></span>
+          <span className={styles.malteseTendencyCopy}><strong>이 강아지 성향 더 알아보기</strong><small>활동량, 교감, 혼자 쉬기와 털 관리를 확인해요.</small></span>
+          <span className={styles.malteseTendencyChevron} aria-hidden="true" />
+        </summary>
+        <div><p>같은 견종이어도 성격은 모두 달라요. 아래 내용은 일반적인 경향으로만 봐주세요.</p><div>{([...coreTendencies, ...extraTendencies] as const).map((name) => <TendencyCard breed={breed} name={name} key={name} />)}</div></div>
       </details>
 
-      <section className={styles.malteseDecision} aria-labelledby="maltese-decision-title">
+      <section className={styles.malteseDecision} aria-labelledby="breed-decision-title">
         <div>
           <p className={styles.eyebrow}>살펴본 뒤 선택하기</p>
-          <h2 id="maltese-decision-title">{breed.nameKo}를 더 알아보고 싶나요?</h2>
+          <h2 id="breed-decision-title">{breed.nameKo}를 더 알아보고 싶나요?</h2>
           <p>함께 살 생활을 확인했다면 맞이할 준비를 살펴보거나 비교 후보로 남겨보세요.</p>
         </div>
         <div className={styles.malteseChoiceActions}>
@@ -125,18 +141,9 @@ function MalteseDetailSample({ breed, responsibilities }: { breed: Breed; respon
 export default async function BreedDetail({ params }: PageProps) {
   const breed = getBreed((await params).slug);
   if (!breed) notFound();
-  const masterBreed = getMasterBreed(breed.slug);
-  if (!masterBreed) notFound();
-  const inclusion = getBreedInclusionPresentation(masterBreed);
   const related = getRelatedBreeds(breed);
-  const samoyed = getBreed("samoyed")!;
-  const maltese = getBreed("maltese")!;
+  const [featuredRelated, ...otherRelated] = related;
   const allSources = [...breed.sources, ...behaviorContextSources];
-  const responsibilities = realityLabels[breed.slug] ?? breed.careNotes.slice(0, 3).map((note, index) => [
-    breed.catalog.discoveryTags[index] ?? `생활 조건 ${index + 1}`,
-    note,
-  ] as [string, string]);
-  const isMalteseSample = breed.slug === "maltese";
 
   return (
     <>
@@ -145,16 +152,9 @@ export default async function BreedDetail({ params }: PageProps) {
       <main id="breed-content">
         <nav className={styles.breadcrumb} aria-label="현재 위치"><Link href="/">← 도감으로 돌아가기</Link><span aria-hidden="true">/</span><span>{breed.nameKo}</span></nav>
 
-        <section className={`${styles.hero} ${isMalteseSample ? styles.malteseHero : ""}`} aria-labelledby="breed-title">
+        <section className={`${styles.hero} ${styles.malteseHero}`} aria-labelledby="breed-title">
           <div className={styles.summary}>
-            {!isMalteseSample && <p className={styles.originLine}><span>{breed.nameEn} ·</span><OriginMark slug={breed.slug} /><span>{breed.identity.origin}</span></p>}
-            {!isMalteseSample && <div className={styles.inclusionMeta} title={inclusion.description}><strong>{inclusion.label}</strong><span>{inclusion.authority}</span></div>}
             <h1 id="breed-title">{breed.nameKo}</h1>
-            {!isMalteseSample && <strong>{breed.tagline}</strong>}
-            {!isMalteseSample && <div className={styles.summaryActions}>
-              <BeginnerGuideLink slug={breed.slug} nameKo={breed.nameKo} />
-              <InterestBreedToggle slug={breed.slug} nameKo={breed.nameKo} />
-            </div>}
           </div>
           <BreedVisual breed={breed} variant="detail" priority />
           <div className={styles.atAGlance}>
@@ -173,59 +173,30 @@ export default async function BreedDetail({ params }: PageProps) {
         <aside className={styles.appearanceNote}><strong>대표 형태 살펴보기</strong><span>{breed.identity.size} · {breed.identity.lineage}</span><small>외형 자료: 편집 일러스트 참고</small></aside>
 
         <article className={styles.content}>
-          {isMalteseSample ? <MalteseDetailSample breed={breed} responsibilities={responsibilities} /> : <>
-          <section className={`${styles.history} ${breed.historyVisual ? styles.historyWithVisual : ""}`} aria-labelledby="history-title">
-            {breed.historyVisual && <BreedVisual breed={breed} variant="history" />}
-            <div>
-              <p className={styles.eyebrow}>역사와 원래 역할</p>
-              <h2 id="history-title">어디에서, 어떤 역할을 하며 살아왔을까요?</h2>
-              <p>{breed.story.opening}</p><p>{breed.story.roleToHome}</p>
-              <blockquote>{breed.identity.origin}에서 {breed.identity.originalRole}의 배경을 거쳐, 오늘의 행동 경향으로 이어질 수 있어요.</blockquote>
-            </div>
-          </section>
-
-          <section className={styles.behaviorBridge} aria-labelledby="behavior-bridge-title">
-            <header>
-              <p className={styles.eyebrow}>역사가 남긴 행동 단서</p>
-              <h2 id="behavior-bridge-title">역할의 흔적을 오늘의 생활에서 읽어보기</h2>
-              <p>지역보다 원래 역할과 현재의 맥락을 함께 봐요. 견종 경향만으로 개체의 공격성이나 입질을 예측할 수 없습니다.</p>
-            </header>
-            <div className={styles.clueGrid}>
-              <article><span>원래 역할</span><p>{breed.behaviorClues.originalRole}</p></article>
-              <article><span>오늘 보일 수 있는 단서</span><p>{breed.behaviorClues.today}</p></article>
-              <article><span>보호자가 확인할 맥락</span><p>{breed.behaviorClues.guardianContext}</p></article>
-            </div>
-          </section>
-
-          <section className={styles.tendencies} aria-labelledby="tendency-title">
-            <header><div><p className={styles.eyebrow}>행동 경향</p><h2 id="tendency-title">함께 살기 전에 먼저 볼 세 가지</h2></div><p>견종의 일반적 경향이며 개체와 환경에 따라 달라질 수 있어요.</p></header>
-            <div className={styles.coreGrid}>{coreTendencies.map((name) => <TendencyCard breed={breed} name={name} key={name} />)}</div>
-            <details className={styles.moreTendencies}><summary>다른 행동 경향 더 알아보기</summary><div>{extraTendencies.map((name) => <TendencyCard breed={breed} name={name} key={name} />)}</div></details>
-          </section>
-
-          <section className={styles.reality} aria-labelledby="reality-title">
-            <header><p className={styles.eyebrow}>함께 사는 현실</p><h2 id="reality-title">매력적인 특징에는 필요한 책임이 따라와요.</h2></header>
-            <div className={styles.responsibilityList}>{responsibilities.map(([trait, responsibility]) => <div key={trait}><strong>{trait}</strong><span aria-hidden="true">→</span><p>{responsibility}</p></div>)}</div>
-            <div className={styles.day}><h3>평범한 하루</h3><ol>{breed.daySnapshot.map((step) => <li key={step.time}><span>{step.time}</span><strong>{step.title}</strong><p>{step.description}</p></li>)}</ol></div>
-          </section>
-          </>}
-
-          <section className={styles.related} aria-labelledby="related-title">
-            <header><p className={styles.eyebrow}>다른 가능성 발견하기</p><h2 id="related-title">비슷해 보여도 생활은 달라요.</h2></header>
-            {breed.slug === "japanese-spitz" ? (
-              <>
-                <div className={styles.compareFeature}>
-                  <BreedVisual breed={breed} variant="card" />
-                  <div className={styles.compareMark} aria-hidden="true">↔</div>
-                  <BreedVisual breed={samoyed} variant="card" />
-                  <div className={styles.compareCopy}><strong>{breed.nameKo}와 {samoyed.nameKo}</strong><p><b>닮은 점</b> 풍성한 흰 이중모와 스피츠형 인상</p><p><b>다른 점</b> 체격, 활동량, 더위와 털 관리의 부담</p><Link href="/compare?breeds=japanese-spitz,samoyed">스피츠와 사모예드 비교하기 →</Link></div>
+          <BreedDetailExperience breed={breed} />
+          {featuredRelated && <section className={styles.related} aria-labelledby="related-title">
+            <header><p className={styles.eyebrow}>비슷한 견종과 비교하기</p><h2 id="related-title">나란히 보면 생활의 차이가 보여요.</h2></header>
+            <>
+              <div className={styles.compareFeature}>
+                <BreedVisual breed={breed} variant="card" />
+                <div className={styles.compareMark} aria-hidden="true">↔</div>
+                <BreedVisual breed={featuredRelated.breed} variant="card" />
+                <div className={styles.compareCopy}>
+                  <strong>{breed.nameKo}와 {featuredRelated.breed.nameKo}</strong>
+                  <p><b>왜 함께 보나요</b> {featuredRelated.reason}</p>
+                  <p><b>생활 차이</b> {getLifestyleDifference(breed, featuredRelated.breed)}</p>
+                  <Link href={`/compare?breeds=${breed.slug},${featuredRelated.breed.slug}`}>{breed.nameKo}와 {featuredRelated.breed.nameKo} 비교하기 →</Link>
                 </div>
-                <Link className={styles.smallRelated} href={`/breeds/${maltese.slug}`}><BreedVisual breed={maltese} variant="tile" /><div><small>더 작은 흰 반려견</small><strong>{maltese.nameKo}</strong><p>스피츠보다 작고 사람 곁을 더 가까이 찾는 반려견이에요. 털 관리 방식과 하루 활동 리듬을 비교해보세요.</p></div><span aria-hidden="true">→</span></Link>
-              </>
-            ) : (
-              <div className={styles.relatedGrid}>{related.map(({ breed: item, reason }) => <Link href={`/breeds/${item.slug}`} key={item.slug}><BreedVisual breed={item} variant="tile" /><div><strong>{item.nameKo}</strong><p>{reason}</p></div></Link>)}</div>
-            )}
-          </section>
+              </div>
+              {otherRelated.map(({ breed: item, reason }) => (
+                <Link className={styles.smallRelated} href={`/breeds/${item.slug}`} key={item.slug}>
+                  <BreedVisual breed={item} variant="tile" />
+                  <div><small>함께 살펴볼 또 다른 견종</small><strong>{item.nameKo}</strong><p>{reason}</p></div>
+                  <span aria-hidden="true">→</span>
+                </Link>
+              ))}
+            </>
+          </section>}
 
           <details className={styles.sources}>
             <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개 · {breed.sources[0].checkedAt} 확인</small></summary>

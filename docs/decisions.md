@@ -210,3 +210,9 @@ The carousel remains available as unused component code for now, but it is no lo
 Use one shared product icon for each repeated lifestyle concept instead of creating breed-specific graphics. Build icons from one clear object and at most one supporting cue, use the project moss-and-mint two-tone palette, and keep the final asset transparent and readable at small UI sizes.
 
 Document the system in `docs/product-icon-guide.md`, require creators and generation tools to check existing concept IDs before adding an asset, and preview new icons in their real card context before implementation. Keep company, service, designer, and commercial icon-library names out of generation prompts; references may inform general principles such as clarity and consistency but must not be copied.
+
+# 2026-08-15 — Extend the simplified detail hierarchy to the full catalog
+
+Apply the information hierarchy first validated on the Maltese detail to all 370 catalog entries. Keep one shared detail template, but derive the three priority living points and daily-scene icons from each entry's own care notes, tendency axes, and guardian context instead of copying Maltese-specific advice.
+
+Reuse normalized lifestyle concepts across breeds and add a concept only when a recurring meaning cannot be represented by the existing registry. Require three distinct concepts in each breed's priority cards, keep all six tendency axes available in the expandable section, and preserve the original related-breed and source data. This is an editorial presentation rule, not a claim that three cards exhaust the needs of an individual dog.

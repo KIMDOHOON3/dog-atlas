@@ -15,6 +15,7 @@ describe("breed content", () => {
 
   it("resolves every related breed", () => {
     for (const breed of breeds) {
+      expect(breed.related.length, breed.slug).toBeGreaterThan(0);
       expect(getRelatedBreeds(breed)).toHaveLength(breed.related.length);
     }
   });
