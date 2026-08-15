@@ -45,6 +45,7 @@ const tendencyOptions: Array<{ value: TendencyLevel; label: string }> = [
 
 const INITIAL_RESULT_COUNT = 48;
 const RESULT_BATCH_SIZE = 48;
+type ScrollControl = "top" | "bottom";
 const isValidVisibleCount = (value: unknown): value is number => (
   Number.isInteger(value) && Number(value) >= INITIAL_RESULT_COUNT
 );
@@ -66,6 +67,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [filterOpen, setFilterOpen] = useState(false);
+  const [scrollControl, setScrollControl] = useState<ScrollControl | null>(null);
   const filterTriggerRef = useRef<HTMLButtonElement>(null);
   const filterPanelRef = useRef<HTMLElement>(null);
   const closeFilterRef = useRef<HTMLButtonElement>(null);
@@ -81,6 +83,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
     isValidVisibleCount,
   );
   const filtersRef = useRef(filters);
+  const lastScrollYRef = useRef(0);
   const results = useMemo(() => filterBreeds(breeds, filters), [breeds, filters]);
   const visibleResults = useMemo(() => results.slice(0, visibleCount), [results, visibleCount]);
   const activeCount = Object.values(filters).reduce((count, values) => count + values.length, 0);
@@ -161,6 +164,45 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
     observer.observe(sentinel);
     return () => observer.disconnect();
   }, [results.length, setVisibleCount, visibleResults.length]);
+
+  useEffect(() => {
+    lastScrollYRef.current = window.scrollY;
+    let animationFrame = 0;
+
+    function updateScrollControl() {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollYRef.current;
+
+      if (currentScrollY < 240) {
+        setScrollControl(null);
+        lastScrollYRef.current = currentScrollY;
+        return;
+      }
+
+      if (Math.abs(scrollDelta) < 12) return;
+      setScrollControl(scrollDelta > 0 ? "top" : "bottom");
+      lastScrollYRef.current = currentScrollY;
+    }
+
+    function handleScroll() {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(updateScrollControl);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  function moveThroughResults(direction: ScrollControl) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({
+      top: direction === "top" ? 0 : document.documentElement.scrollHeight,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  }
 
   function closeMobileFilters() {
     setFilterOpen(false);
@@ -303,6 +345,18 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
           {results.length === 0 && <div className={styles.emptyState}><h2>이 조건에 맞는 견종이 아직 없어요.</h2><p>조건을 하나씩 줄이거나 선택을 모두 지우고 다시 살펴보세요.</p><button type="button" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button></div>}
         </section>
       </div>
+      {scrollControl && (
+        <button
+          className={styles.scrollControl}
+          type="button"
+          aria-label={scrollControl === "top" ? "견종 목록 맨 위로 이동" : "현재 견종 목록 아래로 이동"}
+          onClick={() => moveThroughResults(scrollControl)}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d={scrollControl === "top" ? "M6 14l6-6 6 6" : "M6 10l6 6 6-6"} />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

@@ -228,3 +228,7 @@ Do not invent a standard range for designer crosses, landraces, or breeds whose 
 Replace the manual `견종 더 보기` action on `/discover` with incremental infinite scrolling. Render the first 48 results, append another 48 as the user approaches the end, and preserve the expanded count in the current history entry so returning from a breed detail restores the same exploration depth.
 
 Keep a visible, screen-reader-announced loading sentinel and respect reduced-motion preferences. If intersection observation is unavailable, expose all matching results rather than leaving part of the catalog inaccessible.
+
+# 2026-08-15 — Keep long discovery lists easy to traverse
+
+Show one compact directional control after the user has moved well into the `/discover` results. Scrolling down exposes a jump-to-top action; scrolling up changes it to a jump toward the currently rendered list end. Keep it above the mobile bottom navigation and move it above the interest tray when that tray is present.
