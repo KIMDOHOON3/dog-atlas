@@ -1,0 +1,19 @@
+.icon {
+  width: 37px;
+  height: 37px;
+  flex: 0 0 37px;
+  display: block;
+  background: currentColor;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.home { -webkit-mask-image: url("/illustrations/ui/mobile-nav/home.png"); mask-image: url("/illustrations/ui/mobile-nav/home.png"); }
+.discovery { -webkit-mask-image: url("/illustrations/ui/mobile-nav/discover.png"); mask-image: url("/illustrations/ui/mobile-nav/discover.png"); }
+.stories { -webkit-mask-image: url("/illustrations/ui/mobile-nav/names.png"); mask-image: url("/illustrations/ui/mobile-nav/names.png"); }
+.curiosity { -webkit-mask-image: url("/illustrations/ui/mobile-nav/collections.png"); mask-image: url("/illustrations/ui/mobile-nav/collections.png"); }
+.compare { -webkit-mask-image: url("/illustrations/ui/mobile-nav/compare.png"); mask-image: url("/illustrations/ui/mobile-nav/compare.png"); }

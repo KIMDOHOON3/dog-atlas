@@ -3,27 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useInterestBreeds } from "./interest-breeds";
+import { NavigationIcon } from "./navigation-icon";
 import styles from "./site-header.module.css";
-
-function HomeIcon() {
-  return <span className={`${styles.mobileNavIcon} ${styles.homeIcon}`} aria-hidden="true" />;
-}
-
-function DiscoveryIcon() {
-  return <span className={`${styles.mobileNavIcon} ${styles.discoveryIcon}`} aria-hidden="true" />;
-}
-
-function CompareIcon() {
-  return <span className={`${styles.mobileNavIcon} ${styles.compareIcon}`} aria-hidden="true" />;
-}
-
-function StoriesIcon() {
-  return <span className={`${styles.mobileNavIcon} ${styles.storiesIcon}`} aria-hidden="true" />;
-}
-
-function CuriosityIcon() {
-  return <span className={`${styles.mobileNavIcon} ${styles.curiosityIcon}`} aria-hidden="true" />;
-}
 
 export function SiteHeader({ wide = false }: { wide?: boolean }) {
   const { slugs, hydrated } = useInterestBreeds();
@@ -49,23 +30,23 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
       </header>
       <nav className={styles.mobileBottomNav} aria-label="모바일 주요 탐색">
         <Link className={pathname === "/" ? styles.mobileNavActive : ""} href="/">
-          <HomeIcon />
+          <NavigationIcon name="home" />
           <span>홈</span>
         </Link>
         <Link className={pathname === "/discover" ? styles.mobileNavActive : ""} href="/discover">
-          <DiscoveryIcon />
+          <NavigationIcon name="discovery" />
           <span>견종 발견</span>
         </Link>
         <Link className={breedNamesActive ? styles.mobileNavActive : ""} href="/breed-names/pointer">
-          <StoriesIcon />
+          <NavigationIcon name="stories" />
           <span>이름 속 견종</span>
         </Link>
         <Link className={curiosityActive ? styles.mobileNavActive : ""} href="/curiosity/regulated-care">
-          <CuriosityIcon />
+          <NavigationIcon name="curiosity" />
           <span>견종 모아보기</span>
         </Link>
         <Link className={pathname === "/compare" ? styles.mobileNavActive : ""} href={compareHref}>
-          <CompareIcon />
+          <NavigationIcon name="compare" />
           <span>비교하기{hydrated && slugs.length > 0 ? ` · ${slugs.length}` : ""}</span>
         </Link>
       </nav>

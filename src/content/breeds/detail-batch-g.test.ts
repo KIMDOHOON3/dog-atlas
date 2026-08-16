@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { getBreedCardImage } from "@/components/breed-visual";
+import { getBreedCardImage } from "@/lib/breed-image-assets";
 import { breeds } from "./data";
 import { detailBatchG, detailBatchGSlugs } from "./detail-batch-g";
 import { getMasterBreed } from "./master-catalog";

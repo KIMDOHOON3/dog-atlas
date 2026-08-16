@@ -1,24 +1,10 @@
 import Image from "next/image";
 import type { Breed } from "@/content/breeds/schema";
+import { getBreedCardImage } from "@/lib/breed-image-assets";
 import styles from "./breed-visual.module.css";
 
 type Variant = "hero" | "card" | "landscape" | "portrait" | "tile" | "detail" | "compare" | "history";
 type Props = { breed: Breed; variant: Variant; label?: string; priority?: boolean };
-
-export function getBreedCardImage(slug: string) {
-  const frontGazeCards: Record<string, string> = {
-    shiba: "/illustrations/v2/shiba-card-front.webp",
-    akita: "/illustrations/v2/akita-card-front.webp",
-    "bichon-frise": "/illustrations/v2/bichon-frise-card-front.webp",
-    "cavalier-king-charles-spaniel": "/illustrations/v2/cavalier-king-charles-spaniel-card-front.webp",
-    pug: "/illustrations/v2/pug-card-front.webp",
-    "bernese-mountain-dog": "/illustrations/v2/bernese-mountain-dog-card-front.webp",
-    dobermann: "/illustrations/v2/dobermann-card-front.webp",
-  };
-
-  if (frontGazeCards[slug]) return frontGazeCards[slug];
-  return `/illustrations/v2/${slug}-card.webp`;
-}
 
 export function BreedVisual({ breed, variant, label, priority = false }: Props) {
   if (variant === "history" && !breed.historyVisual) return null;

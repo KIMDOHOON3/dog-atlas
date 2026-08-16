@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
 import { BeginnerGuideLink } from "@/components/beginner-guide-link";
 import { InterestBreedToggle } from "@/components/interest-breed-toggle";
 import { LegalCareNotice } from "@/components/legal-care-notice";
+import { LifestyleProductIcon } from "@/components/lifestyle-product-icon";
 import { SiteHeader } from "@/components/site-header";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
 import type { Breed } from "@/content/breeds/schema";
 import {
-  getBreedDayIcons,
-  getBreedLifePoints,
-  type LifestyleIconId,
+  getBreedLifePresentation,
 } from "@/lib/breed-life-presentation";
 import { getBreedFactPresentation } from "@/lib/breed-fact-presentation";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
@@ -57,37 +55,37 @@ function TendencyCard({ breed, name }: { breed: Breed; name: keyof Breed["tenden
 function getLifestyleDifference(left: Breed, right: Breed) {
   const leftFacts = getBreedFactPresentation(left);
   const rightFacts = getBreedFactPresentation(right);
-  return [
-    leftFacts.size && rightFacts.size
-      ? `체격 ${leftFacts.size} ↔ ${rightFacts.size}`
-      : undefined,
-    `활동량 ${left.tendencies.activity.label} ↔ ${right.tendencies.activity.label}`,
-    `털 관리 ${left.tendencies.grooming.label} ↔ ${right.tendencies.grooming.label}`,
-  ].filter(Boolean).join(" · ");
+  const differences = [
+    leftFacts.size && rightFacts.size && leftFacts.size !== rightFacts.size ? "체격" : undefined,
+    left.tendencies.activity.label !== right.tendencies.activity.label ? "활동량" : undefined,
+    left.tendencies.grooming.label !== right.tendencies.grooming.label ? "털 관리" : undefined,
+  ].filter((difference): difference is string => Boolean(difference));
+
+  return differences.length > 0
+    ? `${differences.join(" · ")} 차이가 있어요.`
+    : "생활 조건이 비슷한 편이에요.";
 }
 
-const lifestyleIconSources: Record<LifestyleIconId, string> = {
-  rest: "/images/lifestyle-icons/rest.png",
-  grooming: "/images/lifestyle-icons/grooming.png",
-  safety: "/images/lifestyle-icons/safety.png",
-  walk: "/images/lifestyle-icons/walk.png",
-  "sofa-rest": "/images/lifestyle-icons/sofa-rest.png",
-  hygiene: "/images/lifestyle-icons/hygiene.png",
-  enrichment: "/images/lifestyle-icons/enrichment.png",
-  connection: "/images/lifestyle-icons/connection.png",
-  climate: "/images/lifestyle-icons/climate.png",
-  "health-check": "/images/lifestyle-icons/health-check.png",
-  feeding: "/images/lifestyle-icons/feeding.png",
-  "calm-alert": "/images/lifestyle-icons/calm-alert.png",
-};
+function getLifestyleCommonality(left: Breed, right: Breed) {
+  const commonTraits = [
+    left.tendencies.activity.label === right.tendencies.activity.label
+      ? `활동량 ${left.tendencies.activity.label}`
+      : undefined,
+    left.tendencies.socialConnection.label === right.tendencies.socialConnection.label
+      ? `교감 ${left.tendencies.socialConnection.label}`
+      : undefined,
+    left.tendencies.grooming.label === right.tendencies.grooming.label
+      ? `털 관리 ${left.tendencies.grooming.label}`
+      : undefined,
+  ].filter((trait): trait is string => Boolean(trait)).slice(0, 2);
 
-function LifestyleProductIcon({ name }: { name: LifestyleIconId }) {
-  return <Image src={lifestyleIconSources[name]} alt="" width={72} height={72} aria-hidden className={styles.malteseProductIcon} />;
+  return commonTraits.length > 0
+    ? commonTraits.join(" · ")
+    : "비슷한 생활 기준으로 살펴보기 좋아요.";
 }
 
 function BreedDetailExperience({ breed }: { breed: Breed }) {
-  const lifePoints = getBreedLifePoints(breed);
-  const dayIcons = getBreedDayIcons(breed);
+  const { lifePoints, dayPoints } = getBreedLifePresentation(breed);
 
   return (
     <>
@@ -100,14 +98,18 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
         <div className={styles.malteseLifeGrid}>
           {lifePoints.map((point) => (
             <article key={point.title}>
-              <LifestyleProductIcon name={point.icon} />
+              <LifestyleProductIcon name={point.icon} className={styles.malteseProductIcon} />
               <div><span>{point.label}</span><h3>{point.title}</h3><p>{point.description}</p></div>
             </article>
           ))}
         </div>
         <div className={styles.malteseDay}>
-          <div><p className={styles.eyebrow}>평범한 하루</p><h3>하루 안에서 이렇게 이어져요.</h3></div>
-          <ol>{breed.daySnapshot.map((step, index) => <li key={step.time}><LifestyleProductIcon name={dayIcons[index] ?? "sofa-rest"} /><div><span>{step.time}</span><strong>{step.title}</strong><p>{step.description}</p></div></li>)}</ol>
+          <header>
+            <p className={styles.eyebrow}>생활에 가볍게 더하기</p>
+            <h3>하루에 한 번씩 해보면 좋아요.</h3>
+            <p>전부 완벽하게 하기보다 가능한 것부터 편안하게 이어가세요.</p>
+          </header>
+          <ul>{dayPoints.map((point) => <li key={point.icon}><LifestyleProductIcon name={point.icon} className={styles.malteseProductIcon} /><div><strong>{point.title}</strong><p>{point.description}</p></div></li>)}</ul>
         </div>
       </section>
 
@@ -123,7 +125,7 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
 
       <details className={styles.malteseTendencies}>
         <summary>
-          <span className={styles.malteseTendencyIcon}><LifestyleProductIcon name="health-check" /></span>
+          <span className={styles.malteseTendencyIcon}><LifestyleProductIcon name="health-check" className={styles.malteseProductIcon} /></span>
           <span className={styles.malteseTendencyCopy}><strong>이 강아지 성향 더 알아보기</strong><small>활동량, 교감, 혼자 쉬기와 털 관리를 확인해요.</small></span>
           <span className={styles.malteseTendencyChevron} aria-hidden="true" />
         </summary>
@@ -178,7 +180,6 @@ export default async function BreedDetail({ params }: PageProps) {
           </div>
         </section>
 
-        <aside className={styles.appearanceNote}><strong>대표 형태 살펴보기</strong><span>{facts.size ? `${facts.size} · ` : ""}{breed.identity.lineage}</span><small>외형 자료: 편집 일러스트 참고</small></aside>
         {isKoreanManagedBreed(breed.slug) && <LegalCareNotice breedName={breed.nameKo} />}
 
         <article className={styles.content}>
@@ -192,8 +193,10 @@ export default async function BreedDetail({ params }: PageProps) {
                 <BreedVisual breed={featuredRelated.breed} variant="card" />
                 <div className={styles.compareCopy}>
                   <strong>{breed.nameKo}와 {featuredRelated.breed.nameKo}</strong>
-                  <p><b>왜 함께 보나요</b> {featuredRelated.reason}</p>
-                  <p><b>생활 차이</b> {getLifestyleDifference(breed, featuredRelated.breed)}</p>
+                  <div className={styles.comparePoints}>
+                    <p><b>공통점</b><span>{getLifestyleCommonality(breed, featuredRelated.breed)}</span></p>
+                    <p><b>차이점</b><span>{getLifestyleDifference(breed, featuredRelated.breed)}</span></p>
+                  </div>
                   <Link href={`/compare?breeds=${breed.slug},${featuredRelated.breed.slug}`}>{breed.nameKo}와 {featuredRelated.breed.nameKo} 비교하기 →</Link>
                 </div>
               </div>

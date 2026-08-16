@@ -11,9 +11,10 @@
 .summary h1 { margin: 0; font-size: clamp(3rem, 4.2vw, 3.5rem); line-height: 1.1; letter-spacing: -.04em; }
 .summary > strong { display: block; max-width: 26ch; margin-top: 12px; font-size: 1.25rem; font-weight: 500; line-height: 1.5; }
 .summaryActions { display: grid; grid-template-columns: max-content max-content; gap: 8px 12px; align-items: start; }
-.malteseHero { width: min(calc(100% - var(--page-inline)), 1060px); grid-template: "summary" auto "visual" auto "details" auto / minmax(0, 1fr); gap: 18px; align-items: start; }
-.malteseHero .summary, .malteseHero .atAGlance, .malteseHero > figure { width: min(100%, 760px); justify-self: center; }
-.malteseHero .summary { align-self: auto; }
+.malteseHero { width: min(calc(100% - var(--page-inline)), 1060px); grid-template: "visual summary" auto "visual details" auto / minmax(0, 480px) minmax(380px, 1fr); gap: 18px 32px; align-items: stretch; }
+.malteseHero .summary, .malteseHero .atAGlance { width: 100%; justify-self: stretch; }
+.malteseHero > figure { width: 100%; max-width: 480px; height: 100%; aspect-ratio: auto; justify-self: end; align-self: stretch; }
+.malteseHero .summary { align-self: end; }
 .atAGlance { grid-area: details; align-self: start; }
 .facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border-top: 1px solid var(--line); }
 .facts div { padding: 11px 8px 11px 0; border-bottom: 1px solid var(--line); }
@@ -23,9 +24,6 @@
 .heroTendencies div { padding: 10px 12px; border-radius: 999px; background: var(--panel); text-align: center; }
 .heroTendencies span { display: block; color: var(--ink-soft); font-size: .72rem; }
 .heroTendencies strong { display: block; font-size: .88rem; }
-.appearanceNote { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 20px auto 0; padding: 13px 16px; display: flex; align-items: center; gap: 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: .84rem; }
-.appearanceNote span, .appearanceNote small { color: var(--ink-soft); }
-.appearanceNote small { margin-left: auto; }
 .content { width: min(calc(100% - var(--page-inline)), 1060px); margin: 0 auto; }
 .content h2 { margin: 0; font-size: clamp(1.9rem, 3vw, 2.25rem); line-height: 1.3; letter-spacing: -.03em; }
 .history, .tendencies, .reality, .related { margin-top: 72px; }
@@ -73,15 +71,13 @@
 .malteseLifeGrid article span { display: block; margin-top: 15px; color: var(--moss); font-size: .76rem; font-weight: 700; }
 .malteseLifeGrid h3 { margin: 4px 0 0; font-size: 1.06rem; line-height: 1.45; }
 .malteseLifeGrid p { margin: 7px 0 0; color: var(--ink-soft); font-size: .88rem; line-height: 1.65; }
-.malteseDay { margin-top: 18px; padding: 22px; border-radius: 18px; background: var(--panel); }
-.malteseDay h3 { margin: 0; font-size: 1.1rem; }
-.malteseDay ol { margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; }
-.malteseDay li { padding: 2px 18px; display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 12px; align-items: start; }
-.malteseDay li:first-child { padding-left: 0; }
-.malteseDay li + li { border-left: 1px solid var(--line); }
-.malteseDay li .malteseProductIcon { width: 48px; height: 48px; }
-.malteseDay li span, .malteseDay li strong { display: block; }
-.malteseDay li span { color: var(--moss); font-size: .75rem; font-weight: 700; }
+.malteseDay { margin-top: 34px; }
+.malteseDay h3 { margin: 0; font-size: 1.2rem; }
+.malteseDay > header > p:last-child { margin: 7px 0 0; color: var(--ink-soft); font-size: .88rem; line-height: 1.6; }
+.malteseDay ul { margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; list-style: none; }
+.malteseDay li { min-width: 0; padding: 20px; border: 1px solid color-mix(in srgb, var(--moss) 12%, var(--line)); border-radius: 18px; background: var(--panel); }
+.malteseDay li .malteseProductIcon { width: 60px; height: 60px; }
+.malteseDay li strong { display: block; margin-top: 12px; font-size: 1rem; line-height: 1.45; }
 .malteseDay li p { margin: 5px 0 0; color: var(--ink-soft); font-size: .86rem; line-height: 1.58; }
 .malteseStory { margin-top: 72px; display: grid; grid-template-columns: minmax(0, 46fr) minmax(0, 54fr); gap: 42px; align-items: start; }
 .malteseStoryLead { margin: 13px 0 0; color: var(--ink-soft); line-height: 1.75; }
@@ -110,13 +106,15 @@
 .malteseChoiceActions { display: grid; gap: 12px; }
 .malteseChoiceActions > * { margin-top: 0; }
 .related > header { margin-bottom: 20px; }
-.compareFeature { display: grid; grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr); gap: 12px; align-items: center; padding: 14px; border-radius: 24px; background: var(--panel); }
+.compareFeature { max-width: 900px; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr); gap: 14px; align-items: center; padding: 18px; border-radius: 24px; background: var(--panel); }
 .compareMark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--moss-light); color: var(--moss); font-size: 1.2rem; }
-.compareCopy { grid-column: 1 / -1; padding: 8px 12px 12px; display: grid; grid-template-columns: 1fr 1fr auto; gap: 14px; align-items: center; }
-.compareCopy > strong { font-size: 1.15rem; }
-.compareCopy p { margin: 0; color: var(--ink-soft); font-size: .9rem; line-height: 1.58; }
-.compareCopy p b { color: var(--ink); }
-.compareCopy a { padding: 10px 16px; border-radius: 999px; color: white; background: var(--moss); text-decoration: none; font-size: .82rem; font-weight: 700; }
+.compareCopy { grid-column: 1 / -1; padding: 10px 4px 2px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.compareCopy > strong { font-size: 1.18rem; }
+.comparePoints { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.comparePoints p { min-width: 0; margin: 0; padding: 14px 16px; border-radius: 14px; color: var(--ink-soft); background: color-mix(in srgb, var(--moss-light) 52%, var(--panel)); font-size: .9rem; line-height: 1.62; }
+.comparePoints p b, .comparePoints p span { display: block; }
+.comparePoints p b { margin-bottom: 5px; color: var(--moss); font-size: .76rem; }
+.compareCopy a { padding: 11px 18px; border-radius: 999px; color: white; background: var(--moss); text-decoration: none; font-size: .82rem; font-weight: 700; }
 .smallRelated { margin-top: 12px; padding: 10px; display: grid; grid-template-columns: 140px 1fr auto; gap: 16px; align-items: center; border-radius: 18px; background: var(--panel); text-decoration: none; }
 .smallRelated p { margin: 3px 0 0; color: var(--ink-soft); font-size: .88rem; line-height: 1.6; }
 .smallRelated small { display: block; margin-bottom: 2px; color: var(--moss); font-size: .76rem; font-weight: 700; }
@@ -131,5 +129,5 @@
 .sources > div { padding: 4px 0 18px; color: var(--ink-soft); font-size: .88rem; line-height: 1.66; }
 .sources ul { padding: 0; list-style: none; }
 .sources li { display: flex; flex-direction: column; padding: 8px 0; border-top: 1px solid var(--line); }
-@media (max-width: 900px) { .hero { grid-template: "summary" auto "visual" auto "details" auto / minmax(0, 1fr); gap: 20px; align-items: start; } .hero > figure { width: min(100%, 620px); justify-self: center; } .summary, .atAGlance { width: 100%; } .summary { align-self: auto; } .summary > strong { max-width: 34ch; } .atAGlance { align-self: auto; } .malteseHero .summary, .malteseHero .atAGlance, .malteseHero > figure { width: min(100%, 620px); } .historyWithVisual { grid-template-columns: 1fr; gap: 26px; } .clueGrid { grid-template-columns: 1fr; } .malteseStory { grid-template-columns: 1fr; gap: 28px; } .malteseDecision { grid-template-columns: 1fr; gap: 22px; } .compareCopy { grid-template-columns: 1fr 1fr; } .compareCopy > strong, .compareCopy a { grid-column: 1 / -1; } .compareCopy a { text-align: center; } }
-@media (max-width: 767px) { .breadcrumb span { display: none; } .summary h1 { font-size: 2.35rem; } .summary > strong { font-size: 1.08rem; } .summaryActions { grid-template-columns: 1fr; } .malteseHero { gap: 14px; } .appearanceNote { flex-wrap: wrap; gap: 4px 12px; } .appearanceNote small { width: 100%; margin-left: 0; } .tendencies > header { align-items: start; flex-direction: column; gap: 8px; } .coreGrid, .moreTendencies > div { grid-template-columns: 1fr; } .responsibilityList > div { grid-template-columns: 1fr; gap: 2px; } .responsibilityList > div > span { rotate: 90deg; justify-self: start; margin-left: 12px; } .day ol { grid-template-columns: 1fr; } .day li + li { border-left: 0; border-top: 1px solid var(--line); } .malteseEssentials { margin-top: 44px; padding: 24px 16px; border-radius: 22px; } .malteseEssentials h2, .malteseStory h2 { font-size: 1.75rem; line-height: 1.3; } .malteseLifeGrid { margin-top: 20px; grid-template-columns: 1fr; gap: 9px; } .malteseLifeGrid article { padding: 15px; display: grid; grid-template-columns: 62px 1fr; gap: 13px; align-items: center; } .malteseLifeGrid .malteseProductIcon { width: 60px; height: 60px; } .malteseLifeGrid article span { margin-top: 0; } .malteseDay { padding: 18px; } .malteseDay ol { grid-template-columns: 1fr; } .malteseDay li, .malteseDay li:first-child { padding: 12px 0; } .malteseDay li + li { border-left: 0; border-top: 1px solid var(--line); } .malteseStory { margin-top: 48px; gap: 22px; } .malteseTendencies { margin-top: 40px; } .malteseTendencies summary { padding: 14px; grid-template-columns: 50px minmax(0, 1fr) 32px; gap: 10px; } .malteseTendencyIcon { width: 50px; height: 50px; } .malteseTendencyIcon .malteseProductIcon { width: 44px; height: 44px; } .malteseTendencyChevron { width: 30px; height: 30px; } .malteseTendencies > div { padding: 14px; } .malteseTendencies > div > div { grid-template-columns: 1fr; } .malteseDecision { margin-top: 40px; padding: 24px 18px; border-radius: 20px; } .malteseDecision h2 { font-size: 1.65rem; } .compareFeature { grid-template-columns: 1fr 32px 1fr; padding: 10px; } .compareMark { width: 32px; height: 32px; } .compareCopy { grid-template-columns: 1fr; } .compareCopy > strong, .compareCopy a { grid-column: auto; } .smallRelated, .relatedGrid > a { grid-template-columns: 110px 1fr; } .smallRelated > span { display: none; } .relatedGrid { grid-template-columns: 1fr; } .sources summary { align-items: start; flex-direction: column; gap: 2px; } }
+@media (max-width: 940px) { .hero { grid-template: "summary" auto "visual" auto "details" auto / minmax(0, 1fr); gap: 20px; align-items: start; } .hero > figure { width: min(100%, 620px); justify-self: center; } .summary, .atAGlance { width: 100%; } .summary { align-self: auto; } .summary > strong { max-width: 34ch; } .atAGlance { align-self: auto; } .malteseHero .summary, .malteseHero .atAGlance { width: min(100%, 620px); } .malteseHero > figure { width: min(100%, 520px); height: auto; aspect-ratio: 1 / 1; align-self: auto; } .historyWithVisual { grid-template-columns: 1fr; gap: 26px; } .clueGrid { grid-template-columns: 1fr; } .malteseStory { grid-template-columns: 1fr; gap: 28px; } .malteseDecision { grid-template-columns: 1fr; gap: 22px; } }
+@media (max-width: 767px) { .breadcrumb span { display: none; } .summary h1 { font-size: 2.35rem; } .summary > strong { font-size: 1.08rem; } .summaryActions { grid-template-columns: 1fr; } .malteseHero { gap: 14px; } .malteseHero > figure { width: 100%; } .tendencies > header { align-items: start; flex-direction: column; gap: 8px; } .coreGrid, .moreTendencies > div { grid-template-columns: 1fr; } .responsibilityList > div { grid-template-columns: 1fr; gap: 2px; } .responsibilityList > div > span { rotate: 90deg; justify-self: start; margin-left: 12px; } .day ol { grid-template-columns: 1fr; } .day li + li { border-left: 0; border-top: 1px solid var(--line); } .malteseEssentials { margin-top: 44px; padding: 24px 16px; border-radius: 22px; } .malteseEssentials h2, .malteseStory h2 { font-size: 1.75rem; line-height: 1.3; } .malteseLifeGrid { margin-top: 20px; grid-template-columns: 1fr; gap: 9px; } .malteseLifeGrid article { padding: 15px; display: grid; grid-template-columns: 62px 1fr; gap: 13px; align-items: center; } .malteseLifeGrid .malteseProductIcon { width: 60px; height: 60px; } .malteseLifeGrid article span { margin-top: 0; } .malteseDay { margin-top: 28px; } .malteseDay ul { grid-template-columns: 1fr; gap: 9px; } .malteseDay li { padding: 15px; display: grid; grid-template-columns: 62px 1fr; gap: 13px; align-items: center; } .malteseDay li .malteseProductIcon { width: 60px; height: 60px; } .malteseDay li strong { margin-top: 0; } .malteseStory { margin-top: 48px; gap: 22px; } .malteseTendencies { margin-top: 40px; } .malteseTendencies summary { padding: 14px; grid-template-columns: 50px minmax(0, 1fr) 32px; gap: 10px; } .malteseTendencyIcon { width: 50px; height: 50px; } .malteseTendencyIcon .malteseProductIcon { width: 44px; height: 44px; } .malteseTendencyChevron { width: 30px; height: 30px; } .malteseTendencies > div { padding: 14px; } .malteseTendencies > div > div { grid-template-columns: 1fr; } .malteseDecision { margin-top: 40px; padding: 24px 18px; border-radius: 20px; } .malteseDecision h2 { font-size: 1.65rem; } .compareFeature { grid-template-columns: 1fr 32px 1fr; padding: 10px; } .compareMark { width: 32px; height: 32px; } .comparePoints { grid-template-columns: 1fr; } .compareCopy a { width: 100%; text-align: center; } .smallRelated, .relatedGrid > a { grid-template-columns: 110px 1fr; } .smallRelated > span { display: none; } .relatedGrid { grid-template-columns: 1fr; } .sources summary { align-items: start; flex-direction: column; gap: 2px; } }

@@ -24,6 +24,8 @@ export type BreedLifePoint = {
   description: string;
 };
 
+export type BreedDayPoint = Pick<BreedLifePoint, "icon" | "title" | "description">;
+
 const conceptTitles: Record<LifestyleIconId, string> = {
   rest: "편안히 쉬는 연습 만들기",
   grooming: "피모 관리 시간을 생활에 넣기",
@@ -58,11 +60,12 @@ const keywordGroups: Array<{ id: LifestyleIconId; keywords: string[] }> = [
   { id: "climate", keywords: ["더운", "더위", "추운", "추위", "기온", "온도", "날씨", "열사병", "한랭"] },
   { id: "grooming", keywords: ["털갈이", "빗질", "브러시", "엉킴", "그루밍", "미용", "피모", "털"] },
   { id: "hygiene", keywords: ["치아", "귀 관리", "위생", "목욕", "샴푸", "발톱", "눈물"] },
-  { id: "feeding", keywords: ["식사", "급여", "음식", "간식", "식욕", "먹는", "먹이"] },
+  { id: "feeding", keywords: ["식사", "급여", "음식", "간식", "식욕", "먹는", "먹이", "사료"] },
   { id: "health-check", keywords: ["관절", "호흡", "체중", "건강", "통증", "척추", "슬개", "고관절", "몸 상태", "컨디션"] },
   { id: "calm-alert", keywords: ["짖", "소리", "알림", "방문객", "초인종", "경계 행동"] },
   { id: "safety", keywords: ["안전", "울타리", "리드", "탈출", "낙상", "추적", "쫓", "교통", "거친 상호작용", "생활 경계", "환경 관리", "모는 듯한 행동"] },
-  { id: "rest", keywords: ["혼자", "분리", "안정", "휴식", "쉬는", "쉬기", "차분"] },
+  { id: "sofa-rest", keywords: ["침대", "쿠션", "자리", "바닥", "눕", "수면", "잠", "몸을 받쳐"] },
+  { id: "rest", keywords: ["혼자", "분리", "독립", "안정", "휴식", "쉬는", "쉬기", "차분"] },
   { id: "enrichment", keywords: ["정신", "자극", "문제 해결", "과제", "훈련", "학습", "후각", "냄새", "놀이", "탐색", "역할"] },
   { id: "connection", keywords: ["사람", "가족", "교감", "사회화", "낯선", "다른 동물", "함께", "관계"] },
   { id: "walk", keywords: ["산책", "운동", "활동", "달리", "질주", "움직", "에너지"] },
@@ -124,6 +127,22 @@ export function classifyLifestyleConcept(text: string, fallback: LifestyleIconId
   return best?.id ?? fallback;
 }
 
+function scoreLifestyleConcept(text: string, icon: LifestyleIconId) {
+  const group = keywordGroups.find((candidate) => candidate.id === icon);
+  if (!group) return 0;
+
+  return group.keywords.reduce(
+    (total, keyword) => total + (includesKeyword(text, keyword) ? keyword.length + 2 : 0),
+    0,
+  );
+}
+
+type IconAssignmentInput = {
+  title: string;
+  description: string;
+  fallback: LifestyleIconId;
+};
+
 function createPoint(icon: LifestyleIconId, label: string, description: string): BreedLifePoint {
   return { icon, label, title: conceptTitles[icon], description };
 }
@@ -164,11 +183,15 @@ export function getBreedLifePoints(breed: Breed): BreedLifePoint[] {
 
   const selected: BreedLifePoint[] = [];
   for (const candidate of candidates) {
+    // The paw-in-magnifier asset is reserved for the behavior disclosure below
+    // the life cards, so it does not repeat within the same detail page.
+    if (candidate.icon === "health-check") continue;
     if (!selected.some((point) => point.icon === candidate.icon)) selected.push(candidate);
     if (selected.length === 3) return selected;
   }
 
   for (const candidate of candidates) {
+    if (candidate.icon === "health-check") continue;
     if (!selected.includes(candidate)) selected.push(candidate);
     if (selected.length === 3) return selected;
   }
@@ -176,11 +199,77 @@ export function getBreedLifePoints(breed: Breed): BreedLifePoint[] {
   return selected;
 }
 
-const dayFallbacks: LifestyleIconId[] = ["walk", "enrichment", "sofa-rest"];
+const dayFallbacks: LifestyleIconId[] = ["walk", "sofa-rest", "enrichment"];
 
-export function getBreedDayIcons(breed: Breed): LifestyleIconId[] {
-  return breed.daySnapshot.map((step, index) => classifyLifestyleConcept(
-    `${step.time} ${step.title} ${step.description}`,
-    dayFallbacks[index] ?? "sofa-rest",
-  ));
+function getBestAvailableIcon(
+  input: IconAssignmentInput,
+  reserved: Set<LifestyleIconId>,
+): LifestyleIconId | undefined {
+  const ranked = lifestyleIconIds
+    .filter((icon) => !reserved.has(icon))
+    .map((icon) => ({
+      icon,
+      score: scoreLifestyleConcept(input.title, icon) * 4
+        + scoreLifestyleConcept(input.description, icon),
+    }))
+    .sort((left, right) => right.score - left.score);
+
+  if (ranked[0]?.score) return ranked[0].icon;
+  const hasReservedMatch = lifestyleIconIds.some((icon) => reserved.has(icon) && (
+    scoreLifestyleConcept(input.title, icon) * 4
+    + scoreLifestyleConcept(input.description, icon)
+  ) > 0);
+  if (hasReservedMatch) return undefined;
+  return reserved.has(input.fallback) ? undefined : input.fallback;
+}
+
+export function getBreedDayPoints(
+  breed: Breed,
+  reservedIcons: LifestyleIconId[] = [],
+): BreedDayPoint[] {
+  const reserved = new Set(reservedIcons);
+  const selected: BreedDayPoint[] = [];
+
+  const addPoint = (input: IconAssignmentInput) => {
+    const icon = getBestAvailableIcon(input, reserved);
+    if (!icon) return;
+    selected.push({ icon, title: input.title, description: input.description });
+    reserved.add(icon);
+  };
+
+  breed.daySnapshot.forEach((step, index) => {
+    if (selected.length < 3) addPoint({
+      title: step.title,
+      description: step.description,
+      fallback: dayFallbacks[index] ?? "sofa-rest",
+    });
+  });
+
+  (Object.keys(tendencyConcepts) as Array<keyof Breed["tendencies"]>).forEach((name) => {
+    if (selected.length >= 3) return;
+    const icon = tendencyConcepts[name];
+    if (reserved.has(icon)) return;
+    selected.push({
+      icon,
+      title: conceptTitles[icon],
+      description: breed.tendencies[name].note,
+    });
+    reserved.add(icon);
+  });
+
+  return selected;
+}
+
+export function getBreedDayIcons(breed: Breed, reservedIcons: LifestyleIconId[] = []): LifestyleIconId[] {
+  return getBreedDayPoints(breed, reservedIcons).map((point) => point.icon);
+}
+
+export function getBreedLifePresentation(breed: Breed) {
+  const lifePoints = getBreedLifePoints(breed);
+  const dayPoints = getBreedDayPoints(breed, [
+    "health-check",
+    ...lifePoints.map((point) => point.icon),
+  ]);
+
+  return { lifePoints, dayPoints, dayIcons: dayPoints.map((point) => point.icon) };
 }

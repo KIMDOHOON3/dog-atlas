@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DogIcon } from "@/components/dog-icon";
+import { CategoryDogIcon } from "@/components/category-dog-icon";
 import { applyBreedFilterPreset, breedFilterPresets, filtersToSearchParams } from "@/lib/breed-filters";
 import styles from "./category-explorer.module.css";
 
@@ -27,7 +27,7 @@ export function CategoryExplorer() {
       <div className={styles.quickStartGrid} role="list" aria-label="견종 발견 빠른 시작">
         {firstExploreOptions.map((option) => (
           <Link className={styles.quickStartCard} href={option.query ? `/discover?${option.query}` : "/discover"} key={option.label}>
-            <DogIcon name={option.icon} className={styles.quickIcon} />
+            <CategoryDogIcon name={option.icon} className={styles.quickIcon} />
             <strong>{option.label}</strong>
             <span>{option.description}</span>
             <b aria-hidden="true">→</b>

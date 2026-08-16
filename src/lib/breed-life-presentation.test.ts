@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { breeds, getBreed } from "@/content/breeds/data";
-import { getBreedDayIcons, getBreedLifePoints, lifestyleIconIds } from "./breed-life-presentation";
+import {
+  getBreedDayIcons,
+  getBreedLifePoints,
+  getBreedLifePresentation,
+  lifestyleIconIds,
+} from "./breed-life-presentation";
 
 describe("breed life presentation", () => {
   it("creates three breed-aware life points for every catalog entry", () => {
@@ -24,6 +29,20 @@ describe("breed life presentation", () => {
     }
   });
 
+  it("uses six distinct and semantically assigned icons on every detail page", () => {
+    for (const breed of breeds) {
+      const presentation = getBreedLifePresentation(breed);
+      const icons = [
+        ...presentation.lifePoints.map((point) => point.icon),
+        ...presentation.dayIcons,
+      ];
+
+      expect(icons, breed.slug).toHaveLength(6);
+      expect(new Set(icons).size, breed.slug).toBe(6);
+      expect(icons, breed.slug).not.toContain("health-check");
+    }
+  });
+
   it("uses every normalized concept across the full catalog", () => {
     const usedIcons = new Set(breeds.flatMap((breed) => [
       ...getBreedLifePoints(breed).map((point) => point.icon),
@@ -38,5 +57,13 @@ describe("breed life presentation", () => {
     expect(getBreedLifePoints(getBreed("border-collie")!).map((point) => point.icon)).toContain("enrichment");
     expect(getBreedLifePoints(getBreed("greyhound")!).map((point) => point.icon)).toContain("climate");
     expect(getBreedLifePoints(getBreed("samoyed")!).map((point) => point.icon)).toEqual(expect.arrayContaining(["climate", "grooming"]));
+  });
+
+  it("matches greyhound daily copy without repeating its life-card icons", () => {
+    const presentation = getBreedLifePresentation(getBreed("greyhound")!);
+
+    expect(presentation.lifePoints.map((point) => point.icon)).toEqual(["safety", "climate", "rest"]);
+    expect(presentation.dayIcons).toEqual(["walk", "sofa-rest", "enrichment"]);
+    expect(presentation.dayPoints[2].title).toBe("머리를 쓰는 활동 마련하기");
   });
 });

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getBreedCardImage } from "./breed-visual";
+import { getBreedCardImage } from "@/lib/breed-image-assets";
 
 export function BreedThumbnail({
   slug,
