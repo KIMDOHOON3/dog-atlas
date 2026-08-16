@@ -24,17 +24,17 @@
 .selectedChips button { padding: 7px 10px; border: 1px solid var(--moss); border-radius: 999px; color: var(--moss); background: var(--moss-light); font-size: .76rem; cursor: pointer; }
 .selectedChips button span { margin-left: 4px; font-weight: 700; }
 .resultGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.resultCard { overflow: hidden; min-width: 0; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
+.resultCard { overflow: hidden; display: flex; min-width: 0; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
 .resultCard > figure { border: 0; border-radius: 0; box-shadow: none; }
-.resultCopy { padding: 13px 15px 16px; }
+.resultCopy { display: flex; flex: 1; flex-direction: column; padding: 13px 15px 16px; }
 .resultMeta { display: flex; justify-content: space-between; gap: 8px; color: var(--ink-soft); font-size: .68rem; }
 .resultMeta span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.resultCopy h2 { margin: 7px 0 7px; font-size: 1.1rem; }
+.resultCopy h2 { min-height: 2.7em; margin: 7px 0; font-size: 1.1rem; line-height: 1.35; word-break: keep-all; }
 .legalBadge { display: inline-block; margin-top: 8px; padding: 4px 7px; border: 1px solid rgb(63 111 88 / 32%); border-radius: 999px; color: var(--moss); background: var(--moss-light); font-size: .64rem; font-weight: 800; }
 .resultHighlights { display: flex; flex-wrap: wrap; gap: 5px; }
 .resultHighlights span { padding: 4px 7px; border-radius: 999px; color: var(--moss); background: var(--moss-light); font-size: .68rem; }
 .resultCopy p { display: -webkit-box; min-height: 3.1em; margin: 10px 0 12px; overflow: hidden; color: var(--ink-soft); font-size: .78rem; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
-.resultCopy a { color: var(--moss); font-size: .78rem; font-weight: 700; text-underline-offset: 4px; }
+.resultCopy a { align-self: flex-start; margin-top: auto; color: var(--moss); font-size: .78rem; font-weight: 700; text-underline-offset: 4px; }
 .infiniteScroll { min-height: 78px; padding-top: 24px; display: flex; align-items: center; justify-content: center; gap: 9px; color: var(--ink-soft); font-size: .76rem; }
 .loadingMark { width: 8px; height: 8px; border-radius: 50%; background: var(--moss); animation: loading-pulse 1.2s ease-in-out infinite; }
 @keyframes loading-pulse { 50% { opacity: .35; transform: scale(.72); } }
