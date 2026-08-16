@@ -7,8 +7,8 @@
 .quickIcon [data-motion-layer="calm-base"] { background-image: url('/illustrations/ui/lifestyle-motion/calm-base.webp'); background-position: center; background-size: 100% 100%; transform-origin: 50% 78%; }
 .quickIcon [data-motion-layer="calm-z"] { background-image: url('/illustrations/ui/lifestyle-motion/calm-z.webp'); background-position: center; background-size: 100% 100%; transform-origin: 36% 23%; }
 .quickIcon [data-motion-layer="active-run"] { background-image: url('/illustrations/ui/lifestyle-motion/active-run-sprite.webp'); background-position: 0 center; background-size: 900% 100%; }
-.quickIcon [data-motion-layer="social-pet"] { background-image: url('/illustrations/ui/lifestyle-motion/social-motion-sprite.webp'); background-position: 0 center; background-size: 900% 100%; }
-.quickIcon [data-motion-layer="independent-idle"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-motion-sprite.webp'); background-position: 0 center; background-size: 900% 100%; }
+.quickIcon [data-motion-layer="social-pet"] { background-image: url('/illustrations/ui/lifestyle-motion/social-motion-sprite.png'); background-position: 0 center; background-size: 900% 100%; }
+.quickIcon [data-motion-layer="independent-idle"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-motion-sprite.png'); background-position: 0 center; background-size: 900% 100%; }
 .quickIcon [data-motion-layer="grooming-base"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-base.webp'); background-position: center; background-size: 100% 100%; }
 .quickIcon [data-motion-layer="grooming-sparkles"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-accessory.webp'); background-position: center; background-size: 100% 100%; transform-origin: 73% 45%; }
 .quickIcon [data-motion-layer="unfamiliar-curious"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-motion-sprite.png'); background-position: 0 center; background-size: 900% 100%; }
