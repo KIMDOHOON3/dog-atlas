@@ -13,9 +13,11 @@
 .quickIcon [data-motion-layer="independent-base"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-base.png'); background-position: center; background-size: 100% 100%; }
 .quickIcon [data-motion-layer="independent-yawn-mid"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-yawn-mid.png'); background-position: center; background-size: 100% 100%; opacity: 0; }
 .quickIcon [data-motion-layer="independent-yawn-full"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-yawn-full.png'); background-position: center; background-size: 100% 100%; opacity: 0; }
-.quickIcon [data-motion-layer="grooming-dog"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-dog.webp'); background-position: center; background-size: 100% 100%; transform-origin: 50% 78%; }
+.quickIcon [data-motion-layer="grooming-dog-open"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-dog-open.webp'); background-position: center; background-size: 100% 100%; transform-origin: 50% 78%; }
+.quickIcon [data-motion-layer="grooming-dog-closed"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-dog.webp'); background-position: center; background-size: 100% 100%; transform-origin: 50% 78%; opacity: 0; }
 .quickIcon [data-motion-layer="grooming-hand"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-hand.webp'); background-position: center; background-size: 100% 100%; transform-origin: 68% 48%; }
 .quickIcon [data-motion-layer="unfamiliar-base"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-base.png'); background-position: center; background-size: 100% 100%; }
+.quickIcon [data-motion-layer="unfamiliar-tilt"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-tilt.png'); background-position: center; background-size: 100% 100%; opacity: 0; }
 .quickIcon [data-motion-layer="unfamiliar-question"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-question.png'); background-position: center; background-size: 100% 100%; transform-origin: 68% 16%; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="calm-base"] { animation: calm-breathe-once 2.8s cubic-bezier(.45, 0, .55, 1) 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="calm-z"] { animation: calm-z-once 2.8s ease-in-out 1 both; }
@@ -24,9 +26,12 @@
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="social-hand"] { animation: social-hand-once 3.8s cubic-bezier(.42, 0, .25, 1) 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-yawn-mid"] { animation: independent-yawn-mid-once 4.8s ease-in-out 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-yawn-full"] { animation: independent-yawn-full-once 4.8s ease-in-out 1 both; }
-.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-dog"] { animation: grooming-breathe-once 4.6s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-dog-open"] { animation: grooming-breathe-once 4.6s ease-in-out 1 both, grooming-eyes-open-once 4.6s linear 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-dog-closed"] { animation: grooming-breathe-once 4.6s ease-in-out 1 both, grooming-eyes-closed-once 4.6s linear 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-hand"] { animation: grooming-stroke-once 4.6s cubic-bezier(.42, 0, .25, 1) 1 both; }
-.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-once 2s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-base"] { animation: unfamiliar-base-once 4.6s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-tilt"] { animation: unfamiliar-tilt-once 4.6s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-once 4.6s ease-in-out 1 both; }
 .quickStartCard:hover { transform: translateY(-2px); border-color: var(--moss); box-shadow: 0 10px 24px rgb(42 52 46 / 8%); }
 .quickStartCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .quickStartCard strong { max-width: 15ch; font-size: 1.04rem; line-height: 1.35; }
@@ -55,9 +60,12 @@
   .quickStartCard:hover .quickIcon [data-motion-layer="social-hand"] { animation: social-hand-loop 3.8s cubic-bezier(.42, 0, .25, 1) infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="independent-yawn-mid"] { animation: independent-yawn-mid-loop 4.8s ease-in-out infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="independent-yawn-full"] { animation: independent-yawn-full-loop 4.8s ease-in-out infinite; }
-  .quickStartCard:hover .quickIcon [data-motion-layer="grooming-dog"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="grooming-dog-open"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite, grooming-eyes-open-loop 4.6s linear infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="grooming-dog-closed"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite, grooming-eyes-closed-loop 4.6s linear infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="grooming-hand"] { animation: grooming-stroke-loop 4.6s cubic-bezier(.42, 0, .25, 1) infinite; }
-  .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 2s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-base"] { animation: unfamiliar-base-loop 4.6s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-tilt"] { animation: unfamiliar-tilt-loop 4.6s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 4.6s ease-in-out infinite; }
 }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="calm-base"] { animation: calm-breathe-loop 2.8s cubic-bezier(.45, 0, .55, 1) infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="calm-z"] { animation: calm-z-loop 2.8s ease-in-out infinite; }
@@ -66,9 +74,12 @@
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="social-hand"] { animation: social-hand-loop 3.8s cubic-bezier(.42, 0, .25, 1) infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-yawn-mid"] { animation: independent-yawn-mid-loop 4.8s ease-in-out infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-yawn-full"] { animation: independent-yawn-full-loop 4.8s ease-in-out infinite; }
-.quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-dog"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-dog-open"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite, grooming-eyes-open-loop 4.6s linear infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-dog-closed"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite, grooming-eyes-closed-loop 4.6s linear infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-hand"] { animation: grooming-stroke-loop 4.6s cubic-bezier(.42, 0, .25, 1) infinite; }
-.quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 2s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-base"] { animation: unfamiliar-base-loop 4.6s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-tilt"] { animation: unfamiliar-tilt-loop 4.6s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 4.6s ease-in-out infinite; }
 @keyframes calm-breathe-once {
   0%, 100% { transform: scaleY(1); }
   50% { transform: scaleY(1.008); }
@@ -139,6 +150,22 @@
   0%, 100% { transform: scaleY(1); }
   48% { transform: scaleY(1.006); }
 }
+@keyframes grooming-eyes-open-once {
+  0%, 24% { opacity: 1; }
+  48%, 100% { opacity: 0; }
+}
+@keyframes grooming-eyes-closed-once {
+  0%, 24% { opacity: 0; }
+  48%, 100% { opacity: 1; }
+}
+@keyframes grooming-eyes-open-loop {
+  0%, 22%, 100% { opacity: 1; }
+  46%, 76% { opacity: 0; }
+}
+@keyframes grooming-eyes-closed-loop {
+  0%, 22%, 100% { opacity: 0; }
+  46%, 76% { opacity: 1; }
+}
 @keyframes grooming-stroke-once {
   0%, 14%, 100% { transform: translate(10px, 0) rotate(.5deg); }
   58% { transform: translate(-17px, 1px) rotate(-1deg); }
@@ -149,15 +176,31 @@
   58% { transform: translate(-17px, 1px) rotate(-1deg); }
   82% { transform: translate(6px, 0) rotate(.25deg); }
 }
+@keyframes unfamiliar-base-once {
+  0%, 24%, 100% { opacity: 1; }
+  42%, 66% { opacity: 0; }
+}
+@keyframes unfamiliar-tilt-once {
+  0%, 24%, 84%, 100% { opacity: 0; }
+  42%, 66% { opacity: 1; }
+}
+@keyframes unfamiliar-base-loop {
+  0%, 24%, 100% { opacity: 1; }
+  42%, 66% { opacity: 0; }
+}
+@keyframes unfamiliar-tilt-loop {
+  0%, 24%, 84%, 100% { opacity: 0; }
+  42%, 66% { opacity: 1; }
+}
 @keyframes unfamiliar-question-once {
   0%, 100% { opacity: 1; transform: translateY(0) rotate(0); }
-  45% { opacity: .75; transform: translateY(-3px) rotate(4deg); }
-  72% { opacity: 1; transform: translateY(0) rotate(-2deg); }
+  46%, 64% { opacity: .82; transform: translateY(-2px) rotate(3deg); }
+  82% { opacity: 1; transform: translateY(0) rotate(-1deg); }
 }
 @keyframes unfamiliar-question-loop {
   0%, 100% { opacity: 1; transform: translateY(0) rotate(0); }
-  45% { opacity: .75; transform: translateY(-3px) rotate(4deg); }
-  72% { opacity: 1; transform: translateY(0) rotate(-2deg); }
+  46%, 64% { opacity: .82; transform: translateY(-2px) rotate(3deg); }
+  82% { opacity: 1; transform: translateY(0) rotate(-1deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .quickStartCard { transition: none; }
