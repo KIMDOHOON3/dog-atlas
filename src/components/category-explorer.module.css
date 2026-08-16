@@ -13,10 +13,8 @@
 .quickIcon [data-motion-layer="independent-base"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-base.png'); background-position: center; background-size: 100% 100%; }
 .quickIcon [data-motion-layer="independent-yawn-mid"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-yawn-mid.png'); background-position: center; background-size: 100% 100%; opacity: 0; }
 .quickIcon [data-motion-layer="independent-yawn-full"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-yawn-full.png'); background-position: center; background-size: 100% 100%; opacity: 0; }
-.quickIcon [data-motion-layer="grooming-dog"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-dog.webp'); background-position: center; background-size: 100% 100%; }
-.quickIcon [data-motion-layer="grooming-blink"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-blink.webp'); background-position: center; background-size: 100% 100%; opacity: 0; }
-.quickIcon [data-motion-layer="grooming-brush"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-brush.webp'); background-position: center; background-size: 100% 100%; transform-origin: 74% 70%; }
-.quickIcon [data-motion-layer="grooming-sparkles"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-accessory.webp'); background-position: center; background-size: 100% 100%; opacity: 0; transform-origin: 73% 45%; }
+.quickIcon [data-motion-layer="grooming-dog"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-dog.webp'); background-position: center; background-size: 100% 100%; transform-origin: 50% 78%; }
+.quickIcon [data-motion-layer="grooming-hand"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-hand.webp'); background-position: center; background-size: 100% 100%; transform-origin: 68% 48%; }
 .quickIcon [data-motion-layer="unfamiliar-base"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-base.png'); background-position: center; background-size: 100% 100%; }
 .quickIcon [data-motion-layer="unfamiliar-question"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-question.png'); background-position: center; background-size: 100% 100%; transform-origin: 68% 16%; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="calm-base"] { animation: calm-breathe-once 2.8s cubic-bezier(.45, 0, .55, 1) 1 both; }
@@ -26,9 +24,8 @@
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="social-hand"] { animation: social-hand-once 3.8s cubic-bezier(.42, 0, .25, 1) 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-yawn-mid"] { animation: independent-yawn-mid-once 4.8s ease-in-out 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-yawn-full"] { animation: independent-yawn-full-once 4.8s ease-in-out 1 both; }
-.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-blink"] { animation: grooming-blink-once 4.4s linear 1 both; }
-.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-brush"] { animation: grooming-brush-once 4.4s cubic-bezier(.42, 0, .25, 1) 1 both; }
-.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-once 4.4s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-dog"] { animation: grooming-breathe-once 4.6s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-hand"] { animation: grooming-stroke-once 4.6s cubic-bezier(.42, 0, .25, 1) 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-once 2s ease-in-out 1 both; }
 .quickStartCard:hover { transform: translateY(-2px); border-color: var(--moss); box-shadow: 0 10px 24px rgb(42 52 46 / 8%); }
 .quickStartCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
@@ -58,9 +55,8 @@
   .quickStartCard:hover .quickIcon [data-motion-layer="social-hand"] { animation: social-hand-loop 3.8s cubic-bezier(.42, 0, .25, 1) infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="independent-yawn-mid"] { animation: independent-yawn-mid-loop 4.8s ease-in-out infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="independent-yawn-full"] { animation: independent-yawn-full-loop 4.8s ease-in-out infinite; }
-  .quickStartCard:hover .quickIcon [data-motion-layer="grooming-blink"] { animation: grooming-blink-loop 4.4s linear infinite; }
-  .quickStartCard:hover .quickIcon [data-motion-layer="grooming-brush"] { animation: grooming-brush-loop 4.4s cubic-bezier(.42, 0, .25, 1) infinite; }
-  .quickStartCard:hover .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-loop 4.4s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="grooming-dog"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="grooming-hand"] { animation: grooming-stroke-loop 4.6s cubic-bezier(.42, 0, .25, 1) infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 2s ease-in-out infinite; }
 }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="calm-base"] { animation: calm-breathe-loop 2.8s cubic-bezier(.45, 0, .55, 1) infinite; }
@@ -70,9 +66,8 @@
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="social-hand"] { animation: social-hand-loop 3.8s cubic-bezier(.42, 0, .25, 1) infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-yawn-mid"] { animation: independent-yawn-mid-loop 4.8s ease-in-out infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-yawn-full"] { animation: independent-yawn-full-loop 4.8s ease-in-out infinite; }
-.quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-blink"] { animation: grooming-blink-loop 4.4s linear infinite; }
-.quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-brush"] { animation: grooming-brush-loop 4.4s cubic-bezier(.42, 0, .25, 1) infinite; }
-.quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-loop 4.4s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-dog"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-hand"] { animation: grooming-stroke-loop 4.6s cubic-bezier(.42, 0, .25, 1) infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 2s ease-in-out infinite; }
 @keyframes calm-breathe-once {
   0%, 100% { transform: scaleY(1); }
@@ -136,33 +131,23 @@
   0%, 40%, 68%, 100% { opacity: 0; }
   48%, 60% { opacity: 1; }
 }
-@keyframes grooming-brush-once {
-  0%, 14%, 100% { transform: translate(4px, 3px) rotate(2deg); }
-  42% { transform: translate(-9px, -10px) rotate(-3deg); }
-  62% { transform: translate(-16px, -19px) rotate(-5deg); }
-  82% { transform: translate(1px, 1px) rotate(1deg); }
+@keyframes grooming-breathe-once {
+  0%, 100% { transform: scaleY(1); }
+  48% { transform: scaleY(1.006); }
 }
-@keyframes grooming-brush-loop {
-  0%, 14%, 100% { transform: translate(4px, 3px) rotate(2deg); }
-  42% { transform: translate(-9px, -10px) rotate(-3deg); }
-  62% { transform: translate(-16px, -19px) rotate(-5deg); }
-  82% { transform: translate(1px, 1px) rotate(1deg); }
+@keyframes grooming-breathe-loop {
+  0%, 100% { transform: scaleY(1); }
+  48% { transform: scaleY(1.006); }
 }
-@keyframes grooming-blink-once {
-  0%, 43%, 55%, 100% { opacity: 0; }
-  47%, 51% { opacity: 1; }
+@keyframes grooming-stroke-once {
+  0%, 14%, 100% { transform: translate(10px, 0) rotate(.5deg); }
+  58% { transform: translate(-17px, 1px) rotate(-1deg); }
+  82% { transform: translate(6px, 0) rotate(.25deg); }
 }
-@keyframes grooming-blink-loop {
-  0%, 43%, 55%, 100% { opacity: 0; }
-  47%, 51% { opacity: 1; }
-}
-@keyframes grooming-sparkles-once {
-  0%, 57%, 100% { opacity: 0; transform: translateY(2px) scale(.86); }
-  67%, 82% { opacity: 1; transform: translateY(-1px) scale(1.05); }
-}
-@keyframes grooming-sparkles-loop {
-  0%, 57%, 100% { opacity: 0; transform: translateY(2px) scale(.86); }
-  67%, 82% { opacity: 1; transform: translateY(-1px) scale(1.05); }
+@keyframes grooming-stroke-loop {
+  0%, 14%, 100% { transform: translate(10px, 0) rotate(.5deg); }
+  58% { transform: translate(-17px, 1px) rotate(-1deg); }
+  82% { transform: translate(6px, 0) rotate(.25deg); }
 }
 @keyframes unfamiliar-question-once {
   0%, 100% { opacity: 1; transform: translateY(0) rotate(0); }
