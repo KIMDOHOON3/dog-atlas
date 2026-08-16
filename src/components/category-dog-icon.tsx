@@ -17,7 +17,13 @@ export function CategoryDogIcon({ name, className }: { name: CategoryDogIconName
           <span data-motion-layer="social-hand" />
         </>
       ) : null}
-      {name === "independent" ? <span data-motion-layer="independent-idle" /> : null}
+      {name === "independent" ? (
+        <>
+          <span data-motion-layer="independent-base" />
+          <span data-motion-layer="independent-yawn-mid" />
+          <span data-motion-layer="independent-yawn-full" />
+        </>
+      ) : null}
       {name === "grooming" ? (
         <>
           <span data-motion-layer="grooming-base" />

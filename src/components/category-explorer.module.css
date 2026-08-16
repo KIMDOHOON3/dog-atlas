@@ -10,7 +10,9 @@
 .quickIcon [data-motion-layer="social-base"] { background-image: url('/illustrations/ui/lifestyle-motion/social-base.png'); background-position: center; background-size: 100% 100%; }
 .quickIcon [data-motion-layer="social-blink"] { background-image: url('/illustrations/ui/lifestyle-motion/social-blink.png'); background-position: center; background-size: 100% 100%; opacity: 0; }
 .quickIcon [data-motion-layer="social-hand"] { background-image: url('/illustrations/ui/lifestyle-motion/social-hand.png'); background-position: center; background-size: 100% 100%; transform-origin: 86% 24%; }
-.quickIcon [data-motion-layer="independent-idle"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-base.png'); background-position: center; background-size: 100% 100%; transform-origin: 50% 82%; }
+.quickIcon [data-motion-layer="independent-base"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-base.png'); background-position: center; background-size: 100% 100%; }
+.quickIcon [data-motion-layer="independent-yawn-mid"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-yawn-mid.png'); background-position: center; background-size: 100% 100%; opacity: 0; }
+.quickIcon [data-motion-layer="independent-yawn-full"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-yawn-full.png'); background-position: center; background-size: 100% 100%; opacity: 0; }
 .quickIcon [data-motion-layer="grooming-base"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-base.webp'); background-position: center; background-size: 100% 100%; }
 .quickIcon [data-motion-layer="grooming-sparkles"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-accessory.webp'); background-position: center; background-size: 100% 100%; transform-origin: 73% 45%; }
 .quickIcon [data-motion-layer="unfamiliar-base"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-base.png'); background-position: center; background-size: 100% 100%; }
@@ -20,7 +22,8 @@
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="active-run"] { animation: active-run-once .88s steps(8, end) 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="social-blink"] { animation: social-blink-once 3.8s linear 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="social-hand"] { animation: social-hand-once 3.8s cubic-bezier(.42, 0, .25, 1) 1 both; }
-.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-idle"] { animation: independent-breathe-once 2.4s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-yawn-mid"] { animation: independent-yawn-mid-once 4.8s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-yawn-full"] { animation: independent-yawn-full-once 4.8s ease-in-out 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-once 1.8s ease-in-out 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-once 2s ease-in-out 1 both; }
 .quickStartCard:hover { transform: translateY(-2px); border-color: var(--moss); box-shadow: 0 10px 24px rgb(42 52 46 / 8%); }
@@ -49,7 +52,8 @@
   .quickStartCard:hover .quickIcon [data-motion-layer="active-run"] { animation: active-run-loop .88s steps(8, end) infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="social-blink"] { animation: social-blink-loop 3.8s linear infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="social-hand"] { animation: social-hand-loop 3.8s cubic-bezier(.42, 0, .25, 1) infinite; }
-  .quickStartCard:hover .quickIcon [data-motion-layer="independent-idle"] { animation: independent-breathe-loop 2.4s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="independent-yawn-mid"] { animation: independent-yawn-mid-loop 4.8s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="independent-yawn-full"] { animation: independent-yawn-full-loop 4.8s ease-in-out infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-loop 1.8s ease-in-out infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 2s ease-in-out infinite; }
 }
@@ -58,7 +62,8 @@
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="active-run"] { animation: active-run-loop .88s steps(8, end) infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="social-blink"] { animation: social-blink-loop 3.8s linear infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="social-hand"] { animation: social-hand-loop 3.8s cubic-bezier(.42, 0, .25, 1) infinite; }
-.quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-idle"] { animation: independent-breathe-loop 2.4s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-yawn-mid"] { animation: independent-yawn-mid-loop 4.8s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-yawn-full"] { animation: independent-yawn-full-loop 4.8s ease-in-out infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-loop 1.8s ease-in-out infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 2s ease-in-out infinite; }
 @keyframes calm-breathe-once {
@@ -107,13 +112,21 @@
   0%, 43%, 52%, 100% { opacity: 0; }
   46%, 49% { opacity: 1; }
 }
-@keyframes independent-breathe-once {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(1.006); }
+@keyframes independent-yawn-mid-once {
+  0%, 18%, 82%, 100% { opacity: 0; }
+  28%, 72% { opacity: 1; }
 }
-@keyframes independent-breathe-loop {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(1.006); }
+@keyframes independent-yawn-mid-loop {
+  0%, 18%, 82%, 100% { opacity: 0; }
+  28%, 72% { opacity: 1; }
+}
+@keyframes independent-yawn-full-once {
+  0%, 40%, 68%, 100% { opacity: 0; }
+  48%, 60% { opacity: 1; }
+}
+@keyframes independent-yawn-full-loop {
+  0%, 40%, 68%, 100% { opacity: 0; }
+  48%, 60% { opacity: 1; }
 }
 @keyframes grooming-sparkles-once {
   0%, 100% { opacity: 1; transform: translateY(0) scale(1); }
