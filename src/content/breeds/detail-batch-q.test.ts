@@ -7,7 +7,7 @@ import { detailBatchQ } from "./detail-batch-q";
 describe("detail batch Q", () => {
   it("publishes the Mongolian Bankhar landrace detail", () => {
     expect(detailBatchQ.map((breed) => breed.slug)).toEqual(["mongolian-bankhar"]);
-    expect(breeds).toHaveLength(373);
+    expect(breeds).toHaveLength(375);
     expect(detailBatchQ[0].identity.lineage).toContain("랜드레이스");
   });
 

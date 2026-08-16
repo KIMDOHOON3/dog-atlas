@@ -250,3 +250,15 @@ Keep Pomeranian within the registered German Spitz entry rather than creating a 
 Keep the FCI classification explicit: Groenendael, Laekenois, Malinois, and Tervueren remain four varieties under Belgian Shepherd Dog standard 15. For Korean search and comparison, expose each variety as its own catalog and detail entry because the common names and coat-management differences are meaningful user-facing distinctions.
 
 Give every entry its own slug, aliases, card illustration, history illustration, and coat-specific care copy. A search for the umbrella name may return all four entries. Redirect the retired combined detail URL to Malinois for compatibility, and never describe the editorial split as four separate FCI breed registrations.
+
+# 2026-08-17 — Add Boerboel as a registered non-FCI breed
+
+Add the South African Boerboel as a separately searchable, source-backed detail entry using KUSA as the primary breed-standard authority and AKC as a secondary registration reference. Keep `registryStatus` as `non-fci` while using `inclusionType: international-registered`; do not imply FCI recognition.
+
+Use `보어보엘` as the Korean display name and retain `보어보벨` and `보어보얼` as search aliases. Center the editorial treatment on its South African farm-guardian history, large functional build, early training, secure boundaries, visitor management, and experienced handling without treating breed identity as a guarantee of aggression.
+
+# 2026-08-17 — Keep AKC Anatolian Shepherd and FCI Kangal as distinct catalog entries
+
+Add `Anatolian Shepherd Dog` as an AKC-registered, non-FCI catalog entry while retaining the existing FCI `Kangal Shepherd Dog` detail. Their Turkish livestock-guardian histories overlap, but registry definitions are not interchangeable: do not redirect one name to the other or present them as duplicate labels.
+
+Use `아나톨리안 셰퍼드` as the display name, preserve common Korean spellings as search aliases, and link the two details as related reading. The Anatolian entry should emphasize independent flock-guardian judgment, secure boundaries, visitor management, early low-pressure socialization, and the responsibility created by its giant size.

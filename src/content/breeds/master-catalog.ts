@@ -23,6 +23,14 @@ const nonFciInclusionDetails: Record<string, InclusionDetails> = {
     inclusionType: "international-registered",
     evidenceAuthority: "United Kennel Club (UKC)",
   },
+  boerboel: {
+    inclusionType: "international-registered",
+    evidenceAuthority: "Kennel Union of Southern Africa (KUSA)·American Kennel Club (AKC)",
+  },
+  "anatolian-shepherd-dog": {
+    inclusionType: "international-registered",
+    evidenceAuthority: "American Kennel Club (AKC)",
+  },
   sapsaree: {
     inclusionType: "national-heritage",
     evidenceAuthority: "국가유산청",
@@ -90,6 +98,9 @@ const aliasesKo: Partial<Record<string, string[]>> = {
   "labrador-retriever": ["라브라도 리트리버", "래브라도", "라브라도", "랩"],
   "bichon-frise": ["비숑", "비숑프리제"],
   maltese: ["몰티즈"],
+  boerboel: ["보어보벨", "보어보얼", "남아프리칸 보어보엘", "사우스 아프리칸 보어보엘"],
+  "anatolian-shepherd-dog": ["아나톨리안 셰퍼드 독", "아나톨리안 셰퍼드 도그", "아나톨리아 셰퍼드", "아나톨리아 목양견"],
+  "central-asian-shepherd-dog": ["알라바이", "알라바이견", "투르크멘 알라바이", "중앙아시아 셰퍼드", "중앙아시아 목양견"],
   "french-bulldog": ["프렌치 불독"],
   poodle: ["스탠더드 푸들", "미디엄 푸들", "미니어처 푸들", "토이 푸들", "토이푸들"],
   "pyrenean-mountain-dog": ["피레니언 마운틴 독", "피레니안 마운틴독"],
@@ -106,6 +117,7 @@ const aliasesEn: Partial<Record<string, string[]>> = {
   "german-spitz": ["Pomeranian", "Keeshond", "Wolfspitz"],
   "continental-toy-spaniel": ["Papillon", "Phalene"],
   "italian-sighthound": ["Italian Greyhound"],
+  "central-asian-shepherd-dog": ["Alabai", "Turkmen Alabay", "Central Asian Ovcharka"],
 };
 
 function variety(
@@ -164,6 +176,8 @@ function getSourceIds(slug: string, groupNumber: FciGroupNumber | null, status: 
     if (slug === "mongolian-bankhar") return ["mongolian-bankhar-project", "bankhar-predation-study"];
     if (slug === "american-bully") return ["ukc-american-bully"];
     if (slug === "american-pit-bull-terrier") return ["ukc-american-pit-bull-terrier"];
+    if (slug === "boerboel") return ["kusa-boerboel", "akc-breed-list"];
+    if (slug === "anatolian-shepherd-dog") return ["akc-anatolian-shepherd-dog", "fci-kangal-shepherd-dog"];
     if (slug === "sapsaree") return ["heritage-sapsaree", "kkf-non-fci-breeds"];
     if (slug === "donggyeongi") return ["heritage-donggyeongi", "kkf-non-fci-breeds"];
     return ["kkf-non-fci-breeds"];
@@ -268,6 +282,7 @@ const publishedExpansionSlugs = new Set([
   "romanian-raven-shepherd-dog", "tatra-hound", "transmontano-mastiff", "brazilian-campeiro-bulldog", "segugio-dell-appennino",
   "sabueso-fino-colombiano", "macedonian-shepherd-dog-karaman", "sapsaree", "pungsan-dog", "donggyeongi", "jeju-dog",
   "american-pit-bull-terrier", "american-bully", "mongolian-bankhar",
+  "boerboel", "anatolian-shepherd-dog",
 ]);
 
 const masterEntries = masterInventorySeeds.map(

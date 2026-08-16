@@ -9,8 +9,8 @@ describe("master breed catalog", () => {
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it("contains the discovery inventory and all 373 detailed entries", () => {
-    expect(masterCatalog).toHaveLength(373);
+  it("contains the discovery inventory and all 375 detailed entries", () => {
+    expect(masterCatalog).toHaveLength(375);
     for (const breed of breeds) {
       expect(getMasterBreed(breed.slug)?.nameKo).toBe(breed.nameKo);
     }
@@ -50,11 +50,11 @@ describe("master breed catalog", () => {
 
   it("reports catalog status without depending on UI data", () => {
     expect(getMasterCatalogStats()).toEqual({
-      total: 373,
+      total: 375,
       byFciGroup: { 1: 49, 2: 56, 3: 36, 4: 1, 5: 48, 6: 72, 7: 35, 8: 23, 9: 30, 10: 14 },
-      registryStatus: { definitive: 347, provisional: 17, nonFci: 9, verificationNeeded: 0 },
+      registryStatus: { definitive: 347, provisional: 17, nonFci: 11, verificationNeeded: 0 },
       inclusionType: {
-        internationalRegistered: 366,
+        internationalRegistered: 368,
         nationalHeritage: 2,
         nationalRegistered: 0,
         verifiedLandrace: 1,
@@ -62,8 +62,8 @@ describe("master breed catalog", () => {
         designerCross: 2,
         unverifiedName: 0,
       },
-      detailPriority: { core: 5, next: 368, later: 0 },
-      detailStatus: { published: 373, planned: 0, none: 0 },
+      detailPriority: { core: 5, next: 370, later: 0 },
+      detailStatus: { published: 375, planned: 0, none: 0 },
     });
   });
 
@@ -74,6 +74,8 @@ describe("master breed catalog", () => {
     expect(getMasterBreed("maltese")?.nameKo).toBe("말티즈");
     expect(getMasterBreed("maltese")?.aliasesKo).toContain("몰티즈");
     expect(getMasterBreed("donggyeongi")?.aliasesKo).toContain("동경이");
+    expect(getMasterBreed("central-asian-shepherd-dog")?.aliasesKo).toContain("알라바이");
+    expect(getMasterBreed("central-asian-shepherd-dog")?.aliasesEn).toContain("Alabai");
   });
 
   it("separates registry status from the evidence-based inclusion type", () => {

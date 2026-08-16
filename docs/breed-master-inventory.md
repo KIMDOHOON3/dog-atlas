@@ -211,6 +211,7 @@
 | galgo-espanol | 스페니시 그레이하운드 | Spanish Greyhound | 10 | definitive | later | verified-fci |
 | american-pit-bull-terrier | 아메리칸 핏불 테리어 | American Pit Bull Terrier | null | non-fci | later | verification-needed; not in FCI nomenclature |
 | american-bully | 아메리칸 불리 | American Bully | null | non-fci | later | verification-needed; not in FCI nomenclature |
+| boerboel | 보어보엘 | Boerboel | null | non-fci | next | KUSA·AKC registered; not in FCI nomenclature |
 
 ## 검색 별칭 후보
 
@@ -240,6 +241,9 @@
 | continental-toy-spaniel | 파피용, 빠삐용, 파렌, 파렌느 |
 | italian-sighthound | 이탈리안 그레이하운드, 이탈리언 그레이하운드, 이태리 그레이하운드, 이탈리언 사이트하운드, IG |
 | whippet | 휘핏 |
+| boerboel | 보어보벨, 보어보얼, 남아프리칸 보어보엘, 사우스 아프리칸 보어보엘 |
+| anatolian-shepherd-dog | 아나톨리안 셰퍼드 독, 아나톨리안 셰퍼드 도그, 아나톨리아 셰퍼드, 아나톨리아 목양견 |
+| central-asian-shepherd-dog | 알라바이, 알라바이견, 투르크멘 알라바이, 중앙아시아 셰퍼드, 중앙아시아 목양견 |
 
 ## 공식 출처
 
@@ -257,6 +261,9 @@
 - FCI Group 10: https://www.fci.be/en/nomenclature/10-Sighthounds.html
 - UKC American Pit Bull Terrier 표준: https://www.ukcdogs.com/american-pit-bull-terrier
 - UKC American Bully 표준: https://www.ukcdogs.com/american-bully
+- KUSA Boerboel 표준: https://kusa.co.za/images/Gallery/Boerboel%20Breed%20Standard.pdf
+- AKC Anatolian Shepherd Dog: https://www.akc.org/dog-breeds/anatolian-shepherd-dog/
+- FCI Kangal Shepherd Dog 표준: https://www.fci.be/en/nomenclature/KANGAL-SHEPHERD-DOG-331.html
 - 한국애견연맹(KKF) 국내 통용 표기 보조 근거, Group 1~10: `https://www.thekkf.or.kr/new_home/03_kkf_service/03_approval_2.php?gid={1..10}`
 
 ## 정확도 및 발행 주의사항
