@@ -2,17 +2,27 @@
 .quickExplorer { padding-top: 42px; padding-bottom: 58px; }
 .quickStartGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
 .quickStartCard { position: relative; min-height: 258px; overflow: hidden; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 14px 16px 16px; border: 1px solid var(--line); border-radius: 20px; color: var(--ink); background: var(--panel); text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
-.quickIcon { align-self: center; display: block; width: 156px; height: 156px; margin: 0 auto 6px; background-color: transparent; background-image: url('/illustrations/ui/dog-lifestyle-icons-v4.webp'); background-size: 300% 200%; background-repeat: no-repeat; }
-.quickIcon[data-dog-icon="calm"] { background-position: 0 0; }
-.quickIcon[data-dog-icon="active"] { background-position: 50% 0; }
-.quickIcon[data-dog-icon="social"] { background-position: 100% 0; }
-.quickIcon[data-dog-icon="independent"] { background-position: 0 100%; }
-.quickIcon[data-dog-icon="grooming"] { background-position: 50% 100%; }
-.quickIcon[data-dog-icon="unfamiliar"] { background-position: 100% 100%; }
+.quickIcon { position: relative; align-self: center; display: block; width: 156px; height: 156px; margin: 0 auto 6px; background-color: transparent; }
+.quickIcon [data-motion-layer] { position: absolute; inset: 0; display: block; background-repeat: no-repeat; }
+.quickIcon [data-motion-layer="calm-base"] { background-image: url('/illustrations/ui/lifestyle-motion/calm-base.webp'); background-position: center; background-size: 100% 100%; transform-origin: 50% 78%; }
+.quickIcon [data-motion-layer="calm-z"] { background-image: url('/illustrations/ui/lifestyle-motion/calm-z.webp'); background-position: center; background-size: 100% 100%; transform-origin: 36% 23%; }
+.quickIcon [data-motion-layer="active-run"] { background-image: url('/illustrations/ui/lifestyle-motion/active-run-sprite.webp'); background-position: 0 center; background-size: 900% 100%; }
+.quickIcon [data-motion-layer="social-pet"] { background-image: url('/illustrations/ui/lifestyle-motion/social-motion-sprite.webp'); background-position: 0 center; background-size: 900% 100%; }
+.quickIcon [data-motion-layer="independent-idle"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-motion-sprite.webp'); background-position: 0 center; background-size: 900% 100%; }
+.quickIcon [data-motion-layer="grooming-base"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-base.webp'); background-position: center; background-size: 100% 100%; }
+.quickIcon [data-motion-layer="grooming-sparkles"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-accessory.webp'); background-position: center; background-size: 100% 100%; transform-origin: 73% 45%; }
+.quickIcon [data-motion-layer="unfamiliar-curious"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-motion-sprite.png'); background-position: 0 center; background-size: 900% 100%; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="calm-base"] { animation: calm-breathe-once 2.8s cubic-bezier(.45, 0, .55, 1) 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="calm-z"] { animation: calm-z-once 2.8s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="active-run"] { animation: active-run-once .88s steps(8, end) 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="social-pet"] { animation: social-pet-once 1.6s steps(8, end) 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-idle"] { animation: independent-idle-once 2.2s steps(8, end) 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-once 1.8s ease-in-out 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-curious"] { animation: unfamiliar-curious-once 2s steps(8, end) 1 both; }
 .quickStartCard:hover { transform: translateY(-2px); border-color: var(--moss); box-shadow: 0 10px 24px rgb(42 52 46 / 8%); }
 .quickStartCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .quickStartCard strong { max-width: 15ch; font-size: 1.04rem; line-height: 1.35; }
-.quickStartCard span { margin-top: 4px; padding-right: 38px; color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
+.quickDescription { margin-top: 4px; padding-right: 38px; color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
 .quickStartCard b { position: absolute; right: 14px; bottom: 14px; display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; color: var(--moss); background: var(--moss-light); font-size: 1rem; }
 .eyebrow { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .06em; }
 .explorer h2 { max-width: 22ch; margin: 0; font-size: clamp(2rem, 3.8vw, 3.1rem); line-height: 1.15; letter-spacing: -.045em; }
@@ -26,10 +36,89 @@
   .quickStartCard { min-height: 226px; padding: 10px 12px 14px; border-radius: 18px; }
   .quickIcon { width: 132px; height: 132px; margin-bottom: 7px; }
   .quickStartCard strong { font-size: .96rem; }
-  .quickStartCard span { font-size: .75rem; }
+  .quickDescription { font-size: .75rem; }
   .quickStartCard b { right: 11px; bottom: 11px; width: 30px; height: 30px; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .quickStartCard:hover .quickIcon [data-motion-layer="calm-base"] { animation: calm-breathe-loop 2.8s cubic-bezier(.45, 0, .55, 1) infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="calm-z"] { animation: calm-z-loop 2.8s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="active-run"] { animation: active-run-loop .88s steps(8, end) infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="social-pet"] { animation: social-pet-loop 1.6s steps(8, end) infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="independent-idle"] { animation: independent-idle-loop 2.2s steps(8, end) infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-loop 1.8s ease-in-out infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-curious"] { animation: unfamiliar-curious-loop 2s steps(8, end) infinite; }
+}
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="calm-base"] { animation: calm-breathe-loop 2.8s cubic-bezier(.45, 0, .55, 1) infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="calm-z"] { animation: calm-z-loop 2.8s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="active-run"] { animation: active-run-loop .88s steps(8, end) infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="social-pet"] { animation: social-pet-loop 1.6s steps(8, end) infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-idle"] { animation: independent-idle-loop 2.2s steps(8, end) infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-loop 1.8s ease-in-out infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-curious"] { animation: unfamiliar-curious-loop 2s steps(8, end) infinite; }
+@keyframes calm-breathe-once {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.008); }
+}
+@keyframes calm-z-once {
+  0%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+  68% { opacity: .9; }
+  88% { opacity: 0; transform: translateY(-9px) scale(1.08); }
+}
+@keyframes calm-breathe-loop {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.008); }
+}
+@keyframes calm-z-loop {
+  0%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+  68% { opacity: .9; }
+  88% { opacity: 0; transform: translateY(-9px) scale(1.08); }
+}
+@keyframes active-run-once {
+  from { background-position: 0 center; }
+  to { background-position: 100% center; }
+}
+@keyframes active-run-loop {
+  from { background-position: 0 center; }
+  to { background-position: 100% center; }
+}
+@keyframes social-pet-once {
+  from { background-position: 0 center; }
+  to { background-position: 100% center; }
+}
+@keyframes social-pet-loop {
+  from { background-position: 0 center; }
+  to { background-position: 100% center; }
+}
+@keyframes independent-idle-once {
+  from { background-position: 0 center; }
+  to { background-position: 100% center; }
+}
+@keyframes independent-idle-loop {
+  from { background-position: 0 center; }
+  to { background-position: 100% center; }
+}
+@keyframes grooming-sparkles-once {
+  0%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+  45% { opacity: .45; transform: translateY(2px) scale(.9); }
+  72% { opacity: 1; transform: translateY(-2px) scale(1.08); }
+}
+@keyframes grooming-sparkles-loop {
+  0%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+  45% { opacity: .45; transform: translateY(2px) scale(.9); }
+  72% { opacity: 1; transform: translateY(-2px) scale(1.08); }
+}
+@keyframes unfamiliar-curious-once {
+  from { background-position: 0 center; }
+  to { background-position: 100% center; }
+}
+@keyframes unfamiliar-curious-loop {
+  from { background-position: 0 center; }
+  to { background-position: 100% center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .quickStartCard { transition: none; }
   .quickStartCard:hover { transform: none; }
+  .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer],
+  .quickStartCard:hover .quickIcon [data-motion-layer],
+  .quickStartCard:focus-visible .quickIcon [data-motion-layer] { animation: none; }
 }
