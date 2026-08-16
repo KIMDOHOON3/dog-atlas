@@ -63,10 +63,11 @@
 
 ### 색상
 
-- 기본색: `#3f6653`에 가까운 짙은 모스 그린
-- 보조색: `#a9d9b7`에 가까운 연한 민트
+- 색은 사이트 테마색으로 일괄 칠하지 않고 실제 물건의 대표 재질과 색을 따른다.
+- 나무는 낮은 채도의 갈색, 금속은 은색·황동색, 천과 도자기는 따뜻한 중성색처럼 사용자가 바로 알아볼 수 있는 색을 우선한다.
+- 보조 요소는 하늘색·코랄·골드처럼 중심 사물과 구분되는 색을 쓰되 채도와 광택을 절제한다.
+- 한 아이콘은 보통 2~4개의 물체색 안에서 구성하고, 작은 명암 변화는 같은 재질의 입체감을 표현하는 데만 쓴다.
 - 필요한 내부 여백은 흰색 또는 투명한 음영으로 처리한다.
-- 한 아이콘에 주요 색상은 두 가지까지만 사용한다.
 - 색만으로 의미를 구분하지 않는다. 단색으로 보아도 실루엣이 읽혀야 한다.
 - 부드러운 입체감은 허용하되 강한 광택, 과장된 투영 그림자, 발광 효과는 넣지 않는다.
 - 같은 색 계열 안의 완만한 명도 변화는 사물의 둥근 형태를 구분하는 용도로만 사용한다.
@@ -116,7 +117,10 @@ Secondary cue: [ZERO OR ONE SMALL CUE].
 Style: compact, friendly, polished consumer-product icon; simple rounded geometry;
 soft two-tone filled shapes; minimal internal detail; immediately recognizable at 40px.
 
-Palette: deep moss green #3f6653 and soft mint #a9d9b7.
+Palette: use restrained, realistic material colors for the object itself. For example,
+use warm wood brown, charcoal bristles, brushed silver or brass, cream ceramic,
+natural kibble brown, muted blue, or soft coral where those colors clarify the object.
+Avoid a monochrome green treatment and keep saturation low enough to suit the ivory UI.
 Keep the same optical weight and detail density as the existing Dog Atlas lifestyle icons.
 
 Composition: one centered icon on a square canvas; the main object occupies 70–80% of
