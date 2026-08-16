@@ -10,7 +10,13 @@ export function CategoryDogIcon({ name, className }: { name: CategoryDogIconName
         </>
       ) : null}
       {name === "active" ? <span data-motion-layer="active-run" /> : null}
-      {name === "social" ? <span data-motion-layer="social-pet" /> : null}
+      {name === "social" ? (
+        <>
+          <span data-motion-layer="social-base" />
+          <span data-motion-layer="social-blink" />
+          <span data-motion-layer="social-hand" />
+        </>
+      ) : null}
       {name === "independent" ? <span data-motion-layer="independent-idle" /> : null}
       {name === "grooming" ? (
         <>
