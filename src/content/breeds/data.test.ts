@@ -8,8 +8,8 @@ function publicAssetExists(publicPath: string) {
 }
 
 describe("breed content", () => {
-  it("loads the 370 currently published schema-validated MVP breeds", () => {
-    expect(breeds).toHaveLength(370);
+  it("loads the 373 currently published schema-validated MVP entries", () => {
+    expect(breeds).toHaveLength(373);
     expect(breeds.every((breed) => breed.contentStatus === "mvp-editorial-draft")).toBe(true);
   });
 
@@ -43,7 +43,7 @@ describe("breed content", () => {
     expect(behaviorContextSources).toHaveLength(4);
   });
 
-  it("keeps published source URLs secure and individual FCI standards unique per breed", () => {
+  it("keeps source URLs secure and only shares an FCI standard across explicit varieties", () => {
     const fciUrls = new Map<string, string[]>();
 
     for (const breed of breeds) {
@@ -57,7 +57,10 @@ describe("breed content", () => {
     }
 
     const duplicates = [...fciUrls.entries()].filter(([, slugs]) => slugs.length > 1);
-    expect(duplicates).toEqual([]);
+    expect(duplicates).toEqual([[
+      "https://www.fci.be/en/nomenclature/BELGIAN-SHEPHERD-DOG-15.html",
+      ["belgian-groenendael", "belgian-laekenois", "belgian-malinois", "belgian-tervueren"],
+    ]]);
   });
 
   it("finds the Japanese Spitz detail entry", () => {

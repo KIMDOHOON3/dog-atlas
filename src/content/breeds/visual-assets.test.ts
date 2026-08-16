@@ -7,8 +7,8 @@ import { breeds } from "./data";
 const publicFile = (assetPath: string) => join(process.cwd(), "public", assetPath.slice(1));
 
 describe("published breed visual assets", () => {
-  it("maps all 370 published breeds to existing WebP card and history files", () => {
-    expect(breeds).toHaveLength(370);
+  it("maps all 373 published entries to existing WebP card and history files", () => {
+    expect(breeds).toHaveLength(373);
 
     const cardPaths = new Set<string>();
     const historyPaths = new Set<string>();
@@ -37,9 +37,9 @@ describe("published breed visual assets", () => {
       historyHashes.add(createHash("sha256").update(historyBytes).digest("hex"));
     }
 
-    expect(cardPaths.size).toBe(370);
-    expect(historyPaths.size).toBe(370);
-    expect(cardHashes.size).toBe(370);
-    expect(historyHashes.size).toBe(370);
+    expect(cardPaths.size).toBe(373);
+    expect(historyPaths.size).toBe(373);
+    expect(cardHashes.size).toBe(373);
+    expect(historyHashes.size).toBe(373);
   }, 30000);
 });

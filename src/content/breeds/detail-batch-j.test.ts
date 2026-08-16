@@ -7,17 +7,18 @@ import { detailBatchJ, detailBatchJSlugs } from "./detail-batch-j";
 import { getMasterBreed } from "./master-catalog";
 
 const expectedBatchJSlugs = [
-  "belgian-shepherd-dog", "czechoslovakian-wolfdog", "bearded-collie", "white-swiss-shepherd-dog", "bouvier-des-flandres",
+  "belgian-groenendael", "belgian-laekenois", "belgian-malinois", "belgian-tervueren",
+  "czechoslovakian-wolfdog", "bearded-collie", "white-swiss-shepherd-dog", "bouvier-des-flandres",
   "miniature-american-shepherd", "dogo-argentino", "dogue-de-bordeaux", "bulldog", "neapolitan-mastiff",
   "tibetan-mastiff", "continental-bulldog", "smooth-fox-terrier", "wire-fox-terrier", "kerry-blue-terrier",
   "cairn-terrier", "norfolk-terrier", "norwich-terrier", "miniature-bull-terrier", "american-staffordshire-terrier",
 ];
 
 describe("detail batch J mapping", () => {
-  it("adds exactly twenty unique, previously unpublished breeds", () => {
+  it("adds twenty-three unique entries after separating the Belgian Shepherd varieties", () => {
     expect(detailBatchJSlugs).toEqual(expectedBatchJSlugs);
-    expect(new Set(detailBatchJSlugs).size).toBe(20);
-    expect(detailBatchJ).toHaveLength(20);
+    expect(new Set(detailBatchJSlugs).size).toBe(23);
+    expect(detailBatchJ).toHaveLength(23);
     for (const slug of expectedBatchJSlugs) expect(getMasterBreed(slug)).toBeDefined();
   });
 

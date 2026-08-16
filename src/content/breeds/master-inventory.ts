@@ -14,7 +14,10 @@ export type MasterInventorySeed = readonly [
 
 export const masterInventorySeeds = [
   ["australian-kelpie", "오스트레일리안 켈피", "Australian Kelpie", 1, "definitive", "later"],
-  ["belgian-shepherd-dog", "벨지안 셰퍼드 독", "Belgian Shepherd Dog", 1, "definitive", "later", ["fci-varieties"]],
+  ["belgian-groenendael", "그로넨달", "Belgian Shepherd Dog (Groenendael)", 1, "definitive", "later", ["fci-varieties"]],
+  ["belgian-laekenois", "라케노이즈", "Belgian Shepherd Dog (Laekenois)", 1, "definitive", "later", ["fci-varieties"]],
+  ["belgian-malinois", "말리노이즈", "Belgian Shepherd Dog (Malinois)", 1, "definitive", "later", ["fci-varieties"]],
+  ["belgian-tervueren", "테르뷰런", "Belgian Shepherd Dog (Tervueren)", 1, "definitive", "later", ["fci-varieties"]],
   ["czechoslovakian-wolfdog", "체코슬로바키안 울프독", "Czechoslovakian Wolfdog", 1, "definitive", "later", ["ko-name-review"]],
   ["beauceron", "보스롱", "Beauce Sheepdog", 1, "definitive", "later", ["ko-name-review"]],
   ["briard", "브리아드", "Briard", 1, "definitive", "later"],

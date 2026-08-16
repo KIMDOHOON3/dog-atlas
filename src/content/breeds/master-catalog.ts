@@ -72,7 +72,10 @@ const aliasesKo: Partial<Record<string, string[]>> = {
   "icelandic-sheepdog": ["아이슬란딕 시프도그"],
   "portuguese-water-dog": ["포르투갈 워터 도그"],
   "chinese-crested-dog": ["차이니즈 크레스티드 도그"],
-  "belgian-shepherd-dog": ["벨지안 셰퍼드", "말리노이즈", "말리누아", "그로넨달", "테르뷰런", "라케노이즈"],
+  "belgian-groenendael": ["벨지안 셰퍼드", "벨지안 셰퍼드 독", "벨지언 쉽독", "벨지안 그로넨달"],
+  "belgian-laekenois": ["벨지안 셰퍼드", "벨지안 셰퍼드 독", "라케누아", "벨지안 라케노이즈"],
+  "belgian-malinois": ["벨지안 셰퍼드", "벨지안 셰퍼드 독", "말리누아", "벨지언 말리노이즈", "벨지안 말리노이즈"],
+  "belgian-tervueren": ["벨지안 셰퍼드", "벨지안 셰퍼드 독", "테르뷔렌", "터뷰렌", "벨지안 테르뷰런"],
   "german-shepherd-dog": ["저먼 세퍼드", "독일 셰퍼드"],
   "old-english-sheepdog": ["올드 잉글리시 쉽독", "올드 잉글리쉬 쉽독"],
   "shetland-sheepdog": ["셰틀랜드 쉽독", "셔틀랜드 쉽독", "셸티", "쉘티"],
@@ -96,7 +99,10 @@ const aliasesKo: Partial<Record<string, string[]>> = {
 };
 
 const aliasesEn: Partial<Record<string, string[]>> = {
-  "belgian-shepherd-dog": ["Belgian Malinois", "Malinois", "Groenendael", "Tervueren", "Laekenois"],
+  "belgian-groenendael": ["Belgian Sheepdog", "Groenendael"],
+  "belgian-laekenois": ["Belgian Laekenois", "Laekenois"],
+  "belgian-malinois": ["Belgian Malinois", "Malinois"],
+  "belgian-tervueren": ["Belgian Tervuren", "Tervuren", "Tervueren"],
   "german-spitz": ["Pomeranian", "Keeshond", "Wolfspitz"],
   "continental-toy-spaniel": ["Papillon", "Phalene"],
   "italian-sighthound": ["Italian Greyhound"],
@@ -113,12 +119,6 @@ function variety(
 }
 
 const varieties: Partial<Record<string, BreedVariety[]>> = {
-  "belgian-shepherd-dog": [
-    variety("groenendael", "그로넨달", "Groenendael"),
-    variety("laekenois", "라케노이즈", "Laekenois"),
-    variety("malinois", "말리노이즈", "Malinois", ["말리누아"], ["Belgian Malinois"]),
-    variety("tervueren", "테르뷰런", "Tervueren", ["터뷰렌"]),
-  ],
   dachshund: [
     variety("standard-smooth", "스탠더드 단모", "Standard Smooth-haired", ["단모 닥스훈트"]),
     variety("standard-long", "스탠더드 장모", "Standard Long-haired", ["장모 닥스훈트"]),
@@ -214,7 +214,8 @@ const publishedExpansionSlugs = new Set([
   "shar-pei", "mastiff", "leonberger", "west-highland-white-terrier", "staffordshire-bull-terrier",
   "soft-coated-wheaten-terrier", "karelian-bear-dog", "norwegian-lundehund", "xoloitzcuintle", "otterhound",
   "brittany-spaniel", "irish-red-setter", "lagotto-romagnolo", "pekingese", "irish-wolfhound",
-  "belgian-shepherd-dog", "czechoslovakian-wolfdog", "bearded-collie", "white-swiss-shepherd-dog", "bouvier-des-flandres",
+  "belgian-groenendael", "belgian-laekenois", "belgian-malinois", "belgian-tervueren",
+  "czechoslovakian-wolfdog", "bearded-collie", "white-swiss-shepherd-dog", "bouvier-des-flandres",
   "miniature-american-shepherd", "dogo-argentino", "dogue-de-bordeaux", "bulldog", "neapolitan-mastiff",
   "tibetan-mastiff", "continental-bulldog", "smooth-fox-terrier", "wire-fox-terrier", "kerry-blue-terrier",
   "cairn-terrier", "norfolk-terrier", "norwich-terrier", "miniature-bull-terrier", "american-staffordshire-terrier",

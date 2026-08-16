@@ -244,3 +244,9 @@ Use the global directional scroll control on any sufficiently long page. On `/di
 Apply the same 48-item incremental rendering to every `견종 모아보기` theme, while small collections naturally render in one batch. A jump-to-bottom action must continue following the document end while an infinite list appends new batches.
 
 Keep Pomeranian within the registered German Spitz entry rather than creating a duplicate catalog breed. Use `포메라이언` as the user-facing Korean label and retain common Korean spelling variants as search aliases.
+
+# 2026-08-17 — Expose the four Belgian Shepherd varieties as separate browse entries
+
+Keep the FCI classification explicit: Groenendael, Laekenois, Malinois, and Tervueren remain four varieties under Belgian Shepherd Dog standard 15. For Korean search and comparison, expose each variety as its own catalog and detail entry because the common names and coat-management differences are meaningful user-facing distinctions.
+
+Give every entry its own slug, aliases, card illustration, history illustration, and coat-specific care copy. A search for the umbrella name may return all four entries. Redirect the retired combined detail URL to Malinois for compatibility, and never describe the editorial split as four separate FCI breed registrations.

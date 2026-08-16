@@ -9,8 +9,8 @@ describe("master breed catalog", () => {
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it("contains the discovery inventory and all 370 detailed entries", () => {
-    expect(masterCatalog).toHaveLength(370);
+  it("contains the discovery inventory and all 373 detailed entries", () => {
+    expect(masterCatalog).toHaveLength(373);
     for (const breed of breeds) {
       expect(getMasterBreed(breed.slug)?.nameKo).toBe(breed.nameKo);
     }
@@ -50,11 +50,11 @@ describe("master breed catalog", () => {
 
   it("reports catalog status without depending on UI data", () => {
     expect(getMasterCatalogStats()).toEqual({
-      total: 370,
-      byFciGroup: { 1: 46, 2: 56, 3: 36, 4: 1, 5: 48, 6: 72, 7: 35, 8: 23, 9: 30, 10: 14 },
-      registryStatus: { definitive: 344, provisional: 17, nonFci: 9, verificationNeeded: 0 },
+      total: 373,
+      byFciGroup: { 1: 49, 2: 56, 3: 36, 4: 1, 5: 48, 6: 72, 7: 35, 8: 23, 9: 30, 10: 14 },
+      registryStatus: { definitive: 347, provisional: 17, nonFci: 9, verificationNeeded: 0 },
       inclusionType: {
-        internationalRegistered: 363,
+        internationalRegistered: 366,
         nationalHeritage: 2,
         nationalRegistered: 0,
         verifiedLandrace: 1,
@@ -62,14 +62,14 @@ describe("master breed catalog", () => {
         designerCross: 2,
         unverifiedName: 0,
       },
-      detailPriority: { core: 5, next: 365, later: 0 },
-      detailStatus: { published: 370, planned: 0, none: 0 },
+      detailPriority: { core: 5, next: 368, later: 0 },
+      detailStatus: { published: 373, planned: 0, none: 0 },
     });
   });
 
   it("resolves Korean search aliases for common varieties and spelling variants", () => {
     expect(getMasterBreed("german-spitz")?.aliasesKo).toContain("포메라니안");
-    expect(getMasterBreed("belgian-shepherd-dog")?.aliasesKo).toContain("말리노이즈");
+    expect(getMasterBreed("belgian-malinois")?.aliasesKo).toContain("말리누아");
     expect(getMasterBreed("poodle")?.aliasesKo).toContain("토이 푸들");
     expect(getMasterBreed("maltese")?.nameKo).toBe("말티즈");
     expect(getMasterBreed("maltese")?.aliasesKo).toContain("몰티즈");
@@ -97,8 +97,13 @@ describe("master breed catalog", () => {
     expect(getMasterBreed("maltipoo")?.inclusionType).toBe("designer-cross");
   });
 
-  it("keeps FCI varieties under one breed identity without losing discovery names", () => {
-    expect(getMasterBreed("belgian-shepherd-dog")?.varieties).toHaveLength(4);
+  it("supports separately browsable Belgian Shepherd varieties and nested varieties elsewhere", () => {
+    expect([
+      "belgian-groenendael",
+      "belgian-laekenois",
+      "belgian-malinois",
+      "belgian-tervueren",
+    ].every((slug) => getMasterBreed(slug)?.verificationNotes.some((note) => note.includes("바라이어티")))).toBe(true);
     expect(getMasterBreed("dachshund")?.varieties).toHaveLength(9);
     expect(getMasterBreed("german-spitz")?.varieties.map((variety) => variety.nameKo)).toContain("포메라이언");
     expect(getMasterBreed("poodle")?.varieties.map((variety) => variety.nameKo)).toContain("토이 푸들");

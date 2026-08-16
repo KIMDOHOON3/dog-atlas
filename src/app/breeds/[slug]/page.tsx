@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
 import { BeginnerGuideLink } from "@/components/beginner-guide-link";
 import { InterestBreedToggle } from "@/components/interest-breed-toggle";
@@ -18,10 +18,18 @@ import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() { return breeds.map((breed) => ({ slug: breed.slug })); }
+const legacyBreedRedirects: Record<string, string> = {
+  "belgian-shepherd-dog": "belgian-malinois",
+};
+
+export function generateStaticParams() {
+  return [...breeds.map((breed) => ({ slug: breed.slug })), ...Object.keys(legacyBreedRedirects).map((slug) => ({ slug }))];
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const breed = getBreed((await params).slug);
+  const slug = (await params).slug;
+  if (legacyBreedRedirects[slug]) return {};
+  const breed = getBreed(slug);
   if (!breed) return {};
   return { title: breed.nameKo, description: `${breed.tagline} 크기와 수명, 역사, 행동 경향과 함께 사는 현실을 살펴봅니다.` };
 }
@@ -148,7 +156,9 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
 }
 
 export default async function BreedDetail({ params }: PageProps) {
-  const breed = getBreed((await params).slug);
+  const slug = (await params).slug;
+  if (legacyBreedRedirects[slug]) redirect(`/breeds/${legacyBreedRedirects[slug]}`);
+  const breed = getBreed(slug);
   if (!breed) notFound();
   const related = getRelatedBreeds(breed);
   const [featuredRelated, ...otherRelated] = related;

@@ -1,14 +1,14 @@
-# 견종 마스터 인벤토리 160종
+# 견종 마스터 인벤토리 163종
 
 - 문서 상태: 카탈로그 확장을 위한 편집 초안
 - 기준일: 2026-08-03
-- 범위: FCI 10개 그룹을 기반으로, 한국 사용자가 검색하거나 접할 가능성이 있는 견종을 우선 선정한 160종 후보군
+- 범위: FCI 10개 그룹을 기반으로, 한국 사용자가 검색하거나 접할 가능성이 있는 견종을 우선 선정한 163종 후보군
 - 용도: 검색·발견·관심 견종 담기를 위한 얇은 마스터 데이터. 건강·행동·사육 정보가 검수된 상세 페이지 데이터가 아니다.
 
 ## 먼저 적용할 규칙
 
 1. `registryStatus` 중 `non-fci`는 “FCI가 인정하지 않는다”는 뜻일 뿐, 다른 단체의 인정 여부나 견종의 가치를 판단하는 표현이 아니다.
-2. FCI가 한 견종 안의 바라이어티로 분류하는 벨지언 셰퍼드, 닥스훈트, 저먼 스피츠, 푸들은 원칙적으로 한 행으로 유지한다. 서비스 검색에서는 포메라니안·말리노이즈·토이 푸들 같은 통용명을 별칭으로 연결한다.
+2. FCI가 한 견종 안의 바라이어티로 분류하는 닥스훈트, 저먼 스피츠, 푸들은 원칙적으로 한 행으로 유지한다. 벨지안 셰퍼드 독은 피모와 통용명 차이가 탐색에 중요하므로 그로넨달·라케노이즈·말리노이즈·테르뷰런을 각각 표시하되, 네 항목 모두 FCI 표준 15번의 바라이어티라는 관계를 명시한다.
 3. 한글명은 FCI 공식 번역이 아니라 국내 통용명을 우선한 편집 라벨이다. `ko-name-review`는 희귀 견종의 표기를 국내 견종 단체·수의 자료로 추가 확인해야 함을 뜻한다.
 4. `detailPriority`는 서비스 편집 순서를 기록한 코호트이며 견종의 우열이 아니다. `core`는 최초 상세 5종, `next`는 2026-08-03에 추가한 상세 15종, `later`는 목록·검색 우선 후보다.
 5. 인정 상태는 바뀐다. 발행 직전에 FCI 노멘클레이처에서 다시 확인한다.
@@ -17,20 +17,20 @@
 
 | 구분 | 개수 |
 |---|---:|
-| FCI definitive | 154 |
+| FCI definitive | 157 |
 | FCI provisional | 4 |
 | non-FCI | 2 |
-| 전체 | 160 |
+| 전체 | 163 |
 
 | 상세 제작 단계 | 개수 | 의미 |
 |---|---:|---|
 | core | 5 | 최초 상세 콘텐츠로 제작한 견종 |
 | next | 15 | 초기 20종 확장에서 상세 콘텐츠를 추가한 견종 |
-| later | 140 | 우선 검색·발견용 마스터에만 포함할 견종 |
+| later | 143 | 우선 검색·발견용 마스터에만 포함할 견종 |
 
 | FCI 그룹 | 편집 라벨 | 개수 |
 |---:|---|---:|
-| 1 | 목양견·목축견 | 20 |
+| 1 | 목양견·목축견 | 23 |
 | 2 | 핀셔·슈나우저·몰로서·스위스 마운틴독 | 23 |
 | 3 | 테리어 | 18 |
 | 4 | 닥스훈트 | 1 |
@@ -49,7 +49,10 @@
 | slug | nameKo | nameEn | fciGroupNo | registryStatus | detailPriority | verification |
 |---|---|---|---:|---|---|---|
 | australian-kelpie | 오스트레일리안 켈피 | Australian Kelpie | 1 | definitive | later | verified-fci |
-| belgian-shepherd-dog | 벨지안 셰퍼드 독 | Belgian Shepherd Dog | 1 | definitive | later | verified-fci; FCI-varieties |
+| belgian-groenendael | 그로넨달 | Belgian Shepherd Dog (Groenendael) | 1 | definitive | later | verified-fci; FCI-varieties |
+| belgian-laekenois | 라케노이즈 | Belgian Shepherd Dog (Laekenois) | 1 | definitive | later | verified-fci; FCI-varieties |
+| belgian-malinois | 말리노이즈 | Belgian Shepherd Dog (Malinois) | 1 | definitive | later | verified-fci; FCI-varieties |
+| belgian-tervueren | 테르뷰런 | Belgian Shepherd Dog (Tervueren) | 1 | definitive | later | verified-fci; FCI-varieties |
 | czechoslovakian-wolfdog | 체코슬로바키안 울프독 | Czechoslovakian Wolfdog | 1 | definitive | later | verified-fci; ko-name-review |
 | beauceron | 보세론 | Beauce Sheepdog | 1 | definitive | later | verified-fci; ko-name-review |
 | briard | 브리아드 | Briard | 1 | definitive | later | verified-fci |
@@ -218,7 +221,10 @@
 | german-shepherd-dog | 저먼 세퍼드, 저먼 셰퍼드, 독일 셰퍼드 |
 | old-english-sheepdog | 올드 잉글리시 쉽독, 올드 잉글리쉬 쉽독 |
 | shetland-sheepdog | 셰틀랜드 쉽독, 셔틀랜드 쉽독, 셸티, 쉘티 |
-| belgian-shepherd-dog | 벨지안 셰퍼드, 말리노이즈, 말리누아, 그로넨달, 테르뷰런, 라케노이즈 |
+| belgian-groenendael | 벨지안 셰퍼드, 벨지언 쉽독, 벨지안 그로넨달 |
+| belgian-laekenois | 벨지안 셰퍼드, 라케누아, 벨지안 라케노이즈 |
+| belgian-malinois | 벨지안 셰퍼드, 말리누아, 벨지언 말리노이즈, 벨지안 말리노이즈 |
+| belgian-tervueren | 벨지안 셰퍼드, 테르뷔렌, 터뷰렌, 벨지안 테르뷰런 |
 | miniature-pinscher | 미니핀 |
 | west-highland-white-terrier | 웨스티 |
 | yorkshire-terrier | 요키, 요크셔 |
