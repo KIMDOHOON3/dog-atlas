@@ -18,7 +18,12 @@ export function CategoryDogIcon({ name, className }: { name: CategoryDogIconName
           <span data-motion-layer="grooming-sparkles" />
         </>
       ) : null}
-      {name === "unfamiliar" ? <span data-motion-layer="unfamiliar-curious" /> : null}
+      {name === "unfamiliar" ? (
+        <>
+          <span data-motion-layer="unfamiliar-base" />
+          <span data-motion-layer="unfamiliar-question" />
+        </>
+      ) : null}
     </span>
   );
 }

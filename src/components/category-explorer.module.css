@@ -8,17 +8,18 @@
 .quickIcon [data-motion-layer="calm-z"] { background-image: url('/illustrations/ui/lifestyle-motion/calm-z.webp'); background-position: center; background-size: 100% 100%; transform-origin: 36% 23%; }
 .quickIcon [data-motion-layer="active-run"] { background-image: url('/illustrations/ui/lifestyle-motion/active-run-sprite.webp'); background-position: 0 center; background-size: 900% 100%; }
 .quickIcon [data-motion-layer="social-pet"] { background-image: url('/illustrations/ui/lifestyle-motion/social-motion-sprite.png'); background-position: 0 center; background-size: 900% 100%; }
-.quickIcon [data-motion-layer="independent-idle"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-motion-sprite.png'); background-position: 0 center; background-size: 900% 100%; }
+.quickIcon [data-motion-layer="independent-idle"] { background-image: url('/illustrations/ui/lifestyle-motion/independent-base.png'); background-position: center; background-size: 100% 100%; transform-origin: 50% 82%; }
 .quickIcon [data-motion-layer="grooming-base"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-base.webp'); background-position: center; background-size: 100% 100%; }
 .quickIcon [data-motion-layer="grooming-sparkles"] { background-image: url('/illustrations/ui/lifestyle-motion/grooming-accessory.webp'); background-position: center; background-size: 100% 100%; transform-origin: 73% 45%; }
-.quickIcon [data-motion-layer="unfamiliar-curious"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-motion-sprite.png'); background-position: 0 center; background-size: 900% 100%; }
+.quickIcon [data-motion-layer="unfamiliar-base"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-base.png'); background-position: center; background-size: 100% 100%; }
+.quickIcon [data-motion-layer="unfamiliar-question"] { background-image: url('/illustrations/ui/lifestyle-motion/unfamiliar-question.png'); background-position: center; background-size: 100% 100%; transform-origin: 68% 16%; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="calm-base"] { animation: calm-breathe-once 2.8s cubic-bezier(.45, 0, .55, 1) 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="calm-z"] { animation: calm-z-once 2.8s ease-in-out 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="active-run"] { animation: active-run-once .88s steps(8, end) 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="social-pet"] { animation: social-pet-once 1.6s steps(8, end) 1 both; }
-.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-idle"] { animation: independent-idle-once 2.2s steps(8, end) 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="independent-idle"] { animation: independent-breathe-once 2.4s ease-in-out 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-once 1.8s ease-in-out 1 both; }
-.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-curious"] { animation: unfamiliar-curious-once 2s steps(8, end) 1 both; }
+.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-once 2s ease-in-out 1 both; }
 .quickStartCard:hover { transform: translateY(-2px); border-color: var(--moss); box-shadow: 0 10px 24px rgb(42 52 46 / 8%); }
 .quickStartCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .quickStartCard strong { max-width: 15ch; font-size: 1.04rem; line-height: 1.35; }
@@ -44,17 +45,17 @@
   .quickStartCard:hover .quickIcon [data-motion-layer="calm-z"] { animation: calm-z-loop 2.8s ease-in-out infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="active-run"] { animation: active-run-loop .88s steps(8, end) infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="social-pet"] { animation: social-pet-loop 1.6s steps(8, end) infinite; }
-  .quickStartCard:hover .quickIcon [data-motion-layer="independent-idle"] { animation: independent-idle-loop 2.2s steps(8, end) infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="independent-idle"] { animation: independent-breathe-loop 2.4s ease-in-out infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-loop 1.8s ease-in-out infinite; }
-  .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-curious"] { animation: unfamiliar-curious-loop 2s steps(8, end) infinite; }
+  .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 2s ease-in-out infinite; }
 }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="calm-base"] { animation: calm-breathe-loop 2.8s cubic-bezier(.45, 0, .55, 1) infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="calm-z"] { animation: calm-z-loop 2.8s ease-in-out infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="active-run"] { animation: active-run-loop .88s steps(8, end) infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="social-pet"] { animation: social-pet-loop 1.6s steps(8, end) infinite; }
-.quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-idle"] { animation: independent-idle-loop 2.2s steps(8, end) infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="independent-idle"] { animation: independent-breathe-loop 2.4s ease-in-out infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-sparkles"] { animation: grooming-sparkles-loop 1.8s ease-in-out infinite; }
-.quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-curious"] { animation: unfamiliar-curious-loop 2s steps(8, end) infinite; }
+.quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 2s ease-in-out infinite; }
 @keyframes calm-breathe-once {
   0%, 100% { transform: scaleY(1); }
   50% { transform: scaleY(1.008); }
@@ -89,13 +90,13 @@
   from { background-position: 0 center; }
   to { background-position: 100% center; }
 }
-@keyframes independent-idle-once {
-  from { background-position: 0 center; }
-  to { background-position: 100% center; }
+@keyframes independent-breathe-once {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.006); }
 }
-@keyframes independent-idle-loop {
-  from { background-position: 0 center; }
-  to { background-position: 100% center; }
+@keyframes independent-breathe-loop {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.006); }
 }
 @keyframes grooming-sparkles-once {
   0%, 100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -107,13 +108,15 @@
   45% { opacity: .45; transform: translateY(2px) scale(.9); }
   72% { opacity: 1; transform: translateY(-2px) scale(1.08); }
 }
-@keyframes unfamiliar-curious-once {
-  from { background-position: 0 center; }
-  to { background-position: 100% center; }
+@keyframes unfamiliar-question-once {
+  0%, 100% { opacity: 1; transform: translateY(0) rotate(0); }
+  45% { opacity: .75; transform: translateY(-3px) rotate(4deg); }
+  72% { opacity: 1; transform: translateY(0) rotate(-2deg); }
 }
-@keyframes unfamiliar-curious-loop {
-  from { background-position: 0 center; }
-  to { background-position: 100% center; }
+@keyframes unfamiliar-question-loop {
+  0%, 100% { opacity: 1; transform: translateY(0) rotate(0); }
+  45% { opacity: .75; transform: translateY(-3px) rotate(4deg); }
+  72% { opacity: 1; transform: translateY(0) rotate(-2deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .quickStartCard { transition: none; }
