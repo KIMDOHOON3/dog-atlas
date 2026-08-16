@@ -29,7 +29,6 @@
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-dog-open"] { animation: grooming-breathe-once 4.6s ease-in-out 1 both, grooming-eyes-open-once 4.6s linear 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-dog-closed"] { animation: grooming-breathe-once 4.6s ease-in-out 1 both, grooming-eyes-closed-once 4.6s linear 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="grooming-hand"] { animation: grooming-stroke-once 4.6s cubic-bezier(.42, 0, .25, 1) 1 both; }
-.quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-base"] { animation: unfamiliar-base-once 4.6s ease-in-out 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-tilt"] { animation: unfamiliar-tilt-once 4.6s ease-in-out 1 both; }
 .quickStartCard[data-motion-ready="true"] .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-once 4.6s ease-in-out 1 both; }
 .quickStartCard:hover { transform: translateY(-2px); border-color: var(--moss); box-shadow: 0 10px 24px rgb(42 52 46 / 8%); }
@@ -63,7 +62,6 @@
   .quickStartCard:hover .quickIcon [data-motion-layer="grooming-dog-open"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite, grooming-eyes-open-loop 4.6s linear infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="grooming-dog-closed"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite, grooming-eyes-closed-loop 4.6s linear infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="grooming-hand"] { animation: grooming-stroke-loop 4.6s cubic-bezier(.42, 0, .25, 1) infinite; }
-  .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-base"] { animation: unfamiliar-base-loop 4.6s ease-in-out infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-tilt"] { animation: unfamiliar-tilt-loop 4.6s ease-in-out infinite; }
   .quickStartCard:hover .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 4.6s ease-in-out infinite; }
 }
@@ -77,7 +75,6 @@
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-dog-open"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite, grooming-eyes-open-loop 4.6s linear infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-dog-closed"] { animation: grooming-breathe-loop 4.6s ease-in-out infinite, grooming-eyes-closed-loop 4.6s linear infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="grooming-hand"] { animation: grooming-stroke-loop 4.6s cubic-bezier(.42, 0, .25, 1) infinite; }
-.quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-base"] { animation: unfamiliar-base-loop 4.6s ease-in-out infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-tilt"] { animation: unfamiliar-tilt-loop 4.6s ease-in-out infinite; }
 .quickStartCard:focus-visible .quickIcon [data-motion-layer="unfamiliar-question"] { animation: unfamiliar-question-loop 4.6s ease-in-out infinite; }
 @keyframes calm-breathe-once {
@@ -176,31 +173,23 @@
   58% { transform: translate(-17px, 1px) rotate(-1deg); }
   82% { transform: translate(6px, 0) rotate(.25deg); }
 }
-@keyframes unfamiliar-base-once {
-  0%, 34%, 100% { opacity: 1; }
-  34.01%, 76% { opacity: 0; }
-}
 @keyframes unfamiliar-tilt-once {
-  0%, 34%, 100% { opacity: 0; }
-  34.01%, 76% { opacity: 1; }
-}
-@keyframes unfamiliar-base-loop {
-  0%, 34%, 100% { opacity: 1; }
-  34.01%, 76% { opacity: 0; }
+  0%, 22%, 100% { opacity: 0; }
+  48%, 66% { opacity: 1; }
 }
 @keyframes unfamiliar-tilt-loop {
-  0%, 34%, 100% { opacity: 0; }
-  34.01%, 76% { opacity: 1; }
+  0%, 22%, 100% { opacity: 0; }
+  48%, 66% { opacity: 1; }
 }
 @keyframes unfamiliar-question-once {
-  0%, 100% { opacity: 1; transform: translateY(0) rotate(0); }
-  46%, 64% { opacity: .82; transform: translateY(-2px) rotate(3deg); }
-  82% { opacity: 1; transform: translateY(0) rotate(-1deg); }
+  0%, 18% { opacity: 1; transform: scale(.82); }
+  48%, 66% { opacity: 1; transform: scale(1.12); }
+  84%, 100% { opacity: 1; transform: scale(1); }
 }
 @keyframes unfamiliar-question-loop {
-  0%, 100% { opacity: 1; transform: translateY(0) rotate(0); }
-  46%, 64% { opacity: .82; transform: translateY(-2px) rotate(3deg); }
-  82% { opacity: 1; transform: translateY(0) rotate(-1deg); }
+  0%, 18%, 100% { opacity: 1; transform: scale(.82); }
+  48%, 66% { opacity: 1; transform: scale(1.12); }
+  84% { opacity: 1; transform: scale(.94); }
 }
 @media (prefers-reduced-motion: reduce) {
   .quickStartCard { transition: none; }
