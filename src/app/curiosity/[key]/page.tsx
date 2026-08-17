@@ -30,22 +30,18 @@ export default async function CuriosityThemePage({ params }: PageProps) {
   if (!theme) notFound();
 
   const themeBreeds = getHomeCuriosityBreeds(theme, breeds);
+  const selectionSentences = theme.selectionNote.match(/[^.!?]+[.!?]?/gu)?.map((sentence) => sentence.trim()).filter(Boolean) ?? [theme.selectionNote];
+  const [selectionLead, ...selectionDetails] = selectionSentences;
 
   return (
     <>
       <a className="skip-link" href="#curiosity-results">테마 견종 목록으로 바로가기</a>
       <SiteHeader wide />
       <main className={styles.main}>
-        <nav className={styles.breadcrumb} aria-label="현재 위치">
-          <Link href="/">도감</Link><span aria-hidden="true">/</span><Link href="/curiosity">견종 호기심 탐험</Link><span aria-hidden="true">/</span><span aria-current="page">{theme.label}</span>
-        </nav>
-
         <section className={styles.hero} aria-labelledby="curiosity-theme-title">
           <p className={styles.eyebrow}>견종 호기심 탐험</p>
           <span className={styles.term}>{theme.label}</span>
           <h1 id="curiosity-theme-title">{theme.collectionTitle}</h1>
-          <p>{theme.collectionDescription}</p>
-          <div className={styles.count}><strong>{themeBreeds.length}종</strong><span>현재 도감에서 함께 살펴봐요.</span></div>
         </section>
 
         <nav className={styles.themeNav} aria-label="다른 호기심 주제 살펴보기">
@@ -56,8 +52,9 @@ export default async function CuriosityThemePage({ params }: PageProps) {
 
         <section className={styles.results} id="curiosity-results" aria-labelledby="curiosity-results-title">
           <header>
-            <div><p className={styles.eyebrow}>이 주제로 만나는 견종</p><h2 id="curiosity-results-title">{themeBreeds.length}종의 서로 다른 이야기를 살펴보세요.</h2></div>
-            <p>{theme.selectionNote}</p>
+            <p className={styles.eyebrow}>이 주제로 만나는 견종</p>
+            <h2 id="curiosity-results-title">{selectionLead}</h2>
+            {selectionDetails.length > 0 && <p>{selectionDetails.join(" ")}</p>}
           </header>
 
           <CuriosityBreedGrid breeds={themeBreeds} />

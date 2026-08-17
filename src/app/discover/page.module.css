@@ -1,9 +1,9 @@
-.main { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; padding: 24px 0 96px; }
-.breadcrumb { display: flex; gap: 9px; color: var(--ink-soft); font-size: .8rem; }
-.breadcrumb a { color: var(--moss); text-underline-offset: 3px; }
-.intro { padding: 56px 0 36px; }
+.main { width: 100%; padding: 8px 0 96px; }
+.introShell { position: relative; width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto 34px; padding: 0 clamp(18px, 5vw, 72px) 40px; }
+.introShell::before { position: absolute; z-index: 0; inset: 0 12%; border-radius: 50%; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--moss-light) 76%, transparent) 0%, color-mix(in srgb, var(--moss-light) 36%, transparent) 48%, transparent 74%); content: ""; pointer-events: none; }
+.intro { position: relative; z-index: 1; padding: 26px 0 22px; text-align: center; }
 .intro p { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
-.intro h1 { max-width: 14ch; margin: 0; font-size: clamp(2.7rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -.06em; }
-.intro span { display: block; margin-top: 17px; color: var(--ink-soft); font-size: 1.08rem; }
-.loading { min-height: 220px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 22px; color: var(--ink-soft); background: var(--panel); }
-@media (max-width: 767px) { .main { width: calc(100% - var(--page-inline)); padding-top: 16px; } .intro { padding: 32px 0 24px; } .intro h1 { font-size: clamp(2rem, 9.5vw, 2.65rem); } .intro span { font-size: .92rem; line-height: 1.65; } }
+.intro h1 { max-width: 16ch; margin: 0 auto; font-size: clamp(2.25rem, 3.6vw, 3.4rem); line-height: 1.08; letter-spacing: -.05em; }
+.intro span { display: block; margin-top: 13px; color: var(--ink-soft); font-size: 1rem; }
+.loading { width: min(calc(100% - var(--page-inline)), var(--max)); min-height: 220px; margin: 0 auto; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 22px; color: var(--ink-soft); background: var(--panel); }
+@media (max-width: 767px) { .main { padding-top: 4px; } .introShell { margin-bottom: 26px; padding: 0 16px 30px; } .introShell::before { inset-inline: 0; } .intro { padding: 20px 0 18px; } .intro h1 { font-size: clamp(1.8rem, 8vw, 2.15rem); } .intro span { margin-top: 10px; font-size: .92rem; line-height: 1.6; } }

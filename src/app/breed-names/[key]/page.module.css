@@ -1,27 +1,20 @@
-.main { width: min(calc(100% - var(--page-inline)), var(--compare-max)); margin: 0 auto; padding-bottom: 104px; }
-.breadcrumb { min-height: 52px; display: flex; align-items: center; gap: 8px; color: var(--ink-soft); font-size: .8rem; }
-.breadcrumb a { color: inherit; text-underline-offset: 3px; }
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); gap: clamp(24px, 5vw, 72px); align-items: center; padding: clamp(26px, 5vw, 58px); border: 1px solid color-mix(in srgb, var(--moss) 15%, transparent); border-radius: 30px; background: color-mix(in srgb, var(--moss-light) 68%, var(--panel)); }
-.heroCopy { max-width: 680px; }
+.main { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; padding-bottom: 104px; }
+.intro { position: relative; isolation: isolate; overflow: hidden; margin-top: 12px; padding: clamp(32px, 4vw, 48px) 18px clamp(36px, 4.5vw, 54px); text-align: center; }
+.intro::before { position: absolute; z-index: -1; inset: 0 12%; border-radius: 50%; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--moss-light) 76%, transparent) 0%, color-mix(in srgb, var(--moss-light) 36%, transparent) 48%, transparent 74%); content: ""; }
+.introTitle { max-width: 760px; margin: 0 auto; }
 .eyebrow { margin: 0 0 10px; color: var(--moss); font-size: .78rem; font-weight: 800; letter-spacing: .06em; }
-.term { display: inline-block; margin-bottom: 8px; padding: 6px 11px; border-radius: 999px; color: var(--moss); background: var(--panel); font-size: .8rem; font-weight: 800; letter-spacing: .025em; }
-.hero h1 { margin: 0; font-size: clamp(2.15rem, 4vw, 3.7rem); line-height: 1.08; letter-spacing: -.045em; word-break: keep-all; }
-.description { max-width: 38rem; margin: 18px 0 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.76; word-break: keep-all; }
-.count { display: flex; align-items: baseline; gap: 10px; margin-top: 24px; }
-.count strong { color: var(--moss); font-size: 1.5rem; }
-.count span { color: var(--ink-soft); font-size: .82rem; }
-.heroVisual { position: relative; display: block; color: var(--ink); text-decoration: none; }
-.heroVisual > figure { border-radius: 24px; }
-.heroVisual > span { position: absolute; right: 10px; bottom: 10px; left: 10px; padding: 9px 12px; border-radius: 12px; background: rgb(255 253 248 / 90%); box-shadow: 0 5px 18px rgb(36 48 43 / 8%); backdrop-filter: blur(8px); font-size: .76rem; font-weight: 800; text-align: center; }
-.heroVisual:focus-visible { border-radius: 24px; outline: 3px solid var(--focus); outline-offset: 4px; }
-.storyNav { display: flex; gap: 8px; margin: 18px 0 54px; overflow-x: auto; padding: 2px 1px 8px; scrollbar-width: none; }
+.term { display: inline-block; margin-bottom: 8px; padding: 6px 11px; border-radius: 999px; color: var(--moss); background: var(--moss-light); font-size: .8rem; font-weight: 800; letter-spacing: .025em; }
+.intro h1 { margin: 0; font-size: clamp(2rem, 3.2vw, 3.15rem); line-height: 1.1; letter-spacing: -.045em; word-break: keep-all; }
+.description { max-width: 44rem; margin: 14px auto 0; color: var(--ink-soft); font-size: .96rem; line-height: 1.72; word-break: keep-all; }
+.storyNav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin: 18px 0 54px; padding: 2px 1px 8px; }
 .storyNav::-webkit-scrollbar { display: none; }
-.storyNav a { flex: none; padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); background: var(--panel); font-size: .76rem; font-weight: 700; text-decoration: none; }
+.storyNav a { min-width: 0; min-height: 58px; padding: 9px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 1px solid var(--line); border-radius: 15px; color: var(--ink-soft); background: var(--panel); text-align: center; text-decoration: none; }
+.storyNav strong { font-size: .8rem; line-height: 1.25; }
+.storyNav small { overflow: hidden; max-width: 100%; font-size: .64rem; font-weight: 600; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; opacity: .78; }
 .storyNav a[aria-current="page"] { border-color: var(--moss); color: var(--panel); background: var(--moss); }
 .storyNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-.results > header { display: grid; grid-template-columns: minmax(260px, 42fr) minmax(0, 58fr); gap: 24px; align-items: end; margin-bottom: 20px; }
+.results > header { margin-bottom: 20px; }
 .results h2 { margin: 0; font-size: clamp(1.65rem, 2.5vw, 2.3rem); line-height: 1.28; letter-spacing: -.035em; word-break: keep-all; }
-.results > header > p { max-width: 650px; margin: 0; color: var(--ink-soft); font-size: .9rem; line-height: 1.7; word-break: keep-all; }
 .breedGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .breedCard { overflow: hidden; display: flex; min-width: 0; flex-direction: column; border: 1px solid rgb(36 48 43 / 7%); border-radius: 19px; color: var(--ink); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 5%); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
 .breedCard:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgb(36 48 43 / 10%); }
@@ -43,14 +36,12 @@
 @media (max-width: 1020px) { .breedGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .main { padding-bottom: 112px; }
-  .breadcrumb { min-height: 44px; }
-  .hero { grid-template-columns: 1fr; gap: 22px; padding: 22px 18px 18px; border-radius: 24px; }
-  .hero h1 { font-size: clamp(1.9rem, 8.6vw, 2.35rem); line-height: 1.12; }
-  .description { margin-top: 14px; font-size: .91rem; line-height: 1.68; }
-  .heroVisual { width: min(100%, 360px); margin: 0 auto; }
-  .count { align-items: flex-start; flex-direction: column; gap: 2px; }
-  .storyNav { margin-bottom: 42px; }
-  .results > header { grid-template-columns: 1fr; gap: 10px; }
+  .intro { margin-top: 6px; padding: 28px 16px 32px; }
+  .intro::before { inset-inline: -10%; }
+  .intro h1 { font-size: clamp(1.85rem, 8vw, 2.2rem); line-height: 1.12; }
+  .description { font-size: .91rem; line-height: 1.68; }
+  .storyNav { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 42px; }
+  .storyNav a { padding-inline: 6px; }
   .breedGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .breedCard > div { padding: 11px 11px 13px; }
   .breedCard p { min-height: 0; }

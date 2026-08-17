@@ -15,11 +15,11 @@ export default function Home() {
       <main id="main">
         <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroCopy}>
-            <h1 className={styles.eyebrow} id="hero-title">375개 견종·교배견의 성격과 생활 정보를 비교해</h1>
-            <p className={styles.searchPrompt}>궁금한 견종이 있다면 이름으로 검색해보세요.</p>
-            <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn }) => {
+            <p className={styles.eyebrow}>375개 견종·교배견의 생활 정보</p>
+            <h1 className={styles.searchTitle} id="hero-title">궁금한 견종이 있다면 이름으로 검색해보세요.</h1>
+            <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn, illustration }) => {
               const master = getMasterBreed(slug);
-              return { slug, nameKo, nameEn, aliases: [...(master?.aliasesKo ?? []), ...(master?.aliasesEn ?? [])] };
+              return { slug, nameKo, nameEn, imageSrc: illustration, aliases: [...(master?.aliasesKo ?? []), ...(master?.aliasesEn ?? [])] };
             })} />
           </div>
         </section>

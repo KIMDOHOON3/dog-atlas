@@ -9,9 +9,11 @@ vi.mock("next/navigation", () => ({
 }));
 
 const breeds = [
-  { slug: "japanese-spitz", nameKo: "재패니즈 스피츠", nameEn: "Japanese Spitz" },
-  { slug: "samoyed", nameKo: "사모예드", nameEn: "Samoyed" },
-  { slug: "french-bulldog", nameKo: "프렌치 불도그", nameEn: "French Bulldog", aliases: ["프렌치 불독"] },
+  { slug: "japanese-spitz", nameKo: "재패니즈 스피츠", nameEn: "Japanese Spitz", imageSrc: "/illustrations/v2/japanese-spitz-card.webp" },
+  { slug: "samoyed", nameKo: "사모예드", nameEn: "Samoyed", imageSrc: "/illustrations/v2/samoyed-card.webp" },
+  { slug: "french-bulldog", nameKo: "프렌치 불도그", nameEn: "French Bulldog", imageSrc: "/illustrations/v2/french-bulldog-card.webp", aliases: ["프렌치 불독"] },
+  { slug: "welsh-corgi-cardigan", nameKo: "웰시 코기 카디건", nameEn: "Welsh Corgi (Cardigan)", imageSrc: "/illustrations/v2/welsh-corgi-cardigan-card.webp" },
+  { slug: "welsh-corgi-pembroke", nameKo: "웰시 코기 펨브로크", nameEn: "Pembroke Welsh Corgi", imageSrc: "/illustrations/v2/welsh-corgi-pembroke-card.webp", aliases: ["웰시 코기", "웰시코기"] },
 ];
 
 describe("SearchBox", () => {
@@ -28,7 +30,7 @@ describe("SearchBox", () => {
     render(<SearchBox breeds={breeds} />);
     fireEvent.change(screen.getByLabelText("견종 이름 검색"), { target: { value: "진돗개" } });
     fireEvent.click(screen.getByRole("button", { name: "찾기" }));
-    expect(screen.getByText(/현재 도감에는 3종의 강아지가 있어요/)).toBeInTheDocument();
+    expect(screen.getByText(/현재 도감에는 5종의 강아지가 있어요/)).toBeInTheDocument();
     expect(push).not.toHaveBeenCalled();
   });
 
@@ -51,5 +53,15 @@ describe("SearchBox", () => {
     render(<SearchBox breeds={breeds} />);
     fireEvent.change(screen.getByLabelText("견종 이름 검색"), { target: { value: "불독" } });
     expect(screen.getByRole("option", { name: /프렌치 불도그/ })).toBeInTheDocument();
+  });
+
+  it("ranks the Pembroke first and navigates from the common Welsh Corgi name", () => {
+    render(<SearchBox breeds={breeds} />);
+    fireEvent.change(screen.getByLabelText("견종 이름 검색"), { target: { value: "웰시코기" } });
+    const options = screen.getAllByRole("option");
+    expect(options[0]).toHaveAccessibleName(/웰시 코기 펨브로크/);
+    expect(options[0].querySelector("img")).toHaveAttribute("src", expect.stringContaining("welsh-corgi-pembroke-card"));
+    fireEvent.click(screen.getByRole("button", { name: "찾기" }));
+    expect(push).toHaveBeenCalledWith("/breeds/welsh-corgi-pembroke");
   });
 });

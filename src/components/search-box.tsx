@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, KeyboardEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./search-box.module.css";
 
-export type BreedOption = { slug: string; nameKo: string; nameEn: string; aliases?: string[] };
+export type BreedOption = { slug: string; nameKo: string; nameEn: string; imageSrc: string; aliases?: string[] };
 
 function normalize(value: string) {
   return value.trim().toLocaleLowerCase().replace(/[\s-]/g, "");
@@ -25,11 +26,12 @@ export function SearchBox({ breeds, id = "breed-search" }: { breeds: BreedOption
       .map((breed) => {
         const terms = [breed.nameKo, breed.nameEn, ...(breed.aliases ?? [])];
         const matchingAlias = breed.aliases?.find((alias) => normalize(alias).includes(normalizedQuery));
+        const exact = terms.some((term) => normalize(term) === normalizedQuery);
         const startsWith = terms.some((term) => normalize(term).startsWith(normalizedQuery));
-        return { ...breed, matchingAlias, startsWith, matches: terms.some((term) => normalize(term).includes(normalizedQuery)) };
+        return { ...breed, matchingAlias, exact, startsWith, matches: terms.some((term) => normalize(term).includes(normalizedQuery)) };
       })
       .filter((breed) => breed.matches)
-      .sort((a, b) => Number(b.startsWith) - Number(a.startsWith) || a.nameKo.localeCompare(b.nameKo, "ko"))
+      .sort((a, b) => Number(b.exact) - Number(a.exact) || Number(b.startsWith) - Number(a.startsWith) || a.nameKo.localeCompare(b.nameKo, "ko"))
       .slice(0, 6);
   }, [breeds, normalizedQuery]);
 
@@ -86,7 +88,7 @@ export function SearchBox({ breeds, id = "breed-search" }: { breeds: BreedOption
           }}
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
-          placeholder="견종 이름을 검색해보세요"
+          placeholder="견종 이름 입력"
           role="combobox"
           aria-autocomplete="list"
           aria-expanded={isOpen && suggestions.length > 0}
@@ -109,7 +111,8 @@ export function SearchBox({ breeds, id = "breed-search" }: { breeds: BreedOption
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => openBreed(breed)}
               >
-                <span><strong>{breed.nameKo}</strong><small>{breed.nameEn}</small></span>
+                <Image className={styles.suggestionImage} src={breed.imageSrc} alt="" width={52} height={52} />
+                <span className={styles.suggestionCopy}><strong>{breed.nameKo}</strong><small>{breed.nameEn}</small></span>
                 {breed.matchingAlias && normalize(breed.matchingAlias) !== normalize(breed.nameKo) && <em>{breed.matchingAlias}</em>}
               </button>
             </li>

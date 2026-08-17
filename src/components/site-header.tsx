@@ -25,7 +25,6 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
           <Link href="/breed-names/pointer">이름 속 견종</Link>
           <Link href="/curiosity/regulated-care">견종 모아보기</Link>
           <Link href={compareHref}>비교하기{hydrated && slugs.length > 0 ? ` · ${slugs.length}` : ""}</Link>
-          <Link className={styles.searchIcon} href="/#breed-search" aria-label="견종 검색으로 이동"><span className={styles.searchGlyph} aria-hidden="true" /></Link>
         </nav>
       </header>
       <nav className={styles.mobileBottomNav} aria-label="모바일 주요 탐색">

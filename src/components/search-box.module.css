@@ -5,11 +5,12 @@
 .row:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
 .row button { width: 46px; height: 46px; flex: 0 0 46px; padding: 0; display: inline-grid; place-items: center; border: 0; border-radius: 11px; color: white; background: var(--moss); cursor: pointer; }
 .row button span { font-size: 1.25rem; line-height: 1; }
-.suggestions { position: absolute; z-index: 15; top: 62px; right: 0; left: 0; overflow: hidden; margin: 0; padding: 5px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); box-shadow: 0 14px 34px rgb(42 52 46 / 14%); list-style: none; }
-.suggestions button { width: 100%; min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 11px; border: 0; border-radius: 11px; color: var(--ink); background: transparent; cursor: pointer; text-align: left; }
+.suggestions { position: absolute; z-index: 140; top: 62px; right: 0; left: 0; overflow: hidden; margin: 0; padding: 5px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); box-shadow: 0 18px 42px rgb(42 52 46 / 18%); list-style: none; }
+.suggestions button { width: 100%; min-height: 68px; display: flex; align-items: center; gap: 11px; padding: 8px 11px; border: 0; border-radius: 11px; color: var(--ink); background: transparent; cursor: pointer; text-align: left; }
 .suggestions button:hover, .suggestions button[aria-selected="true"] { background: var(--moss-light); }
 .suggestions button:focus-visible { outline: 3px solid var(--focus); outline-offset: -2px; }
-.suggestions span { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.suggestionImage { width: 52px; height: 52px; flex: 0 0 52px; border-radius: 10px; object-fit: cover; background: var(--paper-deep); }
+.suggestionCopy { min-width: 0; display: flex; flex: 1; flex-direction: column; gap: 2px; }
 .suggestions strong { font-size: .88rem; line-height: 1.25; }
 .suggestions small { overflow: hidden; color: var(--ink-soft); font-size: .69rem; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
 .suggestions em { flex: none; max-width: 42%; overflow: hidden; color: var(--moss); font-size: .67rem; font-style: normal; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }

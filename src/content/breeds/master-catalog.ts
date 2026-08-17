@@ -88,6 +88,7 @@ const aliasesKo: Partial<Record<string, string[]>> = {
   "old-english-sheepdog": ["올드 잉글리시 쉽독", "올드 잉글리쉬 쉽독"],
   "shetland-sheepdog": ["셰틀랜드 쉽독", "셔틀랜드 쉽독", "셸티", "쉘티"],
   "miniature-pinscher": ["미니핀"],
+  "welsh-corgi-pembroke": ["웰시 코기", "웰시코기"],
   "west-highland-white-terrier": ["웨스티"],
   "yorkshire-terrier": ["요키", "요크셔"],
   dachshund: ["미니어처 닥스훈트", "카니헨 닥스훈트", "장모 닥스훈트", "단모 닥스훈트", "와이어 닥스훈트"],

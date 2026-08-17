@@ -13,8 +13,7 @@
   --shadow: 0 18px 60px rgb(42 52 46 / 10%);
   --font-sans: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
   --font-serif: "KoPub Batang", "Noto Serif KR", Georgia, serif;
-  --max: 1200px;
-  --compare-max: 1440px;
+  --max: 1440px;
   --page-inline: 32px;
   --radius-sm: 12px;
   --radius-md: 22px;

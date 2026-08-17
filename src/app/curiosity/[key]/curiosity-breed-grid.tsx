@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { BreedVisual } from "@/components/breed-visual";
 import type { Breed } from "@/content/breeds/schema";
+import { presentBreedOrigin } from "@/lib/breed-origin-presentation";
 import styles from "./page.module.css";
 
 const INITIAL_COUNT = 48;
@@ -69,7 +70,7 @@ export function CuriosityBreedGrid({ breeds }: { breeds: CuriosityBreed[] }) {
               <small>{breed.nameEn}</small>
               <h3>{breed.nameKo}</h3>
               <p>{fact}</p>
-              <span>{breed.identity.origin} <b aria-hidden="true">→</b></span>
+              <span>{presentBreedOrigin(breed.identity.origin)} <b aria-hidden="true">→</b></span>
             </div>
           </Link>
         ))}

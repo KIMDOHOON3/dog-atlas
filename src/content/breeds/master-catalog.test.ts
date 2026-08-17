@@ -76,6 +76,7 @@ describe("master breed catalog", () => {
     expect(getMasterBreed("donggyeongi")?.aliasesKo).toContain("동경이");
     expect(getMasterBreed("central-asian-shepherd-dog")?.aliasesKo).toContain("알라바이");
     expect(getMasterBreed("central-asian-shepherd-dog")?.aliasesEn).toContain("Alabai");
+    expect(getMasterBreed("welsh-corgi-pembroke")?.aliasesKo).toContain("웰시코기");
   });
 
   it("separates registry status from the evidence-based inclusion type", () => {

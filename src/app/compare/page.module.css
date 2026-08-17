@@ -1,15 +1,13 @@
-.main { width: min(calc(100% - var(--page-inline)), var(--compare-max)); margin: 0 auto; padding-bottom: 100px; }
-.breadcrumb { margin: 22px 0; display: flex; gap: 8px; color: var(--ink-soft); font-size: .86rem; }
-.intro { width: 100%; max-width: 1040px; padding: clamp(38px, 5vw, 68px) 0; }
-.introMark { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.introMark svg { width: 34px; height: 34px; fill: none; stroke: var(--moss); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.introMark p, .sectionHead p, .reality > div:first-child p { margin: 0; color: var(--moss); font-size: .76rem; font-weight: 800; letter-spacing: .08em; }
+.main { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; padding-bottom: 100px; }
+.intro { position: relative; isolation: isolate; overflow: hidden; width: 100%; margin-top: 12px; padding: clamp(32px, 4vw, 48px) 18px clamp(36px, 4.5vw, 54px); text-align: center; }
+.intro::before { position: absolute; z-index: -1; inset: 0 12%; border-radius: 50%; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--moss-light) 76%, transparent) 0%, color-mix(in srgb, var(--moss-light) 36%, transparent) 48%, transparent 74%); content: ""; }
+.eyebrow, .sectionHead p, .reality > div:first-child p { margin: 0; color: var(--moss); font-size: .76rem; font-weight: 800; letter-spacing: .08em; }
 .intro h1, .sectionHead h2, .reality h2 { margin: 0; font-family: var(--font-sans); font-weight: 700; letter-spacing: -.04em; line-height: 1.16; }
-.intro h1 { max-width: 22ch; font-size: clamp(2.35rem, 3.5vw, 3.55rem); }
-.intro > span { display: block; max-width: 48rem; margin-top: 20px; color: var(--ink-soft); font-size: 1.02rem; line-height: 1.72; }
-.queryNotice { width: fit-content; margin: 18px 0 0; padding: 9px 12px; border-radius: 12px; color: var(--ink-soft); background: var(--clay-light); font-size: .84rem; }
-.visualCompare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.visualCompare[data-count="3"] { grid-template-columns: repeat(3, 1fr); }
+.intro h1 { max-width: 24ch; margin: 12px auto 0; font-size: clamp(2rem, 3.2vw, 3.15rem); }
+.intro > span { display: block; max-width: 48rem; margin: 16px auto 0; color: var(--ink-soft); font-size: .96rem; line-height: 1.7; }
+.queryNotice { width: fit-content; margin: 18px auto 0; padding: 9px 12px; border-radius: 12px; color: var(--ink-soft); background: var(--clay-light); font-size: .84rem; }
+.visualCompare { width: min(100%, 1040px); margin-inline: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.visualCompare[data-count="3"] { width: min(100%, 1240px); grid-template-columns: repeat(3, 1fr); }
 .visualCompare article { padding: 14px 14px 28px; border: 1px solid var(--line); border-radius: calc(var(--radius-md) + 8px); background: var(--panel); }
 .visualCompare h2 { margin: 22px 12px 0; font-family: var(--font-sans); font-size: clamp(1.7rem, 2.5vw, 2.5rem); font-weight: 700; letter-spacing: -.035em; }
 .visualCompare p, .visualCompare a { margin-left: 12px; margin-right: 12px; }
@@ -60,12 +58,13 @@
 .emptyState > div { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; }
 .emptyState a { min-height: 46px; padding: 10px 16px; display: inline-flex; align-items: center; border: 1px solid var(--moss); border-radius: 999px; color: var(--moss); font-weight: 700; text-decoration: none; }
 .emptyState a:first-child { color: white; background: var(--moss); }
-@media (min-width: 1600px) { .intro h1 { white-space: nowrap; } }
 @media (max-width: 1000px) { .visualCompare[data-count="3"], .realityCards[data-count="3"] { grid-template-columns: 1fr; } }
 @media (max-width: 767px) {
-  .intro h1 { font-size: clamp(2rem, 9vw, 2.55rem); }
-  .intro > span { font-size: .98rem; }
-  .visualCompare, .realityCards { grid-template-columns: 1fr; }
+  .intro { margin-top: 6px; padding: 28px 16px 32px; }
+  .intro::before { inset-inline: -10%; }
+  .intro h1 { font-size: clamp(1.85rem, 8vw, 2.2rem); }
+  .intro > span { font-size: .92rem; }
+  .visualCompare, .realityCards { width: 100%; grid-template-columns: 1fr; }
   .sectionHead { align-items: start; flex-direction: column; }
   .tableWrap { display: none; }
   .mobileComparison { display: block; }

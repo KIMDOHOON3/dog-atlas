@@ -1,6 +1,6 @@
 .explorer { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; padding: 10px 0 68px; }
-.quickExplorer { padding-top: 42px; padding-bottom: 58px; }
-.quickStartGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+.quickExplorer { padding-top: 46px; padding-bottom: 58px; }
+.quickStartGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 26px; }
 .quickStartCard { position: relative; min-height: 258px; overflow: hidden; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 14px 16px 16px; border: 1px solid var(--line); border-radius: 20px; color: var(--ink); background: var(--panel); text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
 .quickIcon { position: relative; align-self: center; display: block; width: 156px; height: 156px; margin: 0 auto 6px; background-color: transparent; }
 .quickIcon [data-motion-layer] { position: absolute; inset: 0; display: block; background-repeat: no-repeat; }
@@ -37,13 +37,12 @@
 .quickDescription { margin-top: 4px; padding-right: 38px; color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
 .quickStartCard b { position: absolute; right: 14px; bottom: 14px; display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; color: var(--moss); background: var(--moss-light); font-size: 1rem; }
 .eyebrow { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .06em; }
-.explorer h2 { max-width: 22ch; margin: 0; font-size: clamp(2rem, 3.8vw, 3.1rem); line-height: 1.15; letter-spacing: -.045em; }
-.intro { max-width: 62ch; margin: 14px 0 30px; color: var(--ink-soft); line-height: 1.7; }
+.explorer h2 { max-width: 22ch; margin: 0; color: var(--ink); font-size: clamp(1.75rem, 2.5vw, 2.35rem); line-height: 1.2; letter-spacing: -.04em; }
 @media (max-width: 960px) { .quickStartGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .explorer { padding-bottom: 54px; }
-  .quickExplorer { padding-top: 22px; }
-  .quickExplorer h2 { font-size: clamp(1.7rem, 7.2vw, 1.95rem); }
+  .quickExplorer { padding-top: 34px; }
+  .quickExplorer h2 { font-size: clamp(1.5rem, 6.4vw, 1.75rem); }
   .quickStartGrid { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
   .quickStartCard { min-height: 226px; padding: 10px 12px 14px; border-radius: 18px; }
   .quickIcon { width: 132px; height: 132px; margin-bottom: 7px; }

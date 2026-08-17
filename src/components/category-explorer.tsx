@@ -7,12 +7,12 @@ import { applyBreedFilterPreset, breedFilterPresets, filtersToSearchParams } fro
 import styles from "./category-explorer.module.css";
 
 const optionDetails = {
-  calm: { description: "활동량이 낮은 편", icon: "calm" as const },
-  active: { description: "활동량이 높은 편", icon: "active" as const },
-  social: { description: "교감이 높은 편", icon: "social" as const },
-  independent: { description: "독립성이 높은 편", icon: "independent" as const },
-  "grooming-light": { description: "털 관리가 낮은 편", icon: "grooming" as const },
-  all: { description: "전체 견종 둘러보기", icon: "unfamiliar" as const },
+  calm: { description: "가벼운 산책 중심", icon: "calm" as const },
+  active: { description: "충분한 운동이 필요한 편", icon: "active" as const },
+  social: { description: "사람과 가까이 지내는 편", icon: "social" as const },
+  independent: { description: "혼자 쉬는 시간을 즐기는 편", icon: "independent" as const },
+  "grooming-light": { description: "빗질 부담이 낮은 편", icon: "grooming" as const },
+  all: { description: "조건 없이 모두 보기", icon: "unfamiliar" as const },
 };
 
 const firstExploreOptions = breedFilterPresets.map((preset) => ({
@@ -50,9 +50,8 @@ export function CategoryExplorer() {
 
   return (
     <section className={`${styles.explorer} ${styles.quickExplorer}`} id="lenses" aria-labelledby="explorer-title">
-      <div className={styles.eyebrow}>처음이라면 여기부터</div>
+      <div className={styles.eyebrow}>생활 조건으로 찾기</div>
       <h2 id="explorer-title">내가 원하는 생활부터 골라보세요.</h2>
-      <p className={styles.intro}>원하는 생활을 하나 골라 가볍게 시작해보세요.</p>
       <div ref={gridRef} className={styles.quickStartGrid} role="list" aria-label="견종 발견 빠른 시작">
         {firstExploreOptions.map((option) => (
           <Link data-motion-card className={styles.quickStartCard} href={option.query ? `/discover?${option.query}` : "/discover"} key={option.label}>

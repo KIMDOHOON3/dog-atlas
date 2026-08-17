@@ -4,7 +4,7 @@
 .hero { width: 100%; aspect-ratio: 1 / 1; height: auto; min-height: 0; border-radius: 28px; box-shadow: 0 18px 50px rgb(36 48 43 / 12%); }
 .card, .landscape, .portrait, .tile, .detail, .compare { aspect-ratio: 1 / 1; min-height: 0; }
 .history { width: 100%; aspect-ratio: 3 / 2; min-height: 0; }
-.history .image { object-fit: contain; }
+.history .image { object-fit: cover; object-position: center; }
 .card { width: 100%; }
 .landscape { width: 100%; }
 .portrait { width: 100%; }

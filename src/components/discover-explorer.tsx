@@ -20,6 +20,7 @@ import {
 } from "@/lib/breed-filters";
 import { useHistoryEntryState } from "@/lib/history-entry-state";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
+import { presentBreedOrigin } from "@/lib/breed-origin-presentation";
 import styles from "./discover-explorer.module.css";
 
 const sizeOptions: Array<{ value: BreedSize; label: string }> = [
@@ -29,13 +30,13 @@ const sizeOptions: Array<{ value: BreedSize; label: string }> = [
   { value: "giant", label: "초대형" },
 ];
 
-const tendencyFields: Array<{ key: TendencyFilterKey; label: string; queryLabel: string }> = [
-  { key: "activity", label: "활동량", queryLabel: "활동량" },
-  { key: "mentalStimulation", label: "정신적 자극", queryLabel: "정신적 자극" },
-  { key: "socialConnection", label: "사람과의 교감", queryLabel: "교감" },
-  { key: "independence", label: "독립성", queryLabel: "독립성" },
-  { key: "alerting", label: "주변 변화에 대한 반응", queryLabel: "주변 반응" },
-  { key: "grooming", label: "털 관리", queryLabel: "털 관리" },
+const tendencyFields: Array<{ key: TendencyFilterKey; label: string; queryLabel: string; description: string }> = [
+  { key: "activity", label: "활동량", queryLabel: "활동량", description: "산책·놀이처럼 반복해서 필요한 신체 활동의 정도" },
+  { key: "mentalStimulation", label: "정신적 자극", queryLabel: "정신적 자극", description: "냄새 탐색·학습·문제 해결처럼 머리를 쓰는 활동의 필요" },
+  { key: "socialConnection", label: "사람과의 교감", queryLabel: "교감", description: "사람 곁에 머물며 상호작용을 찾는 경향" },
+  { key: "independence", label: "독립성", queryLabel: "독립성", description: "스스로 판단하거나 거리를 조절하려는 경향" },
+  { key: "alerting", label: "주변 변화에 대한 반응", queryLabel: "주변 반응", description: "소리·방문객·움직임을 알아차리고 알리는 경향" },
+  { key: "grooming", label: "털 관리", queryLabel: "털 관리", description: "빗질·털갈이·세정·미용에 드는 반복 관리 부담" },
 ];
 
 const tendencyOptions: Array<{ value: TendencyLevel; label: string }> = [
@@ -215,10 +216,10 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
   }
 
   function selectedLabel(key: "size" | TendencyFilterKey, value: string) {
-    if (key === "size") return sizeOptions.find((option) => option.value === value)?.label ?? value;
+    if (key === "size") return `체구 · ${sizeOptions.find((option) => option.value === value)?.label ?? value}`;
     const field = tendencyFields.find((option) => option.key === key);
     const level = tendencyOptions.find((option) => option.value === value)?.label ?? value;
-    return `${field?.queryLabel ?? field?.label ?? key} ${level}`;
+    return `${field?.queryLabel ?? field?.label ?? key} · ${level}`;
   }
 
   const selectedEntries = (Object.entries(filters) as Array<["size" | TendencyFilterKey, string[]]>).flatMap(([key, values]) => values.map((value) => ({ key, value })));
@@ -266,12 +267,25 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
             </fieldset>
           ))}
 
+          <details className={styles.filterGuide}>
+            <summary>필터 기준 알아보기</summary>
+            <div>
+              <p>낮음·중간·높음은 점수나 보장값이 아니라, 품종의 역사적 역할과 현재 생활·관리 정보를 종합한 편집 분류예요.</p>
+              <dl>
+                {tendencyFields.map((field) => (
+                  <div key={field.key}><dt>{field.label}</dt><dd>{field.description}</dd></div>
+                ))}
+              </dl>
+              <small>같은 견종도 개체와 생활 환경에 따라 달라질 수 있어요.</small>
+            </div>
+          </details>
+
           <button className={styles.applyFilter} type="button" onClick={closeMobileFilters}>{activeCount > 0 ? `${results.length}종 결과 보기` : `전체 ${results.length}종 보기`}</button>
         </aside>
 
         <section className={styles.resultsPanel} aria-live="polite" aria-labelledby="discover-results-title">
           <div className={styles.quickExplore}>
-            <div><span>빠른 탐색</span><p>한 번 눌러 바로 살펴보세요.</p></div>
+            <div className={styles.quickIntro}><span>빠른 탐색</span><strong>생활 조건으로 바로 보기</strong><p>한 번 눌러 바로 살펴보세요.</p></div>
             <div className={styles.presetList}>
               {breedFilterPresets.map((preset) => {
                 const presetFilters = applyBreedFilterPreset(preset);
@@ -294,6 +308,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
 
           <div className={styles.resultGrid}>
             {visibleResults.map((breed) => {
+              const size = getBreedFilterValue(breed, "size");
               const highlights = activeCount > 0
                 ? selectedEntries
                   .map(({ key, value }) => {
@@ -304,19 +319,22 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
                   })
                   .filter((highlight): highlight is string => Boolean(highlight))
                   .slice(0, 3)
-                : [sizeOptions.find((option) => getBreedFilterValue(breed, "size") === option.value)?.label, breed.tendencies.activity.label].filter(Boolean);
+                : [
+                  size ? selectedLabel("size", size) : undefined,
+                  `활동량 · ${breed.tendencies.activity.label}`,
+                ].filter((highlight): highlight is string => Boolean(highlight));
               return (
-                <article className={styles.resultCard} key={breed.slug}>
+                <Link className={styles.resultCard} href={`/breeds/${breed.slug}`} key={breed.slug} aria-label={`${breed.nameKo} 상세 이야기 보기`}>
                   <BreedVisual breed={breed} variant="tile" />
                   <div className={styles.resultCopy}>
-                    <div className={styles.resultMeta}><span>{breed.nameEn}</span><span>{breed.identity.origin}</span></div>
+                    <div className={styles.resultMeta}><span>{breed.nameEn}</span><span>{presentBreedOrigin(breed.identity.origin)}</span></div>
                     {isKoreanManagedBreed(breed.slug) && <span className={styles.legalBadge}>대한민국 법령상 맹견</span>}
                     <h2>{breed.nameKo}</h2>
                     <div className={styles.resultHighlights}>{highlights.map((highlight) => <span key={highlight}>{highlight}</span>)}</div>
                     <p>{breed.tagline}</p>
-                    <Link href={`/breeds/${breed.slug}`}>상세 이야기 보기 →</Link>
+                    <span className={styles.resultDetail}>상세 이야기 보기 →</span>
                   </div>
-                </article>
+                </Link>
               );
             })}
           </div>

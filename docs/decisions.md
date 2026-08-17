@@ -22,7 +22,7 @@ Use a consistent illustration language for hero and history/role scenes. Use onl
 
 ## 2026-08-01 — Responsive QA references
 
-Use 1920px desktop, 1440px laptop, 768px tablet, and 390px mobile as the required visual QA widths. The shared content gutter is 16px per side and the standard content maximum is 1200px; the comparison page alone may expand to 1440px for wide side-by-side reading.
+Use 1920px desktop, 1440px laptop, 768px tablet, and 390px mobile as the required visual QA widths. The shared content gutter is 16px per side and the shared content maximum is 1440px. Individual text blocks retain their narrower reading measures inside that common container.
 
 Existing component breakpoints remain purpose-specific: home reflows at 960/767/420px, detail at 900/767px, comparison cards at 700px, and compact header navigation at 560px. New breakpoints should reuse one of these boundaries unless a documented layout constraint requires another value.
 
@@ -268,3 +268,7 @@ Use `아나톨리안 셰퍼드` as the display name, preserve common Korean spel
 Assign every published catalog entry to exactly one discovery size category: small, medium, large, or giant. Do not place boundary labels such as `중대형` in two filters. Normalize a boundary or range to its upper category so space, handling, transport, and care demands are not understated; keep the source-backed adult height and weight range in the detail content.
 
 Fold toy and extra-small labels into small. For a catalog entry that covers several registered size varieties, use the variety represented by the current card as its discovery category and explain the broader variation in the detail copy.
+
+# 2026-08-17 — Unify the wide desktop container
+
+Use the same 1440px maximum container for primary content, editorial collections, comparison, headers, and `/discover` instead of maintaining page-specific width ceilings. Keep readable text measures narrower inside the shared container. On desktop discovery, let result columns form automatically with a 360px minimum card width so a roughly 1400px viewport keeps two generous cards beside the persistent filter and wider screens naturally gain a third column. Preserve the existing two-column tablet layout, mobile filter sheet, and 767px mobile boundary.

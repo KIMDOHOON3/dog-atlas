@@ -3,8 +3,8 @@ import Link from "next/link";
 import { BreedVisual } from "@/components/breed-visual";
 import { CompareCandidateHeader } from "@/components/compare-candidate-header";
 import { SiteHeader } from "@/components/site-header";
-import { StoryGlyph } from "@/components/story-glyph";
 import { resolveComparisonSelection } from "@/lib/compare-breeds";
+import { presentBreedOrigin } from "@/lib/breed-origin-presentation";
 import type { Breed } from "@/content/breeds/schema";
 import styles from "./page.module.css";
 
@@ -31,7 +31,7 @@ function buildRows(selectedBreeds: Breed[]): ComparisonRow[] {
   });
 
   return [
-    identityRow("형성 지역", (breed) => breed.identity.origin),
+    identityRow("형성 지역", (breed) => presentBreedOrigin(breed.identity.origin)),
     identityRow("계통", (breed) => breed.identity.lineage),
     identityRow("원래 역할", (breed) => breed.identity.originalRole),
     identityRow("체격", (breed) => breed.identity.size),
@@ -66,9 +66,8 @@ export default async function ComparePage({ searchParams }: PageProps) {
       <a className="skip-link" href={selectedBreeds.length >= 2 ? "#comparison" : "#compare-state"}>비교 내용으로 바로가기</a>
       <SiteHeader wide />
       <main className={styles.main}>
-        <nav className={styles.breadcrumb} aria-label="현재 위치"><Link href="/">도감</Link><span aria-hidden="true">/</span><span aria-current="page">비교하기</span></nav>
         <header className={styles.intro}>
-          <div className={styles.introMark}><StoryGlyph kind="compare" /><p>견종 비교</p></div>
+          <p className={styles.eyebrow}>견종 비교</p>
           <h1>관심을 가진 견종을 같은 기준으로 살펴보세요.</h1>
           <span>이 비교는 우열이나 정답을 정하지 않습니다. 일반적인 경향과 생활 부담을 함께 확인하세요.</span>
           {selection.usedFallback && <p className={styles.queryNotice}>알 수 없는 견종이 포함되어 기본 비교 후보를 보여드려요.</p>}

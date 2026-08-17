@@ -162,7 +162,9 @@ export default async function BreedDetail({ params }: PageProps) {
   if (!breed) notFound();
   const related = getRelatedBreeds(breed);
   const [featuredRelated, ...otherRelated] = related;
-  const allSources = [...breed.sources, ...behaviorContextSources];
+  const allSources = [...new Map(
+    [...breed.sources, ...behaviorContextSources].map((source) => [source.url, source]),
+  ).values()];
   const facts = getBreedFactPresentation(breed);
 
   return (
@@ -170,8 +172,6 @@ export default async function BreedDetail({ params }: PageProps) {
       <a className="skip-link" href="#breed-content">견종 정보로 바로가기</a>
       <SiteHeader />
       <main id="breed-content">
-        <nav className={styles.breadcrumb} aria-label="현재 위치"><Link href="/">← 도감으로 돌아가기</Link><span aria-hidden="true">/</span><span>{breed.nameKo}</span></nav>
-
         <section className={`${styles.hero} ${styles.malteseHero}`} aria-labelledby="breed-title">
           <div className={styles.summary}>
             <h1 id="breed-title">{breed.nameKo}</h1>

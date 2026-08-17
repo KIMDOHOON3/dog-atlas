@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { BeginnerGuide } from "@/components/beginner-guide";
 import { BreedVisual } from "@/components/breed-visual";
@@ -26,10 +25,6 @@ export default async function BeginnerGuidePage({ searchParams }: PageProps) {
       <a className="skip-link" href="#guide-content">맞이 준비 가이드로 바로가기</a>
       <SiteHeader />
       <main id="guide-content" className={styles.main}>
-        <nav className={styles.breadcrumb} aria-label="현재 위치">
-          <Link href={`/breeds/${breed.slug}`}>← {breed.nameKo} 이야기로 돌아가기</Link>
-        </nav>
-
         <header className={styles.hero}>
           <div>
             <p className={styles.eyebrow}>처음 함께 살기 위한 4단계</p>
