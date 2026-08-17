@@ -953,6 +953,7 @@
   .malteseHero {
     margin-top: 18px;
     gap: 14px;
+    grid-template: "visual" auto "profile" auto / minmax(0, 1fr);
   }
   .malteseHero > figure {
     width: 100%;
@@ -962,7 +963,31 @@
     border-radius: 22px;
   }
   .heroTendencies {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .heroTendencies div {
+    padding: 10px 8px 11px;
+  }
+  .heroTendencies > div > span:first-child {
+    margin-bottom: 6px;
+    font-size: .64rem;
+    letter-spacing: -.02em;
+    white-space: nowrap;
+  }
+  .tendencyValue {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tendencyValue strong {
+    font-size: .78rem;
+  }
+  .tendencyMeter {
+    gap: 2px;
+  }
+  .tendencyMeter i {
+    width: 10px;
   }
   .tendencies > header {
     align-items: start;

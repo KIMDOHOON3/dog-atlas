@@ -47,5 +47,10 @@
   .breedCard p { min-height: 0; }
   .guide { grid-template-columns: 1fr; gap: 20px; margin-top: 46px; border-radius: 22px; }
 }
-@media (max-width: 390px) { .breedGrid { grid-template-columns: 1fr; } .breedCard { display: grid; grid-template-columns: 42% 58%; } }
+@media (max-width: 390px) {
+  .breedGrid { grid-template-columns: 1fr; }
+  .breedCard { display: grid; grid-template-columns: 42% 58%; }
+  .breedCard > figure { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; }
+  .breedCard > figure img { object-fit: cover; }
+}
 @media (prefers-reduced-motion: reduce) { .breedCard { transition: none; } .breedCard:hover { transform: none; } }
