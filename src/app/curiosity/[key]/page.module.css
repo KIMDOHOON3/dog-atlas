@@ -6,21 +6,22 @@
 .hero h1 { max-width: 18ch; margin: 0 auto; font-size: clamp(2rem, 3.2vw, 3.15rem); line-height: 1.1; letter-spacing: -.045em; word-break: keep-all; }
 .themeNav { display: flex; gap: 8px; margin: 18px 0 54px; overflow-x: auto; padding: 2px 1px 8px; scrollbar-width: none; }
 .themeNav::-webkit-scrollbar { display: none; }
-.themeNav a { flex: none; padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); background: var(--panel); font-size: .76rem; font-weight: 700; text-decoration: none; }
-.themeNav a[aria-current="page"] { border-color: var(--moss); color: var(--panel); background: var(--moss); }
+.themeNav a { flex: none; padding: 9px 13px; border: 0; border-radius: 999px; color: var(--ink-soft); background: var(--panel); box-shadow: 0 4px 13px rgb(36 48 43 / 6%); font-size: .76rem; font-weight: 700; text-decoration: none; }
+.themeNav a[aria-current="page"] { color: var(--panel); background: var(--moss); box-shadow: 0 6px 16px rgb(36 48 43 / 12%); }
 .themeNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .results > header { max-width: 980px; margin-bottom: 24px; }
 .results h2 { max-width: 32ch; margin: 0; font-size: clamp(1.55rem, 2.2vw, 2rem); line-height: 1.32; letter-spacing: -.035em; word-break: keep-all; }
 .results > header > p:last-child:not(.eyebrow) { max-width: 760px; margin: 12px 0 0; color: var(--ink-soft); font-size: .9rem; line-height: 1.7; word-break: keep-all; }
 .breedGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.breedCard { overflow: hidden; display: flex; min-width: 0; flex-direction: column; border: 1px solid rgb(36 48 43 / 7%); border-radius: 20px; color: var(--ink); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 5%); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.breedCard { overflow: hidden; display: flex; min-width: 0; flex-direction: column; border: 0; border-radius: 20px; color: var(--ink); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 6%); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.breedCard > figure { border: 0; box-shadow: none; }
 .breedCard:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgb(36 48 43 / 10%); }
 .breedCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .breedCard > div { flex: 1; padding: 14px 15px 16px; }
 .breedCard small { display: block; min-height: 2.6em; color: var(--ink-soft); font-size: .68rem; line-height: 1.35; overflow-wrap: anywhere; }
 .breedCard h3 { margin: 3px 0 8px; font-size: 1.04rem; letter-spacing: -.02em; word-break: keep-all; }
 .breedCard p { min-height: 2.9em; margin: 0; color: var(--ink-soft); font-size: .78rem; line-height: 1.48; word-break: keep-all; }
-.breedCard > div > span { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 13px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--moss); font-size: .7rem; font-weight: 700; }
+.breedCard > div > span { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 13px; padding-top: 10px; border-top: 0; color: var(--moss); font-size: .7rem; font-weight: 700; }
 .infiniteScroll { min-height: 82px; display: flex; align-items: center; justify-content: center; gap: 9px; padding-top: 24px; color: var(--ink-soft); font-size: .76rem; }
 .loadingMark { width: 8px; height: 8px; border-radius: 50%; background: var(--moss); animation: loading-pulse 1.2s ease-in-out infinite; }
 @keyframes loading-pulse { 50% { opacity: .35; transform: scale(.72); } }

@@ -513,6 +513,8 @@ export const detailBatchA = [
     related: [
       { slug: "labrador-retriever", reason: "물새 회수의 공통 배경과 피모·체형, 가정 내 관리 방식의 차이를 비교해보세요." },
       { slug: "english-cocker-spaniel", reason: "새를 찾고 회수하던 협력은 닮았지만 체격과 덤불 탐색, 피모 관리 규모가 달라요." },
+      { slug: "flat-coated-retriever", reason: "활기찬 회수 협력을 공유하지만 성숙 과정과 긴 피모 관리, 일상 리듬을 함께 비교해보세요." },
+      { slug: "nova-scotia-duck-tolling-retriever", reason: "물새 회수 배경은 닮았지만 더 작은 체격과 톨링 작업, 활동 자극의 차이를 살펴보세요." },
     ],
     sources: [
       {

@@ -5,5 +5,5 @@
 .intro p { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
 .intro h1 { max-width: 16ch; margin: 0 auto; font-size: clamp(2.25rem, 3.6vw, 3.4rem); line-height: 1.08; letter-spacing: -.05em; }
 .intro span { display: block; margin-top: 13px; color: var(--ink-soft); font-size: 1rem; }
-.loading { width: min(calc(100% - var(--page-inline)), var(--max)); min-height: 220px; margin: 0 auto; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 22px; color: var(--ink-soft); background: var(--panel); }
+.loading { width: min(calc(100% - var(--page-inline)), var(--max)); min-height: 220px; margin: 0 auto; display: grid; place-items: center; border: 0; border-radius: 22px; color: var(--ink-soft); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 6%); }
 @media (max-width: 767px) { .main { padding-top: 4px; } .introShell { margin-bottom: 26px; padding: 0 16px 30px; } .introShell::before { inset-inline: 0; } .intro { padding: 20px 0 18px; } .intro h1 { font-size: clamp(1.8rem, 8vw, 2.15rem); } .intro span { margin-top: 10px; font-size: .92rem; line-height: 1.6; } }

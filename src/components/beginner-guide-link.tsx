@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   BEGINNER_GUIDE_PROGRESS_EVENT,
@@ -55,7 +56,9 @@ export function BeginnerGuideLink({ slug, nameKo }: { slug: string; nameKo: stri
   return (
     <div className={styles.wrapper}>
       <Link className={styles.link} href={`/beginner-guide?breed=${encodeURIComponent(slug)}`}>
-        <span aria-hidden="true">→</span>
+        <span aria-hidden="true">
+          <Image src="/illustrations/ui/action-icons/readiness-checklist-3d.png" alt="" width={256} height={256} />
+        </span>
         {label}
       </Link>
       <span className={styles.hint}>

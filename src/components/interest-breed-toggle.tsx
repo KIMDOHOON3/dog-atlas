@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { MAX_INTEREST_BREEDS, useInterestBreeds } from "./interest-breeds";
 import styles from "./interest-breed-toggle.module.css";
@@ -33,7 +34,9 @@ export function InterestBreedToggle({ slug, nameKo }: { slug: string; nameKo: st
         disabled={!hydrated}
         onClick={handleToggle}
       >
-        <span aria-hidden="true">{active ? "✓" : "+"}</span>
+        <span aria-hidden="true">
+          <Image src="/illustrations/ui/action-icons/compare-candidates-3d.png" alt="" width={256} height={256} />
+        </span>
         {active ? "후보에서 빼기" : "비교 후보에 담기"}
       </button>
       <span className={styles.hint} aria-live="polite">

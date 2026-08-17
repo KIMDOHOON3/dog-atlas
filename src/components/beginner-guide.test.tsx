@@ -3,6 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BeginnerGuide } from "./beginner-guide";
 import { BeginnerGuideLink } from "./beginner-guide-link";
+import { JapaneseSpitzReadiness } from "./japanese-spitz-readiness";
 import { getBeginnerGuideStorageKey } from "@/lib/beginner-guide-progress";
 
 describe("BeginnerGuide", () => {
@@ -35,6 +36,25 @@ describe("BeginnerGuide", () => {
     expect(await screen.findByRole("heading", { name: "보호자로서 마음 준비하기" })).toBeVisible();
     expect(screen.queryByText("강아지를 통제 대상이 아닌 감정과 선택이 있는 존재로 대하기")).not.toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: "동물병원에 바로 문의해야 할 신호" })).not.toBeInTheDocument();
+  });
+});
+
+describe("JapaneseSpitzReadiness", () => {
+  it("shows the existing checklist only after all readiness questions are answered", async () => {
+    const user = userEvent.setup();
+    render(<JapaneseSpitzReadiness />);
+
+    expect(screen.getByText("1 / 20")).toBeVisible();
+    expect(screen.queryByRole("heading", { name: "이제 실제 맞이 준비를 차례로 확인해요." })).not.toBeInTheDocument();
+
+    for (let index = 0; index < 20; index += 1) {
+      await user.click(screen.getAllByRole("radio")[0]);
+      await user.click(screen.getByRole("button", { name: index === 19 ? /결과 확인하기/ : /다음 질문/ }));
+    }
+
+    expect(screen.getByText("100")).toBeVisible();
+    expect(screen.getByRole("heading", { name: "기본적인 맞이 준비를 갖춘 것 같아요." })).toBeVisible();
+    expect(screen.getByRole("heading", { name: "이제 실제 맞이 준비를 차례로 확인해요." })).toBeVisible();
   });
 });
 

@@ -6,8 +6,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { BreedVisual } from "@/components/breed-visual";
 import type { Breed } from "@/content/breeds/schema";
 import {
-  applyBreedFilterPreset,
-  breedFilterPresets,
   emptyBreedFilters,
   filterBreeds,
   filtersToSearchParams,
@@ -252,7 +250,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
           </div>
 
           <fieldset>
-            <legend>체구</legend>
+            <legend><span className={styles.filterLegendLabel}>체구</span></legend>
             <div className={styles.optionGrid}>
               {sizeOptions.map((option) => <button type="button" key={option.value} aria-pressed={filters.size.includes(option.value)} onClick={() => toggleFilter("size", option.value)}>{option.label}</button>)}
             </div>
@@ -260,7 +258,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
 
           {tendencyFields.map((field) => (
             <fieldset key={field.key}>
-              <legend>{field.label}</legend>
+              <legend><span className={styles.filterLegendLabel}>{field.label}</span></legend>
               <div className={styles.optionGrid}>
                 {tendencyOptions.map((option) => <button type="button" key={option.value} aria-pressed={filters[field.key].includes(option.value)} onClick={() => toggleFilter(field.key, option.value)}>{option.label}</button>)}
               </div>
@@ -284,17 +282,6 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
         </aside>
 
         <section className={styles.resultsPanel} aria-live="polite" aria-labelledby="discover-results-title">
-          <div className={styles.quickExplore}>
-            <div className={styles.quickIntro}><span>빠른 탐색</span><strong>생활 조건으로 바로 보기</strong><p>한 번 눌러 바로 살펴보세요.</p></div>
-            <div className={styles.presetList}>
-              {breedFilterPresets.map((preset) => {
-                const presetFilters = applyBreedFilterPreset(preset);
-                const active = JSON.stringify(filters) === JSON.stringify(presetFilters);
-                return <button type="button" className={active ? styles.presetActive : ""} aria-pressed={active} key={preset.key} onClick={() => commitFilters(active ? emptyBreedFilters() : presetFilters)}>{preset.label}</button>;
-              })}
-            </div>
-          </div>
-
           <div className={styles.resultHeader}>
             <div><span>견종 발견</span><h1 id="discover-results-title">{activeCount > 0 ? `${results.length}종을 찾았어요` : `${breeds.length}종을 살펴보세요`}</h1></div>
             {activeCount > 0 && <button className={styles.resultClear} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button>}
@@ -309,20 +296,20 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
           <div className={styles.resultGrid}>
             {visibleResults.map((breed) => {
               const size = getBreedFilterValue(breed, "size");
-              const highlights = activeCount > 0
+              const defaultHighlights: Array<{ key: "size" | TendencyFilterKey; label: string }> = [
+                ...(size ? [{ key: "size" as const, label: selectedLabel("size", size) }] : []),
+                { key: "activity" as const, label: `활동량 · ${breed.tendencies.activity.label}` },
+              ];
+              const highlights: Array<{ key: "size" | TendencyFilterKey; label: string }> = activeCount > 0
                 ? selectedEntries
                   .map(({ key, value }) => {
                     const matches = key === "size"
                       ? getBreedFilterValue(breed, "size") === value as BreedSize
                       : getBreedFilterValue(breed, key) === value;
-                    return matches ? selectedLabel(key, value) : undefined;
+                    return matches ? { key, label: selectedLabel(key, value) } : undefined;
                   })
-                  .filter((highlight): highlight is string => Boolean(highlight))
-                  .slice(0, 3)
-                : [
-                  size ? selectedLabel("size", size) : undefined,
-                  `활동량 · ${breed.tendencies.activity.label}`,
-                ].filter((highlight): highlight is string => Boolean(highlight));
+                  .filter((highlight): highlight is { key: "size" | TendencyFilterKey; label: string } => Boolean(highlight))
+                : defaultHighlights;
               return (
                 <Link className={styles.resultCard} href={`/breeds/${breed.slug}`} key={breed.slug} aria-label={`${breed.nameKo} 상세 이야기 보기`}>
                   <BreedVisual breed={breed} variant="tile" />
@@ -330,7 +317,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
                     <div className={styles.resultMeta}><span>{breed.nameEn}</span><span>{presentBreedOrigin(breed.identity.origin)}</span></div>
                     {isKoreanManagedBreed(breed.slug) && <span className={styles.legalBadge}>대한민국 법령상 맹견</span>}
                     <h2>{breed.nameKo}</h2>
-                    <div className={styles.resultHighlights}>{highlights.map((highlight) => <span key={highlight}>{highlight}</span>)}</div>
+                    <div className={styles.resultHighlights}>{highlights.map((highlight) => <span className={styles[`resultHighlight_${highlight.key}`]} key={`${highlight.key}-${highlight.label}`}>{highlight.label}</span>)}</div>
                     <p>{breed.tagline}</p>
                     <span className={styles.resultDetail}>상세 이야기 보기 →</span>
                   </div>

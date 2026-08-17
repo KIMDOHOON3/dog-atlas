@@ -46,6 +46,13 @@ const tendencyNames = {
 const coreTendencies = ["activity", "socialConnection", "grooming"] as const;
 const extraTendencies = ["mentalStimulation", "independence", "alerting"] as const;
 
+const tendencyLevelScore = {
+  "낮은 편": 1,
+  "중간": 2,
+  "높은 편": 3,
+  "개체별 확인 필요": 0,
+} as const;
+
 const tendencyQuestions: Record<keyof Breed["tendencies"], string> = {
   activity: "얼마나 움직이나요?",
   mentalStimulation: "머리를 쓰는 놀이는 얼마나 필요한가요?",
@@ -140,12 +147,7 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
         <div><p>같은 견종이어도 성격은 모두 달라요. 아래 내용은 일반적인 경향으로만 봐주세요.</p><div>{([...coreTendencies, ...extraTendencies] as const).map((name) => <TendencyCard breed={breed} name={name} key={name} />)}</div></div>
       </details>
 
-      <section className={styles.malteseDecision} aria-labelledby="breed-decision-title">
-        <div>
-          <p className={styles.eyebrow}>살펴본 뒤 선택하기</p>
-          <h2 id="breed-decision-title">{breed.nameKo}를 더 알아보고 싶나요?</h2>
-          <p>함께 살 생활을 확인했다면 맞이할 준비를 살펴보거나 비교 후보로 남겨보세요.</p>
-        </div>
+      <section className={styles.malteseDecision} aria-label={`${breed.nameKo} 다음 선택`}>
         <div className={styles.malteseChoiceActions}>
           <BeginnerGuideLink slug={breed.slug} nameKo={breed.nameKo} />
           <InterestBreedToggle slug={breed.slug} nameKo={breed.nameKo} />
@@ -173,19 +175,36 @@ export default async function BreedDetail({ params }: PageProps) {
       <SiteHeader />
       <main id="breed-content">
         <section className={`${styles.hero} ${styles.malteseHero}`} aria-labelledby="breed-title">
-          <div className={styles.summary}>
-            <h1 id="breed-title">{breed.nameKo}</h1>
-          </div>
           <BreedVisual breed={breed} variant="detail" priority />
-          <div className={styles.atAGlance}>
-            <dl className={styles.facts}>
-              {facts.size && <div><dt>크기</dt><dd>{facts.size}</dd></div>}
-              {facts.lifespan && <div><dt>평균 수명</dt><dd>{facts.lifespan}</dd></div>}
-              <div><dt>계통</dt><dd>{breed.identity.lineage}</dd></div>
-              <div><dt>원래 역할</dt><dd>{breed.identity.originalRole}</dd></div>
-            </dl>
-            <div className={styles.heroTendencies} aria-label="핵심 행동 경향">
-              {coreTendencies.map((name) => <div key={name}><span>{tendencyNames[name]}</span><strong>{breed.tendencies[name].label}</strong></div>)}
+          <div className={styles.profileSummary}>
+            <div className={styles.summary}>
+              <h1 id="breed-title">{breed.nameKo}</h1>
+              <p className={styles.breedNameEn}>{breed.nameEn}</p>
+            </div>
+            <div className={styles.atAGlance}>
+              <dl className={styles.facts}>
+                {facts.size && <div><dt>크기</dt><dd>{facts.size}</dd></div>}
+                {facts.lifespan && <div><dt>평균 수명</dt><dd>{facts.lifespan}</dd></div>}
+                <div><dt>계통</dt><dd>{breed.identity.lineage}</dd></div>
+                <div><dt>원래 역할</dt><dd>{breed.identity.originalRole}</dd></div>
+              </dl>
+              <div className={styles.heroTendencies} aria-label="핵심 행동 경향">
+                {coreTendencies.map((name) => {
+                  const tendency = breed.tendencies[name];
+                  const score = tendencyLevelScore[tendency.label];
+                  return (
+                    <div data-tendency={name} key={name}>
+                      <span>{tendencyNames[name]}</span>
+                      <span className={styles.tendencyValue}>
+                        <span className={styles.tendencyMeter} aria-hidden="true">
+                          {[1, 2, 3].map((step) => <i className={score >= step ? styles.filled : undefined} key={step} />)}
+                        </span>
+                        <strong>{tendency.label}</strong>
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
@@ -210,13 +229,18 @@ export default async function BreedDetail({ params }: PageProps) {
                   <Link href={`/compare?breeds=${breed.slug},${featuredRelated.breed.slug}`}>{breed.nameKo}와 {featuredRelated.breed.nameKo} 비교하기 →</Link>
                 </div>
               </div>
-              {otherRelated.map(({ breed: item, reason }) => (
-                <Link className={styles.smallRelated} href={`/breeds/${item.slug}`} key={item.slug}>
-                  <BreedVisual breed={item} variant="tile" />
-                  <div><small>함께 살펴볼 또 다른 견종</small><strong>{item.nameKo}</strong><p>{reason}</p></div>
-                  <span aria-hidden="true">→</span>
-                </Link>
-              ))}
+              {otherRelated.length > 0 && <div className={styles.otherRelated}>
+                <p>함께 살펴볼 관련 견종</p>
+                <div className={styles.otherRelatedGrid}>
+                  {otherRelated.slice(0, 3).map(({ breed: item, reason }) => (
+                    <Link className={styles.smallRelated} href={`/breeds/${item.slug}`} key={item.slug}>
+                      <BreedVisual breed={item} variant="tile" />
+                      <div><strong>{item.nameKo}</strong><small>{item.nameEn}</small><p>{reason}</p></div>
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>}
             </>
           </section>}
 

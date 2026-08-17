@@ -76,11 +76,10 @@ export default async function BreedNameStoryPage({ params }: PageProps) {
             <h2 id="name-story-results-title">이 이름과 연결된 견종</h2>
           </header>
           <div className={styles.breedGrid}>
-            {storyBreeds.map((breed, index) => (
+            {storyBreeds.map((breed) => (
               <Link className={styles.breedCard} href={`/breeds/${breed.slug}`} key={breed.slug} aria-label={`${breed.nameKo} 상세 정보 보기`}>
                 <BreedVisual breed={breed} variant="tile" />
                 <div>
-                  {index < representativeBreeds.length && <span className={styles.representative}>홈 대표 견종</span>}
                   <small>{breed.nameEn}</small>
                   <h3>{breed.nameKo}</h3>
                   <p>{breed.identity.originalRole}</p>

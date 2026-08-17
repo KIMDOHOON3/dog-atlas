@@ -272,3 +272,9 @@ Fold toy and extra-small labels into small. For a catalog entry that covers seve
 # 2026-08-17 — Unify the wide desktop container
 
 Use the same 1440px maximum container for primary content, editorial collections, comparison, headers, and `/discover` instead of maintaining page-specific width ceilings. Keep readable text measures narrower inside the shared container. On desktop discovery, let result columns form automatically with a 360px minimum card width so a roughly 1400px viewport keeps two generous cards beside the persistent filter and wider screens naturally gain a third column. Preserve the existing two-column tablet layout, mobile filter sheet, and 767px mobile boundary.
+
+# 2026-08-17 — Pilot a readiness assessment for Japanese Spitz
+
+Before extending the beginner guide across the catalog, pilot a 20-question readiness assessment only for Japanese Spitz. Ask one question at a time across housing, time, cost, household, and breed understanding. Express the result as a preparation snapshot rather than a breed-match verdict.
+
+Keep the normalized score separate from non-negotiable conditions such as housing permission, household agreement, a responsible daily carer, emergency-care funding, and the ability to provide regular activity. A failed required condition cannot be offset by a high total score. After the result, reveal the existing four-step arrival checklist so reflection leads to concrete preparation. Other breeds retain the current checklist while the pilot is reviewed.

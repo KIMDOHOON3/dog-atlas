@@ -101,6 +101,8 @@ const draftBreeds = [
     related: [
       { slug: "samoyed", reason: "같은 스피츠형 외모지만 체격과 필요한 생활 부담이 크게 달라요." },
       { slug: "maltese", reason: "국내에서 익숙한 흰 반려견이지만 털의 형태와 관리 방식이 달라요." },
+      { slug: "german-spitz", reason: "뾰족한 귀와 풍성한 이중모, 알림 행동은 닮았지만 크기 바라이어티와 계통이 달라요." },
+      { slug: "finnish-spitz", reason: "스피츠형 실루엣과 빠른 알림 반응을 공유하지만 원래 역할과 활동 리듬은 달라요." },
     ],
     sources: [
       { title: "Japanese Spitz Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/japanese-spitz/", checkedAt },
@@ -192,7 +194,9 @@ const draftBreeds = [
     ],
     related: [
       { slug: "samoyed", reason: "작업견 배경은 공유하지만 협력 방식과 생활 관리의 초점이 달라요." },
-      { slug: "greyhound", reason: "달리는 모습은 모두 인상적이지만 일상 활동의 리듬은 크게 달라요." },
+      { slug: "australian-shepherd", reason: "사람과 협력해 가축을 움직인 목양 배경과 높은 활동 요구를 함께 비교해볼 수 있어요." },
+      { slug: "shetland-sheepdog", reason: "콜리형 외모와 빠른 반응은 닮았지만 체격과 피모 관리 부담에는 차이가 있어요." },
+      { slug: "australian-kelpie", reason: "집중력 높은 목양견이라는 공통점 속에서 작업 방식과 일상 자극 요구를 비교해볼 수 있어요." },
     ],
     sources: [{ title: "Border Collie Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/border-collie/", checkedAt }],
   },
@@ -318,9 +322,53 @@ export function getBreed(slug: string) {
   return breeds.find((breed) => breed.slug === slug);
 }
 
+const catalogGroupLabels: Record<Breed["catalog"]["group"], string> = {
+  companion: "반려견",
+  herding: "목양견",
+  sighthound: "시각 하운드",
+  "northern-working": "북방 작업견",
+  dachshund: "닥스훈트",
+  "scent-hound": "후각 하운드",
+  "retriever-spaniel": "리트리버·스패니얼",
+  "spitz-primitive": "스피츠·원시형",
+  "guardian-working": "경비·작업견",
+  pointing: "포인팅견",
+  terrier: "테리어",
+};
+
 export function getRelatedBreeds(breed: Breed) {
-  return breed.related.flatMap((relation) => {
+  const explicitRelated = breed.related.flatMap((relation) => {
     const relatedBreed = getBreed(relation.slug);
     return relatedBreed ? [{ breed: relatedBreed, reason: relation.reason }] : [];
   });
+
+  if (explicitRelated.length >= 4) return explicitRelated;
+
+  const includedSlugs = new Set([breed.slug, ...explicitRelated.map(({ breed: item }) => item.slug)]);
+  const inferredRelated = breeds
+    .filter((candidate) => !includedSlugs.has(candidate.slug))
+    .map((candidate) => {
+      const sharedTags = candidate.catalog.discoveryTags.filter((tag) => breed.catalog.discoveryTags.includes(tag)).length;
+      const matchingTendencies = Object.keys(breed.tendencies).filter((key) => {
+        const tendency = key as keyof Breed["tendencies"];
+        return breed.tendencies[tendency].label === candidate.tendencies[tendency].label;
+      }).length;
+      const reverseRelation = candidate.related.some((relation) => relation.slug === breed.slug);
+      const sameGroup = candidate.catalog.group === breed.catalog.group;
+
+      return {
+        breed: candidate,
+        score: (sameGroup ? 100 : 0) + (reverseRelation ? 40 : 0) + sharedTags * 12 + matchingTendencies,
+      };
+    })
+    .sort((left, right) => right.score - left.score || left.breed.nameKo.localeCompare(right.breed.nameKo, "ko"))
+    .slice(0, 4 - explicitRelated.length)
+    .map(({ breed: candidate }) => ({
+      breed: candidate,
+      reason: candidate.catalog.group === breed.catalog.group
+        ? `같은 ${catalogGroupLabels[breed.catalog.group]} 계열에서 활동과 교감, 관리 조건의 차이를 살펴보세요.`
+        : "비슷한 생활 경향을 기준으로 활동과 관리 조건의 차이를 살펴보세요.",
+    }));
+
+  return [...explicitRelated, ...inferredRelated];
 }

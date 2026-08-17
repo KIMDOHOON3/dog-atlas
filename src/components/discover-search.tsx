@@ -1,13 +1,30 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { SearchBox, type BreedOption } from "@/components/search-box";
+import { applyBreedFilterPreset, breedFilterPresets, emptyBreedFilters, filtersToSearchParams, parseBreedFilters } from "@/lib/breed-filters";
 import styles from "./discover-search.module.css";
 
 export function DiscoverSearch({ breeds }: { breeds: BreedOption[] }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const sourceRef = useRef<HTMLElement>(null);
   const [showDock, setShowDock] = useState(false);
   const [open, setOpen] = useState(false);
+  const queryString = searchParams.toString();
+  const activeFilters = useMemo(() => parseBreedFilters(new URLSearchParams(queryString)), [queryString]);
+
+  function applyPreset(index: number) {
+    const preset = breedFilterPresets[index];
+    if (!preset) return;
+    const presetFilters = applyBreedFilterPreset(preset);
+    const active = JSON.stringify(activeFilters) === JSON.stringify(presetFilters);
+    const next = active ? emptyBreedFilters() : presetFilters;
+    const query = filtersToSearchParams(next).toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  }
 
   useEffect(() => {
     const source = sourceRef.current;
@@ -27,6 +44,13 @@ export function DiscoverSearch({ breeds }: { breeds: BreedOption[] }) {
       <section ref={sourceRef} className={styles.source} aria-labelledby="discover-search-title">
         <h2 id="discover-search-title">이미 아는 견종이 있나요?</h2>
         <SearchBox id="discover-breed-search" breeds={breeds} />
+        <div className={styles.presets} aria-label="생활 조건 빠른 선택">
+          {breedFilterPresets.map((preset, index) => {
+            const presetFilters = applyBreedFilterPreset(preset);
+            const active = JSON.stringify(activeFilters) === JSON.stringify(presetFilters);
+            return <button type="button" key={preset.key} aria-pressed={active} onClick={() => applyPreset(index)}>{preset.label}</button>;
+          })}
+        </div>
       </section>
       {showDock && (
         <div className={`${styles.dock} ${open ? styles.open : ""}`}>

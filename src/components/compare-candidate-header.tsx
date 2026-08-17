@@ -30,7 +30,7 @@ export function CompareCandidateHeader({ candidates }: { candidates: Candidate[]
   if (candidates.length === 0) return null;
 
   return (
-    <section className={styles.header} aria-label="비교 후보">
+    <section className={styles.header} data-count={candidates.length} aria-label="비교 후보">
       <strong>비교 후보 {candidates.length}마리</strong>
       <div>
         {candidates.map((candidate) => (

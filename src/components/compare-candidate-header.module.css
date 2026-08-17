@@ -1,4 +1,5 @@
-.header { position: sticky; z-index: 10; top: 8px; margin: 0 0 24px; padding: 10px 14px; display: flex; align-items: center; gap: 16px; border: 1px solid var(--line); border-radius: 18px; background: rgb(255 253 248 / 94%); box-shadow: 0 8px 28px rgb(42 52 46 / 8%); backdrop-filter: blur(12px); }
+.header { position: sticky; z-index: 10; top: 8px; width: min(100%, 1040px); margin: 0 auto 24px; padding: 10px 14px; display: flex; align-items: center; gap: 16px; border: 1px solid var(--line); border-radius: 18px; background: rgb(255 253 248 / 94%); box-shadow: 0 8px 28px rgb(42 52 46 / 8%); backdrop-filter: blur(12px); }
+.header[data-count="3"] { width: min(100%, 1240px); }
 .header > strong { flex: 0 0 auto; font-size: .88rem; }
 .header > div { min-width: 0; display: flex; gap: 8px; }
 .header article { min-width: 0; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
