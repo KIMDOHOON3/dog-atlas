@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { breeds } from "./data";
 import { detailBatchT } from "./detail-batch-t";
 import { getMasterBreed } from "./master-catalog";
-import { getBreedSizeCategories } from "@/lib/breed-filters";
+import { getBreedSizeCategory } from "@/lib/breed-filters";
 
 describe("detail batch T", () => {
   it("publishes the AKC-registered Anatolian Shepherd separately from the FCI Kangal", () => {
@@ -14,7 +14,7 @@ describe("detail batch T", () => {
       inclusionType: "international-registered",
       detailStatus: "published",
     });
-    expect(getBreedSizeCategories(detailBatchT[0].identity.size)).toEqual(["giant"]);
+    expect(getBreedSizeCategory(detailBatchT[0].identity.size)).toBe("giant");
     expect(detailBatchT[0].related[0].slug).toBe("kangal-shepherd-dog");
   });
 

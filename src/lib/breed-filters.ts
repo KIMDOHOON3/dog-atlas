@@ -38,28 +38,37 @@ export function normalizeTendencyLabel(label: string): TendencyLevel {
   return tendencyLabelMap[label] ?? "unknown";
 }
 
-export function getBreedSizeCategories(size: string): BreedSize[] {
+export function getBreedSizeCategory(size: string): BreedSize | undefined {
   const normalized = size.replace(/\s+/g, "");
-  if (normalized.includes("초대형")) return ["giant"];
-  if (normalized.includes("미니어처") && normalized.includes("스탠더드")) return [];
 
-  const categories: BreedSize[] = [];
-  if (normalized.includes("초소형") || normalized.includes("소형") || normalized.includes("토이") || normalized.includes("미니어처")) categories.push("small");
-  if (normalized.includes("중형") || normalized.includes("중소형") || normalized.includes("중대형")) categories.push("medium");
-  if (normalized.includes("대형")) categories.push("large");
-  return [...new Set(categories)];
+  // These entries cover multiple registered varieties. Their discovery card
+  // uses the named representative variety, so the filter follows that one
+  // instead of placing a single catalog entry in several size groups.
+  if (normalized.includes("대표이미지는미니어처")) return "small";
+  if (normalized.includes("미니어처와스탠더드")) return "small";
+  if (normalized.includes("초소형부터중형이상")) return "small";
+
+  // Discovery size is intentionally exclusive. When editorial copy describes
+  // a boundary or range, use its upper category so living-space and handling
+  // demands are not understated.
+  if (normalized.includes("초대형")) return "giant";
+  if (normalized.includes("대형")) return "large";
+  if (normalized.includes("중형") || normalized.includes("중소형") || normalized.includes("소중형")) return "medium";
+  if (normalized.includes("초소형") || normalized.includes("소형") || normalized.includes("토이") || normalized.includes("미니어처")) return "small";
+  return undefined;
 }
 
-export function getBreedFilterValue(breed: Breed, key: "size"): BreedSize[];
+export function getBreedFilterValue(breed: Breed, key: "size"): BreedSize | undefined;
 export function getBreedFilterValue(breed: Breed, key: TendencyFilterKey): TendencyLevel;
-export function getBreedFilterValue(breed: Breed, key: "size" | TendencyFilterKey): BreedSize[] | TendencyLevel {
-  if (key === "size") return getBreedSizeCategories(breed.identity.size);
+export function getBreedFilterValue(breed: Breed, key: "size" | TendencyFilterKey): BreedSize | TendencyLevel | undefined {
+  if (key === "size") return getBreedSizeCategory(breed.identity.size);
   return normalizeTendencyLabel(breed.tendencies[key].label);
 }
 
 export function filterBreeds(breeds: readonly Breed[], filters: BreedFilters): Breed[] {
   return breeds.filter((breed) => {
-    if (filters.size.length > 0 && !filters.size.some((size) => getBreedFilterValue(breed, "size").includes(size))) return false;
+    const size = getBreedFilterValue(breed, "size");
+    if (filters.size.length > 0 && (!size || !filters.size.includes(size))) return false;
 
     return tendencyFilterKeys.every((key) => {
       const selected = filters[key];

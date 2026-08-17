@@ -202,9 +202,9 @@ export function getHomeCuriosityBreeds(theme: HomeCuriosityTheme, allBreeds: rea
   if (theme.catalogRule) {
     return allBreeds
       .filter((breed) => {
-        const sizes = getBreedFilterValue(breed, "size");
-        if (theme.catalogRule === "large-and-giant") return sizes.includes("large") || sizes.includes("giant");
-        return sizes.includes("small") || breed.catalog.group === "companion";
+        const size = getBreedFilterValue(breed, "size");
+        if (theme.catalogRule === "large-and-giant") return size === "large" || size === "giant";
+        return size === "small" || breed.catalog.group === "companion";
       })
       .sort((a, b) => a.nameKo.localeCompare(b.nameKo, "ko"))
       .map((breed) => ({ breed, fact: breed.identity.size }));

@@ -6,7 +6,7 @@ import {
   breedFilterPresets,
   filterBreeds,
   filtersToSearchParams,
-  getBreedSizeCategories,
+  getBreedSizeCategory,
   normalizeTendencyLabel,
   parseBreedFilters,
 } from "./breed-filters";
@@ -19,13 +19,20 @@ describe("breed filter normalization", () => {
     expect(normalizeTendencyLabel("개체별 확인 필요")).toBe("unknown");
   });
 
-  it("maps known size phrases and leaves unknown phrases empty", () => {
-    expect(getBreedSizeCategories("초소형")).toEqual(["small"]);
-    expect(getBreedSizeCategories("소형~중소형")).toEqual(["small", "medium"]);
-    expect(getBreedSizeCategories("중대형")).toEqual(["medium", "large"]);
-    expect(getBreedSizeCategories("초대형 · 약 65~80cm")).toEqual(["giant"]);
-    expect(getBreedSizeCategories("미니어처와 스탠더드, 세 가지 피모 유형")).toEqual([]);
-    expect(getBreedSizeCategories("크기 정보 확인 중")).toEqual([]);
+  it("maps every known size phrase to one exclusive discovery category", () => {
+    expect(getBreedSizeCategory("초소형")).toBe("small");
+    expect(getBreedSizeCategory("소형~중소형")).toBe("medium");
+    expect(getBreedSizeCategory("중대형")).toBe("large");
+    expect(getBreedSizeCategory("중형~대형")).toBe("large");
+    expect(getBreedSizeCategory("대형~초대형 · 약 65~80cm")).toBe("giant");
+    expect(getBreedSizeCategory("미니어처와 스탠더드, 세 가지 피모 유형")).toBe("small");
+    expect(getBreedSizeCategory("크기 정보 확인 중")).toBeUndefined();
+  });
+
+  it("assigns every published breed to exactly one size category", () => {
+    const categories = breeds.map((breed) => getBreedSizeCategory(breed.identity.size));
+    expect(categories).not.toContain(undefined);
+    expect(getBreedSizeCategory(breeds.find((breed) => breed.slug === "samoyed")!.identity.size)).toBe("large");
   });
 });
 
@@ -49,7 +56,7 @@ describe("breed filters", () => {
     filters.activity = ["high"];
     const result = filterBreeds(breeds, filters);
     expect(result.length).toBeGreaterThan(0);
-    expect(result.every((breed) => getBreedSizeCategories(breed.identity.size).some((size) => filters.size.includes(size)))).toBe(true);
+    expect(result.every((breed) => filters.size.includes(getBreedSizeCategory(breed.identity.size)!))).toBe(true);
   });
 
   it("round-trips comma-separated URL values", () => {

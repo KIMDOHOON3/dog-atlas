@@ -298,13 +298,13 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
                 ? selectedEntries
                   .map(({ key, value }) => {
                     const matches = key === "size"
-                      ? getBreedFilterValue(breed, "size").includes(value as BreedSize)
+                      ? getBreedFilterValue(breed, "size") === value as BreedSize
                       : getBreedFilterValue(breed, key) === value;
                     return matches ? selectedLabel(key, value) : undefined;
                   })
                   .filter((highlight): highlight is string => Boolean(highlight))
                   .slice(0, 3)
-                : [sizeOptions.find((option) => getBreedFilterValue(breed, "size").includes(option.value))?.label, breed.tendencies.activity.label].filter(Boolean);
+                : [sizeOptions.find((option) => getBreedFilterValue(breed, "size") === option.value)?.label, breed.tendencies.activity.label].filter(Boolean);
               return (
                 <article className={styles.resultCard} key={breed.slug}>
                   <BreedVisual breed={breed} variant="tile" />

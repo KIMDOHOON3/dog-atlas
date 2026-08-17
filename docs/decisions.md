@@ -262,3 +262,9 @@ Use `보어보엘` as the Korean display name and retain `보어보벨` and `보
 Add `Anatolian Shepherd Dog` as an AKC-registered, non-FCI catalog entry while retaining the existing FCI `Kangal Shepherd Dog` detail. Their Turkish livestock-guardian histories overlap, but registry definitions are not interchangeable: do not redirect one name to the other or present them as duplicate labels.
 
 Use `아나톨리안 셰퍼드` as the display name, preserve common Korean spellings as search aliases, and link the two details as related reading. The Anatolian entry should emphasize independent flock-guardian judgment, secure boundaries, visitor management, early low-pressure socialization, and the responsibility created by its giant size.
+
+# 2026-08-17 — Make discovery size categories exclusive
+
+Assign every published catalog entry to exactly one discovery size category: small, medium, large, or giant. Do not place boundary labels such as `중대형` in two filters. Normalize a boundary or range to its upper category so space, handling, transport, and care demands are not understated; keep the source-backed adult height and weight range in the detail content.
+
+Fold toy and extra-small labels into small. For a catalog entry that covers several registered size varieties, use the variety represented by the current card as its discovery category and explain the broader variation in the detail copy.

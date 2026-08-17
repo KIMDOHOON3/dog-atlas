@@ -32,9 +32,9 @@ describe("home curiosity themes", () => {
     const smallSlugs = new Set(getHomeCuriosityBreeds(smallTheme, breeds).map(({ breed }) => breed.slug));
 
     for (const breed of breeds) {
-      const sizes = getBreedFilterValue(breed, "size");
-      if (sizes.includes("large") || sizes.includes("giant")) expect(largeSlugs.has(breed.slug)).toBe(true);
-      if (sizes.includes("small") || breed.catalog.group === "companion") {
+      const size = getBreedFilterValue(breed, "size");
+      if (size === "large" || size === "giant") expect(largeSlugs.has(breed.slug)).toBe(true);
+      if (size === "small" || breed.catalog.group === "companion") {
         expect(smallSlugs.has(breed.slug)).toBe(true);
       }
     }
