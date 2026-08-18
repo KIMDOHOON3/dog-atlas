@@ -32,11 +32,11 @@
 .result { scroll-margin-top: 24px; padding: clamp(22px, 4vw, 42px); border: 1px solid var(--line); border-radius: 28px; background: var(--panel); box-shadow: 0 18px 48px rgb(42 52 46 / 8%); }
 .previewNotice { margin: 0 0 22px; padding: 10px 14px; border-radius: 12px; color: #765a2f; background: #f6eddc; font-size: .8rem; font-weight: 750; text-align: center; }
 .result.ready { border-color: color-mix(in srgb, var(--moss) 50%, var(--line)); }
-.result.prepare { border-color: #b98f49; }
+.result.prepare { border-color: #7f9a9c; }
 .result.pause { border-color: #b56c5b; }
 .result header { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 28px; align-items: center; }
 .score { width: 138px; height: 138px; display: flex; align-items: baseline; justify-content: center; border-radius: 50%; color: white; background: var(--moss); }
-.prepare .score { background: #9a7336; }
+.prepare .score { background: #5f7f82; }
 .pause .score { background: #9a5748; }
 .score strong { align-self: center; font-size: 3.2rem; letter-spacing: -.06em; }
 .score span { align-self: center; margin: 27px 0 0 4px; font-size: .75rem; }
