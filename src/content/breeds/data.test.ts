@@ -8,8 +8,8 @@ function publicAssetExists(publicPath: string) {
 }
 
 describe("breed content", () => {
-  it("loads the 375 currently published schema-validated MVP entries", () => {
-    expect(breeds).toHaveLength(375);
+  it("loads the 376 currently published schema-validated MVP entries", () => {
+    expect(breeds).toHaveLength(376);
     expect(breeds.every((breed) => breed.contentStatus === "mvp-editorial-draft")).toBe(true);
   });
 

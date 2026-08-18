@@ -50,7 +50,7 @@ const parsedHomeCuriosityThemes = z.array(homeCuriosityThemeSchema).length(6).pa
     description: "현재 도감에서 대형 또는 초대형으로 분류되는 견종을 빠짐없이 살펴봐요.",
     collectionTitle: "큰 체구 안에도 서로 다른 삶이 있어요.",
     collectionDescription: "키와 몸무게가 큰 견종을 한데 모았어요. 크기만 비슷할 뿐, 형성 지역과 원래 역할, 필요한 생활 준비는 서로 다릅니다.",
-    selectionNote: "세계 순위가 아니라 현재 375종 도감의 체구 정보에서 대형 또는 초대형으로 분류되는 모든 견종을 보여줍니다.",
+    selectionNote: "세계 순위가 아니라 현재 376종 도감의 체구 정보에서 대형 또는 초대형으로 분류되는 모든 견종을 보여줍니다.",
     moreLabel: "큰 체구 견종 더 보기",
     sources: [
       { label: "FCI · Great Dane", title: "Great Dane — Standard No. 235", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/en/nomenclature/GREAT-DANE-235.html", checkedAt },
@@ -67,7 +67,7 @@ const parsedHomeCuriosityThemes = z.array(homeCuriosityThemeSchema).length(6).pa
     description: "작은 체구 안에서도 몸의 비율과 역사, 필요한 관리가 얼마나 다른지 만나보세요.",
     collectionTitle: "작은 몸을 같은 생활로 묶을 수는 없어요.",
     collectionDescription: "공식 표준과 도감의 체구 정보에서 작은 편으로 확인되는 견종을 모았어요. 작은 몸이 낮은 활동량이나 쉬운 돌봄을 뜻하지는 않습니다.",
-    selectionNote: "현재 375종 도감에서 소형·초소형·토이로 분류되거나 컴패니언 그룹에 속하는 모든 견종을 보여줍니다.",
+    selectionNote: "현재 376종 도감에서 소형·초소형·토이로 분류되거나 컴패니언 그룹에 속하는 모든 견종을 보여줍니다.",
     moreLabel: "작은 체구 견종 더 보기",
     sources: [
       { label: "FCI · Chihuahua", title: "Chihuahua — Standard No. 218", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/en/nomenclature/CHIHUAHUA-218.html", checkedAt },

@@ -1,7 +1,7 @@
 import { breeds } from "./data";
 import type { Breed } from "./schema";
 
-export const catalogGoal = 375;
+export const catalogGoal = 376;
 
 export const catalogGroupLabels: Record<Breed["catalog"]["group"], string> = {
   companion: "사람 곁에서 살아온 반려견",

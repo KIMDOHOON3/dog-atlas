@@ -133,6 +133,22 @@ export const masterSources = masterSourceCollectionSchema.parse([
     scope: "breed-standard",
   },
   {
+    id: "nias-korean-native-dogs",
+    title: "한국 토종개 유전자원의 보호·육성 자료",
+    organization: "국립축산과학원",
+    url: "https://www.nias.go.kr/front/soboarddown.do?boardSeqNum=3339&cmCode=M090814150850297&fileSeqNum=2030",
+    checkedAt: "2026-08-18",
+    scope: "conservation-program",
+  },
+  {
+    id: "bulgae-genetic-study",
+    title: "Molecular Genetic Diversity of the Gyeongju Donggyeong Dog in Korea",
+    organization: "Journal of Veterinary Medical Science",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4221169/",
+    checkedAt: "2026-08-18",
+    scope: "research",
+  },
+  {
     id: "kkf-non-fci-breeds",
     title: "FCI 미등록 견종 안내(풍산개·삽살개·동경이·제주개)",
     organization: "한국애견연맹 (KKF)",

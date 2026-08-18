@@ -7,7 +7,7 @@ import { getBreedSizeCategory } from "@/lib/breed-filters";
 describe("detail batch T", () => {
   it("publishes the AKC-registered Anatolian Shepherd separately from the FCI Kangal", () => {
     expect(detailBatchT.map((breed) => breed.slug)).toEqual(["anatolian-shepherd-dog"]);
-    expect(breeds).toHaveLength(375);
+    expect(breeds).toHaveLength(376);
     expect(getMasterBreed("anatolian-shepherd-dog")).toMatchObject({
       nameKo: "아나톨리안 셰퍼드",
       registryStatus: "non-fci",

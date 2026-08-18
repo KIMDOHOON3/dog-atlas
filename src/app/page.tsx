@@ -15,7 +15,7 @@ export default function Home() {
       <main id="main">
         <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>375개 견종·교배견의 생활 정보</p>
+            <p className={styles.eyebrow}>376개 견종·교배견의 생활 정보</p>
             <h1 className={styles.searchTitle} id="hero-title">궁금한 견종이 있다면 이름으로 검색해보세요.</h1>
             <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn, illustration }) => {
               const master = getMasterBreed(slug);

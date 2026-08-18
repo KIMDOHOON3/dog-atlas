@@ -31,6 +31,10 @@ const nonFciInclusionDetails: Record<string, InclusionDetails> = {
     inclusionType: "international-registered",
     evidenceAuthority: "American Kennel Club (AKC)",
   },
+  bulgae: {
+    inclusionType: "documented-population",
+    evidenceAuthority: "국립축산과학원·동료평가 연구",
+  },
   sapsaree: {
     inclusionType: "national-heritage",
     evidenceAuthority: "국가유산청",
@@ -101,6 +105,7 @@ const aliasesKo: Partial<Record<string, string[]>> = {
   maltese: ["몰티즈"],
   boerboel: ["보어보벨", "보어보얼", "남아프리칸 보어보엘", "사우스 아프리칸 보어보엘"],
   "anatolian-shepherd-dog": ["아나톨리안 셰퍼드 독", "아나톨리안 셰퍼드 도그", "아나톨리아 셰퍼드", "아나톨리아 목양견"],
+  bulgae: ["영주 불개", "영주불개"],
   "central-asian-shepherd-dog": ["알라바이", "알라바이견", "투르크멘 알라바이", "중앙아시아 셰퍼드", "중앙아시아 목양견"],
   "french-bulldog": ["프렌치 불독"],
   poodle: ["스탠더드 푸들", "미디엄 푸들", "미니어처 푸들", "토이 푸들", "토이푸들"],
@@ -119,6 +124,7 @@ const aliasesEn: Partial<Record<string, string[]>> = {
   "continental-toy-spaniel": ["Papillon", "Phalene"],
   "italian-sighthound": ["Italian Greyhound"],
   "central-asian-shepherd-dog": ["Alabai", "Turkmen Alabay", "Central Asian Ovcharka"],
+  bulgae: ["Yeongju Bulgae", "Bul-Gae"],
 };
 
 function variety(
@@ -179,6 +185,7 @@ function getSourceIds(slug: string, groupNumber: FciGroupNumber | null, status: 
     if (slug === "american-pit-bull-terrier") return ["ukc-american-pit-bull-terrier"];
     if (slug === "boerboel") return ["kusa-boerboel", "akc-breed-list"];
     if (slug === "anatolian-shepherd-dog") return ["akc-anatolian-shepherd-dog", "fci-kangal-shepherd-dog"];
+    if (slug === "bulgae") return ["nias-korean-native-dogs", "bulgae-genetic-study"];
     if (slug === "sapsaree") return ["heritage-sapsaree", "kkf-non-fci-breeds"];
     if (slug === "donggyeongi") return ["heritage-donggyeongi", "kkf-non-fci-breeds"];
     return ["kkf-non-fci-breeds"];
@@ -283,7 +290,7 @@ const publishedExpansionSlugs = new Set([
   "romanian-raven-shepherd-dog", "tatra-hound", "transmontano-mastiff", "brazilian-campeiro-bulldog", "segugio-dell-appennino",
   "sabueso-fino-colombiano", "macedonian-shepherd-dog-karaman", "sapsaree", "pungsan-dog", "donggyeongi", "jeju-dog",
   "american-pit-bull-terrier", "american-bully", "mongolian-bankhar",
-  "boerboel", "anatolian-shepherd-dog",
+  "boerboel", "anatolian-shepherd-dog", "bulgae",
 ]);
 
 const masterEntries = masterInventorySeeds.map(

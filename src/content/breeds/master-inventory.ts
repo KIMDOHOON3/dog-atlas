@@ -388,4 +388,5 @@ export const masterInventorySeeds = [
   ["anatolian-shepherd-dog", "아나톨리안 셰퍼드", "Anatolian Shepherd Dog", null, "non-fci", "next"],
   ["goldendoodle", "골든두들", "Goldendoodle", null, "non-fci", "next"],
   ["maltipoo", "말티푸", "Maltipoo", null, "non-fci", "next"],
+  ["bulgae", "불개", "Bulgae", null, "non-fci", "next"],
 ] satisfies readonly MasterInventorySeed[];

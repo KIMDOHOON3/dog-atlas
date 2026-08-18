@@ -7,7 +7,7 @@ import { getBreedSizeCategory } from "@/lib/breed-filters";
 describe("detail batch R designer crosses", () => {
   it("publishes Goldendoodle and Maltipoo without presenting them as registered breeds", () => {
     expect(detailBatchR.map((breed) => breed.slug)).toEqual(["goldendoodle", "maltipoo"]);
-    expect(breeds).toHaveLength(375);
+    expect(breeds).toHaveLength(376);
 
     for (const breed of detailBatchR) {
       expect(getMasterBreed(breed.slug)).toMatchObject({
