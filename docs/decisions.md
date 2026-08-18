@@ -278,3 +278,9 @@ Use the same 1440px maximum container for primary content, editorial collections
 Before extending the beginner guide across the catalog, pilot a 20-question readiness assessment only for Japanese Spitz. Ask one question at a time across housing, time, cost, household, and breed understanding. Express the result as a preparation snapshot rather than a breed-match verdict.
 
 Keep the normalized score separate from non-negotiable conditions such as housing permission, household agreement, a responsible daily carer, emergency-care funding, and the ability to provide regular activity. A failed required condition cannot be offset by a high total score. After the result, reveal the existing four-step arrival checklist so reflection leads to concrete preparation. Other breeds retain the current checklist while the pilot is reviewed.
+
+# 2026-08-18 — Match breed-detail care cards by meaning
+
+Treat `careNotes` and `discoveryTags` as independent editorial lists, not positional pairs. Derive each care card's title and icon from the care description first, and use a same-index discovery tag only when the description has no recognizable lifestyle concept. This prevents grooming advice from appearing under companionship or alone-time headings.
+
+Keep the six visible lifestyle cards conceptually distinct and do not repeat an exact sentence already shown in the history or expanded tendency sections. When a tendency is needed to complete the card set, present a concise contextual paraphrase while preserving the original tendency note in its dedicated section. Maintain catalog-wide regression checks for semantic title matching, unique card concepts, and exact-copy duplication.
