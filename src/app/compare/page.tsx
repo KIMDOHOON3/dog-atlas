@@ -78,10 +78,10 @@ export default async function ComparePage({ searchParams }: PageProps) {
         {selectedBreeds.length < 2 ? (
           <section className={styles.emptyState} id="compare-state" aria-live="polite">
             <p>비교 후보</p>
-            <h2>{selectedBreeds.length === 0 ? "아직 담은 비교 후보가 없어요." : "한 마리를 더 담으면 비교할 수 있어요."}</h2>
+            <h2>{selectedBreeds.length === 0 ? "비교 후보가 아직 없어요." : "한 마리만 더 담아주세요."}</h2>
             <span>{selectedBreeds.length === 0
-              ? "관심 가는 견종의 정보를 읽고, 더 알아보고 싶은 견종을 후보에 담아보세요."
-              : `${selectedBreeds[0].nameKo}의 관련 견종을 살펴보거나 도감에서 다른 견종을 발견해보세요.`}</span>
+              ? "관심 가는 견종을 후보에 담아보세요."
+              : `${selectedBreeds[0].nameKo}와 비교할 견종을 골라보세요.`}</span>
             <div>
               <Link href="/discover">{selectedBreeds.length === 0 ? "견종 둘러보기" : "다른 견종 둘러보기"}</Link>
               {selectedBreeds[0] && <Link href={`/breeds/${selectedBreeds[0].slug}`}>{selectedBreeds[0].nameKo} 상세로 돌아가기</Link>}
