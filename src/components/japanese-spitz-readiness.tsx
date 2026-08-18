@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { BeginnerGuide } from "./beginner-guide";
 import styles from "./japanese-spitz-readiness.module.css";
 
@@ -124,11 +124,31 @@ const categoryAdvice: Record<Question["category"], string> = {
   "견종 이해": "활동·알림 행동·이중모 관리가 개체마다 어떻게 달라질 수 있는지 다시 살펴보세요.",
 };
 
+const readinessResultStorageKey = "dog-atlas:japanese-spitz-readiness-result:v1";
+
 export function JapaneseSpitzReadiness() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<(number | undefined)[]>(Array(questions.length).fill(undefined));
   const [finished, setFinished] = useState(false);
+  const [savedAnswers, setSavedAnswers] = useState<number[] | null>(null);
   const selected = answers[current];
+
+  useEffect(() => {
+    let active = true;
+    queueMicrotask(() => {
+      try {
+        const stored = localStorage.getItem(readinessResultStorageKey);
+        if (!stored) return;
+        const parsed: unknown = JSON.parse(stored);
+        if (active && Array.isArray(parsed) && parsed.length === questions.length && parsed.every((answer) => Number.isInteger(answer) && answer >= 0 && answer <= 2)) {
+          setSavedAnswers(parsed as number[]);
+        }
+      } catch {
+        // A stored result is optional; the assessment remains fully usable without it.
+      }
+    });
+    return () => { active = false; };
+  }, []);
 
   const result = useMemo(() => {
     const total = answers.reduce<number>((sum, choiceIndex, questionIndex) => {
@@ -160,6 +180,13 @@ export function JapaneseSpitzReadiness() {
   function next() {
     if (selected === undefined) return;
     if (current === questions.length - 1) {
+      const completedAnswers = answers as number[];
+      setSavedAnswers(completedAnswers);
+      try {
+        localStorage.setItem(readinessResultStorageKey, JSON.stringify(completedAnswers));
+      } catch {
+        // Keep the current result visible even when browser storage is unavailable.
+      }
       setFinished(true);
       requestAnimationFrame(() => document.querySelector("#readiness-result")?.scrollIntoView?.({ behavior: "smooth", block: "start" }));
       return;
@@ -171,6 +198,14 @@ export function JapaneseSpitzReadiness() {
     setAnswers(Array(questions.length).fill(undefined));
     setCurrent(0);
     setFinished(false);
+    requestAnimationFrame(() => document.querySelector("#readiness-assessment")?.scrollIntoView?.({ behavior: "smooth", block: "start" }));
+  }
+
+  function showSavedResult() {
+    if (!savedAnswers) return;
+    setAnswers([...savedAnswers]);
+    setFinished(true);
+    requestAnimationFrame(() => document.querySelector("#readiness-result")?.scrollIntoView?.({ behavior: "smooth", block: "start" }));
   }
 
   if (finished) {
@@ -188,9 +223,9 @@ export function JapaneseSpitzReadiness() {
           </header>
           {result.criticalFailures.length > 0 && <div className={styles.required}><strong>점수보다 먼저 해결할 필수 조건</strong><ul>{result.criticalFailures.map((item) => <li key={item}>{item}</li>)}</ul></div>}
           <div className={styles.resultGrid}>
-            <article><span>잘 준비된 부분</span><ul>{result.strengths.length ? result.strengths.map((item) => <li key={item}>{item}</li>) : <li>아직 확실하게 준비됐다고 답한 항목이 없어요.</li>}</ul></article>
-            <article><span>현재 걸리는 조건</span><ul>{result.concerns.length ? result.concerns.map((item, index) => <li key={`${item.text}-${index}`}>{item.text}</li>) : <li>응답에서 큰 걸림 조건은 보이지 않았어요.</li>}</ul></article>
-            <article><span>다음 준비 항목</span><ul>{result.weakCategories.length ? result.weakCategories.map((category) => <li key={category}>{categoryAdvice[category]}</li>) : <li>아래 체크리스트로 실제 맞이 준비를 이어가세요.</li>}</ul></article>
+            <article className={styles.strengths}><span>잘 준비된 부분</span><ul>{result.strengths.length ? result.strengths.map((item) => <li key={item}>{item}</li>) : <li>아직 확실하게 준비됐다고 답한 항목이 없어요.</li>}</ul></article>
+            <article className={styles.concerns}><span>현재 걸리는 조건</span><ul>{result.concerns.length ? result.concerns.map((item, index) => <li key={`${item.text}-${index}`}>{item.text}</li>) : <li>응답에서 큰 걸림 조건은 보이지 않았어요.</li>}</ul></article>
+            <article className={styles.nextSteps}><span>다음 준비 항목</span><ul>{result.weakCategories.length ? result.weakCategories.map((category) => <li key={category}>{categoryAdvice[category]}</li>) : <li>아래 체크리스트로 실제 맞이 준비를 이어가세요.</li>}</ul></article>
           </div>
           <div className={styles.resultActions}>
             <button type="button" className={styles.restart} onClick={restart}>처음부터 다시 답하기</button>
@@ -207,10 +242,13 @@ export function JapaneseSpitzReadiness() {
 
   const question = questions[current];
   return (
-    <section className={styles.assessment} aria-labelledby="readiness-title">
+    <section className={styles.assessment} id="readiness-assessment" aria-labelledby="readiness-title">
       <header className={styles.intro}>
         <div><p>재패니즈 스피츠 시범 진단</p><h2 id="readiness-title">좋아하는 마음을 현실적인 생활 조건과 함께 확인해요.</h2></div>
-        <span>약 5분 · 20문항</span>
+        <div className={styles.introMeta}>
+          <span>약 5분 · 20문항</span>
+          {savedAnswers && <button type="button" onClick={showSavedResult}>테스트 결과로 바로 이동하기 ↓</button>}
+        </div>
       </header>
       <div className={styles.progress}>
         <div><span>{question.category}</span><strong>{current + 1} / {questions.length}</strong></div>

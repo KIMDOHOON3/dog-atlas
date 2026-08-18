@@ -40,6 +40,8 @@ describe("BeginnerGuide", () => {
 });
 
 describe("JapaneseSpitzReadiness", () => {
+  beforeEach(() => localStorage.clear());
+
   it("shows the existing checklist only after all readiness questions are answered", async () => {
     const user = userEvent.setup();
     render(<JapaneseSpitzReadiness />);
@@ -55,6 +57,12 @@ describe("JapaneseSpitzReadiness", () => {
     expect(screen.getByText("100")).toBeVisible();
     expect(screen.getByRole("heading", { name: "기본적인 맞이 준비를 갖춘 것 같아요." })).toBeVisible();
     expect(screen.getByRole("heading", { name: "이제 실제 맞이 준비를 차례로 확인해요." })).toBeVisible();
+
+    await user.click(screen.getByRole("button", { name: "처음부터 다시 답하기" }));
+    const savedResultButton = screen.getByRole("button", { name: /테스트 결과로 바로 이동하기/ });
+    expect(savedResultButton).toBeVisible();
+    await user.click(savedResultButton);
+    expect(screen.getByText("100")).toBeVisible();
   });
 });
 
