@@ -8,16 +8,11 @@
   box-shadow: 0 8px 24px rgb(36 48 43 / 6%);
 }
 .image {
-  z-index: 1;
   object-fit: contain;
   transition: transform 0.25s ease;
 }
-.imageBackdrop {
-  display: none;
-}
 .visual figcaption {
   position: absolute;
-  z-index: 2;
   left: 14px;
   bottom: 12px;
   padding: 5px 10px;
@@ -90,15 +85,6 @@ a:hover .card .image {
   .compare {
     aspect-ratio: 1 / 1;
     min-height: 0;
-  }
-}
-@media (max-width: 390px) {
-  .tile .imageBackdrop {
-    display: block;
-    object-fit: cover;
-    opacity: .22;
-    filter: blur(11px) saturate(.72);
-    transform: scale(1.12);
   }
 }
 @media (prefers-reduced-motion: reduce) {
