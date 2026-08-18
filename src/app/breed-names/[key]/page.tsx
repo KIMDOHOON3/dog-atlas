@@ -71,10 +71,7 @@ export default async function BreedNameStoryPage({ params }: PageProps) {
           ))}
         </nav>
 
-        <section className={styles.results} id="name-story-results" aria-labelledby="name-story-results-title">
-          <header>
-            <h2 id="name-story-results-title">이 이름과 연결된 견종</h2>
-          </header>
+        <section className={styles.results} id="name-story-results" aria-label={`${story.term} 이름과 관련된 견종`}>
           <div className={styles.breedGrid}>
             {storyBreeds.map((breed) => (
               <Link className={styles.breedCard} href={`/breeds/${breed.slug}`} key={breed.slug} aria-label={`${breed.nameKo} 상세 정보 보기`}>

@@ -13,8 +13,6 @@
 .storyNav small { overflow: hidden; max-width: 100%; font-size: .64rem; font-weight: 600; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; opacity: .78; }
 .storyNav a[aria-current="page"] { color: var(--panel); background: var(--moss); box-shadow: 0 7px 18px rgb(36 48 43 / 12%); }
 .storyNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-.results > header { margin-bottom: 20px; }
-.results h2 { margin: 0; font-size: clamp(1.65rem, 2.5vw, 2.3rem); line-height: 1.28; letter-spacing: -.035em; word-break: keep-all; }
 .breedGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .breedCard { overflow: hidden; display: flex; min-width: 0; flex-direction: column; border: 0; border-radius: 19px; color: var(--ink); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 6%); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
 .breedCard > figure { border: 0; box-shadow: none; }
