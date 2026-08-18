@@ -1,4 +1,4 @@
-.hero { position: relative; isolation: isolate; overflow: hidden; width: min(calc(100% - var(--page-inline)), var(--max)); margin: 12px auto 0; padding: clamp(34px, 4vw, 48px) clamp(18px, 5vw, 72px) clamp(38px, 4.5vw, 54px); }
+.hero { position: relative; z-index: 20; isolation: isolate; overflow: visible; width: min(calc(100% - var(--page-inline)), var(--max)); margin: 12px auto 0; padding: clamp(34px, 4vw, 48px) clamp(18px, 5vw, 72px) clamp(38px, 4.5vw, 54px); }
 .hero::before { position: absolute; z-index: -1; inset: 0 12%; border-radius: 50%; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--moss-light) 76%, transparent) 0%, color-mix(in srgb, var(--moss-light) 36%, transparent) 48%, transparent 74%); content: ""; }
 .heroCopy { position: relative; max-width: 760px; margin: 0 auto; text-align: center; }
 .eyebrow { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .06em; }
