@@ -40,7 +40,7 @@
 .selectedChips button { padding: 7px 10px; border: 0; border-radius: 999px; color: var(--moss); background: var(--moss-light); box-shadow: 0 4px 12px rgb(36 48 43 / 7%); font-size: .76rem; cursor: pointer; }
 .selectedChips button span { margin-left: 4px; font-weight: 700; }
 .resultGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 14px; }
-.resultCard { overflow: hidden; display: flex; min-width: 0; flex-direction: column; border: 1px solid transparent; border-radius: 18px; color: var(--ink); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 4%); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.resultCard { overflow: hidden; display: flex; min-width: 0; flex-direction: column; border: 0; border-radius: 18px; color: var(--ink); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 4%); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
 .resultCard:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgb(36 48 43 / 8%); }
 .resultCard:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .resultCard > figure { border: 0; border-radius: 0; box-shadow: none; }
