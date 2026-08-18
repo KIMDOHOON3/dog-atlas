@@ -59,10 +59,19 @@ describe("JapaneseSpitzReadiness", () => {
     expect(screen.getByRole("heading", { name: "이제 실제 맞이 준비를 차례로 확인해요." })).toBeVisible();
 
     await user.click(screen.getByRole("button", { name: "처음부터 다시 답하기" }));
-    const savedResultButton = screen.getByRole("button", { name: /테스트 결과로 바로 이동하기/ });
-    expect(savedResultButton).toBeVisible();
-    await user.click(savedResultButton);
-    expect(screen.getByText("100")).toBeVisible();
+    expect(screen.getByText("1 / 20")).toBeVisible();
+  });
+
+  it("can skip the questions to preview the final result layout", async () => {
+    const user = userEvent.setup();
+    render(<JapaneseSpitzReadiness />);
+
+    await user.click(screen.getByRole("button", { name: "전체 질문 건너뛰고 결과 화면 보기 ↓" }));
+
+    expect(screen.getByText("결과 화면 미리보기 · 실제 응답 결과는 아니에요.")).toBeVisible();
+    expect(screen.getByText("잘 준비된 부분")).toBeVisible();
+    expect(screen.getByText("현재 걸리는 조건")).toBeVisible();
+    expect(screen.getByText("다음 준비 항목")).toBeVisible();
   });
 });
 

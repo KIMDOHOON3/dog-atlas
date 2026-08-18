@@ -5,7 +5,6 @@
 .intro h2 { max-width: 720px; margin: 0; font-size: clamp(1.45rem, 2.3vw, 2.05rem); line-height: 1.25; letter-spacing: -.035em; }
 .introMeta { flex: none; display: flex; align-items: flex-end; flex-direction: column; gap: 9px; }
 .introMeta > span { padding: 8px 12px; border-radius: 999px; color: var(--moss); background: var(--moss-light); font-size: .78rem; font-weight: 700; }
-.introMeta button { padding: 0; border: 0; color: var(--moss); background: transparent; font-size: .76rem; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 .progress { padding: 20px 30px 0; }
 .progress > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--moss); font-size: .82rem; }
 .progress > div:last-child { height: 7px; margin-top: 9px; overflow: hidden; border-radius: 99px; background: var(--line); }
@@ -23,12 +22,15 @@
 .choices strong, .choices small { display: block; }
 .choices strong { font-size: .98rem; }
 .choices small { margin-top: 4px; color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
-.controls { padding: 18px 30px 26px; display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); }
+.controls { padding: 18px 30px 26px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); }
 .controls button, .resultActions button, .resultActions a { min-height: 48px; padding: 11px 18px; border: 1px solid var(--moss); border-radius: 999px; font-weight: 800; }
 .controls button { color: var(--moss); background: transparent; cursor: pointer; }
 .controls button:disabled { cursor: default; opacity: .35; }
 .controls .next, .resultActions a { color: white; background: var(--moss); text-decoration: none; }
+.controls .previewButton { flex: 0 0 100%; min-height: 36px; padding: 4px 0 0; border: 0; border-radius: 0; color: var(--ink-soft); background: transparent; font-size: .78rem; text-align: center; text-decoration: underline; text-underline-offset: 4px; }
+.controls .previewButton:hover { color: var(--moss); }
 .result { scroll-margin-top: 24px; padding: clamp(22px, 4vw, 42px); border: 1px solid var(--line); border-radius: 28px; background: var(--panel); box-shadow: 0 18px 48px rgb(42 52 46 / 8%); }
+.previewNotice { margin: 0 0 22px; padding: 10px 14px; border-radius: 12px; color: #765a2f; background: #f6eddc; font-size: .8rem; font-weight: 750; text-align: center; }
 .result.ready { border-color: color-mix(in srgb, var(--moss) 50%, var(--line)); }
 .result.prepare { border-color: #b98f49; }
 .result.pause { border-color: #b56c5b; }
@@ -67,7 +69,6 @@
   .intro { padding: 20px; align-items: start; flex-direction: column; gap: 12px; }
   .introMeta { width: 100%; align-items: stretch; }
   .introMeta > span { align-self: flex-start; }
-  .introMeta button { min-height: 44px; padding: 10px 14px; border: 1px solid color-mix(in srgb, var(--moss) 38%, var(--line)); border-radius: 999px; background: color-mix(in srgb, var(--moss-light) 46%, var(--panel)); text-align: center; text-decoration: none; }
   .progress { padding: 18px 20px 0; }
   .questionCard { width: calc(100% - 32px); min-height: 480px; margin: 26px auto 22px; }
   .questionCard h3 { font-size: 1.62rem; }
@@ -77,6 +78,7 @@
   .choices button > span:first-child { width: 32px; height: 32px; }
   .controls { padding: 15px 16px 20px; }
   .controls button { min-height: 46px; padding-inline: 14px; }
+  .controls .previewButton { min-height: 44px; padding: 10px 4px 0; }
   .result header { grid-template-columns: 1fr; gap: 18px; }
   .score { width: 106px; height: 106px; }
   .score strong { font-size: 2.6rem; }

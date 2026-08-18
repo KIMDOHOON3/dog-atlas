@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { BeginnerGuide } from "./beginner-guide";
 import styles from "./japanese-spitz-readiness.module.css";
 
@@ -124,31 +124,17 @@ const categoryAdvice: Record<Question["category"], string> = {
   "견종 이해": "활동·알림 행동·이중모 관리가 개체마다 어떻게 달라질 수 있는지 다시 살펴보세요.",
 };
 
-const readinessResultStorageKey = "dog-atlas:japanese-spitz-readiness-result:v1";
+const previewAnswers = questions.map((question, index) => {
+  if (question.critical) return 0;
+  return [1, 2, 3, 5, 7, 8, 10, 13].includes(index) ? 1 : 0;
+});
 
 export function JapaneseSpitzReadiness() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<(number | undefined)[]>(Array(questions.length).fill(undefined));
   const [finished, setFinished] = useState(false);
-  const [savedAnswers, setSavedAnswers] = useState<number[] | null>(null);
+  const [isPreview, setIsPreview] = useState(false);
   const selected = answers[current];
-
-  useEffect(() => {
-    let active = true;
-    queueMicrotask(() => {
-      try {
-        const stored = localStorage.getItem(readinessResultStorageKey);
-        if (!stored) return;
-        const parsed: unknown = JSON.parse(stored);
-        if (active && Array.isArray(parsed) && parsed.length === questions.length && parsed.every((answer) => Number.isInteger(answer) && answer >= 0 && answer <= 2)) {
-          setSavedAnswers(parsed as number[]);
-        }
-      } catch {
-        // A stored result is optional; the assessment remains fully usable without it.
-      }
-    });
-    return () => { active = false; };
-  }, []);
 
   const result = useMemo(() => {
     const total = answers.reduce<number>((sum, choiceIndex, questionIndex) => {
@@ -180,13 +166,7 @@ export function JapaneseSpitzReadiness() {
   function next() {
     if (selected === undefined) return;
     if (current === questions.length - 1) {
-      const completedAnswers = answers as number[];
-      setSavedAnswers(completedAnswers);
-      try {
-        localStorage.setItem(readinessResultStorageKey, JSON.stringify(completedAnswers));
-      } catch {
-        // Keep the current result visible even when browser storage is unavailable.
-      }
+      setIsPreview(false);
       setFinished(true);
       requestAnimationFrame(() => document.querySelector("#readiness-result")?.scrollIntoView?.({ behavior: "smooth", block: "start" }));
       return;
@@ -198,12 +178,13 @@ export function JapaneseSpitzReadiness() {
     setAnswers(Array(questions.length).fill(undefined));
     setCurrent(0);
     setFinished(false);
+    setIsPreview(false);
     requestAnimationFrame(() => document.querySelector("#readiness-assessment")?.scrollIntoView?.({ behavior: "smooth", block: "start" }));
   }
 
-  function showSavedResult() {
-    if (!savedAnswers) return;
-    setAnswers([...savedAnswers]);
+  function previewResult() {
+    setAnswers(previewAnswers);
+    setIsPreview(true);
     setFinished(true);
     requestAnimationFrame(() => document.querySelector("#readiness-result")?.scrollIntoView?.({ behavior: "smooth", block: "start" }));
   }
@@ -217,6 +198,7 @@ export function JapaneseSpitzReadiness() {
     return (
       <>
         <section className={`${styles.result} ${styles[result.level]}`} id="readiness-result" aria-live="polite">
+          {isPreview && <p className={styles.previewNotice}>결과 화면 미리보기 · 실제 응답 결과는 아니에요.</p>}
           <header>
             <div className={styles.score}><strong>{result.score}</strong><span>/ 100</span></div>
             <div><p>{copy.label}</p><h2>{copy.title}</h2><span>{copy.body}</span></div>
@@ -247,7 +229,6 @@ export function JapaneseSpitzReadiness() {
         <div><p>재패니즈 스피츠 시범 진단</p><h2 id="readiness-title">좋아하는 마음을 현실적인 생활 조건과 함께 확인해요.</h2></div>
         <div className={styles.introMeta}>
           <span>약 5분 · 20문항</span>
-          {savedAnswers && <button type="button" onClick={showSavedResult}>테스트 결과로 바로 이동하기 ↓</button>}
         </div>
       </header>
       <div className={styles.progress}>
@@ -270,6 +251,7 @@ export function JapaneseSpitzReadiness() {
       <footer className={styles.controls}>
         <button type="button" onClick={() => setCurrent((value) => Math.max(0, value - 1))} disabled={current === 0}>← 이전</button>
         <button type="button" className={styles.next} onClick={next} disabled={selected === undefined}>{current === questions.length - 1 ? "결과 확인하기" : "다음 질문"} →</button>
+        <button type="button" className={styles.previewButton} onClick={previewResult}>전체 질문 건너뛰고 결과 화면 보기 ↓</button>
       </footer>
     </section>
   );
