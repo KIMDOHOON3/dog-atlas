@@ -17,6 +17,17 @@ export function BreedVisual({ breed, variant, label, priority = false }: Props) 
 
   return (
     <figure className={`${styles.visual} ${styles[variant]}`}>
+      {variant === "tile" && (
+        <Image
+          src={src}
+          alt=""
+          fill
+          loading="lazy"
+          sizes="(max-width: 390px) 50vw, 1px"
+          className={styles.imageBackdrop}
+          aria-hidden="true"
+        />
+      )}
       <Image
         src={src}
         alt={alt}
