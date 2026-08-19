@@ -51,7 +51,7 @@ const japaneseSpitzFeatures = [
   {
     eyebrow: "사람과의 관계",
     title: "사람 곁에서 함께 움직이길 좋아해요.",
-    description: "사람을 좋아하고 함께하는 활동에 기꺼이 참여하는 영리하고 쾌활한 반려견으로 소개됩니다. 다만 가까이 지내는 방식과 표현의 정도는 개체마다 달라요.",
+    description: "사람을 좋아하고 보호자와 산책하거나 놀이하는 시간을 즐기는 영리하고 쾌활한 반려견이에요. 다만 사람과 가까워지는 속도와 애정을 표현하는 방식은 강아지마다 달라요.",
     image: "/illustrations/v4/japanese-spitz-feature-companionship.webp",
     alt: "사람 곁을 따라 걸으며 얼굴을 바라보는 재패니즈 스피츠 삽화",
   },
