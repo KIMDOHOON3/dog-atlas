@@ -290,3 +290,9 @@ Keep the six visible lifestyle cards conceptually distinct and do not repeat an 
 Replace the Japanese Spitz detail's six general lifestyle-advice cards with three illustrated discoveries that explain what is distinctive about this breed: its balanced Spitz silhouette, cheerful and intelligent companion temperament, and alert awareness without treating nonstop barking as an ideal trait. Keep the history, tendency disclosure, preparation action, comparison, and sources unchanged.
 
 Use this as a one-breed pilot before changing the other 375 details. Each discovery combines a dedicated 4:3 editorial illustration with concise source-backed copy; it must reveal a breed-specific appearance or temperament insight rather than restating care tasks common to most dogs.
+
+# 2026-08-19 — Align the Japanese Spitz pilot with observed reader questions
+
+Remove the appearance-only discovery because the detail hero already establishes morphology. Replace the pilot with three questions repeatedly visible in Korean breed-search results and supported by official breed material: people-oriented companionship, alert attention without treating persistent barking as an ideal, and the recurring burden of an abundant double coat.
+
+Do not add a health card to this pilot. Health claims require a different evidence threshold, and the currently reviewed material does not justify presenting one condition as a common defining Japanese Spitz trait. Keep all three cards framed as breed tendencies rather than promises about an individual dog, and use new scene-specific 4:3 editorial illustrations matching the existing atlas watercolor style.

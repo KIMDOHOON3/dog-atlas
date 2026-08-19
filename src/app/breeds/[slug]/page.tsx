@@ -49,25 +49,25 @@ const extraTendencies = ["mentalStimulation", "independence", "alerting"] as con
 
 const japaneseSpitzFeatures = [
   {
-    eyebrow: "외형",
-    title: "중소형 몸에 스피츠의 선이 또렷해요.",
-    description: "곧게 선 삼각형 귀, 쐐기형 얼굴, 등에 올라간 풍성한 꼬리가 한 실루엣 안에 모여 있어요. 흰 털의 양보다 이 균형이 재패니즈 스피츠다운 인상을 만듭니다.",
-    image: "/illustrations/v4/japanese-spitz-feature-silhouette.webp",
-    alt: "곧게 선 귀와 등에 말린 풍성한 꼬리가 보이는 재패니즈 스피츠의 전신 삽화",
+    eyebrow: "사람과의 관계",
+    title: "사람 곁에서 함께 움직이길 좋아해요.",
+    description: "사람을 좋아하고 함께하는 활동에 기꺼이 참여하는 영리하고 쾌활한 반려견으로 소개됩니다. 다만 가까이 지내는 방식과 표현의 정도는 개체마다 달라요.",
+    image: "/illustrations/v4/japanese-spitz-feature-companionship.webp",
+    alt: "사람 곁을 따라 걸으며 얼굴을 바라보는 재패니즈 스피츠 삽화",
   },
   {
-    eyebrow: "기질",
-    title: "사람과 놀 때 재치가 살아나요.",
-    description: "명랑하고 영리한 반려견으로, 가족이 하는 일에 함께 참여하려는 모습이 자주 소개됩니다. 가만히 안겨 있기만 하는 소형견보다 함께 움직이고 반응을 주고받는 장면이 잘 어울려요.",
-    image: "/illustrations/v4/japanese-spitz-feature-play.webp",
-    alt: "사람의 손을 바라보며 놀이 자세를 취한 재패니즈 스피츠 삽화",
+    eyebrow: "소리와 변화",
+    title: "변화를 빨리 알아차리지만, 계속 짖는 것이 기준은 아니에요.",
+    description: "주변의 작은 소리와 움직임을 빠르게 알아차릴 수 있어요. 공식 견종 표준은 과도하게 시끄러운 성향을 바람직하게 보지 않으므로, 알림 반응과 반복 짖음은 구분해서 살펴봐야 해요.",
+    image: "/illustrations/v4/japanese-spitz-feature-calm-alert.webp",
+    alt: "닫힌 문밖의 작은 소리를 조용히 알아차린 재패니즈 스피츠 삽화",
   },
   {
-    eyebrow: "알림 성향",
-    title: "잘 알아차리지만, 시끄러워야 하는 개는 아니에요.",
-    description: "작은 소리와 움직임을 빠르게 포착하는 예민함이 있어요. 다만 견종 표준은 불필요하게 시끄러운 성향을 이상적으로 보지 않으므로, 알림 행동과 계속되는 짖음을 같은 특징으로 볼 필요는 없어요.",
-    image: "/illustrations/v4/japanese-spitz-feature-alert.webp",
-    alt: "문밖의 작은 소리를 알아차리고 차분히 고개를 돌린 재패니즈 스피츠 삽화",
+    eyebrow: "털 관리 부담",
+    title: "풍성한 이중모는 꾸준한 빗질이 필요해요.",
+    description: "짧고 촘촘한 속털과 풍성한 겉털을 함께 가진 견종이에요. 특히 털갈이 시기에는 빠진 속털이 엉키지 않도록 규칙적인 빗질을 생활에 포함해야 해요.",
+    image: "/illustrations/v4/japanese-spitz-feature-double-coat.webp",
+    alt: "빠진 속털을 브러시로 빗어 관리하는 재패니즈 스피츠 삽화",
   },
 ] as const;
 
@@ -133,9 +133,9 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
       {isJapaneseSpitz ? (
         <section className={styles.japaneseSpitzFeatures} aria-labelledby="japanese-spitz-features-title">
           <header>
-            <p className={styles.eyebrow}>이 견종에서 발견할 것</p>
-            <h2 id="japanese-spitz-features-title">하얀 털 너머에 이런 모습이 있어요.</h2>
-            <p>외형과 기질이 함께 드러나는 세 장면으로 재패니즈 스피츠를 만나보세요.</p>
+            <p className={styles.eyebrow}>실제로 함께 살면</p>
+            <h2 id="japanese-spitz-features-title">재패니즈 스피츠는 어떤 개인가요?</h2>
+            <p>사람과의 관계, 주변 변화에 대한 반응, 매일 체감할 털 관리 부담을 먼저 살펴보세요.</p>
           </header>
           <div className={styles.japaneseSpitzFeatureGrid}>
             {japaneseSpitzFeatures.map((feature) => (
