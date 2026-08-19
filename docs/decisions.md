@@ -284,3 +284,9 @@ Keep the normalized score separate from non-negotiable conditions such as housin
 Treat `careNotes` and `discoveryTags` as independent editorial lists, not positional pairs. Derive each care card's title and icon from the care description first, and use a same-index discovery tag only when the description has no recognizable lifestyle concept. This prevents grooming advice from appearing under companionship or alone-time headings.
 
 Keep the six visible lifestyle cards conceptually distinct and do not repeat an exact sentence already shown in the history or expanded tendency sections. When a tendency is needed to complete the card set, present a concise contextual paraphrase while preserving the original tendency note in its dedicated section. Maintain catalog-wide regression checks for semantic title matching, unique card concepts, and exact-copy duplication.
+
+# 2026-08-19 — Pilot breed-specific illustrated discoveries on Japanese Spitz
+
+Replace the Japanese Spitz detail's six general lifestyle-advice cards with three illustrated discoveries that explain what is distinctive about this breed: its balanced Spitz silhouette, cheerful and intelligent companion temperament, and alert awareness without treating nonstop barking as an ideal trait. Keep the history, tendency disclosure, preparation action, comparison, and sources unchanged.
+
+Use this as a one-breed pilot before changing the other 375 details. Each discovery combines a dedicated 4:3 editorial illustration with concise source-backed copy; it must reveal a breed-specific appearance or temperament insight rather than restating care tasks common to most dogs.

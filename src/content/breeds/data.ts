@@ -108,6 +108,7 @@ const draftBreeds = [
     ],
     sources: [
       { title: "Japanese Spitz Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/japanese-spitz/", checkedAt },
+      { title: "Japanese Spitz Official Breed Standard", organization: "United Kennel Club", url: "https://www.ukcdogs.com/breed-groups/japanese-spitz", checkedAt },
     ],
   },
   {

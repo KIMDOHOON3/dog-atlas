@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
@@ -45,6 +46,30 @@ const tendencyNames = {
 
 const coreTendencies = ["activity", "socialConnection", "grooming"] as const;
 const extraTendencies = ["mentalStimulation", "independence", "alerting"] as const;
+
+const japaneseSpitzFeatures = [
+  {
+    eyebrow: "외형",
+    title: "중소형 몸에 스피츠의 선이 또렷해요.",
+    description: "곧게 선 삼각형 귀, 쐐기형 얼굴, 등에 올라간 풍성한 꼬리가 한 실루엣 안에 모여 있어요. 흰 털의 양보다 이 균형이 재패니즈 스피츠다운 인상을 만듭니다.",
+    image: "/illustrations/v4/japanese-spitz-feature-silhouette.webp",
+    alt: "곧게 선 귀와 등에 말린 풍성한 꼬리가 보이는 재패니즈 스피츠의 전신 삽화",
+  },
+  {
+    eyebrow: "기질",
+    title: "사람과 놀 때 재치가 살아나요.",
+    description: "명랑하고 영리한 반려견으로, 가족이 하는 일에 함께 참여하려는 모습이 자주 소개됩니다. 가만히 안겨 있기만 하는 소형견보다 함께 움직이고 반응을 주고받는 장면이 잘 어울려요.",
+    image: "/illustrations/v4/japanese-spitz-feature-play.webp",
+    alt: "사람의 손을 바라보며 놀이 자세를 취한 재패니즈 스피츠 삽화",
+  },
+  {
+    eyebrow: "알림 성향",
+    title: "잘 알아차리지만, 시끄러워야 하는 개는 아니에요.",
+    description: "작은 소리와 움직임을 빠르게 포착하는 예민함이 있어요. 다만 견종 표준은 불필요하게 시끄러운 성향을 이상적으로 보지 않으므로, 알림 행동과 계속되는 짖음을 같은 특징으로 볼 필요는 없어요.",
+    image: "/illustrations/v4/japanese-spitz-feature-alert.webp",
+    alt: "문밖의 작은 소리를 알아차리고 차분히 고개를 돌린 재패니즈 스피츠 삽화",
+  },
+] as const;
 
 const tendencyLevelScore = {
   "낮은 편": 1,
@@ -101,32 +126,61 @@ function getLifestyleCommonality(left: Breed, right: Breed) {
 
 function BreedDetailExperience({ breed }: { breed: Breed }) {
   const { lifePoints, dayPoints } = getBreedLifePresentation(breed);
+  const isJapaneseSpitz = breed.slug === "japanese-spitz";
 
   return (
     <>
-      <section className={styles.malteseEssentials} aria-labelledby="breed-essentials-title">
-        <header>
-          <p className={styles.eyebrow}>함께 살기 전에</p>
-          <h2 id="breed-essentials-title">{breed.nameKo}와 살면 먼저 챙길 세 가지</h2>
-          <p>귀여운 외모보다 매일 반복될 생활을 먼저 확인해보세요.</p>
-        </header>
-        <div className={styles.malteseLifeGrid}>
-          {lifePoints.map((point) => (
-            <article key={point.title}>
-              <LifestyleProductIcon name={point.icon} className={styles.malteseProductIcon} />
-              <div><span>{point.label}</span><h3>{point.title}</h3><p>{point.description}</p></div>
-            </article>
-          ))}
-        </div>
-        <div className={styles.malteseDay}>
+      {isJapaneseSpitz ? (
+        <section className={styles.japaneseSpitzFeatures} aria-labelledby="japanese-spitz-features-title">
           <header>
-            <p className={styles.eyebrow}>생활에 가볍게 더하기</p>
-            <h3>하루에 한 번씩 해보면 좋아요.</h3>
-            <p>전부 완벽하게 하기보다 가능한 것부터 편안하게 이어가세요.</p>
+            <p className={styles.eyebrow}>이 견종에서 발견할 것</p>
+            <h2 id="japanese-spitz-features-title">하얀 털 너머에 이런 모습이 있어요.</h2>
+            <p>외형과 기질이 함께 드러나는 세 장면으로 재패니즈 스피츠를 만나보세요.</p>
           </header>
-          <ul>{dayPoints.map((point) => <li key={point.icon}><LifestyleProductIcon name={point.icon} className={styles.malteseProductIcon} /><div><strong>{point.title}</strong><p>{point.description}</p></div></li>)}</ul>
-        </div>
-      </section>
+          <div className={styles.japaneseSpitzFeatureGrid}>
+            {japaneseSpitzFeatures.map((feature) => (
+              <article key={feature.title}>
+                <Image
+                  src={feature.image}
+                  alt={feature.alt}
+                  width={1200}
+                  height={900}
+                  sizes="(max-width: 767px) calc(100vw - 64px), (max-width: 1100px) 50vw, 30vw"
+                />
+                <div>
+                  <span>{feature.eyebrow}</span>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : (
+        <section className={styles.malteseEssentials} aria-labelledby="breed-essentials-title">
+          <header>
+            <p className={styles.eyebrow}>함께 살기 전에</p>
+            <h2 id="breed-essentials-title">{breed.nameKo}와 살면 먼저 챙길 세 가지</h2>
+            <p>귀여운 외모보다 매일 반복될 생활을 먼저 확인해보세요.</p>
+          </header>
+          <div className={styles.malteseLifeGrid}>
+            {lifePoints.map((point) => (
+              <article key={point.title}>
+                <LifestyleProductIcon name={point.icon} className={styles.malteseProductIcon} />
+                <div><span>{point.label}</span><h3>{point.title}</h3><p>{point.description}</p></div>
+              </article>
+            ))}
+          </div>
+          <div className={styles.malteseDay}>
+            <header>
+              <p className={styles.eyebrow}>생활에 가볍게 더하기</p>
+              <h3>하루에 한 번씩 해보면 좋아요.</h3>
+              <p>전부 완벽하게 하기보다 가능한 것부터 편안하게 이어가세요.</p>
+            </header>
+            <ul>{dayPoints.map((point) => <li key={point.icon}><LifestyleProductIcon name={point.icon} className={styles.malteseProductIcon} /><div><strong>{point.title}</strong><p>{point.description}</p></div></li>)}</ul>
+          </div>
+        </section>
+      )}
 
       <section className={styles.malteseStory} aria-labelledby="breed-story-title">
         {breed.historyVisual && <BreedVisual breed={breed} variant="history" />}
