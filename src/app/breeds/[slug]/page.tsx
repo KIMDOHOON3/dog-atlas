@@ -45,7 +45,6 @@ const tendencyNames = {
 } as const;
 
 const coreTendencies = ["activity", "socialConnection", "grooming"] as const;
-const extraTendencies = ["mentalStimulation", "independence", "alerting"] as const;
 
 const japaneseSpitzFeatures = [
   {
@@ -77,20 +76,6 @@ const tendencyLevelScore = {
   "높은 편": 3,
   "개체별 확인 필요": 0,
 } as const;
-
-const tendencyQuestions: Record<keyof Breed["tendencies"], string> = {
-  activity: "얼마나 움직이나요?",
-  mentalStimulation: "머리를 쓰는 놀이는 얼마나 필요한가요?",
-  independence: "혼자 쉬는 성향은 어떤가요?",
-  socialConnection: "사람과 얼마나 가까이 지내나요?",
-  alerting: "소리와 주변 변화에 얼마나 반응하나요?",
-  grooming: "털 관리는 얼마나 필요한가요?",
-};
-
-function TendencyCard({ breed, name }: { breed: Breed; name: keyof Breed["tendencies"] }) {
-  const tendency = breed.tendencies[name];
-  return <article><span>{tendencyQuestions[name]}</span><strong>{tendency.label}</strong><p>{tendency.note}</p></article>;
-}
 
 function getLifestyleDifference(left: Breed, right: Breed) {
   const leftFacts = getBreedFactPresentation(left);
@@ -191,15 +176,6 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
           <p className={styles.malteseStoryLead}>{breed.story.roleToHome}</p>
         </div>
       </section>
-
-      <details className={styles.malteseTendencies}>
-        <summary>
-          <span className={styles.malteseTendencyIcon}><LifestyleProductIcon name="health-check" className={styles.malteseProductIcon} /></span>
-          <span className={styles.malteseTendencyCopy}><strong>이 강아지 성향 더 알아보기</strong><small>활동량, 교감, 혼자 쉬기와 털 관리를 확인해요.</small></span>
-          <span className={styles.malteseTendencyChevron} aria-hidden="true" />
-        </summary>
-        <div><p>같은 견종이어도 성격은 모두 달라요. 아래 내용은 일반적인 경향으로만 봐주세요.</p><div>{([...coreTendencies, ...extraTendencies] as const).map((name) => <TendencyCard breed={breed} name={name} key={name} />)}</div></div>
-      </details>
 
       <section className={styles.malteseDecision} aria-label={`${breed.nameKo} 다음 선택`}>
         <div className={styles.malteseChoiceActions}>
