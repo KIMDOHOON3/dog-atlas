@@ -58,7 +58,7 @@ const japaneseSpitzFeatures = [
   {
     eyebrow: "짖음과 알림",
     title: "작은 변화에도 먼저 반응할 수 있어요.",
-    description: "현관 소리나 창밖 움직임을 알아차리고 짖음으로 알릴 수 있어요. 편안히 쉴 자리를 마련하고, 자극을 확인한 뒤 보호자에게 돌아오는 연습을 어릴 때부터 해두면 좋아요.",
+    description: "현관 소리나 창밖 움직임에 반응해 짖을 수 있어요. 짖음이 길어지지 않도록 소리가 들린 뒤 조용히 기다리는 연습을 어릴 때부터 해두면 좋아요.",
     image: "/illustrations/v4/japanese-spitz-feature-calm-alert.webp",
     alt: "닫힌 문밖의 작은 소리를 조용히 알아차린 재패니즈 스피츠 삽화",
   },
