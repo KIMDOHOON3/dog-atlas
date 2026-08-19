@@ -17,6 +17,7 @@
 ### 콘텐츠와 데이터
 
 - [`content-copy-guide.md`](content-copy-guide.md) — 단정적 추천을 피하는 카피 규칙과 검수 기준
+- [`breed-feature-card-rollout.md`](breed-feature-card-rollout.md) — 376개 상세를 견종별 3개 그림 카드로 확장하기 위한 조사·카피·이미지·구현·검증 명세; 사용자 지시 전에는 확장하지 않음
 - [`korean-copy-audit.md`](korean-copy-audit.md) — 368종 한국어 표시 카피 전수 점검, 교정 범위와 재발 방지 테스트
 - [`catalog-data-architecture.md`](catalog-data-architecture.md) — 마스터 카탈로그와 상세 콘텐츠 분리 설계
 - [`catalog-taxonomy-spec.md`](catalog-taxonomy-spec.md) — 탐색 분류와 통제 어휘
@@ -43,6 +44,7 @@
 - [`image-prompts-breed-visual-replacements-batch-2-2026-08-11.md`](image-prompts-breed-visual-replacements-batch-2-2026-08-11.md) — 후각하운드·흰 가축보호견·스피츠 30종 재검수에서 교체한 11종·13개 자산의 근거와 프롬프트
 - [`image-prompts-batch-a.md`](image-prompts-batch-a.md) — 초기 확장 배치 A의 카드·역사 이미지 프롬프트와 QA 기록
 - [`image-prompts-batch-b.md`](image-prompts-batch-b.md) — 초기 확장 배치 B의 카드·역사 이미지 프롬프트와 QA 기록
+- [`image-prompts-japanese-spitz-features-2026-08-19.md`](image-prompts-japanese-spitz-features-2026-08-19.md) — 견종별 3개 특징 카드 파일럿의 재패니즈 스피츠 이미지 제작 기록
 
 배치 A·B 문서는 현재 전체 368종 자산 목록이 아니라 초기 제작 배치의 재현 기록이다. 최신 외형 점검 상태는 `breed-visual-audit.md`를 기준으로 본다.
 

@@ -296,3 +296,11 @@ Use this as a one-breed pilot before changing the other 375 details. Each discov
 Remove the appearance-only discovery because the detail hero already establishes morphology. Replace the pilot with three questions repeatedly visible in Korean breed-search results and supported by official breed material: people-oriented companionship, alert attention without treating persistent barking as an ideal, and the recurring burden of an abundant double coat.
 
 Do not add a health card to this pilot. Health claims require a different evidence threshold, and the currently reviewed material does not justify presenting one condition as a common defining Japanese Spitz trait. Keep all three cards framed as breed tendencies rather than promises about an individual dog, and use new scene-specific 4:3 editorial illustrations matching the existing atlas watercolor style.
+
+# 2026-08-19 — Prepare but pause the catalog-wide feature-card rollout
+
+Set the long-term direction to replace the remaining generic pre-ownership lifestyle cards with three source-backed, breed-specific illustrated discoveries on every detail page. Do not start the other 375 entries until the user explicitly requests the rollout.
+
+Treat Japanese Spitz as the structural and visual pilot, not as a fixed content taxonomy. Select three non-overlapping topics per breed from reader questions, official breed material, historical role, temperament, and a genuinely distinctive ownership burden. Exclude health claims from this card system until a separate evidence and expert-review policy exists. Preserve all tendency data because discovery filters and comparison depend on it.
+
+Before expanding, move the pilot's page-local data into a Zod-validated local content module, work in small reviewable batches, keep a prompt and source record for every image batch, and add catalog checks for three-card coverage, asset integrity, source linkage, copy uniqueness, and filter stability. The operational handoff is recorded in `docs/breed-feature-card-rollout.md`.
