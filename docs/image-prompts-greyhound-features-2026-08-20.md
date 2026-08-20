@@ -51,7 +51,14 @@
 
 ## 검수 결과
 
-- 세 장 모두 황갈색 성견 그레이하운드의 긴 머리와 다리, 깊은 가슴, 잘록한 허리와 짧은 피모가 유지된다.
+- 후속 편집에서 세 장의 황갈색 피모만 같은 단색 청회색으로 변경했다. 장면·구도·자세·소품은 유지했고 보온 카드의 세이지색 외투도 변경하지 않았다.
+- 세 장 모두 청회색 성견 그레이하운드의 긴 머리와 다리, 깊은 가슴, 잘록한 허리와 짧은 피모가 유지된다.
 - 현대 공원 산책에서의 시각 집중, 울타리 안의 짧은 질주, 보온 코트를 입은 늦가을 산책이 서로 구분되며 기존 역사 장면을 반복하지 않는다.
 - 귀·발·꼬리가 카드 크롭 안에 남고 이미지 안에 글자·워터마크·외곽선이 없다.
 - 생성 원본 1448×1086 PNG를 같은 4:3 비율의 1200×900 WebP로 변환했다.
+
+## 후속 색상 통일 편집 프롬프트
+
+세 이미지에 각각 기존 파일을 편집 대상으로 넣고 아래 지시를 장면별 불변 요소와 함께 적용했다.
+
+`Use case: precise-object-edit. Change only the adult Greyhound's natural fur color from fawn/tan to a consistent solid cool blue-grey (steel-grey) short coat, including all visible natural fur. Preserve subtle watercolor shading and natural highlights. Keep the dog's exact identity, anatomy, pose, facial expression, all people, objects, background, composition, crop, watercolor-and-colored-pencil style, paper texture, and lighting unchanged. For the cold-weather card, keep the muted sage winter garment exactly the same color and shape. Do not turn the fur black, brown, silver-white, brindle, spotted, or mottled. Do not add or remove anything. No text, logos, or watermark.`
