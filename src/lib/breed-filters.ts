@@ -4,6 +4,11 @@ export type TendencyLevel = "low" | "medium" | "high" | "unknown";
 export type BreedSize = "small" | "medium" | "large" | "giant";
 export type TendencyFilterKey = "activity" | "mentalStimulation" | "socialConnection" | "independence" | "alerting" | "grooming";
 
+export type FilterableBreed = {
+  identity: Pick<Breed["identity"], "size">;
+  tendencies: Record<TendencyFilterKey, Pick<Breed["tendencies"][TendencyFilterKey], "label">>;
+};
+
 export type BreedFilters = {
   size: BreedSize[];
 } & Record<TendencyFilterKey, TendencyLevel[]>;
@@ -58,14 +63,14 @@ export function getBreedSizeCategory(size: string): BreedSize | undefined {
   return undefined;
 }
 
-export function getBreedFilterValue(breed: Breed, key: "size"): BreedSize | undefined;
-export function getBreedFilterValue(breed: Breed, key: TendencyFilterKey): TendencyLevel;
-export function getBreedFilterValue(breed: Breed, key: "size" | TendencyFilterKey): BreedSize | TendencyLevel | undefined {
+export function getBreedFilterValue(breed: FilterableBreed, key: "size"): BreedSize | undefined;
+export function getBreedFilterValue(breed: FilterableBreed, key: TendencyFilterKey): TendencyLevel;
+export function getBreedFilterValue(breed: FilterableBreed, key: "size" | TendencyFilterKey): BreedSize | TendencyLevel | undefined {
   if (key === "size") return getBreedSizeCategory(breed.identity.size);
   return normalizeTendencyLabel(breed.tendencies[key].label);
 }
 
-export function filterBreeds(breeds: readonly Breed[], filters: BreedFilters): Breed[] {
+export function filterBreeds<T extends FilterableBreed>(breeds: readonly T[], filters: BreedFilters): T[] {
   return breeds.filter((breed) => {
     const size = getBreedFilterValue(breed, "size");
     if (filters.size.length > 0 && (!size || !filters.size.includes(size))) return false;

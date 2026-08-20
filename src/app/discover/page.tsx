@@ -5,6 +5,7 @@ import { DiscoverSearch } from "@/components/discover-search";
 import { SiteHeader } from "@/components/site-header";
 import { breeds } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
+import { toDiscoverBreed } from "@/lib/discover-breeds";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export default function DiscoverPage() {
           </Suspense>
         </div>
         <Suspense fallback={<div className={styles.loading}>견종 필터를 준비하고 있어요.</div>}>
-          <DiscoverExplorer breeds={breeds} />
+          <DiscoverExplorer breeds={breeds.map(toDiscoverBreed)} />
         </Suspense>
       </main>
     </>

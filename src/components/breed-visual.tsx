@@ -4,7 +4,8 @@ import { getBreedCardImage } from "@/lib/breed-image-assets";
 import styles from "./breed-visual.module.css";
 
 type Variant = "hero" | "card" | "landscape" | "portrait" | "tile" | "detail" | "compare" | "history";
-type Props = { breed: Breed; variant: Variant; label?: string; priority?: boolean };
+type VisualBreed = Pick<Breed, "slug" | "nameKo"> & Partial<Pick<Breed, "historyVisual">>;
+type Props = { breed: VisualBreed; variant: Variant; label?: string; priority?: boolean };
 
 export function BreedVisual({ breed, variant, label, priority = false }: Props) {
   if (variant === "history" && !breed.historyVisual) return null;

@@ -213,7 +213,15 @@ export default async function BreedDetail({ params }: PageProps) {
             </div>
             <div className={styles.atAGlance}>
               <dl className={styles.facts}>
-                {facts.size && <div><dt>크기</dt><dd>{facts.size}</dd></div>}
+                {facts.height && facts.weight ? (
+                  <div>
+                    <dt>체고 · 몸무게</dt>
+                    <dd className={styles.sizeMeasurements}>
+                      <span><small>체고</small>{facts.height}</span>
+                      <span><small>몸무게</small>{facts.weight}</span>
+                    </dd>
+                  </div>
+                ) : facts.size ? <div><dt>크기</dt><dd>{facts.size}</dd></div> : null}
                 {facts.lifespan && <div><dt>평균 수명</dt><dd>{facts.lifespan}</dd></div>}
                 <div><dt>계통</dt><dd>{breed.identity.lineage}</dd></div>
                 <div><dt>원래 역할</dt><dd>{breed.identity.originalRole}</dd></div>

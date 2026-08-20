@@ -2,6 +2,8 @@ import type { Breed } from "@/content/breeds/schema";
 
 type BreedFactOverride = {
   size?: string;
+  height?: string;
+  weight?: string;
   lifespan?: string;
 };
 
@@ -9,7 +11,11 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
-  "japanese-spitz": { size: "30~38cm · 5~11kg" },
+  "japanese-spitz": {
+    size: "30~38cm · 5~11kg",
+    height: "30~38cm",
+    weight: "5~11kg",
+  },
   maltese: { size: "18~23cm · 3.2kg 이하", lifespan: "12~15년" },
   "border-collie": { size: "46~56cm · 14~25kg", lifespan: "12~15년" },
   greyhound: { size: "69~76cm · 27~32kg" },
@@ -61,8 +67,12 @@ export function getBreedLifespanDisplay(breed: Breed): string | undefined {
 }
 
 export function getBreedFactPresentation(breed: Breed) {
+  const override = breedFactOverrides[breed.slug];
+
   return {
     size: getBreedSizeDisplay(breed),
+    height: override?.height,
+    weight: override?.weight,
     lifespan: getBreedLifespanDisplay(breed),
   };
 }

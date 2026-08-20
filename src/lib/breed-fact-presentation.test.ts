@@ -8,6 +8,16 @@ import {
 } from "./breed-fact-presentation";
 
 describe("breed fact presentation", () => {
+  it("separates Japanese Spitz height and weight for the detail summary", () => {
+    const facts = getBreedFactPresentation(getBreed("japanese-spitz")!);
+
+    expect(facts).toMatchObject({
+      size: "30~38cm · 5~11kg",
+      height: "30~38cm",
+      weight: "5~11kg",
+    });
+  });
+
   it("shows compact numeric facts for poodle", () => {
     const poodle = getBreed("poodle")!;
 
@@ -15,6 +25,8 @@ describe("breed fact presentation", () => {
       "토이 25cm 이하 · 미니어처 25~38cm · 스탠더드 38cm 초과",
     );
     expect(getBreedLifespanDisplay(poodle)).toBe("10~18년");
+    expect(getBreedFactPresentation(poodle).height).toBeUndefined();
+    expect(getBreedFactPresentation(poodle).weight).toBeUndefined();
   });
 
   it("keeps source and editorial wording out of every visible fact", () => {

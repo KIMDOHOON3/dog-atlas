@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { BreedVisual } from "@/components/breed-visual";
-import type { Breed } from "@/content/breeds/schema";
 import {
   emptyBreedFilters,
   filterBreeds,
@@ -19,6 +18,7 @@ import {
 import { useHistoryEntryState } from "@/lib/history-entry-state";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
 import { presentBreedOrigin } from "@/lib/breed-origin-presentation";
+import type { DiscoverBreed } from "@/lib/discover-breeds";
 import styles from "./discover-explorer.module.css";
 
 const sizeOptions: Array<{ value: BreedSize; label: string }> = [
@@ -61,7 +61,7 @@ function cloneFilters(filters: BreedFilters): BreedFilters {
   };
 }
 
-export function DiscoverExplorer({ breeds }: { breeds: readonly Breed[] }) {
+export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
