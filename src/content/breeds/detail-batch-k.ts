@@ -22,7 +22,7 @@ const seeds: Seed[] = [
   { slug: "kishu", nameKo: "키슈견", nameEn: "Kishu", group: "spitz-primitive", tags: ["일본 사냥견", "산악 추적", "차분한 독립성"], colors: ["#b9b2a5", "#eeece4", "#38332e"], origin: "일본 기이 반도", lineage: "일본 산악 지역의 오래된 사냥견", role: "산에서 멧돼지와 사슴을 추적", size: "중형 · 약 43~55cm, 14~27kg", lifespan: "약 11~13년 (FCI 참고, 개체별 차이 있음)", levels: ["높은 편", "높은 편", "높은 편", "중간", "중간", "낮은 편"], focus: ["추적 본능을 안전한 냄새 찾기와 긴 리드로 전환하세요.", "낯선 자극에서 스스로 판단할 시간을 주고 강요하지 마세요."], related: [["shikoku", "일본 산악 사냥견의 독립성과 활동 반경을 비교해 보세요."], ["basenji", "원시견의 자기 주도성과 사람과의 협력 방식을 살펴보세요."]], fciUrl: "https://www.fci.be/en/nomenclature/KISHU-318.html", akcUrl: "https://www.akc.org/dog-breeds/kishu-ken/" },
   { slug: "shikoku", nameKo: "시코쿠견", nameEn: "Shikoku", group: "spitz-primitive", tags: ["일본 산악 사냥견", "민첩한 움직임", "추적과 회복"], colors: ["#8f6f57", "#dfd4c3", "#322d29"], origin: "일본 시코쿠", lineage: "시코쿠 산악 지역의 사냥견", role: "험한 지형에서 멧돼지를 추적", size: "중형 · 약 43~55cm, 15~25kg", lifespan: "약 11~13년 (FCI 참고, 개체별 차이 있음)", levels: ["높은 편", "높은 편", "높은 편", "중간", "높은 편", "낮은 편"], focus: ["빠른 방향 전환과 추적을 안전한 공간에서만 허용하세요.", "충분히 움직인 뒤 조용히 회복하는 루틴을 마련하세요."], related: [["shiba", "일본 산악견의 추적과 독립성을 공유하며 체격을 비교해 보세요."], ["akita", "일본 스피츠의 경계와 사람과의 거리 조절을 살펴보세요."]], fciUrl: "https://www.fci.be/en/nomenclature/SHIKOKU-319.html", akcUrl: "https://www.akc.org/dog-breeds/shikoku/" },
   { slug: "canaan-dog", nameKo: "카나안 독", nameEn: "Canaan Dog", group: "spitz-primitive", tags: ["중동 원시견", "영역 경계", "환경 적응"], colors: ["#a37e5c", "#e4d9c9", "#352f2a"], origin: "이스라엘", lineage: "중동에서 자연 선택과 훈련으로 발전한 원시견", role: "가축과 정착지를 지키고 메신저·탐지 작업", size: "중형 · 약 50~60cm, 18~25kg", lifespan: "약 12~15년 (AKC 참고, 개체별 차이 있음)", levels: ["중간", "높은 편", "높은 편", "중간", "높은 편", "낮은 편"], focus: ["낯선 사람과 소리에 대한 경계를 거리와 예측 가능한 루틴으로 관리하세요.", "혼자 쉬는 선택을 존중하되 안전한 호출을 반복하세요."], related: [["basenji", "원시견의 자기 주도성과 환경 경계를 비교해 보세요."], ["korea-jindo-dog", "독립적인 동아시아·중동 원시견의 생활 차이를 살펴보세요."]], fciUrl: "https://www.fci.be/en/nomenclature/CANAAN-DOG-273.html", akcUrl: "https://www.akc.org/dog-breeds/canaan-dog/" },
-  { slug: "yakutian-laika", nameKo: "야쿠티안 라이카", nameEn: "Yakutian Laika", group: "northern-working", tags: ["시베리아 썰매견", "추운 기후", "사람과의 협력"], colors: ["#a08c77", "#e4dfd4", "#332f2a"], origin: "러시아 사하", lineage: "야쿠트 지역의 썰매·사냥 작업견", role: "썰매를 끌고 사냥과 순록 작업을 보조", size: "중형 · 약 53~59cm, 20~30kg", lifespan: "약 10~13년 (FCI 참고, 개체별 차이 있음)", levels: ["높은 편", "높은 편", "중간", "높은 편", "중간", "높은 편"], focus: ["기온이 맞지 않는 계절에는 운동량보다 더위와 발 상태를 우선하세요.", "무리 작업의 협력 욕구를 냄새 찾기와 팀 과제로 연결하세요."], related: [["siberian-husky", "썰매 작업과 지구력을 공유하며 피모와 생활 자극을 비교해 보세요."], ["samoyed", "북부 작업견의 협력과 이중모 관리 부담을 살펴보세요."]], fciUrl: "https://www.fci.be/en/nomenclature/YAKUTIAN-LAIKA-365.html", akcUrl: "https://www.akc.org/dog-breeds/yakutian-laika/" },
+  { slug: "yakutian-laika", nameKo: "야쿠티안 라이카", nameEn: "Yakutian Laika", group: "northern-working", tags: ["시베리아 썰매견", "추운 기후", "사람과의 협력"], colors: ["#a08c77", "#e4dfd4", "#332f2a"], origin: "러시아 사하", lineage: "야쿠트 지역의 썰매·사냥 작업견", role: "썰매를 끌고 사냥과 순록 작업을 보조", size: "중형 · 약 53~59cm, 18~25kg", lifespan: "약 10~13년 (FCI 참고, 개체별 차이 있음)", levels: ["높은 편", "높은 편", "중간", "높은 편", "중간", "높은 편"], focus: ["기온이 맞지 않는 계절에는 운동량보다 더위와 발 상태를 우선하세요.", "무리 작업의 협력 욕구를 냄새 찾기와 팀 과제로 연결하세요."], related: [["siberian-husky", "썰매 작업과 지구력을 공유하며 피모와 생활 자극을 비교해 보세요."], ["samoyed", "북부 작업견의 협력과 이중모 관리 부담을 살펴보세요."]], fciUrl: "https://www.fci.be/en/nomenclature/YAKUTIAN-LAIKA-365.html", akcUrl: "https://www.akc.org/dog-breeds/yakutian-laika/" },
   { slug: "harrier", nameKo: "해리어", nameEn: "Harrier", group: "scent-hound", tags: ["영국 무리 사냥견", "긴 냄새 추적", "지구력"], colors: ["#a87f61", "#e2d8c9", "#38312b"], origin: "영국", lineage: "비글·폭스하운드와 연결된 중형 센트하운드", role: "무리를 이루어 토끼와 작은 사냥감을 냄새로 추적", size: "중형 · 약 48~53cm, 20~27kg", lifespan: "약 12~15년 (AKC 참고, 개체별 차이 있음)", levels: ["높은 편", "높은 편", "중간", "높은 편", "중간", "낮은 편"], focus: ["냄새를 따라가려는 힘을 긴 리드와 울타리로 관리하세요.", "지루하지 않게 냄새 산책과 회복일을 번갈아 주세요."], related: [["beagle", "무리 냄새 추적과 사람 곁 생활의 균형을 비교해 보세요."], ["english-foxhound", "영국 센트하운드의 지구력과 생활 반경을 살펴보세요."]], fciUrl: "https://www.fci.be/en/nomenclature/HARRIER-295.html", akcUrl: "https://www.akc.org/dog-breeds/harrier/" },
   { slug: "english-foxhound", nameKo: "잉글리시 폭스하운드", nameEn: "English Foxhound", group: "scent-hound", tags: ["영국 여우 사냥견", "무리 추적", "넓은 활동 공간"], colors: ["#ab8062", "#e7ddd0", "#3b322c"], origin: "영국", lineage: "영국의 오래된 폭스하운드 계통", role: "무리로 여우 냄새를 따라 넓은 지형을 추적", size: "대형 · 약 58~64cm, 25~34kg", lifespan: "약 10~13년 (AKC 참고, 개체별 차이 있음)", levels: ["높은 편", "높은 편", "중간", "높은 편", "중간", "낮은 편"], focus: ["안전한 울타리와 리드 없이는 냄새 추적을 허용하지 마세요.", "가정에서 충분한 보행과 냄새 활동을 제공할 수 있는지 먼저 확인하세요."], related: [["harrier", "영국 무리 사냥견의 지구력과 냄새 추적을 비교해 보세요."], ["beagle", "작은 체격의 센트하운드와 생활 공간 차이를 살펴보세요."]], fciUrl: "https://www.fci.be/en/nomenclature/ENGLISH-FOXHOUND-159.html", akcUrl: "https://www.akc.org/dog-breeds/english-foxhound/" },
   { slug: "petit-basset-griffon-vendeen", nameKo: "페티 바셋 그리폰 방데앙", nameEn: "Petit Basset Griffon Vendeen", group: "scent-hound", tags: ["프랑스 소형 센트하운드", "거친 털", "끈질긴 추적"], colors: ["#a27d60", "#e3dacd", "#39312b"], origin: "프랑스 방데", lineage: "방데 지역의 작은 거친 털 사냥견", role: "가시덤불과 바위 지형에서 작은 사냥감을 냄새로 추적", size: "소형 · 약 34~38cm, 11~18kg", lifespan: "약 12~14년 (AKC 참고, 개체별 차이 있음)", levels: ["높은 편", "높은 편", "중간", "높은 편", "중간", "높은 편"], focus: ["작은 몸을 과소평가하지 말고 추적과 파기를 안전하게 전환하세요.", "거친 털과 귀에 붙은 이물질을 산책 뒤 확인하세요."], related: [["beagle", "작은 사냥감 냄새 추적과 사람 곁 생활을 비교해 보세요."], ["border-terrier", "거친 지형을 다니는 소형견의 피모와 추적을 살펴보세요."]], fciUrl: "https://www.fci.be/en/nomenclature/PETIT-BASSET-GRiffON-VENDEEN-163.html", akcUrl: "https://www.akc.org/dog-breeds/petit-basset-griffon-vendeen/" },
@@ -91,5 +91,43 @@ const makeBreed = (seed: Seed): Breed => ({
   ],
 });
 
+const customizeBreed = (breed: Breed): Breed => {
+  if (breed.slug !== "yakutian-laika") return breed;
+
+  return {
+    ...breed,
+    tagline: "썰매와 사냥, 순록 작업을 함께한 북부 작업견의 협력과 생활 조건을 살펴보세요.",
+    historyVisual: {
+      src: "/illustrations/v3/yakutian-laika-history.webp",
+      alt: "겨울 강길에서 야쿠티안 라이카 개썰매 팀과 함께 물자를 옮기는 사하 지역 사람을 그린 편집 삽화",
+    },
+    identity: {
+      ...breed.identity,
+      originalRole: "썰매·사냥 작업견",
+      size: "중형 · 약 53~59cm, 18~25kg",
+    },
+    behaviorClues: {
+      originalRole: "사하 지역의 혹독한 환경에서 썰매를 끌고 사냥과 순록 작업을 보조한 다목적 작업견입니다.",
+      today: "사람의 움직임과 신호에 주의를 기울이거나, 달리고 찾고 끄는 활동에 적극적으로 참여하는 모습이 보일 수 있습니다.",
+      guardianContext: "높은 활동 욕구와 풍성한 이중모를 함께 고려해 과제와 회복, 더운 계절의 실내 환경을 준비하세요. 반응은 개체마다 다릅니다.",
+    },
+    story: {
+      opening: "야쿠티안 라이카는 러시아 북동부 사하의 혹독한 환경에서 썰매를 끌고 사냥을 돕던 토착 작업견으로 발전했습니다. 사람과 물자를 먼 거리로 옮기고, 사냥과 순록 작업을 보조하며 북부 지역의 생활을 함께했습니다.",
+      roleToHome: "20세기 중반 운송 방식과 지역 생활이 바뀌며 개체 수가 크게 줄었지만, 1990년대부터 보존과 복원 노력이 이어졌습니다. 풍성한 이중모와 탄탄하고 민첩한 몸, 등 위로 말리는 꼬리는 추운 환경에서 다양한 일을 해온 배경을 보여줍니다.",
+      reality: "추운 지역의 아름다운 외형만으로 선택하기보다 높은 활동량과 협력 과제, 계절성 털갈이와 더운 날의 생활 환경을 함께 준비해야 합니다.",
+    },
+    careNotes: [
+      "걷기만 반복하기보다 냄새 찾기와 방향 신호처럼 몸과 판단을 함께 쓰는 과제를 번갈아 제공하세요.",
+      "두꺼운 이중모를 피부 가까이까지 규칙적으로 빗고, 더운 계절에는 활동 시간과 실내 온도를 조절하세요.",
+    ],
+    sources: [
+      { title: "FCI Standard No. 365 — Yakutian Laika", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/365g05-en.pdf", checkedAt: "2026-08-20" },
+      { title: "Yakutian Laika Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/yakutian-laika/", checkedAt: "2026-08-20" },
+      { title: "Yakutian Laika Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/yakutian-laika-breed-history/", checkedAt: "2026-08-20" },
+      { title: "Breed Weight Chart", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/nutrition/breed-weight-chart/", checkedAt: "2026-08-20" },
+    ],
+  };
+};
+
 export const detailBatchKSlugs = seeds.map((seed) => seed.slug);
-export const detailBatchK = seeds.map(makeBreed) satisfies Breed[];
+export const detailBatchK = seeds.map(makeBreed).map(customizeBreed) satisfies Breed[];

@@ -33,6 +33,11 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     height: "69~76cm",
     weight: "27~32kg",
   },
+  "yakutian-laika": {
+    size: "53~59cm · 18~25kg",
+    height: "53~59cm",
+    weight: "18~25kg",
+  },
   samoyed: { size: "48~60cm · 16~30kg" },
   chihuahua: { size: "13~20cm · 2.7kg 이하" },
   "shih-tzu": { size: "23~27cm · 4~7kg" },

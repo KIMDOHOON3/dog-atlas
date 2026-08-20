@@ -121,6 +121,36 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       },
     ],
   },
+  {
+    slug: "yakutian-laika",
+    intro: "사람과 함께 움직이는 방식, 몸과 판단을 쓰는 활동, 풍성한 이중모의 계절 관리를 먼저 살펴보세요.",
+    cards: [
+      {
+        eyebrow: "사람과의 협력",
+        title: "사람 가까이에서 함께 움직이려 해요.",
+        description: "사람과 가까이 지내고 함께 역할을 수행하는 데 적극적으로 참여할 수 있어요. 산책과 짧은 신호 놀이를 함께하며 보호자에게 시선을 돌리고 차분히 기다리는 경험도 만들어주세요.",
+        image: "/illustrations/v4/yakutian-laika-feature-cooperation.webp",
+        alt: "현대 공원에서 벤치에 앉은 보호자의 손 신호를 바라보는 성견 야쿠티안 라이카 삽화",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/365g05-en.pdf", "https://www.akc.org/dog-breeds/yakutian-laika/"],
+      },
+      {
+        eyebrow: "활동과 과제",
+        title: "움직임과 생각할 일을 함께 채워야 해요.",
+        description: "활동량과 에너지가 높은 편이라 걷기만 길게 반복하기보다 냄새 찾기, 방향 신호, 안전한 하네스 운동처럼 몸과 판단을 함께 쓰는 과제를 번갈아 제공해주세요.",
+        image: "/illustrations/v4/yakutian-laika-feature-purposeful-activity.webp",
+        alt: "숲길에서 몸에 맞는 하네스를 착용하고 보호자와 함께 달리는 성견 야쿠티안 라이카 삽화",
+        sourceUrls: ["https://www.akc.org/dog-breeds/yakutian-laika/", "https://www.akc.org/expert-advice/dog-breeds/yakutian-laika-breed-history/"],
+      },
+      {
+        eyebrow: "이중모와 계절",
+        title: "풍성한 이중모는 털갈이와 더위 준비가 필요해요.",
+        description: "굵은 겉털과 촘촘한 속털이 추운 환경을 견디도록 발달한 견종이에요. 피부 가까이까지 규칙적으로 빗고, 더운 계절에는 선선한 시간대의 활동과 편안한 실내 온도를 마련해주세요.",
+        image: "/illustrations/v4/yakutian-laika-feature-double-coat.webp",
+        alt: "선선한 실내에서 풍성한 이중모를 브러시로 관리받는 성견 야쿠티안 라이카 삽화",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/365g05-en.pdf", "https://www.akc.org/expert-advice/dog-breeds/yakutian-laika-breed-history/"],
+      },
+    ],
+  },
 ]);
 
 const breedFeaturesBySlug = new Map(breedFeatureSets.map((featureSet) => [featureSet.slug, featureSet]));

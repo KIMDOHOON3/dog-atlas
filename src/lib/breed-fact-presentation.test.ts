@@ -48,6 +48,16 @@ describe("breed fact presentation", () => {
     });
   });
 
+  it("separates Yakutian Laika height and weight for the detail summary", () => {
+    const facts = getBreedFactPresentation(getBreed("yakutian-laika")!);
+
+    expect(facts).toMatchObject({
+      size: "53~59cm · 18~25kg",
+      height: "53~59cm",
+      weight: "18~25kg",
+    });
+  });
+
   it("shows compact numeric facts for poodle", () => {
     const poodle = getBreed("poodle")!;
 
