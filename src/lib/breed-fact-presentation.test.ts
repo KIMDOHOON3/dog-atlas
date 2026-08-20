@@ -28,6 +28,16 @@ describe("breed fact presentation", () => {
     });
   });
 
+  it("separates Border Collie height and weight for the detail summary", () => {
+    const facts = getBreedFactPresentation(getBreed("border-collie")!);
+
+    expect(facts).toMatchObject({
+      size: "46~56cm · 14~25kg",
+      height: "46~56cm",
+      weight: "14~25kg",
+    });
+  });
+
   it("shows compact numeric facts for poodle", () => {
     const poodle = getBreed("poodle")!;
 

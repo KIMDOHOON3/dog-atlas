@@ -61,6 +61,36 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       },
     ],
   },
+  {
+    slug: "border-collie",
+    intro: "움직임을 읽는 몰이 행동, 빠른 학습에 맞는 과제, 활동 뒤 차분히 쉬는 리듬을 먼저 살펴보세요.",
+    cards: [
+      {
+        eyebrow: "몰이와 움직임",
+        title: "움직이는 대상을 먼저 읽고 따라갈 수 있어요.",
+        description: "양 떼의 방향을 읽고 모으도록 발달한 목양견이에요. 달리는 사람이나 놀이하는 아이처럼 빠르게 움직이는 대상에 시선이 고정되거나 따라가려는 모습이 보이면 거리를 두고 보호자에게 돌아오는 신호를 연습해주세요.",
+        image: "/illustrations/v4/border-collie-feature-herding-focus.webp",
+        alt: "몸을 낮추고 멀리 있는 양 떼의 움직임을 집중해 살피는 성견 보더콜리 삽화",
+        sourceUrls: ["https://images.akc.org/pdf/breeds/standards/Border_Collie.pdf", "https://www.akc.org/expert-advice/dog-breeds/border-collie-right-for-you/"],
+      },
+      {
+        eyebrow: "배움과 과제",
+        title: "빠르게 배우는 만큼 생각할 일이 필요해요.",
+        description: "신호를 익히고 문제를 해결하는 활동에 적극적으로 참여할 수 있어요. 같은 공 던지기만 오래 반복하기보다 냄새 찾기, 짧은 협력 훈련, 규칙이 있는 놀이를 번갈아 제공해주세요.",
+        image: "/illustrations/v4/border-collie-feature-thinking-tasks.webp",
+        alt: "사람의 손 신호를 바라보며 냄새 상자와 훈련 도구 사이에서 과제를 기다리는 성견 보더콜리 삽화",
+        sourceUrls: ["https://www.akc.org/dog-breeds/border-collie/", "https://www.akc.org/expert-advice/dog-breeds/border-collie-right-for-you/"],
+      },
+      {
+        eyebrow: "활동과 휴식",
+        title: "많이 움직인 뒤 쉬는 법도 함께 배워야 해요.",
+        description: "활동량이 높은 편이지만 자극을 계속 늘리는 것만으로 생활이 편안해지지는 않아요. 산책과 과제 뒤에는 소리와 움직임이 적은 자리에서 흥분을 낮추고 쉬는 시간을 일상에 넣어주세요.",
+        image: "/illustrations/v4/border-collie-feature-calm-rest.webp",
+        alt: "산책 도구와 장난감이 정리된 방에서 매트 위에 편안히 쉬는 성견 보더콜리 삽화",
+        sourceUrls: ["https://www.akc.org/dog-breeds/border-collie/", "https://www.akc.org/expert-advice/dog-breeds/border-collie-right-for-you/"],
+      },
+    ],
+  },
 ]);
 
 const breedFeaturesBySlug = new Map(breedFeatureSets.map((featureSet) => [featureSet.slug, featureSet]));

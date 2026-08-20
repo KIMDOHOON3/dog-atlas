@@ -173,15 +173,15 @@ const draftBreeds = [
       src: "/illustrations/v3/border-collie-history.webp",
       alt: "돌담이 있는 목초지에서 목자의 신호에 맞춰 양 떼를 모는 보더콜리를 그린 편집 삽화",
     },
-    identity: { origin: "영국·스코틀랜드 접경 지역", lineage: "목양견", originalRole: "양 떼를 모으고 이동시키는 작업", size: "중형", lifespan: "자료 출처별 범위 확인 중" },
+    identity: { origin: "영국·스코틀랜드 접경 지역", lineage: "목양견", originalRole: "양 떼를 모는 목양견", size: "중형", lifespan: "자료 출처별 범위 확인 중" },
     behaviorClues: {
       originalRole: "사람의 신호에 맞춰 양 떼를 모으고 이동시키는 목양 작업을 수행해 온 배경이 있습니다.",
       today: "응시, 몸을 낮추는 자세, 추적과 몰이 행동이 보일 수 있고 움직이는 대상이나 발목을 몰려 할 수도 있습니다.",
       guardianContext: "이런 몰이 단서를 공격성과 동일하게 보지 말고 대상, 거리, 흥분도와 중단 신호에 대한 반응을 함께 확인해요.",
     },
     story: {
-      opening: "보더콜리는 넓은 목초지에서 사람의 신호를 읽고 스스로 판단하며 양 떼를 움직이도록 발달한 목양견입니다.",
-      roleToHome: "빠른 학습과 움직임 추적은 멋진 장점이지만, 가정에서는 지속적인 과제와 적절한 활동이 필요하다는 뜻이기도 합니다.",
+      opening: "보더콜리는 잉글랜드와 스코틀랜드의 접경 지역에서 목자와 함께 양 떼를 관리하던 작업견으로 발전했습니다. 넓고 거친 지형에서 가축의 움직임을 읽고, 멀리 돌아 나가 양을 모은 뒤 목자 쪽으로 데려오는 능력이 중요하게 여겨졌습니다.",
+      roleToHome: "이 작업에서는 몸을 낮춰 조용히 접근하고 강한 시선으로 양의 움직임을 조절하는 방식이 중요했습니다. 가정에서는 움직이는 사람이나 동물에 주의를 기울이거나 따라가려는 모습이 보일 수 있어, 실제 반응을 살피고 멈추고 돌아오는 연습을 차분히 알려주세요.",
       reality: "산책 거리만 채우는 것으로 충분하다고 단정하기 어렵습니다. 신체 활동과 냄새 탐색, 문제 해결 놀이, 차분히 쉬는 연습이 균형을 이뤄야 합니다.",
     },
     tendencies: {
@@ -205,7 +205,11 @@ const draftBreeds = [
       { slug: "shetland-sheepdog", reason: "콜리형 외모와 빠른 반응은 닮았지만 체격과 피모 관리 부담에는 차이가 있어요." },
       { slug: "australian-kelpie", reason: "집중력 높은 목양견이라는 공통점 속에서 작업 방식과 일상 자극 요구를 비교해볼 수 있어요." },
     ],
-    sources: [{ title: "Border Collie Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/border-collie/", checkedAt }],
+    sources: [
+      { title: "Border Collie Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/border-collie/", checkedAt },
+      { title: "Is the Border Collie a Good Fit for You?", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/border-collie-right-for-you/", checkedAt },
+      { title: "Official Standard of the Border Collie", organization: "American Kennel Club", url: "https://images.akc.org/pdf/breeds/standards/Border_Collie.pdf", checkedAt },
+    ],
   },
   {
     slug: "greyhound",
