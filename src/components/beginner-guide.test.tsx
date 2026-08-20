@@ -82,7 +82,8 @@ describe("BeginnerGuideLink", () => {
     localStorage.setItem(getBeginnerGuideStorageKey("japanese-spitz"), "2");
     render(<BeginnerGuideLink slug="japanese-spitz" nameKo="재패니즈 스피츠" />);
 
-    const link = await screen.findByRole("link", { name: /맞이 준비 계속하기 · 2\/4/ });
+    const link = await screen.findByRole("link", { name: "맞이 준비 계속하기" });
+    expect(link).not.toHaveTextContent(/\d\/4/);
     expect(link).toHaveAttribute("href", "/beginner-guide?breed=japanese-spitz");
   });
 });

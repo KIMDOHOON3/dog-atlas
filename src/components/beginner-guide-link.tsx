@@ -51,7 +51,7 @@ export function BeginnerGuideLink({ slug, nameKo }: { slug: string; nameKo: stri
     ? "이 강아지 맞이할 준비하기"
     : completed === BEGINNER_GUIDE_STEP_COUNT
       ? "맞이 준비 확인 완료 ✓"
-      : `맞이 준비 계속하기 · ${completed}/${BEGINNER_GUIDE_STEP_COUNT}`;
+      : "맞이 준비 계속하기";
 
   return (
     <div className={styles.wrapper}>
