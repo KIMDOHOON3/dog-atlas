@@ -215,7 +215,7 @@ export default async function BreedDetail({ params }: PageProps) {
               <dl className={styles.facts}>
                 {facts.height && facts.weight ? (
                   <div>
-                    <dt>체고 · 몸무게</dt>
+                    <dt>크기</dt>
                     <dd className={styles.sizeMeasurements}>
                       <span><small>체고</small>{facts.height}</span>
                       <span><small>몸무게</small>{facts.weight}</span>
