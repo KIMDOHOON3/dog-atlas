@@ -1,6 +1,7 @@
 import type { Breed } from "./schema";
 
 const checkedAt = "2026-08-03";
+const completedAt = "2026-08-20";
 
 export const detailBatchB = [
   {
@@ -22,7 +23,7 @@ export const detailBatchB = [
     identity: {
       origin: "독일",
       lineage: "독일 중부·남부 목양견을 바탕으로 정립된 작업견",
-      originalRole: "목양을 중심으로 시작해 여러 경비·서비스 작업으로 확장된 작업견",
+      originalRole: "목양견·다목적 작업견",
       size: "중대형 · 약 55~65cm, 22~40kg",
       lifespan: "10년 이상(RKC 참고, 기관과 개체별 차이 있음)",
     },
@@ -60,8 +61,8 @@ export const detailBatchB = [
       { slug: "korea-jindo-dog", reason: "중형 이상의 체격과 경계 반응을 보호자 협업과 독립성이라는 서로 다른 관점에서 볼 수 있어요." },
     ],
     sources: [
-      { title: "FCI Standard No. 166: German Shepherd Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/166g01-en.pdf", checkedAt },
-      { title: "German Shepherd Dog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/german-shepherd-dog/", checkedAt },
+      { title: "FCI Standard No. 166: German Shepherd Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/166g01-en.pdf", checkedAt: completedAt },
+      { title: "German Shepherd Dog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/german-shepherd-dog/", checkedAt: completedAt },
     ],
   },
   {
@@ -83,7 +84,7 @@ export const detailBatchB = [
     identity: {
       origin: "대한민국 진도",
       lineage: "아시아 스피츠 및 원시견 계통",
-      originalRole: "섬 지역에서 함께 생활하며 사냥과 경계를 돕던 개",
+      originalRole: "사냥견",
       size: "중형 · 약 45~55cm, 15~23kg",
       lifespan: "공식 표준에 수명 범위 없음 · 편집 검토 중",
     },
@@ -121,8 +122,8 @@ export const detailBatchB = [
       { slug: "basenji", reason: "서로 다른 지역의 사냥 배경이 독립적인 탐색과 생활 관리에 어떻게 이어지는지 비교해 보세요." },
     ],
     sources: [
-      { title: "FCI Standard No. 334: Korea Jindo Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/334g05-en.pdf", checkedAt },
-      { title: "한국진도견", organization: "한국애견연맹", url: "https://www.thekkf.or.kr/new_home/03_kkf_service/03_approval_3.php?gid=5&idx=70", checkedAt },
+      { title: "FCI Standard No. 334: Korea Jindo Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/334g05-en.pdf", checkedAt: completedAt },
+      { title: "한국진도견", organization: "한국애견연맹", url: "https://www.thekkf.or.kr/new_home/03_kkf_service/03_approval_3.php?gid=5&idx=70", checkedAt: completedAt },
     ],
   },
   {
@@ -144,7 +145,7 @@ export const detailBatchB = [
     identity: {
       origin: "FCI 표준상 기원국은 미국 · 역사적 뿌리는 시베리아 북동부",
       lineage: "북방 썰매견 계통",
-      originalRole: "가벼운 짐을 실은 썰매를 끌고 먼 거리를 이동하던 썰매견",
+      originalRole: "썰매견",
       size: "중형 · 약 50.5~60cm, 15.5~28kg",
       lifespan: "10년 이상(RKC 참고, 기관과 개체별 차이 있음)",
     },
@@ -154,7 +155,7 @@ export const detailBatchB = [
       guardianContext: "짧고 격한 운동만 반복하기보다 기온을 확인한 긴 호흡의 걷기와 탐색을 제공하고, 문·울타리·리드의 안전성을 일상적으로 점검하세요.",
     },
     story: {
-      opening: "시베리안 허스키의 뿌리는 시베리아 북동부에서 사람과 함께 이동하던 썰매견에 닿아 있습니다. FCI는 기원국을 미국으로 표기하므로, 표준의 기원국과 역사적 배경을 구분해 읽어야 합니다.",
+      opening: "시베리안 허스키의 뿌리는 시베리아 북동부에서 사람과 함께 이동하던 썰매견에 닿아 있습니다. 20세기 초 미국으로 전해져 썰매 경주와 장거리 운송에서 알려졌으며, 오늘날 국제 표준은 미국을 기원국으로 기록합니다.",
       roleToHome: "먼 거리를 효율적으로 이동하던 몸은 산책 한 번의 속도보다 매일 이어지는 활동 리듬을 요구합니다. 무리 속에서 움직이던 경험은 다른 개나 사람에 대한 관심으로 보일 수 있으나 실제 반응은 사회화 이력에 좌우됩니다.",
       reality: "푸른 눈이나 북방 외모만으로 선택하기에는 털갈이, 더위, 이동 욕구와 안전 관리의 비중이 큽니다. 시원한 휴식 환경과 충분한 시간, 단단한 출입 관리가 가능한지 먼저 확인해야 합니다.",
     },
@@ -182,8 +183,8 @@ export const detailBatchB = [
       { slug: "german-shepherd-dog", reason: "활동량이 높은 작업견이라도 필요한 과제가 지구력 중심인지 지시 협업 중심인지 비교할 수 있어요." },
     ],
     sources: [
-      { title: "FCI Standard No. 270: Siberian Husky", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/270g05-en.pdf", checkedAt },
-      { title: "Siberian Husky", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/working/siberian-husky/", checkedAt },
+      { title: "FCI Standard No. 270: Siberian Husky", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/270g05-en.pdf", checkedAt: completedAt },
+      { title: "Siberian Husky", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/working/siberian-husky/", checkedAt: completedAt },
     ],
   },
   {
@@ -205,7 +206,7 @@ export const detailBatchB = [
     identity: {
       origin: "영국",
       lineage: "중소형 시각 하운드 계통",
-      originalRole: "시야로 움직임을 좇는 사냥과 질주",
+      originalRole: "시각 하운드",
       size: "중형 · 약 44~51cm",
       lifespan: "12년 이상(RKC 참고, 기관과 개체별 차이 있음)",
     },
@@ -243,8 +244,8 @@ export const detailBatchB = [
       { slug: "basenji", reason: "짧은 피모와 사냥 배경은 닮았지만 자극을 추적하고 표현하는 방식은 다를 수 있어요." },
     ],
     sources: [
-      { title: "FCI Standard No. 162: Whippet", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/162g10-en.pdf", checkedAt },
-      { title: "Whippet", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/whippet/", checkedAt },
+      { title: "FCI Standard No. 162: Whippet", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/162g10-en.pdf", checkedAt: completedAt },
+      { title: "Whippet", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/whippet/", checkedAt: completedAt },
     ],
   },
   {
@@ -266,7 +267,7 @@ export const detailBatchB = [
     identity: {
       origin: "프랑스 피레네 지역",
       lineage: "대형 산악형 몰로서 및 가축보호견 계통",
-      originalRole: "산지에서 포식자로부터 가축 무리를 지키던 보호견",
+      originalRole: "가축보호견",
       size: "초대형 · 약 65~80cm",
       lifespan: "10년 미만(RKC 참고, 기관과 개체별 차이 있음)",
     },
@@ -304,8 +305,8 @@ export const detailBatchB = [
       { slug: "german-shepherd-dog", reason: "경계와 작업 능력이 사람의 지시 중심인지 독립적 판단 중심인지 비교할 수 있어요." },
     ],
     sources: [
-      { title: "FCI Standard No. 137: Pyrenean Mountain Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/137g02-en.pdf", checkedAt },
-      { title: "Pyrenean Mountain Dog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/pyrenean-mountain-dog/", checkedAt },
+      { title: "FCI Standard No. 137: Pyrenean Mountain Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/137g02-en.pdf", checkedAt: completedAt },
+      { title: "Pyrenean Mountain Dog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/pyrenean-mountain-dog/", checkedAt: completedAt },
     ],
   },
   {

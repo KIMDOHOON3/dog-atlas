@@ -31,6 +31,11 @@ describe("breed-specific feature cards", () => {
       "english-cocker-spaniel",
       "labrador-retriever",
       "golden-retriever",
+      "german-shepherd-dog",
+      "korea-jindo-dog",
+      "siberian-husky",
+      "whippet",
+      "pyrenean-mountain-dog",
     ]);
 
     for (const featureSet of breedFeatureSets) {
@@ -81,7 +86,7 @@ describe("breed-specific feature cards", () => {
 
   it("keeps feature coverage separate from the catalog used by discovery", () => {
     expect(breeds).toHaveLength(376);
-    expect(breedFeatureSets).toHaveLength(14);
-    expect(getBreedFeatures("siberian-husky")).toBeUndefined();
+    expect(breedFeatureSets).toHaveLength(19);
+    expect(getBreedFeatures("french-bulldog")).toBeUndefined();
   });
 });

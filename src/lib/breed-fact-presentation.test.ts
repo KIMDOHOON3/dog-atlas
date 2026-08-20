@@ -116,6 +116,20 @@ describe("breed fact presentation", () => {
     );
   });
 
+  it("presents verified measurements for the second five-breed rollout batch", () => {
+    const expected = {
+      "german-shepherd-dog": { size: "55~65cm · 22~40kg", height: "55~65cm", weight: "22~40kg" },
+      "korea-jindo-dog": { size: "45~55cm · 15~23kg", height: "45~55cm", weight: "15~23kg" },
+      "siberian-husky": { size: "50.5~60cm · 15.5~28kg", height: "50.5~60cm", weight: "15.5~28kg" },
+      whippet: { size: "44~51cm", height: "44~51cm", weight: undefined },
+      "pyrenean-mountain-dog": { size: "65~80cm", height: "65~80cm", weight: undefined },
+    } as const;
+
+    for (const [slug, facts] of Object.entries(expected)) {
+      expect(getBreedFactPresentation(getBreed(slug)!)).toMatchObject(facts);
+    }
+  });
+
   it("keeps source and editorial wording out of every visible fact", () => {
     const bannedCopy = /(참고|출처|검토|확인|상담|개체|자료|알려짐)/u;
 

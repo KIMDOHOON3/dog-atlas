@@ -78,6 +78,29 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     height: "55~61cm",
     weight: "25~34kg",
   },
+  "german-shepherd-dog": {
+    size: "55~65cm · 22~40kg",
+    height: "55~65cm",
+    weight: "22~40kg",
+  },
+  "korea-jindo-dog": {
+    size: "45~55cm · 15~23kg",
+    height: "45~55cm",
+    weight: "15~23kg",
+  },
+  "siberian-husky": {
+    size: "50.5~60cm · 15.5~28kg",
+    height: "50.5~60cm",
+    weight: "15.5~28kg",
+  },
+  whippet: {
+    size: "44~51cm",
+    height: "44~51cm",
+  },
+  "pyrenean-mountain-dog": {
+    size: "65~80cm",
+    height: "65~80cm",
+  },
   "german-spitz": { size: "바라이어티별 18~55cm" },
   "bull-terrier": { size: "53~56cm · 23~32kg" },
 };
