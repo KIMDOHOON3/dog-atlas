@@ -41,6 +41,11 @@ describe("breed-specific feature cards", () => {
       "welsh-corgi-pembroke",
       "miniature-schnauzer",
       "yorkshire-terrier",
+      "shiba",
+      "akita",
+      "bichon-frise",
+      "cavalier-king-charles-spaniel",
+      "pug",
     ]);
 
     for (const featureSet of breedFeatureSets) {
@@ -89,9 +94,16 @@ describe("breed-specific feature cards", () => {
     }
   });
 
+  it("keeps the lineage label concise on every completed feature page", () => {
+    for (const featureSet of breedFeatureSets) {
+      const breed = getBreed(featureSet.slug)!;
+      expect(breed.identity.lineage.length, `${featureSet.slug} lineage`).toBeLessThanOrEqual(20);
+    }
+  });
+
   it("keeps feature coverage separate from the catalog used by discovery", () => {
     expect(breeds).toHaveLength(376);
-    expect(breedFeatureSets).toHaveLength(24);
-    expect(getBreedFeatures("shiba")).toBeUndefined();
+    expect(breedFeatureSets).toHaveLength(29);
+    expect(getBreedFeatures("bernese-mountain-dog")).toBeUndefined();
   });
 });

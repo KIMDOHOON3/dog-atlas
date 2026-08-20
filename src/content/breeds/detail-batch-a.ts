@@ -252,7 +252,7 @@ export const detailBatchA = [
     },
     identity: {
       origin: "독일",
-      lineage: "땅굴 사냥에 맞춰 발전한 하운드 계통",
+      lineage: "땅굴 사냥 하운드 계통",
       originalRole: "지상과 지하에서 사냥감을 추적하는 사냥견",
       size: "래빗·미니어처·스탠더드 세 크기와 세 피모의 아홉 바라이어티",
       lifespan: "약 12~16년(AKC 참고, 개체차·출처차 있음)",

@@ -127,6 +127,27 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     size: "3.2kg 이하",
     weight: "3.2kg 이하",
   },
+  shiba: {
+    size: "35~41cm · 7~11kg",
+    height: "35~41cm",
+    weight: "7~11kg",
+  },
+  akita: {
+    size: "58~70cm",
+    height: "58~70cm",
+  },
+  "bichon-frise": {
+    size: "25~29cm",
+    height: "25~29cm",
+  },
+  "cavalier-king-charles-spaniel": {
+    size: "5.4~8kg",
+    weight: "5.4~8kg",
+  },
+  pug: {
+    size: "6.3~8.1kg",
+    weight: "6.3~8.1kg",
+  },
   "german-spitz": { size: "바라이어티별 18~55cm" },
   "bull-terrier": { size: "53~56cm · 23~32kg" },
 };

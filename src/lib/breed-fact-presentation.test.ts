@@ -132,6 +132,11 @@ describe("breed fact presentation", () => {
       "welsh-corgi-pembroke": { size: "25~30cm · 9~12kg", height: "25~30cm", weight: "9~12kg" },
       "miniature-schnauzer": { size: "30~35cm · 4~8kg", height: "30~35cm", weight: "4~8kg" },
       "yorkshire-terrier": { size: "3.2kg 이하", height: undefined, weight: "3.2kg 이하" },
+      shiba: { size: "35~41cm · 7~11kg", height: "35~41cm", weight: "7~11kg" },
+      akita: { size: "58~70cm", height: "58~70cm", weight: undefined },
+      "bichon-frise": { size: "25~29cm", height: "25~29cm", weight: undefined },
+      "cavalier-king-charles-spaniel": { size: "5.4~8kg", height: undefined, weight: "5.4~8kg" },
+      pug: { size: "6.3~8.1kg", height: undefined, weight: "6.3~8.1kg" },
     } as const;
 
     for (const [slug, facts] of Object.entries(expected)) {

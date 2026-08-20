@@ -21,7 +21,7 @@ export const detailBatchB = [
     },
     identity: {
       origin: "독일",
-      lineage: "독일 중부·남부 목양견을 바탕으로 정립된 작업견",
+      lineage: "독일 목양견 계통",
       originalRole: "목양견·다목적 작업견",
       size: "중대형 · 약 55~65cm, 22~40kg",
       lifespan: "10년 이상(RKC 참고, 기관과 개체별 차이 있음)",
@@ -266,7 +266,7 @@ export const detailBatchB = [
     },
     identity: {
       origin: "프랑스 피레네 지역",
-      lineage: "대형 산악형 몰로서 및 가축보호견 계통",
+      lineage: "산악 가축보호견 계통",
       originalRole: "가축보호견",
       size: "초대형 · 약 65~80cm",
       lifespan: "10년 미만(RKC 참고, 기관과 개체별 차이 있음)",
@@ -328,7 +328,7 @@ export const detailBatchB = [
     },
     identity: {
       origin: "프랑스",
-      lineage: "소형 몰로서 및 영국의 소형 불도그 계통",
+      lineage: "소형 불도그 계통",
       originalRole: "반려견",
       size: "소형 · 약 24~35cm, 8~14kg",
       lifespan: "10년 이상(RKC 참고, 기관과 개체별 차이 있음)",
