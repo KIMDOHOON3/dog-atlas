@@ -91,6 +91,36 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       },
     ],
   },
+  {
+    slug: "greyhound",
+    intro: "움직임을 보는 시선, 짧게 속도를 내고 쉬는 리듬, 얇은 피모에 맞는 보온 준비를 먼저 살펴보세요.",
+    cards: [
+      {
+        eyebrow: "시각과 추적",
+        title: "멀리 움직이는 대상을 먼저 발견할 수 있어요.",
+        description: "눈으로 움직임을 찾고 빠르게 쫓도록 발달한 시각 하운드예요. 산책 중 작은 동물이나 빠르게 지나가는 대상에 주의가 쏠릴 수 있으니, 안전한 리드를 사용하고 실제 반응을 살펴주세요.",
+        image: "/illustrations/v4/greyhound-feature-visual-tracking.webp",
+        alt: "현대 공원에서 멀리 지나가는 자전거를 알아차리고 보호자 곁에 서 있는 성견 그레이하운드 삽화",
+        sourceUrls: ["https://www.greyhoundtrust.org.uk/assets/000/004/111/training_tips_original.pdf?1581612710="],
+      },
+      {
+        eyebrow: "질주와 휴식",
+        title: "빠르게 달리는 능력과 하루 종일 바쁜 생활은 달라요.",
+        description: "짧게 속도를 내는 순간과 편안히 쉬는 시간이 함께 필요한 견종이에요. 안전하게 달릴 수 있는 통제된 기회와 냄새 맡는 산책을 마련하고, 활동 뒤에는 조용히 회복할 자리를 준비해주세요.",
+        image: "/illustrations/v4/greyhound-feature-sprint-rest.webp",
+        alt: "안전하게 울타리가 설치된 공원 운동장에서 짧게 달리는 성견 그레이하운드 삽화",
+        sourceUrls: ["https://www.greyhoundtrust.org.uk/home-a-greyhound/all-about-greyhounds"],
+      },
+      {
+        eyebrow: "얇은 피모와 온도",
+        title: "짧은 털은 추운 날 더 세심한 준비가 필요해요.",
+        description: "피모가 짧고 몸에 지방이 적은 편이라 추운 날씨와 차가운 바닥을 불편해할 수 있어요. 기온과 개별 반응에 맞춰 보온 의류를 사용하고, 몸을 받쳐주는 따뜻한 휴식 자리를 마련해주세요.",
+        image: "/illustrations/v4/greyhound-feature-cold-weather.webp",
+        alt: "쌀쌀한 늦가을 공원에서 몸에 맞는 보온 코트를 입고 산책하는 성견 그레이하운드 삽화",
+        sourceUrls: ["https://www.greyhoundtrust.org.uk/about-us/news/3908-quick-tips-to-keep-your-greyhound-healthy-in-winter"],
+      },
+    ],
+  },
 ]);
 
 const breedFeaturesBySlug = new Map(breedFeatureSets.map((featureSet) => [featureSet.slug, featureSet]));

@@ -16,7 +16,7 @@ function readVp8Dimensions(bytes: Buffer) {
 
 describe("breed-specific feature cards", () => {
   it("publishes exactly three unique cards for each completed feature breed", () => {
-    expect(breedFeatureSets.map((featureSet) => featureSet.slug)).toEqual(["japanese-spitz", "maltese", "border-collie"]);
+    expect(breedFeatureSets.map((featureSet) => featureSet.slug)).toEqual(["japanese-spitz", "maltese", "border-collie", "greyhound"]);
 
     for (const featureSet of breedFeatureSets) {
       expect(getBreed(featureSet.slug)).toBeDefined();
@@ -66,7 +66,7 @@ describe("breed-specific feature cards", () => {
 
   it("keeps feature coverage separate from the catalog used by discovery", () => {
     expect(breeds).toHaveLength(376);
-    expect(breedFeatureSets).toHaveLength(3);
-    expect(getBreedFeatures("greyhound")).toBeUndefined();
+    expect(breedFeatureSets).toHaveLength(4);
+    expect(getBreedFeatures("samoyed")).toBeUndefined();
   });
 });

@@ -224,15 +224,15 @@ const draftBreeds = [
       src: "/illustrations/v3/greyhound-history.webp",
       alt: "건조한 들판에서 먼 대상을 바라보는 사람과 시각 하운드형 개를 그린 편집 삽화",
     },
-    identity: { origin: "고대 기원의 시각 하운드 계통", lineage: "시각 하운드", originalRole: "시각으로 대상을 추적하는 사냥과 질주", size: "대형", lifespan: "약 10~13년 (AKC 참고 범위)" },
+    identity: { origin: "고대 기원의 시각 하운드 계통", lineage: "시각 하운드", originalRole: "시각으로 사냥감을 쫓는 시각 하운드", size: "대형", lifespan: "약 10~13년 (AKC 참고 범위)" },
     behaviorClues: {
       originalRole: "시야에 들어온 대상을 빠르게 발견하고 추적하는 시각 하운드의 작업 배경이 있습니다.",
       today: "빠르고 작은 움직임 같은 시각 자극에 주의가 집중되거나 추적 행동으로 이어질 수 있습니다.",
       guardianContext: "안전한 리드와 울타리, 다른 동물과의 실제 반응을 확인하되 품종만으로 입을 사용하는 행동이나 공격성을 단정하지 않아요.",
     },
     story: {
-      opening: "그레이하운드는 멀리 있는 움직임을 눈으로 포착하고 빠르게 추적하도록 발달한 시각 하운드입니다. 길고 유연한 몸이 그 역사를 보여줍니다.",
-      roleToHome: "폭발적인 질주 능력과 하루 종일 높은 활동을 요구하는 것은 같은 말이 아닙니다. 안전한 운동 기회와 실내 휴식의 리듬을 함께 이해해야 해요.",
+      opening: "그레이하운드는 먼 곳의 움직임을 눈으로 발견하고 빠르게 뒤쫓는 시각 하운드로 오랫동안 사람과 함께해 왔습니다. 넓고 트인 지형에서 사냥감을 추적하는 데 필요한 빠른 가속과 긴 보폭, 유연한 몸이 중요하게 여겨졌습니다.",
+      roleToHome: "유럽에서는 오랜 세월 사냥견으로 이어졌고, 근대에는 경주와 다양한 도그 스포츠에서도 속도가 주목받았습니다. 이런 역사는 깊은 가슴과 긴 다리, 가볍고 넓게 뻗는 움직임 같은 그레이하운드의 체형을 이해하는 배경이 됩니다.",
       reality: "대형견이라는 이유만으로 넓은 마당이면 충분하다고 볼 수 없습니다. 안전한 리드 관리, 추적 본능을 고려한 환경, 체형에 맞는 편안한 휴식 공간이 필요합니다.",
     },
     tendencies: {
@@ -254,7 +254,14 @@ const draftBreeds = [
       { slug: "border-collie", reason: "달리는 능력은 모두 뛰어나지만 일상에서 원하는 과제와 활동 리듬이 달라요." },
       { slug: "maltese", reason: "체격은 크게 다르지만 집 안에서 사람 곁에 머무는 방식의 차이를 볼 수 있어요." },
     ],
-    sources: [{ title: "Greyhound Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/greyhound/", checkedAt }],
+    sources: [
+      { title: "Greyhound Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/greyhound/", checkedAt },
+      { title: "Greyhound Breed Standard", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/breed-standards/hound/greyhound/", checkedAt },
+      { title: "The Greyhound Club of America — A Short History", organization: "Greyhound Club of America", url: "https://www.greyhoundclubofamericainc.org/club-history/", checkedAt },
+      { title: "All About Greyhounds", organization: "Greyhound Trust", url: "https://www.greyhoundtrust.org.uk/home-a-greyhound/all-about-greyhounds", checkedAt },
+      { title: "Basic Commands and Training", organization: "Greyhound Trust", url: "https://www.greyhoundtrust.org.uk/assets/000/004/111/training_tips_original.pdf?1581612710=", checkedAt },
+      { title: "Quick Tips to Keep Your Greyhound Healthy in Winter", organization: "Greyhound Trust", url: "https://www.greyhoundtrust.org.uk/about-us/news/3908-quick-tips-to-keep-your-greyhound-healthy-in-winter", checkedAt },
+    ],
   },
   {
     slug: "samoyed",

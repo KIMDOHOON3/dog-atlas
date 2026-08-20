@@ -28,7 +28,11 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     weight: "14~25kg",
     lifespan: "12~15년",
   },
-  greyhound: { size: "69~76cm · 27~32kg" },
+  greyhound: {
+    size: "69~76cm · 27~32kg",
+    height: "69~76cm",
+    weight: "27~32kg",
+  },
   samoyed: { size: "48~60cm · 16~30kg" },
   chihuahua: { size: "13~20cm · 2.7kg 이하" },
   "shih-tzu": { size: "23~27cm · 4~7kg" },

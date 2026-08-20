@@ -38,6 +38,16 @@ describe("breed fact presentation", () => {
     });
   });
 
+  it("separates Greyhound height and weight for the detail summary", () => {
+    const facts = getBreedFactPresentation(getBreed("greyhound")!);
+
+    expect(facts).toMatchObject({
+      size: "69~76cm · 27~32kg",
+      height: "69~76cm",
+      weight: "27~32kg",
+    });
+  });
+
   it("shows compact numeric facts for poodle", () => {
     const poodle = getBreed("poodle")!;
 
