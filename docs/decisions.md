@@ -304,3 +304,9 @@ Set the long-term direction to replace the remaining generic pre-ownership lifes
 Treat Japanese Spitz as the structural and visual pilot, not as a fixed content taxonomy. Select three non-overlapping topics per breed from reader questions, official breed material, historical role, temperament, and a genuinely distinctive ownership burden. Exclude health claims from this card system until a separate evidence and expert-review policy exists. Preserve all tendency data because discovery filters and comparison depend on it.
 
 Before expanding, move the pilot's page-local data into a Zod-validated local content module, work in small reviewable batches, keep a prompt and source record for every image batch, and add catalog checks for three-card coverage, asset integrity, source linkage, copy uniqueness, and filter stability. The operational handoff is recorded in `docs/breed-feature-card-rollout.md`.
+
+# 2026-08-20 — Start the feature-card rollout with Maltese
+
+Use Maltese as the first small expansion of the Japanese Spitz illustrated feature-card pilot. Replace only the Maltese generic lifestyle-card area with three source-backed cards about close companionship, safe daily routes for a small body, and recurring long-coat care; keep its history, comparison, sources, and existing beginner checklist structure.
+
+Move all published feature-card data out of the detail page and into a Zod-validated local module keyed by breed slug. Keep the other 374 details on the generic card presentation until they are explicitly selected for later batches, and do not extend the Japanese Spitz readiness assessment as part of this visual rollout.

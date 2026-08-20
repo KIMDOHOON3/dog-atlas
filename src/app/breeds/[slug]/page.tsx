@@ -8,6 +8,7 @@ import { InterestBreedToggle } from "@/components/interest-breed-toggle";
 import { LegalCareNotice } from "@/components/legal-care-notice";
 import { LifestyleProductIcon } from "@/components/lifestyle-product-icon";
 import { SiteHeader } from "@/components/site-header";
+import { getBreedFeatures } from "@/content/breed-features/data";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
 import type { Breed } from "@/content/breeds/schema";
 import {
@@ -45,30 +46,6 @@ const tendencyNames = {
 } as const;
 
 const coreTendencies = ["activity", "socialConnection", "grooming"] as const;
-
-const japaneseSpitzFeatures = [
-  {
-    eyebrow: "사람과의 관계",
-    title: "사람 곁에서 함께 움직이길 좋아해요.",
-    description: "사람을 좋아하고 보호자와 산책하거나 놀이하는 시간을 즐기는 영리하고 쾌활한 반려견이에요. 다만 사람과 가까워지는 속도와 애정을 표현하는 방식은 강아지마다 달라요.",
-    image: "/illustrations/v4/japanese-spitz-feature-companionship.webp",
-    alt: "사람 곁을 따라 걸으며 얼굴을 바라보는 재패니즈 스피츠 삽화",
-  },
-  {
-    eyebrow: "짖음과 알림",
-    title: "작은 변화에도 먼저 반응할 수 있어요.",
-    description: "현관 소리나 창밖 움직임에 반응해 짖을 수 있어요. 짖음이 길어지지 않도록 소리가 들린 뒤 조용히 기다리는 연습을 어릴 때부터 해두면 좋아요.",
-    image: "/illustrations/v4/japanese-spitz-feature-calm-alert.webp",
-    alt: "닫힌 문밖의 작은 소리를 조용히 알아차린 재패니즈 스피츠 삽화",
-  },
-  {
-    eyebrow: "털 관리 부담",
-    title: "풍성한 이중모는 꾸준한 빗질이 필요해요.",
-    description: "짧고 촘촘한 속털과 풍성한 겉털을 함께 가진 견종이에요. 특히 털갈이 시기에는 빠진 속털이 엉키지 않도록 규칙적인 빗질을 생활에 포함해야 해요.",
-    image: "/illustrations/v4/japanese-spitz-feature-double-coat.webp",
-    alt: "빠진 속털을 브러시로 빗어 관리하는 재패니즈 스피츠 삽화",
-  },
-] as const;
 
 const tendencyLevelScore = {
   "낮은 편": 1,
@@ -111,19 +88,19 @@ function getLifestyleCommonality(left: Breed, right: Breed) {
 
 function BreedDetailExperience({ breed }: { breed: Breed }) {
   const { lifePoints, dayPoints } = getBreedLifePresentation(breed);
-  const isJapaneseSpitz = breed.slug === "japanese-spitz";
+  const breedFeatures = getBreedFeatures(breed.slug);
 
   return (
     <>
-      {isJapaneseSpitz ? (
-        <section className={styles.japaneseSpitzFeatures} aria-labelledby="japanese-spitz-features-title">
+      {breedFeatures ? (
+        <section className={styles.breedFeatures} aria-labelledby="breed-features-title">
           <header>
             <p className={styles.eyebrow}>실제로 함께 살면</p>
-            <h2 id="japanese-spitz-features-title">재패니즈 스피츠는 어떤 개인가요?</h2>
-            <p>사람과의 관계, 주변 변화에 대한 반응, 매일 체감할 털 관리 부담을 먼저 살펴보세요.</p>
+            <h2 id="breed-features-title">{breed.nameKo}는 어떤 개인가요?</h2>
+            <p>{breedFeatures.intro}</p>
           </header>
-          <div className={styles.japaneseSpitzFeatureGrid}>
-            {japaneseSpitzFeatures.map((feature) => (
+          <div className={styles.breedFeatureGrid}>
+            {breedFeatures.cards.map((feature) => (
               <article key={feature.title}>
                 <Image
                   src={feature.image}

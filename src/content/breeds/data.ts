@@ -154,7 +154,10 @@ const draftBreeds = [
       { slug: "japanese-spitz", reason: "하얀 외모는 닮았지만 체격과 털의 구조, 알림 행동을 비교해볼 수 있어요." },
       { slug: "greyhound", reason: "크기는 정반대지만 사람 곁에서 쉬는 생활의 의미를 다르게 보여줘요." },
     ],
-    sources: [{ title: "Maltese Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/maltese/", checkedAt }],
+    sources: [
+      { title: "Maltese Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/maltese/", checkedAt },
+      { title: "Is the Maltese a Good Fit for Your Lifestyle?", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/maltese-right-for-you/", checkedAt },
+    ],
   },
   {
     slug: "border-collie",

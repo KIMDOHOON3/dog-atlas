@@ -485,31 +485,31 @@
   font-size: 0.86rem;
   line-height: 1.58;
 }
-.japaneseSpitzFeatures {
+.breedFeatures {
   margin-top: 58px;
 }
-.japaneseSpitzFeatures > header {
+.breedFeatures > header {
   max-width: 720px;
 }
-.japaneseSpitzFeatures > header > p:last-child {
+.breedFeatures > header > p:last-child {
   margin: 10px 0 0;
   color: var(--ink-soft);
   line-height: 1.7;
 }
-.japaneseSpitzFeatureGrid {
+.breedFeatureGrid {
   margin-top: 28px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
-.japaneseSpitzFeatureGrid article {
+.breedFeatureGrid article {
   min-width: 0;
   overflow: hidden;
   border-radius: 22px;
   background: var(--panel);
   box-shadow: 0 12px 30px rgb(36 48 43 / 8%);
 }
-.japaneseSpitzFeatureGrid img {
+.breedFeatureGrid img {
   width: 100%;
   height: auto;
   display: block;
@@ -517,20 +517,20 @@
   object-fit: cover;
   border-radius: 22px 22px 0 0;
 }
-.japaneseSpitzFeatureGrid article > div {
+.breedFeatureGrid article > div {
   padding: 22px 22px 24px;
 }
-.japaneseSpitzFeatureGrid span {
+.breedFeatureGrid span {
   color: var(--moss);
   font-size: 0.76rem;
   font-weight: 800;
 }
-.japaneseSpitzFeatureGrid h3 {
+.breedFeatureGrid h3 {
   margin: 7px 0 0;
   font-size: clamp(1.08rem, 1.5vw, 1.28rem);
   line-height: 1.42;
 }
-.japaneseSpitzFeatureGrid p {
+.breedFeatureGrid p {
   margin: 10px 0 0;
   color: var(--ink-soft);
   font-size: 0.9rem;
@@ -1000,22 +1000,22 @@
   .malteseDay li strong {
     margin-top: 0;
   }
-  .japaneseSpitzFeatures {
+  .breedFeatures {
     margin-top: 44px;
   }
-  .japaneseSpitzFeatures h2 {
+  .breedFeatures h2 {
     font-size: 1.75rem;
     line-height: 1.3;
   }
-  .japaneseSpitzFeatureGrid {
+  .breedFeatureGrid {
     margin-top: 20px;
     grid-template-columns: 1fr;
     gap: 14px;
   }
-  .japaneseSpitzFeatureGrid article > div {
+  .breedFeatureGrid article > div {
     padding: 18px 18px 20px;
   }
-  .japaneseSpitzFeatureGrid h3 {
+  .breedFeatureGrid h3 {
     font-size: 1.12rem;
   }
   .malteseStory {
