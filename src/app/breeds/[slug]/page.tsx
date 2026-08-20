@@ -16,6 +16,7 @@ import {
 } from "@/lib/breed-life-presentation";
 import { getBreedFactPresentation } from "@/lib/breed-fact-presentation";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
+import { withObjectParticle } from "@/lib/korean-particles";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -95,8 +96,8 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
       {breedFeatures ? (
         <section className={styles.breedFeatures} aria-labelledby="breed-features-title">
           <header>
-            <p className={styles.eyebrow}>실제로 함께 살면</p>
-            <h2 id="breed-features-title">{breed.nameKo}는 어떤 개인가요?</h2>
+            <p className={styles.eyebrow}>견종을 이해하는 출발점</p>
+            <h2 id="breed-features-title">{withObjectParticle(breed.nameKo)} 먼저 알아볼 세 가지</h2>
             <p>{breedFeatures.intro}</p>
           </header>
           <div className={styles.breedFeatureGrid}>

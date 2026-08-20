@@ -310,3 +310,9 @@ Before expanding, move the pilot's page-local data into a Zod-validated local co
 Use Maltese as the first small expansion of the Japanese Spitz illustrated feature-card pilot. Replace only the Maltese generic lifestyle-card area with three source-backed cards about close companionship, safe daily routes for a small body, and recurring long-coat care; keep its history, comparison, sources, and existing beginner checklist structure.
 
 Move all published feature-card data out of the detail page and into a Zod-validated local module keyed by breed slug. Keep the other 374 details on the generic card presentation until they are explicitly selected for later batches, and do not extend the Japanese Spitz readiness assessment as part of this visual rollout.
+
+# 2026-08-21 — Explain the breed before asking about fit
+
+Structure each breed detail so readers first learn what is distinctive about the breed, then consider how those traits may appear in daily life, and only afterward move to comparison, readiness, and choice. The three illustrated cards should open with breed knowledge—historical role, characteristic behavior, body structure, coat structure, or meaningful variety—not with a generic training or care instruction.
+
+Follow a breed fact with a practical implication when it helps the reader judge their own environment. Do not require or ban coat topics mechanically: retain coat when its structure, seasonal shedding, grooming burden, or role in recognizing the breed is genuinely distinctive, and prefer a stronger breed-specific subject when it is not. Keep all statements as tendencies or supported characteristics rather than a verdict that a breed will suit a particular person.

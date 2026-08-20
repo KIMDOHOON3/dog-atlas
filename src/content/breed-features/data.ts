@@ -783,20 +783,20 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
   },
   {
     slug: "bichon-frise",
-    intro: "사람과 연결된 채 혼자 쉬는 연습, 짧고 즐거운 협력 과제, 촘촘한 곱슬 피모의 관리를 먼저 살펴보세요.",
+    intro: "여러 생활 공간에 적응해 온 반려견의 배경, 구름 같은 외모 안의 활기찬 움직임, 촘촘한 곱슬 피모의 구조를 먼저 살펴보세요.",
     cards: [
       {
-        eyebrow: "가까움과 독립 휴식",
-        title: "같은 공간에서도 자기 자리에서 쉬는 시간을 만들어요.",
-        description: "사람의 관심과 상호작용을 적극적으로 찾는 개체가 있어요. 늘 따라다녀야 편안해지기 전에 보호자가 보이는 가까운 거리부터 자기 매트에서 짧게 쉬는 경험을 쌓아주세요.",
+        eyebrow: "사람 곁의 반려견",
+        title: "여러 생활 공간에 적응하며 사람 가까이 머물러 온 소형견이에요.",
+        description: "비숑 프리제는 특정 작업보다 사람과 함께 이동하고 생활하는 반려견으로 자리 잡았습니다. 사람의 관심을 적극적으로 찾는 개체라면 교감 시간과 더불어 가까운 자기 자리에서 편히 쉬는 경험도 마련해주세요.",
         image: "/illustrations/v4/bichon-frise-feature-independent-rest.webp",
         alt: "보호자가 책상에서 일하는 동안 조금 떨어진 자기 매트에서 편안히 쉬는 백색 성견 비숑 프리제 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/215g09-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/bichon-frise/"],
       },
       {
-        eyebrow: "즐거운 협력",
-        title: "짧게 배우고 성공한 뒤 차분히 끝내요.",
-        description: "사람과 함께 움직이고 반응하는 활동을 즐길 수 있어요. 두 지점 사이를 이동하거나 손 신호를 따라 매트로 가는 짧은 과제를 구성하고, 흥분이 커지기 전에 쉬는 순서로 마무리해주세요.",
+        eyebrow: "활기찬 움직임",
+        title: "둥글고 풍성한 외모 안에는 빠르고 가벼운 움직임이 있어요.",
+        description: "비숑 프리제의 움직임은 빠르고 자유로우며 작은 몸으로도 제법 넓게 나아가는 것이 특징입니다. 산책과 짧은 이동 과제로 몸을 쓰게 하되, 흥분이 커지기 전에 자기 자리에서 쉬는 순서까지 함께 알려주세요.",
         image: "/illustrations/v4/bichon-frise-feature-cooperative-learning.webp",
         alt: "실내의 두 낮은 표식 사이를 보호자의 손 신호에 맞춰 이동한 뒤 매트에서 쉬는 백색 성견 비숑 프리제의 연속 장면 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/215g09-en.pdf"],
@@ -813,7 +813,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
   },
   {
     slug: "cavalier-king-charles-spaniel",
-    intro: "사람 가까이에서도 혼자 쉬는 연습, 스패니얼다운 냄새 탐색, 흥분을 낮춘 차분한 인사를 먼저 살펴보세요.",
+    intro: "사람 곁의 토이 스패니얼이라는 배경, 작은 몸에 남은 탐색 욕구, 긴 귀와 장식털의 특징을 먼저 살펴보세요.",
     cards: [
       {
         eyebrow: "교감과 혼자 쉬기",
@@ -832,11 +832,11 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/136g09-en.pdf"],
       },
       {
-        eyebrow: "차분한 인사",
-        title: "다가갈지 보호자 곁에 머물지 선택하게 해요.",
-        description: "사람에게 친근하게 다가가는 개체도 흥분한 인사를 반복하면 몸을 가라앉히기 어려울 수 있어요. 방문객과 거리를 둔 자리에서 먼저 기다리고, 네 발이 바닥에 있을 때 짧게 인사하거나 지나칠 선택을 주세요.",
-        image: "/illustrations/v4/cavalier-king-charles-spaniel-feature-calm-greeting.webp",
-        alt: "현관 매트에서 보호자 곁에 머물며 몇 걸음 떨어진 방문객을 차분히 바라보는 블렌하임 성견 캐벌리어 삽화",
+        eyebrow: "긴 귀와 장식털",
+        title: "실키한 긴 귀와 가슴·다리의 장식털이 외형을 이뤄요.",
+        description: "높게 자리한 긴 귀와 가슴·다리·발의 풍성한 장식털은 캐벌리어를 알아보는 중요한 특징입니다. 산책 뒤 귀와 긴 털에 붙은 이물질과 물기를 확인하고, 잡아당기지 않도록 작은 구역으로 나누어 빗어주세요.",
+        image: "/illustrations/v4/cavalier-king-charles-spaniel-feature-feathered-coat-care.webp",
+        alt: "미끄럼 방지 매트에서 보호자가 블렌하임 성견 캐벌리어의 귀 뒤와 가슴 장식털을 빗는 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/136g09-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/cavalier-king-charles-spaniel/"],
       },
     ],
