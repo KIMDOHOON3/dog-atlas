@@ -70,7 +70,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
         title: "움직이는 대상을 먼저 읽고 따라갈 수 있어요.",
         description: "양 떼의 방향을 읽고 모으도록 발달한 목양견이에요. 달리는 사람이나 놀이하는 아이처럼 빠르게 움직이는 대상에 시선이 고정되거나 따라가려는 모습이 보이면 거리를 두고 보호자에게 돌아오는 신호를 연습해주세요.",
         image: "/illustrations/v4/border-collie-feature-herding-focus.webp",
-        alt: "몸을 낮추고 멀리 있는 양 떼의 움직임을 집중해 살피는 성견 보더콜리 삽화",
+        alt: "공원에서 멀리 지나가는 사람과 자전거를 알아차린 뒤 보호자를 바라보는 성견 보더콜리 삽화",
         sourceUrls: ["https://images.akc.org/pdf/breeds/standards/Border_Collie.pdf", "https://www.akc.org/expert-advice/dog-breeds/border-collie-right-for-you/"],
       },
       {
