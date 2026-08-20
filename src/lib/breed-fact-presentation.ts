@@ -137,11 +137,13 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     height: "58~70cm",
   },
   "bichon-frise": {
-    size: "25~29cm",
+    size: "25~29cm · 약 5kg",
     height: "25~29cm",
+    weight: "약 5kg",
   },
   "cavalier-king-charles-spaniel": {
-    size: "5.4~8kg",
+    size: "30~33cm · 5.4~8kg",
+    height: "30~33cm",
     weight: "5.4~8kg",
   },
   pug: {

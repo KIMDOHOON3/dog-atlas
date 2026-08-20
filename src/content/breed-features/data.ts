@@ -753,7 +753,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
   },
   {
     slug: "akita",
-    intro: "관계를 서두르지 않는 거리, 큰 힘을 차분히 다루는 보행, 넓은 체표의 이중모 관리를 먼저 살펴보세요.",
+    intro: "관계를 서두르지 않는 거리, 큰 힘을 차분히 다루는 보행, 들어 올릴 수 없는 성견의 이동 동선을 먼저 살펴보세요.",
     cards: [
       {
         eyebrow: "관계와 거리",
@@ -772,11 +772,11 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/255g05-en.pdf"],
       },
       {
-        eyebrow: "큰 이중모",
-        title: "넓은 몸의 속털까지 구역을 나누어 관리해요.",
-        description: "거친 겉털과 촘촘한 속털을 가진 큰 이중모예요. 한 번에 오래 붙잡아두기보다 어깨·몸통·뒷다리처럼 구역을 나누어 빗고, 털갈이에는 짧은 관리를 자주 반복해주세요.",
-        image: "/illustrations/v4/akita-feature-double-coat.webp",
-        alt: "큰 미끄럼 방지 매트에서 보호자가 적색 성견 아키타의 빠진 속털을 구역별로 빗는 삽화",
+        eyebrow: "대형견 이동 동선",
+        title: "들어 올릴 수 없을 때의 이동 방법을 미리 연습해요.",
+        description: "성견의 큰 체격은 차량 탑승이나 병원 이동에서도 별도의 준비를 요구해요. 넓고 미끄럽지 않은 발판이나 낮은 경사로를 마련하고, 아프기 전부터 천천히 오르고 머무는 과정을 짧게 연습해주세요.",
+        image: "/illustrations/v4/akita-feature-large-dog-route.webp",
+        alt: "보호자가 적색 성견 아키타와 함께 넓은 미끄럼 방지 경사로를 이용해 차량 탑승을 연습하는 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/255g05-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/japanese-akita-inu/"],
       },
     ],
@@ -813,7 +813,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
   },
   {
     slug: "cavalier-king-charles-spaniel",
-    intro: "사람 가까이에서도 혼자 쉬는 연습, 스패니얼다운 냄새 탐색, 긴 귀와 장식털 관리를 먼저 살펴보세요.",
+    intro: "사람 가까이에서도 혼자 쉬는 연습, 스패니얼다운 냄새 탐색, 흥분을 낮춘 차분한 인사를 먼저 살펴보세요.",
     cards: [
       {
         eyebrow: "교감과 혼자 쉬기",
@@ -832,11 +832,11 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/136g09-en.pdf"],
       },
       {
-        eyebrow: "귀와 장식털",
-        title: "귀 뒤와 가슴·다리의 긴 털을 따로 살펴요.",
-        description: "길고 실키한 귀와 가슴·다리의 장식털은 산책 뒤 이물질이 붙거나 엉킬 수 있어요. 물기와 피부 상태를 확인하고, 잡아당기지 않도록 작은 구역으로 나누어 빗어주세요.",
-        image: "/illustrations/v4/cavalier-king-charles-spaniel-feature-feathered-coat-care.webp",
-        alt: "미끄럼 방지 매트에서 보호자가 블렌하임 성견 캐벌리어의 귀 뒤와 가슴 장식털을 빗는 삽화",
+        eyebrow: "차분한 인사",
+        title: "다가갈지 보호자 곁에 머물지 선택하게 해요.",
+        description: "사람에게 친근하게 다가가는 개체도 흥분한 인사를 반복하면 몸을 가라앉히기 어려울 수 있어요. 방문객과 거리를 둔 자리에서 먼저 기다리고, 네 발이 바닥에 있을 때 짧게 인사하거나 지나칠 선택을 주세요.",
+        image: "/illustrations/v4/cavalier-king-charles-spaniel-feature-calm-greeting.webp",
+        alt: "현관 매트에서 보호자 곁에 머물며 몇 걸음 떨어진 방문객을 차분히 바라보는 블렌하임 성견 캐벌리어 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/136g09-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/cavalier-king-charles-spaniel/"],
       },
     ],

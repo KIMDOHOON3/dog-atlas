@@ -33,6 +33,7 @@ describe("breed filter normalization", () => {
     const categories = breeds.map((breed) => getBreedSizeCategory(breed.identity.size));
     expect(categories).not.toContain(undefined);
     expect(getBreedSizeCategory(breeds.find((breed) => breed.slug === "samoyed")!.identity.size)).toBe("large");
+    expect(getBreedSizeCategory(breeds.find((breed) => breed.slug === "shiba")!.identity.size)).toBe("medium");
   });
 });
 

@@ -134,8 +134,8 @@ describe("breed fact presentation", () => {
       "yorkshire-terrier": { size: "3.2kg 이하", height: undefined, weight: "3.2kg 이하" },
       shiba: { size: "35~41cm · 7~11kg", height: "35~41cm", weight: "7~11kg" },
       akita: { size: "58~70cm", height: "58~70cm", weight: undefined },
-      "bichon-frise": { size: "25~29cm", height: "25~29cm", weight: undefined },
-      "cavalier-king-charles-spaniel": { size: "5.4~8kg", height: undefined, weight: "5.4~8kg" },
+      "bichon-frise": { size: "25~29cm · 약 5kg", height: "25~29cm", weight: "약 5kg" },
+      "cavalier-king-charles-spaniel": { size: "30~33cm · 5.4~8kg", height: "30~33cm", weight: "5.4~8kg" },
       pug: { size: "6.3~8.1kg", height: undefined, weight: "6.3~8.1kg" },
     } as const;
 

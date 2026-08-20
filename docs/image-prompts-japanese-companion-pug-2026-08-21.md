@@ -7,9 +7,9 @@
 ## 근거와 주제
 
 - 시바: [FCI 표준 257](https://www.fci.be/Nomenclature/Standards/257g05-en.pdf)과 [RKC 소개](https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/japanese-shiba-inu/)를 바탕으로 선택권 있는 관계·출입 안전·계절성 이중모를 다뤘다.
-- 아키타: [FCI 표준 255](https://www.fci.be/Nomenclature/Standards/255g05-en.pdf)과 [RKC 소개](https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/japanese-akita-inu/)를 바탕으로 낯선 대상과의 거리·큰 힘을 다루는 보행·넓은 이중모 관리를 다뤘다.
+- 아키타: [FCI 표준 255](https://www.fci.be/Nomenclature/Standards/255g05-en.pdf)과 [RKC 소개](https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/japanese-akita-inu/)를 바탕으로 낯선 대상과의 거리·큰 힘을 다루는 보행·대형견 이동 동선을 다뤘다.
 - 비숑 프리제: [FCI 표준 215](https://www.fci.be/Nomenclature/Standards/215g09-en.pdf)과 [RKC 소개](https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/bichon-frise/)를 바탕으로 독립 휴식·짧은 협력 과제·곱슬 피모의 빗질과 건조를 다뤘다.
-- 캐벌리어 킹 찰스 스패니얼: [FCI 표준 136](https://www.fci.be/Nomenclature/Standards/136g09-en.pdf)과 [RKC 소개](https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/cavalier-king-charles-spaniel/)를 바탕으로 독립 휴식·스패니얼다운 냄새 탐색·귀와 장식털 관리를 다뤘다.
+- 캐벌리어 킹 찰스 스패니얼: [FCI 표준 136](https://www.fci.be/Nomenclature/Standards/136g09-en.pdf)과 [RKC 소개](https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/cavalier-king-charles-spaniel/)를 바탕으로 독립 휴식·스패니얼다운 냄새 탐색·차분한 인사를 다뤘다.
 - 퍼그: [FCI 표준 253](https://www.fci.be/Nomenclature/Standards/253g09-en.pdf)과 [RKC 소개](https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/pug/)를 바탕으로 활동 뒤 호흡 회복·더위를 피한 짧은 산책·얼굴 주름과 눈 점검을 다뤘다.
 
 ## 프롬프트 공통 기준
@@ -21,11 +21,11 @@
 모든 파일은 `public/illustrations/v4/` 아래의 1200×900 WebP다.
 
 - `shiba-feature-choice-and-trust.webp`, `shiba-feature-entry-safety.webp`, `shiba-feature-seasonal-coat.webp`
-- `akita-feature-respectful-distance.webp`, `akita-feature-calm-walking.webp`, `akita-feature-double-coat.webp`
+- `akita-feature-respectful-distance.webp`, `akita-feature-calm-walking.webp`, `akita-feature-large-dog-route.webp`
 - `bichon-frise-feature-independent-rest.webp`, `bichon-frise-feature-cooperative-learning.webp`, `bichon-frise-feature-curly-coat-care.webp`
-- `cavalier-king-charles-spaniel-feature-independent-rest.webp`, `cavalier-king-charles-spaniel-feature-scent-walk.webp`, `cavalier-king-charles-spaniel-feature-feathered-coat-care.webp`
+- `cavalier-king-charles-spaniel-feature-independent-rest.webp`, `cavalier-king-charles-spaniel-feature-scent-walk.webp`, `cavalier-king-charles-spaniel-feature-calm-greeting.webp`
 - `pug-feature-breathing-recovery.webp`, `pug-feature-cool-walk.webp`, `pug-feature-face-eye-care.webp`
 
 ## 생성·검수 메모
 
-기존 대표·역사 이미지 10장은 연락시트에서 외형과 역할 장면을 확인해 유지했다. 새 카드 15장도 한 연락시트로 외형, 장면 구분, 중앙 크롭을 확인했다. 시바의 출입 안전 장면은 첫 결과에 개가 두 마리로 나타나, 한 마리만 안전문 안에서 장비를 확인하는 결과로 다시 생성했다.
+초기 배치 뒤 시바가 아키타와 체형·머리 형태가 지나치게 비슷하다는 검수 의견을 반영했다. 시바의 대표·역사·특징 카드 3장을 모두 내장 ImageGen 신규 생성 방식으로 다시 만들고, 사람과의 비율·좁은 여우형 머리·가벼운 골격·빠른 움직임을 명시해 아키타의 넓고 묵직한 체형과 구분했다. 같은 검수에서 마지막 카드가 피모 관리에 집중되는 반복을 줄이기 위해 아키타는 차량 경사로를 활용한 대형견 이동 동선, 캐벌리어는 방문객과의 차분한 인사 장면으로 교체했다. 최종 WebP의 비율·크기·파일 예산과 화면 크롭을 다시 확인한다.
