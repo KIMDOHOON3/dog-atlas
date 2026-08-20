@@ -18,6 +18,16 @@ describe("breed fact presentation", () => {
     });
   });
 
+  it("separates Maltese height and weight for the detail summary", () => {
+    const facts = getBreedFactPresentation(getBreed("maltese")!);
+
+    expect(facts).toMatchObject({
+      size: "18~23cm · 3.2kg 이하",
+      height: "18~23cm",
+      weight: "3.2kg 이하",
+    });
+  });
+
   it("shows compact numeric facts for poodle", () => {
     const poodle = getBreed("poodle")!;
 

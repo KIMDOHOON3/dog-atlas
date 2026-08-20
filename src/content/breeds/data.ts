@@ -124,15 +124,15 @@ const draftBreeds = [
       src: "/illustrations/v3/maltese-history.webp",
       alt: "지중해 연안으로 보이는 마을에서 사람 곁에 앉은 흰 소형견을 그린 편집 삽화",
     },
-    identity: { origin: "지중해권", lineage: "토이 그룹", originalRole: "사람 곁의 반려견", size: "초소형", lifespan: "장수하는 편으로 알려짐 (세부 범위 검토 중)" },
+    identity: { origin: "지중해권", lineage: "토이 그룹", originalRole: "항구의 쥐잡이·반려견", size: "초소형", lifespan: "장수하는 편으로 알려짐 (세부 범위 검토 중)" },
     behaviorClues: {
-      originalRole: "오랫동안 사람 곁에서 생활한 소형 반려견이라는 맥락이 오늘의 가까운 교감과 연결될 수 있습니다.",
+      originalRole: "중앙 지중해의 항구 도시에서 창고와 배 안의 쥐를 잡던 작은 개의 배경이 있고, 고대 로마에서는 사람 곁의 반려견으로 기록됩니다.",
       today: "사람 가까이 머물려는 모습과 빗질·눈가 관리처럼 반복되는 핸들링 상황을 함께 살펴봐요.",
       guardianContext: "몸을 만지고 관리하는 과정은 짧고 편안한 단계부터 보상과 함께 긍정적인 경험으로 쌓아야 합니다.",
     },
     story: {
-      opening: "말티즈는 지중해권에서 오랫동안 사람 곁의 반려견으로 기록된 품종입니다. 길고 흰 털과 작은 체구가 가장 익숙한 인상을 만듭니다.",
-      roleToHome: "사람과 가까이 생활해온 역사는 오늘날에도 강한 교감 욕구로 이어질 수 있습니다. 작지만 놀이와 교육을 즐길 수 있는 개라는 점을 놓치기 쉬워요.",
+      opening: "말티즈라는 이름이 곧 몰타섬에서 시작됐다는 뜻은 아닙니다. FCI는 조상 개들이 중앙 지중해의 항구와 해안 도시에서 살며 창고와 배 안의 쥐를 잡았다고 설명합니다.",
+      roleToHome: "고대 로마에서는 사람 곁의 반려견으로 사랑받았고, 르네상스 회화에도 살롱의 사람들과 함께 등장합니다. 오랜 반려의 역사는 오늘날 사람 가까이 머무는 경향과 이어질 수 있지만, 관계 방식과 혼자 쉬는 능력은 개체와 경험에 따라 달라요.",
       reality: "작은 체격은 관리가 쉽다는 뜻이 아닙니다. 털과 치아 관리, 안전한 환경, 혼자 있는 시간에 대한 점진적인 연습을 함께 고려해야 합니다.",
     },
     tendencies: {
@@ -157,6 +157,7 @@ const draftBreeds = [
     sources: [
       { title: "Maltese Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/maltese/", checkedAt },
       { title: "Is the Maltese a Good Fit for Your Lifestyle?", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/maltese-right-for-you/", checkedAt },
+      { title: "FCI Standard No. 65 — Maltese", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/nomenclature/Standards/065g09-en.pdf", checkedAt },
     ],
   },
   {

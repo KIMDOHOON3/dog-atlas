@@ -16,7 +16,12 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     height: "30~38cm",
     weight: "5~11kg",
   },
-  maltese: { size: "18~23cm · 3.2kg 이하", lifespan: "12~15년" },
+  maltese: {
+    size: "18~23cm · 3.2kg 이하",
+    height: "18~23cm",
+    weight: "3.2kg 이하",
+    lifespan: "12~15년",
+  },
   "border-collie": { size: "46~56cm · 14~25kg", lifespan: "12~15년" },
   greyhound: { size: "69~76cm · 27~32kg" },
   samoyed: { size: "48~60cm · 16~30kg" },
