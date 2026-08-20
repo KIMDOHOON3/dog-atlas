@@ -38,7 +38,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "사람과의 관계",
         title: "사람 가까이에서 시간을 보내길 좋아해요.",
-        description: "오랫동안 사람 곁의 반려견으로 지내온 만큼 가족과 가까이 머무는 경향이 있어요. 함께하는 시간뿐 아니라 짧고 편안한 혼자 쉬기도 천천히 익혀주세요.",
+        description: "가족과 가까이 머물며 함께 시간을 보내는 것을 좋아하는 모습을 보일 수 있어요. 함께하는 시간뿐 아니라 짧고 편안한 혼자 쉬기도 천천히 익혀주세요.",
         image: "/illustrations/v4/maltese-feature-companionship.webp",
         alt: "앉아 있는 사람 가까이에서 얼굴을 바라보는 성견 말티즈 삽화",
         sourceUrls: ["https://www.akc.org/dog-breeds/maltese/", "https://www.akc.org/expert-advice/dog-breeds/maltese-right-for-you/"],
