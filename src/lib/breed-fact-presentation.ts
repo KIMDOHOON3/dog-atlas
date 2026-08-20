@@ -94,12 +94,38 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     weight: "15.5~28kg",
   },
   whippet: {
-    size: "44~51cm",
+    size: "44~51cm · 11~18kg",
     height: "44~51cm",
+    weight: "11~18kg",
   },
   "pyrenean-mountain-dog": {
-    size: "65~80cm",
+    size: "65~80cm · 암컷 약 39kg · 수컷 약 45kg",
     height: "65~80cm",
+    weight: "암컷 약 39kg · 수컷 약 45kg",
+  },
+  "french-bulldog": {
+    size: "24~35cm · 8~14kg",
+    height: "24~35cm",
+    weight: "8~14kg",
+  },
+  basenji: {
+    size: "40~43cm · 9.5~11kg",
+    height: "40~43cm",
+    weight: "9.5~11kg",
+  },
+  "welsh-corgi-pembroke": {
+    size: "25~30cm · 9~12kg",
+    height: "25~30cm",
+    weight: "9~12kg",
+  },
+  "miniature-schnauzer": {
+    size: "30~35cm · 4~8kg",
+    height: "30~35cm",
+    weight: "4~8kg",
+  },
+  "yorkshire-terrier": {
+    size: "3.2kg 이하",
+    weight: "3.2kg 이하",
   },
   "german-spitz": { size: "바라이어티별 18~55cm" },
   "bull-terrier": { size: "53~56cm · 23~32kg" },

@@ -36,6 +36,11 @@ describe("breed-specific feature cards", () => {
       "siberian-husky",
       "whippet",
       "pyrenean-mountain-dog",
+      "french-bulldog",
+      "basenji",
+      "welsh-corgi-pembroke",
+      "miniature-schnauzer",
+      "yorkshire-terrier",
     ]);
 
     for (const featureSet of breedFeatureSets) {
@@ -86,7 +91,7 @@ describe("breed-specific feature cards", () => {
 
   it("keeps feature coverage separate from the catalog used by discovery", () => {
     expect(breeds).toHaveLength(376);
-    expect(breedFeatureSets).toHaveLength(19);
-    expect(getBreedFeatures("french-bulldog")).toBeUndefined();
+    expect(breedFeatureSets).toHaveLength(24);
+    expect(getBreedFeatures("shiba")).toBeUndefined();
   });
 });

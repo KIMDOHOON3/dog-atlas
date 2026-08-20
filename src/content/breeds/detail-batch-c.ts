@@ -1,6 +1,7 @@
 import type { Breed } from "./schema";
 
 const checkedAt = "2026-08-03";
+const completedAt = "2026-08-20";
 const healthDraft = "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 품종 경향만으로 질환을 예측하거나 진단하지 않으며, 호흡·보행·피부·눈·심장 등 개체의 변화는 수의사 검진으로 확인하세요.";
 
 export const detailBatchC = [
@@ -10,38 +11,38 @@ export const detailBatchC = [
     palette: { primary: "#d9b183", secondary: "#e6e2c9", ink: "#4b3828" }, illustration: "/illustrations/v2/welsh-corgi-pembroke-card.webp",
     catalog: { group: "herding", discoveryTags: ["소몰이 배경", "사람과의 협업", "짧고 탄탄한 체형"] },
     historyVisual: { src: "/illustrations/v3/welsh-corgi-pembroke-history.webp", alt: "웨일스 농장에서 웰시 코기 펨브로크가 소의 이동을 돕는 모습을 그린 편집 수채화" },
-    identity: { origin: "영국·웨일스", lineage: "웨일스 농가에서 발달한 짧은 다리의 목축견", originalRole: "소를 몰고 농장을 지키던 목축견", size: "소형·중형 경계 · 약 25~30cm, 9~12kg", lifespan: "12년 이상(RKC 참고, 개체별 차이 있음)" },
+    identity: { origin: "영국·웨일스", lineage: "웨일스 농가에서 발달한 짧은 다리의 목축견", originalRole: "목축견", size: "소형·중형 경계 · 약 25~30cm, 9~12kg", lifespan: "12년 이상(RKC 참고, 개체별 차이 있음)" },
     behaviorClues: { originalRole: "낮은 체고로 발굽을 피하며 가축의 이동을 살피고 사람의 신호에 맞춰 움직였습니다.", today: "사람의 움직임을 빠르게 읽거나 달리는 대상과 소리에 반응할 수 있지만, 모든 개체가 같은 몰이 행동을 보이는 것은 아닙니다.", guardianContext: "빠른 걷기와 냄새 탐색, 방향 전환 과제를 섞고 흥분한 뒤 멈추고 쉬는 연습을 함께 마련하세요." },
     story: { opening: "펨브로크 웰시 코기는 웨일스의 농가에서 소를 모는 데 활용된 목축견입니다.", roleToHome: "오늘의 가정에서도 주변을 관찰하고 가족과 함께 움직이는 일을 즐길 수 있어 산책을 거리 채우기보다 협업 시간으로 만들면 좋아요.", reality: "짧은 다리가 낮은 활동량을 뜻하지 않습니다. 체중과 미끄러운 바닥을 관리하고 반복 점프는 줄여야 해요." },
     tendencies: { activity: { label: "높은 편", note: "작은 체격에 비해 움직임과 놀이 욕구가 뚜렷할 수 있어요." }, mentalStimulation: { label: "높은 편", note: "찾기와 신호 구분처럼 짧은 협업 과제를 활용할 수 있어요." }, independence: { label: "중간", note: "스스로 상황을 판단하는 면과 사람을 따르는 면이 함께 보여요." }, socialConnection: { label: "높은 편", note: "가족의 활동에 참여하려는 경향이 나타날 수 있어요." }, alerting: { label: "높은 편", note: "움직임과 소리를 빨리 알아차려 알림 짖음 관리가 필요해요." }, grooming: { label: "중간", note: "이중모라 정기적인 빗질과 털갈이 관리가 필요해요." } },
     careNotes: ["체중 증가는 긴 허리와 관절에 부담을 더할 수 있어 급여량과 체형을 함께 살피세요.", "소파·계단의 반복 점프와 미끄러운 바닥을 줄여 주세요.", "발목을 쫓거나 흥분해 짖는 행동은 거리 확보와 대체 행동으로 차분히 가르치세요."], healthEditorialNote: healthDraft,
     daySnapshot: [{ time: "아침", title: "빠른 산책", description: "속도 변화와 냄새 탐색을 번갈아 해요." }, { time: "낮", title: "방향 전환 놀이", description: "짧은 신호 과제 뒤 충분히 쉬어요." }, { time: "저녁", title: "관절 부담 낮추기", description: "평지에서 차분히 걷고 체형을 확인해요." }],
     related: [{ slug: "border-collie", reason: "목축 배경은 같지만 체격과 과제 강도의 차이를 비교해 보세요." }, { slug: "bernese-mountain-dog", reason: "농장견이라는 공통점과 소몰이·운반 역할의 차이를 볼 수 있어요." }],
-    sources: [{ title: "FCI Standard No. 39: Welsh Corgi Pembroke", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/039g01-en.pdf", checkedAt }, { title: "Pembroke Welsh Corgi", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/pembroke-welsh-corgi/", checkedAt }],
+    sources: [{ title: "FCI Standard No. 39: Welsh Corgi Pembroke", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/039g01-en.pdf", checkedAt: completedAt }, { title: "Pembroke Welsh Corgi", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/pembroke-welsh-corgi/", checkedAt: completedAt }],
   },
   {
     slug: "miniature-schnauzer", contentStatus: "mvp-editorial-draft", nameKo: "미니어처 슈나우저", nameEn: "Miniature Schnauzer",
     tagline: "단정한 수염 뒤에는 농장 주변을 살피고 작은 변화에 반응하던 활기찬 생활 배경이 있어요.",
     palette: { primary: "#b8b6ad", secondary: "#dde1d4", ink: "#363735" }, illustration: "/illustrations/v2/miniature-schnauzer-card.webp",
     catalog: { group: "companion", discoveryTags: ["농장견 배경", "빠른 알림 반응", "정기 미용"] }, historyVisual: { src: "/illustrations/v3/miniature-schnauzer-history.webp", alt: "독일 농장 마구간 앞의 미니어처 슈나우저를 그린 편집 수채화" },
-    identity: { origin: "독일", lineage: "프랑크푸르트 일대의 거친 털 소형 핀셔 타입에서 정립", originalRole: "농가의 알림·해수 관리와 가정의 반려 역할", size: "소형 · 약 30~35cm, 4~8kg", lifespan: "10년 이상(RKC 참고, 개체별 차이 있음)" },
+    identity: { origin: "독일", lineage: "프랑크푸르트 일대의 거친 털 소형 핀셔 타입에서 정립", originalRole: "농장견·반려견", size: "소형 · 약 30~35cm, 4~8kg", lifespan: "10년 이상(RKC 참고, 개체별 차이 있음)" },
     behaviorClues: { originalRole: "농장과 마구간 주변의 작은 움직임을 빠르게 포착하고 알리는 반응이 중요했습니다.", today: "소리와 움직임에 즉시 반응하거나 탐색 놀이에 몰입할 수 있지만 경험과 개체에 따라 차이가 큽니다.", guardianContext: "창밖 자극을 차단할 휴식 장소와 냄새 찾기, 조용히 돌아오는 신호를 함께 준비하세요." },
     story: { opening: "미니어처 슈나우저는 20세기 전후 독일에서 작은 거친 털 핀셔 타입을 바탕으로 정립됐습니다.", roleToHome: "오늘날에는 사람 가까이 지내면서도 집 안팎의 변화를 빠르게 알아차리는 모습이 나타날 수 있어요.", reality: "작은 체격만 보고 조용한 반려견을 기대하기보다 알림 행동과 미용, 두뇌 활동을 함께 계획해야 합니다." },
     tendencies: { activity: { label: "중간", note: "매일 산책과 활기찬 놀이가 필요해요." }, mentalStimulation: { label: "높은 편", note: "찾기와 문제 해결 놀이에 집중할 수 있어요." }, independence: { label: "중간", note: "자기 판단과 보호자 협력이 함께 나타날 수 있어요." }, socialConnection: { label: "높은 편", note: "가족 활동에 참여하려는 경향이 있어요." }, alerting: { label: "높은 편", note: "낯선 소리와 방문을 빠르게 알릴 수 있어요." }, grooming: { label: "높은 편", note: "빗질과 정기적인 클리핑 또는 트리밍이 필요해요." } },
     careNotes: ["수염과 다리 털은 음식물과 습기가 남지 않게 자주 확인하세요.", "창문·현관 알림 짖음은 자극 차단과 자리로 돌아오기 연습으로 관리하세요.", "간식 비중이 높아지지 않도록 체중과 급여량을 꾸준히 기록하세요."], healthEditorialNote: healthDraft,
     daySnapshot: [{ time: "아침", title: "탐색 산책", description: "냄새를 충분히 맡으며 걸어요." }, { time: "낮", title: "찾기 과제", description: "작은 물건이나 간식을 찾아요." }, { time: "저녁", title: "피모 점검", description: "수염과 발 주변을 빗고 말려요." }], related: [{ slug: "yorkshire-terrier", reason: "작은 테리어 배경과 서로 다른 피모 관리 방식을 비교해 보세요." }, { slug: "poodle", reason: "학습 자극과 정기 미용 부담을 같은 기준으로 살펴볼 수 있어요." }],
-    sources: [{ title: "FCI Standard No. 183: Miniature Schnauzer", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/183g02-en.pdf", checkedAt }, { title: "Miniature Schnauzer", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/miniature-schnauzer/", checkedAt }],
+    sources: [{ title: "FCI Standard No. 183: Miniature Schnauzer", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/183g02-en.pdf", checkedAt: completedAt }, { title: "Miniature Schnauzer", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/miniature-schnauzer/", checkedAt: completedAt }],
   },
   {
     slug: "yorkshire-terrier", contentStatus: "mvp-editorial-draft", nameKo: "요크셔 테리어", nameEn: "Yorkshire Terrier", tagline: "작고 우아한 외모 안에도 주변을 살피고 자신 있게 움직이는 테리어의 기질이 남아 있어요.",
     palette: { primary: "#c6a378", secondary: "#dce0cb", ink: "#413a34" }, illustration: "/illustrations/v2/yorkshire-terrier-card.webp", catalog: { group: "companion", discoveryTags: ["초소형 테리어", "긴 실키 코트", "사람과의 교감"] }, historyVisual: { src: "/illustrations/v3/yorkshire-terrier-history.webp", alt: "19세기 영국 요크셔 직물 마을의 요크셔 테리어를 그린 편집 수채화" },
-    identity: { origin: "영국·요크셔", lineage: "북부 잉글랜드의 여러 소형 테리어를 바탕으로 정립", originalRole: "작업 공동체의 소형 테리어에서 반려견으로 발전", size: "초소형 · 체중 약 3.2kg 이하", lifespan: "12년 이상(RKC 참고, 개체별 차이 있음)" },
+    identity: { origin: "영국·요크셔", lineage: "북부 잉글랜드의 여러 소형 테리어를 바탕으로 정립", originalRole: "소형 테리어·반려견", size: "초소형 · 체중 약 3.2kg 이하", lifespan: "12년 이상(RKC 참고, 개체별 차이 있음)" },
     behaviorClues: { originalRole: "작은 공간에서 주변 움직임을 살피는 테리어의 빠른 반응과 용기가 중요했습니다.", today: "체격보다 큰 자신감이나 소리·움직임 추적이 나타날 수 있지만 모든 개체를 같은 성격으로 볼 수는 없습니다.", guardianContext: "안아서 자극을 피하기만 하기보다 안전한 거리에서 스스로 관찰하고 선택하는 경험을 주세요." },
     story: { opening: "요크셔 테리어는 19세기 북부 잉글랜드의 산업 지역에서 여러 소형 테리어를 바탕으로 자리 잡았습니다.", roleToHome: "이후 긴 청색·황갈색 피모를 지닌 반려견으로 정립됐지만 주변 변화에 빠르게 반응하는 면은 여전히 생활에서 보일 수 있어요.", reality: "아주 작은 체격은 취약한 신체를 의미하기도 하므로 거친 놀이와 높은 곳의 낙상을 특히 조심해야 합니다." },
     tendencies: { activity: { label: "중간", note: "짧지만 규칙적인 산책과 놀이가 필요해요." }, mentalStimulation: { label: "중간", note: "탐색과 간단한 신호 놀이를 즐길 수 있어요." }, independence: { label: "중간", note: "작은 체격에도 자기 의사를 분명히 보일 수 있어요." }, socialConnection: { label: "높은 편", note: "가족 가까이 머무는 것을 선호할 수 있어요." }, alerting: { label: "높은 편", note: "작은 소리에도 빠르게 반응할 수 있어요." }, grooming: { label: "높은 편", note: "긴 피모는 매일 빗질하거나 짧은 미용을 유지해야 해요." } },
     careNotes: ["소파와 침대에서 뛰어내리지 않도록 낮은 동선과 안전 장치를 마련하세요.", "치아와 잇몸 상태를 정기적으로 확인하고 가정 관리법을 수의사와 상의하세요.", "어린아이·큰 개와의 상호작용은 체격 차이를 고려해 가까이 감독하세요."], healthEditorialNote: healthDraft,
     daySnapshot: [{ time: "아침", title: "가벼운 산책", description: "안전한 길에서 천천히 탐색해요." }, { time: "낮", title: "작은 두뇌 놀이", description: "간단한 찾기와 신호를 연습해요." }, { time: "저녁", title: "피모와 치아 관리", description: "엉킴과 구강 상태를 살펴요." }], related: [{ slug: "maltese", reason: "초소형 장모 반려견의 공통점과 피모 질감 차이를 볼 수 있어요." }, { slug: "miniature-schnauzer", reason: "테리어형의 빠른 반응과 미용 방식의 차이를 비교해 보세요." }],
-    sources: [{ title: "FCI Standard No. 86: Yorkshire Terrier", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/086g03-en.pdf", checkedAt }, { title: "Yorkshire Terrier", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/yorkshire-terrier/", checkedAt }],
+    sources: [{ title: "FCI Standard No. 86: Yorkshire Terrier", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/086g03-en.pdf", checkedAt: completedAt }, { title: "Yorkshire Terrier", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/yorkshire-terrier/", checkedAt: completedAt }],
   },
   {
     slug: "shiba", contentStatus: "mvp-editorial-draft", nameKo: "시바견", nameEn: "Shiba", tagline: "작은 스피츠 외모 너머에는 산지에서 냄새와 움직임을 스스로 판단하던 사냥견의 배경이 있어요.",

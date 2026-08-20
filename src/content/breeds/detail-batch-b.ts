@@ -1,6 +1,5 @@
 import type { Breed } from "./schema";
 
-const checkedAt = "2026-08-03";
 const completedAt = "2026-08-20";
 
 export const detailBatchB = [
@@ -246,6 +245,7 @@ export const detailBatchB = [
     sources: [
       { title: "FCI Standard No. 162: Whippet", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/162g10-en.pdf", checkedAt: completedAt },
       { title: "Whippet", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/whippet/", checkedAt: completedAt },
+      { title: "Breed Weight Chart", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/nutrition/breed-weight-chart/", checkedAt: completedAt },
     ],
   },
   {
@@ -307,6 +307,7 @@ export const detailBatchB = [
     sources: [
       { title: "FCI Standard No. 137: Pyrenean Mountain Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/137g02-en.pdf", checkedAt: completedAt },
       { title: "Pyrenean Mountain Dog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/pyrenean-mountain-dog/", checkedAt: completedAt },
+      { title: "Official Standard of the Great Pyrenees", organization: "American Kennel Club", url: "https://images.akc.org/pdf/breeds/standards/GreatPyrenees.pdf", checkedAt: completedAt },
     ],
   },
   {
@@ -328,7 +329,7 @@ export const detailBatchB = [
     identity: {
       origin: "프랑스",
       lineage: "소형 몰로서 및 영국의 소형 불도그 계통",
-      originalRole: "도시 생활 속에서 사람 곁에 머문 반려견",
+      originalRole: "반려견",
       size: "소형 · 약 24~35cm, 8~14kg",
       lifespan: "10년 이상(RKC 참고, 기관과 개체별 차이 있음)",
     },
@@ -366,8 +367,8 @@ export const detailBatchB = [
       { slug: "shih-tzu", reason: "짧은 얼굴을 가진 소형견이지만 피모, 움직임과 일상 관리의 차이를 비교할 수 있어요." },
     ],
     sources: [
-      { title: "FCI Standard No. 101: French Bulldog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/101g09-en.pdf", checkedAt },
-      { title: "French Bulldog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/french-bulldog/", checkedAt },
+      { title: "FCI Standard No. 101: French Bulldog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/101g09-en.pdf", checkedAt: completedAt },
+      { title: "French Bulldog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/french-bulldog/", checkedAt: completedAt },
     ],
   },
   {
@@ -389,7 +390,7 @@ export const detailBatchB = [
     identity: {
       origin: "중앙아프리카 · FCI 후원국 영국",
       lineage: "원시견형 사냥견 계통",
-      originalRole: "시각과 후각을 함께 사용해 사냥을 돕던 개",
+      originalRole: "사냥견",
       size: "중소형 · 약 40~43cm, 9.5~11kg",
       lifespan: "12년 이상(RKC 참고, 기관과 개체별 차이 있음)",
     },
@@ -427,8 +428,8 @@ export const detailBatchB = [
       { slug: "whippet", reason: "사냥과 빠른 움직임이라는 공통점 안에서 시각·후각 사용과 실내 리듬의 차이를 비교해 보세요." },
     ],
     sources: [
-      { title: "FCI Standard No. 43: Basenji", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/043g05-en.pdf", checkedAt },
-      { title: "Basenji", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/basenji/", checkedAt },
+      { title: "FCI Standard No. 43: Basenji", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/043g05-en.pdf", checkedAt: completedAt },
+      { title: "Basenji", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/basenji/", checkedAt: completedAt },
     ],
   },
 ] satisfies Breed[];
