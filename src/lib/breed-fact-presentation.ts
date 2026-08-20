@@ -57,11 +57,27 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     size: "토이 23~28cm · 미니어처 28~35cm · 미디엄 35~45cm · 스탠더드 45~62cm",
     lifespan: "10~18년",
   },
-  dachshund: { size: "미니어처 13~15cm · 스탠더드 20~23cm" },
-  beagle: { size: "33cm 이하 또는 33~38cm · 9~14kg" },
-  "english-cocker-spaniel": { size: "38~43cm · 12~15kg" },
-  "labrador-retriever": { size: "55~62cm · 25~36kg" },
-  "golden-retriever": { size: "55~61cm · 25~34kg" },
+  dachshund: { size: "래빗 25~32cm · 미니어처 30~37cm · 스탠더드 35~47cm(가슴둘레)" },
+  beagle: {
+    size: "33~40cm · 9~14kg",
+    height: "33~40cm",
+    weight: "9~14kg",
+  },
+  "english-cocker-spaniel": {
+    size: "38~41cm · 12~15kg",
+    height: "38~41cm",
+    weight: "12~15kg",
+  },
+  "labrador-retriever": {
+    size: "55~62cm · 25~36kg",
+    height: "55~62cm",
+    weight: "25~36kg",
+  },
+  "golden-retriever": {
+    size: "55~61cm · 25~34kg",
+    height: "55~61cm",
+    weight: "25~34kg",
+  },
   "german-spitz": { size: "바라이어티별 18~55cm" },
   "bull-terrier": { size: "53~56cm · 23~32kg" },
 };

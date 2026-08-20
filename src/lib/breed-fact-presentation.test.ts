@@ -99,6 +99,23 @@ describe("breed fact presentation", () => {
     expect(getBreedFactPresentation(poodle).weight).toBeUndefined();
   });
 
+  it("separates height and weight for the first five-breed rollout batch", () => {
+    const expected = {
+      beagle: { size: "33~40cm · 9~14kg", height: "33~40cm", weight: "9~14kg" },
+      "english-cocker-spaniel": { size: "38~41cm · 12~15kg", height: "38~41cm", weight: "12~15kg" },
+      "labrador-retriever": { size: "55~62cm · 25~36kg", height: "55~62cm", weight: "25~36kg" },
+      "golden-retriever": { size: "55~61cm · 25~34kg", height: "55~61cm", weight: "25~34kg" },
+    } as const;
+
+    for (const [slug, facts] of Object.entries(expected)) {
+      expect(getBreedFactPresentation(getBreed(slug)!)).toMatchObject(facts);
+    }
+
+    expect(getBreedSizeDisplay(getBreed("dachshund")!)).toBe(
+      "래빗 25~32cm · 미니어처 30~37cm · 스탠더드 35~47cm(가슴둘레)",
+    );
+  });
+
   it("keeps source and editorial wording out of every visible fact", () => {
     const bannedCopy = /(참고|출처|검토|확인|상담|개체|자료|알려짐)/u;
 

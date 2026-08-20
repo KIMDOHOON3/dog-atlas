@@ -1,6 +1,5 @@
 import type { Breed } from "./schema";
 
-const checkedAt = "2026-08-03";
 const completedAt = "2026-08-20";
 
 export const detailBatchA = [
@@ -254,8 +253,8 @@ export const detailBatchA = [
     identity: {
       origin: "독일",
       lineage: "땅굴 사냥에 맞춰 발전한 하운드 계통",
-      originalRole: "오소리 등 땅굴 속 사냥감을 추적하고 맞서는 작업",
-      size: "미니어처와 스탠더드, 세 가지 피모 유형으로 나뉨",
+      originalRole: "지상과 지하에서 사냥감을 추적하는 사냥견",
+      size: "래빗·미니어처·스탠더드 세 크기와 세 피모의 아홉 바라이어티",
       lifespan: "약 12~16년(AKC 참고, 개체차·출처차 있음)",
     },
     behaviorClues: {
@@ -293,10 +292,16 @@ export const detailBatchA = [
     ],
     sources: [
       {
+        title: "FCI Standard No. 148 — Dachshund",
+        organization: "Fédération Cynologique Internationale",
+        url: "https://www.fci.be/Nomenclature/Standards/148g04-en.pdf",
+        checkedAt: completedAt,
+      },
+      {
         title: "Dachshund Dog Breed Information",
         organization: "American Kennel Club",
         url: "https://www.akc.org/dog-breeds/dachshund/",
-        checkedAt,
+        checkedAt: completedAt,
       },
     ],
   },
@@ -319,7 +324,7 @@ export const detailBatchA = [
     identity: {
       origin: "영국",
       lineage: "소형 후각 하운드 계통",
-      originalRole: "무리와 함께 토끼류의 냄새를 추적하는 사냥",
+      originalRole: "토끼류의 냄새를 무리로 추적하는 후각 하운드",
       size: "소형~중소형",
       lifespan: "약 10~15년(AKC 참고, 개체차·출처차 있음)",
     },
@@ -358,10 +363,16 @@ export const detailBatchA = [
     ],
     sources: [
       {
+        title: "FCI Standard No. 161 — Beagle",
+        organization: "Fédération Cynologique Internationale",
+        url: "https://www.fci.be/Nomenclature/Standards/161g06-en.pdf",
+        checkedAt: completedAt,
+      },
+      {
         title: "Beagle Dog Breed Information",
         organization: "American Kennel Club",
         url: "https://www.akc.org/dog-breeds/beagle/",
-        checkedAt,
+        checkedAt: completedAt,
       },
     ],
   },
@@ -384,7 +395,7 @@ export const detailBatchA = [
     identity: {
       origin: "영국",
       lineage: "랜드 스패니얼 계통의 조렵견",
-      originalRole: "덤불 속 새를 찾아 날아오르게 하고 사냥감을 회수하는 작업",
+      originalRole: "새를 찾아 날아오르게 하고 회수하는 조렵견",
       size: "중소형",
       lifespan: "약 12~14년(AKC 참고, 개체차·출처차 있음)",
     },
@@ -423,10 +434,16 @@ export const detailBatchA = [
     ],
     sources: [
       {
+        title: "FCI Standard No. 5 — English Cocker Spaniel",
+        organization: "Fédération Cynologique Internationale",
+        url: "https://www.fci.be/Nomenclature/Standards/005g08-en.pdf",
+        checkedAt: completedAt,
+      },
+      {
         title: "English Cocker Spaniel Dog Breed Information",
         organization: "American Kennel Club",
         url: "https://www.akc.org/dog-breeds/english-cocker-spaniel/",
-        checkedAt,
+        checkedAt: completedAt,
       },
     ],
   },
@@ -449,7 +466,7 @@ export const detailBatchA = [
     identity: {
       origin: "캐나다 뉴펀들랜드에서 기원하고 영국에서 견종으로 발전",
       lineage: "워터도그·리트리버 계통",
-      originalRole: "어부를 돕고 물새와 물건을 물에서 회수하는 작업",
+      originalRole: "어부를 돕고 물건·사냥감을 회수하는 리트리버",
       size: "중대형",
       lifespan: "약 11~13년(AKC 참고, 개체차·출처차 있음)",
     },
@@ -488,10 +505,16 @@ export const detailBatchA = [
     ],
     sources: [
       {
+        title: "FCI Standard No. 122 — Labrador Retriever",
+        organization: "Fédération Cynologique Internationale",
+        url: "https://www.fci.be/Nomenclature/Standards/122g08-en.pdf",
+        checkedAt: completedAt,
+      },
+      {
         title: "Labrador Retriever Dog Breed Information",
         organization: "American Kennel Club",
         url: "https://www.akc.org/dog-breeds/labrador-retriever/",
-        checkedAt,
+        checkedAt: completedAt,
       },
     ],
   },
@@ -514,7 +537,7 @@ export const detailBatchA = [
     identity: {
       origin: "스코틀랜드",
       lineage: "건도그·리트리버 계통",
-      originalRole: "물과 육지에서 사냥한 새를 찾아 회수하는 작업",
+      originalRole: "물과 육지에서 사냥한 새를 회수하는 리트리버",
       size: "중대형",
       lifespan: "약 10~12년(AKC 참고, 개체차·출처차 있음)",
     },
@@ -555,10 +578,16 @@ export const detailBatchA = [
     ],
     sources: [
       {
+        title: "FCI Standard No. 111 — Golden Retriever",
+        organization: "Fédération Cynologique Internationale",
+        url: "https://www.fci.be/Nomenclature/Standards/111g08-en.pdf",
+        checkedAt: completedAt,
+      },
+      {
         title: "Golden Retriever Dog Breed Information",
         organization: "American Kennel Club",
         url: "https://www.akc.org/dog-breeds/golden-retriever/",
-        checkedAt,
+        checkedAt: completedAt,
       },
     ],
   },
