@@ -151,6 +151,36 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       },
     ],
   },
+  {
+    slug: "samoyed",
+    intro: "사람과 일상을 나누는 방식, 힘과 지구력을 쓰는 활동, 두꺼운 이중모의 계절 관리를 먼저 살펴보세요.",
+    cards: [
+      {
+        eyebrow: "사람과의 동행",
+        title: "일상에 함께 참여하는 것을 좋아할 수 있어요.",
+        description: "사람 가까이 머물며 가족의 활동에 참여하려는 모습을 보일 수 있어요. 함께 걷고 놀아주는 시간뿐 아니라, 가까운 자리에서 편안히 쉬고 짧게 혼자 머무는 경험도 천천히 알려주세요.",
+        image: "/illustrations/v4/samoyed-feature-companionship.webp",
+        alt: "현대 가정에서 외출을 준비하는 가족 가까이에 편안히 누워 있는 성견 사모예드 삽화",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/212g05-en.pdf", "https://www.akc.org/expert-advice/dog-breeds/samoyed-right-for-you/"],
+      },
+      {
+        eyebrow: "활동과 과제",
+        title: "힘과 지구력을 쓸 목적 있는 활동이 필요해요.",
+        description: "힘과 활동성이 높은 작업견이라 걷기만 길게 반복하기보다 냄새 찾기, 방향 신호, 안전한 하네스 운동처럼 몸과 판단을 함께 쓰는 과제를 번갈아 제공해주세요.",
+        image: "/illustrations/v4/samoyed-feature-purposeful-activity.webp",
+        alt: "선선한 숲길에서 몸에 맞는 당김 하네스를 착용하고 보호자와 함께 달리는 성견 사모예드 삽화",
+        sourceUrls: ["https://www.akc.org/dog-breeds/samoyed/", "https://www.akc.org/expert-advice/dog-breeds/samoyed-history/"],
+      },
+      {
+        eyebrow: "이중모와 계절",
+        title: "두꺼운 이중모는 자주 빗고 계절을 조절해야 해요.",
+        description: "부드럽고 촘촘한 속털 위에 더 길고 거친 겉털이 자라는 견종이에요. 평소에도 피부 가까이까지 빗고, 털갈이 시기에는 관리 횟수를 늘리며 더운 날에는 선선한 생활 환경을 마련해주세요.",
+        image: "/illustrations/v4/samoyed-feature-double-coat.webp",
+        alt: "선선한 실내의 미끄럽지 않은 매트에서 풍성한 이중모를 빗질받는 성견 사모예드 삽화",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/212g05-en.pdf", "https://www.akc.org/expert-advice/dog-breeds/samoyed-right-for-you/"],
+      },
+    ],
+  },
 ]);
 
 const breedFeaturesBySlug = new Map(breedFeatureSets.map((featureSet) => [featureSet.slug, featureSet]));

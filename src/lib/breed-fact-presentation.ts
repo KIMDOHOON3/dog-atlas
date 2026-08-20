@@ -38,7 +38,11 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     height: "53~59cm",
     weight: "18~25kg",
   },
-  samoyed: { size: "48~60cm · 16~30kg" },
+  samoyed: {
+    size: "48~60cm · 16~30kg",
+    height: "48~60cm",
+    weight: "16~30kg",
+  },
   chihuahua: { size: "13~20cm · 2.7kg 이하" },
   "shih-tzu": { size: "23~27cm · 4~7kg" },
   poodle: {

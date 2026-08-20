@@ -58,6 +58,16 @@ describe("breed fact presentation", () => {
     });
   });
 
+  it("separates Samoyed height and weight for the detail summary", () => {
+    const facts = getBreedFactPresentation(getBreed("samoyed")!);
+
+    expect(facts).toMatchObject({
+      size: "48~60cm · 16~30kg",
+      height: "48~60cm",
+      weight: "16~30kg",
+    });
+  });
+
   it("shows compact numeric facts for poodle", () => {
     const poodle = getBreed("poodle")!;
 
