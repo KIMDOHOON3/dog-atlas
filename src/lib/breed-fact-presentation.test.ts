@@ -68,11 +68,31 @@ describe("breed fact presentation", () => {
     });
   });
 
+  it("separates Chihuahua height and weight for the detail summary", () => {
+    const facts = getBreedFactPresentation(getBreed("chihuahua")!);
+
+    expect(facts).toMatchObject({
+      size: "13~20cm · 2.7kg 이하",
+      height: "13~20cm",
+      weight: "2.7kg 이하",
+    });
+  });
+
+  it("separates Shih Tzu height and weight for the detail summary", () => {
+    const facts = getBreedFactPresentation(getBreed("shih-tzu")!);
+
+    expect(facts).toMatchObject({
+      size: "27cm 이하 · 4.5~8kg",
+      height: "27cm 이하",
+      weight: "4.5~8kg",
+    });
+  });
+
   it("shows compact numeric facts for poodle", () => {
     const poodle = getBreed("poodle")!;
 
     expect(getBreedSizeDisplay(poodle)).toBe(
-      "토이 25cm 이하 · 미니어처 25~38cm · 스탠더드 38cm 초과",
+      "토이 23~28cm · 미니어처 28~35cm · 미디엄 35~45cm · 스탠더드 45~62cm",
     );
     expect(getBreedLifespanDisplay(poodle)).toBe("10~18년");
     expect(getBreedFactPresentation(poodle).height).toBeUndefined();

@@ -181,6 +181,96 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       },
     ],
   },
+  {
+    slug: "chihuahua",
+    intro: "아주 작은 몸에 맞는 생활 안전, 소리에 반응하는 방식, 피모와 기온에 따른 보온 준비를 먼저 살펴보세요.",
+    cards: [
+      {
+        eyebrow: "작은 몸과 안전",
+        title: "낮은 높이와 보이는 동선부터 준비해요.",
+        description: "아주 작은 성견은 소파에서 뛰어내리거나 사람 발과 스치는 일도 큰 부담이 될 수 있어요. 미끄럽지 않은 바닥과 낮은 발판을 마련하고, 문을 오갈 때 발밑을 확인해주세요.",
+        image: "/illustrations/v4/chihuahua-feature-small-body-safety.webp",
+        alt: "미끄럽지 않은 러그와 낮은 발판이 놓인 거실에서 보호자가 발밑을 살피는 동안 걷는 성견 치와와 삽화",
+        sourceUrls: ["https://www.akc.org/dog-breeds/chihuahua/"],
+      },
+      {
+        eyebrow: "소리와 알림",
+        title: "작은 소리에도 빠르게 주의를 돌릴 수 있어요.",
+        description: "현관이나 복도의 낯선 소리를 먼저 알아차리고 알리려는 모습이 나타날 수 있어요. 소리를 확인한 뒤 보호자에게 돌아와 매트에서 기다리는 짧은 순서를 차분히 알려주세요.",
+        image: "/illustrations/v4/chihuahua-feature-alert-response.webp",
+        alt: "닫힌 현관문 소리를 알아차린 뒤 보호자의 손짓을 따라 매트로 돌아오는 성견 치와와 삽화",
+        sourceUrls: ["https://www.akc.org/dog-breeds/chihuahua/"],
+      },
+      {
+        eyebrow: "피모와 보온",
+        title: "단모와 장모에 맞춰 추운 날을 준비해요.",
+        description: "치와와에는 매끄러운 단모와 부드러운 장모가 있어 관리 방식이 달라요. 피모 길이만 믿기보다 기온과 떨림, 움직임을 살피고 따뜻한 휴식 자리나 몸에 맞는 가벼운 옷을 준비해주세요.",
+        image: "/illustrations/v4/chihuahua-feature-coat-warmth.webp",
+        alt: "서늘한 날 창가의 담요와 가벼운 옷 가까이에서 쉬는 단모와 장모 성견 치와와 삽화",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/218g09-en.pdf", "https://www.akc.org/dog-breeds/chihuahua/"],
+      },
+    ],
+  },
+  {
+    slug: "shih-tzu",
+    intro: "사람 가까이에서 쉬는 방식, 짧은 얼굴에 맞는 더운 날의 리듬, 긴 피모와 얼굴 관리를 먼저 살펴보세요.",
+    cards: [
+      {
+        eyebrow: "사람과의 관계",
+        title: "가까운 자리에서 일상을 나누길 좋아할 수 있어요.",
+        description: "가족이 머무는 공간을 따라가거나 같은 방의 편안한 자리를 고르는 모습이 보일 수 있어요. 늘 안고 있기보다 스스로 가까이 오고 물러날 수 있는 자리도 함께 마련해주세요.",
+        image: "/illustrations/v4/shih-tzu-feature-companionship.webp",
+        alt: "책을 읽는 보호자 곁의 별도 매트에 편안히 엎드린 흰색과 금색의 성견 시추 삽화",
+        sourceUrls: ["https://www.akc.org/dog-breeds/shih-tzu/", "https://www.akc.org/expert-advice/dog-breeds/shih-tzu-history/"],
+      },
+      {
+        eyebrow: "짧은 얼굴과 더위",
+        title: "더운 날에는 짧고 선선한 움직임이 필요해요.",
+        description: "짧고 넓은 주둥이를 가진 시추는 더운 시간의 긴 활동보다 선선한 시간대와 그늘진 길이 편안할 수 있어요. 물과 휴식을 준비하고 걷는 속도는 그날의 반응에 맞춰주세요.",
+        image: "/illustrations/v4/shih-tzu-feature-heat-care.webp",
+        alt: "여름 아침 그늘진 산책길에서 보호자가 건넨 물그릇 앞에 편안히 서 있는 성견 시추 삽화",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/208g09-en.pdf", "https://www.akc.org/dog-breeds/shih-tzu/"],
+      },
+      {
+        eyebrow: "피모와 얼굴 관리",
+        title: "눈을 가리지 않도록 매일 짧게 살펴요.",
+        description: "길고 촘촘한 피모는 엉킴을 풀어주는 빗질이 필요하고, 얼굴 털은 눈과 코 주변을 가리지 않게 관리해야 해요. 빗과 부드러운 천을 한 번에 오래 쓰기보다 짧게 익혀주세요.",
+        image: "/illustrations/v4/shih-tzu-feature-coat-face-care.webp",
+        alt: "미끄럽지 않은 매트에서 보호자가 성견 시추의 털을 빗고 눈가를 부드러운 천으로 닦는 삽화",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/208g09-en.pdf", "https://www.akc.org/dog-breeds/shih-tzu/"],
+      },
+    ],
+  },
+  {
+    slug: "poodle",
+    intro: "네 가지 크기의 생활 차이, 물건을 찾고 가져오는 과제, 계속 자라는 곱슬 피모의 관리를 먼저 살펴보세요.",
+    cards: [
+      {
+        eyebrow: "네 가지 크기",
+        title: "같은 푸들이어도 생활의 규모는 크게 달라요.",
+        description: "푸들은 스탠더드·미디엄·미니어처·토이 네 크기로 나뉘어요. 어린 강아지의 현재 크기만 보지 말고 부모견과 예상 성견 크기를 확인해 이동 공간과 활동 계획을 세워주세요.",
+        image: "/illustrations/v4/poodle-feature-four-sizes.webp",
+        alt: "같은 바닥에 성견 스탠더드·미디엄·미니어처·토이 푸들이 큰 순서대로 서 있는 삽화",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/172g09-en.pdf"],
+      },
+      {
+        eyebrow: "회수와 배움",
+        title: "찾고 가져오는 짧은 과제에 집중할 수 있어요.",
+        description: "물에서 대상을 회수하던 배경이 있는 만큼 물건을 찾아 가져오거나 새로운 신호를 배우는 활동에 적극적으로 참여할 수 있어요. 성공하기 쉬운 짧은 과제와 조용한 휴식을 번갈아 주세요.",
+        image: "/illustrations/v4/poodle-feature-learning-retrieval.webp",
+        alt: "공원에서 회수용 더미를 물고 보호자의 손으로 돌아오는 살구색 성견 미니어처 푸들 삽화",
+        sourceUrls: ["https://www.akc.org/dog-breeds/poodle-standard/", "https://www.akc.org/expert-advice/dog-breeds/poodle-history/"],
+      },
+      {
+        eyebrow: "곱슬 피모 관리",
+        title: "빗질과 미용을 정기 일정으로 잡아야 해요.",
+        description: "촘촘한 곱슬 피모는 계속 자라며 빠진 털이 안쪽에 머물러 엉킬 수 있어요. 피부 가까이까지 나누어 빗고, 원하는 길이에 맞춰 전문 미용과 도구 적응 시간을 계획해주세요.",
+        image: "/illustrations/v4/poodle-feature-coat-care.webp",
+        alt: "낮은 미끄럼 방지 미용대에서 보호자가 살구색 성견 미니어처 푸들의 곱슬 피모를 빗는 삽화",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/172g09-en.pdf", "https://www.akc.org/dog-breeds/poodle-standard/"],
+      },
+    ],
+  },
 ]);
 
 const breedFeaturesBySlug = new Map(breedFeatureSets.map((featureSet) => [featureSet.slug, featureSet]));

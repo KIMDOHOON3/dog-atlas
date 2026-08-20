@@ -43,10 +43,18 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     height: "48~60cm",
     weight: "16~30kg",
   },
-  chihuahua: { size: "13~20cm · 2.7kg 이하" },
-  "shih-tzu": { size: "23~27cm · 4~7kg" },
+  chihuahua: {
+    size: "13~20cm · 2.7kg 이하",
+    height: "13~20cm",
+    weight: "2.7kg 이하",
+  },
+  "shih-tzu": {
+    size: "27cm 이하 · 4.5~8kg",
+    height: "27cm 이하",
+    weight: "4.5~8kg",
+  },
   poodle: {
-    size: "토이 25cm 이하 · 미니어처 25~38cm · 스탠더드 38cm 초과",
+    size: "토이 23~28cm · 미니어처 28~35cm · 미디엄 35~45cm · 스탠더드 45~62cm",
     lifespan: "10~18년",
   },
   dachshund: { size: "미니어처 13~15cm · 스탠더드 20~23cm" },

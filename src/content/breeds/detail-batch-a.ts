@@ -1,6 +1,7 @@
 import type { Breed } from "./schema";
 
 const checkedAt = "2026-08-03";
+const completedAt = "2026-08-20";
 
 export const detailBatchA = [
   {
@@ -8,7 +9,7 @@ export const detailBatchA = [
     contentStatus: "mvp-editorial-draft",
     nameKo: "치와와",
     nameEn: "Chihuahua",
-    tagline: "작은 몸집보다 먼저 살펴볼 것은 낯선 자극을 받아들이는 방식과 안전한 생활 동선이에요.",
+    tagline: "아주 작은 몸 안에 또렷한 경계심과 사람 곁을 찾는 일상이 함께 있어요.",
     palette: { primary: "#ead9c8", secondary: "#f7f1e8", ink: "#4b342b" },
     illustration: "/illustrations/v2/chihuahua-card.webp",
     catalog: {
@@ -17,23 +18,23 @@ export const detailBatchA = [
     },
     historyVisual: {
       src: "/illustrations/v3/chihuahua-history.webp",
-      alt: "멕시코의 생활 공간에서 사람 가까이에 머무는 작은 반려견을 표현한 편집 삽화",
+      alt: "19세기 말 멕시코 북부의 마을에서 가족 곁에 서 있는 작은 치와와를 그린 편집 삽화",
     },
     identity: {
       origin: "멕시코",
-      lineage: "고대 멕시코 소형 반려견 계통으로 소개되지만 세부 계보는 편집 검토 중",
-      originalRole: "사람 곁에서 생활한 소형 반려견",
-      size: "초소형",
+      lineage: "멕시코의 소형 반려견 계통",
+      originalRole: "반려견",
+      size: "초소형 · 약 13~20cm, 2.7kg 이하",
       lifespan: "약 14~16년(AKC 참고, 개체차·출처차 있음)",
     },
     behaviorClues: {
-      originalRole: "사람 가까이에서 지내온 소형 반려견이라는 배경은 보호자와 주변 변화에 빠르게 주의를 기울이는 모습을 이해하는 한 가지 단서가 됩니다.",
-      today: "집에서는 초인종이나 복도 소리에 먼저 반응하거나 따뜻한 자리와 익숙한 사람 곁을 찾아가는 장면이 관찰될 수 있지만, 반응의 빈도와 강도는 개체마다 다릅니다.",
-      guardianContext: "몸집이 작다는 이유만으로 돌봄이 쉽다고 판단하지 말고, 높은 곳에서의 낙상 위험과 추위 대응, 안기기와 신체 접촉에 대한 실제 반응을 차분히 확인해야 합니다.",
+      originalRole: "사람 곁에서 지내는 반려견으로 자리해 온 배경이 있으며, 작은 체구와 또렷한 주변 반응을 함께 살펴볼 필요가 있습니다.",
+      today: "집에서는 초인종이나 복도 소리를 먼저 알아차리거나 익숙한 사람 가까이에 머무는 모습이 보일 수 있지만, 반응의 빈도와 강도는 개체마다 다릅니다.",
+      guardianContext: "몸집이 작다는 이유만으로 돌봄이 쉽다고 판단하지 말고, 높은 곳과 미끄러운 바닥, 추운 날의 보온, 안기기와 신체 접촉에 대한 실제 반응을 확인하세요.",
     },
     story: {
-      opening: "치와와는 멕시코 치와와주와 연결되어 이름이 알려진 초소형 반려견입니다. 더 오래된 조상에 관한 여러 설명은 추정이 섞여 있어 이 초안에서는 확정된 계보처럼 말하지 않습니다.",
-      roleToHome: "오랫동안 사람 곁에서 생활해 온 맥락은 오늘날 익숙한 보호자에게 가까이 머물거나 주변 소리와 움직임을 빠르게 알아차리는 장면으로 이어질 수 있습니다. 다만 견종명만으로 애착이나 짖음의 정도를 예측할 수는 없습니다.",
+      opening: "치와와는 멕시코 치와와주의 이름을 딴 초소형 반려견입니다. 고대 톨텍 문명에서 길렀다고 전해지는 테치치와의 연관성이 자주 거론되지만, 지금의 치와와로 이어지는 정확한 계보는 단순하게 확정하기 어렵습니다.",
+      roleToHome: "19세기 중반 이후 멕시코를 찾은 사람들이 치와와주에서 작은 개들을 발견해 미국으로 데려가면서 지금의 이름으로 알려지기 시작했습니다. 이후 매끄러운 단모와 부드러운 장모 두 피모 유형을 가진 오늘날의 견종으로 자리 잡았습니다.",
       reality: "작은 체구는 좁은 집에서도 눈에 띄게 편해 보일 수 있지만 안전한 이동과 부드러운 신체 다루기, 추위 대비, 혼자 쉬는 연습은 별도로 필요합니다. 어린이와 다른 동물이 있는 집에서는 실제 만남의 속도와 상호작용을 직접 살펴보세요.",
     },
     tendencies: {
@@ -61,10 +62,22 @@ export const detailBatchA = [
     ],
     sources: [
       {
+        title: "FCI Standard No. 218 — Chihuahua",
+        organization: "Fédération Cynologique Internationale",
+        url: "https://www.fci.be/Nomenclature/Standards/218g09-en.pdf",
+        checkedAt: completedAt,
+      },
+      {
         title: "Chihuahua Dog Breed Information",
         organization: "American Kennel Club",
         url: "https://www.akc.org/dog-breeds/chihuahua/",
-        checkedAt,
+        checkedAt: completedAt,
+      },
+      {
+        title: "Chihuahua History: Where the Breed Originated",
+        organization: "American Kennel Club",
+        url: "https://www.akc.org/expert-advice/dog-breeds/chihuahua-history/",
+        checkedAt: completedAt,
       },
     ],
   },
@@ -73,7 +86,7 @@ export const detailBatchA = [
     contentStatus: "mvp-editorial-draft",
     nameKo: "시추",
     nameEn: "Shih Tzu",
-    tagline: "궁정의 반려견이라는 이야기 뒤에는 매일의 피모 관리와 편안한 호흡 환경을 살피는 생활이 있어요.",
+    tagline: "사람 가까이에서 지내온 작은 반려견에게는 얼굴과 피모를 돌보는 차분한 일상이 필요해요.",
     palette: { primary: "#e3d6c6", secondary: "#f5eee4", ink: "#43362e" },
     illustration: "/illustrations/v2/shih-tzu-card.webp",
     catalog: {
@@ -82,23 +95,23 @@ export const detailBatchA = [
     },
     historyVisual: {
       src: "/illustrations/v3/shih-tzu-history.webp",
-      alt: "중국 궁정의 실내 공간에서 사람 곁에 앉아 있는 작은 장모 반려견을 표현한 편집 삽화",
+      alt: "20세기 초 중국 궁정의 정원에서 시종들과 함께 걷는 흰색과 금색의 시추를 그린 편집 삽화",
     },
     identity: {
-      origin: "티베트계 소형견을 바탕으로 중국 궁정에서 발전한 것으로 소개됨",
-      lineage: "소형 반려견 계통",
-      originalRole: "궁정과 가정에서 사람 곁을 지킨 반려견",
-      size: "소형",
+      origin: "티베트에 뿌리를 두고 중국에서 발전",
+      lineage: "티베트계 소형 반려견",
+      originalRole: "반려견",
+      size: "소형 · 27cm 이하, 4.5~8kg",
       lifespan: "약 10~18년(AKC 참고, 개체차·출처차 있음)",
     },
     behaviorClues: {
-      originalRole: "사냥이나 이동 작업보다 사람 가까이에서 지내는 반려 역할로 발전한 역사는 일상에서 관계와 접촉을 중요하게 보는 단서가 될 수 있습니다.",
-      today: "집 안에서 가족이 머무는 방을 따라다니거나 무릎과 가까운 휴식 자리를 찾는 모습을 볼 수 있지만, 낯선 사람과 혼자 있는 시간에 대한 반응은 개체마다 다릅니다.",
+      originalRole: "사람 곁에서 지내는 반려견으로 발전했으며, 사냥이나 가축 작업보다 함께 생활하는 역할이 중심이었습니다.",
+      today: "집 안에서 가족이 머무는 방을 따라다니거나 가까운 휴식 자리를 찾는 모습을 볼 수 있지만, 낯선 사람과 혼자 있는 시간에 대한 반응은 개체마다 다릅니다.",
       guardianContext: "친근해 보이는 외모만 보지 말고 빗질과 얼굴 주변 관리에 협조하는지, 더운 날의 활동과 휴식이 편안한지, 혼자 쉬는 연습이 어느 정도 필요한지 확인하세요.",
     },
     story: {
-      opening: "시추는 티베트계 소형견을 바탕으로 중국 황실에서 반려견으로 발전한 것으로 소개됩니다. 세부 계통과 시대별 기록은 출처에 따라 표현이 달라 이 문서는 공식 견종 소개 범위 안에서만 설명합니다.",
-      roleToHome: "사람 가까이에서 생활하도록 선택되어 온 배경은 오늘날 가족의 움직임을 따라가거나 같은 공간에서 쉬려는 장면을 이해하게 합니다. 그렇다고 모든 시추가 낯선 사람을 좋아하거나 혼자 있기를 힘들어한다고 단정할 수는 없습니다.",
+      opening: "시추는 티베트의 작은 개들에 뿌리를 두고 중국 황실에서 반려견으로 발전한 것으로 알려져 있습니다. 정확한 초기 계보를 하나로 단정하기는 어렵지만, 궁정 안에서 사람 가까이 생활해 온 역사는 여러 기록과 그림에 남아 있습니다.",
+      roleToHome: "20세기 초 유럽에 소개된 뒤 라사 압소와 구분되는 별도의 견종으로 정리되었고, 오늘날에는 세계 여러 지역에서 반려견으로 함께하고 있습니다. 몸보다 길게 자라는 풍성한 피모와 짧고 넓은 주둥이는 지금의 시추를 알아보게 하는 특징입니다.",
       reality: "격한 운동량만으로 생활 적합성을 판단하기보다 얼굴과 피모를 매일 관리할 시간, 더위와 실내 온도를 조절할 환경, 짧고 편안한 산책을 제공할 수 있는지 살펴야 합니다. 관리 접촉을 싫어하는 개체라면 적응 과정에 더 많은 시간이 듭니다.",
     },
     tendencies: {
@@ -126,10 +139,22 @@ export const detailBatchA = [
     ],
     sources: [
       {
+        title: "FCI Standard No. 208 — Shih Tzu",
+        organization: "Fédération Cynologique Internationale",
+        url: "https://www.fci.be/Nomenclature/Standards/208g09-en.pdf",
+        checkedAt: completedAt,
+      },
+      {
         title: "Shih Tzu Dog Breed Information",
         organization: "American Kennel Club",
         url: "https://www.akc.org/dog-breeds/shih-tzu/",
-        checkedAt,
+        checkedAt: completedAt,
+      },
+      {
+        title: "Shih Tzu History: How the Breed Came to Be",
+        organization: "American Kennel Club",
+        url: "https://www.akc.org/expert-advice/dog-breeds/shih-tzu-history/",
+        checkedAt: completedAt,
       },
     ],
   },
@@ -138,7 +163,7 @@ export const detailBatchA = [
     contentStatus: "mvp-editorial-draft",
     nameKo: "푸들",
     nameEn: "Poodle",
-    tagline: "우아한 미용 스타일보다 먼저, 물새를 회수하던 집중력과 크기별로 다른 생활 조건을 만나보세요.",
+    tagline: "우아한 곱슬 피모 안에는 물에서 회수하던 움직임과 크기별로 다른 생활 조건이 있어요.",
     palette: { primary: "#d7d0e3", secondary: "#f2eef4", ink: "#342e40" },
     illustration: "/illustrations/v2/poodle-card.webp",
     catalog: {
@@ -147,23 +172,23 @@ export const detailBatchA = [
     },
     historyVisual: {
       src: "/illustrations/v3/poodle-history.webp",
-      alt: "물가에서 사냥한 새를 사람에게 가져오는 푸들의 원래 역할을 표현한 편집 삽화",
+      alt: "유럽의 습지에서 물에 뜨는 회수용 더미를 물고 사람에게 돌아오는 스탠더드 푸들을 그린 편집 삽화",
     },
     identity: {
-      origin: "독일에서 물새 회수견으로 기원하고 프랑스에서 널리 발전한 것으로 소개됨",
+      origin: "유럽, 특히 독일과 프랑스에서 발전",
       lineage: "워터 리트리버 계통",
-      originalRole: "물에서 사냥감을 찾아 회수하는 작업",
-      size: "대표 이미지는 미니어처 · 토이·미니어처·스탠더드 등 크기 차이가 큼",
+      originalRole: "물새 회수견",
+      size: "토이·미니어처·미디엄·스탠더드",
       lifespan: "크기와 출처에 따라 범위가 달라 편집 검토 중",
     },
     behaviorClues: {
-      originalRole: "물속에서 사냥한 새를 찾아 사람에게 가져오도록 협력한 배경은 냄새와 시각을 함께 쓰고 물건을 운반하며 지시에 반응하는 능력을 이해하는 단서입니다.",
-      today: "공이나 장난감을 반복해 가져오고 새로운 규칙을 빠르게 익히거나 물가에 관심을 보이는 장면이 나타날 수 있지만, 물을 좋아하는 정도와 집중 지속 시간은 개체마다 다릅니다.",
+      originalRole: "물속에서 사냥한 새를 찾아 사람에게 가져오는 워터 리트리버로 일했으며, 수영과 회수에 맞는 움직임이 중요했습니다.",
+      today: "공이나 장난감을 가져오고 새로운 규칙이나 냄새 찾기 과제에 집중하는 모습이 보일 수 있지만, 물을 좋아하는 정도와 학습 속도는 개체마다 다릅니다.",
       guardianContext: "학습이 빠르다는 평판만 기대하지 말고 매일 제공할 운동과 문제 해결 활동, 흥분 뒤 쉬는 연습, 정기 미용 비용과 접촉 적응을 크기별 생활 조건과 함께 확인하세요.",
     },
     story: {
-      opening: "푸들은 화려한 쇼 미용으로 널리 알려졌지만 뿌리에는 물새를 찾아 회수하던 워터 리트리버의 역할이 있습니다. 독일에서 기원하고 프랑스에서 발전했다는 공식 소개를 바탕으로 하되 세부 역사는 계속 교차 검토합니다.",
-      roleToHome: "사람과 신호를 주고받으며 물건을 찾아 가져오던 일은 오늘날 장난감 회수, 냄새 찾기, 빠른 규칙 학습 같은 장면으로 이어질 수 있습니다. 그러나 높은 지능이라는 한 문장만으로 순응성이나 교육 난이도를 보증할 수는 없습니다.",
+      opening: "푸들은 유럽에서 물새를 찾아 물에서 회수하는 작업견으로 발전했습니다. 독일의 워터도그 전통과 프랑스에서의 발전이 모두 역사에 등장하며, 프랑스어 이름 카니시는 암컷 오리를 뜻하는 말과 연결됩니다.",
+      roleToHome: "촘촘한 곱슬 피모와 탄탄한 몸, 물속에서 자유롭게 움직이는 능력은 회수 작업에서 중요했습니다. 이후 서로 다른 크기로 선택 번식되며 스탠더드·미디엄·미니어처·토이 네 바라이어티가 자리 잡았습니다.",
       reality: "토이부터 스탠더드까지 크기가 크게 달라 같은 이름 아래에서도 필요한 공간과 운동 강도가 다릅니다. 반복 미용과 빗질에 드는 시간, 지루함을 줄일 과제, 충분히 쉬는 리듬까지 마련할 수 있는지 실제 개체 기준으로 판단하세요.",
     },
     tendencies: {
@@ -191,10 +216,22 @@ export const detailBatchA = [
     ],
     sources: [
       {
+        title: "FCI Standard No. 172 — Poodle",
+        organization: "Fédération Cynologique Internationale",
+        url: "https://www.fci.be/Nomenclature/Standards/172g09-en.pdf",
+        checkedAt: completedAt,
+      },
+      {
         title: "Poodle (Standard) Dog Breed Information",
         organization: "American Kennel Club",
         url: "https://www.akc.org/dog-breeds/poodle-standard/",
-        checkedAt,
+        checkedAt: completedAt,
+      },
+      {
+        title: "Poodle History: Origins of a Water Retriever",
+        organization: "American Kennel Club",
+        url: "https://www.akc.org/expert-advice/dog-breeds/poodle-history/",
+        checkedAt: completedAt,
       },
     ],
   },
