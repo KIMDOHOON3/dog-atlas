@@ -67,4 +67,9 @@ describe("breed content", () => {
   it("finds the Japanese Spitz detail entry", () => {
     expect(getBreed("japanese-spitz")?.nameKo).toBe("재패니즈 스피츠");
   });
+
+  it("limits the hidden history pilot to Poodle", () => {
+    expect(breeds.filter((breed) => breed.historyVisibility === "hidden").map((breed) => breed.slug))
+      .toEqual(["poodle"]);
+  });
 });

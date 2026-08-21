@@ -173,6 +173,7 @@ export const detailBatchA = [
       src: "/illustrations/v3/poodle-history.webp",
       alt: "유럽의 습지에서 물에 뜨는 회수용 더미를 물고 사람에게 돌아오는 스탠더드 푸들을 그린 편집 삽화",
     },
+    historyVisibility: "hidden",
     identity: {
       origin: "유럽, 특히 독일과 프랑스에서 발전",
       lineage: "워터 리트리버 계통",

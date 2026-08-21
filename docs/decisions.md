@@ -322,3 +322,9 @@ Follow a breed fact with a practical implication when it helps the reader judge 
 Let the history section own chronology: when and where the breed formed, what work shaped it, and how its recognized form developed. Do not reuse those facts as the main subject of `견종을 이해하는 출발점` cards.
 
 Use the three opening cards for present-day clues that help a reader judge daily life. Where supported, connect the historical role to tendencies such as attention to movement, cooperation with people, alerting, body control, task persistence, or recovery after activity without presenting the connection as a guarantee. Keep `계통` and `원래 역할` as short Korean noun phrases, and present supported height and weight as separately labeled facts.
+
+# 2026-08-21 — Pilot a growth-stage guide in place of Poodle history
+
+Hide the Poodle history illustration and two chronology paragraphs on the public detail while preserving their data and assets for a reversible comparison. Replace that space with three portraits of the same apricot Miniature Poodle at early growth, middle growth, and adulthood, followed by concrete guardian actions for each broad stage.
+
+Treat month ranges as navigation rather than a medical schedule. Keep vaccination, feeding, neutering, and exercise restrictions individualized through a veterinarian; use multiple primary veterinary and behavior sources instead of adapting one source's table or narrative. Do not infer exact age from an illustration or imply that one Miniature Poodle represents the growth rate of all four Poodle varieties.

@@ -44,6 +44,7 @@ export const breedSchema = z.object({
     src: z.string().startsWith("/"),
     alt: z.string().min(1),
   }).optional(),
+  historyVisibility: z.enum(["visible", "hidden"]).optional(),
   identity: z.object({
     origin: z.string(),
     lineage: z.string(),

@@ -17,6 +17,7 @@ const skippedPathParts = new Set([
   "src",
   "sources",
   "contentStatus",
+  "historyVisibility",
   "group",
 ]);
 

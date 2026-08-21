@@ -9,6 +9,7 @@ import { LegalCareNotice } from "@/components/legal-care-notice";
 import { LifestyleProductIcon } from "@/components/lifestyle-product-icon";
 import { SiteHeader } from "@/components/site-header";
 import { getBreedFeatures } from "@/content/breed-features/data";
+import { getBreedGrowthGuide } from "@/content/breed-growth-guides/data";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
 import type { Breed } from "@/content/breeds/schema";
 import {
@@ -34,7 +35,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (legacyBreedRedirects[slug]) return {};
   const breed = getBreed(slug);
   if (!breed) return {};
-  return { title: breed.nameKo, description: `${breed.tagline} 크기와 수명, 역사, 행동 경향과 함께 사는 현실을 살펴봅니다.` };
+  const descriptionTopics = getBreedGrowthGuide(slug)
+    ? "크기와 수명, 성장 단계별 돌봄, 행동 경향과 함께 사는 현실"
+    : breed.historyVisibility === "hidden"
+      ? "크기와 수명, 행동 경향과 함께 사는 현실"
+      : "크기와 수명, 역사, 행동 경향과 함께 사는 현실";
+  return { title: breed.nameKo, description: `${breed.tagline} ${descriptionTopics}을 살펴봅니다.` };
 }
 
 const tendencyNames = {
@@ -90,6 +96,7 @@ function getLifestyleCommonality(left: Breed, right: Breed) {
 function BreedDetailExperience({ breed }: { breed: Breed }) {
   const { lifePoints, dayPoints } = getBreedLifePresentation(breed);
   const breedFeatures = getBreedFeatures(breed.slug);
+  const growthGuide = getBreedGrowthGuide(breed.slug);
 
   return (
     <>
@@ -145,15 +152,47 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
         </section>
       )}
 
-      <section className={styles.malteseStory} aria-labelledby="breed-story-title">
-        {breed.historyVisual && <BreedVisual breed={breed} variant="history" />}
-        <div className={styles.malteseStoryCopy}>
-          <p className={styles.eyebrow}>역사에서 오늘까지</p>
-          <h2 id="breed-story-title">{breed.nameKo}의 과거가 오늘의 생활로 이어져요.</h2>
-          <p className={styles.malteseStoryLead}>{breed.story.opening}</p>
-          <p className={styles.malteseStoryLead}>{breed.story.roleToHome}</p>
-        </div>
-      </section>
+      {breed.historyVisibility !== "hidden" && (
+        <section className={styles.malteseStory} aria-labelledby="breed-story-title">
+          {breed.historyVisual && <BreedVisual breed={breed} variant="history" />}
+          <div className={styles.malteseStoryCopy}>
+            <p className={styles.eyebrow}>역사에서 오늘까지</p>
+            <h2 id="breed-story-title">{breed.nameKo}의 과거가 오늘의 생활로 이어져요.</h2>
+            <p className={styles.malteseStoryLead}>{breed.story.opening}</p>
+            <p className={styles.malteseStoryLead}>{breed.story.roleToHome}</p>
+          </div>
+        </section>
+      )}
+
+      {growthGuide && (
+        <section className={styles.growthGuide} aria-labelledby="growth-guide-title">
+          <header>
+            <p className={styles.eyebrow}>성장 단계에 맞춰</p>
+            <h2 id="growth-guide-title">{breed.nameKo}와 자라는 동안 보호자가 할 일</h2>
+            <p>{growthGuide.intro}</p>
+          </header>
+          <div className={styles.growthStageGrid}>
+            {growthGuide.stages.map((stage) => (
+              <article key={stage.label}>
+                <Image
+                  src={stage.image}
+                  alt={stage.alt}
+                  width={1200}
+                  height={900}
+                  sizes="(max-width: 767px) calc(100vw - 64px), (max-width: 1100px) 50vw, 30vw"
+                />
+                <div className={styles.growthStageCopy}>
+                  <div className={styles.growthStageMeta}><span>{stage.label}</span><small>{stage.ageGuide}</small></div>
+                  <h3>{stage.title}</h3>
+                  <p>{stage.description}</p>
+                  <ul>{stage.actions.map((action) => <li key={action}>{action}</li>)}</ul>
+                </div>
+              </article>
+            ))}
+          </div>
+          <aside className={styles.growthMedicalNote}><strong>월령보다 개별 성장 확인</strong><p>{growthGuide.medicalNote}</p></aside>
+        </section>
+      )}
 
       <section className={styles.malteseDecision} aria-label={`${breed.nameKo} 다음 선택`}>
         <div className={styles.malteseChoiceActions}>
@@ -172,8 +211,9 @@ export default async function BreedDetail({ params }: PageProps) {
   if (!breed) notFound();
   const related = getRelatedBreeds(breed);
   const [featuredRelated, ...otherRelated] = related;
+  const growthGuide = getBreedGrowthGuide(breed.slug);
   const allSources = [...new Map(
-    [...breed.sources, ...behaviorContextSources].map((source) => [source.url, source]),
+    [...breed.sources, ...(growthGuide?.sources ?? []), ...behaviorContextSources].map((source) => [source.url, source]),
   ).values()];
   const facts = getBreedFactPresentation(breed);
 
