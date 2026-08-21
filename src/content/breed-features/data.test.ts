@@ -46,6 +46,11 @@ describe("breed-specific feature cards", () => {
       "bichon-frise",
       "cavalier-king-charles-spaniel",
       "pug",
+      "bernese-mountain-dog",
+      "dobermann",
+      "german-spitz",
+      "shetland-sheepdog",
+      "australian-shepherd",
     ]);
 
     for (const featureSet of breedFeatureSets) {
@@ -103,7 +108,7 @@ describe("breed-specific feature cards", () => {
 
   it("keeps feature coverage separate from the catalog used by discovery", () => {
     expect(breeds).toHaveLength(376);
-    expect(breedFeatureSets).toHaveLength(29);
-    expect(getBreedFeatures("bernese-mountain-dog")).toBeUndefined();
+    expect(breedFeatureSets).toHaveLength(34);
+    expect(getBreedFeatures("rottweiler")).toBeUndefined();
   });
 });
