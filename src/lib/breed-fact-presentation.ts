@@ -150,7 +150,30 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     size: "6.3~8.1kg",
     weight: "6.3~8.1kg",
   },
-  "german-spitz": { size: "바라이어티별 18~55cm" },
+  "bernese-mountain-dog": {
+    size: "58~70cm · 35~55kg",
+    height: "58~70cm",
+    weight: "35~55kg",
+  },
+  dobermann: {
+    size: "63~72cm · 32~45kg",
+    height: "63~72cm",
+    weight: "32~45kg",
+  },
+  "german-spitz": {
+    size: "바라이어티별 18~55cm",
+    height: "바라이어티별 18~55cm",
+  },
+  "shetland-sheepdog": {
+    size: "33~41cm · 7~11kg",
+    height: "33~41cm",
+    weight: "7~11kg",
+  },
+  "australian-shepherd": {
+    size: "46~58cm · 18~29kg",
+    height: "46~58cm",
+    weight: "18~29kg",
+  },
   "bull-terrier": { size: "53~56cm · 23~32kg" },
 };
 

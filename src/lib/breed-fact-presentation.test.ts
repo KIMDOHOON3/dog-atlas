@@ -144,6 +144,20 @@ describe("breed fact presentation", () => {
     }
   });
 
+  it("presents compact measurements for the current five-breed rollout batch", () => {
+    const expected = {
+      "bernese-mountain-dog": { size: "58~70cm · 35~55kg", height: "58~70cm", weight: "35~55kg" },
+      dobermann: { size: "63~72cm · 32~45kg", height: "63~72cm", weight: "32~45kg" },
+      "german-spitz": { size: "바라이어티별 18~55cm", height: "바라이어티별 18~55cm", weight: undefined },
+      "shetland-sheepdog": { size: "33~41cm · 7~11kg", height: "33~41cm", weight: "7~11kg" },
+      "australian-shepherd": { size: "46~58cm · 18~29kg", height: "46~58cm", weight: "18~29kg" },
+    } as const;
+
+    for (const [slug, facts] of Object.entries(expected)) {
+      expect(getBreedFactPresentation(getBreed(slug)!)).toMatchObject(facts);
+    }
+  });
+
   it("keeps source and editorial wording out of every visible fact", () => {
     const bannedCopy = /(참고|출처|검토|확인|상담|개체|자료|알려짐)/u;
 

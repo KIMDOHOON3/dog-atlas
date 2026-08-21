@@ -30,16 +30,27 @@ const drafts: Draft[] = [
 const levelNote: Record<Label, string> = { "낮은 편": "상대적으로 부담이 낮을 수 있지만 개체별 확인이 필요해요.", "중간": "일상에서 꾸준히 충족하고 개체 반응을 살펴야 해요.", "높은 편": "충분한 시간과 구체적인 관리 계획이 필요해요.", "개체별 확인 필요": "품종만으로 판단하지 말고 해당 개체를 직접 확인하세요." };
 
 const conciseLineages: Partial<Record<string, string>> = {
-  "german-spitz": "독일 스피츠 다섯 바라이어티",
-  "shetland-sheepdog": "셰틀랜드 소형 목양견 계통",
-  "australian-shepherd": "미국 서부 목장견 계통",
+  "german-spitz": "독일 스피츠 계통",
+  "shetland-sheepdog": "셰틀랜드 목양견 계통",
+  "australian-shepherd": "미국 목장견 계통",
+};
+
+const conciseRoles: Partial<Record<string, string>> = {
+  "german-spitz": "알림견·반려견",
+  "shetland-sheepdog": "목양견·알림견",
+  "australian-shepherd": "목양견",
+};
+
+const additionalSources: Partial<Record<string, Breed["sources"]>> = {
+  "shetland-sheepdog": [{ title: "Shetland Sheepdog", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/shetland-sheepdog/", checkedAt }],
+  "australian-shepherd": [{ title: "Australian Shepherd", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/australian-shepherd/", checkedAt }],
 };
 
 export const detailBatchD = drafts.map((d) => ({
   slug: d.slug, contentStatus: "mvp-editorial-draft" as const, nameKo: d.nameKo, nameEn: d.nameEn, tagline: d.tagline,
   palette: { primary: d.colors[0], secondary: d.colors[1], ink: d.colors[2] }, illustration: `/illustrations/v2/${d.slug}-card.webp`,
   catalog: { group: d.group, discoveryTags: d.tags }, historyVisual: { src: `/illustrations/v3/${d.slug}-history.webp`, alt: `${d.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
-  identity: { origin: d.origin, lineage: conciseLineages[d.slug] ?? d.lineage, originalRole: d.role, size: d.size, lifespan: d.lifespan },
+  identity: { origin: d.origin, lineage: conciseLineages[d.slug] ?? d.lineage, originalRole: conciseRoles[d.slug] ?? d.role, size: d.size, lifespan: d.lifespan },
   behaviorClues: { originalRole: d.history, today: d.present, guardianContext: d.guide },
   story: { opening: d.storyOpening ?? `${withTopicParticle(d.nameKo)} ${d.lineage}입니다. ${d.history}`, roleToHome: d.storyContinuation ?? `${d.present} ${d.guide}`, reality: d.reality },
   tendencies: {
@@ -50,5 +61,5 @@ export const detailBatchD = drafts.map((d) => ({
   careNotes: d.care, healthEditorialNote: healthDraft,
   daySnapshot: [{ time: "아침", title: "몸과 환경 확인", description: "날씨와 컨디션에 맞춰 산책을 시작해요." }, { time: "낮", title: "역할을 닮은 놀이", description: d.guide }, { time: "저녁", title: "쉬고 기록하기", description: "피모와 몸 상태를 보고 조용히 쉬어요." }],
   related: [{ slug: d.related[0], reason: d.relatedCopy[0] }, { slug: d.related[1], reason: d.relatedCopy[1] }],
-  sources: [{ title: `FCI Standard: ${d.nameEn}`, organization: "Fédération Cynologique Internationale", url: `https://www.fci.be/Nomenclature/Standards/${d.fci}`, checkedAt }, { title: d.nameEn, organization: "The Royal Kennel Club", url: `https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/${d.rkc}/`, checkedAt }],
+  sources: [{ title: `FCI Standard: ${d.nameEn}`, organization: "Fédération Cynologique Internationale", url: `https://www.fci.be/Nomenclature/Standards/${d.fci}`, checkedAt }, { title: d.nameEn, organization: "The Royal Kennel Club", url: `https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/${d.rkc}/`, checkedAt }, ...(additionalSources[d.slug] ?? [])],
 })) satisfies Breed[];

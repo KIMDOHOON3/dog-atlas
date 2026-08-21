@@ -316,3 +316,9 @@ Move all published feature-card data out of the detail page and into a Zod-valid
 Structure each breed detail so readers first learn what is distinctive about the breed, then consider how those traits may appear in daily life, and only afterward move to comparison, readiness, and choice. The three illustrated cards should open with breed knowledge—historical role, characteristic behavior, body structure, coat structure, or meaningful variety—not with a generic training or care instruction.
 
 Follow a breed fact with a practical implication when it helps the reader judge their own environment. Do not require or ban coat topics mechanically: retain coat when its structure, seasonal shedding, grooming burden, or role in recognizing the breed is genuinely distinctive, and prefer a stronger breed-specific subject when it is not. Keep all statements as tendencies or supported characteristics rather than a verdict that a breed will suit a particular person.
+
+# 2026-08-21 — Separate history from present-day breed clues
+
+Let the history section own chronology: when and where the breed formed, what work shaped it, and how its recognized form developed. Do not reuse those facts as the main subject of `견종을 이해하는 출발점` cards.
+
+Use the three opening cards for present-day clues that help a reader judge daily life. Where supported, connect the historical role to tendencies such as attention to movement, cooperation with people, alerting, body control, task persistence, or recovery after activity without presenting the connection as a guarantee. Keep `계통` and `원래 역할` as short Korean noun phrases, and present supported height and weight as separately labeled facts.
