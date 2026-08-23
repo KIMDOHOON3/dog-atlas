@@ -9,7 +9,7 @@
 }
 
 .heroCopy { position: relative; z-index: 2; max-width: 520px; }
-.eyebrow, .sectionEyebrow { margin: 0 0 10px; color: var(--moss); font-size: .72rem; font-weight: 750; letter-spacing: .12em; }
+.sectionEyebrow { margin: 0 0 10px; color: var(--moss); font-size: .72rem; font-weight: 750; letter-spacing: .12em; }
 .searchTitle { max-width: 15ch; margin: 0; color: var(--ink); font-size: clamp(1.5rem, 2.15vw, 1.75rem); font-weight: 750; line-height: 1.32; letter-spacing: -.035em; }
 .heroDescription { max-width: 38ch; margin: 16px 0 24px; color: var(--ink-soft); font-size: .98rem; line-height: 1.72; word-break: keep-all; }
 .heroCopy form { width: min(100%, 500px); text-align: left; }

@@ -31,7 +31,6 @@ export default function Home() {
       <main id="main" data-home-theme="warm-3d">
         <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>DOG ATLAS</p>
             <h1 className={styles.searchTitle} id="hero-title">외모보다, 함께할 생활을 먼저 살펴봐요.</h1>
             <p className={styles.heroDescription}>강아지가 필요로 하는 시간과 환경을 이해하고, 궁금한 견종의 이야기를 천천히 찾아보세요.</p>
             <SearchBox breeds={breeds.map(({ slug, nameKo, nameEn, illustration }) => {
