@@ -38,9 +38,6 @@ export default function Home() {
               const master = getMasterBreed(slug);
               return { slug, nameKo, nameEn, imageSrc: illustration, aliases: [...(master?.aliasesKo ?? []), ...(master?.aliasesEn ?? [])] };
             })} />
-            <Link className={styles.discoverLink} href="/discover">
-              이름을 몰라도 괜찮아요 <span aria-hidden="true">→</span>
-            </Link>
           </div>
           <figure className={styles.heroVisual}>
             <Image

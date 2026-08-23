@@ -2,7 +2,6 @@
   width: min(calc(100% - var(--page-inline)), 1280px);
   margin: 0 auto;
   padding: clamp(64px, 8vw, 104px) 0;
-  border-block: 1px solid var(--line);
 }
 
 .heading {
