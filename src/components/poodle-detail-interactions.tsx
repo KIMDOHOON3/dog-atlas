@@ -7,7 +7,9 @@ import styles from "./poodle-detail.module.css";
 
 export function PoodleStorySteps() {
   const [activeStep, setActiveStep] = useState(0);
+  const [mobileStep, setMobileStep] = useState(0);
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
   const step = poodleDetail.story.steps[activeStep];
 
   function selectStep(index: number) {
@@ -24,6 +26,26 @@ export function PoodleStorySteps() {
     if (nextIndex === undefined) return;
     event.preventDefault();
     selectStep(nextIndex);
+  }
+
+  function handleCarouselScroll() {
+    const carousel = carouselRef.current;
+    const firstCard = carousel?.firstElementChild as HTMLElement | null;
+    if (!carousel || !firstCard) return;
+    const gap = Number.parseFloat(window.getComputedStyle(carousel).columnGap) || 0;
+    const index = Math.round(carousel.scrollLeft / (firstCard.offsetWidth + gap));
+    setMobileStep(Math.max(0, Math.min(index, poodleDetail.story.steps.length - 1)));
+  }
+
+  function scrollToMobileStep(index: number) {
+    const carousel = carouselRef.current;
+    const card = carousel?.children[index] as HTMLElement | undefined;
+    if (!card) return;
+    card.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "nearest",
+      inline: "start",
+    });
   }
 
   return (
@@ -69,6 +91,43 @@ export function PoodleStorySteps() {
           <h3>{step.title}</h3>
           <p>{step.body}</p>
         </article>
+      </div>
+      <div className={styles.storyCarousel} aria-label="푸들의 과거에서 오늘까지" aria-roledescription="carousel">
+        <div className={styles.storyTrack} ref={carouselRef} onScroll={handleCarouselScroll}>
+          {poodleDetail.story.steps.map((item, index) => (
+            <article
+              className={styles.storySlide}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${index + 1} / ${poodleDetail.story.steps.length}`}
+              key={item.navLabel}
+            >
+              <Image
+                src={item.image}
+                alt={item.imageAlt}
+                width={1200}
+                height={800}
+                sizes="calc(100vw - 56px)"
+              />
+              <div>
+                <span>{item.eyebrow}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className={styles.storyDots} aria-label="이야기 단계 선택">
+          {poodleDetail.story.steps.map((item, index) => (
+            <button
+              type="button"
+              aria-label={`${index + 1}단계 ${item.navLabel} 보기`}
+              aria-current={mobileStep === index ? "step" : undefined}
+              onClick={() => scrollToMobileStep(index)}
+              key={item.navLabel}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

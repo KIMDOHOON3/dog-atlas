@@ -64,6 +64,10 @@
   min-width: 0;
 }
 
+.storyCarousel {
+  display: none;
+}
+
 .stepTabs {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -412,6 +416,110 @@
     margin-top: 20px;
   }
 
+  .storyLayout {
+    display: block;
+  }
+
+  .storyImage,
+  .storyInteraction {
+    display: none;
+  }
+
+  .storyCarousel {
+    width: 100%;
+    min-width: 0;
+    display: block;
+  }
+
+  .storyTrack {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 34px 4px 0;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    touch-action: pan-x pan-y;
+  }
+
+  .storyTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  .storySlide {
+    flex: 0 0 100%;
+    min-width: 0;
+    overflow: hidden;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    border-radius: 22px;
+    background: color-mix(in srgb, var(--moss-light) 42%, var(--panel));
+  }
+
+  .storySlide > img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  .storySlide > div {
+    padding: 20px 18px 22px;
+  }
+
+  .storySlide span {
+    color: var(--moss);
+    font-size: 0.74rem;
+    font-weight: 800;
+  }
+
+  .storySlide h3 {
+    margin: 8px 0 0;
+    font-size: 1.22rem;
+    line-height: 1.42;
+    letter-spacing: -0.025em;
+    word-break: keep-all;
+  }
+
+  .storySlide p {
+    margin: 11px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.68;
+  }
+
+  .storyDots {
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  .storyDots button {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: var(--line-strong);
+    cursor: pointer;
+    transition: width 160ms ease, background-color 160ms ease;
+  }
+
+  .storyDots button[aria-current="step"] {
+    width: 19px;
+    background: var(--moss);
+  }
+
+  .storyDots button:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+
   .stepTabs {
     grid-template-columns: 1fr;
     gap: 2px;
@@ -494,7 +602,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stepTabs i {
+  .stepTabs i,
+  .storyDots button {
     transition: none;
   }
 

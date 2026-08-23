@@ -13,17 +13,19 @@ describe("Poodle detail interactions", () => {
     const reality = screen.getByRole("tab", { name: /생활의 현실/ });
 
     expect(past).toHaveAttribute("aria-selected", "true");
-    expect(screen.getByRole("img")).toHaveAttribute("src", expect.stringContaining("poodle-history.webp"));
+    expect(screen.getAllByRole("img")[0]).toHaveAttribute("src", expect.stringContaining("poodle-history.webp"));
     await user.click(present);
     expect(present).toHaveAttribute("aria-selected", "true");
     expect(screen.getByRole("tabpanel")).toHaveTextContent("새로운 규칙을 배우는 활동");
-    expect(screen.getByRole("img")).toHaveAttribute("src", expect.stringContaining("poodle-feature-learning-retrieval.webp"));
+    expect(screen.getAllByRole("img")[0]).toHaveAttribute("src", expect.stringContaining("poodle-feature-learning-retrieval.webp"));
 
     fireEvent.keyDown(present, { key: "ArrowRight" });
     expect(reality).toHaveFocus();
     expect(reality).toHaveAttribute("aria-selected", "true");
     expect(screen.getByRole("tabpanel")).toHaveTextContent("알아서 잘 지낸다는 뜻은 아니에요");
-    expect(screen.getByRole("img")).toHaveAttribute("src", expect.stringContaining("poodle-daily-interaction.webp"));
+    expect(screen.getAllByRole("img")[0]).toHaveAttribute("src", expect.stringContaining("poodle-daily-interaction.webp"));
+    expect(screen.getAllByRole("group", { name: /\/ 3/ })).toHaveLength(3);
+    expect(screen.getByRole("button", { name: "2단계 현재의 경향 보기" })).toBeInTheDocument();
   });
 
   it("shows the selected variety range without a score or recommendation", async () => {
