@@ -1,9 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { BreedVisual } from "@/components/breed-visual";
 import { poodleDetail } from "@/content/poodle-detail/data";
 import type { Breed } from "@/content/breeds/schema";
-import { PoodleSizePicker, PoodleStorySteps } from "./poodle-detail-interactions";
+import { PoodleRealityCards, PoodleStorySteps } from "./poodle-detail-interactions";
 import styles from "./poodle-detail.module.css";
 
 type RelatedBreed = { breed: Breed; reason: string };
@@ -30,18 +29,7 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
           <p>함께 살 때 체감하는 것</p>
           <h2 id="poodle-realities-title">푸들의 생활 현실</h2>
         </header>
-        <div className={styles.realityGrid}>
-          {poodleDetail.realities.map((reality) => (
-            <article key={reality.id}>
-              <Image src={reality.image} alt={reality.imageAlt} width={1200} height={900} sizes="(max-width: 767px) calc(100vw - 32px), 46vw" />
-              <div>
-                <h3>{reality.title}</h3>
-                <p>{reality.body}</p>
-                {reality.id === "sizes" && <PoodleSizePicker />}
-              </div>
-            </article>
-          ))}
-        </div>
+        <PoodleRealityCards />
       </section>
 
       <section className={styles.readiness} aria-labelledby="poodle-readiness-title">

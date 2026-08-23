@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
-import { PoodleSizePicker, PoodleStorySteps } from "./poodle-detail-interactions";
+import { PoodleRealityCards, PoodleSizePicker, PoodleStorySteps } from "./poodle-detail-interactions";
 
 describe("Poodle detail interactions", () => {
   it("connects the three story steps with accessible tabs and arrow keys", async () => {
@@ -36,5 +36,15 @@ describe("Poodle detail interactions", () => {
     expect(screen.getByRole("button", { name: "스탠더드" })).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByText("45~62cm")).toBeVisible();
     expect(screen.queryByText(/추천|점수/)).not.toBeInTheDocument();
+  });
+
+  it("changes the focused size image and exposes the mobile reality controls", async () => {
+    const user = userEvent.setup();
+    render(<PoodleRealityCards />);
+
+    expect(screen.getByRole("img", { name: /토이 푸들을 중심/ })).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "스탠더드" }));
+    expect(screen.getByRole("img", { name: /스탠더드 푸들을 중심/ })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "2번째 곱슬 피모 관리 보기" })).toBeInTheDocument();
   });
 });

@@ -197,8 +197,73 @@
   object-fit: cover;
 }
 
-.realityGrid article > div {
+.realityBody {
   padding: 22px 24px 26px;
+}
+
+.sizeVisual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--paper-deep);
+  background-image: url("/illustrations/v4/poodle-feature-four-sizes.webp");
+  background-repeat: no-repeat;
+  background-size: 165% auto;
+  background-position-y: 52%;
+  transition: background-position 220ms ease;
+}
+
+.sizeVisual[data-size="standard"] {
+  background-position-x: 0%;
+}
+
+.sizeVisual[data-size="medium"] {
+  background-position-x: 34%;
+}
+
+.sizeVisual[data-size="miniature"] {
+  background-position-x: 68%;
+  background-position-y: 58%;
+  background-size: 185% auto;
+}
+
+.sizeVisual[data-size="toy"] {
+  background-position-x: 100%;
+  background-position-y: 64%;
+  background-size: 215% auto;
+}
+
+.sizeVisual > span {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  border-radius: 12px;
+  color: white;
+  background: rgb(36 48 43 / 82%);
+  backdrop-filter: blur(8px);
+}
+
+.sizeVisual[data-size="miniature"] > span,
+.sizeVisual[data-size="toy"] > span {
+  right: auto;
+  left: 16px;
+}
+
+.sizeVisual strong {
+  font-size: 0.86rem;
+}
+
+.sizeVisual small {
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.realityDots {
+  display: none;
 }
 
 .realityGrid h3 {
@@ -434,9 +499,9 @@
   .storyTrack {
     width: 100%;
     display: flex;
-    gap: 12px;
+    gap: 10px;
     overflow-x: auto;
-    padding: 0 34px 4px 0;
+    padding: 0 0 4px;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: 0;
     overscroll-behavior-x: contain;
@@ -449,7 +514,7 @@
   }
 
   .storySlide {
-    flex: 0 0 100%;
+    flex: 0 0 calc(100% - 28px);
     min-width: 0;
     overflow: hidden;
     scroll-snap-align: start;
@@ -491,7 +556,8 @@
     line-height: 1.68;
   }
 
-  .storyDots {
+  .storyDots,
+  .realityDots {
     min-height: 36px;
     display: flex;
     align-items: center;
@@ -499,23 +565,26 @@
     gap: 7px;
   }
 
-  .storyDots button {
-    width: 7px;
-    height: 7px;
+  .storyDots button,
+  .realityDots button {
+    width: 8px;
+    height: 8px;
     padding: 0;
     border: 0;
     border-radius: 999px;
-    background: var(--line-strong);
+    background: rgb(55 73 65 / 34%);
     cursor: pointer;
     transition: width 160ms ease, background-color 160ms ease;
   }
 
-  .storyDots button[aria-current="step"] {
+  .storyDots button[aria-current="step"],
+  .realityDots button[aria-current="step"] {
     width: 19px;
     background: var(--moss);
   }
 
-  .storyDots button:focus-visible {
+  .storyDots button:focus-visible,
+  .realityDots button:focus-visible {
     outline: 3px solid var(--focus);
     outline-offset: 3px;
   }
@@ -555,17 +624,34 @@
     margin-top: 14px;
   }
 
-  .realityGrid,
   .readiness ul,
   .related > div {
     grid-template-columns: 1fr;
   }
 
   .realityGrid {
-    gap: 14px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 0 0 4px;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    touch-action: pan-x pan-y;
   }
 
-  .realityGrid article > div {
+  .realityGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .realityGrid article {
+    flex: 0 0 calc(100% - 28px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .realityBody {
     padding: 19px 18px 22px;
   }
 
@@ -603,7 +689,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .stepTabs i,
-  .storyDots button {
+  .storyDots button,
+  .realityDots button,
+  .sizeVisual {
     transition: none;
   }
 
