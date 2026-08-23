@@ -34,8 +34,8 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
 
       <section className={styles.readiness} aria-labelledby="poodle-readiness-title">
         <header>
-          <p>결정하기 전에</p>
-          <h2 id="poodle-readiness-title">이 세 가지를 내 생활에 대입해보세요.</h2>
+          <p>함께 살기 전에</p>
+          <h2 id="poodle-readiness-title">푸들과 보낼 일상을 생각해보세요.</h2>
         </header>
         <PoodleReadinessChecklist />
       </section>
