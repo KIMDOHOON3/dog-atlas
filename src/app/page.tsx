@@ -39,40 +39,14 @@ export default function Home() {
             })} />
           </div>
           <figure className={styles.heroVisual}>
-            <div
-              className={styles.heroScene}
-              role="img"
-              aria-label="웃는 재패니즈 스피츠가 꼬리를 흔들고, 주변에 산책줄과 빗, 산책 수건, 물그릇이 차례로 나타나는 3D 생활 디오라마"
-            >
-              <Image
-                className={styles.sceneBase}
-                src="/illustrations/v9/home-spitz-tail-free-base.png"
-                alt=""
-                fill
-                priority
-                unoptimized
-                sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1100px) 48vw, 680px"
-              />
-              <Image
-                className={styles.sceneTail}
-                src="/illustrations/v9/home-spitz-tail.png"
-                alt=""
-                fill
-                priority
-                unoptimized
-                sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1100px) 48vw, 680px"
-              />
-              {[
-                { className: styles.moduleLeash, src: "/illustrations/v9/home-care-leash.webp" },
-                { className: styles.moduleBrush, src: "/illustrations/v9/home-care-brush.webp" },
-                { className: styles.moduleCloth, src: "/illustrations/v9/home-care-cloth.webp" },
-                { className: styles.moduleBowl, src: "/illustrations/v9/home-care-bowl.webp" },
-              ].map((module) => (
-                <span className={`${styles.careModule} ${module.className}`} key={module.src}>
-                  <Image src={module.src} alt="" fill loading="eager" sizes="31vw" unoptimized />
-                </span>
-              ))}
-            </div>
+            <Image
+              src="/illustrations/v8/home-care-ui-spitz-diorama.webp"
+              alt="재패니즈 스피츠 주변에 산책줄과 물그릇, 빗, 산책 수건이 각각 놓인 3D 생활 디오라마"
+              width={1448}
+              height={1086}
+              priority
+              sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1100px) 48vw, 680px"
+            />
             <figcaption>귀여운 첫인상 다음에는 매일의 돌봄이 이어져요.</figcaption>
           </figure>
         </section>
