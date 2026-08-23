@@ -83,3 +83,13 @@ p { text-wrap: pretty; }
     scroll-padding-inline: 16px !important;
   }
 }
+
+body:has(main[data-breed-theme="poodle"]) {
+  background: #fff;
+}
+
+body:has(main[data-breed-theme="poodle"]) > header,
+body:has(main[data-breed-theme="poodle"]) > nav[aria-label="모바일 주요 탐색"] {
+  border-color: transparent;
+  background: #fff;
+}

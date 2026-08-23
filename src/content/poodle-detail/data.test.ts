@@ -9,14 +9,18 @@ describe("Poodle detail editorial data", () => {
   it("gives every story step one distinct image and keeps every file available", () => {
     const images = [
       ...poodleDetail.story.steps.map((step) => step.image),
-      ...poodleDetail.realities.map((reality) => reality.image),
+      ...poodleDetail.sizes.map((size) => size.image),
+      ...poodleDetail.realities.flatMap((reality) => reality.image ? [reality.image] : []),
     ];
 
     expect(images).toEqual([
       "/illustrations/v3/poodle-history.webp",
       "/illustrations/v4/poodle-feature-learning-retrieval.webp",
       "/illustrations/v5/poodle-daily-interaction.webp",
-      "/illustrations/v4/poodle-feature-four-sizes.webp",
+      "/illustrations/v6/poodle-size-toy.webp",
+      "/illustrations/v6/poodle-size-miniature.webp",
+      "/illustrations/v6/poodle-size-medium.webp",
+      "/illustrations/v6/poodle-size-standard.webp",
       "/illustrations/v4/poodle-feature-coat-care.webp",
     ]);
     expect(new Set(images).size).toBe(images.length);

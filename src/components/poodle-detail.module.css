@@ -140,8 +140,9 @@
   margin-top: 12px;
   padding: clamp(24px, 3vw, 34px);
   border-radius: 22px;
-  border: 1px solid var(--line);
-  background: var(--panel);
+  border: 0;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(36 48 43 / 6%);
   animation: step-enter 180ms ease-out;
 }
 
@@ -186,8 +187,8 @@
   min-width: 0;
   overflow: hidden;
   border-radius: 22px;
-  border: 1px solid var(--line);
-  background: var(--panel);
+  border: 0;
+  background: #fff;
   box-shadow: 0 8px 22px rgb(36 48 43 / 6%);
 }
 
@@ -207,32 +208,16 @@
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background-color: var(--paper-deep);
-  background-image: url("/illustrations/v4/poodle-feature-four-sizes.webp");
-  background-repeat: no-repeat;
-  background-size: 165% auto;
-  background-position-y: 52%;
-  transition: background-position 220ms ease;
+  background: #fff;
 }
 
-.sizeVisual[data-size="standard"] {
-  background-position-x: 0%;
-}
-
-.sizeVisual[data-size="medium"] {
-  background-position-x: 34%;
-}
-
-.sizeVisual[data-size="miniature"] {
-  background-position-x: 68%;
-  background-position-y: 58%;
-  background-size: 185% auto;
-}
-
-.sizeVisual[data-size="toy"] {
-  background-position-x: 100%;
-  background-position-y: 64%;
-  background-size: 215% auto;
+.sizeImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  animation: image-enter 180ms ease-out;
 }
 
 .sizeVisual > span {
@@ -247,12 +232,6 @@
   color: white;
   background: rgb(36 48 43 / 82%);
   backdrop-filter: blur(8px);
-}
-
-.sizeVisual[data-size="miniature"] > span,
-.sizeVisual[data-size="toy"] > span {
-  right: auto;
-  left: 16px;
 }
 
 .sizeVisual strong {
@@ -313,31 +292,12 @@
   outline-offset: 2px;
 }
 
-.sizePicker output {
-  margin-top: 10px;
-  padding: 11px 13px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--moss-light) 52%, var(--panel));
-}
-
-.sizePicker output strong {
-  font-size: 0.82rem;
-}
-
-.sizePicker output span {
-  color: var(--moss);
-  font-size: 0.88rem;
-  font-weight: 800;
-}
-
 .readiness {
   padding: clamp(26px, 5vw, 44px);
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: 26px;
-  background: var(--panel);
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(36 48 43 / 6%);
 }
 
 .readinessChecklist ul {
@@ -384,10 +344,10 @@
   height: 24px;
   display: grid;
   place-items: center;
-  border: 1.5px solid color-mix(in srgb, var(--moss) 54%, var(--line));
+  border: 1.5px solid #c8cecb;
   border-radius: 7px;
   color: white;
-  background: var(--panel);
+  background: #fff;
   font-size: 0.78rem;
   font-weight: 900;
 }
@@ -455,9 +415,9 @@
   grid-template-columns: 132px minmax(0, 1fr);
   gap: 16px;
   align-items: center;
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: 18px;
-  background: var(--panel);
+  background: #fff;
   box-shadow: 0 6px 18px rgb(36 48 43 / 5%);
   text-decoration: none;
 }
@@ -571,8 +531,9 @@
     scroll-snap-align: start;
     scroll-snap-stop: always;
     border-radius: 22px;
-    border: 1px solid var(--line);
-    background: var(--panel);
+    border: 0;
+    background: #fff;
+    box-shadow: 0 6px 20px rgb(36 48 43 / 6%);
   }
 
   .storySlide > img {
@@ -738,15 +699,12 @@
   .stepTabs i,
   .storyDots button,
   .realityDots button,
-  .sizeVisual {
-    transition: none;
-  }
-
   .readinessChecklist li {
     transition: none;
   }
 
   .storyImage,
+  .sizeImage,
   .stepPanel {
     animation: none;
   }

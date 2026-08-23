@@ -28,13 +28,13 @@ describe("Poodle detail interactions", () => {
     expect(screen.getByRole("button", { name: "2단계 현재의 경향 보기" })).toBeInTheDocument();
   });
 
-  it("shows the selected variety range without a score or recommendation", async () => {
+  it("changes the selected size button without adding a separate range box", async () => {
     const user = userEvent.setup();
     render(<PoodleSizePicker />);
 
-    await user.click(screen.getByRole("button", { name: "스탠더드" }));
-    expect(screen.getByRole("button", { name: "스탠더드" })).toHaveAttribute("aria-pressed", "true");
-    expect(screen.getByText("45~62cm")).toBeVisible();
+    await user.click(screen.getByRole("button", { name: "스탠다드" }));
+    expect(screen.getByRole("button", { name: "스탠다드" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
     expect(screen.queryByText(/추천|점수/)).not.toBeInTheDocument();
   });
 
@@ -42,9 +42,10 @@ describe("Poodle detail interactions", () => {
     const user = userEvent.setup();
     render(<PoodleRealityCards />);
 
-    expect(screen.getByRole("img", { name: /토이 푸들을 중심으로 보여주는 네 가지 성견 크기/ })).toBeInTheDocument();
-    await user.click(screen.getByRole("button", { name: "스탠더드" }));
-    expect(screen.getByRole("img", { name: /스탠더드 푸들을 중심/ })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /작은 체구의 토이 푸들 한 마리/ })).toHaveAttribute("src", expect.stringContaining("poodle-size-toy.webp"));
+    await user.click(screen.getByRole("button", { name: "스탠다드" }));
+    expect(screen.getByRole("img", { name: /가장 크게 표현한 스탠다드 푸들 한 마리/ })).toHaveAttribute("src", expect.stringContaining("poodle-size-standard.webp"));
+    expect(screen.getByText("45~62cm")).toBeVisible();
     expect(screen.getByRole("button", { name: "2번째 곱슬 피모 관리 보기" })).toBeInTheDocument();
   });
 

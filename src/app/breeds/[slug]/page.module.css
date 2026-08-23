@@ -218,9 +218,11 @@
 .heroTendencies div[data-tendency="grooming"] { --tendency-accent: #4f7f7b; }
 .poodleHero .facts div,
 .poodleHero .heroTendencies div {
-  border: 1px solid var(--line);
-  background: var(--panel);
+  border: 0;
+  background: #fff;
+  box-shadow: 0 5px 18px rgb(36 48 43 / 5%);
 }
+.poodleHero > figure { border: 0; }
 .poodleHero .heroTendencies div {
   --tendency-accent: var(--moss) !important;
 }

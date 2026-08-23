@@ -153,7 +153,6 @@ export function PoodleSizePicker({
 } = {}) {
   const [localActiveSize, setLocalActiveSize] = useState(0);
   const activeSize = controlledActiveSize ?? localActiveSize;
-  const size = poodleDetail.sizes[activeSize];
 
   function selectSize(index: number) {
     if (onSelect) onSelect(index);
@@ -174,7 +173,6 @@ export function PoodleSizePicker({
           </button>
         ))}
       </div>
-      <output aria-live="polite"><strong>{size.label}</strong><span>{size.range}</span></output>
     </div>
   );
 }
@@ -197,13 +195,17 @@ export function PoodleRealityCards() {
     <div className={`${styles.realityCarousel} mobile-edge-to-edge`} aria-label="푸들과 살 때 체감하는 두 가지" aria-roledescription="carousel">
       <div className={`${styles.realityGrid} mobile-edge-to-edge-track`} ref={mobileTrackRef} onScroll={handleMobileScroll}>
         <article className={styles.sizeReality}>
-          <div
-            className={styles.sizeVisual}
-            data-size={size.id}
-            role="img"
-            aria-label={`${size.label} 푸들을 중심으로 보여주는 네 가지 성견 크기 삽화`}
-          >
-            <span><strong>{size.label}</strong><small>{size.range}</small></span>
+          <div className={styles.sizeVisual}>
+            <Image
+              className={styles.sizeImage}
+              src={size.image}
+              alt={size.imageAlt}
+              width={1200}
+              height={900}
+              sizes="(max-width: 767px) calc(100vw - 60px), 46vw"
+              key={size.image}
+            />
+            <span aria-live="polite"><strong>{size.label}</strong><small>{size.range}</small></span>
           </div>
           <div className={styles.realityBody}>
             <h3>{sizeReality.title}</h3>
@@ -213,8 +215,8 @@ export function PoodleRealityCards() {
         </article>
         <article>
           <Image
-            src={coatReality.image}
-            alt={coatReality.imageAlt}
+            src={coatReality.image!}
+            alt={coatReality.imageAlt!}
             width={1200}
             height={900}
             sizes="(max-width: 767px) calc(100vw - 60px), 46vw"

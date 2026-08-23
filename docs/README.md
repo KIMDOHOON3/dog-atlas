@@ -18,6 +18,7 @@
 
 - [`content-copy-guide.md`](content-copy-guide.md) — 단정적 추천을 피하는 카피 규칙과 검수 기준
 - [`breed-feature-card-rollout.md`](breed-feature-card-rollout.md) — 376개 상세를 견종별 3개 그림 카드로 확장하기 위한 조사·카피·이미지·구현·검증 명세; 사용자 지시 전에는 확장하지 않음
+- [`image-prompts-poodle-size-variants-2026-08-23.md`](image-prompts-poodle-size-variants-2026-08-23.md) — 푸들 네 크기 선택용 독립 이미지의 제작 기준과 자산 경로
 - [`korean-copy-audit.md`](korean-copy-audit.md) — 368종 한국어 표시 카피 전수 점검, 교정 범위와 재발 방지 테스트
 - [`catalog-data-architecture.md`](catalog-data-architecture.md) — 마스터 카탈로그와 상세 콘텐츠 분리 설계
 - [`catalog-taxonomy-spec.md`](catalog-taxonomy-spec.md) — 탐색 분류와 통제 어휘

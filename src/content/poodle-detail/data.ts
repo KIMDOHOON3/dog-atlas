@@ -11,6 +11,8 @@ const poodleDetailSchema = z.object({
     id: z.enum(["toy", "miniature", "medium", "standard"]),
     label: z.string().min(2),
     range: z.string().regex(/^\d+~\d+cm$/),
+    image: z.string().startsWith("/").endsWith(".webp"),
+    imageAlt: z.string().min(15),
   })).length(4),
   story: z.object({
     title: z.string().min(15),
@@ -29,8 +31,8 @@ const poodleDetailSchema = z.object({
     id: z.enum(["sizes", "coat"]),
     title: z.string().min(4),
     body: z.string().min(25),
-    image: z.string().startsWith("/").endsWith(".webp"),
-    imageAlt: z.string().min(15),
+    image: z.string().startsWith("/").endsWith(".webp").optional(),
+    imageAlt: z.string().min(15).optional(),
   })).length(2),
   readinessQuestions: z.array(z.string().endsWith("?")).length(3),
   relatedDifferences: z.record(z.string(), z.string().min(20)),
@@ -42,10 +44,10 @@ export const poodleDetail = poodleDetailSchema.parse({
   heroSizeSummary: "4가지 크기 · 23~62cm",
   metadataDescription: "우아한 곱슬 피모 안에는 물에서 회수하던 움직임과 크기별로 다른 생활 조건이 있어요. 푸들의 과거 역할과 오늘날의 행동 경향, 함께 살 때 체감되는 점을 살펴봅니다.",
   sizes: [
-    { id: "toy", label: "토이", range: "23~28cm" },
-    { id: "miniature", label: "미니어처", range: "28~35cm" },
-    { id: "medium", label: "미디엄", range: "35~45cm" },
-    { id: "standard", label: "스탠더드", range: "45~62cm" },
+    { id: "toy", label: "토이", range: "23~28cm", image: "/illustrations/v6/poodle-size-toy.webp", imageAlt: "작은 체구의 토이 푸들 한 마리가 서 있는 삽화" },
+    { id: "miniature", label: "미니어처", range: "28~35cm", image: "/illustrations/v6/poodle-size-miniature.webp", imageAlt: "토이보다 크게 표현한 미니어처 푸들 한 마리가 서 있는 삽화" },
+    { id: "medium", label: "미디엄", range: "35~45cm", image: "/illustrations/v6/poodle-size-medium.webp", imageAlt: "미니어처보다 크게 표현한 미디엄 푸들 한 마리가 서 있는 삽화" },
+    { id: "standard", label: "스탠다드", range: "45~62cm", image: "/illustrations/v6/poodle-size-standard.webp", imageAlt: "네 크기 중 가장 크게 표현한 스탠다드 푸들 한 마리가 서 있는 삽화" },
   ],
   story: {
     title: "푸들은 왜 찾고 가져오는 일을 좋아할까요?",
@@ -57,7 +59,7 @@ export const poodleDetail = poodleDetailSchema.parse({
         title: "물속에서 찾아 사람에게 가져왔어요.",
         body: "푸들은 물속의 사냥감을 찾아 사람에게 가져오는 회수견으로 활용됐어요.",
         image: "/illustrations/v3/poodle-history.webp",
-        imageAlt: "물가에서 회수용 더미를 물고 보호자에게 돌아오는 스탠더드 푸들 삽화",
+        imageAlt: "물가에서 회수용 더미를 물고 보호자에게 돌아오는 스탠다드 푸들 삽화",
       },
       {
         navLabel: "현재의 경향",
@@ -83,8 +85,6 @@ export const poodleDetail = poodleDetailSchema.parse({
       id: "sizes",
       title: "예상 성견 크기 확인",
       body: "푸들은 한 이름 안에 네 가지 크기가 있어요. 함께 살 개체가 어느 크기로 자라는지 먼저 확인해야 해요.",
-      image: "/illustrations/v4/poodle-feature-four-sizes.webp",
-      imageAlt: "토이·미니어처·미디엄·스탠더드 푸들이 큰 순서대로 서 있는 삽화",
     },
     {
       id: "coat",
@@ -97,7 +97,7 @@ export const poodleDetail = poodleDetailSchema.parse({
   readinessQuestions: [
     "정기적인 미용 시간과 비용을 감당할 수 있나요?",
     "매일 사람과 상호작용하는 시간을 만들 수 있나요?",
-    "토이부터 스탠더드까지 예상 성견 크기를 확인했나요?",
+    "토이부터 스탠다드까지 예상 성견 크기를 확인했나요?",
   ],
   relatedDifferences: {
     "labrador-retriever": "같은 회수견 배경을 공유하지만 크기 체계와 피모 관리 방식이 달라요.",
