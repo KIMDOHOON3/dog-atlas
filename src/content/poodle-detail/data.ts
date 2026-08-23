@@ -15,13 +15,13 @@ const poodleDetailSchema = z.object({
   story: z.object({
     title: z.string().min(15),
     description: z.string().min(20),
-    image: z.string().startsWith("/").endsWith(".webp"),
-    imageAlt: z.string().min(15),
     steps: z.array(z.object({
       navLabel: z.string().min(4),
       eyebrow: z.string().min(5),
       title: z.string().min(10),
       body: z.string().min(25),
+      image: z.string().startsWith("/").endsWith(".webp"),
+      imageAlt: z.string().min(15),
     })).length(3),
     caution: z.string().min(30),
   }),
@@ -50,26 +50,30 @@ export const poodleDetail = poodleDetailSchema.parse({
   story: {
     title: "푸들은 왜 찾고 가져오는 일을 좋아할까요?",
     description: "과거의 역할을 알면 오늘의 행동을 조금 다르게 이해할 수 있어요.",
-    image: "/illustrations/v3/poodle-history.webp",
-    imageAlt: "물가에서 회수용 더미를 물고 보호자에게 돌아오는 스탠더드 푸들 삽화",
     steps: [
       {
         navLabel: "과거의 역할",
         eyebrow: "1단계 · 무엇을 하던 개였을까?",
         title: "물속에서 찾아 사람에게 가져왔어요.",
         body: "푸들은 물속의 사냥감을 찾아 사람에게 가져오는 회수견으로 활용됐어요.",
+        image: "/illustrations/v3/poodle-history.webp",
+        imageAlt: "물가에서 회수용 더미를 물고 보호자에게 돌아오는 스탠더드 푸들 삽화",
       },
       {
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 그 흔적은 지금 어떻게 나타날까?",
         title: "찾기와 배움에 적극적으로 참여할 수 있어요.",
         body: "그 배경은 오늘날에도 물건을 찾고 가져오거나 새로운 규칙을 배우는 활동에 적극적인 경향으로 나타날 수 있어요.",
+        image: "/illustrations/v4/poodle-feature-learning-retrieval.webp",
+        imageAlt: "보호자에게 회수용 더미를 가져오며 찾기 활동에 참여하는 푸들 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
         title: "영리하다는 건, 알아서 잘 지낸다는 뜻은 아니에요.",
         body: "푸들은 사람과 무언가를 주고받고 새로운 규칙을 알아가는 과정에 적극적으로 참여할 수 있어요. 보호자는 이런 참여와 활동에 매일 시간을 낼 수 있는지 살펴야 해요.",
+        image: "/illustrations/v5/poodle-daily-interaction.webp",
+        imageAlt: "집에서 보호자와 상자를 활용한 찾기 활동에 함께 참여하는 푸들 삽화",
       },
     ],
     caution: "견종의 과거는 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 개체에 따라 다르게 나타날 수 있어요.",

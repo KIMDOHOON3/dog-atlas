@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { poodleDetail } from "@/content/poodle-detail/data";
 import styles from "./poodle-detail.module.css";
@@ -26,39 +27,50 @@ export function PoodleStorySteps() {
   }
 
   return (
-    <div className={styles.storyInteraction}>
-      <div className={styles.stepTabs} role="tablist" aria-label="푸들의 과거에서 오늘까지 세 단계">
-        {poodleDetail.story.steps.map((item, index) => (
-          <button
-            type="button"
-            role="tab"
-            id={`poodle-step-tab-${index}`}
-            aria-controls="poodle-step-panel"
-            aria-selected={activeStep === index}
-            tabIndex={activeStep === index ? 0 : -1}
-            key={item.navLabel}
-            ref={(node) => { buttonRefs.current[index] = node; }}
-            onClick={() => setActiveStep(index)}
-            onKeyDown={(event) => handleKeyDown(event, index)}
-          >
-            <i aria-hidden="true">{index + 1}</i>
-            <span>{item.navLabel}</span>
-          </button>
-        ))}
+    <>
+      <Image
+        className={styles.storyImage}
+        src={step.image}
+        alt={step.imageAlt}
+        width={1200}
+        height={800}
+        sizes="(max-width: 900px) calc(100vw - 32px), 46vw"
+        key={step.image}
+      />
+      <div className={styles.storyInteraction}>
+        <div className={styles.stepTabs} role="tablist" aria-label="푸들의 과거에서 오늘까지 세 단계">
+          {poodleDetail.story.steps.map((item, index) => (
+            <button
+              type="button"
+              role="tab"
+              id={`poodle-step-tab-${index}`}
+              aria-controls="poodle-step-panel"
+              aria-selected={activeStep === index}
+              tabIndex={activeStep === index ? 0 : -1}
+              key={item.navLabel}
+              ref={(node) => { buttonRefs.current[index] = node; }}
+              onClick={() => setActiveStep(index)}
+              onKeyDown={(event) => handleKeyDown(event, index)}
+            >
+              <i aria-hidden="true">{index + 1}</i>
+              <span>{item.navLabel}</span>
+            </button>
+          ))}
+        </div>
+        <article
+          className={styles.stepPanel}
+          id="poodle-step-panel"
+          role="tabpanel"
+          aria-labelledby={`poodle-step-tab-${activeStep}`}
+          tabIndex={0}
+          key={step.navLabel}
+        >
+          <span>{step.eyebrow}</span>
+          <h3>{step.title}</h3>
+          <p>{step.body}</p>
+        </article>
       </div>
-      <article
-        className={styles.stepPanel}
-        id="poodle-step-panel"
-        role="tabpanel"
-        aria-labelledby={`poodle-step-tab-${activeStep}`}
-        tabIndex={0}
-        key={step.navLabel}
-      >
-        <span>{step.eyebrow}</span>
-        <h3>{step.title}</h3>
-        <p>{step.body}</p>
-      </article>
-    </div>
+    </>
   );
 }
 

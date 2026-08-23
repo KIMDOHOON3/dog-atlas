@@ -6,14 +6,16 @@ import { poodleDetail } from "./data";
 const publicFile = (assetPath: string) => join(process.cwd(), "public", assetPath.slice(1));
 
 describe("Poodle detail editorial data", () => {
-  it("uses only the four requested core images and keeps every file available", () => {
+  it("gives every story step one distinct image and keeps every file available", () => {
     const images = [
-      poodleDetail.story.image,
+      ...poodleDetail.story.steps.map((step) => step.image),
       ...poodleDetail.realities.map((reality) => reality.image),
     ];
 
     expect(images).toEqual([
       "/illustrations/v3/poodle-history.webp",
+      "/illustrations/v4/poodle-feature-learning-retrieval.webp",
+      "/illustrations/v5/poodle-daily-interaction.webp",
       "/illustrations/v4/poodle-feature-four-sizes.webp",
       "/illustrations/v4/poodle-feature-coat-care.webp",
     ]);

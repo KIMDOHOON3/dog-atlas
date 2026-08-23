@@ -20,13 +20,6 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
           <span>{poodleDetail.story.description}</span>
         </header>
         <div className={styles.storyLayout}>
-          <Image
-            src={poodleDetail.story.image}
-            alt={poodleDetail.story.imageAlt}
-            width={1200}
-            height={800}
-            sizes="(max-width: 900px) calc(100vw - 32px), 46vw"
-          />
           <PoodleStorySteps />
         </div>
         <p className={styles.caution}>{poodleDetail.story.caution}</p>
