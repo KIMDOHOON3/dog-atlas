@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
-import { PoodleRealityCards, PoodleSizePicker, PoodleStorySteps } from "./poodle-detail-interactions";
+import { PoodleReadinessChecklist, PoodleRealityCards, PoodleSizePicker, PoodleStorySteps } from "./poodle-detail-interactions";
 
 describe("Poodle detail interactions", () => {
   it("connects the three story steps with accessible tabs and arrow keys", async () => {
@@ -42,9 +42,22 @@ describe("Poodle detail interactions", () => {
     const user = userEvent.setup();
     render(<PoodleRealityCards />);
 
-    expect(screen.getByRole("img", { name: /토이 푸들을 중심/ })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /토이 푸들을 중심으로 보여주는 네 가지 성견 크기/ })).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "스탠더드" }));
     expect(screen.getByRole("img", { name: /스탠더드 푸들을 중심/ })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "2번째 곱슬 피모 관리 보기" })).toBeInTheDocument();
+  });
+
+  it("reveals the detailed readiness action only after all three checks", async () => {
+    const user = userEvent.setup();
+    render(<PoodleReadinessChecklist />);
+
+    expect(screen.queryByRole("link", { name: /더 자세한 맞이 준비 보기/ })).not.toBeInTheDocument();
+    expect(screen.getByText("세 가지 중 0가지를 확인했어요.")).toBeVisible();
+
+    for (const checkbox of screen.getAllByRole("checkbox")) await user.click(checkbox);
+
+    expect(screen.getByText("세 가지 생활 조건을 모두 확인했어요.")).toBeVisible();
+    expect(screen.getByRole("link", { name: /더 자세한 맞이 준비 보기/ })).toHaveAttribute("href", "/beginner-guide?breed=poodle");
   });
 });

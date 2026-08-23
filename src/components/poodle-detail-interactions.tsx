@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { poodleDetail } from "@/content/poodle-detail/data";
 import styles from "./poodle-detail.module.css";
@@ -102,8 +103,8 @@ export function PoodleStorySteps() {
           <p>{step.body}</p>
         </article>
       </div>
-      <div className={styles.storyCarousel} aria-label="푸들의 과거에서 오늘까지" aria-roledescription="carousel">
-        <div className={styles.storyTrack} ref={mobileTrackRef} onScroll={handleMobileScroll}>
+      <div className={`${styles.storyCarousel} mobile-edge-to-edge`} aria-label="푸들의 과거에서 오늘까지" aria-roledescription="carousel">
+        <div className={`${styles.storyTrack} mobile-edge-to-edge-track`} ref={mobileTrackRef} onScroll={handleMobileScroll}>
           {poodleDetail.story.steps.map((item, index) => (
             <article
               className={styles.storySlide}
@@ -193,14 +194,14 @@ export function PoodleRealityCards() {
   if (!sizeReality || !coatReality) return null;
 
   return (
-    <div className={styles.realityCarousel} aria-label="푸들과 살 때 체감하는 두 가지" aria-roledescription="carousel">
-      <div className={styles.realityGrid} ref={mobileTrackRef} onScroll={handleMobileScroll}>
+    <div className={`${styles.realityCarousel} mobile-edge-to-edge`} aria-label="푸들과 살 때 체감하는 두 가지" aria-roledescription="carousel">
+      <div className={`${styles.realityGrid} mobile-edge-to-edge-track`} ref={mobileTrackRef} onScroll={handleMobileScroll}>
         <article className={styles.sizeReality}>
           <div
             className={styles.sizeVisual}
             data-size={size.id}
             role="img"
-            aria-label={`${size.label} 푸들을 중심으로 보여주는 네 가지 크기 비교 삽화`}
+            aria-label={`${size.label} 푸들을 중심으로 보여주는 네 가지 성견 크기 삽화`}
           >
             <span><strong>{size.label}</strong><small>{size.range}</small></span>
           </div>
@@ -235,6 +236,44 @@ export function PoodleRealityCards() {
           />
         ))}
       </div>
+    </div>
+  );
+}
+
+export function PoodleReadinessChecklist() {
+  const [checked, setChecked] = useState<boolean[]>(() => poodleDetail.readinessQuestions.map(() => false));
+  const completed = checked.filter(Boolean).length;
+  const allChecked = completed === checked.length;
+
+  function toggleQuestion(index: number) {
+    setChecked((current) => current.map((value, itemIndex) => itemIndex === index ? !value : value));
+  }
+
+  return (
+    <div className={styles.readinessChecklist}>
+      <ul aria-label="푸들을 선택하기 전 생활 조건 확인">
+        {poodleDetail.readinessQuestions.map((question, index) => (
+          <li key={question} data-checked={checked[index] || undefined}>
+            <label>
+              <input
+                type="checkbox"
+                checked={checked[index]}
+                onChange={() => toggleQuestion(index)}
+              />
+              <span aria-hidden="true">{checked[index] ? "✓" : ""}</span>
+              <strong>{question}</strong>
+            </label>
+          </li>
+        ))}
+      </ul>
+      <p className={styles.readinessProgress} aria-live="polite">
+        {allChecked ? "세 가지 생활 조건을 모두 확인했어요." : `세 가지 중 ${completed}가지를 확인했어요.`}
+      </p>
+      {allChecked && (
+        <Link className={styles.readinessAction} href="/beginner-guide?breed=poodle">
+          더 자세한 맞이 준비 보기 <span aria-hidden="true">→</span>
+        </Link>
+      )}
     </div>
   );
 }

@@ -216,6 +216,14 @@
 .heroTendencies div[data-tendency="activity"] { --tendency-accent: #a66f29; }
 .heroTendencies div[data-tendency="socialConnection"] { --tendency-accent: #a35f70; }
 .heroTendencies div[data-tendency="grooming"] { --tendency-accent: #4f7f7b; }
+.poodleHero .facts div,
+.poodleHero .heroTendencies div {
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.poodleHero .heroTendencies div {
+  --tendency-accent: var(--moss) !important;
+}
 .heroTendencies > div > span:first-child {
   display: block;
   margin-bottom: 7px;
@@ -868,6 +876,9 @@
 @media (max-width: 767px) {
   .summary h1 {
     font-size: 2.35rem;
+  }
+  .poodleHero .summary h1 {
+    font-size: 2.1rem;
   }
   .summary > strong {
     font-size: 1.08rem;

@@ -2,7 +2,7 @@
 .realities,
 .readiness,
 .related {
-  margin-top: 72px;
+  margin-top: 64px;
 }
 
 .story > header,
@@ -28,7 +28,7 @@
 .readiness h2,
 .related h2 {
   margin: 0;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.65rem, 2.5vw, 2.1rem);
   line-height: 1.25;
   letter-spacing: -0.035em;
   word-break: keep-all;
@@ -140,7 +140,8 @@
   margin-top: 12px;
   padding: clamp(24px, 3vw, 34px);
   border-radius: 22px;
-  background: color-mix(in srgb, var(--moss-light) 52%, var(--panel));
+  border: 1px solid var(--line);
+  background: var(--panel);
   animation: step-enter 180ms ease-out;
 }
 
@@ -185,8 +186,9 @@
   min-width: 0;
   overflow: hidden;
   border-radius: 22px;
+  border: 1px solid var(--line);
   background: var(--panel);
-  box-shadow: 0 12px 30px rgb(36 48 43 / 8%);
+  box-shadow: 0 8px 22px rgb(36 48 43 / 6%);
 }
 
 .realityGrid article > img {
@@ -333,11 +335,12 @@
 
 .readiness {
   padding: clamp(26px, 5vw, 44px);
+  border: 1px solid var(--line);
   border-radius: 26px;
-  background: color-mix(in srgb, var(--clay-light) 56%, var(--panel));
+  background: var(--panel);
 }
 
-.readiness ul {
+.readinessChecklist ul {
   margin: 24px 0 0;
   padding: 0;
   display: grid;
@@ -346,47 +349,93 @@
   list-style: none;
 }
 
-.readiness li {
-  position: relative;
-  padding: 18px 18px 18px 46px;
+.readinessChecklist li {
   border-radius: 16px;
-  background: rgb(255 253 248 / 68%);
+  background: var(--paper);
+  list-style: none;
+  transition: background-color 160ms ease;
+}
+
+.readinessChecklist li[data-checked="true"] {
+  background: var(--moss-light);
+}
+
+.readinessChecklist label {
+  min-height: 100%;
+  padding: 17px;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  cursor: pointer;
+}
+
+.readinessChecklist input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.readinessChecklist label > span {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid color-mix(in srgb, var(--moss) 54%, var(--line));
+  border-radius: 7px;
+  color: white;
+  background: var(--panel);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.readinessChecklist li[data-checked="true"] label > span {
+  border-color: var(--moss);
+  background: var(--moss);
+}
+
+.readinessChecklist input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.readinessChecklist strong {
   font-size: 0.92rem;
   font-weight: 700;
   line-height: 1.55;
 }
 
-.readiness li::before {
-  content: "?";
-  position: absolute;
-  top: 18px;
-  left: 16px;
-  width: 22px;
-  height: 22px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--moss);
-  background: var(--moss-light);
-  font-size: 0.75rem;
+.readinessProgress {
+  margin: 16px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
 }
 
-.readiness > a {
-  margin-top: 18px;
+.readinessAction {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 12px;
+  padding: 12px 18px;
   display: inline-flex;
-  min-height: 44px;
   align-items: center;
-  color: var(--moss);
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  color: white;
+  background: var(--moss);
   font-size: 0.86rem;
   font-weight: 800;
   text-decoration: none;
 }
 
-.readiness > a:hover {
-  text-decoration: underline;
+.readinessAction:hover {
+  background: color-mix(in srgb, var(--moss) 88%, black);
 }
 
-.readiness > a:focus-visible,
+.readinessAction:focus-visible,
 .related a:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
@@ -406,9 +455,10 @@
   grid-template-columns: 132px minmax(0, 1fr);
   gap: 16px;
   align-items: center;
+  border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--panel);
-  box-shadow: 0 8px 22px rgb(36 48 43 / 7%);
+  box-shadow: 0 6px 18px rgb(36 48 43 / 5%);
   text-decoration: none;
 }
 
@@ -466,14 +516,15 @@
   .realities,
   .readiness,
   .related {
-    margin-top: 48px;
+    margin-top: 44px;
   }
 
   .story h2,
   .realities h2,
   .readiness h2,
   .related h2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    line-height: 1.32;
   }
 
   .storyLayout,
@@ -514,13 +565,14 @@
   }
 
   .storySlide {
-    flex: 0 0 calc(100% - 28px);
+    flex: 0 0 calc(100vw - 60px);
     min-width: 0;
     overflow: hidden;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     border-radius: 22px;
-    background: color-mix(in srgb, var(--moss-light) 42%, var(--panel));
+    border: 1px solid var(--line);
+    background: var(--panel);
   }
 
   .storySlide > img {
@@ -624,7 +676,7 @@
     margin-top: 14px;
   }
 
-  .readiness ul,
+  .readinessChecklist ul,
   .related > div {
     grid-template-columns: 1fr;
   }
@@ -646,7 +698,7 @@
   }
 
   .realityGrid article {
-    flex: 0 0 calc(100% - 28px);
+    flex: 0 0 calc(100vw - 60px);
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
@@ -664,17 +716,12 @@
     border-radius: 22px;
   }
 
-  .readiness ul {
+  .readinessChecklist ul {
     gap: 8px;
   }
 
-  .readiness li {
-    padding: 15px 15px 15px 44px;
-  }
-
-  .readiness li::before {
-    top: 15px;
-    left: 14px;
+  .readinessChecklist label {
+    padding: 15px;
   }
 
   .related a {
@@ -692,6 +739,10 @@
   .storyDots button,
   .realityDots button,
   .sizeVisual {
+    transition: none;
+  }
+
+  .readinessChecklist li {
     transition: none;
   }
 

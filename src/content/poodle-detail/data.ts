@@ -81,8 +81,8 @@ export const poodleDetail = poodleDetailSchema.parse({
   realities: [
     {
       id: "sizes",
-      title: "네 가지 크기",
-      body: "토이부터 스탠더드까지, 같은 푸들이어도 필요한 공간과 활동의 규모가 달라요.",
+      title: "예상 성견 크기 확인",
+      body: "푸들은 한 이름 안에 네 가지 크기가 있어요. 함께 살 개체가 어느 크기로 자라는지 먼저 확인해야 해요.",
       image: "/illustrations/v4/poodle-feature-four-sizes.webp",
       imageAlt: "토이·미니어처·미디엄·스탠더드 푸들이 큰 순서대로 서 있는 삽화",
     },

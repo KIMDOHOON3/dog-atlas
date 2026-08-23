@@ -74,4 +74,12 @@ p { text-wrap: pretty; }
 
 @media (max-width: 767px) {
   body { padding-bottom: calc(67px + env(safe-area-inset-bottom)); }
+  .mobile-edge-to-edge {
+    width: calc(100% + 32px) !important;
+    margin-inline: -16px !important;
+  }
+  .mobile-edge-to-edge-track {
+    padding-inline: 16px !important;
+    scroll-padding-inline: 16px !important;
+  }
 }

@@ -191,7 +191,7 @@ export default async function BreedDetail({ params }: PageProps) {
       <a className="skip-link" href="#breed-content">견종 정보로 바로가기</a>
       <SiteHeader />
       <main id="breed-content">
-        <section className={`${styles.hero} ${styles.malteseHero}`} aria-labelledby="breed-title">
+        <section className={`${styles.hero} ${styles.malteseHero} ${breed.slug === "poodle" ? styles.poodleHero : ""}`} aria-labelledby="breed-title">
           <BreedVisual breed={breed} variant="detail" priority />
           <div className={styles.profileSummary}>
             <div className={styles.summary}>

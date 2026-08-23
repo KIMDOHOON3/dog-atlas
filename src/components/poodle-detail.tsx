@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BreedVisual } from "@/components/breed-visual";
 import { poodleDetail } from "@/content/poodle-detail/data";
 import type { Breed } from "@/content/breeds/schema";
-import { PoodleRealityCards, PoodleStorySteps } from "./poodle-detail-interactions";
+import { PoodleReadinessChecklist, PoodleRealityCards, PoodleStorySteps } from "./poodle-detail-interactions";
 import styles from "./poodle-detail.module.css";
 
 type RelatedBreed = { breed: Breed; reason: string };
@@ -37,8 +37,7 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
           <p>결정하기 전에</p>
           <h2 id="poodle-readiness-title">이 세 가지를 내 생활에 대입해보세요.</h2>
         </header>
-        <ul>{poodleDetail.readinessQuestions.map((question) => <li key={question}>{question}</li>)}</ul>
-        <Link href="/beginner-guide?breed=poodle">더 자세한 맞이 준비 보기 →</Link>
+        <PoodleReadinessChecklist />
       </section>
 
       {relatedBreeds.length > 0 && (
