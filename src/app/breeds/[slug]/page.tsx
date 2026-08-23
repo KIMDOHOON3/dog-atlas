@@ -7,11 +7,13 @@ import { BeginnerGuideLink } from "@/components/beginner-guide-link";
 import { InterestBreedToggle } from "@/components/interest-breed-toggle";
 import { LegalCareNotice } from "@/components/legal-care-notice";
 import { LifestyleProductIcon } from "@/components/lifestyle-product-icon";
+import { PoodleDetailExperience } from "@/components/poodle-detail";
 import { SiteHeader } from "@/components/site-header";
 import { getBreedFeatures } from "@/content/breed-features/data";
 import { getBreedGrowthGuide } from "@/content/breed-growth-guides/data";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
 import type { Breed } from "@/content/breeds/schema";
+import { poodleDetail } from "@/content/poodle-detail/data";
 import {
   getBreedLifePresentation,
 } from "@/lib/breed-life-presentation";
@@ -35,6 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (legacyBreedRedirects[slug]) return {};
   const breed = getBreed(slug);
   if (!breed) return {};
+  if (slug === "poodle") return { title: breed.nameKo, description: poodleDetail.metadataDescription };
   const descriptionTopics = getBreedGrowthGuide(slug)
     ? "크기와 수명, 성장 단계별 돌봄, 행동 경향과 함께 사는 현실"
     : breed.historyVisibility === "hidden"
@@ -212,9 +215,11 @@ export default async function BreedDetail({ params }: PageProps) {
   const related = getRelatedBreeds(breed);
   const [featuredRelated, ...otherRelated] = related;
   const growthGuide = getBreedGrowthGuide(breed.slug);
-  const allSources = [...new Map(
-    [...breed.sources, ...(growthGuide?.sources ?? []), ...behaviorContextSources].map((source) => [source.url, source]),
-  ).values()];
+  const allSources = breed.slug === "poodle"
+    ? poodleDetail.sources
+    : [...new Map(
+      [...breed.sources, ...(growthGuide?.sources ?? []), ...behaviorContextSources].map((source) => [source.url, source]),
+    ).values()];
   const facts = getBreedFactPresentation(breed);
 
   return (
@@ -228,10 +233,21 @@ export default async function BreedDetail({ params }: PageProps) {
             <div className={styles.summary}>
               <h1 id="breed-title">{breed.nameKo}</h1>
               <p className={styles.breedNameEn}>{breed.nameEn}</p>
+              {breed.slug === "poodle" && <p className={styles.poodleHeroStatement}>{poodleDetail.heroStatement}</p>}
             </div>
             <div className={styles.atAGlance}>
               <dl className={styles.facts}>
-                {facts.height && facts.weight ? (
+                {breed.slug === "poodle" ? (
+                  <div>
+                    <dt>크기</dt>
+                    <dd>
+                      <details className={styles.poodleSizeDetails}>
+                        <summary>{poodleDetail.heroSizeSummary}</summary>
+                        <ul>{poodleDetail.sizes.map((size) => <li key={size.id}><span>{size.label}</span><strong>{size.range}</strong></li>)}</ul>
+                      </details>
+                    </dd>
+                  </div>
+                ) : facts.height && facts.weight ? (
                   <div>
                     <dt>크기</dt>
                     <dd className={styles.sizeMeasurements}>
@@ -268,8 +284,8 @@ export default async function BreedDetail({ params }: PageProps) {
         {isKoreanManagedBreed(breed.slug) && <LegalCareNotice breedName={breed.nameKo} />}
 
         <article className={styles.content}>
-          <BreedDetailExperience breed={breed} />
-          {featuredRelated && <section className={styles.related} aria-labelledby="related-title">
+          {breed.slug === "poodle" ? <PoodleDetailExperience related={related} /> : <BreedDetailExperience breed={breed} />}
+          {breed.slug !== "poodle" && featuredRelated && <section className={styles.related} aria-labelledby="related-title">
             <header><p className={styles.eyebrow}>비슷한 견종과 비교하기</p><h2 id="related-title">나란히 보면 생활의 차이가 보여요.</h2></header>
             <>
               <div className={styles.compareFeature}>
@@ -301,7 +317,7 @@ export default async function BreedDetail({ params }: PageProps) {
           </section>}
 
           <details className={styles.sources}>
-            <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개 · {breed.sources[0].checkedAt} 확인</small></summary>
+            <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개 · {allSources[0].checkedAt} 확인</small></summary>
             <div><p>현재 편집 중이며 수의학·행동 전문가 검수 전인 정보입니다. 품종의 일반적 경향이 개별 강아지의 건강과 행동을 보장하지는 않습니다.</p><ul>{allSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} — {source.title}</a><span>확인일 {source.checkedAt}</span></li>)}</ul></div>
           </details>
         </article>

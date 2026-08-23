@@ -1,0 +1,499 @@
+.story,
+.realities,
+.readiness,
+.related {
+  margin-top: 72px;
+}
+
+.story > header,
+.realities > header,
+.readiness > header,
+.related > header {
+  max-width: 760px;
+}
+
+.story > header > p,
+.realities > header > p,
+.readiness > header > p,
+.related > header > p {
+  margin: 0 0 8px;
+  color: var(--moss);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.story h2,
+.realities h2,
+.readiness h2,
+.related h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  word-break: keep-all;
+}
+
+.story > header > span,
+.related > header > span {
+  display: block;
+  margin-top: 10px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.storyLayout {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 46fr) minmax(420px, 54fr);
+  gap: 34px;
+  align-items: center;
+}
+
+.storyLayout > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.storyInteraction {
+  min-width: 0;
+}
+
+.stepTabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stepTabs button {
+  position: relative;
+  min-width: 0;
+  min-height: 74px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 7px;
+  border: 0;
+  color: var(--ink-soft);
+  background: transparent;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.stepTabs button::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 21px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--line);
+}
+
+.stepTabs button:last-child::after {
+  display: none;
+}
+
+.stepTabs i {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--ink-soft);
+  background: var(--paper-deep);
+  font-size: 0.76rem;
+  font-style: normal;
+  transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.stepTabs button[aria-selected="true"] {
+  color: var(--moss);
+}
+
+.stepTabs button[aria-selected="true"] i {
+  color: white;
+  background: var(--moss);
+  transform: scale(1.08);
+}
+
+.stepTabs button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.stepPanel {
+  min-height: 210px;
+  margin-top: 12px;
+  padding: clamp(24px, 3vw, 34px);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--moss-light) 52%, var(--panel));
+  animation: step-enter 180ms ease-out;
+}
+
+.stepPanel > span {
+  color: var(--moss);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.stepPanel h3 {
+  margin: 9px 0 0;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.stepPanel p {
+  max-width: 42rem;
+  margin: 13px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.72;
+}
+
+.caution {
+  max-width: 760px;
+  margin: 18px 0 0;
+  padding-left: 14px;
+  border-left: 3px solid var(--moss-light);
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+.realityGrid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.realityGrid article {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--panel);
+  box-shadow: 0 12px 30px rgb(36 48 43 / 8%);
+}
+
+.realityGrid article > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.realityGrid article > div {
+  padding: 22px 24px 26px;
+}
+
+.realityGrid h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.realityGrid p {
+  margin: 9px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.68;
+}
+
+.sizePicker {
+  margin-top: 20px;
+}
+
+.sizePicker > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.sizePicker button {
+  min-width: 0;
+  min-height: 42px;
+  padding: 7px 4px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--ink-soft);
+  background: var(--paper-deep);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sizePicker button[aria-pressed="true"] {
+  color: white;
+  background: var(--moss);
+}
+
+.sizePicker button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.sizePicker output {
+  margin-top: 10px;
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--moss-light) 52%, var(--panel));
+}
+
+.sizePicker output strong {
+  font-size: 0.82rem;
+}
+
+.sizePicker output span {
+  color: var(--moss);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.readiness {
+  padding: clamp(26px, 5vw, 44px);
+  border-radius: 26px;
+  background: color-mix(in srgb, var(--clay-light) 56%, var(--panel));
+}
+
+.readiness ul {
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  list-style: none;
+}
+
+.readiness li {
+  position: relative;
+  padding: 18px 18px 18px 46px;
+  border-radius: 16px;
+  background: rgb(255 253 248 / 68%);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.readiness li::before {
+  content: "?";
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--moss);
+  background: var(--moss-light);
+  font-size: 0.75rem;
+}
+
+.readiness > a {
+  margin-top: 18px;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--moss);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.readiness > a:hover {
+  text-decoration: underline;
+}
+
+.readiness > a:focus-visible,
+.related a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.related > div {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.related a {
+  min-width: 0;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: 0 8px 22px rgb(36 48 43 / 7%);
+  text-decoration: none;
+}
+
+.related a > figure {
+  width: 132px;
+}
+
+.related a > span,
+.related a strong,
+.related a small,
+.related a b {
+  display: block;
+}
+
+.related a strong {
+  font-size: 1rem;
+}
+
+.related a small {
+  margin-top: 7px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.related a b {
+  margin-top: 10px;
+  color: var(--moss);
+  font-size: 0.76rem;
+}
+
+@keyframes step-enter {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 940px) {
+  .storyLayout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .storyLayout > img {
+    width: min(100%, 720px);
+  }
+}
+
+@media (max-width: 767px) {
+  .story,
+  .realities,
+  .readiness,
+  .related {
+    margin-top: 48px;
+  }
+
+  .story h2,
+  .realities h2,
+  .readiness h2,
+  .related h2 {
+    font-size: 1.75rem;
+  }
+
+  .storyLayout,
+  .realityGrid {
+    margin-top: 20px;
+  }
+
+  .stepTabs {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .stepTabs button {
+    min-height: 50px;
+    padding: 6px 8px;
+    align-items: center;
+    flex-direction: row;
+    gap: 11px;
+    text-align: left;
+  }
+
+  .stepTabs button::after {
+    top: 50%;
+    left: 22px;
+    width: 2px;
+    height: calc(100% + 2px);
+  }
+
+  .stepTabs i {
+    flex: 0 0 30px;
+  }
+
+  .stepPanel {
+    min-height: 0;
+    margin-top: 8px;
+    padding: 22px 18px;
+  }
+
+  .caution {
+    margin-top: 14px;
+  }
+
+  .realityGrid,
+  .readiness ul,
+  .related > div {
+    grid-template-columns: 1fr;
+  }
+
+  .realityGrid {
+    gap: 14px;
+  }
+
+  .realityGrid article > div {
+    padding: 19px 18px 22px;
+  }
+
+  .sizePicker > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .readiness {
+    padding: 24px 16px;
+    border-radius: 22px;
+  }
+
+  .readiness ul {
+    gap: 8px;
+  }
+
+  .readiness li {
+    padding: 15px 15px 15px 44px;
+  }
+
+  .readiness li::before {
+    top: 15px;
+    left: 14px;
+  }
+
+  .related a {
+    grid-template-columns: 106px minmax(0, 1fr);
+    gap: 13px;
+  }
+
+  .related a > figure {
+    width: 106px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stepTabs i {
+    transition: none;
+  }
+
+  .stepPanel {
+    animation: none;
+  }
+}

@@ -328,3 +328,9 @@ Use the three opening cards for present-day clues that help a reader judge daily
 Hide the Poodle history illustration and two chronology paragraphs on the public detail while preserving their data and assets for a reversible comparison. Replace that space with three portraits of the same apricot Miniature Poodle at early growth, middle growth, and adulthood, followed by concrete guardian actions for each broad stage.
 
 Treat month ranges as navigation rather than a medical schedule. Keep vaccination, feeding, neutering, and exercise restrictions individualized through a veterinarian; use multiple primary veterinary and behavior sources instead of adapting one source's table or narrative. Do not infer exact age from an illustration or imply that one Miniature Poodle represents the growth rate of all four Poodle varieties.
+
+# 2026-08-23 — Refocus the Poodle pilot on role, tendency, and daily reality
+
+Supersede the public Poodle growth-stage pilot with one concise Poodle-only detail flow: an expandable four-size summary in the hero, a keyboard-operable three-step connection from retrieving work to present-day tendencies and guardian effort, two practical reality cards, three self-check questions without scoring, and two compact related-breed paths. Keep the shared growth data and assets available but do not render them on the Poodle page.
+
+Remove only the Poodle page's large Labrador comparison block; keep the global comparison navigation, shortlist action, and tray unchanged. Limit the Poodle source disclosure to official sources directly supporting the visible role, size, learning tendency, and coat claims, and keep it collapsed by default.

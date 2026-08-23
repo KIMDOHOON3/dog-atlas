@@ -105,6 +105,15 @@
   font-weight: 600;
   letter-spacing: .02em;
 }
+.poodleHeroStatement {
+  max-width: 31rem;
+  margin: 15px 0 0;
+  color: var(--ink);
+  font-size: clamp(1rem, 1.5vw, 1.14rem);
+  font-weight: 750;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+}
 .atAGlance {
   align-self: start;
 }
@@ -129,6 +138,53 @@
   font-size: 0.94rem;
   font-weight: 700;
   line-height: 1.45;
+}
+.poodleSizeDetails summary {
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+.poodleSizeDetails summary::-webkit-details-marker {
+  display: none;
+}
+.poodleSizeDetails summary::after {
+  content: "+";
+  color: var(--moss);
+  font-size: 1rem;
+}
+.poodleSizeDetails[open] summary::after {
+  content: "−";
+}
+.poodleSizeDetails summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.poodleSizeDetails ul {
+  margin: 10px 0 0;
+  padding: 10px 0 0;
+  border-top: 1px solid rgb(55 73 65 / 12%);
+  list-style: none;
+}
+.poodleSizeDetails li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+.poodleSizeDetails li + li {
+  margin-top: 5px;
+}
+.poodleSizeDetails li strong {
+  color: var(--ink);
+  font-size: inherit;
 }
 .sizeMeasurements {
   display: grid;
