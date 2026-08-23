@@ -239,7 +239,7 @@ export const detailBatchB = [
       { time: "저녁", title: "안전한 속도", description: "통제된 공간에서 짧게 달린 뒤 천천히 회복해요." },
     ],
     related: [
-      { slug: "greyhound", reason: "같은 시각 하운드의 질주와 휴식 리듬을 체격 차이와 함께 비교하기 좋아요." },
+      { slug: "greyhound", reason: "같은 시각 하운드의 질주와 휴식 리듬을 체격 차이와 함께 살펴보기 좋아요." },
       { slug: "basenji", reason: "짧은 피모와 사냥 배경은 닮았지만 자극을 추적하고 표현하는 방식은 다를 수 있어요." },
     ],
     sources: [

@@ -334,3 +334,9 @@ Treat month ranges as navigation rather than a medical schedule. Keep vaccinatio
 Supersede the public Poodle growth-stage pilot with one concise Poodle-only detail flow: an expandable four-size summary in the hero, a keyboard-operable three-step connection from retrieving work to present-day tendencies and guardian effort, two practical reality cards, three self-check questions without scoring, and two compact related-breed paths. Keep the shared growth data and assets available but do not render them on the Poodle page.
 
 Remove only the Poodle page's large Labrador comparison block; keep the global comparison navigation, shortlist action, and tray unchanged. Limit the Poodle source disclosure to official sources directly supporting the visible role, size, learning tendency, and coat claims, and keep it collapsed by default.
+
+# 2026-08-23 — Pause and remove the comparison flow
+
+Supersede the earlier comparison decisions for the current product. Remove `/compare`, URL selection resolution, locally saved comparison candidates, the global tray, detail-page candidate actions, comparison-specific detail blocks, navigation entries, sitemap entry, tests, and dedicated image assets. Keep the six tendency axes because discovery filters and editorial content still use them.
+
+Related-breed cards may remain only when they navigate directly to another breed detail and explain a different living condition without ranking, matching, or opening a comparison flow. Treat `shortlist-design-spec.md` and earlier comparison entries as historical records. Reintroducing comparison requires a new explicit product decision and scope.

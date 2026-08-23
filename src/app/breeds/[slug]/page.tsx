@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
 import { BeginnerGuideLink } from "@/components/beginner-guide-link";
-import { InterestBreedToggle } from "@/components/interest-breed-toggle";
 import { LegalCareNotice } from "@/components/legal-care-notice";
 import { LifestyleProductIcon } from "@/components/lifestyle-product-icon";
 import { PoodleDetailExperience } from "@/components/poodle-detail";
@@ -63,38 +61,6 @@ const tendencyLevelScore = {
   "높은 편": 3,
   "개체별 확인 필요": 0,
 } as const;
-
-function getLifestyleDifference(left: Breed, right: Breed) {
-  const leftFacts = getBreedFactPresentation(left);
-  const rightFacts = getBreedFactPresentation(right);
-  const differences = [
-    leftFacts.size && rightFacts.size && leftFacts.size !== rightFacts.size ? "체격" : undefined,
-    left.tendencies.activity.label !== right.tendencies.activity.label ? "활동량" : undefined,
-    left.tendencies.grooming.label !== right.tendencies.grooming.label ? "털 관리" : undefined,
-  ].filter((difference): difference is string => Boolean(difference));
-
-  return differences.length > 0
-    ? `${differences.join(" · ")} 차이가 있어요.`
-    : "생활 조건이 비슷한 편이에요.";
-}
-
-function getLifestyleCommonality(left: Breed, right: Breed) {
-  const commonTraits = [
-    left.tendencies.activity.label === right.tendencies.activity.label
-      ? `활동량 ${left.tendencies.activity.label}`
-      : undefined,
-    left.tendencies.socialConnection.label === right.tendencies.socialConnection.label
-      ? `교감 ${left.tendencies.socialConnection.label}`
-      : undefined,
-    left.tendencies.grooming.label === right.tendencies.grooming.label
-      ? `털 관리 ${left.tendencies.grooming.label}`
-      : undefined,
-  ].filter((trait): trait is string => Boolean(trait)).slice(0, 2);
-
-  return commonTraits.length > 0
-    ? commonTraits.join(" · ")
-    : "비슷한 생활 기준으로 살펴보기 좋아요.";
-}
 
 function BreedDetailExperience({ breed }: { breed: Breed }) {
   const { lifePoints, dayPoints } = getBreedLifePresentation(breed);
@@ -200,7 +166,6 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
       <section className={styles.malteseDecision} aria-label={`${breed.nameKo} 다음 선택`}>
         <div className={styles.malteseChoiceActions}>
           <BeginnerGuideLink slug={breed.slug} nameKo={breed.nameKo} />
-          <InterestBreedToggle slug={breed.slug} nameKo={breed.nameKo} />
         </div>
       </section>
     </>
@@ -212,8 +177,7 @@ export default async function BreedDetail({ params }: PageProps) {
   if (legacyBreedRedirects[slug]) redirect(`/breeds/${legacyBreedRedirects[slug]}`);
   const breed = getBreed(slug);
   if (!breed) notFound();
-  const related = getRelatedBreeds(breed);
-  const [featuredRelated, ...otherRelated] = related;
+  const related = breed.slug === "poodle" ? getRelatedBreeds(breed) : [];
   const growthGuide = getBreedGrowthGuide(breed.slug);
   const allSources = breed.slug === "poodle"
     ? poodleDetail.sources
@@ -285,37 +249,6 @@ export default async function BreedDetail({ params }: PageProps) {
 
         <article className={styles.content}>
           {breed.slug === "poodle" ? <PoodleDetailExperience related={related} /> : <BreedDetailExperience breed={breed} />}
-          {breed.slug !== "poodle" && featuredRelated && <section className={styles.related} aria-labelledby="related-title">
-            <header><p className={styles.eyebrow}>비슷한 견종과 비교하기</p><h2 id="related-title">나란히 보면 생활의 차이가 보여요.</h2></header>
-            <>
-              <div className={styles.compareFeature}>
-                <BreedVisual breed={breed} variant="card" />
-                <div className={styles.compareMark} aria-hidden="true">↔</div>
-                <BreedVisual breed={featuredRelated.breed} variant="card" />
-                <div className={styles.compareCopy}>
-                  <strong>{breed.nameKo}와 {featuredRelated.breed.nameKo}</strong>
-                  <div className={styles.comparePoints}>
-                    <p><b>공통점</b><span>{getLifestyleCommonality(breed, featuredRelated.breed)}</span></p>
-                    <p><b>차이점</b><span>{getLifestyleDifference(breed, featuredRelated.breed)}</span></p>
-                  </div>
-                  <Link href={`/compare?breeds=${breed.slug},${featuredRelated.breed.slug}`}>{breed.nameKo}와 {featuredRelated.breed.nameKo} 비교하기 →</Link>
-                </div>
-              </div>
-              {otherRelated.length > 0 && <div className={styles.otherRelated}>
-                <p>함께 살펴볼 관련 견종</p>
-                <div className={styles.otherRelatedGrid}>
-                  {otherRelated.slice(0, 3).map(({ breed: item, reason }) => (
-                    <Link className={styles.smallRelated} href={`/breeds/${item.slug}`} key={item.slug}>
-                      <BreedVisual breed={item} variant="tile" />
-                      <div><strong>{item.nameKo}</strong><small>{item.nameEn}</small><p>{reason}</p></div>
-                      <span aria-hidden="true">→</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>}
-            </>
-          </section>}
-
           <details className={styles.sources}>
             <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개 · {allSources[0].checkedAt} 확인</small></summary>
             <div><p>현재 편집 중이며 수의학·행동 전문가 검수 전인 정보입니다. 품종의 일반적 경향이 개별 강아지의 건강과 행동을 보장하지는 않습니다.</p><ul>{allSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} — {source.title}</a><span>확인일 {source.checkedAt}</span></li>)}</ul></div>

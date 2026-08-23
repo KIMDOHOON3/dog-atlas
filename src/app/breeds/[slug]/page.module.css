@@ -262,8 +262,7 @@
 }
 .history,
 .tendencies,
-.reality,
-.related {
+.reality {
   margin-top: 72px;
 }
 .history {
@@ -717,11 +716,8 @@
   margin-top: 54px;
 }
 .malteseChoiceActions {
-  width: min(100%, 900px);
+  width: min(100%, 440px);
   margin-inline: auto;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
 }
 .malteseChoiceActions > div {
   min-width: 0;
@@ -731,8 +727,7 @@
 .malteseChoiceActions > div > span {
   display: none;
 }
-.malteseChoiceActions a,
-.malteseChoiceActions button {
+.malteseChoiceActions a {
   width: 100%;
   min-height: 158px;
   flex-direction: column;
@@ -748,17 +743,11 @@
     box-shadow 0.2s ease,
     background-color 0.2s ease;
 }
-.malteseChoiceActions > div:first-child a,
-.malteseChoiceActions > div:last-child button {
+.malteseChoiceActions a {
   color: var(--moss);
   background: color-mix(in srgb, var(--panel) 92%, var(--moss-light));
 }
-.malteseChoiceActions > div:last-child button[aria-pressed="true"] {
-  color: white;
-  background: var(--moss);
-}
-.malteseChoiceActions a span,
-.malteseChoiceActions button span {
+.malteseChoiceActions a span {
   width: 94px;
   height: 94px;
   display: grid;
@@ -766,181 +755,22 @@
   place-items: center;
   border-radius: 22px;
 }
-.malteseChoiceActions a span,
-.malteseChoiceActions button span {
+.malteseChoiceActions a span {
   background: transparent;
 }
-.malteseChoiceActions a img,
-.malteseChoiceActions button img {
+.malteseChoiceActions a img {
   width: 88px;
   height: 88px;
 }
-.malteseChoiceActions a:hover,
-.malteseChoiceActions button:hover {
+.malteseChoiceActions a:hover {
   color: white;
   background: var(--moss);
   translate: 0 -2px;
   box-shadow: 0 14px 30px rgb(36 48 43 / 17%);
 }
-.malteseChoiceActions a:focus-visible,
-.malteseChoiceActions button:focus-visible {
+.malteseChoiceActions a:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
-}
-.related > header {
-  margin-bottom: 20px;
-  text-align: center;
-}
-.compareFeature {
-  max-width: 900px;
-  margin-inline: auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
-  gap: 14px;
-  align-items: center;
-  padding: 18px;
-  border-radius: 24px;
-  background: var(--panel);
-}
-.compareMark {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--moss-light);
-  color: var(--moss);
-  font-size: 1.2rem;
-}
-.compareCopy {
-  grid-column: 1 / -1;
-  padding: 10px 4px 2px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-}
-.compareCopy > strong {
-  font-size: 1.18rem;
-}
-.comparePoints {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-.comparePoints p {
-  min-width: 0;
-  margin: 0;
-  padding: 14px 16px;
-  border-radius: 14px;
-  color: var(--ink-soft);
-  background: color-mix(in srgb, var(--moss-light) 52%, var(--panel));
-  font-size: 0.9rem;
-  line-height: 1.62;
-}
-.comparePoints p b,
-.comparePoints p span {
-  display: block;
-}
-.comparePoints p b {
-  margin-bottom: 5px;
-  color: var(--moss);
-  font-size: 0.76rem;
-}
-.compareCopy a {
-  padding: 11px 18px;
-  border-radius: 999px;
-  color: white;
-  background: var(--moss);
-  text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-.otherRelated {
-  max-width: 900px;
-  margin: 32px auto 0;
-}
-.otherRelated > p {
-  margin: 0 0 12px;
-  color: var(--moss);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-align: center;
-}
-.otherRelatedGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-.smallRelated {
-  position: relative;
-  min-width: 0;
-  padding: 10px 10px 42px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  border: 0;
-  border-radius: 18px;
-  background: var(--panel);
-  box-shadow: 0 8px 22px rgb(36 48 43 / 6%);
-  text-decoration: none;
-}
-.smallRelated > figure {
-  width: 100%;
-}
-.smallRelated > div {
-  padding-inline: 4px;
-}
-.smallRelated p {
-  margin: 8px 0 0;
-  display: -webkit-box;
-  overflow: hidden;
-  color: var(--ink-soft);
-  font-size: 0.8rem;
-  line-height: 1.58;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-.smallRelated small {
-  display: block;
-  margin-top: 2px;
-  color: var(--ink-soft);
-  font-size: 0.72rem;
-  font-weight: 500;
-  line-height: 1.4;
-}
-.smallRelated strong {
-  display: block;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  word-break: keep-all;
-}
-.smallRelated > span {
-  position: absolute;
-  right: 13px;
-  bottom: 12px;
-  color: var(--moss);
-}
-.relatedGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.relatedGrid > a {
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 14px;
-  align-items: center;
-  border-radius: 18px;
-  background: var(--panel);
-  text-decoration: none;
-}
-.relatedGrid p {
-  color: var(--ink-soft);
-  font-size: 0.88rem;
-  line-height: 1.6;
 }
 .sources {
   margin: 72px 0 40px;
@@ -1032,12 +862,6 @@
     gap: 28px;
   }
   .growthStageGrid {
-    grid-template-columns: 1fr;
-  }
-  .malteseChoiceActions {
-    grid-template-columns: 1fr;
-  }
-  .otherRelatedGrid {
     grid-template-columns: 1fr;
   }
 }
@@ -1212,38 +1036,10 @@
   .malteseDecision {
     margin-top: 40px;
   }
-  .malteseChoiceActions {
-    grid-template-columns: 1fr;
-  }
-  .malteseChoiceActions a,
-  .malteseChoiceActions button {
+  .malteseChoiceActions a {
     min-height: 66px;
     padding: 13px 16px;
     font-size: 0.9rem;
-  }
-  .compareFeature {
-    grid-template-columns: 1fr 32px 1fr;
-    padding: 10px;
-  }
-  .compareMark {
-    width: 32px;
-    height: 32px;
-  }
-  .comparePoints {
-    grid-template-columns: 1fr;
-  }
-  .compareCopy a {
-    width: 100%;
-    text-align: center;
-  }
-  .smallRelated > span {
-    display: none;
-  }
-  .relatedGrid > a {
-    grid-template-columns: 110px 1fr;
-  }
-  .relatedGrid {
-    grid-template-columns: 1fr;
   }
   .sources summary {
     align-items: start;
@@ -1252,12 +1048,10 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .malteseChoiceActions a,
-  .malteseChoiceActions button {
+  .malteseChoiceActions a {
     transition: none;
   }
-  .malteseChoiceActions a:hover,
-  .malteseChoiceActions button:hover {
+  .malteseChoiceActions a:hover {
     translate: none;
   }
 }

@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { InterestBreedTray } from "@/components/interest-breed-tray";
-import { InterestBreedsProvider } from "@/components/interest-breeds";
 import { PageScrollControl } from "@/components/page-scroll-control";
-import { breeds } from "@/content/breeds/data";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -31,11 +28,8 @@ export default function RootLayout({
   return (
     <html lang="ko" data-scroll-behavior="smooth">
       <body>
-        <InterestBreedsProvider breeds={breeds.map(({ slug, nameKo }) => ({ slug, nameKo }))}>
-          {children}
-          <PageScrollControl />
-          <InterestBreedTray />
-        </InterestBreedsProvider>
+        {children}
+        <PageScrollControl />
       </body>
     </html>
   );

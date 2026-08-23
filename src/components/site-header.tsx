@@ -2,14 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useInterestBreeds } from "./interest-breeds";
 import { NavigationIcon } from "./navigation-icon";
 import styles from "./site-header.module.css";
 
 export function SiteHeader({ wide = false }: { wide?: boolean }) {
-  const { slugs, hydrated } = useInterestBreeds();
   const pathname = usePathname();
-  const compareHref = slugs.length ? `/compare?breeds=${slugs.join(",")}` : "/compare";
   const breedNamesActive = pathname === "/breed-names" || pathname.startsWith("/breed-names/");
   const curiosityActive = pathname === "/curiosity" || pathname.startsWith("/curiosity/");
 
@@ -24,7 +21,6 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
           <Link href="/discover">견종 발견</Link>
           <Link href="/breed-names/pointer">이름 속 견종</Link>
           <Link href="/curiosity/regulated-care">견종 모아보기</Link>
-          <Link href={compareHref}>비교하기{hydrated && slugs.length > 0 ? ` · ${slugs.length}` : ""}</Link>
         </nav>
       </header>
       <nav className={styles.mobileBottomNav} aria-label="모바일 주요 탐색">
@@ -43,10 +39,6 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
         <Link className={curiosityActive ? styles.mobileNavActive : ""} href="/curiosity/regulated-care">
           <NavigationIcon name="curiosity" />
           <span>견종 모아보기</span>
-        </Link>
-        <Link className={pathname === "/compare" ? styles.mobileNavActive : ""} href={compareHref}>
-          <NavigationIcon name="compare" />
-          <span>비교하기{hydrated && slugs.length > 0 ? ` · ${slugs.length}` : ""}</span>
         </Link>
       </nav>
     </>

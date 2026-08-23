@@ -20,7 +20,7 @@
 .mobileBottomNav { display: none; }
 @media (max-width: 767px) { .header { height: 56px; } .header nav { display: none; } .brand { font-size: .92rem; } .mark { width: 30px; height: 30px; flex-basis: 30px; } }
 @media (max-width: 767px) {
-  .mobileBottomNav { position: fixed; z-index: 50; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: repeat(5, 1fr); padding: 4px 5px max(4px, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgb(255 253 248 / 96%); box-shadow: 0 -8px 24px rgb(42 52 46 / 9%); backdrop-filter: blur(14px); }
+  .mobileBottomNav { position: fixed; z-index: 50; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: repeat(4, 1fr); padding: 4px 5px max(4px, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgb(255 253 248 / 96%); box-shadow: 0 -8px 24px rgb(42 52 46 / 9%); backdrop-filter: blur(14px); }
   .mobileBottomNav a { min-width: 0; min-height: 58px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; border-radius: 12px; color: var(--ink-soft); font-size: .61rem; font-weight: 700; line-height: 1.12; text-decoration: none; white-space: nowrap; }
   .mobileBottomNav a:hover, .mobileBottomNav a:focus-visible { color: var(--ink); background: var(--paper-deep); }
   .mobileBottomNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }

@@ -1,17 +1,9 @@
 type StoryGlyphProps = {
-  kind: "discover" | "compare" | "daily";
+  kind: "discover" | "daily";
   className?: string;
 };
 
 export function StoryGlyph({ kind, className }: StoryGlyphProps) {
-  if (kind === "compare") {
-    return (
-      <svg className={className} viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M32 10v40M15 19h34M18 19l-8 16h16L18 19Zm28 0-8 16h16L46 19ZM22 52h20" />
-      </svg>
-    );
-  }
-
   if (kind === "daily") {
     return (
       <svg className={className} viewBox="0 0 64 64" aria-hidden="true">

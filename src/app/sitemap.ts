@@ -10,6 +10,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...breeds.map((breed) => ({ url: `${base}/breeds/${breed.slug}`, changeFrequency: "monthly" as const, priority: breed.slug === "japanese-spitz" ? 0.9 : 0.7 })),
     ...breedNameStories.map((story) => ({ url: `${base}/breed-names/${story.key}`, changeFrequency: "monthly" as const, priority: 0.65 })),
     ...homeCuriosityThemes.map((theme) => ({ url: `${base}/curiosity/${theme.key}`, changeFrequency: "monthly" as const, priority: 0.65 })),
-    { url: `${base}/compare`, changeFrequency: "monthly", priority: 0.7 },
   ];
 }

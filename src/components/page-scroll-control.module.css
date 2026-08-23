@@ -2,11 +2,9 @@
 .control svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .control:hover { background: var(--moss); transform: translateY(-1px); }
 .control:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-:global(body:has([data-interest-tray])) .control { bottom: 116px; }
 
 @media (max-width: 767px) {
   .control { right: 14px; bottom: calc(78px + env(safe-area-inset-bottom)); width: 42px; height: 42px; }
-  :global(body:has([data-interest-tray])) .control { bottom: calc(224px + env(safe-area-inset-bottom)); }
 }
 
 @media (prefers-reduced-motion: reduce) { .control:hover { transform: none; } }

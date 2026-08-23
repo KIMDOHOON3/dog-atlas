@@ -131,7 +131,7 @@
 
 ## First complete journey
 
-Edited discovery home → Japanese Spitz story detail → related breeds → two-breed comparison.
+Edited discovery home → breed story detail → readiness guide.
 
 ## Include
 
@@ -140,7 +140,6 @@ Edited discovery home → Japanese Spitz story detail → related breeds → two
 - Breed history, lineage, original role, behavioral tendencies, and present-day care reality
 - A short, clearly framed owner-experience snapshot
 - Related-breed explanations
-- Same-criteria comparison
 - Source and review-status fields in content data
 
 ## Exclude for now
@@ -152,3 +151,4 @@ Edited discovery home → Japanese Spitz story detail → related breeds → two
 - Long-form virtual pet game
 - PWA or native app
 - Detailed pages for all 160 master-catalog breeds
+- Breed comparison, saved comparison candidates, and a global shortlist tray
