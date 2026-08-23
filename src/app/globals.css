@@ -88,6 +88,25 @@ body:has(main[data-breed-theme="poodle"]) {
   background: #fff;
 }
 
+body:has(main[data-home-theme="warm-3d"]) {
+  --paper: #fff;
+  --paper-deep: #f6f0e8;
+  --panel: #fff;
+  --ink: #302a26;
+  --ink-soft: #716861;
+  --line: #e9e3dc;
+  --moss: #a76035;
+  --moss-light: #faeadc;
+  --clay: #a76035;
+  --clay-light: #f6e7db;
+  --shadow: 0 18px 60px rgb(68 47 33 / 9%);
+  background: #fff;
+}
+
+body:has(main[data-home-theme="warm-3d"]) > header {
+  background: #fff;
+}
+
 body:has(main[data-breed-theme="poodle"]) > header,
 body:has(main[data-breed-theme="poodle"]) > nav[aria-label="모바일 주요 탐색"] {
   border-color: transparent;

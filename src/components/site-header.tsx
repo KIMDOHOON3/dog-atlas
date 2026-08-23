@@ -2,13 +2,33 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { NavigationIcon } from "./navigation-icon";
 import styles from "./site-header.module.css";
 
 export function SiteHeader({ wide = false }: { wide?: boolean }) {
   const pathname = usePathname();
-  const breedNamesActive = pathname === "/breed-names" || pathname.startsWith("/breed-names/");
-  const curiosityActive = pathname === "/curiosity" || pathname.startsWith("/curiosity/");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    function closeOnOutsideClick(event: PointerEvent) {
+      if (!menuRef.current?.contains(event.target as Node)) setMenuOpen(false);
+    }
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setMenuOpen(false);
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [menuOpen]);
 
   return (
     <>
@@ -17,28 +37,44 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
           <span className={styles.mark} aria-hidden="true">犬</span>
           <span>강아지 도감</span>
         </Link>
-        <nav aria-label="주요 탐색">
-          <Link href="/discover">견종 발견</Link>
-          <Link href="/breed-names/pointer">이름 속 견종</Link>
-          <Link href="/curiosity/regulated-care">견종 모아보기</Link>
-        </nav>
+        <div className={styles.headerActions}>
+          <nav aria-label="주요 탐색">
+            <Link className={pathname === "/discover" ? styles.headerActive : ""} href="/discover" aria-current={pathname === "/discover" ? "page" : undefined}>견종 발견</Link>
+          </nav>
+          <div className={styles.menu} ref={menuRef}>
+            <button
+              className={styles.menuButton}
+              type="button"
+              aria-expanded={menuOpen}
+              aria-controls="site-more-menu"
+              onClick={() => setMenuOpen((current) => !current)}
+            >
+              <span>메뉴</span>
+              <i aria-hidden="true"><b /><b /></i>
+            </button>
+            {menuOpen && (
+              <nav className={styles.menuPanel} id="site-more-menu" aria-label="더 둘러보기">
+                <Link href="/breed-names/pointer" onClick={() => setMenuOpen(false)}>
+                  <strong>이름 속 견종</strong>
+                  <span>이름에 남은 과거의 역할을 읽어요.</span>
+                </Link>
+                <Link href="/curiosity/regulated-care" onClick={() => setMenuOpen(false)}>
+                  <strong>견종 모아보기</strong>
+                  <span>견종을 여러 주제로 천천히 살펴봐요.</span>
+                </Link>
+              </nav>
+            )}
+          </div>
+        </div>
       </header>
       <nav className={styles.mobileBottomNav} aria-label="모바일 주요 탐색">
-        <Link className={pathname === "/" ? styles.mobileNavActive : ""} href="/">
+        <Link className={pathname === "/" ? styles.mobileNavActive : ""} href="/" aria-current={pathname === "/" ? "page" : undefined}>
           <NavigationIcon name="home" />
           <span>홈</span>
         </Link>
-        <Link className={pathname === "/discover" ? styles.mobileNavActive : ""} href="/discover">
+        <Link className={pathname === "/discover" ? styles.mobileNavActive : ""} href="/discover" aria-current={pathname === "/discover" ? "page" : undefined}>
           <NavigationIcon name="discovery" />
           <span>견종 발견</span>
-        </Link>
-        <Link className={breedNamesActive ? styles.mobileNavActive : ""} href="/breed-names/pointer">
-          <NavigationIcon name="stories" />
-          <span>이름 속 견종</span>
-        </Link>
-        <Link className={curiosityActive ? styles.mobileNavActive : ""} href="/curiosity/regulated-care">
-          <NavigationIcon name="curiosity" />
-          <span>견종 모아보기</span>
         </Link>
       </nav>
     </>

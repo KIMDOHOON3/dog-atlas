@@ -340,3 +340,11 @@ Remove only the Poodle page's large Labrador comparison block; keep the global c
 Supersede the earlier comparison decisions for the current product. Remove `/compare`, URL selection resolution, locally saved comparison candidates, the global tray, detail-page candidate actions, comparison-specific detail blocks, navigation entries, sitemap entry, tests, and dedicated image assets. Keep the six tendency axes because discovery filters and editorial content still use them.
 
 Related-breed cards may remain only when they navigate directly to another breed detail and explain a different living condition without ranking, matching, or opening a comparison flow. Treat `shortlist-design-spec.md` and earlier comparison entries as historical records. Reintroducing comparison requires a new explicit product decision and scope.
+
+# 2026-08-24 — Start the new product direction from home
+
+Use the home page as the first bounded redesign before extending the new visual language to discovery or breed details. Lead with the idea that choosing a dog means understanding the life it needs, not selecting an appearance, while preserving direct name search and non-scored condition filtering.
+
+Keep the base surface white and build warmth from cocoa text, oatmeal secondary surfaces, restrained caramel actions, and one original matte 3D daily-life diorama. Do not imitate the colors of familiar Korean services or fill the interface with generic 3D emoji cards. Keep mobile headings at or below 24px and desktop headings at or below 28px, using whitespace and imagery rather than oversized type or colored borders for hierarchy.
+
+Move `이름 속 견종` and `견종 모아보기` into a top-right menu. Keep only `홈` and `견종 발견` in the mobile bottom navigation. Retain all 376 catalog entries and search coverage, but let home start with six familiar editorial examples without calling them a popularity ranking, definitive recommendation, or match result.
