@@ -44,10 +44,10 @@ export default function Home() {
           </div>
           <figure className={styles.heroVisual}>
             <Image
-              src="/illustrations/v7/home-life-diorama.webp"
-              alt="말티즈와 푸들, 진돗개가 산책줄과 물그릇, 빗 옆에 함께 서 있는 생활 디오라마"
-              width={1456}
-              height={1088}
+              src="/illustrations/v8/home-care-ui-spitz-diorama.webp"
+              alt="재패니즈 스피츠 주변에 산책줄과 물그릇, 빗, 산책 수건이 각각 놓인 3D 생활 디오라마"
+              width={1448}
+              height={1086}
               priority
               sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1100px) 48vw, 680px"
             />

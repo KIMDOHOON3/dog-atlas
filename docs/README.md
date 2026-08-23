@@ -40,6 +40,7 @@
 ### 이미지 제작 기록
 
 - [`image-prompt-home-life-diorama-2026-08-24.md`](image-prompt-home-life-diorama-2026-08-24.md) — 새 홈의 무광 3D 생활 디오라마 자산·프롬프트·화면 검수 기록
+- [`image-prompt-home-care-ui-spitz-2026-08-24.md`](image-prompt-home-care-ui-spitz-2026-08-24.md) — 홈 대표 스피츠와 네 돌봄 모듈로 구성한 3D UI 디오라마 프롬프트
 - [`breed-visual-audit.md`](breed-visual-audit.md) — 368종 카드 1차 외형 점검과 고위험 묶음별 교체·유지·재확인 상태
 - [`image-prompts-sapsaree.md`](image-prompts-sapsaree.md) — 삽살개 카드·역사 이미지 재제작 근거와 전체 프롬프트
 - [`image-prompts-breed-visual-replacements-2026-08-11.md`](image-prompts-breed-visual-replacements-2026-08-11.md) — 공식 외형 자료와 대조해 교체한 10종·20개 자산의 생성 방식, 프롬프트와 파일 매핑
