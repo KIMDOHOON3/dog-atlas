@@ -668,6 +668,10 @@
     width: min(100%, 720px);
     justify-self: center;
   }
+
+  .stepPanel {
+    height: 220px;
+  }
 }
 
 @media (max-width: 767px) {
