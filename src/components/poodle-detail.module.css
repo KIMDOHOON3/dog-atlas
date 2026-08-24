@@ -10,7 +10,10 @@
 .realities > header,
 .readiness > header,
 .related > header {
+  position: relative;
   max-width: 760px;
+  min-height: 48px;
+  padding-left: 56px;
 }
 
 .story > header > p,
@@ -19,9 +22,7 @@
 .related > header > p {
   margin: 0 0 8px;
   color: var(--moss);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: block;
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -31,21 +32,38 @@
 .realities > header > p b,
 .readiness > header > p b,
 .related > header > p b {
-  width: 28px;
-  height: 28px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
-  border-radius: 9px;
+  border-radius: 13px;
   color: var(--moss);
   background: var(--moss-light);
   font-size: 0.68rem;
   letter-spacing: 0;
 }
 
-.story h2,
-.realities h2,
-.readiness h2,
-.related h2 {
+.story > header > p b::after,
+.realities > header > p b::after,
+.readiness > header > p b::after,
+.related > header > p b::after {
+  position: absolute;
+  top: 46px;
+  left: 19px;
+  width: 2px;
+  height: 24px;
+  border-radius: 999px;
+  background: #efd8c7;
+  content: "";
+}
+
+.story > header > h2,
+.realities > header > h2,
+.readiness > header > h2,
+.related > header > h2 {
   margin: 0;
   font-size: clamp(1.35rem, 2vw, 1.55rem);
   line-height: 1.42;
@@ -63,11 +81,18 @@
 }
 
 .storyLayout {
-  margin-top: 28px;
+  margin-top: 32px;
   display: grid;
   grid-template-columns: minmax(0, 46fr) minmax(420px, 54fr);
   gap: 34px;
   align-items: center;
+}
+
+.story {
+  padding: clamp(30px, 4vw, 46px);
+  border-radius: 32px;
+  background: radial-gradient(circle at 0 0, rgb(250 234 220 / 72%) 0, transparent 34%), #fff;
+  box-shadow: 0 18px 54px rgb(68 47 33 / 7%);
 }
 
 .storyImage {
@@ -506,10 +531,42 @@
     margin-top: 56px;
   }
 
-  .story h2,
-  .realities h2,
-  .readiness h2,
-  .related h2 {
+  .story {
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .story > header,
+  .realities > header,
+  .readiness > header,
+  .related > header {
+    padding-left: 50px;
+  }
+
+  .story > header > p b,
+  .realities > header > p b,
+  .readiness > header > p b,
+  .related > header > p b {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+  }
+
+  .story > header > p b::after,
+  .realities > header > p b::after,
+  .readiness > header > p b::after,
+  .related > header > p b::after {
+    top: 42px;
+    left: 17px;
+    height: 20px;
+  }
+
+  .story > header > h2,
+  .realities > header > h2,
+  .readiness > header > h2,
+  .related > header > h2 {
     font-size: 1.35rem;
     line-height: 1.45;
   }

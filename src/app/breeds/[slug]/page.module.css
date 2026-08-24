@@ -113,6 +113,26 @@
   background: #f8f2ea;
   box-shadow: 0 22px 60px rgb(68 47 33 / 11%);
 }
+.poodleHero .profileSummary {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #f9f2ea 0%, #f1e4d7 100%);
+  box-shadow: 0 20px 54px rgb(68 47 33 / 10%);
+}
+.poodleHero .profileSummary::after {
+  position: absolute;
+  z-index: -1;
+  top: -82px;
+  right: -62px;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: rgb(180 95 50 / 10%);
+  content: "";
+}
 .poodleHero .breedNameEn { color: var(--moss); }
 .breedNameEn {
   margin: 7px 0 0;
@@ -129,6 +149,9 @@
   font-weight: 750;
   line-height: 1.55;
   letter-spacing: -0.015em;
+  padding: 12px 14px;
+  border-radius: 15px;
+  background: rgb(255 255 255 / 58%);
 }
 .atAGlance {
   align-self: start;
@@ -235,8 +258,8 @@
 .poodleHero .facts div,
 .poodleHero .heroTendencies div {
   border: 0;
-  background: linear-gradient(145deg, #fbf7f2 0%, #f5ede5 100%);
-  box-shadow: 0 8px 24px rgb(68 47 33 / 7%);
+  background: rgb(255 255 255 / 72%);
+  box-shadow: 0 7px 20px rgb(68 47 33 / 6%);
 }
 .poodleHero .heroTendencies div {
   --tendency-accent: var(--moss) !important;
@@ -923,6 +946,8 @@
     box-shadow: 0 16px 44px rgb(68 47 33 / 10%);
   }
   .poodleHero .profileSummary .summary { padding: 0 0 16px; }
+  .poodleHero .profileSummary { padding: 20px; border-radius: 22px; }
+  .poodleHero .profileSummary::after { top: -110px; right: -92px; }
   .poodleHeroStatement { margin-top: 11px; font-size: .92rem; line-height: 1.6; }
   .poodleHero .facts { gap: 8px; }
   .poodleHero .facts div { padding: 12px; border-radius: 14px; }
