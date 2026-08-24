@@ -14,7 +14,7 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
     <>
       <section className={styles.story} aria-labelledby="poodle-story-title">
         <header>
-          <p>과거에서 오늘까지</p>
+          <p><b aria-hidden="true">01</b> 과거에서 오늘까지</p>
           <h2 id="poodle-story-title">{poodleDetail.story.title}</h2>
           <span>{poodleDetail.story.description}</span>
         </header>
@@ -26,7 +26,7 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
 
       <section className={styles.realities} aria-labelledby="poodle-realities-title">
         <header>
-          <p>함께 살 때 체감하는 것</p>
+          <p><b aria-hidden="true">02</b> 함께 살 때 체감하는 것</p>
           <h2 id="poodle-realities-title">푸들의 생활 현실</h2>
         </header>
         <PoodleRealityCards />
@@ -34,7 +34,7 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
 
       <section className={styles.readiness} aria-labelledby="poodle-readiness-title">
         <header>
-          <p>함께 살기 전에</p>
+          <p><b aria-hidden="true">03</b> 함께 살기 전에</p>
           <h2 id="poodle-readiness-title">푸들과 보낼 일상을 생각해보세요.</h2>
         </header>
         <PoodleReadinessChecklist />
@@ -43,7 +43,7 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
       {relatedBreeds.length > 0 && (
         <section className={styles.related} aria-labelledby="poodle-related-title">
           <header>
-            <p>다음으로 살펴보기</p>
+            <p><b aria-hidden="true">04</b> 다음으로 살펴보기</p>
             <h2 id="poodle-related-title">푸들이 마음에 들지만 망설여진다면</h2>
             <span>다른 생활 조건을 가진 견종도 함께 살펴보세요.</span>
           </header>

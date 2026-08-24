@@ -85,6 +85,17 @@ p { text-wrap: pretty; }
 }
 
 body:has(main[data-breed-theme="poodle"]) {
+  --paper: #fff;
+  --paper-deep: #f6f0e8;
+  --panel: #fff;
+  --ink: #302a26;
+  --ink-soft: #716861;
+  --line: #e9e3dc;
+  --moss: #a76035;
+  --moss-light: #faeadc;
+  --clay: #a76035;
+  --clay-light: #f6e7db;
+  --shadow: 0 18px 60px rgb(68 47 33 / 9%);
   background: #fff;
 }
 

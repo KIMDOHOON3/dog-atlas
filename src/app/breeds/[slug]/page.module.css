@@ -99,9 +99,21 @@
   font-size: clamp(2.55rem, 3.8vw, 3.15rem);
 }
 .poodleHero .summary h1 {
-  font-size: 1.875rem;
+  font-size: 1.75rem;
   line-height: 1.3;
 }
+.poodleHero {
+  width: min(calc(100% - var(--page-inline)), 1200px);
+  margin-top: 32px;
+  gap: 40px;
+}
+.poodleHero > figure {
+  overflow: hidden;
+  border-radius: 28px;
+  background: #f8f2ea;
+  box-shadow: 0 22px 60px rgb(68 47 33 / 11%);
+}
+.poodleHero .breedNameEn { color: var(--moss); }
 .breedNameEn {
   margin: 7px 0 0;
   color: var(--ink-soft);
@@ -113,7 +125,7 @@
   max-width: 31rem;
   margin: 15px 0 0;
   color: var(--ink);
-  font-size: clamp(1rem, 1.5vw, 1.14rem);
+  font-size: clamp(.98rem, 1.4vw, 1.08rem);
   font-weight: 750;
   line-height: 1.55;
   letter-spacing: -0.015em;
@@ -223,13 +235,16 @@
 .poodleHero .facts div,
 .poodleHero .heroTendencies div {
   border: 0;
-  background: #fff;
-  box-shadow: 0 5px 18px rgb(36 48 43 / 5%);
+  background: linear-gradient(145deg, #fbf7f2 0%, #f5ede5 100%);
+  box-shadow: 0 8px 24px rgb(68 47 33 / 7%);
 }
-.poodleHero > figure { border: 0; }
 .poodleHero .heroTendencies div {
   --tendency-accent: var(--moss) !important;
 }
+.poodleHero .facts { gap: 10px; }
+.poodleHero .facts div { padding: 14px 15px; border-radius: 16px; }
+.poodleHero .heroTendencies { margin-top: 10px; gap: 10px; }
+.poodleHero .heroTendencies div { padding: 12px 13px 13px; border-radius: 16px; }
 .heroTendencies > div > span:first-child {
   display: block;
   margin-bottom: 7px;
@@ -885,7 +900,7 @@
   }
   .poodleHero .summary h1 {
     font-size: 1.5rem;
-    line-height: 1.5;
+    line-height: 1.4;
   }
   .summary > strong {
     font-size: 1.08rem;
@@ -898,6 +913,19 @@
     gap: 14px;
     grid-template: "visual" auto "profile" auto / minmax(0, 1fr);
   }
+  .poodleHero {
+    width: calc(100% - var(--page-inline));
+    margin-top: 18px;
+    gap: 18px;
+  }
+  .poodleHero > figure {
+    border-radius: 22px;
+    box-shadow: 0 16px 44px rgb(68 47 33 / 10%);
+  }
+  .poodleHero .profileSummary .summary { padding: 0 0 16px; }
+  .poodleHeroStatement { margin-top: 11px; font-size: .92rem; line-height: 1.6; }
+  .poodleHero .facts { gap: 8px; }
+  .poodleHero .facts div { padding: 12px; border-radius: 14px; }
   .malteseHero > figure {
     width: 100%;
   }
