@@ -28,11 +28,15 @@ export function CategoryExplorer() {
       <nav className={styles.quickStartGrid} aria-label="견종 발견 빠른 시작">
         {firstExploreOptions.map((option, index) => (
           <Link className={styles.quickStartCard} href={`/discover?${option.query}`} key={option.key}>
-            <Image className={styles.module} src={option.image} alt="" width={512} height={341} sizes="128px" />
-            <span className={styles.number} aria-hidden="true">0{index + 1}</span>
-            <strong>{option.title}</strong>
-            <span className={styles.quickDescription}>{option.description}</span>
-            <b aria-hidden="true">→</b>
+            <span className={styles.cardCopy}>
+              <span className={styles.number} aria-hidden="true">0{index + 1}</span>
+              <strong>{option.title}</strong>
+              <span className={styles.quickDescription}>{option.description}</span>
+            </span>
+            <span className={styles.cardVisual} aria-hidden="true">
+              <Image className={styles.module} src={option.image} alt="" width={512} height={341} sizes="112px" />
+              <b>→</b>
+            </span>
           </Link>
         ))}
       </nav>

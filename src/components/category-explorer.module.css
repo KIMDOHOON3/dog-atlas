@@ -47,13 +47,13 @@
 }
 
 .quickStartCard {
-  position: relative;
   min-height: 180px;
   padding: 22px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 116px;
+  align-items: stretch;
+  gap: 12px;
   border-radius: 20px;
   color: var(--ink);
   background: linear-gradient(145deg, #f8f1e9 0%, #f3e8dc 100%);
@@ -66,18 +66,26 @@
 .quickStartCard:nth-child(3) { background: linear-gradient(145deg, #faf5ef 0%, #f1e7df 100%); }
 .quickStartCard:hover { translate: 0 -3px; background: #f1e9de; }
 
+.cardCopy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+
 .module {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 132px;
-  height: 88px;
+  width: 112px;
+  height: 75px;
   object-fit: contain;
   filter: drop-shadow(0 10px 14px rgb(75 47 29 / 10%));
   transition: translate .2s ease, rotate .2s ease;
 }
 
 .quickStartCard:hover .module { translate: 0 -3px; rotate: 1.5deg; }
+
+.cardVisual {
+  min-width: 0;
+  padding: 8px 0 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
 
 .number {
   margin-bottom: auto;
@@ -104,10 +112,7 @@
   word-break: keep-all;
 }
 
-.quickStartCard b {
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
+.cardVisual b {
   display: grid;
   width: 32px;
   height: 32px;
@@ -124,12 +129,12 @@
   .heading h2 { font-size: 1.35rem; }
   .allLink { min-height: 38px; margin-top: 14px; }
   .quickStartGrid { grid-template-columns: 1fr; gap: 10px; margin-top: 22px; }
-  .quickStartCard { min-height: 154px; padding: 18px 78px 18px 20px; border-radius: 20px; }
-  .module { top: 2px; right: 0; width: 126px; height: 84px; }
+  .quickStartCard { min-height: 154px; padding: 16px 16px 16px 20px; grid-template-columns: minmax(0, 1fr) 104px; gap: 8px; border-radius: 20px; }
+  .module { width: 104px; height: 70px; }
+  .cardVisual { padding-top: 2px; }
   .number { margin-bottom: auto; }
   .quickStartCard strong { font-size: 1rem; }
   .quickDescription { max-width: 22ch; padding-right: 0; font-size: .74rem; }
-  .quickStartCard b { right: 16px; bottom: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
