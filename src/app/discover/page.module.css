@@ -1,9 +1,13 @@
-.main { width: 100%; padding: 8px 0 96px; }
-.introShell { position: relative; width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto 34px; padding: 0 clamp(18px, 5vw, 72px) 40px; }
-.introShell::before { position: absolute; z-index: 0; inset: 0 12%; border-radius: 50%; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--moss-light) 76%, transparent) 0%, color-mix(in srgb, var(--moss-light) 36%, transparent) 48%, transparent 74%); content: ""; pointer-events: none; }
-.intro { position: relative; z-index: 1; padding: 26px 0 22px; text-align: center; }
-.intro p { margin: 0 0 10px; color: var(--moss); font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
-.intro h1 { max-width: 16ch; margin: 0 auto; font-size: clamp(2.25rem, 3.6vw, 3.4rem); line-height: 1.08; letter-spacing: -.05em; }
-.intro span { display: block; margin-top: 13px; color: var(--ink-soft); font-size: 1rem; }
-.loading { width: min(calc(100% - var(--page-inline)), var(--max)); min-height: 220px; margin: 0 auto; display: grid; place-items: center; border: 0; border-radius: 22px; color: var(--ink-soft); background: var(--panel); box-shadow: 0 8px 24px rgb(36 48 43 / 6%); }
-@media (max-width: 767px) { .main { padding-top: 4px; } .introShell { margin-bottom: 26px; padding: 0 16px 30px; } .introShell::before { inset-inline: 0; } .intro { padding: 20px 0 18px; } .intro h1 { font-size: clamp(1.8rem, 8vw, 2.15rem); } .intro span { margin-top: 10px; font-size: .92rem; line-height: 1.6; } }
+.main { --ink: #332923; --ink-soft: #766b64; --paper: #fff; --panel: #fff; --moss: #b86437; --moss-light: #f3e5da; --focus: #c56b3c; width: 100%; padding: 10px 0 96px; color: #332923; background: #fff; }
+.introShell { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto 50px; padding: 34px clamp(18px, 5vw, 72px) 38px; border-radius: 28px; background: #f8f3ed; }
+.intro { padding-bottom: 22px; text-align: center; }
+.intro h1 { max-width: 22ch; margin: 0 auto; color: #332923; font-size: clamp(1.65rem, 2.7vw, 1.75rem); line-height: 1.25; letter-spacing: -.045em; }
+.intro span { display: block; margin-top: 11px; color: #766b64; font-size: .92rem; line-height: 1.6; }
+.loading { width: min(calc(100% - var(--page-inline)), var(--max)); min-height: 220px; margin: 0 auto; display: grid; place-items: center; border-radius: 22px; color: #766b64; background: #f8f4ef; }
+@media (max-width: 767px) {
+  .main { padding-top: 0; }
+  .introShell { width: 100%; margin-bottom: 38px; padding: 28px 16px 30px; border-radius: 0 0 24px 24px; }
+  .intro { padding-bottom: 18px; text-align: left; }
+  .intro h1 { margin: 0; font-size: 1.5rem; }
+  .intro span { margin-top: 9px; font-size: .84rem; }
+}

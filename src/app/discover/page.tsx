@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { DiscoverExplorer } from "@/components/discover-explorer";
 import { DiscoverSearch } from "@/components/discover-search";
+import { FamiliarBreedStart } from "@/components/familiar-breed-start";
 import { SiteHeader } from "@/components/site-header";
 import { breeds } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
@@ -10,7 +11,7 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "견종 발견",
-  description: "이름을 몰라도 괜찮아요. 원하는 특성을 선택하면서 견종을 살펴보세요.",
+  description: "익숙한 견종 이름부터 생활 조건까지, 376종의 이야기를 천천히 탐색해보세요.",
 };
 
 export default function DiscoverPage() {
@@ -26,14 +27,14 @@ export default function DiscoverPage() {
       <main className={styles.main}>
         <div className={styles.introShell}>
           <header className={styles.intro}>
-            <p>견종 발견</p>
-            <h1>이름을 몰라도 괜찮아요.</h1>
-            <span>원하는 특성을 선택하면서 여러 견종의 생활과 배경을 살펴보세요.</span>
+            <h1>아는 이름부터,<br />함께할 생활까지 살펴봐요.</h1>
+            <span>견종 이름을 검색하거나 익숙한 이름에서 시작해보세요.</span>
           </header>
           <Suspense fallback={null}>
             <DiscoverSearch breeds={breedOptions} />
           </Suspense>
         </div>
+        <FamiliarBreedStart breeds={breeds} />
         <Suspense fallback={<div className={styles.loading}>견종 필터를 준비하고 있어요.</div>}>
           <DiscoverExplorer breeds={breeds.map(toDiscoverBreed)} />
         </Suspense>

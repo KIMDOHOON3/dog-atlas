@@ -348,3 +348,9 @@ Use the home page as the first bounded redesign before extending the new visual 
 Keep the base surface white and build warmth from cocoa text, oatmeal secondary surfaces, restrained caramel actions, and one original matte 3D daily-life diorama. Do not imitate the colors of familiar Korean services or fill the interface with generic 3D emoji cards. Keep mobile headings at or below 24px and desktop headings at or below 28px, using whitespace and imagery rather than oversized type or colored borders for hierarchy.
 
 Move `이름 속 견종` and `견종 모아보기` into a top-right menu. Keep only `홈` and `견종 발견` in the mobile bottom navigation. Retain all 376 catalog entries and search coverage, but let home start with six familiar editorial examples without calling them a popularity ranking, definitive recommendation, or match result.
+
+# 2026-08-24 — Give discovery a Korea-familiar starting set
+
+Keep all 376 entries searchable and filterable, but do not make the full catalog or seven filter groups compete for attention at the start of `/discover`. Lead with a Zod-validated editorial set of 32 names that are familiar to Korean users: show 12 image cards immediately and place 20 more names behind a native disclosure.
+
+Use current domestic breed-ownership reporting as the strongest input, then broaden beyond its small-companion-dog bias with widely recognized working, herding, hunting, and large breeds already present in the atlas. Do not call the set a popularity ranking, recommendation, or proof of suitability. Move the complete condition filter into an accessible drawer while preserving URL state, result restoration, and the full catalog.

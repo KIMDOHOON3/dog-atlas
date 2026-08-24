@@ -6,6 +6,8 @@ import { SearchBox, type BreedOption } from "@/components/search-box";
 import { applyBreedFilterPreset, breedFilterPresets, emptyBreedFilters, filtersToSearchParams, parseBreedFilters } from "@/lib/breed-filters";
 import styles from "./discover-search.module.css";
 
+const quickPresets = breedFilterPresets.filter((preset) => ["calm", "active", "social", "grooming-light"].includes(preset.key));
+
 export function DiscoverSearch({ breeds }: { breeds: BreedOption[] }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -16,9 +18,7 @@ export function DiscoverSearch({ breeds }: { breeds: BreedOption[] }) {
   const queryString = searchParams.toString();
   const activeFilters = useMemo(() => parseBreedFilters(new URLSearchParams(queryString)), [queryString]);
 
-  function applyPreset(index: number) {
-    const preset = breedFilterPresets[index];
-    if (!preset) return;
+  function applyPreset(preset: (typeof breedFilterPresets)[number]) {
     const presetFilters = applyBreedFilterPreset(preset);
     const active = JSON.stringify(activeFilters) === JSON.stringify(presetFilters);
     const next = active ? emptyBreedFilters() : presetFilters;
@@ -42,13 +42,13 @@ export function DiscoverSearch({ breeds }: { breeds: BreedOption[] }) {
   return (
     <>
       <section ref={sourceRef} className={styles.source} aria-labelledby="discover-search-title">
-        <h2 id="discover-search-title">이미 아는 견종이 있나요?</h2>
+        <h2 id="discover-search-title">견종 이름 검색</h2>
         <SearchBox id="discover-breed-search" breeds={breeds} />
         <div className={styles.presets} aria-label="생활 조건 빠른 선택">
-          {breedFilterPresets.map((preset, index) => {
+          {quickPresets.map((preset) => {
             const presetFilters = applyBreedFilterPreset(preset);
             const active = JSON.stringify(activeFilters) === JSON.stringify(presetFilters);
-            return <button type="button" key={preset.key} aria-pressed={active} onClick={() => applyPreset(index)}>{preset.label}</button>;
+            return <button type="button" key={preset.key} aria-pressed={active} onClick={() => applyPreset(preset)}>{preset.label}</button>;
           })}
         </div>
       </section>

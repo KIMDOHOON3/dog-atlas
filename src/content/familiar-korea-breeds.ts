@@ -1,0 +1,43 @@
+import { z } from "zod";
+
+const familiarBreedEntrySchema = z.object({
+  slug: z.string().min(1),
+  displayName: z.string().min(1).optional(),
+  displayNameEn: z.string().min(1).optional(),
+  priority: z.enum(["first", "more"]),
+});
+
+export const familiarKoreaBreeds = familiarBreedEntrySchema.array().parse([
+  { slug: "maltese", priority: "first" },
+  { slug: "poodle", priority: "first" },
+  { slug: "german-spitz", displayName: "포메라니안", displayNameEn: "Pomeranian", priority: "first" },
+  { slug: "bichon-frise", priority: "first" },
+  { slug: "chihuahua", priority: "first" },
+  { slug: "shih-tzu", priority: "first" },
+  { slug: "korea-jindo-dog", priority: "first" },
+  { slug: "yorkshire-terrier", priority: "first" },
+  { slug: "maltipoo", priority: "first" },
+  { slug: "japanese-spitz", priority: "first" },
+  { slug: "welsh-corgi-pembroke", priority: "first" },
+  { slug: "golden-retriever", priority: "first" },
+  { slug: "dachshund", priority: "more" },
+  { slug: "beagle", priority: "more" },
+  { slug: "miniature-schnauzer", priority: "more" },
+  { slug: "pug", priority: "more" },
+  { slug: "french-bulldog", priority: "more" },
+  { slug: "pekingese", priority: "more" },
+  { slug: "continental-toy-spaniel", displayName: "파피용", priority: "more" },
+  { slug: "italian-sighthound", displayName: "이탈리안 그레이하운드", priority: "more" },
+  { slug: "jack-russell-terrier", priority: "more" },
+  { slug: "labrador-retriever", priority: "more" },
+  { slug: "border-collie", priority: "more" },
+  { slug: "samoyed", priority: "more" },
+  { slug: "siberian-husky", priority: "more" },
+  { slug: "shiba", priority: "more" },
+  { slug: "german-shepherd-dog", priority: "more" },
+  { slug: "dobermann", priority: "more" },
+  { slug: "rottweiler", priority: "more" },
+  { slug: "dalmatian", priority: "more" },
+  { slug: "great-dane", priority: "more" },
+  { slug: "saint-bernard", priority: "more" },
+]);

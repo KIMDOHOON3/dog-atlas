@@ -1,22 +1,21 @@
-.source { position: relative; z-index: 130; width: min(100%, 680px); margin: 0 auto; text-align: center; }
-.source h2 { margin: 0 0 12px; color: var(--ink); font-size: .95rem; letter-spacing: -.02em; }
+.source { position: relative; z-index: 130; width: min(100%, 680px); margin: 0 auto; text-align: left; }
+.source h2 { margin: 0 0 9px; color: #51453e; font-size: .78rem; letter-spacing: -.01em; }
 .source form { width: 100%; text-align: left; }
-.presets { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-top: 13px; }
-.presets button { min-height: 34px; padding: 6px 11px; border: 1px solid transparent; border-radius: 999px; color: var(--ink-soft); background: color-mix(in srgb, var(--panel) 88%, transparent); box-shadow: none; font-size: .72rem; font-weight: 700; cursor: pointer; transition: color .16s ease, background .16s ease, box-shadow .16s ease; }
-.presets button:hover, .presets button:focus-visible { color: var(--moss); background: var(--moss-light); box-shadow: 0 5px 14px rgb(36 48 43 / 6%); }
-.presets button[aria-pressed="true"] { color: white; background: var(--moss); }
-.presets button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.presets { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }
+.presets button { min-height: 34px; padding: 6px 11px; border: 0; border-radius: 999px; color: #6e625a; background: #fff; box-shadow: 0 4px 14px rgb(65 46 34 / 5%); font-size: .72rem; font-weight: 700; cursor: pointer; transition: color .16s ease, background .16s ease; }
+.presets button:hover, .presets button:focus-visible { color: #9e4f29; background: #f3e5da; }
+.presets button[aria-pressed="true"] { color: #fff; background: #b86437; }
+.presets button:focus-visible { outline: 3px solid #c56b3c; outline-offset: 2px; }
 .dock { position: fixed; z-index: 120; top: 16px; right: max(18px, calc((100vw - var(--max)) / 2 + 18px)); display: flex; flex-direction: column; align-items: end; gap: 8px; }
-.trigger { min-height: 42px; display: flex; align-items: center; gap: 7px; padding: 8px 14px; border: 0; border-radius: 999px; color: white; background: rgb(63 111 88 / 94%); box-shadow: 0 7px 20px rgb(36 48 43 / 16%); font-weight: 700; cursor: pointer; }
+.trigger { min-height: 42px; display: flex; align-items: center; gap: 7px; padding: 8px 14px; border: 0; border-radius: 999px; color: #fff; background: rgb(181 95 50 / 96%); box-shadow: 0 7px 20px rgb(65 46 34 / 16%); font-weight: 700; cursor: pointer; }
 .trigger span { font-size: 1.15rem; }
-.trigger:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.trigger:focus-visible { outline: 3px solid #c56b3c; outline-offset: 3px; }
 .panel { width: min(380px, calc(100vw - 32px)); }
 .panel form > p:empty { display: none; }
-
 @media (max-width: 767px) {
   .source { width: 100%; }
-  .source h2 { font-size: .92rem; }
-  .presets { flex-wrap: nowrap; justify-content: flex-start; margin-inline: -16px; padding: 0 16px 4px; overflow-x: auto; scrollbar-width: none; }
+  .source h2 { font-size: .76rem; }
+  .presets { flex-wrap: nowrap; margin-inline: -16px; padding: 0 16px 4px; overflow-x: auto; scrollbar-width: none; }
   .presets::-webkit-scrollbar { display: none; }
   .presets button { flex: none; min-height: 36px; }
   .dock { top: 10px; right: 12px; }

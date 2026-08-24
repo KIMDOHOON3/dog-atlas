@@ -230,11 +230,11 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
             <svg className={styles.filterIcon} viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 7h5m4 0h7M4 17h9m4 0h3M9 4v6m4 4v6" />
             </svg>
-            <span>조건 필터</span>
+            <span>생활 조건으로 좁히기</span>
           </span>
           <span className={styles.filterAction}>
             {activeCount > 0 && <strong aria-label={`선택한 필터 ${activeCount}개`}>{activeCount}</strong>}
-            <span>열기</span>
+            <span>{activeCount > 0 ? "다시 선택" : "열기"}</span>
             <span className={styles.filterChevron} aria-hidden="true">›</span>
           </span>
         </button>
@@ -245,7 +245,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
         {filterOpen && <button className={styles.backdrop} type="button" aria-label="필터 닫기" onClick={closeMobileFilters} />}
         <aside ref={filterPanelRef} id="breed-filter-panel" className={styles.filterPanel} role={filterOpen ? "dialog" : undefined} aria-modal={filterOpen || undefined} aria-labelledby="breed-filter-title">
           <div className={styles.filterPanelHeader}>
-            <div><span>조건 선택</span><h2 id="breed-filter-title">어떤 기준으로 살펴볼까요?</h2></div>
+            <div><span>생활 조건</span><h2 id="breed-filter-title">무엇을 먼저 생각하고 있나요?</h2></div>
             <button ref={closeFilterRef} className={styles.closeFilter} type="button" aria-label="필터 닫기" onClick={closeMobileFilters}>×</button>
           </div>
 
@@ -283,7 +283,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
 
         <section className={styles.resultsPanel} aria-live="polite" aria-labelledby="discover-results-title">
           <div className={styles.resultHeader}>
-            <div><span>견종 발견</span><h1 id="discover-results-title">{activeCount > 0 ? `${results.length}종을 찾았어요` : `${breeds.length}종을 살펴보세요`}</h1></div>
+            <div><span>전체 도감</span><h1 id="discover-results-title">{activeCount > 0 ? `${results.length}종이 남았어요` : `${breeds.length}종 모두 보기`}</h1></div>
             {activeCount > 0 && <button className={styles.resultClear} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button>}
           </div>
 
