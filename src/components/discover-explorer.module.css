@@ -1,9 +1,9 @@
 .explorer { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; color: #332923; }
-.mobileFilterBar { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
-.filterTrigger { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 7px 11px 7px 8px; border: 0; border-radius: 14px; color: #3c312a; background: #f6f1eb; box-shadow: 0 7px 20px rgb(65 46 34 / 6%); font-weight: 750; cursor: pointer; }
+.mobileFilterBar { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+.filterTrigger { width: min(100%, 720px); min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 14px 10px 10px; border: 0; border-radius: 18px; color: #3c312a; background: linear-gradient(135deg, #f8f1e9 0%, #f1e5d8 100%); box-shadow: 0 12px 34px rgb(65 46 34 / 8%); font-weight: 750; cursor: pointer; }
 .filterLabel, .filterAction { display: flex; align-items: center; }
 .filterLabel { gap: 9px; font-size: .84rem; }
-.filterIcon { width: 34px; height: 34px; flex: 0 0 34px; padding: 8px; border-radius: 10px; color: #ad5b31; background: #fff; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.filterIcon { width: 40px; height: 40px; flex: 0 0 40px; padding: 10px; border-radius: 13px; color: #ad5b31; background: rgb(255 255 255 / 72%); fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 .filterAction { gap: 6px; color: #9a4d29; font-size: .72rem; }
 .filterTrigger strong { min-width: 22px; height: 22px; display: grid; place-items: center; padding: 0 6px; border-radius: 999px; color: #fff; background: #b86437; font-size: .66rem; }
 .filterChevron { translate: 0 -1px; font-size: 1.15rem; line-height: 1; }
@@ -64,8 +64,8 @@
 @media (min-width: 1200px) { .resultGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .explorer { width: calc(100% - var(--page-inline)); }
-  .mobileFilterBar { margin-bottom: 18px; }
-  .filterTrigger { min-width: 0; flex: 1; gap: 10px; }
+  .mobileFilterBar { margin-bottom: 22px; }
+  .filterTrigger { width: 100%; min-width: 0; flex: 1; gap: 10px; }
   .filterLabel { min-width: 0; font-size: .8rem; }
   .filterAction { flex: none; }
   .clearFilters { padding-inline: 5px; }

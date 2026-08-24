@@ -27,8 +27,8 @@ export default function DiscoverPage() {
       <main className={styles.main}>
         <div className={styles.introShell}>
           <header className={styles.intro}>
-            <h1>아는 이름부터,<br />함께할 생활까지 살펴봐요.</h1>
-            <span>견종 이름을 검색하거나 익숙한 이름에서 시작해보세요.</span>
+            <h1>이름으로 찾거나,<br /><em>생활</em>에서 발견하세요.</h1>
+            <span>아는 견종이 없다면 익숙한 이름과 생활 조건에서 시작해보세요.</span>
           </header>
           <Suspense fallback={null}>
             <DiscoverSearch breeds={breedOptions} />

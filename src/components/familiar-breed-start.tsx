@@ -16,16 +16,17 @@ export function FamiliarBreedStart({ breeds }: { breeds: readonly Breed[] }) {
   return (
     <section className={styles.section} aria-labelledby="familiar-breeds-title">
       <header className={styles.header}>
-        <p>익숙한 이름부터</p>
-        <h2 id="familiar-breeds-title">먼저 떠오르는 견종이 있나요?</h2>
+        <h2 id="familiar-breeds-title"><em>익숙한 이름</em>에서 시작해보세요.</h2>
       </header>
 
       <div className={styles.rail}>
         {first.map(({ breed, displayName, displayNameEn }) => (
           <Link className={styles.card} href={`/breeds/${breed.slug}`} key={breed.slug}>
             <BreedVisual breed={breed} variant="tile" />
-            <strong>{displayName ?? breed.nameKo}</strong>
-            <span>{displayNameEn ?? breed.nameEn}</span>
+            <span className={styles.cardBody}>
+              <span><strong>{displayName ?? breed.nameKo}</strong><small>{displayNameEn ?? breed.nameEn}</small></span>
+              <i aria-hidden="true">→</i>
+            </span>
           </Link>
         ))}
       </div>
