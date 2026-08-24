@@ -59,18 +59,17 @@ export default function Home() {
         <section className={styles.familiar} aria-labelledby="familiar-title">
           <header className={styles.sectionHeader}>
             <div>
-              <p className={styles.sectionEyebrow}>익숙한 이름부터</p>
-              <h2 id="familiar-title">한 번쯤 들어본 견종을 살펴보세요.</h2>
+              <h2 id="familiar-title"><em>익숙한 이름</em>에서 시작해보세요.</h2>
             </div>
-            <Link href="/curiosity/regulated-care">전체 견종 모아보기 <span aria-hidden="true">→</span></Link>
+            <Link href="/curiosity/regulated-care">전체 376종 <span aria-hidden="true">→</span></Link>
           </header>
           <nav className={styles.breedRail} aria-label="먼저 살펴볼 익숙한 견종">
             {familiarBreeds.map((breed) => (
               <Link className={styles.breedCard} href={`/breeds/${breed.slug}`} key={breed.slug}>
                 <Image src={breed.illustration} alt="" width={280} height={280} sizes="(max-width: 767px) 38vw, 180px" />
                 <span>
-                  <strong>{breed.nameKo}</strong>
-                  <small>{breed.nameEn}</small>
+                  <span><strong>{breed.nameKo}</strong><small>{breed.nameEn}</small></span>
+                  <i aria-hidden="true">→</i>
                 </span>
               </Link>
             ))}
@@ -78,7 +77,7 @@ export default function Home() {
         </section>
 
         <section className={styles.principle} aria-label="강아지 도감의 관점">
-          <p>강아지를 고르는 일이 아니라, 한 생명과 함께할 생활을 미리 이해하는 것.</p>
+          <p>강아지를 고르는 일이 아니라,<br /><em>한 생명과 함께할 생활</em>을 미리 이해하는 것.</p>
           <Link href="/discover">내 생활에서 살펴보기 <span aria-hidden="true">→</span></Link>
         </section>
       </main>
