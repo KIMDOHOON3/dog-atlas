@@ -114,33 +114,13 @@
   box-shadow: 0 22px 60px rgb(68 47 33 / 11%);
 }
 .poodleHero .profileSummary {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
   padding: 4px;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
 }
-.poodleHero .profileSummary > :not(.poodleRoleWatermark) {
-  position: relative;
-  z-index: 1;
-}
 .poodleHero .profileSummary .summary {
   padding-bottom: 0;
-}
-.poodleRoleWatermark {
-  position: absolute;
-  z-index: 0;
-  bottom: 20px;
-  left: -28px;
-  width: 390px;
-  height: auto;
-  display: block;
-  opacity: .08;
-  filter: sepia(1) saturate(.7) contrast(1.08);
-  mix-blend-mode: multiply;
-  pointer-events: none;
 }
 .poodleHero .breedNameEn { color: var(--moss); }
 .breedNameEn {
@@ -957,7 +937,6 @@
   }
   .poodleHero .profileSummary .summary { padding: 0; }
   .poodleHero .profileSummary { padding: 4px; border-radius: 0; }
-  .poodleRoleWatermark { bottom: 10px; left: -58px; width: 320px; opacity: .07; }
   .poodleHeroStatement { margin-top: 11px; font-size: .92rem; line-height: 1.6; }
   .poodleHero .facts { gap: 8px; }
   .poodleHero .facts div { padding: 12px; border-radius: 14px; }

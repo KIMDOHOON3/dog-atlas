@@ -194,17 +194,6 @@ export default async function BreedDetail({ params }: PageProps) {
         <section className={`${styles.hero} ${styles.malteseHero} ${breed.slug === "poodle" ? styles.poodleHero : ""}`} aria-labelledby="breed-title">
           <BreedVisual breed={breed} variant="detail" priority />
           <div className={styles.profileSummary}>
-            {breed.slug === "poodle" && (
-              <Image
-                className={styles.poodleRoleWatermark}
-                src={poodleDetail.heroRolePreview.image}
-                alt=""
-                aria-hidden="true"
-                width={768}
-                height={393}
-                sizes="(max-width: 767px) 340px, 390px"
-              />
-            )}
             <div className={styles.summary}>
               <h1 id="breed-title">{breed.nameKo}</h1>
               <p className={styles.breedNameEn}>{breed.nameEn}</p>

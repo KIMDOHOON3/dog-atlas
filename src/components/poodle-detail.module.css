@@ -10,6 +10,13 @@
   margin-top: 56px;
 }
 
+@media (min-width: 768px) {
+  .realities > header,
+  .related > header {
+    margin-left: clamp(30px, 4vw, 46px);
+  }
+}
+
 .story > header,
 .realities > header,
 .readiness > header,
@@ -591,7 +598,7 @@
     display: flex;
     gap: 10px;
     overflow-x: auto;
-    padding: 0 0 4px;
+    padding: 0 0 24px;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: 0;
     overscroll-behavior-x: contain;
