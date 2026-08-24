@@ -66,7 +66,18 @@
 .quickStartCard:nth-child(3) { background: linear-gradient(145deg, #faf5ef 0%, #f1e7df 100%); }
 .quickStartCard:hover { translate: 0 -3px; background: #f1e9de; }
 
-.keyword { position: absolute; top: 14px; right: 18px; color: rgb(180 95 50 / 12%); font-size: clamp(2.5rem, 5vw, 4.25rem); font-weight: 850; line-height: 1; letter-spacing: -.08em; }
+.module {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 132px;
+  height: 88px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgb(75 47 29 / 10%));
+  transition: translate .2s ease, rotate .2s ease;
+}
+
+.quickStartCard:hover .module { translate: 0 -3px; rotate: 1.5deg; }
 
 .number {
   margin-bottom: auto;
@@ -113,8 +124,8 @@
   .heading h2 { font-size: 1.35rem; }
   .allLink { min-height: 38px; margin-top: 14px; }
   .quickStartGrid { grid-template-columns: 1fr; gap: 10px; margin-top: 22px; }
-  .quickStartCard { min-height: 148px; padding: 18px 74px 18px 20px; border-radius: 20px; }
-  .keyword { top: 16px; right: 20px; font-size: 2.75rem; }
+  .quickStartCard { min-height: 154px; padding: 18px 78px 18px 20px; border-radius: 20px; }
+  .module { top: 2px; right: 0; width: 126px; height: 84px; }
   .number { margin-bottom: auto; }
   .quickStartCard strong { font-size: 1rem; }
   .quickDescription { max-width: 22ch; padding-right: 0; font-size: .74rem; }
@@ -124,4 +135,6 @@
 @media (prefers-reduced-motion: reduce) {
   .quickStartCard { transition: none; }
   .quickStartCard:hover { translate: none; }
+  .module { transition: none; }
+  .quickStartCard:hover .module { translate: none; rotate: none; }
 }
