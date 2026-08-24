@@ -247,7 +247,7 @@ export default async function BreedDetail({ params }: PageProps) {
 
         {isKoreanManagedBreed(breed.slug) && <LegalCareNotice breedName={breed.nameKo} />}
 
-        <article className={styles.content}>
+        <article className={`${styles.content} ${breed.slug === "poodle" ? styles.poodleContent : ""}`}>
           {breed.slug === "poodle" ? <PoodleDetailExperience related={related} /> : <BreedDetailExperience breed={breed} />}
           {breed.slug !== "poodle" && (
             <details className={styles.sources}>

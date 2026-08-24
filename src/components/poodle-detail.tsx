@@ -21,7 +21,7 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
         <div className={styles.storyLayout}>
           <PoodleStorySteps />
         </div>
-        <p className={styles.caution}>{poodleDetail.story.caution}</p>
+        <p className={styles.caution}><span aria-hidden="true">*</span>{poodleDetail.story.caution}</p>
       </section>
 
       <section className={styles.realities} aria-labelledby="poodle-realities-title">

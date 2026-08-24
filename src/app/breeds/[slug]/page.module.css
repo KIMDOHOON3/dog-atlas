@@ -293,6 +293,9 @@
   width: min(calc(100% - var(--page-inline)), var(--max));
   margin: 0 auto;
 }
+.poodleContent {
+  padding-bottom: 32px;
+}
 .content figure {
   border: 0;
 }
@@ -933,6 +936,9 @@
     width: calc(100% - var(--page-inline));
     margin-top: 18px;
     gap: 18px;
+  }
+  .poodleContent {
+    padding-bottom: 18px;
   }
   .poodleHero > figure {
     border-radius: 22px;
