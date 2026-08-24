@@ -14,10 +14,9 @@
 .realities > header,
 .readiness > header,
 .related > header {
-  position: relative;
   max-width: 760px;
-  min-height: 48px;
-  padding-left: 56px;
+  min-height: 0;
+  padding-left: 0;
 }
 
 .story > header > p,
@@ -26,7 +25,9 @@
 .related > header > p {
   margin: 0 0 8px;
   color: var(--moss);
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -36,16 +37,16 @@
 .realities > header > p b,
 .readiness > header > p b,
 .related > header > p b {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
+  position: static;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
-  border-radius: 13px;
-  color: var(--moss);
-  background: var(--moss-light);
+  border-radius: 11px;
+  color: white;
+  background: #b76737;
+  box-shadow: 0 7px 16px rgb(116 68 38 / 14%);
   font-size: 0.68rem;
   letter-spacing: 0;
 }
@@ -58,6 +59,7 @@
   font-size: clamp(1.35rem, 2vw, 1.55rem);
   line-height: 1.42;
   letter-spacing: -0.035em;
+  text-wrap: balance;
   word-break: keep-all;
 }
 
@@ -536,16 +538,17 @@
   .realities > header,
   .readiness > header,
   .related > header {
-    padding-left: 50px;
+    padding-left: 0;
   }
 
   .story > header > p b,
   .realities > header > p b,
   .readiness > header > p b,
   .related > header > p b {
-    width: 36px;
-    height: 36px;
-    border-radius: 12px;
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
   }
 
   .story > header > h2,
@@ -554,6 +557,13 @@
   .related > header > h2 {
     font-size: 1.35rem;
     line-height: 1.45;
+  }
+
+  .story > header > p,
+  .realities > header > p,
+  .readiness > header > p,
+  .related > header > p {
+    margin-bottom: 12px;
   }
 
   .storyLayout,
