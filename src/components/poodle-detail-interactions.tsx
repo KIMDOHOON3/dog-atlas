@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { poodleDetail } from "@/content/poodle-detail/data";
 import styles from "./poodle-detail.module.css";
 
@@ -34,16 +34,29 @@ function useSnapCarousel(itemCount: number) {
 
 export function PoodleStorySteps() {
   const [activeStep, setActiveStep] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const transitionTimerRef = useRef<number | null>(null);
   const {
     current: mobileStep,
     handleScroll: handleMobileScroll,
     scrollTo: scrollToMobileStep,
     trackRef: mobileTrackRef,
   } = useSnapCarousel(poodleDetail.story.steps.length);
+  useEffect(() => () => {
+    if (transitionTimerRef.current !== null) window.clearTimeout(transitionTimerRef.current);
+  }, []);
+
   function selectStep(index: number) {
+    if (index === activeStep || isTransitioning) return;
     setActiveStep(index);
     buttonRefs.current[index]?.focus();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setIsTransitioning(true);
+    transitionTimerRef.current = window.setTimeout(() => {
+      setIsTransitioning(false);
+      transitionTimerRef.current = null;
+    }, 820);
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
@@ -74,7 +87,7 @@ export function PoodleStorySteps() {
           />
         ))}
       </div>
-      <div className={styles.storyInteraction}>
+      <div className={styles.storyInteraction} aria-busy={isTransitioning}>
         <div className={styles.stepTabs} role="tablist" aria-label="푸들의 과거에서 오늘까지 세 단계">
           {poodleDetail.story.steps.map((item, index) => (
             <button
@@ -83,10 +96,11 @@ export function PoodleStorySteps() {
               id={`poodle-step-tab-${index}`}
               aria-controls={`poodle-step-panel-${index}`}
               aria-selected={activeStep === index}
+              aria-disabled={isTransitioning || undefined}
               tabIndex={activeStep === index ? 0 : -1}
               key={item.navLabel}
               ref={(node) => { buttonRefs.current[index] = node; }}
-              onClick={() => setActiveStep(index)}
+              onClick={() => selectStep(index)}
               onKeyDown={(event) => handleKeyDown(event, index)}
             >
               <i aria-hidden="true">{index + 1}</i>
@@ -293,11 +307,15 @@ export function PoodleReadinessChecklist() {
       <p className={styles.readinessProgress} aria-live="polite">
         {allChecked ? "세 가지 생활 조건을 모두 확인했어요." : `세 가지 중 ${completed}가지를 확인했어요.`}
       </p>
-      {allChecked && (
-        <Link className={styles.readinessAction} href="/beginner-guide?breed=poodle">
-          더 자세한 맞이 준비 보기 <span aria-hidden="true">→</span>
-        </Link>
-      )}
+      <div className={styles.readinessActionSlot} data-visible={allChecked || undefined} aria-hidden={!allChecked}>
+        <div>
+          {allChecked && (
+            <Link className={styles.readinessAction} href="/beginner-guide?breed=poodle">
+              더 자세한 맞이 준비 보기 <span aria-hidden="true">→</span>
+            </Link>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

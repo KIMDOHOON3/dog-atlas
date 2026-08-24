@@ -231,23 +231,49 @@
   position: absolute;
   inset: 0;
   padding: clamp(24px, 3vw, 34px);
-  opacity: 0;
-  transform: translateY(18px);
-  clip-path: inset(22% 0 0);
   visibility: hidden;
-  transition:
-    opacity 320ms ease,
-    transform 420ms cubic-bezier(.22, 1, .36, 1),
-    clip-path 420ms cubic-bezier(.22, 1, .36, 1),
-    visibility 0s linear 420ms;
+  pointer-events: none;
+  transition: visibility 0s linear 180ms;
 }
 
 .stepPanelContent[data-active="true"] {
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 180ms;
+}
+
+.stepPanelContent > span,
+.stepPanelContent > h3,
+.stepPanelContent > p {
+  opacity: 0;
+  transform: translateY(14px);
+  clip-path: inset(100% 0 0);
+  transition:
+    opacity 140ms ease,
+    transform 160ms ease,
+    clip-path 160ms ease;
+}
+
+.stepPanelContent[data-active="true"] > span,
+.stepPanelContent[data-active="true"] > h3,
+.stepPanelContent[data-active="true"] > p {
   opacity: 1;
   transform: translateY(0);
   clip-path: inset(0);
-  visibility: visible;
-  transition-delay: 50ms, 0s, 0s, 0s;
+  transition-duration: 240ms, 360ms, 360ms;
+  transition-timing-function: ease, cubic-bezier(.22, 1, .36, 1), cubic-bezier(.22, 1, .36, 1);
+}
+
+.stepPanelContent[data-active="true"] > span {
+  transition-delay: 180ms;
+}
+
+.stepPanelContent[data-active="true"] > h3 {
+  transition-delay: 300ms;
+}
+
+.stepPanelContent[data-active="true"] > p {
+  transition-delay: 440ms;
 }
 
 .stepPanelContent > span {
@@ -530,7 +556,7 @@
 .readinessAction {
   width: 100%;
   min-height: 50px;
-  margin-top: 12px;
+  margin-top: 0;
   padding: 12px 18px;
   display: inline-flex;
   align-items: center;
@@ -543,6 +569,31 @@
   font-weight: 800;
   text-decoration: none;
   transition: background-color 240ms ease, transform 240ms ease;
+}
+
+.readinessActionSlot {
+  margin-top: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    grid-template-rows 420ms cubic-bezier(.22, 1, .36, 1),
+    margin-top 420ms cubic-bezier(.22, 1, .36, 1),
+    opacity 280ms ease,
+    transform 420ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.readinessActionSlot > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.readinessActionSlot[data-visible="true"] {
+  margin-top: 12px;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .readinessAction:hover {
@@ -890,8 +941,12 @@
   .sizePicker button,
   .storyImage,
   .stepPanelContent,
+  .stepPanelContent > span,
+  .stepPanelContent > h3,
+  .stepPanelContent > p,
   .sizeImage,
-  .sizeVisual > span {
+  .sizeVisual > span,
+  .readinessActionSlot {
     transition: none;
   }
 }
