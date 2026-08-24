@@ -246,8 +246,8 @@
 .stepPanelContent > h3,
 .stepPanelContent > p {
   opacity: 0;
-  transform: translateY(14px);
-  clip-path: inset(100% 0 0);
+  transform: translateY(-10px);
+  clip-path: inset(0 0 100% 0);
   transition:
     opacity 140ms ease,
     transform 160ms ease,
