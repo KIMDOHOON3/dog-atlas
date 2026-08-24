@@ -117,10 +117,10 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 30px;
-  border-radius: 28px;
-  background: linear-gradient(145deg, #f9f2ea 0%, #f1e4d7 100%);
-  box-shadow: 0 20px 54px rgb(68 47 33 / 10%);
+  padding: 4px;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 .poodleHero .profileSummary > :not(.poodleRoleWatermark) {
   position: relative;
@@ -137,7 +137,7 @@
   width: 390px;
   height: auto;
   display: block;
-  opacity: .18;
+  opacity: .08;
   filter: sepia(1) saturate(.7) contrast(1.08);
   mix-blend-mode: multiply;
   pointer-events: none;
@@ -160,7 +160,8 @@
   letter-spacing: -0.015em;
   padding: 12px 14px;
   border-radius: 15px;
-  background: rgb(255 255 255 / 58%);
+  background: #fff;
+  box-shadow: 0 10px 28px rgb(68 47 33 / 9%);
 }
 .atAGlance {
   align-self: start;
@@ -267,8 +268,8 @@
 .poodleHero .facts div,
 .poodleHero .heroTendencies div {
   border: 0;
-  background: rgb(255 255 255 / 66%);
-  box-shadow: 0 7px 20px rgb(68 47 33 / 6%);
+  background: #fff;
+  box-shadow: 0 12px 30px rgb(68 47 33 / 10%);
 }
 .poodleHero .heroTendencies div {
   --tendency-accent: var(--moss) !important;
@@ -955,8 +956,8 @@
     box-shadow: 0 16px 44px rgb(68 47 33 / 10%);
   }
   .poodleHero .profileSummary .summary { padding: 0; }
-  .poodleHero .profileSummary { padding: 20px; border-radius: 22px; }
-  .poodleRoleWatermark { bottom: 16px; left: -62px; width: 340px; opacity: .16; }
+  .poodleHero .profileSummary { padding: 4px; border-radius: 0; }
+  .poodleRoleWatermark { bottom: 10px; left: -58px; width: 320px; opacity: .07; }
   .poodleHeroStatement { margin-top: 11px; font-size: .92rem; line-height: 1.6; }
   .poodleHero .facts { gap: 8px; }
   .poodleHero .facts div { padding: 12px; border-radius: 14px; }
