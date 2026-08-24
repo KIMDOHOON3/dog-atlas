@@ -249,10 +249,12 @@ export default async function BreedDetail({ params }: PageProps) {
 
         <article className={styles.content}>
           {breed.slug === "poodle" ? <PoodleDetailExperience related={related} /> : <BreedDetailExperience breed={breed} />}
-          <details className={styles.sources}>
-            <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개 · {allSources[0].checkedAt} 확인</small></summary>
-            <div><p>현재 편집 중이며 수의학·행동 전문가 검수 전인 정보입니다. 품종의 일반적 경향이 개별 강아지의 건강과 행동을 보장하지는 않습니다.</p><ul>{allSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} — {source.title}</a><span>확인일 {source.checkedAt}</span></li>)}</ul></div>
-          </details>
+          {breed.slug !== "poodle" && (
+            <details className={styles.sources}>
+              <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개 · {allSources[0].checkedAt} 확인</small></summary>
+              <div><p>현재 편집 중이며 수의학·행동 전문가 검수 전인 정보입니다. 품종의 일반적 경향이 개별 강아지의 건강과 행동을 보장하지는 않습니다.</p><ul>{allSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} — {source.title}</a><span>확인일 {source.checkedAt}</span></li>)}</ul></div>
+            </details>
+          )}
         </article>
       </main>
     </>

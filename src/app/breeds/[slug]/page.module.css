@@ -882,6 +882,9 @@
   .malteseHero {
     grid-template: "profile" auto "visual" auto / minmax(0, 1fr);
   }
+  .poodleHero {
+    grid-template: "visual" auto "profile" auto / minmax(0, 1fr);
+  }
   .profileSummary {
     width: min(100%, 620px);
     justify-self: center;
