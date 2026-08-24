@@ -6,6 +6,10 @@
   margin: 72px auto 0;
 }
 
+.story + .realities {
+  margin-top: 56px;
+}
+
 .story > header,
 .realities > header,
 .readiness > header,
@@ -515,6 +519,10 @@
   .readiness,
   .related {
     margin-top: 56px;
+  }
+
+  .story + .realities {
+    margin-top: 40px;
   }
 
   .story {
