@@ -36,7 +36,7 @@ export function CategoryExplorer() {
               <strong>{option.title}</strong>
               <span className={styles.quickDescription}>{option.description}</span>
             </span>
-            <b aria-hidden="true">→</b>
+            <b aria-hidden="true"><span>→</span></b>
           </Link>
         ))}
       </nav>

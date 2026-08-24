@@ -116,12 +116,17 @@
   display: grid;
   width: 32px;
   height: 32px;
+  align-self: center;
+  justify-self: center;
   place-items: center;
   border-radius: 50%;
   color: #fff;
   background: var(--moss);
   font-size: .88rem;
+  line-height: 1;
 }
+
+.quickStartCard > b > span { display: block; translate: 0 -1px; line-height: 1; }
 
 @media (max-width: 767px) {
   .explorer { padding: var(--home-mobile-section-gap) 0 0; }
