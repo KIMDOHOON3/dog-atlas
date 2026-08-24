@@ -18,7 +18,6 @@ export function FamiliarBreedStart({ breeds }: { breeds: readonly Breed[] }) {
       <header className={styles.header}>
         <p>익숙한 이름부터</p>
         <h2 id="familiar-breeds-title">먼저 떠오르는 견종이 있나요?</h2>
-        <span>국내 양육 조사와 일상에서 익숙한 이름을 시작점으로 골랐어요. 인기 순위나 추천 결과는 아니에요.</span>
       </header>
 
       <div className={styles.rail}>

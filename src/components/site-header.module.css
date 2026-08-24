@@ -10,6 +10,9 @@
   gap: 20px;
 }
 .header::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: var(--line); pointer-events: none; }
+.header.discoverTone::before { position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; width: 100vw; translate: -50% 0; background: #fff; content: ""; }
+.header.discoverTone::after { background: #eee7e1; }
+.header.discoverTone .menuButton { background: #f6f1eb; }
 .wide { width: min(calc(100% - var(--page-inline)), var(--max)); }
 .brand { min-height: 44px; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; letter-spacing: -.02em; line-height: 1; }
 .brand > span:last-child { line-height: 1.2; }
@@ -38,6 +41,7 @@
   .mobileBottomNav a:hover, .mobileBottomNav a:focus-visible { color: var(--ink); background: var(--paper-deep); }
   .mobileBottomNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   .mobileBottomNav .mobileNavActive { color: var(--moss); background: var(--moss-light); }
+  .mobileBottomNav.discoverTone .mobileNavActive { color: #9a4d29; background: #f3e5da; }
 }
 
 @media (prefers-reduced-motion: reduce) {

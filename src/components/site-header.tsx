@@ -8,6 +8,7 @@ import styles from "./site-header.module.css";
 
 export function SiteHeader({ wide = false }: { wide?: boolean }) {
   const pathname = usePathname();
+  const discoverTone = pathname === "/discover";
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -32,7 +33,7 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
 
   return (
     <>
-      <header className={`${styles.header} ${wide ? styles.wide : ""}`}>
+      <header className={`${styles.header} ${wide ? styles.wide : ""} ${discoverTone ? styles.discoverTone : ""}`}>
         <Link className={styles.brand} href="/" aria-label="살아 있는 견종도감 홈">
           <span className={styles.mark} aria-hidden="true">犬</span>
           <span>강아지 도감</span>
@@ -67,7 +68,7 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
           </div>
         </div>
       </header>
-      <nav className={styles.mobileBottomNav} aria-label="모바일 주요 탐색">
+      <nav className={`${styles.mobileBottomNav} ${discoverTone ? styles.discoverTone : ""}`} aria-label="모바일 주요 탐색">
         <Link className={pathname === "/" ? styles.mobileNavActive : ""} href="/" aria-current={pathname === "/" ? "page" : undefined}>
           <NavigationIcon name="home" />
           <span>홈</span>

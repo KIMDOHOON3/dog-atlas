@@ -1,11 +1,13 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import styles from "./page-scroll-control.module.css";
 
 type ScrollDirection = "top" | "bottom";
 
 export function PageScrollControl() {
+  const pathname = usePathname();
   const [direction, setDirection] = useState<ScrollDirection | null>(null);
   const lastScrollYRef = useRef(0);
 
@@ -74,7 +76,7 @@ export function PageScrollControl() {
 
   return (
     <button
-      className={styles.control}
+      className={`${styles.control} ${pathname === "/discover" ? styles.discoverTone : ""}`}
       type="button"
       aria-label={direction === "top" ? "페이지 맨 위로 이동" : "페이지 맨 아래로 이동"}
       onClick={move}
