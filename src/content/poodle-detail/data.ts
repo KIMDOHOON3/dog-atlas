@@ -5,6 +5,11 @@ const checkedAt = "2026-08-23";
 
 const poodleDetailSchema = z.object({
   heroStatement: z.string().min(20),
+  heroRolePreview: z.object({
+    image: z.string().startsWith("/").endsWith(".webp"),
+    imageAlt: z.string().min(15),
+    label: z.string().min(5),
+  }),
   heroSizeSummary: z.string().min(10),
   metadataDescription: z.string().min(50),
   sizes: z.array(z.object({
@@ -41,6 +46,11 @@ const poodleDetailSchema = z.object({
 
 export const poodleDetail = poodleDetailSchema.parse({
   heroStatement: "푸들은 장식견이 아니라 물속 사냥감을 회수하던 개였어요.",
+  heroRolePreview: {
+    image: "/illustrations/ui/breed-roles/poodle-water-retriever-silhouette.webp",
+    imageAlt: "회수용 더미를 물고 물결 사이를 헤엄치는 푸들 실루엣",
+    label: "물에서 회수하던 역할",
+  },
   heroSizeSummary: "4가지 크기 · 23~62cm",
   metadataDescription: "우아한 곱슬 피모 안에는 물에서 회수하던 움직임과 크기별로 다른 생활 조건이 있어요. 푸들의 과거 역할과 오늘날의 행동 경향, 함께 살 때 체감되는 점을 살펴봅니다.",
   sizes: [

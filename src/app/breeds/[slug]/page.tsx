@@ -194,11 +194,25 @@ export default async function BreedDetail({ params }: PageProps) {
         <section className={`${styles.hero} ${styles.malteseHero} ${breed.slug === "poodle" ? styles.poodleHero : ""}`} aria-labelledby="breed-title">
           <BreedVisual breed={breed} variant="detail" priority />
           <div className={styles.profileSummary}>
-            <div className={styles.summary}>
-              <h1 id="breed-title">{breed.nameKo}</h1>
-              <p className={styles.breedNameEn}>{breed.nameEn}</p>
-              {breed.slug === "poodle" && <p className={styles.poodleHeroStatement}>{poodleDetail.heroStatement}</p>}
+            <div className={breed.slug === "poodle" ? styles.poodleProfileLead : undefined}>
+              <div className={styles.summary}>
+                <h1 id="breed-title">{breed.nameKo}</h1>
+                <p className={styles.breedNameEn}>{breed.nameEn}</p>
+              </div>
+              {breed.slug === "poodle" && (
+                <figure className={styles.poodleRolePreview}>
+                  <Image
+                    src={poodleDetail.heroRolePreview.image}
+                    alt={poodleDetail.heroRolePreview.imageAlt}
+                    width={768}
+                    height={393}
+                    sizes="(max-width: 767px) 132px, 180px"
+                  />
+                  <figcaption>{poodleDetail.heroRolePreview.label}</figcaption>
+                </figure>
+              )}
             </div>
+            {breed.slug === "poodle" && <p className={styles.poodleHeroStatement}>{poodleDetail.heroStatement}</p>}
             <div className={styles.atAGlance}>
               <dl className={styles.facts}>
                 {breed.slug === "poodle" ? (

@@ -46,20 +46,6 @@
   letter-spacing: 0;
 }
 
-.story > header > p b::after,
-.realities > header > p b::after,
-.readiness > header > p b::after,
-.related > header > p b::after {
-  position: absolute;
-  top: 46px;
-  left: 19px;
-  width: 2px;
-  height: 24px;
-  border-radius: 999px;
-  background: #efd8c7;
-  content: "";
-}
-
 .story > header > h2,
 .realities > header > h2,
 .readiness > header > h2,
@@ -552,15 +538,6 @@
     width: 36px;
     height: 36px;
     border-radius: 12px;
-  }
-
-  .story > header > p b::after,
-  .realities > header > p b::after,
-  .readiness > header > p b::after,
-  .related > header > p b::after {
-    top: 42px;
-    left: 17px;
-    height: 20px;
   }
 
   .story > header > h2,
