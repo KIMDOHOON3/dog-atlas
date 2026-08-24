@@ -108,7 +108,7 @@
 }
 
 @media (max-width: 767px) {
-  .explorer { padding: 56px 0; }
+  .explorer { padding: var(--home-mobile-section-gap) 0 0; }
   .heading { display: block; }
   .heading h2 { font-size: 1.35rem; }
   .allLink { margin-top: 10px; }

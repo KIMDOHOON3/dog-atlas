@@ -89,6 +89,7 @@ body:has(main[data-breed-theme="poodle"]) {
 }
 
 body:has(main[data-home-theme="warm-3d"]) {
+  --home-mobile-section-gap: 56px;
   --paper: #fff;
   --paper-deep: #f6f0e8;
   --panel: #fff;
