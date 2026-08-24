@@ -182,12 +182,34 @@
   display: none;
 }
 .poodleSizeDetails summary::after {
-  content: "+";
-  color: var(--moss);
-  font-size: 1rem;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  content: "";
+  background:
+    linear-gradient(var(--moss), var(--moss)) center / 14px 2px no-repeat,
+    linear-gradient(var(--moss), var(--moss)) center / 2px 14px no-repeat;
+  transition: background-size 260ms ease, transform 320ms cubic-bezier(.22, 1, .36, 1);
 }
 .poodleSizeDetails[open] summary::after {
-  content: "−";
+  background-size: 14px 2px, 2px 0;
+  transform: rotate(180deg);
+}
+.poodleSizeDetails {
+  interpolate-size: allow-keywords;
+}
+.poodleSizeDetails::details-content {
+  block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    block-size 320ms cubic-bezier(.22, 1, .36, 1),
+    opacity 220ms ease,
+    content-visibility 320ms allow-discrete;
+}
+.poodleSizeDetails[open]::details-content {
+  block-size: auto;
+  opacity: 1;
 }
 .poodleSizeDetails summary:focus-visible {
   outline: 3px solid var(--focus);

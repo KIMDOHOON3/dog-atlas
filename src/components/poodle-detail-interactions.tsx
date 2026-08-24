@@ -41,8 +41,6 @@ export function PoodleStorySteps() {
     scrollTo: scrollToMobileStep,
     trackRef: mobileTrackRef,
   } = useSnapCarousel(poodleDetail.story.steps.length);
-  const step = poodleDetail.story.steps[activeStep];
-
   function selectStep(index: number) {
     setActiveStep(index);
     buttonRefs.current[index]?.focus();
@@ -61,15 +59,21 @@ export function PoodleStorySteps() {
 
   return (
     <>
-      <Image
-        className={styles.storyImage}
-        src={step.image}
-        alt={step.imageAlt}
-        width={1200}
-        height={800}
-        sizes="(max-width: 900px) calc(100vw - 32px), 46vw"
-        key={step.image}
-      />
+      <div className={styles.storyImageFrame}>
+        {poodleDetail.story.steps.map((item, index) => (
+          <Image
+            className={styles.storyImage}
+            src={item.image}
+            alt={activeStep === index ? item.imageAlt : ""}
+            aria-hidden={activeStep !== index}
+            data-active={activeStep === index || undefined}
+            width={1200}
+            height={800}
+            sizes="(max-width: 900px) calc(100vw - 32px), 46vw"
+            key={item.image}
+          />
+        ))}
+      </div>
       <div className={styles.storyInteraction}>
         <div className={styles.stepTabs} role="tablist" aria-label="푸들의 과거에서 오늘까지 세 단계">
           {poodleDetail.story.steps.map((item, index) => (
@@ -77,7 +81,7 @@ export function PoodleStorySteps() {
               type="button"
               role="tab"
               id={`poodle-step-tab-${index}`}
-              aria-controls="poodle-step-panel"
+              aria-controls={`poodle-step-panel-${index}`}
               aria-selected={activeStep === index}
               tabIndex={activeStep === index ? 0 : -1}
               key={item.navLabel}
@@ -90,18 +94,24 @@ export function PoodleStorySteps() {
             </button>
           ))}
         </div>
-        <article
-          className={styles.stepPanel}
-          id="poodle-step-panel"
-          role="tabpanel"
-          aria-labelledby={`poodle-step-tab-${activeStep}`}
-          tabIndex={0}
-          key={step.navLabel}
-        >
-          <span>{step.eyebrow}</span>
-          <h3>{step.title}</h3>
-          <p>{step.body}</p>
-        </article>
+        <div className={styles.stepPanel}>
+          {poodleDetail.story.steps.map((item, index) => (
+            <article
+              className={styles.stepPanelContent}
+              id={`poodle-step-panel-${index}`}
+              role="tabpanel"
+              aria-labelledby={`poodle-step-tab-${index}`}
+              aria-hidden={activeStep !== index}
+              tabIndex={activeStep === index ? 0 : -1}
+              data-active={activeStep === index || undefined}
+              key={item.navLabel}
+            >
+              <span>{item.eyebrow}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
       </div>
       <div className={`${styles.storyCarousel} mobile-edge-to-edge`} aria-label="푸들의 과거에서 오늘까지" aria-roledescription="carousel">
         <div className={`${styles.storyTrack} mobile-edge-to-edge-track`} ref={mobileTrackRef} onScroll={handleMobileScroll}>
@@ -185,7 +195,6 @@ export function PoodleRealityCards() {
     scrollTo: scrollToMobileCard,
     trackRef: mobileTrackRef,
   } = useSnapCarousel(poodleDetail.realities.length);
-  const size = poodleDetail.sizes[activeSize];
   const sizeReality = poodleDetail.realities.find((reality) => reality.id === "sizes");
   const coatReality = poodleDetail.realities.find((reality) => reality.id === "coat");
 
@@ -196,16 +205,29 @@ export function PoodleRealityCards() {
       <div className={`${styles.realityGrid} mobile-edge-to-edge-track`} ref={mobileTrackRef} onScroll={handleMobileScroll}>
         <article className={styles.sizeReality}>
           <div className={styles.sizeVisual}>
-            <Image
-              className={styles.sizeImage}
-              src={size.image}
-              alt={size.imageAlt}
-              width={1200}
-              height={900}
-              sizes="(max-width: 767px) calc(100vw - 60px), 46vw"
-              key={size.image}
-            />
-            <span aria-live="polite"><strong>{size.label}</strong><small>{size.range}</small></span>
+            {poodleDetail.sizes.map((item, index) => (
+              <Image
+                className={styles.sizeImage}
+                src={item.image}
+                alt={activeSize === index ? item.imageAlt : ""}
+                aria-hidden={activeSize !== index}
+                data-active={activeSize === index || undefined}
+                width={1200}
+                height={900}
+                sizes="(max-width: 767px) calc(100vw - 60px), 46vw"
+                key={item.image}
+              />
+            ))}
+            {poodleDetail.sizes.map((item, index) => (
+              <span
+                aria-hidden={activeSize !== index}
+                aria-live={activeSize === index ? "polite" : undefined}
+                data-active={activeSize === index || undefined}
+                key={item.id}
+              >
+                <strong>{item.label}</strong><small>{item.range}</small>
+              </span>
+            ))}
           </div>
           <div className={styles.realityBody}>
             <h3>{sizeReality.title}</h3>
