@@ -47,13 +47,13 @@
 }
 
 .quickStartCard {
-  min-height: 180px;
-  padding: 22px;
+  min-height: 156px;
+  padding: 18px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 116px;
-  align-items: stretch;
-  gap: 12px;
+  grid-template-columns: 100px minmax(0, 1fr) 32px;
+  align-items: center;
+  gap: 16px;
   border-radius: 20px;
   color: var(--ink);
   background: linear-gradient(145deg, #f8f1e9 0%, #f3e8dc 100%);
@@ -66,11 +66,11 @@
 .quickStartCard:nth-child(3) { background: linear-gradient(145deg, #faf5ef 0%, #f1e7df 100%); }
 .quickStartCard:hover { translate: 0 -3px; background: #f1e9de; }
 
-.cardCopy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.cardCopy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
 
 .module {
-  width: 112px;
-  height: 75px;
+  width: 96px;
+  height: 72px;
   object-fit: contain;
   filter: drop-shadow(0 10px 14px rgb(75 47 29 / 10%));
   transition: translate .2s ease, rotate .2s ease;
@@ -79,16 +79,17 @@
 .quickStartCard:hover .module { translate: 0 -3px; rotate: 1.5deg; }
 
 .cardVisual {
-  min-width: 0;
-  padding: 8px 0 2px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 28px;
+  background: rgb(255 255 255 / 58%);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 70%);
 }
 
 .number {
-  margin-bottom: auto;
+  margin-bottom: 8px;
   color: var(--moss);
   font-family: var(--font-serif);
   font-size: .72rem;
@@ -105,14 +106,13 @@
 .quickDescription {
   max-width: 25ch;
   margin-top: 6px;
-  padding-right: 38px;
   color: var(--ink-soft);
   font-size: .78rem;
   line-height: 1.55;
   word-break: keep-all;
 }
 
-.cardVisual b {
+.quickStartCard > b {
   display: grid;
   width: 32px;
   height: 32px;
@@ -129,12 +129,13 @@
   .heading h2 { font-size: 1.35rem; }
   .allLink { min-height: 38px; margin-top: 14px; }
   .quickStartGrid { grid-template-columns: 1fr; gap: 10px; margin-top: 22px; }
-  .quickStartCard { min-height: 154px; padding: 16px 16px 16px 20px; grid-template-columns: minmax(0, 1fr) 104px; gap: 8px; border-radius: 20px; }
-  .module { width: 104px; height: 70px; }
-  .cardVisual { padding-top: 2px; }
-  .number { margin-bottom: auto; }
+  .quickStartCard { min-height: 132px; padding: 14px; grid-template-columns: 86px minmax(0, 1fr) 30px; gap: 12px; border-radius: 20px; }
+  .cardVisual { width: 86px; height: 92px; border-radius: 24px; }
+  .module { width: 84px; height: 62px; }
+  .number { margin-bottom: 5px; }
   .quickStartCard strong { font-size: 1rem; }
-  .quickDescription { max-width: 22ch; padding-right: 0; font-size: .74rem; }
+  .quickDescription { max-width: 22ch; margin-top: 4px; font-size: .72rem; }
+  .quickStartCard > b { width: 30px; height: 30px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
