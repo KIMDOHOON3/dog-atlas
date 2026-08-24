@@ -36,8 +36,8 @@
 .mobileBottomNav { display: none; }
 @media (max-width: 767px) { .header { height: 56px; } .headerActions > nav { display: none; } .brand { font-size: .92rem; } .mark { width: 30px; height: 30px; flex-basis: 30px; } .menuButton { min-width: 70px; min-height: 40px; } }
 @media (max-width: 767px) {
-  .mobileBottomNav { position: fixed; z-index: 50; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 4px max(18px, calc((100vw - 420px) / 2)) max(4px, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgb(255 255 255 / 96%); box-shadow: 0 -8px 24px rgb(45 34 27 / 7%); backdrop-filter: blur(14px); }
-  .mobileBottomNav a { min-width: 0; min-height: 58px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; border-radius: 12px; color: var(--ink-soft); font-size: .65rem; font-weight: 700; line-height: 1.12; text-decoration: none; white-space: nowrap; }
+  .mobileBottomNav { position: fixed; z-index: 50; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 2px max(18px, calc((100vw - 420px) / 2)) max(2px, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgb(255 255 255 / 96%); box-shadow: 0 -8px 24px rgb(45 34 27 / 7%); backdrop-filter: blur(14px); }
+  .mobileBottomNav a { min-width: 0; min-height: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; border-radius: 10px; color: var(--ink-soft); font-size: .62rem; font-weight: 700; line-height: 1.08; text-decoration: none; white-space: nowrap; }
   .mobileBottomNav a:hover, .mobileBottomNav a:focus-visible { color: var(--ink); background: var(--paper-deep); }
   .mobileBottomNav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   .mobileBottomNav .mobileNavActive { color: var(--moss); background: var(--moss-light); }

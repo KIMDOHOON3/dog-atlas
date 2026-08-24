@@ -73,7 +73,7 @@ p { text-wrap: pretty; }
 }
 
 @media (max-width: 767px) {
-  body { padding-bottom: calc(67px + env(safe-area-inset-bottom)); }
+  body { padding-bottom: calc(55px + env(safe-area-inset-bottom)); }
   .mobile-edge-to-edge {
     width: calc(100% + 32px) !important;
     margin-inline: -16px !important;

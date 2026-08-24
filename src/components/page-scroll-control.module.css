@@ -6,7 +6,7 @@
 .control:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
 @media (max-width: 767px) {
-  .control { right: 14px; bottom: calc(78px + env(safe-area-inset-bottom)); width: 42px; height: 42px; }
+  .control { right: 14px; bottom: calc(64px + env(safe-area-inset-bottom)); width: 42px; height: 42px; }
 }
 
 @media (prefers-reduced-motion: reduce) { .control:hover { transform: none; } }
