@@ -378,3 +378,11 @@ Use Maltese as the third standard-detail implementation without forcing a workin
 Use small-body household routes and long straight-coat care as the two ownership realities. Keep the three self-check questions concrete, and link directly to Japanese Spitz and Bichon Frise to explain differences in body size, coat structure, alerting, and activity rhythm without calling them recommendations.
 
 Reuse the existing history, companionship, small-body-safety, and coat-care assets. Add one distinct play scene so the hero and five content meanings never reuse an image. Preserve the shared interaction and layout code; Maltese should require data and assets, not a new page branch.
+
+# 2026-08-25 — Apply the detail standard to Bichon Frise
+
+Use Bichon Frise as the fourth standard-detail implementation. Describe its documented companion background through the breed's formation in France and Belgium, then connect that background cautiously to participation with people and the daily need for walking, play, and calm recovery. Replace the older chronology-heavy history copy with an independently structured summary that does not reproduce a single source's sequence.
+
+Use independent rest and curly-coat care as the two ownership realities. Keep the three self-check questions concrete, and link directly to Maltese and Poodle to explain differences in coat structure, household routes, size range, and activity context without presenting a recommendation.
+
+Reuse the existing history, cooperative-learning, independent-rest, and coat-care assets. Add one distinct outdoor play scene so the hero and five content meanings never reuse an image. Preserve the shared component and interaction code; Bichon Frise should be added through validated data rather than a new page branch.

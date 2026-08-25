@@ -2,12 +2,12 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { getBreed } from "@/content/breeds/data";
-import { japaneseSpitzDetail, malteseDetail } from "./data";
+import { bichonFriseDetail, japaneseSpitzDetail, malteseDetail } from "./data";
 
 const publicFile = (assetPath: string) => join(process.cwd(), "public", assetPath.slice(1));
 
 describe("standard breed detail editorial data", () => {
-  const details = [japaneseSpitzDetail, malteseDetail];
+  const details = [japaneseSpitzDetail, malteseDetail, bichonFriseDetail];
 
   it.each(details)("keeps every $nameKo story and reality image distinct and available", (detail) => {
     const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];

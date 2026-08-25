@@ -134,12 +134,79 @@ const malteseDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const bichonFriseDetail = standardBreedDetailSchema.parse({
+  slug: "bichon-frise",
+  nameKo: "비숑 프리제",
+  metadataDescription: "프랑스와 벨기에에서 반려견으로 정립된 배경과 사람과 함께하는 참여, 활기찬 움직임, 독립 휴식과 곱슬 피모 관리를 살펴봅니다.",
+  heroStatement: "사람과 함께하는 활동에 생기 있게 참여하는 작은 반려견이에요.",
+  story: {
+    title: "비숑 프리제는 왜 사람과 함께하는 활동에 적극적일까요?",
+    description: "반려견으로 정립된 배경을 알면 사람과 주고받는 참여와 매일 필요한 활동 리듬을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "반려견의 배경",
+        eyebrow: "1단계 · 어떻게 자리 잡았을까?",
+        title: "프랑스와 벨기에에서 반려견으로 정립됐어요.",
+        body: "비숑 프리제는 지중해 지역의 작은 흰 반려견 계통과 연결되며, 프랑스와 벨기에에서 오늘날의 품종으로 정립됐어요.",
+        image: "/illustrations/v3/bichon-frise-history.webp",
+        imageAlt: "지중해와 유럽의 생활 공간에서 사람 곁에 머무는 흰 비숑 프리제 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "사람과 주고받는 활동에 참여할 수 있어요.",
+        body: "반려견으로 지내온 배경은 보호자의 신호를 살피고 짧은 학습이나 놀이에 적극적으로 참여하는 모습으로 나타날 수 있어요.",
+        image: "/illustrations/v4/bichon-frise-feature-cooperative-learning.webp",
+        imageAlt: "보호자의 손 신호를 살피며 짧은 이동 과제에 참여하는 흰 성견 비숑 프리제 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "작은 몸에도 매일 움직이고 놀 시간이 필요해요.",
+        body: "가볍고 활기차게 움직일 수 있어요. 산책과 놀이를 마련하고, 활동 뒤에는 혼자 편안히 쉬는 리듬도 함께 가르쳐야 해요.",
+        image: "/illustrations/v4/bichon-frise-feature-play.webp",
+        imageAlt: "조용한 공원에서 보호자가 굴린 공을 따라 활기차게 움직이는 흰 성견 비숑 프리제 삽화",
+      },
+    ],
+    caution: "견종의 반려 배경은 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "비숑 프리제의 생활 현실",
+  realities: [
+    {
+      id: "independent-rest",
+      title: "사람 곁과 독립 휴식의 균형",
+      body: "사람과 함께하는 시간을 즐길 수 있지만 늘 붙어 있는 것만으로 충분하지 않아요. 짧고 성공적인 혼자 쉬기를 일상에서 연습해야 해요.",
+      image: "/illustrations/v4/bichon-frise-feature-independent-rest.webp",
+      imageAlt: "보호자가 일하는 동안 조금 떨어진 자기 매트에서 편안히 쉬는 흰 성견 비숑 프리제 삽화",
+    },
+    {
+      id: "curly-coat-care",
+      title: "속까지 살피는 곱슬 피모 관리",
+      body: "부드러운 곱슬 피모는 엉킨 곳을 피부 가까이까지 나누어 빗고, 목욕 뒤 충분히 말리며 정기적으로 다듬는 관리가 필요해요.",
+      image: "/illustrations/v4/bichon-frise-feature-curly-coat-care.webp",
+      imageAlt: "보호자가 흰 성견 비숑 프리제의 곱슬 피모를 작은 구역으로 나누어 빗는 삽화",
+    },
+  ],
+  readinessTitle: "비숑 프리제와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "매일 산책과 놀이, 짧은 학습 활동을 함께할 수 있나요?",
+    "사람 곁에 있는 시간과 혼자 편안히 쉬는 연습을 함께 마련할 수 있나요?",
+    "집에서의 빗질과 목욕·건조, 정기적인 미용을 이어갈 수 있나요?",
+  ],
+  relatedTitle: "비숑 프리제가 마음에 들지만 망설여진다면",
+  relatedDescription: "비슷한 흰 소형 반려견 안에서도 피모 구조와 활동 리듬의 차이를 살펴보세요.",
+  relatedDifferences: {
+    maltese: "같은 흰 소형 반려견이지만 길고 곧은 피모와 작은 체구에 맞춘 생활 동선이 달라요.",
+    poodle: "곱슬 피모를 공유하지만 네 가지 크기 범위와 회수견 배경, 학습 활동의 규모가 달라요.",
+  },
+});
+
 const standardBreedDetails = new Map(
-  [japaneseSpitzDetail, malteseDetail].map((detail) => [detail.slug, detail]),
+  [japaneseSpitzDetail, malteseDetail, bichonFriseDetail].map((detail) => [detail.slug, detail]),
 );
 
 export function getStandardBreedDetail(slug: string) {
   return standardBreedDetails.get(slug);
 }
 
-export { japaneseSpitzDetail, malteseDetail };
+export { bichonFriseDetail, japaneseSpitzDetail, malteseDetail };
