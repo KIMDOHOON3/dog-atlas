@@ -370,3 +370,11 @@ Use Japanese Spitz as the second implementation of the Poodle-derived detail sta
 Adapt the first story step because Japanese Spitz was developed as a companion rather than assigning it an unsupported working role. Connect its formation in twentieth-century Japan to people-oriented attention, then to the daily reality of noticing and alerting to surrounding changes. Use daily activity rhythm and double-coat care as the two practical realities, supported by the existing editorial data and assets.
 
 Do not render a public source disclosure on standard-detail pages. Retain the linked source records internally and keep the visible copy independently structured, concise, and tendency-based.
+
+# 2026-08-25 — Apply the detail standard to Maltese
+
+Use Maltese as the third standard-detail implementation without forcing a working-dog narrative. Start from its documented central Mediterranean background and long history as a companion, connect that background cautiously to choosing proximity to people, and make the guardian-facing third step about daily shared activity rather than claiming that companionship alone determines behavior.
+
+Use small-body household routes and long straight-coat care as the two ownership realities. Keep the three self-check questions concrete, and link directly to Japanese Spitz and Bichon Frise to explain differences in body size, coat structure, alerting, and activity rhythm without calling them recommendations.
+
+Reuse the existing history, companionship, small-body-safety, and coat-care assets. Add one distinct play scene so the hero and five content meanings never reuse an image. Preserve the shared interaction and layout code; Maltese should require data and assets, not a new page branch.

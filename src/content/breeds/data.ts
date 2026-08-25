@@ -152,7 +152,7 @@ const draftBreeds = [
     ],
     related: [
       { slug: "japanese-spitz", reason: "하얀 외모는 닮았지만 체격과 털의 구조, 알림 행동을 비교해볼 수 있어요." },
-      { slug: "greyhound", reason: "크기는 정반대지만 사람 곁에서 쉬는 생활의 의미를 다르게 보여줘요." },
+      { slug: "bichon-frise", reason: "비슷한 흰 소형견이지만 곱슬 피모의 손질 방식과 활동 리듬이 달라요." },
     ],
     sources: [
       { title: "Maltese Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/maltese/", checkedAt },

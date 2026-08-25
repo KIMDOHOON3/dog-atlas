@@ -67,10 +67,79 @@ const japaneseSpitzDetail = standardBreedDetailSchema.parse({
   },
 });
 
-const standardBreedDetails = new Map([[japaneseSpitzDetail.slug, japaneseSpitzDetail]]);
+const malteseDetail = standardBreedDetailSchema.parse({
+  slug: "maltese",
+  nameKo: "말티즈",
+  metadataDescription: "중앙 지중해에서 오랫동안 사람 곁에 머문 배경과 오늘날의 교감 경향, 작은 체구의 생활 안전과 길고 곧은 피모 관리를 살펴봅니다.",
+  heroStatement: "오랫동안 사람 곁에서 살아온 작은 반려견이에요.",
+  story: {
+    title: "말티즈는 왜 사람 가까이에 머물려 할까요?",
+    description: "오랜 반려의 배경을 알면 사람 곁에서 보이는 관심과 매일 필요한 교감을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "오랜 반려의 배경",
+        eyebrow: "1단계 · 어디에서 함께했을까?",
+        title: "중앙 지중해의 도시에서 사람과 살아왔어요.",
+        body: "말티즈의 조상으로 여겨지는 작은 개들은 중앙 지중해의 항구와 해안 도시에서 생활했어요. 고대 로마에는 사람 곁의 반려견으로 기록됐어요.",
+        image: "/illustrations/v3/maltese-history.webp",
+        imageAlt: "중앙 지중해의 해안 도시에서 사람 곁에 앉아 있는 흰 말티즈 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "가족의 가까운 곳을 선택할 수 있어요.",
+        body: "오랫동안 반려견으로 지내온 배경은 가족의 움직임을 살피고 가까이 머무는 경향으로 나타날 수 있어요.",
+        image: "/illustrations/v4/maltese-feature-companionship.webp",
+        imageAlt: "소파에 앉은 보호자 가까이 서서 얼굴을 바라보는 성견 말티즈 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "작은 몸이어도 함께하는 활동은 필요해요.",
+        body: "사람 곁에 있는 시간만으로 하루가 채워지는 것은 아니에요. 짧은 산책과 놀이, 편안히 혼자 쉬는 시간을 함께 마련해야 해요.",
+        image: "/illustrations/v4/maltese-feature-play.webp",
+        imageAlt: "거실 바닥에서 보호자에게 작은 장난감을 가져가는 성견 말티즈 삽화",
+      },
+    ],
+    caution: "견종의 오랜 반려 배경은 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "말티즈의 생활 현실",
+  realities: [
+    {
+      id: "small-body-safety",
+      title: "작은 몸에 맞춘 생활 동선",
+      body: "높은 가구에서 뛰어내리거나 거친 상호작용은 작은 몸에 부담이 될 수 있어요. 바닥과 오르내리는 높이, 함께 지내는 사람의 움직임을 살펴야 해요.",
+      image: "/illustrations/v4/maltese-feature-small-body-safety.webp",
+      imageAlt: "낮은 반려견 계단 옆에서 보호자의 안내를 받는 성견 말티즈 삽화",
+    },
+    {
+      id: "straight-coat-care",
+      title: "길고 곧은 피모 관리",
+      body: "긴 흰 피모를 유지하려면 엉킨 곳을 살피는 잦은 빗질과 정기적인 관리가 필요해요. 짧게 다듬어도 빗질 부담이 사라지는 것은 아니에요.",
+      image: "/illustrations/v4/maltese-feature-coat-care.webp",
+      imageAlt: "보호자가 성견 말티즈의 길고 곧은 흰 피모를 빗으로 관리하는 삽화",
+    },
+  ],
+  readinessTitle: "말티즈와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "높은 곳과 미끄러운 바닥을 작은 체구에 맞게 정리할 수 있나요?",
+    "집에서의 빗질과 정기적인 피모 관리를 꾸준히 이어갈 수 있나요?",
+    "매일 산책과 놀이, 편안히 혼자 쉬는 시간을 함께 마련할 수 있나요?",
+  ],
+  relatedTitle: "말티즈가 마음에 들지만 망설여진다면",
+  relatedDescription: "비슷한 첫인상 안에서도 다른 체격과 피모 구조를 가진 견종을 살펴보세요.",
+  relatedDifferences: {
+    "japanese-spitz": "같은 흰 소형 반려견이지만 더 큰 체격과 풍성한 이중모, 주변 변화를 알리는 반응이 달라요.",
+    "bichon-frise": "비슷한 흰 소형견이지만 곱슬 피모의 손질 방식과 활동 리듬이 달라요.",
+  },
+});
+
+const standardBreedDetails = new Map(
+  [japaneseSpitzDetail, malteseDetail].map((detail) => [detail.slug, detail]),
+);
 
 export function getStandardBreedDetail(slug: string) {
   return standardBreedDetails.get(slug);
 }
 
-export { japaneseSpitzDetail };
+export { japaneseSpitzDetail, malteseDetail };
