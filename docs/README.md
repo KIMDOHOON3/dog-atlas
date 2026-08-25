@@ -51,6 +51,7 @@
 - [`image-prompts-batch-b.md`](image-prompts-batch-b.md) — 초기 확장 배치 B의 카드·역사 이미지 프롬프트와 QA 기록
 - [`image-prompts-japanese-spitz-features-2026-08-19.md`](image-prompts-japanese-spitz-features-2026-08-19.md) — 견종별 3개 특징 카드 파일럿의 재패니즈 스피츠 이미지 제작 기록
 - [`image-prompts-poodle-growth-guide-2026-08-21.md`](image-prompts-poodle-growth-guide-2026-08-21.md) — 푸들 성장 3단계 이미지와 참조 자산·프롬프트·검수 기록
+- [`image-prompts-familiar-standard-2026-08-25.md`](image-prompts-familiar-standard-2026-08-25.md) — 국내 익숙한 32종 공식 상세 전환에 추가한 55개 생활 장면과 공통 프롬프트·검수 기록
 
 배치 A·B 문서는 현재 전체 368종 자산 목록이 아니라 초기 제작 배치의 재현 기록이다. 최신 외형 점검 상태는 `breed-visual-audit.md`를 기준으로 본다.
 

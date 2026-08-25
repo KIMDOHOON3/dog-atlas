@@ -1,4 +1,5 @@
 import { standardBreedDetailSchema } from "./schema";
+import { familiarStandardBreedDetails } from "./familiar-data";
 
 const japaneseSpitzDetail = standardBreedDetailSchema.parse({
   slug: "japanese-spitz",
@@ -202,11 +203,15 @@ const bichonFriseDetail = standardBreedDetailSchema.parse({
 });
 
 const standardBreedDetails = new Map(
-  [japaneseSpitzDetail, malteseDetail, bichonFriseDetail].map((detail) => [detail.slug, detail]),
+  [japaneseSpitzDetail, malteseDetail, bichonFriseDetail, ...familiarStandardBreedDetails].map((detail) => [detail.slug, detail]),
 );
 
 export function getStandardBreedDetail(slug: string) {
   return standardBreedDetails.get(slug);
+}
+
+export function getAllStandardBreedDetails() {
+  return [...standardBreedDetails.values()];
 }
 
 export { bichonFriseDetail, japaneseSpitzDetail, malteseDetail };

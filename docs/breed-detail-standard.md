@@ -105,15 +105,16 @@
 ## 8. 현재 코드 구조
 
 - `src/app/breeds/[slug]/page.tsx`: 공통 상세 진입점이다. 현재는 `breed.slug === "poodle"` 조건으로 푸들 히어로와 푸들 전용 경험을 분기한다.
-- `src/components/breed-detail-standard.tsx`: 푸들·재패니즈 스피츠·말티즈·비숑 프리제가 공유하는 01~04 섹션 구조를 조합한다.
+- `src/components/breed-detail-standard.tsx`: 국내 익숙한 32종이 공유하는 01~04 섹션 구조를 조합한다.
 - `src/components/breed-detail-standard-interactions.tsx`: 공용 단계 탭, 모바일 스냅 캐러셀, 이미지 생활 카드, 체크리스트 상태를 담당한다.
 - `src/components/poodle-detail.tsx`와 `src/components/poodle-detail-interactions.tsx`: 공용 구조에 푸들 전용 네 크기 선택 카드를 연결한다.
 - `src/components/poodle-detail.module.css`: 현재 기준 상세들이 공유하는 레이아웃, 반응형, 전환, 모션 감소 규칙을 담는다. 파일명은 후속 정리 대상이다.
 - `src/content/poodle-detail/data.ts`: Zod로 검증하는 히어로 문장, 네 크기, 세 단계 이야기, 두 생활 현실, 세 질문, 관련 견종 차이, 내부 출처 데이터다.
-- `src/content/standard-breed-detail/schema.ts`와 `data.ts`: 재패니즈 스피츠·말티즈·비숑 프리제가 사용하는 공용 Zod 구조와 견종별 편집 데이터다.
+- `src/content/standard-breed-detail/schema.ts`와 `data.ts`: 공용 Zod 구조, 앞선 개별 적용 데이터와 전체 조회 경계를 제공한다.
+- `src/content/standard-breed-detail/familiar-data.ts`: 국내 익숙한 28종 추가 적용의 공용 팩토리와 전용 카드가 없던 9종의 편집 데이터를 제공한다.
 - `src/app/breeds/[slug]/page.module.css`: 푸들 히어로와 공통 상세 컨테이너의 연결 규칙을 담는다.
 
-재패니즈 스피츠 적용에서 공용 구조를 추출했고 말티즈에서 작업 역할이 없는 오래된 반려견의 배경과 작은 체구 안전을 같은 구조로 표현할 수 있는지 검증했다. 비숑 프리제에서는 반려견 배경을 사람과의 참여·매일의 활동으로 연결하고, 독립 휴식과 곱슬 피모 관리를 서로 다른 생활 현실로 분리했다. 다음 견종도 `standard-breed-detail` 데이터에 추가하고, 네 크기 선택처럼 특정 견종에만 필요한 부분만 선택형 모듈로 연결한다. 페이지 파일에 견종별 구조 조건문을 계속 늘리지 않는다.
+재패니즈 스피츠 적용에서 공용 구조를 추출했고 말티즈와 비숑 프리제에서 서로 다른 반려 배경과 관리 현실을 검증했다. 이후 국내 익숙한 32종 전체로 범위를 넓혀 소형 반려견, 디자이너 교배견, 테리어·하운드·목양견·회수견·초대형 작업견까지 같은 정보 순서로 표현하되 견종별 원고와 이미지는 분리했다. 다음 견종도 `standard-breed-detail` 데이터에 추가하고, 네 크기 선택처럼 특정 견종에만 필요한 부분만 선택형 모듈로 연결한다. 페이지 파일에 견종별 구조 조건문을 계속 늘리지 않는다.
 
 ## 9. 그대로 복제하지 않을 것
 

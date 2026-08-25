@@ -386,3 +386,11 @@ Use Bichon Frise as the fourth standard-detail implementation. Describe its docu
 Use independent rest and curly-coat care as the two ownership realities. Keep the three self-check questions concrete, and link directly to Maltese and Poodle to explain differences in coat structure, household routes, size range, and activity context without presenting a recommendation.
 
 Reuse the existing history, cooperative-learning, independent-rest, and coat-care assets. Add one distinct outdoor play scene so the hero and five content meanings never reuse an image. Preserve the shared component and interaction code; Bichon Frise should be added through validated data rather than a new page branch.
+
+# 2026-08-25 — Apply the detail standard to all 32 Korea-familiar breeds
+
+Convert every breed in the `익숙한 이름` discovery set to the official 01–04 detail standard. Keep Poodle's four-size module, preserve the three individually authored standard details, and add the remaining 28 through a shared validated factory backed by each breed's existing sources, role clues, feature cards, care realities, and related-breed reasons. Require an automated coverage assertion so changes to the familiar set cannot silently return a breed to the legacy detail.
+
+Do not mechanically expose each breed's chronology-heavy legacy history. Use the concise role or formation clue for the first step, the breed-specific current-tendency card for the second, and the guardian-facing daily reality for the third. Retain internal source records, variation cautions, three concrete self-check questions, and direct related-breed paths. A shared structure must not turn breed content into a recommendation or claim that every individual behaves the same way.
+
+Preserve existing history and feature assets where their meanings are distinct. Add one daily-rhythm scene to the 19 breeds that already have three feature cards, and create three standard-local feature scenes plus one daily-rhythm scene for the nine familiar breeds without feature sets. Keep every hero and five content images distinct, use one adult dog per scene, and validate local WebP existence, dimensions, file budgets, and cross-section uniqueness.
