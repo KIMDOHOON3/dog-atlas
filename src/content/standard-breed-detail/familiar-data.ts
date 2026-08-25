@@ -504,7 +504,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
     realities: cards.slice(1).map((card, index) => sizeVarieties && index === 1 ? {
       id: "size-varieties",
       title: "성견 가슴둘레로 세 크기를 확인해요.",
-      body: "FCI는 생후 15개월 이후 가슴둘레를 기준으로 래빗·미니어처·스탠더드를 구분해요. 화면의 수치는 암수 범위를 합쳐 간단히 보여주는 요약이에요.",
+      body: "닥스훈트는 한 이름 안에 세 가지 크기가 있어요. 함께 살 개체의 예상 성견 크기를 먼저 확인해야 해요.",
       image: sizeVarieties.items[0].image,
       imageAlt: sizeVarieties.items[0].imageAlt,
     } : {

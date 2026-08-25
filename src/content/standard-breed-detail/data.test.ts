@@ -76,6 +76,8 @@ describe("standard breed detail editorial data", () => {
     expect(detail.sizeVarieties?.summary).toContain("가슴둘레");
     expect(detail.sizeVarieties?.items.map((item) => item.label)).toEqual(["래빗", "미니어처", "스탠더드"]);
     expect(detail.realities[1].id).toBe("size-varieties");
+    expect(detail.realities[1].body).toContain("예상 성견 크기");
+    expect(detail.realities[1].body).not.toContain("FCI");
     detail.sizeVarieties?.items.forEach((item) => expect(existsSync(publicFile(item.image)), item.image).toBe(true));
   });
 
