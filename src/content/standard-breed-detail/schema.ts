@@ -17,6 +17,18 @@ const standardRealitySchema = z.object({
   imageAlt: z.string().min(15),
 });
 
+const modernWorkSchema = z.object({
+  title: z.string().min(10),
+  description: z.string().min(30),
+  roles: z.array(z.object({
+    label: z.string().min(4),
+    title: z.string().min(10),
+    body: z.string().min(40),
+    sourceUrls: z.array(z.url()).min(1),
+  })).min(1).max(2),
+  caution: z.string().min(35),
+});
+
 export const standardBreedDetailSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   nameKo: z.string().min(2),
@@ -28,6 +40,7 @@ export const standardBreedDetailSchema = z.object({
     steps: z.array(standardStoryStepSchema).length(3),
     caution: z.string().min(30),
   }),
+  modernWork: modernWorkSchema.optional(),
   realitiesTitle: z.string().min(6),
   realities: z.array(standardRealitySchema).length(2),
   readinessTitle: z.string().min(10),

@@ -29,8 +29,8 @@ const japaneseSpitzDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "관심은 주변 변화를 알리는 반응이 될 수 있어요.",
-        body: "현관 소리나 창밖 움직임을 알아차린 뒤 짖음으로 표현할 수 있어요. 보호자는 함께하는 활동과 편안히 쉬는 시간을 모두 마련해야 해요.",
+        title: "주변 변화를 알아차리면 소리로 알릴 수 있어요.",
+        body: "현관 소리나 창밖 움직임에 귀를 기울인 뒤 짖을 수 있어요. 소리를 들은 다음 보호자에게 돌아오거나 자기 자리에서 쉬는 순서를 차분히 연습해 주세요.",
         image: "/illustrations/v4/japanese-spitz-feature-calm-alert.webp",
         imageAlt: "닫힌 현관문 밖의 소리를 차분히 알아차리는 재패니즈 스피츠 삽화",
       },
@@ -74,7 +74,7 @@ const malteseDetail = standardBreedDetailSchema.parse({
   metadataDescription: "중앙 지중해에서 오랫동안 사람 곁에 머문 배경과 오늘날의 교감 경향, 작은 체구의 생활 안전과 길고 곧은 피모 관리를 살펴봅니다.",
   heroStatement: "오랫동안 사람 곁에서 살아온 작은 반려견이에요.",
   story: {
-    title: "말티즈는 왜 사람 가까이에 머물려 할까요?",
+    title: "말티즈는 왜 가족 가까이에 있으려 할까요?",
     description: "오랜 반려의 배경을 알면 사람 곁에서 보이는 관심과 매일 필요한 교감을 함께 이해할 수 있어요.",
     steps: [
       {

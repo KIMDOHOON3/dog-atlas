@@ -13,6 +13,7 @@ type StandardExperienceDetail = Pick<
   | "slug"
   | "nameKo"
   | "story"
+  | "modernWork"
   | "realitiesTitle"
   | "readinessTitle"
   | "readinessQuestions"
@@ -42,6 +43,25 @@ export function StandardBreedDetailExperience({
         </header>
         <div className={styles.storyLayout}><StandardStorySteps detail={detail} /></div>
         <p className={styles.caution}><span aria-hidden="true">*</span>{detail.story.caution}</p>
+        {detail.modernWork && (
+          <section className={styles.modernWork} aria-labelledby={`${detail.slug}-modern-work-title`}>
+            <header>
+              <span>오늘도 이어지는 역할</span>
+              <h3 id={`${detail.slug}-modern-work-title`}>{detail.modernWork.title}</h3>
+              <p>{detail.modernWork.description}</p>
+            </header>
+            <div>
+              {detail.modernWork.roles.map((role) => (
+                <article key={role.label}>
+                  <span>{role.label}</span>
+                  <h4>{role.title}</h4>
+                  <p>{role.body}</p>
+                </article>
+              ))}
+            </div>
+            <p className={styles.modernWorkCaution}><span aria-hidden="true">*</span>{detail.modernWork.caution}</p>
+          </section>
+        )}
       </section>
 
       <section className={styles.realities} aria-labelledby={`${detail.slug}-realities-title`}>

@@ -282,6 +282,73 @@ const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string>
   "saint-bernard": "온화한 이미지가 초대형견의 생활 부담을 줄이지는 않아요.",
 };
 
+const modernWorkProfiles: Partial<Record<(typeof familiarStandardSlugs)[number], NonNullable<StandardBreedDetail["modernWork"]>>> = {
+  "labrador-retriever": {
+    title: "래브라도 리트리버는 오늘 어떤 일을 맡고 있을까요?",
+    description: "회수견의 협력 배경은 오늘날 안내와 탐지처럼 사람과 긴밀히 호흡하는 전문 작업에서도 이어집니다.",
+    roles: [
+      {
+        label: "시각장애인 안내견",
+        title: "복잡한 환경에서 사람과 보조를 맞춰 이동해요.",
+        body: "삼성화재 안내견학교와 Guide Dogs for the Blind는 래브라도 리트리버를 주요 안내견 견종으로 소개해요. 이 역할에는 자신감과 환경 적응력, 낮은 산만함, 사람의 신호에 반응하는 능력이 요구됩니다.",
+        sourceUrls: ["https://www.guidedog.co.kr/mobile/story/guidedog.do", "https://www.guidedogs.com/resources/faqs"],
+      },
+      {
+        label: "냄새 탐지견",
+        title: "냄새를 찾되 담당자와 함께 과제를 끝내요.",
+        body: "런던 경찰청은 래브라도를 탐지 업무에 투입하는 견종 중 하나로 공개해요. 냄새에 오래 집중하고 배운 신호로 결과를 알리는 과정은 탐색 지속력과 사람 중심 협업을 보여주는 단서입니다.",
+        sourceUrls: ["https://www.met.police.uk/foi-ai/metropolitan-police/disclosure-2023/october-2023/canine-breeds-various-tasks-mps/"],
+      },
+    ],
+    caution: "직업견은 건강·기질 평가와 전문 훈련을 통과한 개체예요. 같은 견종이라는 이유만으로 모든 반려견에게 같은 집중력이나 안정성을 기대할 수는 없어요.",
+  },
+  "golden-retriever": {
+    title: "골든 리트리버는 오늘 어떤 일을 맡고 있을까요?",
+    description: "사람과 가까이 협력하며 대상을 부드럽게 회수한 배경은 안내견을 선발하고 훈련하는 과정에서도 중요한 단서가 됩니다.",
+    roles: [
+      {
+        label: "시각장애인 안내견",
+        title: "사람과 한 팀이 되어 안전한 이동을 도와요.",
+        body: "삼성화재 안내견학교와 Guide Dogs for the Blind는 골든 리트리버도 안내견으로 활동하는 견종이라고 설명해요. 실제 선발에서는 품종명보다 건강, 자신감, 적응력, 관리 가능성과 낮은 산만함을 함께 평가합니다.",
+        sourceUrls: ["https://www.guidedog.co.kr/mobile/story/guidedog.do", "https://www.guidedogs.com/resources/faqs"],
+      },
+    ],
+    caution: "부드러운 인상이나 견종의 평판이 안내견 적합성을 보증하지 않아요. 전문 기관은 개체별 건강과 행동, 학습 과정과 복지를 계속 평가합니다.",
+  },
+  "german-shepherd-dog": {
+    title: "저먼 셰퍼드 독은 오늘 어떤 일을 맡고 있을까요?",
+    description: "목양과 다목적 작업의 배경은 오늘날 경찰 순찰과 수색·구조처럼 서로 다른 전문 과제에서도 이어집니다.",
+    roles: [
+      {
+        label: "경찰 순찰견",
+        title: "담당자의 신호에 맞춰 순찰과 수색을 수행해요.",
+        body: "런던 경찰청은 일반 목적 경찰견의 주된 견종으로 저먼 셰퍼드 독을 공개해요. 주변을 살피면서도 담당자와 방향을 맞추는 일은 주의력과 반복 협업, 자극 뒤 다시 집중하는 능력을 요구합니다.",
+        sourceUrls: ["https://www.met.police.uk/foi-ai/metropolitan-police/disclosure-2023/october-2023/canine-breeds-various-tasks-mps/"],
+      },
+      {
+        label: "도시 수색·구조견",
+        title: "복잡한 현장에서 냄새를 찾고 위치를 알려요.",
+        body: "같은 경찰청 자료에는 선발된 저먼 셰퍼드 일반 목적견이 도시 수색·구조 훈련도 받는다고 기록돼요. 이 일에는 낯선 환경에서 움직이는 자신감과 냄새 탐색, 담당자에게 결과를 전달하는 협력이 필요합니다.",
+        sourceUrls: ["https://www.met.police.uk/foi-ai/metropolitan-police/disclosure-2023/october-2023/canine-breeds-various-tasks-mps/"],
+      },
+    ],
+    caution: "경찰견의 역할을 가정의 경계 행동과 동일하게 보면 안 돼요. 직업견은 엄격한 선발과 통제된 훈련을 받으며, 반려견에게 공격성이나 과도한 경계를 요구할 근거가 되지 않습니다.",
+  },
+  dobermann: {
+    title: "도베르만은 어떤 작업의 배경을 이어가고 있을까요?",
+    description: "경찰견으로 알려진 역사와 오늘날의 보호·추적 작업을 구분해 보면 빠른 반응과 사람 중심 협업을 더 정확히 이해할 수 있습니다.",
+    roles: [
+      {
+        label: "보호·추적 작업견",
+        title: "주변을 살피면서도 담당자의 신호로 전환해요.",
+        body: "FCI는 도베르만을 반려·보호·작업견으로 분류하고 작업 시험 대상 견종으로 두며, 영국 로열 켄넬 클럽은 경찰·군·경비·추적 등 여러 역할에 활용돼 왔다고 설명해요. 핵심 단서는 경계 자체보다 높은 훈련 가능성과 담당자와의 협업입니다.",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/143g02-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/working/dobermann/"],
+      },
+    ],
+    caution: "역사적 경찰견 이미지는 모든 도베르만의 현재 직업이나 성격을 뜻하지 않아요. 강한 경계를 부추기기보다 안정적인 사회화와 보호자에게 주의를 돌리는 학습이 먼저입니다.",
+  },
+};
+
 function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[number]): StandardBreedDetail {
   const breed = getBreed(slug);
   if (!breed) throw new Error(`익숙한 견종 데이터를 찾을 수 없습니다: ${slug}`);
@@ -320,12 +387,17 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
           eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
           title: dailyRealityTitles[slug],
           body: breed.story.reality,
-          image: `/illustrations/v4/${slug}-feature-daily-rhythm.webp`,
-          imageAlt: `보호자와 일상 활동을 마친 뒤 편안한 리듬으로 전환하는 성견 ${breed.nameKo} 삽화`,
+          image: slug === "labrador-retriever"
+            ? "/illustrations/v4/labrador-retriever-feature-daily-rhythm-v2.webp"
+            : `/illustrations/v4/${slug}-feature-daily-rhythm.webp`,
+          imageAlt: slug === "labrador-retriever"
+            ? "산책과 짧은 과제를 마친 뒤 미끄럼 방지 매트에서 쉬고 보호자가 회수 도구와 먹거리 보관함을 정리하는 검은 성견 래브라도 리트리버 삽화"
+            : `보호자와 일상 활동을 마친 뒤 편안한 리듬으로 전환하는 성견 ${breed.nameKo} 삽화`,
         },
       ],
       caution: "견종의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 건강 상태와 개체에 따라 다르게 나타날 수 있어요.",
     },
+    modernWork: modernWorkProfiles[slug],
     realitiesTitle: `${breed.nameKo}의 생활 현실`,
     realities: cards.slice(1).map((card, index) => ({
       id: `daily-reality-${index + 1}`,

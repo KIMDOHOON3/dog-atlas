@@ -27,6 +27,24 @@ describe("standard breed detail editorial data", () => {
     expect(new Set(titles).size).toBe(titles.length);
   });
 
+  it("keeps present-day work profiles limited to breeds with direct official sources", () => {
+    const workProfiles = details.filter((detail) => detail.modernWork);
+
+    expect(workProfiles.map((detail) => detail.slug).sort()).toEqual([
+      "dobermann",
+      "german-shepherd-dog",
+      "golden-retriever",
+      "labrador-retriever",
+    ]);
+    workProfiles.forEach((detail) => {
+      detail.modernWork?.roles.forEach((role) => {
+        expect(role.sourceUrls.length).toBeGreaterThan(0);
+        role.sourceUrls.forEach((url) => expect(url).toMatch(/^https:\/\//));
+      });
+      expect(detail.modernWork?.caution).toMatch(/모든|보증|동일|뜻하지/);
+    });
+  });
+
   it.each(details)("keeps every $nameKo story and reality image distinct and available", (detail) => {
     const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
 
@@ -39,6 +57,8 @@ describe("standard breed detail editorial data", () => {
       detail.story.description,
       ...detail.story.steps.map((step) => step.body),
       detail.story.caution,
+      ...(detail.modernWork?.roles.map((role) => role.body) ?? []),
+      ...(detail.modernWork ? [detail.modernWork.caution] : []),
       ...detail.realities.map((reality) => reality.body),
       ...Object.values(detail.relatedDifferences),
     ];

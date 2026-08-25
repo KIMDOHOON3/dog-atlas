@@ -394,3 +394,9 @@ Convert every breed in the `익숙한 이름` discovery set to the official 01�
 Do not mechanically expose each breed's chronology-heavy legacy history. Use the concise role or formation clue for the first step, the breed-specific current-tendency card for the second, and the guardian-facing daily reality for the third. Retain internal source records, variation cautions, three concrete self-check questions, and direct related-breed paths. A shared structure must not turn breed content into a recommendation or claim that every individual behaves the same way.
 
 Preserve existing history and feature assets where their meanings are distinct. Add one daily-rhythm scene to the 19 breeds that already have three feature cards, and create three standard-local feature scenes plus one daily-rhythm scene for the nine familiar breeds without feature sets. Keep every hero and five content images distinct, use one adult dog per scene, and validate local WebP existence, dimensions, file budgets, and cross-section uniqueness.
+
+# 2026-08-25 — Add present-day work only where direct evidence exists
+
+Add an optional `오늘도 이어지는 역할` module inside the past-to-present section instead of forcing a job label onto every breed. Start with Labrador Retriever, Golden Retriever, German Shepherd Dog, and Dobermann because guide-dog schools, an operating police service, FCI, and the Royal Kennel Club directly document their guide, detection, patrol, search-and-rescue, protection, or tracking roles.
+
+Connect each role to the attention, adaptability, environmental confidence, or handler cooperation the work requires, but do not present these as guaranteed breed personalities. Keep role-specific source URLs in validated editorial data and require a visible caution that professional working dogs are individually selected and trained. Distinguish current operation from historical police or military use, especially for the Dobermann.

@@ -314,6 +314,77 @@
   font-weight: 800;
 }
 
+.modernWork {
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid #eadfd5;
+}
+
+.modernWork > header > span,
+.modernWork article > span {
+  color: var(--moss);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.modernWork > header h3 {
+  margin: 8px 0 0;
+  font-size: clamp(1.18rem, 2vw, 1.4rem);
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.modernWork > header p {
+  max-width: 760px;
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.68;
+}
+
+.modernWork > div {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.modernWork article {
+  min-width: 0;
+  padding: 20px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fbf7f2 0%, #f5ede5 100%);
+  box-shadow: 0 10px 26px rgb(68 47 33 / 7%);
+}
+
+.modernWork article h4 {
+  margin: 8px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.modernWork article p {
+  margin: 9px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.68;
+}
+
+.modernWorkCaution {
+  margin: 14px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.modernWorkCaution > span {
+  margin-right: 5px;
+  color: var(--moss);
+  font-weight: 800;
+}
+
 .realityGrid {
   margin-top: 28px;
   display: grid;
@@ -691,6 +762,15 @@
     border-radius: 0;
     background: transparent;
     box-shadow: none;
+  }
+
+  .modernWork {
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+
+  .modernWork > div {
+    grid-template-columns: 1fr;
   }
 
   .story > header,
