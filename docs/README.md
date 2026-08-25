@@ -29,6 +29,7 @@
 
 ### UI와 디자인
 
+- [`breed-detail-standard.md`](breed-detail-standard.md) — 푸들 상세에서 확정한 견종 상세의 정보 구조, 디자인, 인터랙션, 적용 체크리스트
 - [`redesign-v2.md`](redesign-v2.md) — 현재 화면 방향의 기반이 된 홈·상세 재설계안
 - [`shortlist-design-spec.md`](shortlist-design-spec.md) — 현재는 중단된 관심 견종 보관함·2~3종 비교의 역사적 설계 기록
 - [`design-redesign-spec.md`](design-redesign-spec.md) — 타이포, 캐러셀, 생활조건 탐색을 포함한 초기 개선 명세

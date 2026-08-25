@@ -354,3 +354,11 @@ Move `이름 속 견종` and `견종 모아보기` into a top-right menu. Keep o
 Keep all 376 entries searchable and filterable, but do not make the full catalog or seven filter groups compete for attention at the start of `/discover`. Lead with a Zod-validated editorial set of 32 names that are familiar to Korean users: show 12 image cards immediately and place 20 more names behind a native disclosure.
 
 Use current domestic breed-ownership reporting as the strongest input, then broaden beyond its small-companion-dog bias with widely recognized working, herding, hunting, and large breeds already present in the atlas. Do not call the set a popularity ranking, recommendation, or proof of suitability. Move the complete condition filter into an accessible drawer while preserving URL state, result restoration, and the full catalog.
+
+# 2026-08-25 — Adopt the Poodle detail as the breed-detail standard
+
+Use the Poodle detail as the official structural, visual, interaction, and content-order standard for future breed-detail redesigns. Every redesigned detail should move from a concise identity and living-condition hero through background, present-day tendency, daily reality, self-check questions, and direct paths to breeds with different living conditions. Preserve the white, cocoa, oatmeal, and caramel hierarchy; bounded type scale; numbered sections; keyboard-operable desktop steps; mobile hand-scroll cards; restrained transitions; and reduced-motion behavior.
+
+Do not copy Poodle-specific facts or controls into every breed. Four-size selection, water-retriever history, curly-coat care, and Poodle-related breeds remain Poodle content. Research each breed's own supported background and meaningful ownership conditions, and omit or adapt a module when the evidence does not support the same relationship.
+
+Do not convert all remaining details in one mechanical pass. Keep the current Poodle-only branch until a second breed validates the shared boundary, then extract a reusable standard-detail component backed by Zod-validated breed data and optional breed-specific modules. Roll out in small reviewable batches and keep unconverted pages unchanged.
