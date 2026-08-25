@@ -16,7 +16,9 @@
 .card i { width: 29px; height: 29px; flex: 0 0 29px; display: grid; place-items: center; border-radius: 50%; color: #a6542d; background: #f4e3d6; font-size: .76rem; font-style: normal; font-weight: 800; line-height: 1; }
 .more { margin-top: 14px; }
 .more summary { width: fit-content; min-height: 38px; padding: 8px 13px; border-radius: 999px; color: #6f6259; background: #f6efe8; font-size: .78rem; font-weight: 750; cursor: pointer; }
-.moreRail { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; padding-top: 14px; }
+.more[open] summary { width: 100%; padding-inline: 2px; border-bottom: 1px solid #eadfd5; border-radius: 0; color: #a6542d; background: transparent; }
+.more[open] summary:focus-visible { outline: 0; border-bottom-color: #c56b3c; box-shadow: inset 0 -2px #c56b3c; }
+.moreRail { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; padding-top: 10px; }
 @media (max-width: 1020px) { .rail, .moreRail { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .header { margin-bottom: 16px; padding-inline: 0; }
@@ -25,7 +27,7 @@
   .rail { display: flex; gap: 10px; margin-inline: -16px; padding: 0 16px 10px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
   .rail::-webkit-scrollbar { display: none; }
   .card { flex: 0 0 144px; scroll-snap-align: start; }
-  .moreRail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding-top: 12px; }
+  .moreRail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .moreRail .card { min-width: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { translate: none; } }
