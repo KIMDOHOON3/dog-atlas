@@ -93,7 +93,7 @@ export function StandardStorySteps({ detail }: { detail: StoryDetail }) {
         ))}
       </div>
       <div className={styles.storyInteraction} aria-busy={isTransitioning}>
-        <div className={styles.stepTabs} role="tablist" aria-label={`${detail.nameKo}의 배경에서 오늘까지 세 단계`}>
+        <div className={styles.stepTabs} data-step-count={detail.story.steps.length} role="tablist" aria-label={`${detail.nameKo}의 배경에서 오늘까지 ${detail.story.steps.length}단계`}>
           {detail.story.steps.map((item, index) => (
             <button
               type="button"

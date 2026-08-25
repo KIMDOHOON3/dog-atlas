@@ -29,6 +29,7 @@ describe("standard breed detail editorial data", () => {
 
   it("keeps present-day work profiles limited to breeds with direct official sources", () => {
     const workProfiles = details.filter((detail) => detail.modernWork);
+    const everydayProfiles = details.filter((detail) => !detail.modernWork);
 
     expect(workProfiles.map((detail) => detail.slug).sort()).toEqual([
       "dobermann",
@@ -37,12 +38,16 @@ describe("standard breed detail editorial data", () => {
       "labrador-retriever",
     ]);
     workProfiles.forEach((detail) => {
+      expect(detail.story.steps).toHaveLength(4);
+      expect(detail.story.steps[3]).toEqual(detail.modernWork?.storyStep);
+      expect(detail.story.steps[3].navLabel).toBe("현재의 역할");
       detail.modernWork?.roles.forEach((role) => {
         expect(role.sourceUrls.length).toBeGreaterThan(0);
         role.sourceUrls.forEach((url) => expect(url).toMatch(/^https:\/\//));
       });
       expect(detail.modernWork?.caution).toMatch(/모든|보증|동일|뜻하지/);
     });
+    everydayProfiles.forEach((detail) => expect(detail.story.steps).toHaveLength(3));
   });
 
   it("uses Pomeranian-specific copy instead of all German Spitz varieties", () => {

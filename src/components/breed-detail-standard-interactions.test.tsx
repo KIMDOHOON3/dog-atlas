@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeAll, describe, expect, it } from "vitest";
-import { japaneseSpitzDetail } from "@/content/standard-breed-detail/data";
+import { getStandardBreedDetail, japaneseSpitzDetail } from "@/content/standard-breed-detail/data";
 import { StandardReadinessChecklist, StandardRealityCards, StandardStorySteps } from "./breed-detail-standard-interactions";
 
 describe("standard breed detail interactions", () => {
@@ -27,6 +27,24 @@ describe("standard breed detail interactions", () => {
     await user.keyboard("{ArrowRight}");
     expect(screen.getByRole("tab", { name: /생활의 현실/ })).toHaveAttribute("aria-selected", "true");
     expect(screen.getByRole("tabpanel")).toHaveTextContent("현관 소리");
+  });
+
+  it("integrates an evidence-backed present-day job as Golden Retriever step four", async () => {
+    const user = userEvent.setup();
+    const detail = getStandardBreedDetail("golden-retriever")!;
+    render(<StandardStorySteps detail={detail} />);
+
+    const currentRole = screen.getByRole("tab", { name: /현재의 역할/ });
+    expect(screen.getAllByRole("tab")).toHaveLength(4);
+    expect(screen.getByRole("tablist")).toHaveAttribute("aria-label", expect.stringContaining("4단계"));
+
+    await user.click(currentRole);
+    expect(currentRole).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("tabpanel")).toHaveTextContent("안내견으로 사람과 안전한 이동");
+    expect(screen.getAllByRole("img", { name: /시각장애인과 함께 안전하게/ })[0]).toHaveAttribute(
+      "src",
+      expect.stringContaining("golden-retriever-feature-modern-guide-work.webp"),
+    );
   });
 
   it("exposes two reality slides and reveals preparation only after all checks", async () => {

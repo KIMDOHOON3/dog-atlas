@@ -108,3 +108,14 @@ Avoid: photorealism, cartoon exaggeration, cropped anatomy, duplicate limbs, and
 ## 변환과 검수
 
 내장 ImageGen의 PNG 원본을 프로젝트용 1200×900 WebP로 변환했다. 55장 모두 4:3, 1200×900이며 가장 큰 파일도 332KB로 카드 예산 550KB 이하다. 다섯 장의 접촉 시트로 한 마리 구성, 전신 크롭, 품종 식별점, 장면 중복과 눈에 띄는 해부학 오류를 검수했다. 데이터 테스트는 각 상세 안의 역사·현재·생활 전환·생활 현실 두 장이 서로 다른 로컬 WebP인지 확인한다.
+
+## 현재의 전문 역할 4단계 이미지
+
+공식 자료로 현재의 전문 역할이 확인된 네 견종에만 기존 이야기 흐름의 네 번째 단계 이미지를 추가했다. 내장 ImageGen의 새 생성 모드를 사용해 기존 수채화·색연필 도감 스타일과 안전한 협업 장면을 유지하고, 공격·위협·재난 피해를 연출하지 않았다.
+
+- 골든 리트리버: 한국의 횡단보도와 점자 블록 앞에서 시각장애인과 함께 멈춘 안내견 장면 — `golden-retriever-feature-modern-guide-work.webp`
+- 래브라도 리트리버: 대중교통 시설의 훈련 공간에서 평범한 가방 냄새를 확인하고 담당자에게 알리는 검은 탐지견 장면 — `labrador-retriever-feature-modern-detection-work.webp`
+- 저먼 셰퍼드 독: 통제된 도시 수색·구조 훈련장에서 냄새로 위치를 찾고 담당자에게 알리는 장면 — `german-shepherd-dog-feature-modern-search-rescue.webp`
+- 도베르만: 자연 귀와 긴 꼬리를 유지한 성견이 숲길에서 긴 리드와 하네스로 천 조각의 냄새 흔적을 찾는 장면 — `dobermann-feature-modern-tracking-work.webp`
+
+네 이미지는 모두 3:2, 1200×800 WebP다. 성견 외형, 담당자와의 협업, 장면과 오른쪽 원고의 일치, 텍스트·로고·무기·강압 장비·과장된 공격성 부재를 확인했다.

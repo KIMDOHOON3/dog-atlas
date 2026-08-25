@@ -295,6 +295,14 @@ const dailyRealityBodyOverrides: Partial<Record<(typeof familiarStandardSlugs)[n
 
 const modernWorkProfiles: Partial<Record<(typeof familiarStandardSlugs)[number], NonNullable<StandardBreedDetail["modernWork"]>>> = {
   "labrador-retriever": {
+    storyStep: {
+      navLabel: "현재의 역할",
+      eyebrow: "4단계 · 오늘은 어떤 일을 할까?",
+      title: "안내와 탐지처럼 사람과 협력하는 일을 맡아요.",
+      body: "래브라도 리트리버는 안내견과 냄새 탐지견 등으로 선발되어 환경을 살피고 담당자에게 결과를 알려요. 직업견은 건강·기질 평가와 전문 훈련을 통과한 개체예요.",
+      image: "/illustrations/v4/labrador-retriever-feature-modern-detection-work.webp",
+      imageAlt: "대중교통 시설의 훈련 공간에서 검은 성견 래브라도 리트리버가 가방의 냄새를 탐지하고 담당자에게 알리는 삽화",
+    },
     title: "래브라도 리트리버는 오늘 어떤 일을 맡고 있을까요?",
     description: "회수견의 협력 배경은 오늘날 안내와 탐지처럼 사람과 긴밀히 호흡하는 전문 작업에서도 이어집니다.",
     roles: [
@@ -314,6 +322,14 @@ const modernWorkProfiles: Partial<Record<(typeof familiarStandardSlugs)[number],
     caution: "직업견은 건강·기질 평가와 전문 훈련을 통과한 개체예요. 같은 견종이라는 이유만으로 모든 반려견에게 같은 집중력이나 안정성을 기대할 수는 없어요.",
   },
   "golden-retriever": {
+    storyStep: {
+      navLabel: "현재의 역할",
+      eyebrow: "4단계 · 오늘은 어떤 일을 할까?",
+      title: "안내견으로 사람과 안전한 이동을 함께해요.",
+      body: "골든 리트리버는 안내견으로 선발되어 사람과 한 팀으로 이동하는 일을 맡기도 해요. 모든 개체가 적합한 것은 아니며 전문 기관이 건강·기질·학습 과정을 개별적으로 평가해요.",
+      image: "/illustrations/v4/golden-retriever-feature-modern-guide-work.webp",
+      imageAlt: "횡단보도 앞 점자 블록에서 시각장애인과 함께 안전하게 멈춘 성견 골든 리트리버 안내견 삽화",
+    },
     title: "골든 리트리버는 오늘 어떤 일을 맡고 있을까요?",
     description: "사람과 가까이 협력하며 대상을 부드럽게 회수한 배경은 안내견을 선발하고 훈련하는 과정에서도 중요한 단서가 됩니다.",
     roles: [
@@ -327,6 +343,14 @@ const modernWorkProfiles: Partial<Record<(typeof familiarStandardSlugs)[number],
     caution: "부드러운 인상이나 견종의 평판이 안내견 적합성을 보증하지 않아요. 전문 기관은 개체별 건강과 행동, 학습 과정과 복지를 계속 평가합니다.",
   },
   "german-shepherd-dog": {
+    storyStep: {
+      navLabel: "현재의 역할",
+      eyebrow: "4단계 · 오늘은 어떤 일을 할까?",
+      title: "경찰 순찰과 수색·구조 현장에서 협력해요.",
+      body: "저먼 셰퍼드 독은 경찰 순찰이나 도시 수색·구조 작업에 선발되어 담당자의 신호에 따라 탐색하고 위치를 알려요. 이런 전문 작업은 엄격한 선발과 통제된 훈련을 전제로 하며 반려견에게 공격성을 요구할 근거가 아니에요.",
+      image: "/illustrations/v4/german-shepherd-dog-feature-modern-search-rescue.webp",
+      imageAlt: "안전하게 통제된 구조 훈련장에서 성견 저먼 셰퍼드 독이 냄새를 찾고 담당자에게 위치를 알리는 삽화",
+    },
     title: "저먼 셰퍼드 독은 오늘 어떤 일을 맡고 있을까요?",
     description: "목양과 다목적 작업의 배경은 오늘날 경찰 순찰과 수색·구조처럼 서로 다른 전문 과제에서도 이어집니다.",
     roles: [
@@ -346,6 +370,14 @@ const modernWorkProfiles: Partial<Record<(typeof familiarStandardSlugs)[number],
     caution: "경찰견의 역할을 가정의 경계 행동과 동일하게 보면 안 돼요. 직업견은 엄격한 선발과 통제된 훈련을 받으며, 반려견에게 공격성이나 과도한 경계를 요구할 근거가 되지 않습니다.",
   },
   dobermann: {
+    storyStep: {
+      navLabel: "현재의 역할",
+      eyebrow: "4단계 · 오늘은 어떤 일을 할까?",
+      title: "보호와 추적 작업에서 담당자와 협력해요.",
+      body: "도베르만은 보호·추적 작업에서 주변을 살피고 담당자의 신호로 행동을 전환하도록 훈련되기도 해요. 역사적 경찰견 이미지가 모든 도베르만의 현재 직업이나 성격을 뜻하지는 않아요.",
+      image: "/illustrations/v4/dobermann-feature-modern-tracking-work.webp",
+      imageAlt: "숲길에서 자연 귀와 긴 꼬리의 성견 도베르만이 긴 리드와 추적 하네스를 착용하고 냄새 흔적을 찾는 삽화",
+    },
     title: "도베르만은 어떤 작업의 배경을 이어가고 있을까요?",
     description: "경찰견으로 알려진 역사와 오늘날의 보호·추적 작업을 구분해 보면 빠른 반응과 사람 중심 협업을 더 정확히 이해할 수 있습니다.",
     roles: [
@@ -367,6 +399,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
 
   const cards = getBreedFeatures(slug)?.cards ?? fallbackCards[slug];
   if (!cards) throw new Error(`표준 상세 카드 데이터를 찾을 수 없습니다: ${slug}`);
+  const modernWork = modernWorkProfiles[slug];
 
   return standardBreedDetailSchema.parse({
     slug,
@@ -405,10 +438,11 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
             ? "산책과 짧은 과제를 마친 뒤 미끄럼 방지 매트에서 쉬고 보호자가 회수 도구와 먹거리 보관함을 정리하는 검은 성견 래브라도 리트리버 삽화"
             : `보호자와 일상 활동을 마친 뒤 편안한 리듬으로 전환하는 성견 ${breed.nameKo} 삽화`,
         },
+        ...(modernWork ? [modernWork.storyStep] : []),
       ],
       caution: "견종의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 건강 상태와 개체에 따라 다르게 나타날 수 있어요.",
     },
-    modernWork: modernWorkProfiles[slug],
+    modernWork,
     realitiesTitle: `${breed.nameKo}의 생활 현실`,
     realities: cards.slice(1).map((card, index) => ({
       id: `daily-reality-${index + 1}`,

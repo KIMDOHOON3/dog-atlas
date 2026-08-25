@@ -18,6 +18,7 @@ const standardRealitySchema = z.object({
 });
 
 const modernWorkSchema = z.object({
+  storyStep: standardStoryStepSchema,
   title: z.string().min(10),
   description: z.string().min(30),
   roles: z.array(z.object({
@@ -37,7 +38,7 @@ export const standardBreedDetailSchema = z.object({
   story: z.object({
     title: z.string().min(15),
     description: z.string().min(20),
-    steps: z.array(standardStoryStepSchema).length(3),
+    steps: z.array(standardStoryStepSchema).min(3).max(4),
     caution: z.string().min(30),
   }),
   modernWork: modernWorkSchema.optional(),
