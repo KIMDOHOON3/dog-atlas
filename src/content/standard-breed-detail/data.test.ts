@@ -45,6 +45,23 @@ describe("standard breed detail editorial data", () => {
     });
   });
 
+  it("uses Pomeranian-specific copy instead of all German Spitz varieties", () => {
+    const detail = getStandardBreedDetail("german-spitz")!;
+    const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body])].join(" ");
+
+    expect(copy).toContain("포메라이언");
+    expect(copy).not.toMatch(/울프스피츠|다섯 바라이어티|55cm/u);
+    expect(detail.story.steps[1].image).toBe("/illustrations/v4/german-spitz-feature-cooperative-play.webp");
+  });
+
+  it("explains Jindo relationship and distance without an opaque one-person-dog phrase", () => {
+    const detail = getStandardBreedDetail("korea-jindo-dog")!;
+
+    expect(detail.heroStatement).toContain("스스로 거리를");
+    expect(detail.story.steps[2].body).toContain("개체마다 다르게");
+    expect(detail.story.steps[2].body).not.toContain("한 사람만 따른다");
+  });
+
   it.each(details)("keeps every $nameKo story and reality image distinct and available", (detail) => {
     const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
 

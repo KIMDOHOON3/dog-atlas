@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import type { StandardBreedDetail } from "@/content/standard-breed-detail/schema";
+import { withAndParticle } from "@/lib/korean-particles";
 import styles from "./poodle-detail.module.css";
 
 type StoryDetail = Pick<StandardBreedDetail, "slug" | "nameKo" | "story">;
@@ -171,7 +172,7 @@ export function StandardRealityCards({ detail }: { detail: StandardBreedDetail }
   } = useSnapCarousel(detail.realities.length);
 
   return (
-    <div className={`${styles.realityCarousel} mobile-edge-to-edge`} aria-label={`${detail.nameKo}와 살 때 체감하는 두 가지`} aria-roledescription="carousel">
+    <div className={`${styles.realityCarousel} mobile-edge-to-edge`} aria-label={`${withAndParticle(detail.nameKo)} 살 때 체감하는 두 가지`} aria-roledescription="carousel">
       <div className={`${styles.realityGrid} mobile-edge-to-edge-track`} ref={trackRef} onScroll={handleScroll}>
         {detail.realities.map((reality) => (
           <article key={reality.id}>
@@ -206,7 +207,7 @@ export function StandardReadinessChecklist({ detail }: { detail: ReadinessDetail
 
   return (
     <div className={styles.readinessChecklist}>
-      <ul aria-label={`${detail.nameKo}와 살기 전 생활 조건 확인`}>
+      <ul aria-label={`${withAndParticle(detail.nameKo)} 살기 전 생활 조건 확인`}>
         {detail.readinessQuestions.map((question, index) => (
           <li key={question} data-checked={checked[index] || undefined}>
             <label>

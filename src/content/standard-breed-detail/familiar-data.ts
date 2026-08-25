@@ -1,5 +1,6 @@
 import { getBreedFeatures } from "@/content/breed-features/data";
 import { getBreed } from "@/content/breeds/data";
+import { withAndParticle } from "@/lib/korean-particles";
 import { standardBreedDetailSchema, type StandardBreedDetail } from "./schema";
 
 type EditorialCard = {
@@ -252,7 +253,7 @@ const familiarStandardSlugs = [
 ] as const;
 
 const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string> = {
-  "german-spitz": "같은 이름 안에서도 크기별 생활 규모가 크게 달라요.",
+  "german-spitz": "작은 체구의 안전과 풍성한 이중모 관리를 함께 준비해요.",
   chihuahua: "작은 몸에 맞춘 안전과 보온을 따로 준비해야 해요.",
   "shih-tzu": "짧은 얼굴과 긴 피모는 매일 다른 관리 시간을 요구해요.",
   "korea-jindo-dog": "선택 가능한 거리와 안전한 출입 관리가 함께 필요해요.",
@@ -280,6 +281,16 @@ const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string>
   dalmatian: "눈에 띄는 무늬보다 활동과 의사소통 준비가 먼저예요.",
   "great-dane": "차분해 보여도 초대형견의 공간과 비용 부담은 커요.",
   "saint-bernard": "온화한 이미지가 초대형견의 생활 부담을 줄이지는 않아요.",
+};
+
+const heroStatementOverrides: Partial<Record<(typeof familiarStandardSlugs)[number], string>> = {
+  "german-spitz": "작은 몸으로 주변을 빠르게 살피고 사람과 놀이·학습에 활기 있게 참여해요.",
+  "korea-jindo-dog": "주변을 세심하게 살피고 낯선 상황에서는 스스로 거리를 두고 확인할 수 있어요.",
+};
+
+const dailyRealityBodyOverrides: Partial<Record<(typeof familiarStandardSlugs)[number], string>> = {
+  "german-spitz": "소파나 침대에서 반복해 뛰어내리지 않도록 낮은 발판과 미끄럽지 않은 동선을 마련해요. 풍성한 이중모는 피부 가까이까지 나누어 빗고, 소리에 반응한 뒤에는 보호자에게 돌아와 쉬는 순서를 연습해 주세요.",
+  "korea-jindo-dog": "가족에게 깊은 애착을 보이거나 낯선 사람과 동물에게 거리를 두는 모습은 개체마다 다르게 나타나요. 누구를 좋아하는지 미리 단정하지 말고 실제 반응과 회복 속도를 살피며, 억지로 인사시키지 않고 출입문과 산책 안전을 꾸준히 관리해 주세요.",
 };
 
 const modernWorkProfiles: Partial<Record<(typeof familiarStandardSlugs)[number], NonNullable<StandardBreedDetail["modernWork"]>>> = {
@@ -361,7 +372,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
     slug,
     nameKo: breed.nameKo,
     metadataDescription: `${breed.nameKo}의 ${breed.identity.originalRole} 배경과 오늘날 나타날 수 있는 경향, ${cards[1].eyebrow}와 ${cards[2].eyebrow}에 필요한 실제 생활 준비를 살펴봅니다.`,
-    heroStatement: breed.tagline,
+    heroStatement: heroStatementOverrides[slug] ?? cards[0].title,
     story: {
       title: `${breed.nameKo}의 과거 배경은 오늘의 생활에서 어떻게 이어질까요?`,
       description: "과거의 역할과 형성 배경을 단서로 삼아 현재 보일 수 있는 경향과 보호자가 체감할 생활 조건을 함께 살펴보세요.",
@@ -386,7 +397,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
           navLabel: "생활의 현실",
           eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
           title: dailyRealityTitles[slug],
-          body: breed.story.reality,
+          body: dailyRealityBodyOverrides[slug] ?? breed.story.reality,
           image: slug === "labrador-retriever"
             ? "/illustrations/v4/labrador-retriever-feature-daily-rhythm-v2.webp"
             : `/illustrations/v4/${slug}-feature-daily-rhythm.webp`,
@@ -406,7 +417,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
       image: card.image,
       imageAlt: card.alt,
     })),
-    readinessTitle: `${breed.nameKo}와 보낼 일상을 생각해보세요.`,
+    readinessTitle: `${withAndParticle(breed.nameKo)} 보낼 일상을 생각해보세요.`,
     readinessQuestions: [
       `매일 ${breed.nameKo}에게 맞는 산책과 활동, 차분한 휴식을 함께 마련할 수 있나요?`,
       `${cards[1].eyebrow}에 필요한 생활 환경과 관리 시간을 꾸준히 마련할 수 있나요?`,

@@ -161,8 +161,8 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     weight: "32~45kg",
   },
   "german-spitz": {
-    size: "바라이어티별 18~55cm",
-    height: "바라이어티별 18~55cm",
+    size: "18~24cm",
+    height: "18~24cm",
   },
   "shetland-sheepdog": {
     size: "33~41cm · 7~11kg",

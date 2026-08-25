@@ -400,3 +400,7 @@ Preserve existing history and feature assets where their meanings are distinct. 
 Add an optional `오늘도 이어지는 역할` module inside the past-to-present section instead of forcing a job label onto every breed. Start with Labrador Retriever, Golden Retriever, German Shepherd Dog, and Dobermann because guide-dog schools, an operating police service, FCI, and the Royal Kennel Club directly document their guide, detection, patrol, search-and-rescue, protection, or tracking roles.
 
 Connect each role to the attention, adaptability, environmental confidence, or handler cooperation the work requires, but do not present these as guaranteed breed personalities. Keep role-specific source URLs in validated editorial data and require a visible caution that professional working dogs are individually selected and trained. Distinguish current operation from historical police or military use, especially for the Dobermann.
+
+# 2026-08-25 — Compare past and present roles in the detail hero
+
+Replace the standard-detail `계통` card with `과거 역할` and change the former original-role position to `현재 역할`. When the role has effectively continued into the present, do not duplicate it: combine it into one `과거부터 현재까지` card and use a three-card layout. Only show guide, detection, herding, sport, or other present-day work when supported; otherwise describe the current role simply as companion.

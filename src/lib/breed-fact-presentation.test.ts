@@ -8,6 +8,12 @@ import {
 } from "./breed-fact-presentation";
 
 describe("breed fact presentation", () => {
+  it("presents the Pomeranian variety size instead of the full German Spitz range", () => {
+    expect(getBreedFactPresentation(getBreed("german-spitz")!)).toMatchObject({
+      size: "18~24cm",
+      height: "18~24cm",
+    });
+  });
   it("separates Japanese Spitz height and weight for the detail summary", () => {
     const facts = getBreedFactPresentation(getBreed("japanese-spitz")!);
 
@@ -148,7 +154,7 @@ describe("breed fact presentation", () => {
     const expected = {
       "bernese-mountain-dog": { size: "58~70cm · 35~55kg", height: "58~70cm", weight: "35~55kg" },
       dobermann: { size: "63~72cm · 32~45kg", height: "63~72cm", weight: "32~45kg" },
-      "german-spitz": { size: "바라이어티별 18~55cm", height: "바라이어티별 18~55cm", weight: undefined },
+      "german-spitz": { size: "18~24cm", height: "18~24cm", weight: undefined },
       "shetland-sheepdog": { size: "33~41cm · 7~11kg", height: "33~41cm", weight: "7~11kg" },
       "australian-shepherd": { size: "46~58cm · 18~29kg", height: "46~58cm", weight: "18~29kg" },
     } as const;

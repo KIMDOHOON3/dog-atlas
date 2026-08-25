@@ -42,6 +42,7 @@ const conciseRoles: Partial<Record<string, string>> = {
 };
 
 const additionalSources: Partial<Record<string, Breed["sources"]>> = {
+  "german-spitz": [{ title: "Pomeranian", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/pomeranian/", checkedAt }],
   "shetland-sheepdog": [{ title: "Shetland Sheepdog", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/shetland-sheepdog/", checkedAt }],
   "australian-shepherd": [{ title: "Australian Shepherd", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/australian-shepherd/", checkedAt }],
 };

@@ -338,7 +338,7 @@ const draftBreeds = [
 
 export const breeds = breedCollectionSchema.parse(draftBreeds.map((breed) => (
   breed.slug === "german-spitz"
-    ? { ...breed, nameKo: "포메라이언" }
+    ? { ...breed, nameKo: "포메라이언", nameEn: "Pomeranian" }
     : breed
 )));
 

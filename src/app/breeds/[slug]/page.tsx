@@ -20,6 +20,7 @@ import {
 } from "@/lib/breed-life-presentation";
 import { getBreedFactPresentation } from "@/lib/breed-fact-presentation";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
+import { getBreedRoleFacts } from "@/lib/breed-role-presentation";
 import { withObjectParticle } from "@/lib/korean-particles";
 import styles from "./page.module.css";
 
@@ -192,6 +193,9 @@ export default async function BreedDetail({ params }: PageProps) {
       [...breed.sources, ...(growthGuide?.sources ?? []), ...behaviorContextSources].map((source) => [source.url, source]),
     ).values()];
   const facts = getBreedFactPresentation(breed);
+  const roleFacts = isStandardDetail ? getBreedRoleFacts(breed) : [];
+  const hasSizeFact = breed.slug === "poodle" || Boolean(facts.height || facts.weight || facts.size);
+  const factCount = Number(hasSizeFact) + Number(Boolean(facts.lifespan)) + (isStandardDetail ? roleFacts.length : 2);
 
   return (
     <>
@@ -208,7 +212,7 @@ export default async function BreedDetail({ params }: PageProps) {
             {breed.slug === "poodle" && <p className={styles.poodleHeroStatement}>{poodleDetail.heroStatement}</p>}
             {standardDetail && <p className={styles.poodleHeroStatement}>{standardDetail.heroStatement}</p>}
             <div className={styles.atAGlance}>
-              <dl className={styles.facts}>
+              <dl className={`${styles.facts} ${factCount % 2 === 1 ? styles.factsOdd : ""}`}>
                 {breed.slug === "poodle" ? (
                   <div>
                     <dt>크기</dt>
@@ -229,8 +233,14 @@ export default async function BreedDetail({ params }: PageProps) {
                   </div>
                 ) : facts.size ? <div><dt>크기</dt><dd>{facts.size}</dd></div> : null}
                 {facts.lifespan && <div><dt>평균 수명</dt><dd>{facts.lifespan}</dd></div>}
-                <div><dt>계통</dt><dd>{breed.identity.lineage}</dd></div>
-                <div><dt>원래 역할</dt><dd>{breed.identity.originalRole}</dd></div>
+                {isStandardDetail ? roleFacts.map((role) => (
+                  <div key={role.label}><dt>{role.label}</dt><dd>{role.value}</dd></div>
+                )) : (
+                  <>
+                    <div><dt>계통</dt><dd>{breed.identity.lineage}</dd></div>
+                    <div><dt>원래 역할</dt><dd>{breed.identity.originalRole}</dd></div>
+                  </>
+                )}
               </dl>
               <div className={styles.heroTendencies} aria-label="핵심 행동 경향">
                 {coreTendencies.map((name) => {

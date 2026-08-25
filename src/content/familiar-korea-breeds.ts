@@ -10,7 +10,7 @@ const familiarBreedEntrySchema = z.object({
 export const familiarKoreaBreeds = familiarBreedEntrySchema.array().parse([
   { slug: "maltese", priority: "first" },
   { slug: "poodle", priority: "first" },
-  { slug: "german-spitz", displayName: "포메라니안", displayNameEn: "Pomeranian", priority: "first" },
+  { slug: "german-spitz", displayName: "포메라이언", displayNameEn: "Pomeranian", priority: "first" },
   { slug: "bichon-frise", priority: "first" },
   { slug: "chihuahua", priority: "first" },
   { slug: "shih-tzu", priority: "first" },

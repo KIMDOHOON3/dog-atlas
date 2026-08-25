@@ -153,6 +153,9 @@
   gap: 8px;
   margin: 0;
 }
+.factsOdd > div:last-child {
+  grid-column: 1 / -1;
+}
 .facts div {
   min-width: 0;
   padding: 12px 13px;

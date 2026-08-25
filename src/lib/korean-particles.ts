@@ -19,3 +19,7 @@ export function withTopicParticle(value: string) {
 export function withObjectParticle(value: string) {
   return `${value}${hasFinalConsonant(value) ? "을" : "를"}`;
 }
+
+export function withAndParticle(value: string) {
+  return `${value}${hasFinalConsonant(value) ? "과" : "와"}`;
+}

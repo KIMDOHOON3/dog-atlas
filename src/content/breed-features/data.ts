@@ -187,7 +187,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
     cards: [
       {
         eyebrow: "작은 몸과 안전",
-        title: "낮은 높이와 보이는 동선부터 준비해요.",
+        title: "높은 곳에서의 낙상과 사람 발에 부딪히는 상황을 조심해요.",
         description: "아주 작은 성견은 소파에서 뛰어내리거나 사람 발과 스치는 일도 큰 부담이 될 수 있어요. 미끄럽지 않은 바닥과 낮은 발판을 마련하고, 문을 오갈 때 발밑을 확인해주세요.",
         image: "/illustrations/v4/chihuahua-feature-small-body-safety.webp",
         alt: "미끄럽지 않은 러그와 낮은 발판이 놓인 거실에서 보호자가 발밑을 살피는 동안 걷는 성견 치와와 삽화",
@@ -933,15 +933,15 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
   },
   {
     slug: "german-spitz",
-    intro: "한 품종 안의 다섯 크기 바라이어티, 집과 농가의 변화를 알리던 빠른 반응, 풍성하게 선 이중모를 먼저 살펴보세요.",
+    intro: "작은 몸으로 사람과 활동에 참여하는 방식, 주변 변화를 알리는 빠른 반응, 풍성한 이중모 관리를 먼저 살펴보세요.",
     cards: [
       {
-        eyebrow: "다섯 바라이어티",
-        title: "울프스피츠부터 포메라이언까지 한 품종 안에서 크기가 크게 달라요.",
-        description: "저먼 스피츠에는 울프스피츠, 자이언트, 미디엄, 미니어처, 포메라이언의 다섯 바라이어티가 있습니다. 같은 스피츠형 외모를 공유해도 성견의 크기와 필요한 공간·이동 장비가 크게 달라, 이름 뒤의 바라이어티를 반드시 함께 확인해야 해요.",
-        image: "/illustrations/v4/german-spitz-feature-five-varieties.webp",
-        alt: "울프스피츠부터 주황색 포메라이언까지 서로 다른 크기의 저먼 스피츠 다섯 바라이어티를 나란히 보여주는 삽화",
-        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/097g05-en.pdf"],
+        eyebrow: "작은 몸의 참여",
+        title: "작은 몸으로 놀이와 학습에 활기 있게 참여해요.",
+        description: "포메라이언은 작은 체구지만 주변을 빠르게 살피고 짧은 산책과 실내 놀이, 간단한 신호 학습에 적극적으로 참여할 수 있어요. 활동 뒤에는 흥분을 낮추고 편안히 쉬는 흐름도 함께 알려주세요.",
+        image: "/illustrations/v4/german-spitz-feature-cooperative-play.webp",
+        alt: "낮은 냄새 상자 사이에서 보호자의 손 신호를 바라보며 놀이와 학습에 참여하는 주황색 성견 포메라이언 삽화",
+        sourceUrls: ["https://www.akc.org/dog-breeds/pomeranian/", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/pomeranian/"],
       },
       {
         eyebrow: "빠른 알림 반응",
@@ -954,7 +954,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "서 있는 이중모",
         title: "풍성한 겉털 아래의 두꺼운 속털까지 나누어 확인해요.",
-        description: "곧게 서는 긴 겉털과 짧고 두꺼운 속털, 목 둘레의 풍성한 갈기는 저먼 스피츠의 공통된 외형을 만듭니다. 겉면만 빗으면 빠진 속털과 엉킴을 놓칠 수 있으므로 작은 구역씩 털을 들어 올려 피부 가까이까지 살펴주세요.",
+        description: "곧게 서는 긴 겉털과 짧고 두꺼운 속털, 목 둘레의 풍성한 갈기는 포메라이언의 외형을 만들어요. 겉면만 빗으면 빠진 속털과 엉킴을 놓칠 수 있으므로 작은 구역씩 털을 들어 올려 피부 가까이까지 살펴주세요.",
         image: "/illustrations/v4/german-spitz-feature-double-coat-care.webp",
         alt: "미끄럼 방지 매트에서 보호자가 주황색 성견 포메라이언의 풍성한 이중모를 작은 구역으로 나누어 빗는 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/097g05-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/pomeranian/"],
