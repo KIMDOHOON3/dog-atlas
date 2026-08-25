@@ -30,11 +30,24 @@ const modernWorkSchema = z.object({
   caution: z.string().min(35),
 });
 
+const sizeVarietiesSchema = z.object({
+  summary: z.string().min(10),
+  measurementLabel: z.string().min(2),
+  items: z.array(z.object({
+    id: z.string().regex(/^[a-z0-9-]+$/),
+    label: z.string().min(2),
+    range: z.string().min(5),
+    image: z.string().startsWith("/").endsWith(".webp"),
+    imageAlt: z.string().min(15),
+  })).min(2).max(4),
+});
+
 export const standardBreedDetailSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   nameKo: z.string().min(2),
   metadataDescription: z.string().min(50),
   heroStatement: z.string().min(15),
+  sizeVarieties: sizeVarietiesSchema.optional(),
   story: z.object({
     title: z.string().min(15),
     description: z.string().min(20),

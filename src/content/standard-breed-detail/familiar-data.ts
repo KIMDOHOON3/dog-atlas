@@ -252,6 +252,60 @@ const familiarStandardSlugs = [
   "saint-bernard",
 ] as const;
 
+type FamiliarStandardSlug = (typeof familiarStandardSlugs)[number];
+type StandardStoryStep = StandardBreedDetail["story"]["steps"][number];
+
+const storyStepOverrides: Partial<Record<FamiliarStandardSlug, { background?: StandardStoryStep; tendency?: StandardStoryStep }>> = {
+  dachshund: {
+    background: {
+      navLabel: "역할의 배경",
+      eyebrow: "1단계 · 어떤 배경에서 출발했을까?",
+      title: "오소리와 토끼를 굴속에서 찾던 사냥견이에요.",
+      body: "낮고 긴 몸으로 좁은 굴에 들어가 목표를 찾아야 했어요. 지상에서도 냄새 흔적을 따라 이동하는 역할을 맡았습니다.",
+      image: "/illustrations/v3/dachshund-history.webp",
+      imageAlt: "독일의 숲 가장자리에서 낮은 자세로 땅굴 냄새를 추적하는 닥스훈트를 표현한 편집 삽화",
+    },
+    tendency: {
+      navLabel: "현재의 경향",
+      eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+      title: "주변 변화를 알린 뒤 보호자를 확인할 수 있어요.",
+      body: "현관 소리나 문밖 움직임을 알아차리고 목소리로 알릴 수 있어요. 소리를 확인한 뒤 보호자에게 시선을 돌리거나 자기 자리로 돌아오는 순서를 연습해 주세요.",
+      image: "/illustrations/v6/dachshund-present-alerting.webp",
+      imageAlt: "닫힌 현관문 소리를 확인한 뒤 보호자의 차분한 손 신호를 바라보는 성견 닥스훈트 삽화",
+    },
+  },
+};
+
+const sizeVarietyProfiles: Partial<Record<FamiliarStandardSlug, NonNullable<StandardBreedDetail["sizeVarieties"]>>> = {
+  dachshund: {
+    summary: "3가지 크기 · 가슴둘레 25~47cm",
+    measurementLabel: "가슴둘레",
+    items: [
+      {
+        id: "rabbit",
+        label: "래빗",
+        range: "25~32cm",
+        image: "/illustrations/v6/dachshund-size-rabbit.webp",
+        imageAlt: "세 크기 중 가장 작은 붉은 단모 래빗 닥스훈트 성견 한 마리가 서 있는 삽화",
+      },
+      {
+        id: "miniature",
+        label: "미니어처",
+        range: "30~37cm",
+        image: "/illustrations/v6/dachshund-size-miniature.webp",
+        imageAlt: "래빗보다 크게 표현한 붉은 단모 미니어처 닥스훈트 성견 한 마리가 서 있는 삽화",
+      },
+      {
+        id: "standard",
+        label: "스탠더드",
+        range: "35~47cm",
+        image: "/illustrations/v6/dachshund-size-standard.webp",
+        imageAlt: "세 크기 중 가장 큰 붉은 단모 스탠더드 닥스훈트 성견 한 마리가 서 있는 삽화",
+      },
+    ],
+  },
+};
+
 const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string> = {
   "german-spitz": "작은 체구의 안전과 풍성한 이중모 관리를 함께 준비해요.",
   chihuahua: "작은 몸에 맞춘 안전과 보온을 따로 준비해야 해요.",
@@ -400,17 +454,20 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
   const cards = getBreedFeatures(slug)?.cards ?? fallbackCards[slug];
   if (!cards) throw new Error(`표준 상세 카드 데이터를 찾을 수 없습니다: ${slug}`);
   const modernWork = modernWorkProfiles[slug];
+  const sizeVarieties = sizeVarietyProfiles[slug];
+  const storyOverrides = storyStepOverrides[slug];
 
   return standardBreedDetailSchema.parse({
     slug,
     nameKo: breed.nameKo,
     metadataDescription: `${breed.nameKo}의 ${breed.identity.originalRole} 배경과 오늘날 나타날 수 있는 경향, ${cards[1].eyebrow}와 ${cards[2].eyebrow}에 필요한 실제 생활 준비를 살펴봅니다.`,
     heroStatement: heroStatementOverrides[slug] ?? cards[0].title,
+    sizeVarieties,
     story: {
       title: `${breed.nameKo}의 과거 배경은 오늘의 생활에서 어떻게 이어질까요?`,
       description: "과거의 역할과 형성 배경을 단서로 삼아 현재 보일 수 있는 경향과 보호자가 체감할 생활 조건을 함께 살펴보세요.",
       steps: [
-        {
+        storyOverrides?.background ?? {
           navLabel: "역할의 배경",
           eyebrow: "1단계 · 어떤 배경에서 출발했을까?",
           title: `${breed.identity.originalRole}의 배경에서 출발했어요.`,
@@ -418,7 +475,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
           image: breed.historyVisual.src,
           imageAlt: breed.historyVisual.alt,
         },
-        {
+        storyOverrides?.tendency ?? {
           navLabel: "현재의 경향",
           eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
           title: cards[0].title,
@@ -444,13 +501,19 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
     },
     modernWork,
     realitiesTitle: `${breed.nameKo}의 생활 현실`,
-    realities: cards.slice(1).map((card, index) => ({
+    realities: cards.slice(1).map((card, index) => sizeVarieties && index === 1 ? {
+      id: "size-varieties",
+      title: "성견 가슴둘레로 세 크기를 확인해요.",
+      body: "FCI는 생후 15개월 이후 가슴둘레를 기준으로 래빗·미니어처·스탠더드를 구분해요. 화면의 수치는 암수 범위를 합쳐 간단히 보여주는 요약이에요.",
+      image: sizeVarieties.items[0].image,
+      imageAlt: sizeVarieties.items[0].imageAlt,
+    } : {
       id: `daily-reality-${index + 1}`,
       title: card.title,
       body: card.description,
       image: card.image,
       imageAlt: card.alt,
-    })),
+    }),
     readinessTitle: `${withAndParticle(breed.nameKo)} 보낼 일상을 생각해보세요.`,
     readinessQuestions: [
       `매일 ${breed.nameKo}에게 맞는 산책과 활동, 차분한 휴식을 함께 마련할 수 있나요?`,

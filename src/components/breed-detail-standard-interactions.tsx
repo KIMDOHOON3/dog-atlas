@@ -164,6 +164,7 @@ export function StandardStorySteps({ detail }: { detail: StoryDetail }) {
 }
 
 export function StandardRealityCards({ detail }: { detail: StandardBreedDetail }) {
+  const [activeSize, setActiveSize] = useState(0);
   const {
     current,
     handleScroll,
@@ -174,7 +175,41 @@ export function StandardRealityCards({ detail }: { detail: StandardBreedDetail }
   return (
     <div className={`${styles.realityCarousel} mobile-edge-to-edge`} aria-label={`${withAndParticle(detail.nameKo)} 살 때 체감하는 두 가지`} aria-roledescription="carousel">
       <div className={`${styles.realityGrid} mobile-edge-to-edge-track`} ref={trackRef} onScroll={handleScroll}>
-        {detail.realities.map((reality) => (
+        {detail.realities.map((reality) => reality.id === "size-varieties" && detail.sizeVarieties ? (
+          <article className={styles.sizeReality} key={reality.id}>
+            <div className={styles.sizeVisual}>
+              {detail.sizeVarieties.items.map((item, index) => (
+                <Image
+                  className={styles.sizeImage}
+                  src={item.image}
+                  alt={activeSize === index ? item.imageAlt : ""}
+                  aria-hidden={activeSize !== index}
+                  data-active={activeSize === index || undefined}
+                  width={1200}
+                  height={900}
+                  sizes="(max-width: 767px) calc(100vw - 60px), 46vw"
+                  key={item.image}
+                />
+              ))}
+              {detail.sizeVarieties.items.map((item, index) => (
+                <span aria-hidden={activeSize !== index} aria-live={activeSize === index ? "polite" : undefined} data-active={activeSize === index || undefined} key={item.id}>
+                  <strong>{item.label}</strong><small>{item.range}</small>
+                </span>
+              ))}
+            </div>
+            <div className={styles.realityBody}>
+              <h3>{reality.title}</h3>
+              <p>{reality.body}</p>
+              <div className={styles.sizePicker} aria-label={`${detail.nameKo} 크기별 ${detail.sizeVarieties.measurementLabel} 보기`}>
+                <div data-option-count={detail.sizeVarieties.items.length}>
+                  {detail.sizeVarieties.items.map((item, index) => (
+                    <button type="button" aria-pressed={activeSize === index} onClick={() => setActiveSize(index)} key={item.id}>{item.label}</button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </article>
+        ) : (
           <article key={reality.id}>
             <Image src={reality.image} alt={reality.imageAlt} width={1200} height={900} sizes="(max-width: 767px) calc(100vw - 60px), 46vw" />
             <div className={styles.realityBody}><h3>{reality.title}</h3><p>{reality.body}</p></div>

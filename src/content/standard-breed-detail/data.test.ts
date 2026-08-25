@@ -67,6 +67,18 @@ describe("standard breed detail editorial data", () => {
     expect(detail.story.steps[2].body).not.toContain("한 사람만 따른다");
   });
 
+  it("separates Dachshund history from present alerting and provides three selectable sizes", () => {
+    const detail = getStandardBreedDetail("dachshund")!;
+
+    expect(detail.story.steps[0].title).toContain("굴속");
+    expect(detail.story.steps[1].title).toContain("보호자를 확인");
+    expect(detail.story.steps[1].image).toBe("/illustrations/v6/dachshund-present-alerting.webp");
+    expect(detail.sizeVarieties?.summary).toContain("가슴둘레");
+    expect(detail.sizeVarieties?.items.map((item) => item.label)).toEqual(["래빗", "미니어처", "스탠더드"]);
+    expect(detail.realities[1].id).toBe("size-varieties");
+    detail.sizeVarieties?.items.forEach((item) => expect(existsSync(publicFile(item.image)), item.image).toBe(true));
+  });
+
   it.each(details)("keeps every $nameKo story and reality image distinct and available", (detail) => {
     const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
 

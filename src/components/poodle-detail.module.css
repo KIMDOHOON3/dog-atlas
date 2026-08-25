@@ -438,6 +438,10 @@
   gap: 6px;
 }
 
+.sizePicker > div[data-option-count="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .sizePicker button {
   min-width: 0;
   min-height: 42px;

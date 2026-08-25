@@ -59,4 +59,17 @@ describe("standard breed detail interactions", () => {
     for (const checkbox of screen.getAllByRole("checkbox")) await user.click(checkbox);
     expect(screen.getByRole("link", { name: /더 자세한 맞이 준비 보기/ })).toHaveAttribute("href", "/beginner-guide?breed=japanese-spitz");
   });
+
+  it("switches the Dachshund size image and chest range", async () => {
+    const user = userEvent.setup();
+    const detail = getStandardBreedDetail("dachshund")!;
+    render(<StandardRealityCards detail={detail} />);
+
+    expect(screen.getByRole("img", { name: /가장 작은.*래빗 닥스훈트/ })).toHaveAttribute("src", expect.stringContaining("dachshund-size-rabbit.webp"));
+    const standard = screen.getByRole("button", { name: "스탠더드" });
+    await user.click(standard);
+    expect(standard).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("img", { name: /가장 큰.*스탠더드 닥스훈트/ })).toHaveAttribute("src", expect.stringContaining("dachshund-size-standard.webp"));
+    expect(screen.getByText("35~47cm")).toBeInTheDocument();
+  });
 });
