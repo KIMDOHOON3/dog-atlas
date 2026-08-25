@@ -27,6 +27,13 @@ describe("standard breed detail editorial data", () => {
     expect(new Set(titles).size).toBe(titles.length);
   });
 
+  it.each(details)("keeps $nameKo hero and three-stage headings distinct", (detail) => {
+    const stageTitles = detail.story.steps.slice(0, 3).map((step) => step.title);
+
+    expect(stageTitles).not.toContain(detail.heroStatement);
+    expect(new Set(stageTitles).size).toBe(stageTitles.length);
+  });
+
   it("keeps present-day work profiles limited to breeds with direct official sources", () => {
     const workProfiles = details.filter((detail) => detail.modernWork);
     const everydayProfiles = details.filter((detail) => !detail.modernWork);
