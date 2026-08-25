@@ -251,6 +251,37 @@ const familiarStandardSlugs = [
   "saint-bernard",
 ] as const;
 
+const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string> = {
+  "german-spitz": "같은 이름 안에서도 크기별 생활 규모가 크게 달라요.",
+  chihuahua: "작은 몸에 맞춘 안전과 보온을 따로 준비해야 해요.",
+  "shih-tzu": "짧은 얼굴과 긴 피모는 매일 다른 관리 시간을 요구해요.",
+  "korea-jindo-dog": "선택 가능한 거리와 안전한 출입 관리가 함께 필요해요.",
+  "yorkshire-terrier": "아주 작은 체격은 낙상과 거친 놀이를 더 조심해야 해요.",
+  maltipoo: "작은 체구와 적은 털 빠짐이 가벼운 관리를 뜻하지 않아요.",
+  "welsh-corgi-pembroke": "낮고 긴 몸에 맞춘 움직임과 체중 관리가 필요해요.",
+  "golden-retriever": "다정한 첫인상과 별개로 활동과 체격 부담은 커요.",
+  dachshund: "긴 허리에 맞춘 낮은 동선과 체중 관리가 필요해요.",
+  beagle: "냄새 추적과 먹거리 관리는 매일의 환경 조정이 필요해요.",
+  "miniature-schnauzer": "활동과 알림 반응, 피모 관리를 한 일정으로 준비해야 해요.",
+  pug: "짧은 활동 뒤 호흡 회복과 더위를 먼저 살펴야 해요.",
+  "french-bulldog": "운동량보다 호흡 회복과 체온 조절이 먼저예요.",
+  pekingese: "작은 체격 안에 호흡·눈·피모 관리가 함께 들어 있어요.",
+  "continental-toy-spaniel": "작은 몸에도 산책과 학습, 안전한 휴식이 모두 필요해요.",
+  "italian-sighthound": "가는 다리와 얇은 피모에 맞춘 안전과 보온이 필요해요.",
+  "jack-russell-terrier": "작은 체격이 적은 활동과 쉬운 양육을 뜻하지 않아요.",
+  "labrador-retriever": "큰 체격과 먹거리 관심까지 생활 전체에서 조율해야 해요.",
+  "border-collie": "많이 달리는 것만으로 작업 욕구가 채워지지는 않아요.",
+  samoyed: "두꺼운 피모와 큰 활동 규모를 계절에 맞춰 조정해야 해요.",
+  "siberian-husky": "지구력과 탈출 안전, 더위 관리를 함께 준비해야 해요.",
+  shiba: "독립적인 선택과 출입 안전을 함께 존중해야 해요.",
+  "german-shepherd-dog": "영리함만으로 큰 체격과 경계 관리가 쉬워지지는 않아요.",
+  dobermann: "날렵한 외형 뒤에 운동·사회화·건강 관리 부담이 커요.",
+  rottweiler: "큰 힘은 작은 실수도 크게 만들 수 있어요.",
+  dalmatian: "눈에 띄는 무늬보다 활동과 의사소통 준비가 먼저예요.",
+  "great-dane": "차분해 보여도 초대형견의 공간과 비용 부담은 커요.",
+  "saint-bernard": "온화한 이미지가 초대형견의 생활 부담을 줄이지는 않아요.",
+};
+
 function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[number]): StandardBreedDetail {
   const breed = getBreed(slug);
   if (!breed) throw new Error(`익숙한 견종 데이터를 찾을 수 없습니다: ${slug}`);
@@ -287,7 +318,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
         {
           navLabel: "생활의 현실",
           eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-          title: "외형만으로는 매일 필요한 준비를 알 수 없어요.",
+          title: dailyRealityTitles[slug],
           body: breed.story.reality,
           image: `/illustrations/v4/${slug}-feature-daily-rhythm.webp`,
           imageAlt: `보호자와 일상 활동을 마친 뒤 편안한 리듬으로 전환하는 성견 ${breed.nameKo} 삽화`,

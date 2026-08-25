@@ -16,6 +16,17 @@ describe("standard breed detail editorial data", () => {
     });
   });
 
+  it("gives each newly standardized familiar breed its own daily-reality heading", () => {
+    const dedicatedSlugs = new Set(["poodle", "maltese", "bichon-frise", "japanese-spitz"]);
+    const titles = familiarKoreaBreeds
+      .filter((entry) => !dedicatedSlugs.has(entry.slug))
+      .map((entry) => getStandardBreedDetail(entry.slug)?.story.steps[2].title);
+
+    expect(titles).toHaveLength(28);
+    expect(titles).not.toContain("외형만으로는 매일 필요한 준비를 알 수 없어요.");
+    expect(new Set(titles).size).toBe(titles.length);
+  });
+
   it.each(details)("keeps every $nameKo story and reality image distinct and available", (detail) => {
     const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
 

@@ -33,9 +33,15 @@ export function FamiliarBreedStart({ breeds }: { breeds: readonly Breed[] }) {
 
       <details className={styles.more}>
         <summary>익숙한 견종 20종 더 보기</summary>
-        <div>
-          {more.map(({ breed, displayName }) => (
-            <Link href={`/breeds/${breed.slug}`} key={breed.slug}>{displayName ?? breed.nameKo}<span aria-hidden="true">→</span></Link>
+        <div className={styles.moreRail}>
+          {more.map(({ breed, displayName, displayNameEn }) => (
+            <Link className={styles.card} href={`/breeds/${breed.slug}`} key={breed.slug}>
+              <BreedVisual breed={breed} variant="tile" />
+              <span className={styles.cardBody}>
+                <span><strong>{displayName ?? breed.nameKo}</strong><small>{displayNameEn ?? breed.nameEn}</small></span>
+                <i aria-hidden="true">→</i>
+              </span>
+            </Link>
           ))}
         </div>
       </details>
