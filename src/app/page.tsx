@@ -28,7 +28,7 @@ export default function Home() {
     <>
       <a className="skip-link" href="#main">본문으로 바로가기</a>
       <SiteHeader />
-      <main id="main" data-home-theme="warm-3d" data-deployment-check="2026-08-25">
+      <main id="main" data-home-theme="warm-3d" data-deployment-check="2026-08-25-2">
         <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroCopy}>
             <h1 className={styles.searchTitle} id="hero-title">
