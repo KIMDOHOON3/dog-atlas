@@ -1,20 +1,33 @@
 .explorer { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; color: #332923; }
-.mobileFilterBar { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
-.filterTrigger { width: min(100%, 720px); min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 14px 10px 10px; border: 0; border-radius: 18px; color: #3c312a; background: linear-gradient(135deg, #f8f1e9 0%, #f1e5d8 100%); box-shadow: 0 12px 34px rgb(65 46 34 / 8%); font-weight: 750; cursor: pointer; }
+.catalogControls { margin-bottom: 28px; }
+.resultHeader { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 0 0 18px; }
+.resultHeader > div > span { color: #ad5b31; font-size: .73rem; font-weight: 800; letter-spacing: .04em; }
+.resultHeader h1 { margin: 5px 0 0; color: #332923; font-size: clamp(1.4rem, 2.2vw, 1.75rem); line-height: 1.25; letter-spacing: -.035em; }
+.quickFilters { margin-bottom: 12px; }
+.quickFiltersLabel { display: block; margin-bottom: 8px; color: #756a63; font-size: .7rem; font-weight: 750; }
+.quickFilterList { display: flex; flex-wrap: wrap; gap: 7px; }
+.quickFilterList button { min-height: 38px; display: inline-flex; align-items: center; gap: 6px; padding: 8px 13px; border: 0; border-radius: 999px; color: #665a52; background: #f7f2ec; box-shadow: 0 5px 16px rgb(65 46 34 / 5%); font-size: .73rem; font-weight: 750; white-space: nowrap; cursor: pointer; transition: color .18s ease, background-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+.quickFilterList button > span { width: 0; overflow: hidden; opacity: 0; transition: width .18s ease, opacity .18s ease; }
+.quickFilterList button:hover { color: #994a25; background: #f4e7dc; transform: translateY(-1px); }
+.quickFilterList button[aria-pressed="true"] { color: #fff; background: #b86437; box-shadow: 0 8px 18px rgb(184 100 55 / 20%); }
+.quickFilterList button[aria-pressed="true"] > span { width: 12px; opacity: 1; }
+.mobileFilterBar { display: flex; align-items: center; gap: 10px; }
+.filterTrigger { width: min(100%, 720px); min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 8px 13px 8px 8px; border: 0; border-radius: 16px; color: #3c312a; background: #f5eee6; box-shadow: 0 8px 24px rgb(65 46 34 / 7%); font-weight: 750; cursor: pointer; transition: background-color .18s ease, box-shadow .18s ease; }
+.filterTrigger:hover { background: #f1e5d9; box-shadow: 0 10px 26px rgb(65 46 34 / 10%); }
 .filterLabel, .filterAction { display: flex; align-items: center; }
 .filterLabel { gap: 9px; font-size: .84rem; }
-.filterIcon { width: 40px; height: 40px; flex: 0 0 40px; padding: 10px; border-radius: 13px; color: #ad5b31; background: rgb(255 255 255 / 72%); fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.filterIcon { width: 38px; height: 38px; flex: 0 0 38px; padding: 9px; border-radius: 12px; color: #ad5b31; background: #fff; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 .filterAction { gap: 6px; color: #9a4d29; font-size: .72rem; }
-.filterTrigger strong { min-width: 22px; height: 22px; display: grid; place-items: center; padding: 0 6px; border-radius: 999px; color: #fff; background: #b86437; font-size: .66rem; }
+.filterTrigger strong { min-height: 24px; display: grid; place-items: center; padding: 3px 8px; border-radius: 999px; color: #9a4d29; background: #fff; font-size: .66rem; }
 .filterChevron { translate: 0 -1px; font-size: 1.15rem; line-height: 1; }
-.clearFilters, .resultHeader button, .emptyState button { min-height: 42px; padding: 8px 10px; border: 0; color: #9a4d29; background: transparent; font-size: .76rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; cursor: pointer; }
+.clearFilters, .emptyState button { min-height: 36px; padding: 7px 10px; border: 0; color: #9a4d29; background: transparent; font-size: .72rem; font-weight: 700; white-space: nowrap; cursor: pointer; }
 .filterLayout { display: block; }
 .filterPanel { position: fixed; z-index: 180; top: 0; right: 0; bottom: 0; width: min(430px, 100%); overflow-y: auto; overscroll-behavior: contain; padding: 22px; border: 0; background: #fff; box-shadow: -18px 0 44px rgb(65 46 34 / 16%); visibility: hidden; transform: translateX(105%); transition: transform .22s ease, visibility 0s linear .22s; }
 .filterOpen .filterPanel { visibility: visible; transform: translateX(0); transition-delay: 0s; }
 .filterOpen .backdrop { position: fixed; z-index: 170; inset: 0; display: block; border: 0; background: rgb(45 34 27 / 34%); cursor: pointer; }
 .filterPanelHeader { display: flex; align-items: start; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
-.filterPanelHeader span, .resultHeader > div > span { color: #ad5b31; font-size: .73rem; font-weight: 800; letter-spacing: .04em; }
-.filterPanel h2, .resultHeader h1 { margin: 5px 0 0; color: #332923; font-size: 1.35rem; line-height: 1.25; letter-spacing: -.035em; }
+.filterPanelHeader span { color: #ad5b31; font-size: .73rem; font-weight: 800; letter-spacing: .04em; }
+.filterPanel h2 { margin: 5px 0 0; color: #332923; font-size: 1.35rem; line-height: 1.25; letter-spacing: -.035em; }
 .closeFilter { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border: 0; border-radius: 50%; color: #44372f; background: #f5f1ec; font-size: 1.45rem; line-height: 1; cursor: pointer; }
 .filterPanel fieldset { margin: 0 0 10px; padding: 14px; border: 0; border-radius: 15px; background: #f8f5f1; }
 .filterPanel legend { float: left; width: 100%; margin: 0 0 10px; padding: 0; color: #40342d; font-size: .81rem; font-weight: 800; }
@@ -34,12 +47,11 @@
 .filterGuide dd { margin: 0; font-size: .68rem; line-height: 1.45; }
 .filterGuide small { display: block; color: #9a4d29; }
 .applyFilter { width: 100%; min-height: 48px; margin-top: 6px; padding: 12px; border: 0; border-radius: 13px; color: #fff; background: #b86437; font-weight: 750; cursor: pointer; }
-.filterTrigger:focus-visible, .optionGrid button:focus-visible, .selectedChips button:focus-visible, .resultHeader button:focus-visible, .applyFilter:focus-visible, .closeFilter:focus-visible, .emptyState button:focus-visible, .filterGuide summary:focus-visible { outline: 3px solid #c56b3c; outline-offset: 3px; }
-.resultHeader { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 0 0 16px; }
-.resultHeader h1 { font-size: clamp(1.4rem, 2.2vw, 1.75rem); }
-.selectedChips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
-.selectedChips button { padding: 7px 10px; border: 0; border-radius: 999px; color: #8f4826; background: #f4e7dc; font-size: .75rem; cursor: pointer; }
+.filterTrigger:focus-visible, .quickFilterList button:focus-visible, .optionGrid button:focus-visible, .selectedChips button:focus-visible, .applyFilter:focus-visible, .closeFilter:focus-visible, .emptyState button:focus-visible, .filterGuide summary:focus-visible { outline: 3px solid #c56b3c; outline-offset: 3px; }
+.selectedChips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.selectedChips button { min-height: 34px; padding: 7px 10px; border: 0; border-radius: 999px; color: #8f4826; background: #f4e7dc; font-size: .72rem; white-space: nowrap; cursor: pointer; }
 .selectedChips button span { margin-left: 4px; font-weight: 700; }
+.selectedChips .clearFilters { color: #756a63; background: #f5f1ec; }
 .resultGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
 .resultCard { min-width: 0; overflow: hidden; display: flex; flex-direction: column; border-radius: 18px; color: #332923; background: #fff; box-shadow: 0 8px 26px rgb(65 46 34 / 7%); text-decoration: none; transition: translate .18s ease, box-shadow .18s ease; }
 .resultCard:hover { translate: 0 -2px; box-shadow: 0 14px 30px rgb(65 46 34 / 11%); }
@@ -64,17 +76,23 @@
 @media (min-width: 1200px) { .resultGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .explorer { width: calc(100% - var(--page-inline)); }
-  .mobileFilterBar { margin-bottom: 22px; }
+  .catalogControls { margin-bottom: 18px; }
+  .resultHeader { margin-bottom: 16px; }
+  .resultHeader h1 { font-size: 1.35rem; }
+  .quickFilters { margin-bottom: 10px; }
+  .quickFiltersLabel { margin-bottom: 7px; }
+  .quickFilterList { flex-wrap: nowrap; margin-inline: calc(var(--page-inline) / -2); padding: 0 calc(var(--page-inline) / 2) 5px; overflow-x: auto; scrollbar-width: none; scroll-padding-inline: calc(var(--page-inline) / 2); }
+  .quickFilterList::-webkit-scrollbar { display: none; }
+  .quickFilterList button { flex: none; min-height: 36px; padding: 7px 12px; }
   .filterTrigger { width: 100%; min-width: 0; flex: 1; gap: 10px; }
   .filterLabel { min-width: 0; font-size: .8rem; }
   .filterAction { flex: none; }
-  .clearFilters { padding-inline: 5px; }
+  .selectedChips { flex-wrap: nowrap; margin: 10px calc(var(--page-inline) / -2) 0; padding: 0 calc(var(--page-inline) / 2) 5px; overflow-x: auto; scrollbar-width: none; }
+  .selectedChips::-webkit-scrollbar { display: none; }
+  .selectedChips button { flex: none; }
   .filterPanel { top: auto; left: 0; width: 100%; max-height: min(88vh, 760px); padding: 16px; border-radius: 22px 22px 0 0; box-shadow: 0 -18px 44px rgb(65 46 34 / 16%); transform: translateY(110%); }
   .filterOpen .filterPanel { transform: translateY(0); }
   .filterPanel fieldset:first-of-type .optionGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .resultHeader { display: block; margin-bottom: 14px; }
-  .resultHeader .resultClear { display: none; }
-  .resultHeader h1 { font-size: 1.35rem; }
   .resultGrid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .resultCopy { padding: 10px 11px 13px; }
   .resultCopy h2 { font-size: .92rem; }
@@ -83,4 +101,4 @@
   .resultMeta span { display: block; }
   .resultMeta span:last-child { margin-top: 2px; }
 }
-@media (prefers-reduced-motion: reduce) { .filterPanel, .resultCard { transition: none; } .resultCard:hover { translate: none; } .loadingMark { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .filterPanel, .resultCard, .filterTrigger, .quickFilterList button, .quickFilterList button > span { transition: none; } .resultCard:hover, .quickFilterList button:hover { translate: none; } .loadingMark { animation: none; } }

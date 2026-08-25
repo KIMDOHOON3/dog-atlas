@@ -1,9 +1,16 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { PoodleReadinessChecklist, PoodleRealityCards, PoodleSizePicker, PoodleStorySteps } from "./poodle-detail-interactions";
 
 describe("Poodle detail interactions", () => {
+  beforeAll(() => {
+    Object.defineProperty(window, "matchMedia", {
+      configurable: true,
+      value: () => ({ matches: true }),
+    });
+  });
+
   it("connects the three story steps with accessible tabs and arrow keys", async () => {
     const user = userEvent.setup();
     render(<PoodleStorySteps />);

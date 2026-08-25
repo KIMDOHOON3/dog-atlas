@@ -5,6 +5,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { BreedVisual } from "@/components/breed-visual";
 import {
+  applyBreedFilterPreset,
+  breedFilterPresets,
   emptyBreedFilters,
   filterBreeds,
   filtersToSearchParams,
@@ -42,6 +44,8 @@ const tendencyOptions: Array<{ value: TendencyLevel; label: string }> = [
   { value: "medium", label: "중간" },
   { value: "high", label: "높은 편" },
 ];
+
+const quickPresets = breedFilterPresets.filter((preset) => ["calm", "active", "social", "grooming-light"].includes(preset.key));
 
 const INITIAL_RESULT_COUNT = 48;
 const RESULT_BATCH_SIZE = 48;
@@ -213,6 +217,12 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
     commitFilters(next);
   }
 
+  function applyPreset(preset: (typeof breedFilterPresets)[number]) {
+    const presetFilters = applyBreedFilterPreset(preset);
+    const active = JSON.stringify(filters) === JSON.stringify(presetFilters);
+    commitFilters(active ? emptyBreedFilters() : presetFilters);
+  }
+
   function selectedLabel(key: "size" | TendencyFilterKey, value: string) {
     if (key === "size") return `체구 · ${sizeOptions.find((option) => option.value === value)?.label ?? value}`;
     const field = tendencyFields.find((option) => option.key === key);
@@ -224,22 +234,44 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
 
   return (
     <div className={styles.explorer}>
-      <div className={styles.mobileFilterBar}>
-        <button ref={filterTriggerRef} className={styles.filterTrigger} type="button" aria-controls="breed-filter-panel" aria-expanded={filterOpen} onClick={() => setFilterOpen(true)}>
-          <span className={styles.filterLabel}>
-            <svg className={styles.filterIcon} viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 7h5m4 0h7M4 17h9m4 0h3M9 4v6m4 4v6" />
-            </svg>
-            <span>생활 조건으로 좁히기</span>
-          </span>
-          <span className={styles.filterAction}>
-            {activeCount > 0 && <strong aria-label={`선택한 필터 ${activeCount}개`}>{activeCount}</strong>}
-            <span>{activeCount > 0 ? "다시 선택" : "열기"}</span>
-            <span className={styles.filterChevron} aria-hidden="true">›</span>
-          </span>
-        </button>
-        {activeCount > 0 && <button className={styles.clearFilters} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button>}
-      </div>
+      <section className={styles.catalogControls} aria-labelledby="discover-results-title">
+        <div className={styles.resultHeader}>
+          <div><span>전체 도감</span><h1 id="discover-results-title">{activeCount > 0 ? `${results.length}종을 살펴보세요` : `${breeds.length}종 모두 보기`}</h1></div>
+        </div>
+
+        <div className={styles.quickFilters}>
+          <span className={styles.quickFiltersLabel}>빠른 조건</span>
+          <div className={styles.quickFilterList} aria-label="생활 조건 빠른 선택">
+            {quickPresets.map((preset) => {
+              const presetFilters = applyBreedFilterPreset(preset);
+              const active = JSON.stringify(filters) === JSON.stringify(presetFilters);
+              return <button type="button" key={preset.key} aria-pressed={active} onClick={() => applyPreset(preset)}><span aria-hidden="true">{active ? "✓" : ""}</span>{preset.label}</button>;
+            })}
+          </div>
+        </div>
+
+        <div className={styles.mobileFilterBar}>
+          <button ref={filterTriggerRef} className={styles.filterTrigger} type="button" aria-controls="breed-filter-panel" aria-expanded={filterOpen} onClick={() => setFilterOpen(true)}>
+            <span className={styles.filterLabel}>
+              <svg className={styles.filterIcon} viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h5m4 0h7M4 17h9m4 0h3M9 4v6m4 4v6" />
+              </svg>
+              <span>세부 조건 고르기</span>
+            </span>
+            <span className={styles.filterAction}>
+              {activeCount > 0 && <strong aria-label={`선택한 필터 ${activeCount}개`}>{activeCount}개 선택</strong>}
+              <span className={styles.filterChevron} aria-hidden="true">›</span>
+            </span>
+          </button>
+        </div>
+
+        {selectedEntries.length > 0 && (
+          <div className={styles.selectedChips} aria-label="선택한 필터">
+            {selectedEntries.map(({ key, value }) => <button type="button" key={`${key}-${value}`} aria-label={`${selectedLabel(key, value)} 필터 제거`} onClick={() => clearOne(key, value)}>{selectedLabel(key, value)} <span aria-hidden="true">×</span></button>)}
+            <button className={styles.clearFilters} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilters(emptyBreedFilters())}>모두 지우기</button>
+          </div>
+        )}
+      </section>
 
       <div className={`${styles.filterLayout} ${filterOpen ? styles.filterOpen : ""}`}>
         {filterOpen && <button className={styles.backdrop} type="button" aria-label="필터 닫기" onClick={closeMobileFilters} />}
@@ -282,17 +314,6 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
         </aside>
 
         <section className={styles.resultsPanel} aria-live="polite" aria-labelledby="discover-results-title">
-          <div className={styles.resultHeader}>
-            <div><span>전체 도감</span><h1 id="discover-results-title">{activeCount > 0 ? `${results.length}종이 남았어요` : `${breeds.length}종 모두 보기`}</h1></div>
-            {activeCount > 0 && <button className={styles.resultClear} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilters(emptyBreedFilters())}>선택 지우기</button>}
-          </div>
-
-          {selectedEntries.length > 0 && (
-            <div className={styles.selectedChips} aria-label="선택한 필터">
-              {selectedEntries.map(({ key, value }) => <button type="button" key={`${key}-${value}`} aria-label={`${selectedLabel(key, value)} 필터 제거`} onClick={() => clearOne(key, value)}>{selectedLabel(key, value)} <span aria-hidden="true">×</span></button>)}
-            </div>
-          )}
-
           <div className={styles.resultGrid}>
             {visibleResults.map((breed) => {
               const size = getBreedFilterValue(breed, "size");
