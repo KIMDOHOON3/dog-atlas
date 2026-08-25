@@ -1,9 +1,9 @@
 .explorer { width: min(calc(100% - var(--page-inline)), var(--max)); margin: 0 auto; color: #332923; }
-.catalogControls { margin-bottom: 28px; }
-.resultHeader { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 0 0 18px; }
+.catalogControls { margin-bottom: 22px; }
+.resultHeader { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 0 0 16px; }
 .resultHeader > div > span { color: #ad5b31; font-size: .73rem; font-weight: 800; letter-spacing: .04em; }
 .resultHeader h1 { margin: 5px 0 0; color: #332923; font-size: clamp(1.4rem, 2.2vw, 1.75rem); line-height: 1.25; letter-spacing: -.035em; }
-.quickFilters { margin-bottom: 12px; }
+.quickFilters { margin-bottom: 14px; }
 .quickFiltersLabel { display: block; margin-bottom: 8px; color: #756a63; font-size: .7rem; font-weight: 750; }
 .quickFilterList { display: flex; flex-wrap: wrap; gap: 7px; }
 .quickFilterList button { min-height: 38px; display: inline-flex; align-items: center; gap: 6px; padding: 8px 13px; border: 0; border-radius: 999px; color: #665a52; background: #f7f2ec; box-shadow: 0 5px 16px rgb(65 46 34 / 5%); font-size: .73rem; font-weight: 750; white-space: nowrap; cursor: pointer; transition: color .18s ease, background-color .18s ease, box-shadow .18s ease, transform .18s ease; }
@@ -48,7 +48,7 @@
 .filterGuide small { display: block; color: #9a4d29; }
 .applyFilter { width: 100%; min-height: 48px; margin-top: 6px; padding: 12px; border: 0; border-radius: 13px; color: #fff; background: #b86437; font-weight: 750; cursor: pointer; }
 .filterTrigger:focus-visible, .quickFilterList button:focus-visible, .optionGrid button:focus-visible, .selectedChips button:focus-visible, .applyFilter:focus-visible, .closeFilter:focus-visible, .emptyState button:focus-visible, .filterGuide summary:focus-visible { outline: 3px solid #c56b3c; outline-offset: 3px; }
-.selectedChips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.selectedChips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
 .selectedChips button { min-height: 34px; padding: 7px 10px; border: 0; border-radius: 999px; color: #8f4826; background: #f4e7dc; font-size: .72rem; white-space: nowrap; cursor: pointer; }
 .selectedChips button span { margin-left: 4px; font-weight: 700; }
 .selectedChips .clearFilters { color: #756a63; background: #f5f1ec; }
@@ -76,10 +76,10 @@
 @media (min-width: 1200px) { .resultGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .explorer { width: calc(100% - var(--page-inline)); }
-  .catalogControls { margin-bottom: 18px; }
-  .resultHeader { margin-bottom: 16px; }
+  .catalogControls { margin-bottom: 16px; }
+  .resultHeader { margin-bottom: 14px; }
   .resultHeader h1 { font-size: 1.35rem; }
-  .quickFilters { margin-bottom: 10px; }
+  .quickFilters { margin-bottom: 12px; }
   .quickFiltersLabel { margin-bottom: 7px; }
   .quickFilterList { flex-wrap: nowrap; margin-inline: calc(var(--page-inline) / -2); padding: 0 calc(var(--page-inline) / 2) 5px; overflow-x: auto; scrollbar-width: none; scroll-padding-inline: calc(var(--page-inline) / 2); }
   .quickFilterList::-webkit-scrollbar { display: none; }
