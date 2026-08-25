@@ -362,3 +362,11 @@ Use the Poodle detail as the official structural, visual, interaction, and conte
 Do not copy Poodle-specific facts or controls into every breed. Four-size selection, water-retriever history, curly-coat care, and Poodle-related breeds remain Poodle content. Research each breed's own supported background and meaningful ownership conditions, and omit or adapt a module when the evidence does not support the same relationship.
 
 Do not convert all remaining details in one mechanical pass. Keep the current Poodle-only branch until a second breed validates the shared boundary, then extract a reusable standard-detail component backed by Zod-validated breed data and optional breed-specific modules. Roll out in small reviewable batches and keep unconverted pages unchanged.
+
+# 2026-08-25 — Apply the detail standard to Japanese Spitz
+
+Use Japanese Spitz as the second implementation of the Poodle-derived detail standard and extract the shared 01–04 structure, story interaction, image-reality carousel, self-check behavior, related-breed paths, and responsive rules into reusable components. Keep Poodle's four-size selector as an optional Poodle-only module.
+
+Adapt the first story step because Japanese Spitz was developed as a companion rather than assigning it an unsupported working role. Connect its formation in twentieth-century Japan to people-oriented attention, then to the daily reality of noticing and alerting to surrounding changes. Use daily activity rhythm and double-coat care as the two practical realities, supported by the existing editorial data and assets.
+
+Do not render a public source disclosure on standard-detail pages. Retain the linked source records internally and keep the visible copy independently structured, concise, and tendency-based.

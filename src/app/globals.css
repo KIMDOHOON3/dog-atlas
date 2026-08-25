@@ -84,7 +84,7 @@ p { text-wrap: pretty; }
   }
 }
 
-body:has(main[data-breed-theme="poodle"]) {
+body:has(main[data-breed-theme="standard"]) {
   --paper: #fff;
   --paper-deep: #f6f0e8;
   --panel: #fff;
@@ -119,8 +119,8 @@ body:has(main[data-home-theme="warm-3d"]) > header {
   background: #fff;
 }
 
-body:has(main[data-breed-theme="poodle"]) > header,
-body:has(main[data-breed-theme="poodle"]) > nav[aria-label="모바일 주요 탐색"] {
+body:has(main[data-breed-theme="standard"]) > header,
+body:has(main[data-breed-theme="standard"]) > nav[aria-label="모바일 주요 탐색"] {
   border-color: transparent;
   background: #fff;
 }

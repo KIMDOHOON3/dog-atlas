@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
+import { StandardBreedDetailExperience } from "@/components/breed-detail-standard";
+import { StandardRealityCards } from "@/components/breed-detail-standard-interactions";
 import { BeginnerGuideLink } from "@/components/beginner-guide-link";
 import { LegalCareNotice } from "@/components/legal-care-notice";
 import { LifestyleProductIcon } from "@/components/lifestyle-product-icon";
@@ -12,6 +14,7 @@ import { getBreedGrowthGuide } from "@/content/breed-growth-guides/data";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
 import type { Breed } from "@/content/breeds/schema";
 import { poodleDetail } from "@/content/poodle-detail/data";
+import { getStandardBreedDetail } from "@/content/standard-breed-detail/data";
 import {
   getBreedLifePresentation,
 } from "@/lib/breed-life-presentation";
@@ -36,6 +39,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const breed = getBreed(slug);
   if (!breed) return {};
   if (slug === "poodle") return { title: breed.nameKo, description: poodleDetail.metadataDescription };
+  const standardDetail = getStandardBreedDetail(slug);
+  if (standardDetail) return { title: breed.nameKo, description: standardDetail.metadataDescription };
   const descriptionTopics = getBreedGrowthGuide(slug)
     ? "크기와 수명, 성장 단계별 돌봄, 행동 경향과 함께 사는 현실"
     : breed.historyVisibility === "hidden"
@@ -177,7 +182,9 @@ export default async function BreedDetail({ params }: PageProps) {
   if (legacyBreedRedirects[slug]) redirect(`/breeds/${legacyBreedRedirects[slug]}`);
   const breed = getBreed(slug);
   if (!breed) notFound();
-  const related = breed.slug === "poodle" ? getRelatedBreeds(breed) : [];
+  const standardDetail = getStandardBreedDetail(breed.slug);
+  const isStandardDetail = breed.slug === "poodle" || Boolean(standardDetail);
+  const related = isStandardDetail ? getRelatedBreeds(breed) : [];
   const growthGuide = getBreedGrowthGuide(breed.slug);
   const allSources = breed.slug === "poodle"
     ? poodleDetail.sources
@@ -190,8 +197,8 @@ export default async function BreedDetail({ params }: PageProps) {
     <>
       <a className="skip-link" href="#breed-content">견종 정보로 바로가기</a>
       <SiteHeader />
-      <main id="breed-content" data-breed-theme={breed.slug === "poodle" ? "poodle" : undefined}>
-        <section className={`${styles.hero} ${styles.malteseHero} ${breed.slug === "poodle" ? styles.poodleHero : ""}`} aria-labelledby="breed-title">
+      <main id="breed-content" data-breed-theme={isStandardDetail ? "standard" : undefined}>
+        <section className={`${styles.hero} ${styles.malteseHero} ${isStandardDetail ? styles.poodleHero : ""}`} aria-labelledby="breed-title">
           <BreedVisual breed={breed} variant="detail" priority />
           <div className={styles.profileSummary}>
             <div className={styles.summary}>
@@ -199,6 +206,7 @@ export default async function BreedDetail({ params }: PageProps) {
               <p className={styles.breedNameEn}>{breed.nameEn}</p>
             </div>
             {breed.slug === "poodle" && <p className={styles.poodleHeroStatement}>{poodleDetail.heroStatement}</p>}
+            {standardDetail && <p className={styles.poodleHeroStatement}>{standardDetail.heroStatement}</p>}
             <div className={styles.atAGlance}>
               <dl className={styles.facts}>
                 {breed.slug === "poodle" ? (
@@ -247,9 +255,19 @@ export default async function BreedDetail({ params }: PageProps) {
 
         {isKoreanManagedBreed(breed.slug) && <LegalCareNotice breedName={breed.nameKo} />}
 
-        <article className={`${styles.content} ${breed.slug === "poodle" ? styles.poodleContent : ""}`}>
-          {breed.slug === "poodle" ? <PoodleDetailExperience related={related} /> : <BreedDetailExperience breed={breed} />}
-          {breed.slug !== "poodle" && (
+        <article className={`${styles.content} ${isStandardDetail ? styles.poodleContent : ""}`}>
+          {breed.slug === "poodle" ? (
+            <PoodleDetailExperience related={related} />
+          ) : standardDetail ? (
+            <StandardBreedDetailExperience
+              detail={standardDetail}
+              related={related}
+              realityCards={<StandardRealityCards detail={standardDetail} />}
+            />
+          ) : (
+            <BreedDetailExperience breed={breed} />
+          )}
+          {!isStandardDetail && (
             <details className={styles.sources}>
               <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개 · {allSources[0].checkedAt} 확인</small></summary>
               <div><p>현재 편집 중이며 수의학·행동 전문가 검수 전인 정보입니다. 품종의 일반적 경향이 개별 강아지의 건강과 행동을 보장하지는 않습니다.</p><ul>{allSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} — {source.title}</a><span>확인일 {source.checkedAt}</span></li>)}</ul></div>

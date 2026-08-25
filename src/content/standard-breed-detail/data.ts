@@ -1,0 +1,76 @@
+import { standardBreedDetailSchema } from "./schema";
+
+const japaneseSpitzDetail = standardBreedDetailSchema.parse({
+  slug: "japanese-spitz",
+  nameKo: "재패니즈 스피츠",
+  metadataDescription: "사람 곁의 반려견으로 자리 잡은 배경과 주변 변화를 알아차리는 경향, 매일 필요한 활동과 풍성한 이중모 관리를 살펴봅니다.",
+  heroStatement: "사람 곁의 반려견으로 자리 잡은 흰 스피츠예요.",
+  story: {
+    title: "왜 가족의 움직임과 주변 변화에 관심을 보일까요?",
+    description: "형성 배경을 알면 사람 곁에서 보이는 관심과 알림 반응을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "형성 배경",
+        eyebrow: "1단계 · 어떻게 자리 잡았을까?",
+        title: "일본에서 반려견으로 자리 잡았어요.",
+        body: "재패니즈 스피츠는 20세기 일본에서 여러 흰 스피츠 타입의 개를 바탕으로 형성됐어요.",
+        image: "/illustrations/v3/japanese-spitz-history.webp",
+        imageAlt: "일본식 주택 마당에서 사람 곁에 서 있는 흰 재패니즈 스피츠 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "사람 곁의 움직임에 관심을 보일 수 있어요.",
+        body: "사람과 가까이 지내온 배경은 산책이나 놀이에 함께 참여하고 가족의 움직임을 살피는 경향으로 나타날 수 있어요.",
+        image: "/illustrations/v4/japanese-spitz-feature-companionship.webp",
+        imageAlt: "보호자 곁을 따라 걸으며 얼굴을 바라보는 재패니즈 스피츠 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "관심은 주변 변화를 알리는 반응이 될 수 있어요.",
+        body: "현관 소리나 창밖 움직임을 알아차린 뒤 짖음으로 표현할 수 있어요. 보호자는 함께하는 활동과 편안히 쉬는 시간을 모두 마련해야 해요.",
+        image: "/illustrations/v4/japanese-spitz-feature-calm-alert.webp",
+        imageAlt: "닫힌 현관문 밖의 소리를 차분히 알아차리는 재패니즈 스피츠 삽화",
+      },
+    ],
+    caution: "견종의 형성 배경은 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "재패니즈 스피츠의 생활 현실",
+  realities: [
+    {
+      id: "daily-activity",
+      title: "작은 외형과 별개인 활동 리듬",
+      body: "작아 보이더라도 매일 산책하고 함께 놀 시간이 필요해요. 냄새를 맡고 주변을 살피는 여유도 일상에 포함해보세요.",
+      image: "/illustrations/v4/japanese-spitz-feature-play.webp",
+      imageAlt: "야외에서 보호자와 활기차게 놀이하는 재패니즈 스피츠 삽화",
+    },
+    {
+      id: "double-coat",
+      title: "풍성한 이중모 관리",
+      body: "짧고 촘촘한 속털과 풍성한 겉털을 함께 지녀요. 특히 털갈이 시기에는 빠진 속털을 규칙적으로 빗어내야 해요.",
+      image: "/illustrations/v4/japanese-spitz-feature-double-coat.webp",
+      imageAlt: "보호자가 재패니즈 스피츠의 풍성한 이중모를 빗는 삽화",
+    },
+  ],
+  readinessTitle: "재패니즈 스피츠와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "매일 산책과 놀이를 함께할 시간을 만들 수 있나요?",
+    "현관과 창밖 소리에 반응할 때 생활 환경을 함께 조율할 수 있나요?",
+    "털갈이 시기까지 규칙적인 빗질을 이어갈 수 있나요?",
+  ],
+  relatedTitle: "재패니즈 스피츠가 마음에 들지만 망설여진다면",
+  relatedDescription: "다른 체격과 피모 관리 조건을 가진 견종도 함께 살펴보세요.",
+  relatedDifferences: {
+    samoyed: "같은 흰 스피츠형 외모지만 체격과 활동 규모, 더위와 털 관리 부담이 더 커요.",
+    maltese: "가정에서 가까이 지내는 흰 소형견이지만 피모 구조와 주변 변화에 대한 반응이 달라요.",
+  },
+});
+
+const standardBreedDetails = new Map([[japaneseSpitzDetail.slug, japaneseSpitzDetail]]);
+
+export function getStandardBreedDetail(slug: string) {
+  return standardBreedDetails.get(slug);
+}
+
+export { japaneseSpitzDetail };
