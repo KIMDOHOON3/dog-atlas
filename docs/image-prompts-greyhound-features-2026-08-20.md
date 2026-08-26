@@ -62,3 +62,27 @@
 세 이미지에 각각 기존 파일을 편집 대상으로 넣고 아래 지시를 장면별 불변 요소와 함께 적용했다.
 
 `Use case: precise-object-edit. Change only the adult Greyhound's natural fur color from fawn/tan to a consistent solid cool blue-grey (steel-grey) short coat, including all visible natural fur. Preserve subtle watercolor shading and natural highlights. Keep the dog's exact identity, anatomy, pose, facial expression, all people, objects, background, composition, crop, watercolor-and-colored-pencil style, paper texture, and lighting unchanged. For the cold-weather card, keep the muted sage winter garment exactly the same color and shape. Do not turn the fur black, brown, silver-white, brindle, spotted, or mottled. Do not add or remove anything. No text, logos, or watermark.`
+
+## 2026-08-27 표준 상세 휴식 장면
+
+- 목적: 그레이하운드를 표준 상세로 전환하며 `긴 몸을 내려놓는 조용한 휴식 공간`을 질주·추적·보온 장면과 겹치지 않게 표현
+- 제작 방식: Codex 내장 ImageGen 신규 생성, 기존 질주 카드는 화풍과 성견 외형 참고로만 사용
+- 최종 파일: `public/illustrations/v4/greyhound-feature-independent-rest.webp`
+- 최종 규격: 1200×900 WebP, 122,160B
+- 검수: 성견 한 마리, 긴 머리·깊은 가슴·잘록한 허리·긴 다리·짧은 청회색 피모 유지, 침대·보호자·게이트 문맥 분리, 텍스트·워터마크·외곽선 없음 확인
+
+최종 프롬프트:
+
+```text
+Use case: illustration-story
+Asset type: 4:3 editorial illustration for a Korean dog-breed atlas standard-detail reality card
+Input image: style and breed-appearance reference only; create a completely new indoor scene, do not edit or reproduce its composition
+Primary request: show one adult cool blue-grey Greyhound resting independently in a calm home safe space after daily activity
+Scene/backdrop: warm modern living room with an open doorway and a low baby gate in the middle distance; the guardian is quietly occupied farther away and only partly visible; the Greyhound lies comfortably on a large supportive padded bed placed away from the main walkway
+Subject: one unmistakable full-size adult Greyhound with a long narrow head, small rose ears, very tall lean proportions, deep chest, tucked waist, long legs, and short solid cool blue-grey coat; relaxed natural lying posture with the long legs supported by the bed
+Style/medium: match the reference asset’s humane editorial watercolor and colored-pencil texture, softly layered paper grain, natural anatomical detail, muted sage, cream, oatmeal, dusty blue and warm wood palette
+Composition/framing: 4:3 landscape, quiet spacious composition, entire dog and bed visible, safe central crop, clear separation between the dog’s rest area and the guardian’s activity
+Lighting/mood: soft late-afternoon indoor light, calm and secure, not sleepy cartoon exaggeration
+Constraints: one adult dog only; breed-accurate anatomy; no crate; no racing equipment; no muzzle; no medical device; no text, logos, captions, borders, or watermark
+Avoid: Whippet or Italian Greyhound proportions, generic dog anatomy, human-like pose, excessive ribs, distorted limbs, cropped ears, paws or tail, photorealism, 3D rendering, anime, childish character style
+```

@@ -1,5 +1,11 @@
 # Decision log
 
+## 2026-08-27 — Extend the standard detail beyond the familiar set with Greyhound
+
+Use Greyhound as the first standard-detail conversion outside the 32-breed Korea-familiar discovery set. Reuse the existing history, visual-tracking, sprint, and cold-weather illustrations, and add one distinct home-rest scene so the hero and five content meanings do not reuse an asset.
+
+Keep the shared Zod schema and renderer rather than adding a breed-specific page branch. Connect the breed's sight-hunting background to present-day motion tracking, short-burst activity, recovery, secure handling, independent rest, and cold-weather preparation without treating racing history or chase behavior as a verdict about an individual dog.
+
 ## 2026-08-01 — Product outcome
 
 The product provides evidence, candidate conditions, and comparisons. It does not declare one breed to be the correct answer for a user.

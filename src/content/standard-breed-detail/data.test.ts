@@ -99,6 +99,32 @@ describe("standard breed detail editorial data", () => {
     expect(storyCopy).not.toContain("안아");
   });
 
+  it("adds Greyhound as the first standard detail beyond the Korea-familiar set", () => {
+    const detail = getStandardBreedDetail("greyhound")!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === "greyhound")).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual([
+      "/illustrations/v3/greyhound-history.webp",
+      "/illustrations/v4/greyhound-feature-visual-tracking.webp",
+      "/illustrations/v4/greyhound-feature-sprint-rest.webp",
+    ]);
+    expect(detail.realities.map((reality) => reality.image)).toEqual([
+      "/illustrations/v4/greyhound-feature-independent-rest.webp",
+      "/illustrations/v4/greyhound-feature-cold-weather.webp",
+    ]);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(["whippet", "italian-sighthound"]);
+  });
+
+  it("separates French Bulldog ancestry from the later companion-breed formation", () => {
+    const detail = getStandardBreedDetail("french-bulldog")!;
+    const background = `${detail.story.steps[0].title} ${detail.story.steps[0].body}`;
+
+    expect(background).toContain("투우 미끼 경기");
+    expect(background).toContain("조상");
+    expect(background).toContain("반려견으로 정립");
+    expect(background).not.toMatch(/프렌치 불도그가 [^.!?]*투우/u);
+  });
+
   it.each(details)("keeps every $nameKo story and reality image distinct and available", (detail) => {
     const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
 

@@ -202,8 +202,75 @@ const bichonFriseDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const greyhoundDetail = standardBreedDetailSchema.parse({
+  slug: "greyhound",
+  nameKo: "그레이하운드",
+  metadataDescription: "시각으로 사냥감을 찾고 짧게 질주하던 배경과 현대의 추적 경향, 편안한 휴식 공간과 충분한 보온 준비를 살펴봅니다.",
+  heroStatement: "빠른 질주와 긴 휴식의 리듬을 함께 지닌 대형 시각하운드예요.",
+  story: {
+    title: "그레이하운드는 왜 빠른 움직임을 쫓고 오래 쉬기도 할까요?",
+    description: "시각하운드의 배경을 알면 움직임에 반응하는 방식과 짧은 질주 뒤의 회복 리듬을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "사냥의 배경",
+        eyebrow: "1단계 · 어떤 배경에서 출발했을까?",
+        title: "눈으로 사냥감을 찾고 빠르게 뒤쫓던 시각하운드예요.",
+        body: "그레이하운드는 넓은 지형에서 멀리 움직이는 대상을 발견하고 빠르게 추적하도록 발달했어요. 영국에서 사냥용 시각하운드로 정립된 배경이 있어요.",
+        image: "/illustrations/v3/greyhound-history.webp",
+        imageAlt: "건조한 들판에서 먼 대상을 바라보는 사람과 성견 그레이하운드를 그린 편집 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "멀리 움직이는 대상을 먼저 발견할 수 있어요.",
+        body: "산책 중 작은 동물이나 빠르게 지나가는 대상에 시선이 고정되고 쫓으려 할 수 있어요. 안전한 리드를 사용하고 실제 반응을 살펴야 해요.",
+        image: "/illustrations/v4/greyhound-feature-visual-tracking.webp",
+        imageAlt: "현대 공원에서 멀리 지나가는 자전거를 알아차리고 보호자 곁에 서 있는 성견 그레이하운드 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "짧게 속도를 낸 뒤에는 충분한 회복이 필요해요.",
+        body: "안전하게 닫힌 공간에서 짧게 달릴 기회와 매일 냄새를 맡는 산책을 마련해요. 활동 뒤에는 조용히 쉬며 회복할 시간을 주어야 해요.",
+        image: "/illustrations/v4/greyhound-feature-sprint-rest.webp",
+        imageAlt: "안전하게 울타리가 설치된 공원 운동장에서 짧게 달리는 성견 그레이하운드 삽화",
+      },
+    ],
+    caution: "시각하운드의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 건강 상태와 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "그레이하운드의 생활 현실",
+  realities: [
+    {
+      id: "independent-rest",
+      title: "긴 몸을 내려놓는 조용한 휴식 공간",
+      body: "대형견의 긴 다리와 몸통을 편안히 둘 수 있는 넓고 부드러운 자리를 마련해요. 사람의 동선에서 살짝 벗어나 방해받지 않고 쉬는 시간도 필요해요.",
+      image: "/illustrations/v4/greyhound-feature-independent-rest.webp",
+      imageAlt: "거실 한쪽의 넓고 부드러운 침대에서 보호자와 거리를 두고 편안히 쉬는 성견 그레이하운드 삽화",
+    },
+    {
+      id: "cold-weather",
+      title: "짧은 피모에 맞춘 기온 관리",
+      body: "피모가 짧고 몸에 지방이 적은 편이라 추운 날씨와 차가운 바닥을 불편해할 수 있어요. 기온과 개별 반응에 맞춰 보온 의류와 따뜻한 쉬는 자리를 준비해요.",
+      image: "/illustrations/v4/greyhound-feature-cold-weather.webp",
+      imageAlt: "쌀쌀한 늦가을 공원에서 몸에 맞는 보온 코트를 입고 산책하는 성견 그레이하운드 삽화",
+    },
+  ],
+  readinessTitle: "그레이하운드와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "움직이는 대상을 쫓을 수 있는 반응을 고려해 안전한 리드와 닫힌 공간을 준비할 수 있나요?",
+    "매일의 산책과 짧은 질주 기회, 활동 뒤의 충분한 휴식을 함께 마련할 수 있나요?",
+    "긴 몸을 받쳐줄 휴식 자리와 추운 날의 보온 준비를 이어갈 수 있나요?",
+  ],
+  relatedTitle: "그레이하운드가 마음에 들지만 망설여진다면",
+  relatedDescription: "같은 시각하운드 안에서도 체격과 활동, 보온 부담이 다른 견종을 살펴보세요.",
+  relatedDifferences: {
+    whippet: "질주와 휴식의 리듬은 비슷하지만 성견의 체격과 이동·주거 공간의 부담이 달라요.",
+    "italian-sighthound": "빠른 시각 반응과 짧은 피모는 닮았지만 훨씬 작은 체격에 맞는 보온과 안전 동선이 필요해요.",
+  },
+});
+
 const standardBreedDetails = new Map(
-  [japaneseSpitzDetail, malteseDetail, bichonFriseDetail, ...familiarStandardBreedDetails].map((detail) => [detail.slug, detail]),
+  [japaneseSpitzDetail, malteseDetail, bichonFriseDetail, greyhoundDetail, ...familiarStandardBreedDetails].map((detail) => [detail.slug, detail]),
 );
 
 export function getStandardBreedDetail(slug: string) {
@@ -214,4 +281,4 @@ export function getAllStandardBreedDetails() {
   return [...standardBreedDetails.values()];
 }
 
-export { bichonFriseDetail, japaneseSpitzDetail, malteseDetail };
+export { bichonFriseDetail, greyhoundDetail, japaneseSpitzDetail, malteseDetail };

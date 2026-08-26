@@ -334,12 +334,12 @@ export const detailBatchB = [
       lifespan: "10년 이상(RKC 참고, 기관과 개체별 차이 있음)",
     },
     behaviorClues: {
-      originalRole: "19세기 후반 파리의 노동자와 상인 곁에서 인기를 얻고, 점차 도시의 반려견으로 자리 잡았습니다.",
+      originalRole: "조상인 영국 불도그 계통은 과거 투우 미끼 경기에 동원된 배경이 있어요. 현재의 프렌치 불도그는 그 관행이 금지된 뒤 소형 불도그가 프랑스로 건너가 반려견으로 정립된 견종이에요.",
       today: "사람과 가까운 곳에 머물고 짧은 놀이에 참여하는 모습이 나타날 수 있지만, 혼자 있는 어려움이나 다른 개에 대한 반응은 품종만으로 단정할 수 없습니다.",
       guardianContext: "성격 평가와 별개로 호흡 소리, 운동 뒤 회복, 수면 상태와 더위 반응을 세심하게 관찰하고 무리한 활동보다 짧고 자주 움직이는 일과를 구성하세요.",
     },
     story: {
-      opening: "프렌치 불도그는 19세기 파리의 대중적인 거리와 작업장 주변에서 모습을 드러낸 작은 반려견입니다. 영국의 소형 불도그 계통과 프랑스에서의 선발이 오늘의 독특한 실루엣을 만들었습니다.",
+      opening: "프렌치 불도그의 영국 불도그 조상은 소를 상대로 한 투우 미끼 경기에 동원된 계통과 연결됩니다. 1830년대 영국에서 이 관행이 금지된 뒤, 소형 불도그가 노팅엄의 레이스 노동자들과 프랑스로 건너가 19세기 파리에서 현재의 반려견으로 정립됐습니다.",
       roleToHome: "사람 가까이에 머물던 역사는 현대의 실내 생활과 연결되는 면이 있지만, 작은 체격이 곧 관리가 쉽다는 뜻은 아닙니다. 특히 짧은 얼굴 구조는 호흡과 체온 조절을 생활의 핵심 점검 항목으로 만듭니다.",
       reality: "귀여운 표정과 작은 몸만 보고 선택하기 전에 평소 호흡, 콧구멍의 개방성, 움직임과 회복, 피부 주름과 척추·보행 상태를 실제 개체와 수의 검진으로 확인해야 합니다.",
     },
@@ -369,6 +369,7 @@ export const detailBatchB = [
     sources: [
       { title: "FCI Standard No. 101: French Bulldog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/101g09-en.pdf", checkedAt: completedAt },
       { title: "French Bulldog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/french-bulldog/", checkedAt: completedAt },
+      { title: "French Bulldog History: A Complicated Past From Brothels to Royals", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/breed-history-french-bulldog/", checkedAt: completedAt },
     ],
   },
   {

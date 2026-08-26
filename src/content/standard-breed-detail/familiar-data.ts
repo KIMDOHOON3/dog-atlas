@@ -256,6 +256,16 @@ type FamiliarStandardSlug = (typeof familiarStandardSlugs)[number];
 type StandardStoryStep = StandardBreedDetail["story"]["steps"][number];
 
 const storyStepOverrides: Partial<Record<FamiliarStandardSlug, { background?: StandardStoryStep; tendency?: StandardStoryStep }>> = {
+  "french-bulldog": {
+    background: {
+      navLabel: "조상 계통과 형성",
+      eyebrow: "1단계 · 어떤 배경에서 출발했을까?",
+      title: "투우 미끼 경기의 불도그 계통에서 도시 반려견으로 바뀌었어요.",
+      body: "영국 불도그 조상은 과거 소를 상대로 한 투우 미끼 경기에 동원된 계통과 연결돼요. 현재의 프렌치 불도그는 그 관행이 금지된 뒤 소형 불도그가 프랑스로 건너가 19세기 파리에서 반려견으로 정립된 견종이에요.",
+      image: "/illustrations/v3/french-bulldog-history.webp",
+      imageAlt: "19세기 파리의 거리에서 상인과 노동자 곁에 있는 작은 불도그를 그린 편집 수채화",
+    },
+  },
   dachshund: {
     background: {
       navLabel: "역할의 배경",
