@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
 import { breeds, getBreed } from "@/content/breeds/data";
+import { familiarKoreaBreeds } from "@/content/familiar-korea-breeds";
+import { poodleDetail } from "@/content/poodle-detail/data";
+import { getStandardBreedDetail } from "@/content/standard-breed-detail/data";
 import {
   getBreedFactPresentation,
   getBreedLifespanDisplay,
@@ -10,8 +13,9 @@ import {
 describe("breed fact presentation", () => {
   it("presents the Pomeranian variety size instead of the full German Spitz range", () => {
     expect(getBreedFactPresentation(getBreed("german-spitz")!)).toMatchObject({
-      size: "18~24cm",
+      size: "18~24cm · 1.4~3.2kg",
       height: "18~24cm",
+      weight: "1.4~3.2kg",
     });
   });
   it("separates Japanese Spitz height and weight for the detail summary", () => {
@@ -137,12 +141,12 @@ describe("breed fact presentation", () => {
       basenji: { size: "40~43cm · 9.5~11kg", height: "40~43cm", weight: "9.5~11kg" },
       "welsh-corgi-pembroke": { size: "25~30cm · 9~12kg", height: "25~30cm", weight: "9~12kg" },
       "miniature-schnauzer": { size: "30~35cm · 4~8kg", height: "30~35cm", weight: "4~8kg" },
-      "yorkshire-terrier": { size: "3.2kg 이하", height: undefined, weight: "3.2kg 이하" },
+      "yorkshire-terrier": { size: "약 20cm · 3.2kg 이하", height: "약 20cm", weight: "3.2kg 이하" },
       shiba: { size: "35~41cm · 7~11kg", height: "35~41cm", weight: "7~11kg" },
       akita: { size: "58~70cm", height: "58~70cm", weight: undefined },
       "bichon-frise": { size: "25~29cm · 약 5kg", height: "25~29cm", weight: "약 5kg" },
       "cavalier-king-charles-spaniel": { size: "30~33cm · 5.4~8kg", height: "30~33cm", weight: "5.4~8kg" },
-      pug: { size: "6.3~8.1kg", height: undefined, weight: "6.3~8.1kg" },
+      pug: { size: "25~33cm · 6.3~8.1kg", height: "25~33cm", weight: "6.3~8.1kg" },
     } as const;
 
     for (const [slug, facts] of Object.entries(expected)) {
@@ -154,7 +158,7 @@ describe("breed fact presentation", () => {
     const expected = {
       "bernese-mountain-dog": { size: "58~70cm · 35~55kg", height: "58~70cm", weight: "35~55kg" },
       dobermann: { size: "63~72cm · 32~45kg", height: "63~72cm", weight: "32~45kg" },
-      "german-spitz": { size: "18~24cm", height: "18~24cm", weight: undefined },
+      "german-spitz": { size: "18~24cm · 1.4~3.2kg", height: "18~24cm", weight: "1.4~3.2kg" },
       "shetland-sheepdog": { size: "33~41cm · 7~11kg", height: "33~41cm", weight: "7~11kg" },
       "australian-shepherd": { size: "46~58cm · 18~29kg", height: "46~58cm", weight: "18~29kg" },
     } as const;
@@ -184,5 +188,19 @@ describe("breed fact presentation", () => {
   it("does not invent measurements when a verified numeric range is absent", () => {
     expect(getBreedSizeDisplay(getBreed("goldendoodle")!)).toBeUndefined();
     expect(getBreedLifespanDisplay(getBreed("goldendoodle")!)).toBeUndefined();
+  });
+
+  it("shows both height and weight for every familiar breed without a variety selector", () => {
+    const varietySelectorSlugs = new Set(["poodle", "dachshund"]);
+
+    for (const { slug } of familiarKoreaBreeds) {
+      if (varietySelectorSlugs.has(slug)) continue;
+      const facts = getBreedFactPresentation(getBreed(slug)!);
+      expect(facts.height, `${slug} height`).toBeTruthy();
+      expect(facts.weight, `${slug} weight`).toBeTruthy();
+    }
+
+    expect(poodleDetail.heroSizeSummary).toMatch(/체고.*몸무게/u);
+    expect(getStandardBreedDetail("dachshund")?.sizeVarieties?.summary).toMatch(/체고.*몸무게/u);
   });
 });

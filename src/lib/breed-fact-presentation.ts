@@ -124,8 +124,13 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     weight: "4~8kg",
   },
   "yorkshire-terrier": {
-    size: "3.2kg 이하",
+    size: "약 20cm · 3.2kg 이하",
+    height: "약 20cm",
     weight: "3.2kg 이하",
+  },
+  maltipoo: {
+    height: "부모 크기에 따라 다름",
+    weight: "부모 크기에 따라 다름",
   },
   shiba: {
     size: "35~41cm · 7~11kg",
@@ -147,7 +152,8 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     weight: "5.4~8kg",
   },
   pug: {
-    size: "6.3~8.1kg",
+    size: "25~33cm · 6.3~8.1kg",
+    height: "25~33cm",
     weight: "6.3~8.1kg",
   },
   "bernese-mountain-dog": {
@@ -161,8 +167,9 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     weight: "32~45kg",
   },
   "german-spitz": {
-    size: "18~24cm",
+    size: "18~24cm · 1.4~3.2kg",
     height: "18~24cm",
+    weight: "1.4~3.2kg",
   },
   "shetland-sheepdog": {
     size: "33~41cm · 7~11kg",
@@ -175,6 +182,41 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     weight: "18~29kg",
   },
   "bull-terrier": { size: "53~56cm · 23~32kg" },
+  "continental-toy-spaniel": {
+    size: "20~28cm · 2.3~4.5kg",
+    height: "20~28cm",
+    weight: "2.3~4.5kg",
+  },
+  "italian-sighthound": {
+    size: "32~38cm · 5kg 이하",
+    height: "32~38cm",
+    weight: "5kg 이하",
+  },
+  "jack-russell-terrier": {
+    size: "25~30cm · 5~6kg",
+    height: "25~30cm",
+    weight: "5~6kg",
+  },
+  rottweiler: {
+    size: "56~69cm · 36~61kg",
+    height: "56~69cm",
+    weight: "36~61kg",
+  },
+  dalmatian: {
+    size: "54~62cm · 20~32kg",
+    height: "54~62cm",
+    weight: "20~32kg",
+  },
+  "great-dane": {
+    size: "72~90cm · 50~79kg",
+    height: "72~90cm",
+    weight: "50~79kg",
+  },
+  "saint-bernard": {
+    size: "65~90cm · 54~82kg",
+    height: "65~90cm",
+    weight: "54~82kg",
+  },
 };
 
 function normalizeRange(value: string) {
@@ -210,11 +252,22 @@ export function getBreedLifespanDisplay(breed: Breed): string | undefined {
 
 export function getBreedFactPresentation(breed: Breed) {
   const override = breedFactOverrides[breed.slug];
+  const measurements = normalizeRange(breed.identity.size)
+    .split(/[·,]/u)
+    .map((part) => part.trim());
+  const height = measurements.find((part) => /cm/u.test(part))
+    ?.replace(/^.*?(?=\d)/u, "")
+    .replace(/\s+/gu, "");
+  const weight = measurements.find((part) => /kg/u.test(part))
+    ?.replace(/^.*?(?=(?:최대\s*)?(?:약\s*)?\d)/u, "")
+    .replace(/\s+/gu, "")
+    .replace(/^최대약/u, "최대 ")
+    .replace(/^약/u, "약 ");
 
   return {
     size: getBreedSizeDisplay(breed),
-    height: override?.height,
-    weight: override?.weight,
+    height: override?.height ?? height,
+    weight: override?.weight ?? weight,
     lifespan: getBreedLifespanDisplay(breed),
   };
 }

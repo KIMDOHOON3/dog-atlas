@@ -81,6 +81,7 @@ export function StandardStorySteps({ detail }: { detail: StoryDetail }) {
         {detail.story.steps.map((item, index) => (
           <Image
             className={styles.storyImage}
+            data-tight-crop={(index === 0 && ["continental-toy-spaniel", "italian-sighthound"].includes(detail.slug)) || undefined}
             src={item.image}
             alt={activeStep === index ? item.imageAlt : ""}
             aria-hidden={activeStep !== index}
@@ -142,7 +143,14 @@ export function StandardStorySteps({ detail }: { detail: StoryDetail }) {
               aria-label={`${index + 1} / ${detail.story.steps.length}`}
               key={item.navLabel}
             >
-              <Image src={item.image} alt={item.imageAlt} width={1200} height={800} sizes="calc(100vw - 56px)" />
+              <Image
+                src={item.image}
+                alt={item.imageAlt}
+                data-tight-crop={(index === 0 && ["continental-toy-spaniel", "italian-sighthound"].includes(detail.slug)) || undefined}
+                width={1200}
+                height={800}
+                sizes="calc(100vw - 56px)"
+              />
               <div><span>{item.eyebrow}</span><h3>{item.title}</h3><p>{item.body}</p></div>
             </article>
           ))}

@@ -224,7 +224,7 @@ export const detailBatchB = [
       mentalStimulation: { label: "중간", note: "시각 탐색과 냄새 찾기를 짧게 섞되 과한 반복 훈련은 피하는 편이 좋아요." },
       independence: { label: "중간", note: "시각 자극에 몰입하는 순간에는 보호자 신호보다 추적이 앞설 수 있어요." },
       socialConnection: { label: "개체별 확인 필요", note: "사람 곁에서 쉬는 선호와 낯선 대상에 대한 반응은 개체마다 직접 확인해야 해요." },
-      alerting: { label: "낮은 편", note: "경비 목적의 지속적인 짖음보다 움직임을 눈으로 좇는 반응이 더 중요할 수 있어요." },
+      alerting: { label: "낮은 편", note: "경비 목적의 지속적인 짖음보다 움직임을 눈으로 쫓는 반응이 더 중요할 수 있어요." },
       grooming: { label: "낮은 편", note: "짧은 털의 빗질 부담은 적지만 피부와 추위 관리는 별도로 필요해요." },
     },
     careNotes: [

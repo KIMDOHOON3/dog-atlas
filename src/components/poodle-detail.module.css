@@ -133,6 +133,14 @@
   transition-delay: 0s;
 }
 
+.storyImage[data-tight-crop="true"] {
+  transform: scale(1.13);
+}
+
+.storyImage[data-active="true"][data-tight-crop="true"] {
+  transform: scale(1.12);
+}
+
 .storyInteraction {
   min-width: 0;
 }
@@ -790,6 +798,10 @@
     display: block;
     aspect-ratio: 3 / 2;
     object-fit: cover;
+  }
+
+  .storySlide > img[data-tight-crop="true"] {
+    transform: scale(1.12);
   }
 
   .storySlide > div {

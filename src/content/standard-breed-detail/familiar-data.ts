@@ -84,7 +84,7 @@ const fallbackCards: Record<string, [EditorialCard, EditorialCard, EditorialCard
   "italian-sighthound": [
     {
       eyebrow: "시각 추적과 질주",
-      title: "빠르게 움직이는 대상을 눈으로 좇고 달리려 할 수 있어요.",
+      title: "빠르게 움직이는 대상을 눈으로 쫓고 달리려 할 수 있어요.",
       description: "작은 시각하운드의 배경은 멀리 움직이는 대상에 빠르게 반응하는 모습으로 나타날 수 있어요. 안전한 리드와 닫힌 공간 안에서 움직임을 제공하세요.",
       image: "/illustrations/v4/italian-sighthound-feature-visual-chase.webp",
       alt: "울타리 안 공원에서 움직이는 대상을 본 뒤 보호자를 돌아보는 성견 이탈리안 그레이하운드 삽화",
@@ -108,14 +108,14 @@ const fallbackCards: Record<string, [EditorialCard, EditorialCard, EditorialCard
     {
       eyebrow: "냄새 추적과 파기",
       title: "냄새를 따라 좁은 곳을 찾고 땅을 파는 일에 몰입할 수 있어요.",
-      description: "굴 사냥을 돕던 배경은 냄새를 집요하게 좇거나 땅을 파는 모습으로 나타날 수 있어요. 안전한 파기 공간과 찾기 과제로 행동의 출구를 마련하세요.",
+      description: "굴 사냥을 돕던 배경은 냄새를 집요하게 쫓거나 땅을 파는 모습으로 나타날 수 있어요. 안전한 파기 공간과 찾기 과제로 행동의 출구를 마련하세요.",
       image: "/illustrations/v4/jack-russell-terrier-feature-scent-digging.webp",
       alt: "지정된 모래 공간에서 냄새 주머니를 찾는 성견 잭 러셀 테리어 삽화",
     },
     {
       eyebrow: "출입과 추적 안전",
       title: "문이 열리기 전 멈추고 보호자를 확인하는 흐름을 만들어요.",
-      description: "작은 움직임을 좇는 반응이 강한 개체는 열린 문과 느슨한 울타리에서 빠르게 멀어질 수 있어요. 안전문과 하네스, 긴 줄을 일상적으로 사용하세요.",
+      description: "작은 움직임을 쫓는 반응이 강한 개체는 열린 문과 느슨한 울타리에서 빠르게 멀어질 수 있어요. 안전문과 하네스, 긴 줄을 일상적으로 사용하세요.",
       image: "/illustrations/v4/jack-russell-terrier-feature-entry-safety.webp",
       alt: "닫힌 현관 안전문 앞에서 보호자의 손 신호를 바라보는 성견 잭 러셀 테리어 삽화",
     },
@@ -300,7 +300,7 @@ const realityCardIndexes: Partial<Record<FamiliarStandardSlug, readonly [number,
 
 const sizeVarietyProfiles: Partial<Record<FamiliarStandardSlug, NonNullable<StandardBreedDetail["sizeVarieties"]>>> = {
   dachshund: {
-    summary: "3가지 크기 · 가슴둘레 25~47cm",
+    summary: "체고 약 13~23cm · 몸무게 약 3.5~14.5kg · 가슴둘레로 3가지 구분",
     measurementLabel: "가슴둘레",
     items: [
       {
@@ -344,7 +344,7 @@ const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string>
   "french-bulldog": "운동량보다 호흡 회복과 체온 조절이 먼저예요.",
   pekingese: "작은 체격 안에 호흡·눈·피모 관리가 함께 들어 있어요.",
   "continental-toy-spaniel": "작은 몸에도 산책과 학습, 안전한 휴식이 모두 필요해요.",
-  "italian-sighthound": "가는 다리와 얇은 피모에 맞춘 안전과 보온이 필요해요.",
+  "italian-sighthound": "짧게 달린 뒤 편안히 회복하는 생활 리듬이 필요해요.",
   "jack-russell-terrier": "작은 체격이 적은 활동과 쉬운 양육을 뜻하지 않아요.",
   "labrador-retriever": "큰 체격과 먹거리 관심까지 생활 전체에서 조율해야 해요.",
   "border-collie": "많이 달리는 것만으로 작업 욕구가 채워지지는 않아요.",
@@ -397,6 +397,7 @@ const dailyRealityBodyOverrides: Partial<Record<(typeof familiarStandardSlugs)[n
   "yorkshire-terrier": "냄새를 찾는 활동에 오래 몰입하면 스스로 멈추기 어려울 수 있어요. 짧은 과제를 마친 뒤 장난감을 정리하고 편안한 자리에서 쉬는 순서까지 한 흐름으로 알려주세요.",
   pug: "짧은 산책도 선선한 시간에 하고, 호흡이 편안해질 때까지 시원한 실내에서 쉬게 해요. 움직임을 더 권하기보다 그날의 반응에 맞춰 일정을 줄여야 해요.",
   "french-bulldog": "기온과 습도가 높다면 산책 시간을 줄이고 시원한 실내에서 회복을 우선해요. 짧은 활동 뒤에도 호흡이 편안해지는지 살피며 하루 일정을 조정해야 해요.",
+  "italian-sighthound": "움직이는 대상에 반응해 순간적으로 속도를 낼 수 있지만, 활동 뒤에는 사람 가까운 조용한 자리에서 오래 쉬기도 해요. 닫힌 공간에서 짧게 움직인 뒤 방해받지 않고 회복하는 흐름을 마련해 주세요.",
   rottweiler: "큰 체격에 맞는 주거 규정과 이동 동선, 교육 지원을 입양 전에 확인해야 해요. 차량 탑승과 병원 이동에 필요한 장비와 의료비도 함께 계획해 주세요.",
 };
 

@@ -41,7 +41,7 @@ const poodleDetailSchema = z.object({
 
 export const poodleDetail = poodleDetailSchema.parse({
   heroStatement: "푸들은 물속 사냥감을 회수하던 개였어요.",
-  heroSizeSummary: "4가지 크기 · 23~62cm",
+  heroSizeSummary: "4가지 크기 · 체고 23~62cm · 몸무게는 체형에 따라 다름",
   metadataDescription: "우아한 곱슬 피모 안에는 물에서 회수하던 움직임과 크기별로 다른 생활 조건이 있어요. 푸들의 과거 역할과 오늘날의 행동 경향, 함께 살 때 체감되는 점을 살펴봅니다.",
   sizes: [
     { id: "toy", label: "토이", range: "23~28cm", image: "/illustrations/v6/poodle-size-toy.webp", imageAlt: "작은 체구의 토이 푸들 한 마리가 서 있는 삽화" },

@@ -273,7 +273,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
   },
   {
     slug: "dachshund",
-    intro: "땅굴의 냄새를 좇던 집중력, 낮고 긴 몸에 맞는 생활 동선, 아홉 가지 바라이어티의 차이를 먼저 살펴보세요.",
+    intro: "땅굴의 냄새를 쫓던 집중력, 낮고 긴 몸에 맞는 생활 동선, 아홉 가지 바라이어티의 차이를 먼저 살펴보세요.",
     cards: [
       {
         eyebrow: "땅굴과 후각",
@@ -316,7 +316,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "목소리와 알림",
         title: "짖음과 하울링이 나타나는 상황을 먼저 살펴요.",
-        description: "냄새를 좇는 동안 무리와 정보를 나누던 배경처럼 다양한 목소리를 낼 수 있어요. 소리를 억누르기보다 무엇을 보거나 들었는지 기록하고, 보호자에게 돌아와 쉬는 순서를 알려주세요.",
+        description: "냄새를 쫓는 동안 무리와 정보를 나누던 배경처럼 다양한 목소리를 낼 수 있어요. 소리를 억누르기보다 무엇을 보거나 들었는지 기록하고, 보호자에게 돌아와 쉬는 순서를 알려주세요.",
         image: "/illustrations/v4/beagle-feature-voice.webp",
         alt: "창밖 소리에 목소리를 낸 뒤 보호자의 손짓을 따라 매트로 돌아오는 성견 비글 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/161g06-en.pdf", "https://www.akc.org/dog-breeds/beagle/"],
@@ -736,7 +736,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "출입과 추적 안전",
         title: "문을 열기 전에 안쪽 안전문과 산책 장비를 확인해요.",
-        description: "산지에서 냄새와 움직임을 좇던 사냥견의 배경이 있어요. 현관에는 한 번 더 닫히는 구간을 만들고, 바깥문을 열기 전에 몸에 맞는 하네스와 리드가 연결됐는지 확인해주세요.",
+        description: "산지에서 냄새와 움직임을 쫓던 사냥견의 배경이 있어요. 현관에는 한 번 더 닫히는 구간을 만들고, 바깥문을 열기 전에 몸에 맞는 하네스와 리드가 연결됐는지 확인해주세요.",
         image: "/illustrations/v4/shiba-feature-entry-safety.webp",
         alt: "닫힌 현관 안전문 안쪽에서 보호자가 적색 성견 시바의 하네스와 리드를 확인하는 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/257g05-en.pdf"],
