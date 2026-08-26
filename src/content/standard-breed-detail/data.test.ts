@@ -88,6 +88,17 @@ describe("standard breed detail editorial data", () => {
     detail.sizeVarieties?.items.forEach((item) => expect(existsSync(publicFile(item.image)), item.image).toBe(true));
   });
 
+  it("connects Yorkshire Terrier history, present exploration, and rest without carrying copy", () => {
+    const detail = getStandardBreedDetail("yorkshire-terrier")!;
+    const storyCopy = detail.story.steps.slice(0, 3).flatMap((step) => [step.title, step.body]).join(" ");
+
+    expect(detail.story.steps[0].title).toContain("소형 테리어");
+    expect(detail.story.steps[1].title).toContain("움직임과 냄새");
+    expect(detail.story.steps[2].title).toContain("편안히 쉬는");
+    expect(detail.realities[0].title).toContain("안전한 길");
+    expect(storyCopy).not.toContain("안아");
+  });
+
   it.each(details)("keeps every $nameKo story and reality image distinct and available", (detail) => {
     const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
 

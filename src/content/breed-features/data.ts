@@ -697,7 +697,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
     cards: [
       {
         eyebrow: "작은 몸과 안전",
-        title: "안아 옮기기만 하기보다 스스로 걷는 안전한 길을 만들어요.",
+        title: "작은 몸이 스스로 걷기 편한 안전한 길을 만들어요.",
         description: "작은 체격은 소파에서의 낙상이나 큰 발에 부딪히는 일도 큰 부담이 될 수 있어요. 낮은 경사로와 미끄럼 방지 매트를 두고, 가족이 이동할 때 개의 위치를 먼저 확인하는 습관을 함께 들이세요.",
         image: "/illustrations/v4/yorkshire-terrier-feature-small-body-safety.webp",
         alt: "거실에서 보호자가 지켜보는 가운데 소파 옆 낮은 경사로를 이용하는 청색과 황갈색 성견 요크셔 테리어 삽화",

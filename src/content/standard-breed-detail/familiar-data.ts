@@ -274,6 +274,28 @@ const storyStepOverrides: Partial<Record<FamiliarStandardSlug, { background?: St
       imageAlt: "닫힌 현관문 소리를 확인한 뒤 보호자의 차분한 손 신호를 바라보는 성견 닥스훈트 삽화",
     },
   },
+  "yorkshire-terrier": {
+    background: {
+      navLabel: "역할의 배경",
+      eyebrow: "1단계 · 어떤 배경에서 출발했을까?",
+      title: "좁은 작업 공간에서 작은 동물을 찾던 소형 테리어예요.",
+      body: "낮고 작은 몸으로 좁은 곳을 살피고 빠르게 움직이는 대상을 찾아야 했어요. 이런 역할에는 끈기 있게 탐색하는 태도가 중요했습니다.",
+      image: "/illustrations/v3/yorkshire-terrier-history.webp",
+      imageAlt: "작은 작업 공간에서 주변 움직임을 살피는 요크셔 테리어를 표현한 편집 삽화",
+    },
+    tendency: {
+      navLabel: "현재의 경향",
+      eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+      title: "작은 움직임과 냄새를 오래 살필 수 있어요.",
+      body: "주변의 작은 변화에 빠르게 주의를 돌리고 한곳을 끈기 있게 확인할 수 있어요. 낮은 냄새 상자나 천 장난감을 찾는 짧은 활동으로 탐색할 기회를 마련해 주세요.",
+      image: "/illustrations/v4/yorkshire-terrier-feature-terrier-search.webp",
+      imageAlt: "거실 러그 위의 낮은 냄새 상자를 살피는 청색과 황갈색 성견 요크셔 테리어 삽화",
+    },
+  },
+};
+
+const realityCardIndexes: Partial<Record<FamiliarStandardSlug, readonly [number, number]>> = {
+  "yorkshire-terrier": [0, 2],
 };
 
 const sizeVarietyProfiles: Partial<Record<FamiliarStandardSlug, NonNullable<StandardBreedDetail["sizeVarieties"]>>> = {
@@ -311,7 +333,7 @@ const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string>
   chihuahua: "작은 몸에 맞춘 안전과 보온을 따로 준비해야 해요.",
   "shih-tzu": "짧은 얼굴과 긴 피모는 매일 다른 관리 시간을 요구해요.",
   "korea-jindo-dog": "선택 가능한 거리와 안전한 출입 관리가 함께 필요해요.",
-  "yorkshire-terrier": "작은 몸에도 탐색과 휴식의 리듬이 필요해요.",
+  "yorkshire-terrier": "찾기 활동을 짧게 끝내고 편안히 쉬는 흐름이 필요해요.",
   maltipoo: "작은 체구와 적은 털 빠짐이 가벼운 관리를 뜻하지 않아요.",
   "welsh-corgi-pembroke": "낮고 긴 몸에 맞춘 움직임과 체중 관리가 필요해요.",
   "golden-retriever": "다정한 첫인상과 별개로 활동과 체격 부담은 커요.",
@@ -372,7 +394,7 @@ const dailyRealityBodyOverrides: Partial<Record<(typeof familiarStandardSlugs)[n
   "german-spitz": "소파나 침대에서 반복해 뛰어내리지 않도록 낮은 발판과 미끄럽지 않은 동선을 마련해요. 풍성한 이중모는 피부 가까이까지 나누어 빗고, 소리에 반응한 뒤에는 보호자에게 돌아와 쉬는 순서를 연습해 주세요.",
   chihuahua: "작은 체구는 추위와 거친 접촉에 더 세심한 준비가 필요할 수 있어요. 따뜻한 휴식 자리와 부드러운 신체 다루기, 어린이나 다른 동물과 천천히 만나는 환경을 마련해 주세요.",
   "korea-jindo-dog": "낯선 사람과 동물에 대한 반응과 회복 속도는 개체마다 다르게 나타나요. 억지 인사보다 편안한 거리를 확보하고, 현관과 산책에서는 이중 안전장치와 몸에 맞는 장비를 확인해 주세요.",
-  "yorkshire-terrier": "안아 이동하는 시간만으로 하루의 활동이 채워지지는 않아요. 짧게 걷고 냄새를 찾는 활동 뒤에는 흥분을 낮추고 편안히 쉬는 시간을 마련해 주세요.",
+  "yorkshire-terrier": "냄새를 찾는 활동에 오래 몰입하면 스스로 멈추기 어려울 수 있어요. 짧은 과제를 마친 뒤 장난감을 정리하고 편안한 자리에서 쉬는 순서까지 한 흐름으로 알려주세요.",
   pug: "짧은 산책도 선선한 시간에 하고, 호흡이 편안해질 때까지 시원한 실내에서 쉬게 해요. 움직임을 더 권하기보다 그날의 반응에 맞춰 일정을 줄여야 해요.",
   "french-bulldog": "기온과 습도가 높다면 산책 시간을 줄이고 시원한 실내에서 회복을 우선해요. 짧은 활동 뒤에도 호흡이 편안해지는지 살피며 하루 일정을 조정해야 해요.",
   rottweiler: "큰 체격에 맞는 주거 규정과 이동 동선, 교육 지원을 입양 전에 확인해야 해요. 차량 탑승과 병원 이동에 필요한 장비와 의료비도 함께 계획해 주세요.",
@@ -487,6 +509,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
   const modernWork = modernWorkProfiles[slug];
   const sizeVarieties = sizeVarietyProfiles[slug];
   const storyOverrides = storyStepOverrides[slug];
+  const realityCards = (realityCardIndexes[slug] ?? [1, 2]).map((index) => cards[index]!);
 
   return standardBreedDetailSchema.parse({
     slug,
@@ -532,7 +555,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
     },
     modernWork,
     realitiesTitle: `${breed.nameKo}의 생활 현실`,
-    realities: cards.slice(1).map((card, index) => sizeVarieties && index === 1 ? {
+    realities: realityCards.map((card, index) => sizeVarieties && index === 1 ? {
       id: "size-varieties",
       title: "성견 가슴둘레로 세 크기를 확인해요.",
       body: "닥스훈트는 한 이름 안에 세 가지 크기가 있어요. 함께 살 개체의 예상 성견 크기를 먼저 확인해야 해요.",
