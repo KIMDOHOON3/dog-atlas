@@ -611,6 +611,73 @@ const shetlandSheepdogDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const australianShepherdDetail = standardBreedDetailSchema.parse({
+  slug: "australian-shepherd",
+  nameKo: "오스트레일리안 셰퍼드",
+  metadataDescription: "미국 서부 목장에서 가축을 움직이던 배경과 달리는 대상을 읽는 경향, 사람과 주고받는 과제, 활동 뒤 휴식과 이중모 관리를 살펴봅니다.",
+  heroStatement: "미국 서부 목장에서 가축의 흐름과 사람의 신호를 함께 읽던 활동적인 목양견이에요.",
+  story: {
+    title: "오스트레일리안 셰퍼드는 왜 움직임을 읽고 계속할 과제를 찾을까요?",
+    description: "미국 목장견의 배경을 알면 달리는 대상에 집중하는 모습과 사람과 협력한 뒤 쉬는 전환까지 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "목장 일의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "미국에서 여러 가축을 움직이는 목장견으로 정립됐어요.",
+        body: "이름과 달리 오늘날의 오스트레일리안 셰퍼드는 미국에서 정립됐어요. 넓은 목장에서 여러 가축의 흐름을 읽고 사람의 신호에 맞춰 방향을 바꾸는 일을 했어요.",
+        image: "/illustrations/v3/australian-shepherd-history.webp",
+        imageAlt: "미국 서부의 넓은 목장에서 양 떼와 목장주의 움직임을 살피는 긴 꼬리의 블루멀 성견 오스트레일리안 셰퍼드 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "달리는 대상의 방향을 읽고 앞을 막으려 할 수 있어요.",
+        body: "아이와 자전거, 다른 동물처럼 빠르게 움직이는 대상에 집중하거나 경로를 따라가려 할 수 있어요. 넉넉한 거리를 두고 보호자를 확인한 뒤 다른 길로 전환하는 경험을 마련해요.",
+        image: "/illustrations/v4/australian-shepherd-feature-movement-focus.webp",
+        imageAlt: "공원에서 멀리 지나가는 자전거를 확인한 뒤 보호자의 손 신호를 바라보는 긴 꼬리의 블루멀 성견 오스트레일리안 셰퍼드 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "활동을 마친 뒤 편안히 쉬는 전환까지 필요해요.",
+        body: "몸과 머리를 함께 쓰는 활동에 깊이 몰입한 뒤에도 다음 일을 기다릴 수 있어요. 끝 신호 뒤 자기 자리에서 호흡을 낮추고 쉬는 시간까지 한 흐름으로 구성해요.",
+        image: "/illustrations/v4/australian-shepherd-feature-work-to-rest.webp",
+        imageAlt: "방향 과제를 마친 뒤 현관 매트에 누워 쉬고 보호자가 낮은 표식을 정리하는 긴 꼬리의 블루멀 성견 오스트레일리안 셰퍼드 삽화",
+      },
+    ],
+    caution: "목양견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임과 과제에 대한 반응은 성장 환경과 경험, 생활 조건과 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "오스트레일리안 셰퍼드의 생활 현실",
+  realities: [
+    {
+      id: "cooperative-task",
+      title: "사람과 계속 주고받는 짧은 과제",
+      body: "목적 없이 오래 달리기보다 찾기와 구분하기, 멈추기를 짧게 연결해요. 과제의 난도와 시간을 조절하고 마친 뒤에는 흥분이 낮아지는지 함께 살펴요.",
+      image: "/illustrations/v4/australian-shepherd-feature-cooperative-task.webp",
+      imageAlt: "공원의 낮은 표식 사이에서 보호자의 손 신호를 확인하는 긴 꼬리의 블루멀 성견 오스트레일리안 셰퍼드 삽화",
+    },
+    {
+      id: "double-coat-care",
+      title: "장식털 안쪽까지 나누어 보는 이중모 관리",
+      body: "중간 길이 겉털 아래의 속털과 가슴·다리 장식털을 작은 구역으로 나누어 빗어요. 털갈이 시기에는 피부 가까이의 엉킴과 빠진 속털을 더 자주 확인해요.",
+      image: "/illustrations/v4/australian-shepherd-feature-double-coat-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 긴 꼬리의 블루멀 성견 오스트레일리안 셰퍼드의 가슴 장식털을 나누어 빗는 삽화",
+    },
+  ],
+  readinessTitle: "오스트레일리안 셰퍼드와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "달리는 대상에 집중할 때 안전거리를 두고 보호자 확인으로 전환할 수 있나요?",
+    "찾기·구분하기·멈추기를 연결한 짧은 과제와 활동 뒤 휴식을 매일 마련할 수 있나요?",
+    "중간 길이 이중모와 가슴·다리 장식털을 작은 구역으로 나누어 관리할 수 있나요?",
+  ],
+  relatedTitle: "오스트레일리안 셰퍼드가 마음에 들지만 망설여진다면",
+  relatedDescription: "목양견 안에서도 움직임에 집중하는 방식과 체격, 과제와 피모 관리의 규모가 다른 견종을 살펴보세요.",
+  relatedDifferences: {
+    "border-collie": "가축의 움직임을 읽고 사람과 협력하는 배경은 닮았지만 응시 방식과 작업 리듬, 실제 개체의 회복 속도를 따로 살펴야 해요.",
+    "shetland-sheepdog": "움직임과 사람의 신호에 빠르게 반응하는 점은 닮았지만 더 작은 체격과 소리 알림, 긴 피모 관리의 규모가 달라요.",
+  },
+});
+
 const standardBreedDetails = new Map(
   [
     japaneseSpitzDetail,
@@ -622,6 +689,7 @@ const standardBreedDetails = new Map(
     basenjiDetail,
     berneseMountainDogDetail,
     shetlandSheepdogDetail,
+    australianShepherdDetail,
     ...familiarStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
@@ -635,6 +703,7 @@ export function getAllStandardBreedDetails() {
 }
 
 export {
+  australianShepherdDetail,
   basenjiDetail,
   berneseMountainDogDetail,
   bichonFriseDetail,

@@ -193,6 +193,23 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(["border-collie", "australian-shepherd"]);
   });
 
+  it("adds Australian Shepherd as the next standard detail after Shetland Sheepdog", () => {
+    const detail = getStandardBreedDetail("australian-shepherd")!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === detail.slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual([
+      "/illustrations/v3/australian-shepherd-history.webp",
+      "/illustrations/v4/australian-shepherd-feature-movement-focus.webp",
+      "/illustrations/v4/australian-shepherd-feature-work-to-rest.webp",
+    ]);
+    expect(detail.realities.map((reality) => reality.image)).toEqual([
+      "/illustrations/v4/australian-shepherd-feature-cooperative-task.webp",
+      "/illustrations/v4/australian-shepherd-feature-double-coat-care.webp",
+    ]);
+    expect(detail.story.steps[0].body).toContain("미국에서 정립");
+    expect(Object.keys(detail.relatedDifferences)).toEqual(["border-collie", "shetland-sheepdog"]);
+  });
+
   it("splits Pyrenean Mountain Dog height and sex-based reference weights in an expandable hero summary", () => {
     const detail = getStandardBreedDetail("pyrenean-mountain-dog")!;
 
