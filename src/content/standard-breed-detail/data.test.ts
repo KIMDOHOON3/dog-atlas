@@ -457,6 +457,55 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    {
+      slug: "weimaraner",
+      storyImages: [
+        "/illustrations/v3/weimaraner-history.webp",
+        "/illustrations/v4/weimaraner-feature-visual-search.webp",
+        "/illustrations/v4/weimaraner-feature-work-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/weimaraner-feature-visitor-distance.webp",
+        "/illustrations/v4/weimaraner-feature-short-coat-check.webp",
+      ],
+      related: ["vizsla", "german-short-haired-pointing-dog"],
+    },
+    {
+      slug: "german-short-haired-pointing-dog",
+      storyImages: [
+        "/illustrations/v3/german-short-haired-pointing-dog-history.webp",
+        "/illustrations/v4/german-short-haired-pointing-dog-feature-versatile-sequence.webp",
+        "/illustrations/v4/german-short-haired-pointing-dog-feature-work-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/german-short-haired-pointing-dog-feature-wildlife-safety.webp",
+        "/illustrations/v4/german-short-haired-pointing-dog-feature-field-check.webp",
+      ],
+      related: ["vizsla", "weimaraner"],
+    },
+    {
+      slug: "flat-coated-retriever",
+      storyImages: [
+        "/illustrations/v3/flat-coated-retriever-history.webp",
+        "/illustrations/v4/flat-coated-retriever-feature-gentle-delivery.webp",
+        "/illustrations/v4/flat-coated-retriever-feature-retrieve-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/flat-coated-retriever-feature-wet-feather-drying.webp",
+        "/illustrations/v4/flat-coated-retriever-feature-vehicle-access.webp",
+      ],
+      related: ["labrador-retriever", "golden-retriever"],
+    },
+  ])("adds $slug in the next pointing-and-retriever standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 

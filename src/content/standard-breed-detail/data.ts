@@ -1707,6 +1707,207 @@ const vizslaDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const weimaranerDetail = standardBreedDetailSchema.parse({
+  slug: "weimaraner",
+  nameKo: "와이머라너",
+  metadataDescription: "독일의 들·숲·물에서 체계적으로 탐색하고 포인팅과 회수를 수행한 와이머라너의 배경과 넓은 시야 탐색, 독립 휴식, 방문 동선과 단모 점검을 살펴봅니다.",
+  heroStatement: "바이마르 주변에서 들과 숲, 물을 오가며 체계적인 탐색과 포인팅·회수를 수행한 은회색 사냥견이에요.",
+  story: {
+    title: "와이머라너는 왜 넓은 공간을 살피면서 사람의 다음 방향도 확인할까요?",
+    description: "여러 지형에서 체계적으로 탐색한 배경을 알면 넓은 시야와 냄새 찾기, 보호자 재확인과 활동 뒤 휴식을 한 흐름으로 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "다목적 탐색의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "중부 독일의 들·숲·물에서 사냥 전후의 여러 작업을 맡았어요.",
+        body: "와이머라너는 19세기 바이마르 주변의 사냥꾼과 산림 관리인 손에서 계획적으로 정립됐어요. 들과 숲, 물에서 냄새를 찾고 위치를 알리며 추적과 회수까지 수행했어요.",
+        image: "/illustrations/v3/weimaraner-history.webp",
+        imageAlt: "중부 독일의 숲 가장자리에서 넓은 들을 향해 포인팅하고 뒤쪽 사람과 협력하는 은회색 성견 와이머라너 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "넓게 살피는 중에도 보호자의 방향 신호를 다시 확인할 수 있어요.",
+        body: "열린 들과 숲 가장자리의 움직임과 냄새를 함께 확인하며 범위를 넓힐 수 있어요. 긴 리드 안에서 짧은 탐색 구간을 마친 뒤 손 신호로 돌아와 다음 방향을 함께 정해요.",
+        image: "/illustrations/v4/weimaraner-feature-visual-search.webp",
+        imageAlt: "넓은 들판을 탐색하다 느슨한 긴 리드 안에서 뒤쪽 보호자의 손 방향을 확인하는 은회색 성견 와이머라너 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "긴 활동을 끝낸 뒤 큰 몸을 온전히 받치는 독립 휴식이 필요해요.",
+        body: "사람의 다음 활동을 기다리며 계속 따라다니면 몸은 멈춰도 충분히 쉬지 못할 수 있어요. 장비를 치운 뒤 넓은 침대에서 사람과 조금 떨어져 편히 머무는 순서를 만들어요.",
+        image: "/illustrations/v4/weimaraner-feature-work-to-rest.webp",
+        imageAlt: "보호자가 산책 장비를 바구니에 정리하는 동안 넓은 독립 침대에서 쉬는 은회색 성견 와이머라너 삽화",
+      },
+    ],
+    caution: "다목적 사냥견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 탐색 범위와 관계 거리, 휴식 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "와이머라너의 생활 현실",
+  realities: [
+    {
+      id: "visitor-distance",
+      title: "억지 인사 대신 먼저 확보하는 방문 동선과 거리",
+      body: "큰 몸으로 현관 변화를 가까이 확인하면 방문자와 개 모두 부담을 느낄 수 있어요. 낮은 게이트와 미끄럼 방지 러너로 관찰 거리를 만들고 차분해진 뒤 인사 여부를 선택해요.",
+      image: "/illustrations/v4/weimaraner-feature-visitor-distance.webp",
+      imageAlt: "현관의 낮은 게이트와 미끄럼 방지 러너 안에서 방문자를 떨어져 관찰하는 은회색 성견 와이머라너 삽화",
+    },
+    {
+      id: "short-coat-check",
+      title: "수풀 활동 뒤 피부까지 바로 확인하는 얇은 단모",
+      body: "짧고 성긴 속털은 손질은 단순해도 거친 수풀과 낮은 기온의 영향을 그대로 받을 수 있어요. 활동 뒤 가슴과 옆구리, 귀와 발을 살펴 작은 상처와 이물질을 확인해요.",
+      image: "/illustrations/v4/weimaraner-feature-short-coat-check.webp",
+      imageAlt: "수풀 산책 뒤 미끄럼 방지 매트에서 보호자가 은회색 성견 와이머라너의 단모와 귀·발을 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "와이머라너와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "넓은 야외 탐색 중에도 보호자의 방향을 다시 확인하는 신호를 매일 연습할 수 있나요?",
+    "긴 활동 뒤 장비를 치우고 큰 몸을 받치는 독립 침대에서 충분히 쉬게 할 수 있나요?",
+    "방문 동선을 나누고 수풀 활동 뒤 얇은 단모와 귀·발을 반복해서 확인할 수 있나요?",
+  ],
+  relatedTitle: "와이머라너가 마음에 들지만 망설여진다면",
+  relatedDescription: "사람과 협력한 대륙 포인팅견 안에서도 탐색 범위와 체격, 피모와 관계 거리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    vizsla: "들·숲·물에서 가까이 협력한 배경은 닮았지만 체격과 피모, 사람과 거리를 조절하는 생활 리듬이 달라요.",
+    "german-short-haired-pointing-dog": "독일 다목적 포인팅견의 작업 범위는 닮았지만 피모 형태와 움직임, 일상에서 필요한 과제 구성이 달라요.",
+  },
+});
+
+const germanShortHairedPointingDogDetail = standardBreedDetailSchema.parse({
+  slug: "german-short-haired-pointing-dog",
+  nameKo: "저먼 쇼트헤어드 포인터",
+  metadataDescription: "독일의 들·숲·물에서 포인팅과 추적·회수를 수행한 저먼 쇼트헤어드 포인터의 배경과 작업 전환, 활동 뒤 회복, 야생동물 안전과 현장 점검을 살펴봅니다.",
+  heroStatement: "들에서 위치를 알리고 숲과 물에서 추적·회수까지 이어 가도록 정립된 독일의 다목적 포인팅견이에요.",
+  story: {
+    title: "저먼 쇼트헤어드 포인터는 왜 지형과 과제가 바뀌어도 빠르게 다음 일로 전환할까요?",
+    description: "단순히 멀리 달리는 견종이 아니라 여러 사냥 단계를 수행한 배경을 알면 탐색·포인팅·회수와 회복을 하나의 순서로 설계할 수 있어요.",
+    steps: [
+      {
+        navLabel: "다목적 포인팅의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "새의 위치를 알리는 역할에서 여러 사냥 작업을 맡는 견종으로 발달했어요.",
+        body: "유럽의 그물 사냥과 매사냥에 쓰인 포인터 계통이 독일로 전해진 뒤 포인팅뿐 아니라 추적과 회수까지 수행하도록 정립됐어요. 들과 숲, 물을 오가는 기능적인 몸도 이 과정에서 중요했어요.",
+        image: "/illustrations/v3/german-short-haired-pointing-dog-history.webp",
+        imageAlt: "독일의 들과 얕은 습지가 만나는 곳에서 새의 위치를 향해 멈춰 서고 사람과 협력하는 갈색 로안 성견 저먼 쇼트헤어드 포인터 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "육지의 냄새 찾기에서 물가의 회수까지 과제 전환에 집중할 수 있어요.",
+        body: "풀밭을 찾다가 보호자의 신호에 맞춰 물가의 캔버스 더미로 방향을 바꾸는 활동에 몰입할 수 있어요. 탐색·멈춤·회수를 짧은 구간으로 나누고 각 구간 사이에 재확인 신호를 넣어요.",
+        image: "/illustrations/v4/german-short-haired-pointing-dog-feature-versatile-sequence.webp",
+        imageAlt: "풀밭 탐색 뒤 보호자의 손 신호를 확인하며 얕은 물가의 캔버스 회수 더미로 이동하는 갈색 로안 성견 저먼 쇼트헤어드 포인터 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "빠른 활동만큼 물을 마시고 완전히 쉬는 회복 순서가 중요해요.",
+        body: "한 과제가 끝나도 주변 냄새와 다음 도구를 찾으며 활동을 이어 가려 할 수 있어요. 긴 리드와 도구를 치우고 물을 마신 뒤 그늘진 매트에서 호흡이 차분해질 때까지 쉬게 해요.",
+        image: "/illustrations/v4/german-short-haired-pointing-dog-feature-work-to-rest.webp",
+        imageAlt: "빠른 야외 활동 뒤 물을 마시고 그늘진 매트에서 쉬는 갈색 로안 성견 저먼 쇼트헤어드 포인터 삽화",
+      },
+    ],
+    caution: "다목적 포인팅견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 지구력과 추적, 물과 회수 선호는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "저먼 쇼트헤어드 포인터의 생활 현실",
+  realities: [
+    {
+      id: "wildlife-safety",
+      title: "새가 날아오를 때도 연결을 유지하는 긴 리드",
+      body: "열린 지형에서 새나 작은 동물이 갑자기 움직이면 시선과 몸이 빠르게 향할 수 있어요. 몸에 맞는 하네스와 긴 리드를 사용하고 충분한 거리에서 손 신호로 돌아오는 선택을 연습해요.",
+      image: "/illustrations/v4/german-short-haired-pointing-dog-feature-wildlife-safety.webp",
+      imageAlt: "날아오르는 새를 본 뒤 느슨한 긴 리드 안에서 보호자의 손 방향을 확인하는 갈색 로안 성견 저먼 쇼트헤어드 포인터 삽화",
+    },
+    {
+      id: "field-check",
+      title: "들판과 물가를 지난 뒤 확인하는 귀·발·촘촘한 단모",
+      body: "짧고 촘촘한 털과 늘어진 귀에는 물기와 작은 풀씨가 남을 수 있어요. 활동 뒤 귀 안쪽과 가슴, 발가락 사이를 살피고 젖은 부위는 부드러운 수건으로 충분히 말려요.",
+      image: "/illustrations/v4/german-short-haired-pointing-dog-feature-field-check.webp",
+      imageAlt: "물가 활동 뒤 미끄럼 방지 매트에서 보호자가 갈색 로안 성견 저먼 쇼트헤어드 포인터의 귀와 발을 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "저먼 쇼트헤어드 포인터와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "탐색·멈춤·회수를 짧은 구간으로 나누고 과제 사이에 보호자 재확인을 넣을 수 있나요?",
+    "야생동물 추적을 긴 리드로 관리하고 높은 활동 뒤 충분한 물과 회복 시간을 제공할 수 있나요?",
+    "들판과 물가 활동 뒤 짧은 털과 귀·발에 남은 습기와 이물질을 확인할 수 있나요?",
+  ],
+  relatedTitle: "저먼 쇼트헤어드 포인터가 마음에 들지만 망설여진다면",
+  relatedDescription: "들·숲·물을 오간 포인팅견 안에서도 작업의 폭과 사람과의 거리, 체격과 피모의 차이를 살펴보세요.",
+  relatedDifferences: {
+    vizsla: "여러 지형의 포인팅과 회수는 닮았지만 사람과의 관계 거리, 피모와 체격에서 다른 생활 리듬이 나타날 수 있어요.",
+    weimaraner: "독일에서 정립된 다목적 작업 범위는 닮았지만 시야와 냄새를 쓰는 방식, 피모와 힘의 차이를 함께 봐야 해요.",
+  },
+});
+
+const flatCoatedRetrieverDetail = standardBreedDetailSchema.parse({
+  slug: "flat-coated-retriever",
+  nameKo: "플랫 코티드 리트리버",
+  metadataDescription: "영국의 들과 물에서 위치를 기억하고 대상을 부드럽게 회수한 플랫 코티드 리트리버의 배경과 전달·종료 순서, 젖은 장식털과 차량 이동 현실을 살펴봅니다.",
+  heroStatement: "영국의 들과 물에서 대상의 위치를 기억하고 부드럽게 물어 사람에게 전달한 검은 장모 회수견이에요.",
+  story: {
+    title: "플랫 코티드 리트리버는 왜 물건을 찾는 것뿐 아니라 사람에게 전달하는 순간까지 집중할까요?",
+    description: "물과 수풀에서 대상을 찾아 부드럽게 회수한 배경을 알면 기억·운반·전달과 과제를 끝내는 휴식까지 한 흐름으로 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "회수 작업의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "영국의 들과 물에서 떨어진 대상을 찾아 사람에게 가져왔어요.",
+        body: "플랫 코티드 리트리버는 물새와 들새가 떨어진 위치를 기억하고 물과 수풀을 지나 회수하는 견종으로 정립됐어요. 대상을 손상하지 않고 물어 사람의 손까지 전달하는 협력이 중요했어요.",
+        image: "/illustrations/v3/flat-coated-retriever-history.webp",
+        imageAlt: "영국 물가에서 캔버스 회수 도구를 부드럽게 물고 사람의 손으로 전달하는 검은 성견 플랫 코티드 리트리버 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "찾은 물건을 세게 붙들기보다 사람의 손까지 부드럽게 가져올 수 있어요.",
+        body: "눈으로 확인한 캔버스 더미를 찾아 물고 사람 쪽으로 이동하는 과제에 즐겁게 참여할 수 있어요. 반복 투척보다 기다림·찾기·부드러운 운반·손에 놓기를 한 번의 짧은 흐름으로 만들어요.",
+        image: "/illustrations/v4/flat-coated-retriever-feature-gentle-delivery.webp",
+        imageAlt: "물가 풀밭에서 캔버스 회수 더미를 부드럽게 물고 보호자의 열린 두 손으로 가져오는 검은 성견 플랫 코티드 리트리버 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "즐거운 회수 과제도 물건을 내려놓고 쉬는 순간까지 설계해야 해요.",
+        body: "한 번의 회수 뒤 다음 물건을 찾으며 계속 활동하려 할 수 있어요. 더미를 낮은 바구니에 놓고 물을 마신 다음 넓은 매트에서 쉬는 종료 순서를 일관되게 사용해요.",
+        image: "/illustrations/v4/flat-coated-retriever-feature-retrieve-to-rest.webp",
+        imageAlt: "캔버스 회수 더미가 담긴 낮은 바구니 옆 넓은 매트에서 물을 마시고 쉬는 검은 성견 플랫 코티드 리트리버 삽화",
+      },
+    ],
+    caution: "회수견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 물건 운반과 물 선호, 흥분과 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "플랫 코티드 리트리버의 생활 현실",
+  realities: [
+    {
+      id: "wet-feather-drying",
+      title: "물 활동 뒤 속까지 나누어 말리는 검은 장식털",
+      body: "검은 장모와 가슴·다리·꼬리 장식털에는 물기와 작은 이물질이 오래 남을 수 있어요. 출수 뒤 귀 뒤와 겨드랑이, 가슴과 꼬리 털을 나누어 닦고 속까지 충분히 말려요.",
+      image: "/illustrations/v4/flat-coated-retriever-feature-wet-feather-drying.webp",
+      imageAlt: "호숫가 미끄럼 방지 매트에서 보호자가 검은 성견 플랫 코티드 리트리버의 젖은 가슴 장식털을 수건으로 말리는 삽화",
+    },
+    {
+      id: "vehicle-access",
+      title: "활동 장소와 병원까지 이어지는 안정적인 차량 동선",
+      body: "중대형 활동견은 젖거나 지친 상태에서 높은 적재함을 반복해서 뛰어오르기 어려울 수 있어요. 넓고 미끄럽지 않은 경사로와 낮은 적재 공간을 마련해 이동 자체도 차분한 순서로 만들어요.",
+      image: "/illustrations/v4/flat-coated-retriever-feature-vehicle-access.webp",
+      imageAlt: "주차된 차량의 넓은 미끄럼 방지 경사로 앞에서 보호자와 함께 천천히 접근하는 검은 성견 플랫 코티드 리트리버 삽화",
+    },
+  ],
+  readinessTitle: "플랫 코티드 리트리버와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "반복 투척 대신 기다림·찾기·부드러운 전달·종료를 포함한 짧은 회수 과제를 만들 수 있나요?",
+    "물 활동과 높은 운동 뒤 젖은 장식털을 속까지 말리고 충분한 회복 시간을 제공할 수 있나요?",
+    "중대형 몸이 차량과 병원으로 안전하게 이동할 경사로와 적재 공간을 준비할 수 있나요?",
+  ],
+  relatedTitle: "플랫 코티드 리트리버가 마음에 들지만 망설여진다면",
+  relatedDescription: "영국 회수견 안에서도 체형과 피모, 과제를 수행하고 회복하는 생활 리듬의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "labrador-retriever": "물과 들에서 대상을 회수한 배경은 닮았지만 피모 구조와 체형, 젖은 털 관리와 일상 리듬이 달라요.",
+    "golden-retriever": "장식털이 있는 회수견의 협력은 닮았지만 피모색보다 체형과 성숙 과정, 건강·관리 계획의 차이를 봐야 해요.",
+  },
+});
+
 const standardBreedDetails = new Map(
   [
     japaneseSpitzDetail,
@@ -1734,6 +1935,9 @@ const standardBreedDetails = new Map(
     boxerDetail,
     newfoundlandDetail,
     vizslaDetail,
+    weimaranerDetail,
+    germanShortHairedPointingDogDetail,
+    flatCoatedRetrieverDetail,
     ...familiarStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
@@ -1757,6 +1961,8 @@ export {
   cavalierKingCharlesSpanielDetail,
   englishCockerSpanielDetail,
   englishSpringerSpanielDetail,
+  flatCoatedRetrieverDetail,
+  germanShortHairedPointingDogDetail,
   greyhoundDetail,
   giantSchnauzerDetail,
   havaneseDetail,
@@ -1771,5 +1977,6 @@ export {
   schnauzerDetail,
   whippetDetail,
   vizslaDetail,
+  weimaranerDetail,
   yakutianLaikaDetail,
 };
