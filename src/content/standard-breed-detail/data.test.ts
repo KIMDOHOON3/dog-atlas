@@ -259,6 +259,55 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    {
+      slug: "cavalier-king-charles-spaniel",
+      storyImages: [
+        "/illustrations/v3/cavalier-king-charles-spaniel-history.webp",
+        "/illustrations/v4/cavalier-king-charles-spaniel-feature-family-participation.webp",
+        "/illustrations/v4/cavalier-king-charles-spaniel-feature-scent-walk.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/cavalier-king-charles-spaniel-feature-independent-rest.webp",
+        "/illustrations/v4/cavalier-king-charles-spaniel-feature-feathered-coat-care.webp",
+      ],
+      related: ["english-cocker-spaniel", "shih-tzu"],
+    },
+    {
+      slug: "english-springer-spaniel",
+      storyImages: [
+        "/illustrations/v3/english-springer-spaniel-history.webp",
+        "/illustrations/v4/english-springer-spaniel-feature-close-search.webp",
+        "/illustrations/v4/english-springer-spaniel-feature-work-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/english-springer-spaniel-feature-structured-retrieve.webp",
+        "/illustrations/v4/english-springer-spaniel-feature-ear-feather-care.webp",
+      ],
+      related: ["english-cocker-spaniel", "labrador-retriever"],
+    },
+    {
+      slug: "havanese",
+      storyImages: [
+        "/illustrations/v3/havanese-history.webp",
+        "/illustrations/v4/havanese-feature-family-participation.webp",
+        "/illustrations/v4/havanese-feature-independent-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/havanese-feature-long-coat-care.webp",
+        "/illustrations/v4/havanese-feature-scent-walk.webp",
+      ],
+      related: ["bichon-frise", "maltese"],
+    },
+  ])("adds $slug in the companion-and-spaniel standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("splits Pyrenean Mountain Dog height and sex-based reference weights in an expandable hero summary", () => {
     const detail = getStandardBreedDetail("pyrenean-mountain-dog")!;
 

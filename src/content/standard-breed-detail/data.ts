@@ -879,6 +879,207 @@ const akitaDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const cavalierKingCharlesSpanielDetail = standardBreedDetailSchema.parse({
+  slug: "cavalier-king-charles-spaniel",
+  nameKo: "카발리에 킹 찰스 스패니얼",
+  metadataDescription: "영국 왕실과 가정에서 사람 곁을 지킨 토이 스패니얼의 배경과 일상 참여, 냄새 탐색, 독립 휴식과 긴 귀·장식털 관리를 살펴봅니다.",
+  heroStatement: "영국의 실내에서 사람 곁을 지키며 생활해 온 작고 다정한 토이 스패니얼이에요.",
+  story: {
+    title: "카발리에 킹 찰스 스패니얼은 왜 가족의 움직임에 자연스럽게 참여하려 할까요?",
+    description: "오랫동안 사람 가까이에서 지낸 반려견의 배경을 알면 일상 참여와 냄새 활동, 혼자 쉬는 연습을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "반려견의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "영국의 궁정과 가정에서 사람 곁을 지킨 토이 스패니얼이에요.",
+        body: "작은 스패니얼은 수세기 동안 영국 초상화와 기록에 사람 곁의 반려견으로 등장했어요. 카발리에는 이 오래된 토이 스패니얼의 모습을 되살리는 과정에서 정립됐어요.",
+        image: "/illustrations/v3/cavalier-king-charles-spaniel-history.webp",
+        imageAlt: "영국의 옛 실내에서 사람 곁에 앉아 있는 블레넘 성견 카발리에 킹 찰스 스패니얼 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "가족이 하는 작은 활동에도 기꺼이 참여할 수 있어요.",
+        body: "사람의 표정과 손짓을 살피며 짧은 찾기나 신호 놀이에 함께하는 시간을 즐길 수 있어요. 늘 안고 있기보다 바닥에서 스스로 움직이고 선택하는 참여를 마련해요.",
+        image: "/illustrations/v4/cavalier-king-charles-spaniel-feature-family-participation.webp",
+        imageAlt: "거실에서 보호자의 손 신호를 보고 냄새 주머니 찾기에 참여하는 블레넘 성견 카발리에 킹 찰스 스패니얼 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "작은 체격에도 냄새를 맡고 걸으며 탐색할 시간이 필요해요.",
+        body: "실내에서 사람 곁에 머무는 것만으로 하루의 활동이 채워지지는 않아요. 편안한 하네스를 착용하고 천천히 걸으며 냄새를 고를 수 있는 산책을 마련해요.",
+        image: "/illustrations/v4/cavalier-king-charles-spaniel-feature-scent-walk.webp",
+        imageAlt: "조용한 정원 길에서 보호자와 느슨한 리드로 냄새를 탐색하는 블레넘 성견 카발리에 킹 찰스 스패니얼 삽화",
+      },
+    ],
+    caution: "오랜 반려견의 배경은 행동을 이해하는 단서일 뿐이에요. 사람을 찾는 정도와 활동 반응은 성장 환경과 경험, 건강 상태와 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "카발리에 킹 찰스 스패니얼의 생활 현실",
+  realities: [
+    {
+      id: "independent-rest",
+      title: "가까이 있어도 각자의 자리에서 쉬는 연습",
+      body: "사람과 함께 있는 시간이 길수록 잠깐 떨어져 편히 쉬는 경험도 필요해요. 보호자가 움직여도 머물 수 있는 자리를 만들고 짧고 편안한 시간부터 늘려요.",
+      image: "/illustrations/v4/cavalier-king-charles-spaniel-feature-independent-rest.webp",
+      imageAlt: "보호자가 일하는 동안 조금 떨어진 매트에서 편안히 쉬는 블레넘 성견 카발리에 킹 찰스 스패니얼 삽화",
+    },
+    {
+      id: "feathered-coat-care",
+      title: "습기와 엉킴을 확인하는 긴 귀와 장식털",
+      body: "늘어진 귀와 가슴·다리의 장식털에는 습기와 작은 이물질이 남을 수 있어요. 산책 뒤 귀 안쪽과 발을 살피고 털을 작은 구역으로 나누어 빗어요.",
+      image: "/illustrations/v4/cavalier-king-charles-spaniel-feature-feathered-coat-care.webp",
+      imageAlt: "보호자가 블레넘 성견 카발리에 킹 찰스 스패니얼의 긴 귀와 다리 장식털을 살피고 빗는 삽화",
+    },
+  ],
+  readinessTitle: "카발리에 킹 찰스 스패니얼과 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "사람 곁의 시간뿐 아니라 바닥에서 걷고 냄새를 탐색하는 활동을 매일 마련할 수 있나요?",
+    "보호자가 움직여도 자기 자리에서 편히 쉬는 시간을 짧게 연습할 수 있나요?",
+    "늘어진 귀와 장식털의 습기, 이물질과 엉킴을 산책 뒤 확인할 수 있나요?",
+  ],
+  relatedTitle: "카발리에 킹 찰스 스패니얼이 마음에 들지만 망설여진다면",
+  relatedDescription: "사람 가까이 지내온 소형 반려견 안에서도 활동 방식과 독립 휴식, 피모 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "english-cocker-spaniel": "긴 귀와 사람과의 협력은 닮았지만 조렵견의 탐색·회수 배경과 필요한 활동 규모가 달라요.",
+    "shih-tzu": "오랜 실내 반려견의 배경은 닮았지만 체형과 산책 리듬, 얼굴과 피모를 관리하는 방식이 달라요.",
+  },
+});
+
+const englishSpringerSpanielDetail = standardBreedDetailSchema.parse({
+  slug: "english-springer-spaniel",
+  nameKo: "잉글리시 스프링거 스패니얼",
+  metadataDescription: "영국의 들과 덤불에서 새를 찾아 날아오르게 하고 회수한 배경과 가까운 탐색, 활동 뒤 휴식, 구조화된 회수와 귀·장식털 관리를 살펴봅니다.",
+  heroStatement: "영국의 들과 덤불을 누비며 새를 찾아 날아오르게 하고 회수한 활동적인 스패니얼이에요.",
+  story: {
+    title: "잉글리시 스프링거 스패니얼은 왜 사람 가까이에서 넓게 찾고 회수하려 할까요?",
+    description: "사람과 보조를 맞춰 덤불을 탐색한 배경을 알면 냄새 찾기와 회수, 활동 뒤 휴식까지 이어지는 리듬을 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "플러싱의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "덤불 속 새를 찾아 날아오르게 하고 회수했어요.",
+        body: "잉글리시 스프링거 스패니얼은 영국의 랜드 스패니얼에서 발달했어요. 사람 가까이에서 지그재그로 수풀을 찾고 새를 날아오르게 한 뒤 회수하는 작업을 맡았어요.",
+        image: "/illustrations/v3/english-springer-spaniel-history.webp",
+        imageAlt: "영국의 들과 덤불에서 사냥꾼 가까이 새를 찾는 리버 앤 화이트 성견 잉글리시 스프링거 스패니얼 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "보호자와 거리를 맞추며 냄새를 찾는 과제에 몰입할 수 있어요.",
+        body: "풀숲과 산책로를 넓게 오가며 흥미로운 냄새를 확인할 수 있어요. 무작정 달리게 하기보다 보호자에게 돌아오는 신호를 섞어 탐색 범위를 함께 조절해요.",
+        image: "/illustrations/v4/english-springer-spaniel-feature-close-search.webp",
+        imageAlt: "풀밭에서 보호자와 가까운 범위를 지그재그로 냄새 탐색하는 리버 앤 화이트 성견 잉글리시 스프링거 스패니얼 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "충분히 움직인 뒤 흥분을 낮추고 쉬는 전환까지 필요해요.",
+        body: "탐색과 회수에 적극적으로 참여한 뒤에도 다음 과제를 기다리며 들뜰 수 있어요. 끝 신호 뒤 장비를 치우고 조용한 자리에서 호흡을 낮추는 시간을 함께 설계해요.",
+        image: "/illustrations/v4/english-springer-spaniel-feature-work-to-rest.webp",
+        imageAlt: "야외 활동을 마친 뒤 보호자가 장비를 정리하는 동안 매트에서 쉬는 리버 앤 화이트 성견 잉글리시 스프링거 스패니얼 삽화",
+      },
+    ],
+    caution: "조렵견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 탐색 범위와 회수 집중, 활동 뒤 회복은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "잉글리시 스프링거 스패니얼의 생활 현실",
+  realities: [
+    {
+      id: "structured-retrieve",
+      title: "가져오기와 놓기까지 한 흐름으로 만드는 회수",
+      body: "물건을 쫓아가는 횟수만 늘리면 흥분이 높아지고 놓지 않으려 할 수 있어요. 기다리기와 가져오기, 손에 놓기와 종료 신호를 짧은 순서로 연결해요.",
+      image: "/illustrations/v4/english-springer-spaniel-feature-structured-retrieve.webp",
+      imageAlt: "보호자에게 초록색 회수용 더미를 가져와 손에 놓는 리버 앤 화이트 성견 잉글리시 스프링거 스패니얼 삽화",
+    },
+    {
+      id: "ear-feather-care",
+      title: "젖은 귀와 장식털을 활동 직후 확인하기",
+      body: "늘어진 귀와 발·배의 장식털에는 물기와 풀씨, 작은 이물질이 머물 수 있어요. 수풀 산책이나 물놀이 뒤 귀 안쪽과 발을 말리고 엉킨 털을 살펴요.",
+      image: "/illustrations/v4/english-springer-spaniel-feature-ear-feather-care.webp",
+      imageAlt: "물가 활동 뒤 보호자가 리버 앤 화이트 성견 잉글리시 스프링거 스패니얼의 귀와 장식털을 말리고 살피는 삽화",
+    },
+  ],
+  readinessTitle: "잉글리시 스프링거 스패니얼과 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "넓게 냄새를 찾는 시간과 보호자에게 돌아오는 신호를 매일 함께 연습할 수 있나요?",
+    "회수 놀이를 기다리기와 놓기, 종료 뒤 조용한 휴식까지 연결할 수 있나요?",
+    "수풀이나 물가 활동 뒤 긴 귀와 발·배 장식털의 습기와 이물질을 확인할 수 있나요?",
+  ],
+  relatedTitle: "잉글리시 스프링거 스패니얼이 마음에 들지만 망설여진다면",
+  relatedDescription: "스패니얼과 회수견 안에서도 탐색 범위와 활동 리듬, 피모 관리 규모가 다른 견종을 살펴보세요.",
+  relatedDifferences: {
+    "english-cocker-spaniel": "가까운 탐색과 회수는 닮았지만 스프링거가 대체로 더 크고 넓은 범위의 작업에서 발달했어요.",
+    "labrador-retriever": "사람과 협력해 회수하는 점은 닮았지만 덤불에서 새를 날리는 역할과 피모·귀 관리 방식이 달라요.",
+  },
+});
+
+const havaneseDetail = standardBreedDetailSchema.parse({
+  slug: "havanese",
+  nameKo: "하바니즈",
+  metadataDescription: "쿠바의 가정에서 사람 가까이 지낸 소형 반려견의 배경과 가족 활동 참여, 독립 휴식, 긴 피모 관리와 가벼운 냄새 산책을 살펴봅니다.",
+  heroStatement: "쿠바의 가정에서 사람 가까이 지내며 일상에 참여해 온 작고 탄력 있는 반려견이에요.",
+  story: {
+    title: "하바니즈는 왜 가족의 일상에 빠르게 참여하려 할까요?",
+    description: "사람 가까이 지내온 소형 반려견의 배경을 알면 높은 교감과 일상 참여, 혼자 쉬는 능력을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "쿠바의 반려견",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "쿠바에서 가족 곁을 지키는 소형 반려견으로 발달했어요.",
+        body: "하바니즈는 서지중해의 비숑 계통과 연결되며 쿠바에서 고유한 견종으로 발달했어요. 가정 안에서 사람과 가까이 생활한 반려견의 역사를 지녔어요.",
+        image: "/illustrations/v3/havanese-history.webp",
+        imageAlt: "쿠바의 옛 가정 안뜰에서 가족 곁에 서 있는 흰색 성견 하바니즈 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "사람의 손짓을 살피며 작은 활동에 함께 참여할 수 있어요.",
+        body: "가족이 움직이거나 놀이를 시작하면 가까이 와서 표정과 신호를 살필 수 있어요. 짧은 냄새 찾기와 신호 놀이로 참여할 기회를 주고 스스로 멈추는 시간도 마련해요.",
+        image: "/illustrations/v4/havanese-feature-family-participation.webp",
+        imageAlt: "거실에서 보호자의 손 신호를 보며 작은 냄새 주머니 찾기에 참여하는 흰색 성견 하바니즈 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "늘 붙어 있기보다 가까운 자기 자리에서 쉬는 법도 배워야 해요.",
+        body: "사람을 잘 따르는 모습이 혼자 있는 시간을 바로 견딘다는 뜻은 아니에요. 보호자가 같은 공간에서 움직여도 편히 머무는 자리부터 만들고 거리를 천천히 늘려요.",
+        image: "/illustrations/v4/havanese-feature-independent-rest.webp",
+        imageAlt: "보호자가 탁자에서 일하는 동안 조금 떨어진 매트에 편안히 머무는 흰색 성견 하바니즈 삽화",
+      },
+    ],
+    caution: "오랜 반려견의 배경은 행동을 이해하는 단서일 뿐이에요. 사람을 찾는 정도와 혼자 쉬는 능력은 성장 환경과 경험, 생활 조건과 개체에 따라 달라요.",
+  },
+  realitiesTitle: "하바니즈의 생활 현실",
+  realities: [
+    {
+      id: "long-coat-care",
+      title: "피부 가까이까지 나누어 확인하는 긴 피모",
+      body: "부드럽고 긴 털은 겉만 빗으면 안쪽의 엉킴을 놓치기 쉬워요. 미끄럽지 않은 자리에서 작은 구역으로 나누어 빗고 귀 뒤와 겨드랑이처럼 마찰이 잦은 곳을 살펴요.",
+      image: "/illustrations/v4/havanese-feature-long-coat-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 흰색 성견 하바니즈의 긴 털을 나누어 빗는 삽화",
+    },
+    {
+      id: "scent-walk",
+      title: "작은 몸의 속도에 맞춘 가벼운 냄새 산책",
+      body: "실내 놀이만 반복하기보다 밖에서 냄새와 바닥 감촉을 고르는 시간이 필요해요. 편안한 하네스와 느슨한 리드로 걷고 충분히 맡은 뒤 스스로 이동하게 해요.",
+      image: "/illustrations/v4/havanese-feature-scent-walk.webp",
+      imageAlt: "조용한 정원 길에서 느슨한 리드로 풀 냄새를 맡는 흰색 성견 하바니즈 삽화",
+    },
+  ],
+  readinessTitle: "하바니즈와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "가족 활동에 참여하는 시간과 자기 자리에서 혼자 쉬는 연습을 함께 마련할 수 있나요?",
+    "긴 피모를 작은 구역으로 나누어 빗고 마찰이 잦은 곳의 엉킴을 확인할 수 있나요?",
+    "작은 체격의 속도에 맞춰 걷고 냄새를 고르는 산책을 규칙적으로 이어갈 수 있나요?",
+  ],
+  relatedTitle: "하바니즈가 마음에 들지만 망설여진다면",
+  relatedDescription: "비숑 계통의 소형 반려견 안에서도 교감 방식과 독립 휴식, 피모 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "bichon-frise": "사람과의 교감과 풍성한 피모는 닮았지만 털의 질감과 손질 방식, 일상 활동 리듬이 달라요.",
+    maltese: "오랜 소형 반려견의 배경과 장모 관리는 닮았지만 체형과 피모 질감, 놀이 참여 방식이 달라요.",
+  },
+});
+
 const standardBreedDetails = new Map(
   [
     japaneseSpitzDetail,
@@ -894,6 +1095,9 @@ const standardBreedDetails = new Map(
     yakutianLaikaDetail,
     englishCockerSpanielDetail,
     akitaDetail,
+    cavalierKingCharlesSpanielDetail,
+    englishSpringerSpanielDetail,
+    havaneseDetail,
     ...familiarStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
@@ -912,8 +1116,11 @@ export {
   basenjiDetail,
   berneseMountainDogDetail,
   bichonFriseDetail,
+  cavalierKingCharlesSpanielDetail,
   englishCockerSpanielDetail,
+  englishSpringerSpanielDetail,
   greyhoundDetail,
+  havaneseDetail,
   japaneseSpitzDetail,
   malteseDetail,
   pyreneanMountainDogDetail,
