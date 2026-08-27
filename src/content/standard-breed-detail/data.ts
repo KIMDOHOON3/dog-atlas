@@ -1305,6 +1305,207 @@ const lagottoRomagnoloDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const giantSchnauzerDetail = standardBreedDetailSchema.parse({
+  slug: "giant-schnauzer",
+  nameKo: "자이언트 슈나우저",
+  metadataDescription: "남부 독일에서 소를 몰고 작업장을 지키던 대형 작업견의 배경과 힘을 조절하는 협업, 알림 뒤 휴식, 큰 몸의 이동과 거친 피모 관리를 살펴봅니다.",
+  heroStatement: "남부 독일에서 소를 몰고 작업장을 지키며 사람과 힘을 맞추던 대형 작업견이에요.",
+  story: {
+    title: "자이언트 슈나우저는 왜 큰 힘을 쓰면서도 사람의 방향을 살펴야 할까요?",
+    description: "소를 이동시키고 공간을 지키던 배경을 알면 강한 움직임과 주변 관찰을 보호자 신호 안에서 조절하는 생활을 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "목축·경비의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "바이에른에서 소를 몰고 농장과 작업장을 지켰어요.",
+        body: "자이언트 슈나우저는 남부 독일에서 소의 이동을 돕고 농장과 작업 공간을 지키는 일을 했어요. 큰 체격과 단단한 움직임을 사람의 방향에 맞추는 능력이 중요한 배경이었어요.",
+        image: "/illustrations/v3/giant-schnauzer-history.webp",
+        imageAlt: "남부 독일 장터로 향하는 소 떼 곁에서 사람과 함께 이동하는 검은 성견 자이언트 슈나우저 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "힘을 쓰는 동안에도 보호자의 다음 신호를 확인할 수 있어요.",
+        body: "빠르게 달리기만 하는 활동보다 물건을 옮기고 방향을 바꾸는 협업 과제에 집중할 수 있어요. 손 표적과 멈춤을 사이에 넣어 큰 힘을 천천히 조절하는 경험을 만들어요.",
+        image: "/illustrations/v4/giant-schnauzer-feature-controlled-strength.webp",
+        imageAlt: "마당에서 가벼운 캔버스 주머니를 물고 보호자의 손 신호를 따라 낮은 콘 사이를 걷는 검은 성견 자이언트 슈나우저 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "주변 변화를 알린 뒤 거리를 두고 쉬는 순서가 필요해요.",
+        body: "낯선 방문과 출입 변화를 알아차린 뒤 오래 살피며 긴장을 유지할 수 있어요. 방문객과 거리를 확보하고 보호자를 확인한 다음 분리된 매트에서 쉬는 흐름을 반복해요.",
+        image: "/illustrations/v4/giant-schnauzer-feature-alert-to-rest.webp",
+        imageAlt: "집 밖 방문객을 확인한 뒤 실내 매트에 엎드려 보호자를 바라보는 검은 성견 자이언트 슈나우저 삽화",
+      },
+    ],
+    caution: "목축과 경비의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 힘의 크기와 주변 반응, 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "자이언트 슈나우저의 생활 현실",
+  realities: [
+    {
+      id: "large-dog-route",
+      title: "들어 올리지 않고 이동할 수 있는 큰 몸의 동선",
+      body: "성견을 사람이 안아 차량이나 높은 진료대에 옮기기는 어려워요. 넓은 회전 공간과 미끄럽지 않은 경사로를 미리 마련하고 스스로 오르내리는 경험을 익혀요.",
+      image: "/illustrations/v4/giant-schnauzer-feature-large-dog-route.webp",
+      imageAlt: "보호자가 느슨한 리드를 잡은 가운데 넓은 미끄럼 방지 경사로로 자동차에 오르는 검은 성견 자이언트 슈나우저 삽화",
+    },
+    {
+      id: "wiry-coat-care",
+      title: "수염까지 나누어 관리하는 거친 이중모",
+      body: "거친 겉털과 속털, 긴 눈썹과 수염에는 먼지와 음식물, 습기가 남을 수 있어요. 빗질과 수염 건조를 반복하고 원하는 털 상태에 맞는 전문 관리 계획을 세워요.",
+      image: "/illustrations/v4/giant-schnauzer-feature-wiry-coat-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 검은 성견 자이언트 슈나우저의 거친 털과 수염을 빗고 닦는 삽화",
+    },
+  ],
+  readinessTitle: "자이언트 슈나우저와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "큰 힘을 달리기만으로 소진하지 않고 물건 옮기기와 방향 전환 같은 협업 과제로 조절할 수 있나요?",
+    "방문객과 출입 변화 앞에서 충분한 거리를 두고 보호자에게 돌아와 쉬는 흐름을 연습할 수 있나요?",
+    "대형견이 스스로 이동할 경사로와 거친 이중모·수염의 반복 관리 시간을 마련할 수 있나요?",
+  ],
+  relatedTitle: "자이언트 슈나우저가 마음에 들지만 망설여진다면",
+  relatedDescription: "농장과 작업 공간에서 사람 곁을 지킨 견종 안에서도 체격과 힘, 경계 반응과 피모 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    schnauzer: "거친 피모와 농장 작업의 뿌리는 닮았지만 스탠더드는 체격과 힘, 필요한 이동 공간이 더 작아요.",
+    rottweiler: "소의 이동과 작업 공간 경비의 배경은 닮았지만 피모 관리와 움직임을 제공하는 방식이 달라요.",
+  },
+});
+
+const portugueseWaterDogDetail = standardBreedDetailSchema.parse({
+  slug: "portuguese-water-dog",
+  nameKo: "포르투갈 워터 도그",
+  metadataDescription: "포르투갈 해안에서 어구를 회수하고 배와 육지를 오가던 수상 작업견의 배경과 구조화된 회수, 출수 뒤 회복, 안전 장비와 곱슬 피모 관리를 살펴봅니다.",
+  heroStatement: "포르투갈 해안에서 물에 들어가 어구를 회수하고 배와 육지 사이의 일을 돕던 수상 작업견이에요.",
+  story: {
+    title: "포르투갈 워터 도그는 왜 물속 대상을 찾아 사람에게 가져오려 할까요?",
+    description: "어선 곁에서 물과 배를 오가던 배경을 알면 물에 대한 관심과 회수, 사람과 순서를 맞추는 협력을 한 흐름으로 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "어선 작업의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "포르투갈 해안에서 어구를 회수하고 배의 일을 도왔어요.",
+        body: "포르투갈 워터 도그는 물에 들어가 잃어버린 도구를 찾아오고 어선과 육지 사이의 전달을 돕는 일을 했어요. 수영만이 아니라 대상을 찾아 사람의 손까지 가져오는 협력이 중요했어요.",
+        image: "/illustrations/v3/portuguese-water-dog-history.webp",
+        imageAlt: "포르투갈 해안의 어선 곁에서 밧줄 꾸러미를 물고 어부에게 돌아오는 검은 성견 포르투갈 워터 도그 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "물속 대상을 찾아 정해진 손까지 가져오는 과제에 집중할 수 있어요.",
+        body: "떠 있는 물건을 발견하면 곧바로 들어가 물고 돌아오려 할 수 있어요. 기다림과 출발, 회수와 놓기를 짧은 순서로 나누어 사람과 함께 끝내는 과제를 만들어요.",
+        image: "/illustrations/v4/portuguese-water-dog-feature-structured-retrieval.webp",
+        imageAlt: "얕은 해안에서 작은 캔버스 부표를 물고 기다리는 보호자의 손으로 돌아오는 검은 성견 포르투갈 워터 도그 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "물에서 나온 뒤 말리고 쉬는 시간까지 활동에 포함해야 해요.",
+        body: "물놀이를 마친 뒤에도 장비와 다음 움직임에 관심을 이어갈 수 있어요. 출수 경로를 따라 나온 뒤 장난감을 치우고 몸을 말리며 물을 마시고 쉬는 순서를 마련해요.",
+        image: "/illustrations/v4/portuguese-water-dog-feature-swim-to-rest.webp",
+        imageAlt: "물가 경사로로 나온 뒤 매트에서 보호자의 수건을 두르고 쉬는 젖은 검은 성견 포르투갈 워터 도그 삽화",
+      },
+    ],
+    caution: "어선 작업의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 물과 회수에 대한 관심, 활동 뒤 회복은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "포르투갈 워터 도그의 생활 현실",
+  realities: [
+    {
+      id: "safe-water-exit",
+      title: "들어가기 전에 먼저 준비하는 안전한 출수 경로",
+      body: "깊은 물과 배에서는 들어가는 것보다 스스로 나오는 길이 더 중요할 수 있어요. 몸에 맞는 부력 보조 장비와 넓은 미끄럼 방지 경사로를 준비하고 얕은 곳에서 사용법을 익혀요.",
+      image: "/illustrations/v4/portuguese-water-dog-feature-safe-water-exit.webp",
+      imageAlt: "부력 보조 장비와 안전줄을 착용하고 넓은 미끄럼 방지 경사로로 작은 배에 오르는 검은 성견 포르투갈 워터 도그 삽화",
+    },
+    {
+      id: "coat-ear-care",
+      title: "물 활동 뒤 속까지 말리는 곱슬 털과 귀",
+      body: "촘촘한 곱슬 또는 물결 털과 늘어진 귀에는 물기와 작은 이물질이 남을 수 있어요. 털을 나누어 피부 가까이까지 말리고 귀 바깥과 발가락 사이를 차례로 확인해요.",
+      image: "/illustrations/v4/portuguese-water-dog-feature-coat-ear-care.webp",
+      imageAlt: "물 활동 뒤 보호자가 검은 성견 포르투갈 워터 도그의 젖은 곱슬 털을 수건으로 말리고 귀를 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "포르투갈 워터 도그와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "기다림·회수·놓기와 종료를 포함한 짧은 협업 과제를 물 밖에서도 규칙적으로 제공할 수 있나요?",
+    "물에 들어가기 전 안전 장비와 출수 경로를 준비하고 활동 뒤 충분히 쉬게 할 수 있나요?",
+    "물 활동마다 촘촘한 털과 귀·발가락 사이를 확인하고 피부 가까이까지 말릴 수 있나요?",
+  ],
+  relatedTitle: "포르투갈 워터 도그가 마음에 들지만 망설여진다면",
+  relatedDescription: "물에서 사람과 협력한 견종 안에서도 회수 방식과 체격, 피모와 물 활동 뒤 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    poodle: "수상 회수의 뿌리와 높은 학습 욕구는 닮았지만 크기 구성과 피모를 관리하는 방식이 달라요.",
+    newfoundland: "물에서 사람을 돕는 배경은 닮았지만 체격과 힘, 털의 양과 안전 장비 규모가 크게 달라요.",
+  },
+});
+
+const irishRedSetterDetail = standardBreedDetailSchema.parse({
+  slug: "irish-red-setter",
+  nameKo: "아이리시 레드 세터",
+  metadataDescription: "아일랜드의 넓은 들에서 새를 찾아 위치를 알리던 포인팅견의 배경과 넓은 탐색, 보호자 재확인, 활동 뒤 회복, 야생동물 안전과 장식털 관리를 살펴봅니다.",
+  heroStatement: "아일랜드의 넓은 들을 탐색하며 새의 위치를 멈춰 알리던 붉은 포인팅견이에요.",
+  story: {
+    title: "아이리시 레드 세터는 왜 넓게 움직이다 한 지점에 멈춰 집중할까요?",
+    description: "열린 들에서 새를 찾던 배경을 알면 넓은 탐색과 멈춤, 보호자의 방향을 다시 확인하는 움직임을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "포인팅의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "아일랜드의 들에서 새를 찾아 위치를 멈춰 알렸어요.",
+        body: "아이리시 레드 세터는 넓은 풀밭과 습지 가장자리를 탐색하다 새의 기척을 찾으면 자세를 멈춰 사람에게 위치를 알렸어요. 오래 움직이는 체력과 사람의 방향을 함께 읽는 능력이 필요한 역할이었어요.",
+        image: "/illustrations/v3/irish-red-setter-history.webp",
+        imageAlt: "아일랜드의 넓은 습지 풀밭에서 새를 향해 포인팅하고 뒤쪽 사람과 협력하는 붉은 성견 아이리시 레드 세터 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "넓게 냄새를 찾는 중에도 보호자의 방향을 다시 확인할 수 있어요.",
+        body: "열린 공간에서 빠르게 범위를 넓히다가 냄새와 움직임 앞에 멈춰 집중할 수 있어요. 탐색 사이에 보호자를 바라보고 돌아오는 신호를 넣어 함께 움직이는 경계를 정해요.",
+        image: "/illustrations/v4/irish-red-setter-feature-broad-search.webp",
+        imageAlt: "넓은 들에서 멈춰 선 뒤 긴 리드를 든 보호자의 방향을 다시 확인하는 붉은 성견 아이리시 레드 세터 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "충분히 움직인 뒤 과제를 끝내고 회복하는 시간도 필요해요.",
+        body: "긴 탐색과 빠른 움직임 뒤에도 다음 활동을 기다리며 들뜰 수 있어요. 긴 리드와 장비를 치우고 물을 마신 다음 그늘진 매트에서 쉬는 종료 흐름을 함께 만들어요.",
+        image: "/illustrations/v4/irish-red-setter-feature-work-to-rest.webp",
+        imageAlt: "들판 활동을 마친 뒤 보호자가 긴 리드를 정리하는 동안 그늘진 매트에서 쉬는 붉은 성견 아이리시 레드 세터 삽화",
+      },
+    ],
+    caution: "포인팅견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 탐색 범위와 멈춤, 활동 뒤 회복은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "아이리시 레드 세터의 생활 현실",
+  realities: [
+    {
+      id: "wildlife-safety",
+      title: "야생동물을 쫓기 전에 다시 연결되는 야외 동선",
+      body: "멀리 움직이는 새와 작은 동물에 시선과 몸이 빠르게 향할 수 있어요. 열린 지형에서는 몸에 맞는 하네스와 긴 리드를 사용하고 충분한 거리에서 보호자에게 돌아오는 선택을 연습해요.",
+      image: "/illustrations/v4/irish-red-setter-feature-wildlife-safety.webp",
+      imageAlt: "멀리 날아가는 새를 본 뒤 긴 리드 안에서 보호자를 다시 바라보는 붉은 성견 아이리시 레드 세터 삽화",
+    },
+    {
+      id: "feathered-coat-care",
+      title: "들판에서 돌아온 뒤 살피는 긴 귀와 장식털",
+      body: "긴 귀와 가슴·다리·꼬리 장식털에는 풀씨와 작은 이물질, 습기가 남을 수 있어요. 야외 활동 뒤 털을 나누어 확인하고 엉킨 부분을 부드럽게 풀어 충분히 말려요.",
+      image: "/illustrations/v4/irish-red-setter-feature-feathered-coat-care.webp",
+      imageAlt: "그늘진 현관에서 보호자가 붉은 성견 아이리시 레드 세터의 귀와 다리·꼬리 장식털에 붙은 풀씨를 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "아이리시 레드 세터와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "넓게 냄새를 찾는 활동과 보호자의 방향을 다시 확인하는 신호를 매일 함께 연습할 수 있나요?",
+    "열린 지형에서 긴 리드로 야생동물 추적을 관리하고 활동 뒤 충분한 회복 시간을 제공할 수 있나요?",
+    "들판에서 돌아올 때마다 긴 귀와 가슴·다리·꼬리 장식털의 이물질과 습기를 확인할 수 있나요?",
+  ],
+  relatedTitle: "아이리시 레드 세터가 마음에 들지만 망설여진다면",
+  relatedDescription: "새를 찾아 위치를 알리는 견종 안에서도 탐색 범위와 체격, 피모 관리와 사람에게 돌아오는 방식의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "english-setter": "넓은 들에서 새의 위치를 알리는 역할은 닮았지만 털색과 피모, 움직임을 제공하는 방식이 달라요.",
+    vizsla: "사람과 함께 새를 찾는 활동성과 협력은 닮았지만 장식털 관리와 관계 거리를 체감하는 방식이 달라요.",
+  },
+});
+
 const standardBreedDetails = new Map(
   [
     japaneseSpitzDetail,
@@ -1326,6 +1527,9 @@ const standardBreedDetails = new Map(
     schnauzerDetail,
     brittanySpanielDetail,
     lagottoRomagnoloDetail,
+    giantSchnauzerDetail,
+    portugueseWaterDogDetail,
+    irishRedSetterDetail,
     ...familiarStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
@@ -1349,11 +1553,14 @@ export {
   englishCockerSpanielDetail,
   englishSpringerSpanielDetail,
   greyhoundDetail,
+  giantSchnauzerDetail,
   havaneseDetail,
+  irishRedSetterDetail,
   japaneseSpitzDetail,
   malteseDetail,
   lagottoRomagnoloDetail,
   pyreneanMountainDogDetail,
+  portugueseWaterDogDetail,
   shetlandSheepdogDetail,
   schnauzerDetail,
   whippetDetail,

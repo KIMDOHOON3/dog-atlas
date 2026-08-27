@@ -359,6 +359,55 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    {
+      slug: "giant-schnauzer",
+      storyImages: [
+        "/illustrations/v3/giant-schnauzer-history.webp",
+        "/illustrations/v4/giant-schnauzer-feature-controlled-strength.webp",
+        "/illustrations/v4/giant-schnauzer-feature-alert-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/giant-schnauzer-feature-large-dog-route.webp",
+        "/illustrations/v4/giant-schnauzer-feature-wiry-coat-care.webp",
+      ],
+      related: ["schnauzer", "rottweiler"],
+    },
+    {
+      slug: "portuguese-water-dog",
+      storyImages: [
+        "/illustrations/v3/portuguese-water-dog-history.webp",
+        "/illustrations/v4/portuguese-water-dog-feature-structured-retrieval.webp",
+        "/illustrations/v4/portuguese-water-dog-feature-swim-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/portuguese-water-dog-feature-safe-water-exit.webp",
+        "/illustrations/v4/portuguese-water-dog-feature-coat-ear-care.webp",
+      ],
+      related: ["poodle", "newfoundland"],
+    },
+    {
+      slug: "irish-red-setter",
+      storyImages: [
+        "/illustrations/v3/irish-red-setter-history.webp",
+        "/illustrations/v4/irish-red-setter-feature-broad-search.webp",
+        "/illustrations/v4/irish-red-setter-feature-work-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/irish-red-setter-feature-wildlife-safety.webp",
+        "/illustrations/v4/irish-red-setter-feature-feathered-coat-care.webp",
+      ],
+      related: ["english-setter", "vizsla"],
+    },
+  ])("adds $slug in the large-working-and-field standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 
