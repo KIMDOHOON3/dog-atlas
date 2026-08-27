@@ -43,6 +43,7 @@ describe("standard breed detail editorial data", () => {
       "german-shepherd-dog",
       "golden-retriever",
       "labrador-retriever",
+      "lagotto-romagnolo",
     ]);
     workProfiles.forEach((detail) => {
       expect(detail.story.steps).toHaveLength(4);
@@ -306,6 +307,67 @@ describe("standard breed detail editorial data", () => {
     expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
     expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
+  it.each([
+    {
+      slug: "schnauzer",
+      storyImages: [
+        "/illustrations/v3/schnauzer-history.webp",
+        "/illustrations/v4/schnauzer-feature-structured-scent.webp",
+        "/illustrations/v4/schnauzer-feature-alert-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/schnauzer-feature-pursuit-safety.webp",
+        "/illustrations/v4/schnauzer-feature-wiry-coat-care.webp",
+      ],
+      related: ["miniature-schnauzer", "giant-schnauzer"],
+    },
+    {
+      slug: "brittany-spaniel",
+      storyImages: [
+        "/illustrations/v3/brittany-spaniel-history.webp",
+        "/illustrations/v4/brittany-spaniel-feature-point-reorientation.webp",
+        "/illustrations/v4/brittany-spaniel-feature-work-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/brittany-spaniel-feature-wildlife-safety.webp",
+        "/illustrations/v4/brittany-spaniel-feature-ear-feather-care.webp",
+      ],
+      related: ["english-setter", "english-springer-spaniel"],
+    },
+    {
+      slug: "lagotto-romagnolo",
+      storyImages: [
+        "/illustrations/v4/lagotto-romagnolo-feature-water-retrieval.webp",
+        "/illustrations/v4/lagotto-romagnolo-feature-scent-box-search.webp",
+        "/illustrations/v4/lagotto-romagnolo-feature-work-to-rest.webp",
+        "/illustrations/v3/lagotto-romagnolo-history.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/lagotto-romagnolo-feature-designated-digging.webp",
+        "/illustrations/v4/lagotto-romagnolo-feature-curly-coat-care.webp",
+      ],
+      related: ["portuguese-water-dog", "poodle"],
+    },
+  ])("adds $slug in the working-and-pointing standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
+  it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
+    const detail = getStandardBreedDetail("lagotto-romagnolo")!;
+
+    expect(detail.story.steps[0].title).toContain("수상견");
+    expect(detail.story.steps[3]).toEqual(detail.modernWork?.storyStep);
+    expect(detail.modernWork?.roles[0].label).toBe("트러플 탐색견");
+    expect(detail.modernWork?.roles[0].sourceUrls).toEqual([
+      "https://www.fci.be/Nomenclature/Standards/298g08-en.pdf",
+    ]);
   });
 
   it("splits Pyrenean Mountain Dog height and sex-based reference weights in an expandable hero summary", () => {

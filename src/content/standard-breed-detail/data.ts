@@ -1080,6 +1080,231 @@ const havaneseDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const schnauzerDetail = standardBreedDetailSchema.parse({
+  slug: "schnauzer",
+  nameKo: "스탠더드 슈나우저",
+  metadataDescription: "독일 남부의 마구간과 농장에서 설치류를 찾고 주변을 살핀 중형 작업견의 배경과 냄새 수색, 알림 뒤 휴식, 추적 안전과 거친 피모 관리를 살펴봅니다.",
+  heroStatement: "독일 남부의 마구간에서 설치류를 찾고 주변을 살피던 중형 거친 털 작업견이에요.",
+  story: {
+    title: "스탠더드 슈나우저는 왜 냄새를 끈기 있게 찾고 주변 변화를 빠르게 알릴까요?",
+    description: "마구간에서 수색과 경계를 함께 맡은 배경을 알면 냄새 과제와 알림 뒤 보호자에게 돌아오는 전환을 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "마구간의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "마구간에서 설치류를 찾고 주변을 지키던 개였어요.",
+        body: "스탠더드 슈나우저는 독일 남부에서 말과 함께 지내는 마구간 개로 쓰였어요. 설치류를 빠르게 찾아내는 역할 때문에 과거에는 거친 털 핀셔 또는 래틀러로도 불렸어요.",
+        image: "/illustrations/v3/schnauzer-history.webp",
+        imageAlt: "독일 남부 농장의 마구간과 수레 곁에서 주변을 살피는 페퍼 앤 솔트 성견 스탠더드 슈나우저 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "냄새를 구분하고 보호자에게 다시 집중하는 과제를 즐길 수 있어요.",
+        body: "흥미로운 냄새를 빠르게 확인하고 다음 지점을 스스로 찾으려 할 수 있어요. 여러 냄새 통 중 하나를 고른 뒤 보호자 신호에 돌아오는 짧은 수색을 구성해요.",
+        image: "/illustrations/v4/schnauzer-feature-structured-scent.webp",
+        imageAlt: "정원에서 세 개의 냄새 통을 차례로 확인하고 보호자 손 신호를 보는 페퍼 앤 솔트 성견 스탠더드 슈나우저 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "소리를 알린 뒤 보호자에게 돌아와 쉬는 순서가 필요해요.",
+        body: "현관과 창밖의 변화에 빠르게 반응한 뒤에도 계속 살피며 긴장할 수 있어요. 알림을 확인한 보호자에게 돌아오고 정해진 자리에서 쉬는 흐름을 반복해요.",
+        image: "/illustrations/v4/schnauzer-feature-alert-to-rest.webp",
+        imageAlt: "현관 소리를 확인한 뒤 보호자를 바라보며 매트에 편안히 엎드린 페퍼 앤 솔트 성견 스탠더드 슈나우저 삽화",
+      },
+    ],
+    caution: "마구간 작업견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 냄새 수색과 알림 반응은 성장 환경과 경험, 생활 조건과 개체에 따라 달라요.",
+  },
+  realitiesTitle: "스탠더드 슈나우저의 생활 현실",
+  realities: [
+    {
+      id: "pursuit-safety",
+      title: "빠른 작은 동물 앞에서 돌아올 수 있는 산책",
+      body: "작은 동물의 갑작스러운 움직임에 즉시 관심을 보일 수 있어요. 몸에 맞는 하네스와 리드를 사용하고 충분한 거리에서 보호자의 손 표적으로 돌아오는 선택을 연습해요.",
+      image: "/illustrations/v4/schnauzer-feature-pursuit-safety.webp",
+      imageAlt: "멀리 있는 다람쥐 대신 보호자의 손 표적으로 돌아오는 페퍼 앤 솔트 성견 스탠더드 슈나우저 삽화",
+    },
+    {
+      id: "wiry-coat-care",
+      title: "수염과 다리 털까지 나누어 보는 거친 피모",
+      body: "거친 겉털과 속털, 긴 수염과 다리 장식털은 서로 다른 부위에서 엉키고 오염될 수 있어요. 빗질과 목욕 뒤 건조를 반복하고 원하는 털 상태에 맞는 전문 관리 계획을 세워요.",
+      image: "/illustrations/v4/schnauzer-feature-wiry-coat-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 성견 스탠더드 슈나우저의 수염과 다리 털을 나누어 빗는 삽화",
+    },
+  ],
+  readinessTitle: "스탠더드 슈나우저와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "냄새를 찾는 과제와 보호자에게 돌아오는 신호를 짧은 흐름으로 구성할 수 있나요?",
+    "주변 변화를 알린 뒤 정해진 자리에서 편히 쉬는 전환을 반복해서 연습할 수 있나요?",
+    "거친 이중모와 긴 수염·다리 털의 빗질과 전문 관리 시간을 마련할 수 있나요?",
+  ],
+  relatedTitle: "스탠더드 슈나우저가 마음에 들지만 망설여진다면",
+  relatedDescription: "세 슈나우저 크기 안에서도 원래 역할과 체격, 힘과 피모 관리 규모의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "miniature-schnauzer": "농장의 설치류 수색과 알림은 닮았지만 체격과 힘, 필요한 활동 범위와 이동 부담이 달라요.",
+    "giant-schnauzer": "거친 피모와 농장 작업의 뿌리는 닮았지만 자이언트는 훨씬 큰 힘과 작업·경비 규모를 고려해야 해요.",
+  },
+});
+
+const brittanySpanielDetail = standardBreedDetailSchema.parse({
+  slug: "brittany-spaniel",
+  nameKo: "브리트니",
+  metadataDescription: "프랑스 브르타뉴의 들과 수풀에서 새의 위치를 찾아 멈춰 알린 포인팅견의 배경과 넓은 탐색, 활동 뒤 회복, 추적 안전과 귀·장식털 관리를 살펴봅니다.",
+  heroStatement: "프랑스 브르타뉴의 들과 수풀을 빠르게 탐색하며 새의 위치를 멈춰 알리던 포인팅견이에요.",
+  story: {
+    title: "브리트니는 왜 넓게 냄새를 찾다가 한 지점에서 멈춰 집중할까요?",
+    description: "작고 가벼운 포인팅견의 배경을 알면 넓은 냄새 탐색과 보호자 신호, 높은 활동 뒤 회복을 한 흐름으로 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "포인팅의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "브르타뉴의 들에서 새를 찾아 위치를 멈춰 알렸어요.",
+        body: "브리트니는 프랑스 브르타뉴에서 발달한 대륙 포인팅견이에요. 들과 수풀을 탐색하다 새의 냄새를 찾으면 움직임을 멈춰 사람에게 위치를 알리는 일을 했어요.",
+        image: "/illustrations/v3/brittany-spaniel-history.webp",
+        imageAlt: "프랑스 브르타뉴 들판에서 새의 위치를 향해 멈춰 서고 사냥꾼과 협력하는 주황과 흰색 성견 브리트니 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "넓게 찾는 중에도 보호자의 위치를 다시 확인할 수 있어요.",
+        body: "풀밭을 빠르게 오가다가 흥미로운 냄새 앞에서 자세를 낮추거나 멈출 수 있어요. 탐색 사이에 보호자를 바라보고 돌아오는 신호를 넣어 함께 움직이는 범위를 정해요.",
+        image: "/illustrations/v4/brittany-spaniel-feature-point-reorientation.webp",
+        imageAlt: "넓은 풀밭에서 포인팅 자세를 취한 뒤 뒤쪽 보호자의 신호를 확인하는 주황과 흰색 성견 브리트니 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "빠른 야외 활동 뒤 완전히 쉬는 시간까지 확보해야 해요.",
+        body: "달리기와 냄새 탐색에 적극적으로 참여한 뒤에도 다음 활동을 기다리며 들뜰 수 있어요. 긴 리드와 장비를 치운 뒤 물을 마시고 조용한 매트에서 쉬는 전환을 마련해요.",
+        image: "/illustrations/v4/brittany-spaniel-feature-work-to-rest.webp",
+        imageAlt: "들판 활동을 마친 뒤 보호자가 긴 리드를 정리하는 동안 그늘진 매트에서 쉬는 주황과 흰색 성견 브리트니 삽화",
+      },
+    ],
+    caution: "포인팅견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 탐색 범위와 멈춤, 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "브리트니의 생활 현실",
+  realities: [
+    {
+      id: "wildlife-safety",
+      title: "새가 날아오를 때도 연결을 유지하는 긴 리드",
+      body: "야생동물이 갑자기 움직이면 냄새와 시선을 따라 빠르게 출발할 수 있어요. 열린 지형에서는 몸에 맞는 하네스와 긴 리드를 사용하고 충분한 거리에서 돌아오는 신호를 연습해요.",
+      image: "/illustrations/v4/brittany-spaniel-feature-wildlife-safety.webp",
+      imageAlt: "멀리 날아오르는 새를 보면서도 긴 리드 안에서 보호자 손 신호를 확인하는 주황과 흰색 성견 브리트니 삽화",
+    },
+    {
+      id: "ear-feather-care",
+      title: "들판에서 돌아온 뒤 확인하는 귀와 장식털",
+      body: "늘어진 귀와 다리·꼬리 장식털에는 풀씨와 작은 이물질, 습기가 남을 수 있어요. 야외 활동 뒤 귀 안쪽과 발가락 사이를 살피고 엉킨 털을 부드럽게 풀어요.",
+      image: "/illustrations/v4/brittany-spaniel-feature-ear-feather-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 주황과 흰색 성견 브리트니의 귀와 다리 장식털에 붙은 풀씨를 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "브리트니와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "넓게 냄새를 찾는 활동과 보호자의 위치를 다시 확인하는 신호를 매일 함께 연습할 수 있나요?",
+    "열린 지형에서 긴 리드로 야생동물 추적을 관리하고 안전한 움직임을 제공할 수 있나요?",
+    "높은 활동 뒤 회복 시간과 귀·발·장식털의 반복 점검을 생활에 포함할 수 있나요?",
+  ],
+  relatedTitle: "브리트니가 마음에 들지만 망설여진다면",
+  relatedDescription: "새를 찾는 조렵견 안에서도 위치를 알리는 방식과 탐색 범위, 피모와 체격의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "english-setter": "넓은 들에서 새의 위치를 알리는 역할은 닮았지만 체격과 장모 관리, 실제 탐색 범위가 달라요.",
+    "english-springer-spaniel": "새를 찾고 사람과 협력하는 점은 닮았지만 브리트니는 멈춰 알리고 스프링거는 날아오르게 하는 역할이 중심이에요.",
+  },
+});
+
+const lagottoModernWorkStep = {
+  navLabel: "현재의 역할",
+  eyebrow: "4단계 · 오늘은 어떤 일을 할까?",
+  title: "오늘은 땅속의 트러플 냄새를 찾아 위치를 알려요.",
+  body: "라고토 로마뇰로는 로마냐의 습지가 줄어든 뒤 뛰어난 후각을 활용해 트러플을 찾는 전문견으로 전환됐어요. 냄새를 찾은 뒤 대상이 손상되지 않게 사람에게 위치를 알리는 협력이 중요해요.",
+  image: "/illustrations/v3/lagotto-romagnolo-history.webp",
+  imageAlt: "이탈리아 로마냐의 숲 가장자리에서 땅속 트러플 냄새를 찾고 사람에게 위치를 알리는 갈색과 흰색 성견 라고토 로마뇰로 삽화",
+};
+
+const lagottoRomagnoloDetail = standardBreedDetailSchema.parse({
+  slug: "lagotto-romagnolo",
+  nameKo: "라고토 로마뇰로",
+  metadataDescription: "이탈리아 로마냐의 수상 회수견에서 트러플 탐색견으로 전환된 배경과 냄새 수색, 활동 뒤 회복, 안전한 파기와 곱슬 피모 관리를 살펴봅니다.",
+  heroStatement: "로마냐 습지의 수상 회수견에서 땅속 트러플을 찾는 전문 탐색견으로 역할을 바꾼 견종이에요.",
+  story: {
+    title: "라고토 로마뇰로는 어떻게 물새 회수견에서 트러플 탐색견이 되었을까요?",
+    description: "습지 환경의 변화에 따라 역할을 바꾼 역사를 알면 오늘의 높은 후각 집중과 파기, 활동 뒤 회복을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "수상견의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "로마냐의 습지에서 물새를 회수하던 수상견이었어요.",
+        body: "라고토 로마뇰로는 코마키오 저지대와 라벤나 습지에서 물속 대상을 찾아 사람에게 가져오는 일을 했어요. 촘촘한 곱슬 털과 단단한 체형은 물과 수풀을 오가는 환경에서 발달했어요.",
+        image: "/illustrations/v4/lagotto-romagnolo-feature-water-retrieval.webp",
+        imageAlt: "이탈리아 로마냐의 옛 습지에서 캔버스 회수 도구를 물고 사람에게 돌아오는 갈색과 흰색 성견 라고토 로마뇰로 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "바닥 가까운 냄새를 오래 구분하는 과제에 몰입할 수 있어요.",
+        body: "여러 냄새가 섞인 흙과 낙엽 사이에서 한 냄새를 집중해 찾을 수 있어요. 얕은 냄새 상자를 차례로 확인하고 찾은 지점에서 사람에게 알리는 과제를 짧게 구성해요.",
+        image: "/illustrations/v4/lagotto-romagnolo-feature-scent-box-search.webp",
+        imageAlt: "숲 가장자리에서 여러 얕은 냄새 상자 중 한 지점을 찾아 보호자에게 알리는 갈색과 흰색 성견 라고토 로마뇰로 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "집중적인 냄새 활동 뒤 과제를 끝내고 쉬는 전환이 필요해요.",
+        body: "냄새를 찾기 시작하면 다음 상자와 바닥을 계속 확인하려 할 수 있어요. 종료 신호 뒤 도구를 치우고 물을 마신 다음 조용한 자리에서 쉬는 순서까지 함께 만들어요.",
+        image: "/illustrations/v4/lagotto-romagnolo-feature-work-to-rest.webp",
+        imageAlt: "냄새 찾기를 마친 뒤 보호자가 상자를 바구니에 정리하는 동안 매트에서 쉬는 갈색과 흰색 성견 라고토 로마뇰로 삽화",
+      },
+      lagottoModernWorkStep,
+    ],
+    caution: "수상 회수와 트러플 탐색의 배경은 행동을 이해하는 단서일 뿐이에요. 후각 집중과 물·파기 선호는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  modernWork: {
+    storyStep: lagottoModernWorkStep,
+    title: "라고토 로마뇰로는 오늘 어떤 일을 맡고 있을까요?",
+    description: "습지가 농경지로 바뀌면서 수상 회수에 쓰이던 후각과 협력은 땅속 트러플을 찾는 전문 작업으로 이어졌습니다.",
+    roles: [
+      {
+        label: "트러플 탐색견",
+        title: "땅속 냄새를 구분하고 발견한 위치를 알려요.",
+        body: "FCI 표준은 라고토 로마뇰로의 현재 용도를 트러플 탐색견으로 명시하고, 뛰어난 후각이 이 역할을 효율적으로 수행하게 한다고 설명해요. 실제 작업은 냄새 집중뿐 아니라 사람과 탐색 범위를 맞추는 협력을 요구합니다.",
+        sourceUrls: ["https://www.fci.be/Nomenclature/Standards/298g08-en.pdf"],
+      },
+    ],
+    caution: "트러플 탐색은 선발과 훈련, 적절한 작업 환경을 전제로 하는 전문 역할이에요. 같은 견종이라는 이유만으로 모든 개체가 동일한 후각 집중이나 작업 적합성을 보인다는 뜻은 아닙니다.",
+  },
+  realitiesTitle: "라고토 로마뇰로의 생활 현실",
+  realities: [
+    {
+      id: "designated-digging",
+      title: "파도 되는 곳을 분명히 나누는 냄새 상자",
+      body: "냄새가 땅속으로 이어지면 발로 흙을 확인하려 할 수 있어요. 화단과 분리된 얕은 파기 상자에 냄새 주머니를 숨기고 그 안에서만 찾고 파는 경험을 제공해요.",
+      image: "/illustrations/v4/lagotto-romagnolo-feature-designated-digging.webp",
+      imageAlt: "화단과 분리된 얕은 흙 상자 안에서 냄새 주머니를 찾고 보호자에게 보상받는 갈색과 흰색 성견 라고토 로마뇰로 삽화",
+    },
+    {
+      id: "curly-coat-care",
+      title: "숲과 물 활동 뒤 벌려 보는 촘촘한 곱슬 털",
+      body: "촘촘한 곱슬 털 안에는 풀씨와 작은 이물질, 습기가 남기 쉬워요. 귀 뒤와 발가락 사이까지 털을 나누어 확인하고 충분히 말린 뒤 정기 미용 계획을 세워요.",
+      image: "/illustrations/v4/lagotto-romagnolo-feature-curly-coat-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 갈색과 흰색 성견 라고토 로마뇰로의 귀와 발 곱슬 털을 나누어 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "라고토 로마뇰로와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "바닥 가까운 냄새를 구분해 찾고 종료 신호 뒤 쉬는 과제를 규칙적으로 마련할 수 있나요?",
+    "파도 되는 공간을 화단과 분리하고 발견한 위치를 사람에게 알리는 경험을 가르칠 수 있나요?",
+    "숲과 물 활동 뒤 곱슬 털·귀·발가락 사이의 이물질과 습기를 확인할 수 있나요?",
+  ],
+  relatedTitle: "라고토 로마뇰로가 마음에 들지만 망설여진다면",
+  relatedDescription: "유럽 수상견과 곱슬 털 견종 안에서도 현대 역할과 활동 방식, 피모 관리 규모의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "portuguese-water-dog": "물에서 사람과 협력한 배경은 닮았지만 현대의 대표 역할과 체격, 필요한 활동 범위가 달라요.",
+    poodle: "수상 회수의 뿌리와 높은 학습 욕구는 닮았지만 트러플 탐색 역할과 크기 구성, 피모 관리 방식이 달라요.",
+  },
+});
+
 const standardBreedDetails = new Map(
   [
     japaneseSpitzDetail,
@@ -1098,6 +1323,9 @@ const standardBreedDetails = new Map(
     cavalierKingCharlesSpanielDetail,
     englishSpringerSpanielDetail,
     havaneseDetail,
+    schnauzerDetail,
+    brittanySpanielDetail,
+    lagottoRomagnoloDetail,
     ...familiarStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
@@ -1116,6 +1344,7 @@ export {
   basenjiDetail,
   berneseMountainDogDetail,
   bichonFriseDetail,
+  brittanySpanielDetail,
   cavalierKingCharlesSpanielDetail,
   englishCockerSpanielDetail,
   englishSpringerSpanielDetail,
@@ -1123,8 +1352,10 @@ export {
   havaneseDetail,
   japaneseSpitzDetail,
   malteseDetail,
+  lagottoRomagnoloDetail,
   pyreneanMountainDogDetail,
   shetlandSheepdogDetail,
+  schnauzerDetail,
   whippetDetail,
   yakutianLaikaDetail,
 };
