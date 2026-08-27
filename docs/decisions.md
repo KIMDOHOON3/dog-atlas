@@ -416,3 +416,9 @@ Replace the standard-detail `계통` card with `과거 역할` and change the fo
 Add Whippet as the second standard detail outside the Korea-familiar set because it forms a direct, useful path from Greyhound without presenting either breed as a recommendation. Use the documented nineteenth-century British small-game and straight-racing background as the first step, then connect it cautiously to present-day visual tracking and short sprint-and-recovery rhythms.
 
 Keep indoor soft rest and outdoor cold-weather protection as separate realities. Reuse the existing history, tracking, sprint-recovery, and warm-rest assets, and add one distinct cold-weather walking scene so all five content images have different meanings. Link back to Greyhound and onward to Italian Sighthound to make body-size and household-safety differences explicit.
+
+# 2026-08-27 — Continue the standard-detail rollout in three-breed batches
+
+After Whippet, add Pyrenean Mountain Dog, Basenji, and Bernese Mountain Dog as one reviewable batch. The set should broaden the standard beyond familiar companion breeds through three different role patterns: independent livestock protection, Central African sight-and-scent hunting, and cooperative Swiss farm work. Do not flatten these backgrounds into a generic large-dog or hunting-dog story.
+
+Reuse each breed's existing history and three feature scenes where their meanings remain distinct. Add one breed-specific daily-life scene per detail so every story and reality image remains unique: full-body double-coat grooming for Pyrenean Mountain Dog, choice-based scent searching for Basenji, and safe vehicle-ramp practice for Bernese Mountain Dog. Complete schema, asset, copy, regression, and production-build checks before committing the batch.

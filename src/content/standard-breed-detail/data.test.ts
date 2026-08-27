@@ -132,6 +132,51 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(["greyhound", "italian-sighthound"]);
   });
 
+  it.each([
+    {
+      slug: "pyrenean-mountain-dog",
+      storyImages: [
+        "/illustrations/v3/pyrenean-mountain-dog-history.webp",
+        "/illustrations/v4/pyrenean-mountain-dog-feature-independent-watch.webp",
+        "/illustrations/v4/pyrenean-mountain-dog-feature-night-alert.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/pyrenean-mountain-dog-feature-giant-scale.webp",
+        "/illustrations/v4/pyrenean-mountain-dog-feature-double-coat-care.webp",
+      ],
+    },
+    {
+      slug: "basenji",
+      storyImages: [
+        "/illustrations/v3/basenji-history.webp",
+        "/illustrations/v4/basenji-feature-tracking-safety.webp",
+        "/illustrations/v4/basenji-feature-vocal-expression.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/basenji-feature-choice-search.webp",
+        "/illustrations/v4/basenji-feature-cold-weather.webp",
+      ],
+    },
+    {
+      slug: "bernese-mountain-dog",
+      storyImages: [
+        "/illustrations/v3/bernese-mountain-dog-history.webp",
+        "/illustrations/v4/bernese-mountain-dog-feature-shared-task.webp",
+        "/illustrations/v4/bernese-mountain-dog-feature-controlled-strength.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/bernese-mountain-dog-feature-tricolor-coat-care.webp",
+        "/illustrations/v4/bernese-mountain-dog-feature-vehicle-access.webp",
+      ],
+    },
+  ])("adds $slug in the next three-breed standard-detail batch", ({ slug, storyImages, realityImages }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+  });
+
   it("separates French Bulldog ancestry from the later companion-breed formation", () => {
     const detail = getStandardBreedDetail("french-bulldog")!;
     const background = `${detail.story.steps[0].title} ${detail.story.steps[0].body}`;
