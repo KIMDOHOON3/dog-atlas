@@ -341,6 +341,13 @@ const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
   nameKo: "그레이트 피레니즈",
   metadataDescription: "피레네산맥에서 가축을 지키던 배경과 독립적으로 주변을 살피는 경향, 밤의 알림 환경과 초대형 이동 동선, 풍성한 이중모 관리를 살펴봅니다.",
   heroStatement: "넓은 산지에서 가축 곁을 지키며 스스로 판단하던 초대형 보호견이에요.",
+  heroSizeDetails: {
+    summary: "체고 65~80cm · 성별 체중 보기",
+    items: [
+      { id: "female", label: "암컷", value: "체고 65~75cm · 약 39kg" },
+      { id: "male", label: "수컷", value: "체고 70~80cm · 약 45kg" },
+    ],
+  },
   story: {
     title: "그레이트 피레니즈는 왜 주변을 오래 살피고 밤에도 알릴 수 있을까요?",
     description: "산악 가축보호견의 배경을 알면 독립적인 관찰과 가정에서 조율해야 할 알림 행동을 함께 이해할 수 있어요.",

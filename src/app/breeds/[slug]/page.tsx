@@ -213,7 +213,17 @@ export default async function BreedDetail({ params }: PageProps) {
             {standardDetail && <p className={styles.poodleHeroStatement}>{standardDetail.heroStatement}</p>}
             <div className={styles.atAGlance}>
               <dl className={`${styles.facts} ${factCount % 2 === 1 ? styles.factsOdd : ""}`}>
-                {standardDetail?.sizeVarieties ? (
+                {standardDetail?.heroSizeDetails ? (
+                  <div>
+                    <dt>크기</dt>
+                    <dd>
+                      <details className={styles.poodleSizeDetails}>
+                        <summary>{standardDetail.heroSizeDetails.summary}</summary>
+                        <ul>{standardDetail.heroSizeDetails.items.map((item) => <li key={item.id}><span>{item.label}</span><strong>{item.value}</strong></li>)}</ul>
+                      </details>
+                    </dd>
+                  </div>
+                ) : standardDetail?.sizeVarieties ? (
                   <div>
                     <dt>크기</dt>
                     <dd>

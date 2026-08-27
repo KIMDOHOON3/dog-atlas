@@ -42,11 +42,21 @@ const sizeVarietiesSchema = z.object({
   })).min(2).max(4),
 });
 
+const heroSizeDetailsSchema = z.object({
+  summary: z.string().min(10),
+  items: z.array(z.object({
+    id: z.string().regex(/^[a-z0-9-]+$/),
+    label: z.string().min(2),
+    value: z.string().min(8),
+  })).min(2).max(4),
+});
+
 export const standardBreedDetailSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   nameKo: z.string().min(2),
   metadataDescription: z.string().min(50),
   heroStatement: z.string().min(15),
+  heroSizeDetails: heroSizeDetailsSchema.optional(),
   sizeVarieties: sizeVarietiesSchema.optional(),
   story: z.object({
     title: z.string().min(15),

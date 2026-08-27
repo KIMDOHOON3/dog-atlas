@@ -177,6 +177,17 @@ describe("standard breed detail editorial data", () => {
     expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
   });
 
+  it("splits Pyrenean Mountain Dog height and sex-based reference weights in an expandable hero summary", () => {
+    const detail = getStandardBreedDetail("pyrenean-mountain-dog")!;
+
+    expect(detail.heroSizeDetails?.summary).toBe("체고 65~80cm · 성별 체중 보기");
+    expect(detail.heroSizeDetails?.items).toEqual([
+      { id: "female", label: "암컷", value: "체고 65~75cm · 약 39kg" },
+      { id: "male", label: "수컷", value: "체고 70~80cm · 약 45kg" },
+    ]);
+    expect(detail.sizeVarieties).toBeUndefined();
+  });
+
   it("separates French Bulldog ancestry from the later companion-breed formation", () => {
     const detail = getStandardBreedDetail("french-bulldog")!;
     const background = `${detail.story.steps[0].title} ${detail.story.steps[0].body}`;

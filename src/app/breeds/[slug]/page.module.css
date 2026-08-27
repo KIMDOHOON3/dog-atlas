@@ -240,6 +240,7 @@
 .poodleSizeDetails li strong {
   color: var(--ink);
   font-size: inherit;
+  text-align: right;
 }
 .sizeMeasurements {
   display: grid;
@@ -940,6 +941,10 @@
   }
 }
 @media (max-width: 767px) {
+  .poodleHero .facts > div:has(.poodleSizeDetails[open]) {
+    grid-column: 1 / -1;
+  }
+
   .summary h1 {
     font-size: 2.35rem;
   }

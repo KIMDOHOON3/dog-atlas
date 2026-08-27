@@ -422,3 +422,9 @@ Keep indoor soft rest and outdoor cold-weather protection as separate realities.
 After Whippet, add Pyrenean Mountain Dog, Basenji, and Bernese Mountain Dog as one reviewable batch. The set should broaden the standard beyond familiar companion breeds through three different role patterns: independent livestock protection, Central African sight-and-scent hunting, and cooperative Swiss farm work. Do not flatten these backgrounds into a generic large-dog or hunting-dog story.
 
 Reuse each breed's existing history and three feature scenes where their meanings remain distinct. Add one breed-specific daily-life scene per detail so every story and reality image remains unique: full-body double-coat grooming for Pyrenean Mountain Dog, choice-based scent searching for Basenji, and safe vehicle-ramp practice for Bernese Mountain Dog. Complete schema, asset, copy, regression, and production-build checks before committing the batch.
+
+# 2026-08-27 — Use the size disclosure for dense sex-based measurements
+
+Let standard details reuse the compact hero size disclosure when official measurements are split by sex and no readable single-line mobile value exists. Keep the collapsed value to the overall range and a clear invitation to view sex-based weights; show female and male height-and-weight references as separate rows after expansion. Do not model sexes as breed varieties merely to reuse the Poodle or Dachshund data shape.
+
+On mobile, an opened size disclosure spans the full hero-facts grid so labels and measurements remain readable without horizontal scrolling. Keep the closed card in the normal two-column layout to preserve the hero's scan rhythm.
