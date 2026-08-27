@@ -1506,6 +1506,207 @@ const irishRedSetterDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const boxerDetail = standardBreedDetailSchema.parse({
+  slug: "boxer",
+  nameKo: "복서",
+  metadataDescription: "독일에서 사람 곁의 경비·작업견으로 정립된 복서의 배경과 활기를 조절하는 협업, 더위 속 회복, 차분한 인사와 미끄럼 방지 동선을 살펴봅니다.",
+  heroStatement: "독일에서 사람 가까이 움직이며 경비와 여러 작업에 협력하도록 정립된 활기찬 작업견이에요.",
+  story: {
+    title: "복서는 왜 몸을 크게 쓰면서도 사람의 멈춤 신호를 배워야 할까요?",
+    description: "사람 곁에서 힘과 민첩성을 사용한 배경을 알면 활기찬 참여와 멈춤, 더운 날의 조기 종료를 한 흐름으로 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "작업견의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "독일에서 사람 곁의 경비·작업견으로 정립됐어요.",
+        body: "복서는 불렌바이서 계통을 바탕으로 독일에서 발달해 사람과 가까이 움직이는 보호·작업견으로 정리됐어요. 단단한 몸과 빠른 움직임을 사람의 방향에 맞추는 능력이 중요했어요.",
+        image: "/illustrations/v3/boxer-history.webp",
+        imageAlt: "독일 농가의 작업 공간에서 사람 곁을 살피는 황갈색과 흰색 성견 복서 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "짧게 몸을 쓰고 멈추는 협업 과제에 적극적으로 참여할 수 있어요.",
+        body: "놀이나 인사에서 몸 전체를 크게 쓰며 빠르게 흥분할 수 있어요. 낮은 콘 사이를 걷고 가벼운 물건을 옮긴 뒤 네 발을 바닥에 두고 멈추는 순서를 짧게 반복해요.",
+        image: "/illustrations/v4/boxer-feature-controlled-energy.webp",
+        imageAlt: "낮은 콘 사이에서 부드러운 링을 물고 보호자의 멈춤 손 신호를 확인하는 황갈색과 흰색 성견 복서 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "더운 날에는 지치기 전에 끝내고 호흡이 편해질 때까지 쉬어야 해요.",
+        body: "짧은 주둥이와 탄탄한 몸은 기온과 습도가 높을 때 열을 식히는 부담을 키울 수 있어요. 선선한 시간에 짧게 움직이고 장난감을 치운 뒤 그늘과 물, 조용한 휴식으로 전환해요.",
+        image: "/illustrations/v4/boxer-feature-heat-recovery.webp",
+        imageAlt: "따뜻한 날 짧은 활동을 마치고 그늘진 매트와 물그릇 곁에서 편히 쉬는 황갈색과 흰색 성견 복서 삽화",
+      },
+    ],
+    caution: "보호·작업견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 활기와 인사 방식, 더위에 대한 부담과 회복 속도는 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "복서의 생활 현실",
+  realities: [
+    {
+      id: "calm-greeting",
+      title: "뛰어오르기 전에 네 발을 바닥에 두는 인사",
+      body: "반가운 사람을 만나면 몸을 앞으로 크게 보내며 인사하려 할 수 있어요. 문과 낮은 게이트로 거리를 만들고 보호자의 손 표적에 돌아온 뒤 차분할 때 인사가 시작되게 해요.",
+      image: "/illustrations/v4/boxer-feature-calm-greeting.webp",
+      imageAlt: "집 입구의 낮은 문 안에서 방문객 대신 보호자의 손을 보고 네 발로 서 있는 황갈색과 흰색 성견 복서 삽화",
+    },
+    {
+      id: "low-impact-footing",
+      title: "반복 점프보다 미끄럽지 않은 낮은 동선",
+      body: "힘 있게 방향을 바꾸거나 뛰어내릴 때 미끄러운 바닥은 몸의 부담을 키울 수 있어요. 자주 걷는 길에 미끄럼 방지 매트를 두고 높은 반복 점프 대신 낮고 안정적인 움직임을 제공해요.",
+      image: "/illustrations/v4/boxer-feature-low-impact-footing.webp",
+      imageAlt: "보호자와 함께 넓은 미끄럼 방지 매트와 낮은 문턱을 천천히 지나는 황갈색과 흰색 성견 복서 삽화",
+    },
+  ],
+  readinessTitle: "복서와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "몸을 크게 쓰는 놀이 사이에 멈춤과 네 발을 바닥에 두는 짧은 협업을 반복할 수 있나요?",
+    "기온과 습도에 따라 활동 시간을 앞당겨 줄이고 호흡이 편해질 때까지 쉬게 할 수 있나요?",
+    "미끄럼 방지 동선과 낮은 움직임을 마련하고 방문객 인사를 단계적으로 관리할 수 있나요?",
+  ],
+  relatedTitle: "복서가 마음에 들지만 망설여진다면",
+  relatedDescription: "사람 가까이에서 일한 독일계 작업견과 짧은 주둥이 견종 안에서도 체격, 활동과 호흡 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    rottweiler: "독일 작업견의 힘과 사람 협력은 닮았지만 움직임의 리듬과 경계 반응, 피모와 체격이 달라요.",
+    "boston-terrier": "짧은 주둥이와 사람 곁의 활기는 닮았지만 체격과 힘, 필요한 운동 규모가 크게 달라요.",
+  },
+});
+
+const newfoundlandDetail = standardBreedDetailSchema.parse({
+  slug: "newfoundland",
+  nameKo: "뉴펀랜드",
+  metadataDescription: "뉴펀들랜드 섬에서 무거운 짐과 수상 작업을 도운 초대형견의 배경과 힘 조절, 물 활동 뒤 회복, 큰 몸의 이동과 젖은 이중모 관리를 살펴봅니다.",
+  heroStatement: "차가운 북대서양 연안에서 무거운 짐을 옮기고 물가의 일을 돕던 거대한 수상 작업견이에요.",
+  story: {
+    title: "뉴펀랜드는 왜 큰 힘을 천천히 쓰고 물가에서 사람과 협력할까요?",
+    description: "육지의 무거운 짐과 거친 바다를 오가던 배경을 알면 큰 힘의 조절과 물 활동, 초대형 몸의 회복을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "수상 작업의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "뉴펀들랜드 섬에서 무거운 짐과 물가의 일을 도왔어요.",
+        body: "뉴펀랜드는 거친 기후 속에서 육지의 무거운 짐을 끌고 물에서는 줄과 장비를 옮기는 일을 했어요. 큰 힘과 수영 능력을 사람의 방향에 맞춰 안정적으로 사용하는 협력이 중요했어요.",
+        image: "/illustrations/v3/newfoundland-history.webp",
+        imageAlt: "뉴펀들랜드 항구에서 젖은 줄과 어망을 어부에게 옮기는 검은 성견 뉴펀랜드 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "큰 힘을 서두르지 않고 일정한 속도로 쓰는 과제에 참여할 수 있어요.",
+        body: "몸으로 밀거나 당기는 움직임은 작은 방향 변화도 크게 전달할 수 있어요. 몸에 맞는 장비로 가벼운 빈 수레를 짧게 옮기고 손 신호에 멈추는 협업을 천천히 구성해요.",
+        image: "/illustrations/v4/newfoundland-feature-controlled-hauling.webp",
+        imageAlt: "해안 길에서 넓은 하네스로 가벼운 빈 수레를 천천히 끌며 보호자의 멈춤 신호를 확인하는 검은 성견 뉴펀랜드 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "물에서 나온 뒤 큰 몸을 말리고 완전히 쉬는 시간까지 필요해요.",
+        body: "수영을 마친 뒤에도 젖은 몸과 장비 때문에 활동은 바로 끝나지 않아요. 넓은 출수 경로로 나온 뒤 도구를 치우고 물을 마시며 큰 매트에서 쉬는 순서를 준비해요.",
+        image: "/illustrations/v4/newfoundland-feature-water-to-rest.webp",
+        imageAlt: "차가운 물가에서 나온 뒤 젖은 검은 성견 뉴펀랜드가 큰 매트에 누워 물을 마시며 쉬는 삽화",
+      },
+    ],
+    caution: "운반과 수상 작업의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 물과 당기기에 대한 관심, 힘과 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "뉴펀랜드의 생활 현실",
+  realities: [
+    {
+      id: "massive-dog-route",
+      title: "안아 옮기지 않고 스스로 이동하는 초대형 동선",
+      body: "성견을 사람이 들어 차량이나 진료 공간으로 옮기기는 현실적으로 어려워요. 넓은 회전 공간과 낮은 각도의 경사로를 마련하고 스스로 천천히 오르내리는 경험을 익혀요.",
+      image: "/illustrations/v4/newfoundland-feature-massive-dog-route.webp",
+      imageAlt: "보호자가 느슨한 리드를 잡은 가운데 넓고 낮은 경사로로 큰 차량에 오르는 검은 성견 뉴펀랜드 삽화",
+    },
+    {
+      id: "wet-coat-drying",
+      title: "피부 가까운 속털까지 확인하는 젖은 이중모",
+      body: "두껍고 촘촘한 이중모는 겉이 말라 보여도 안쪽에 물기와 작은 이물질을 오래 품을 수 있어요. 털을 여러 구역으로 나누어 귀 뒤와 발가락 사이까지 충분히 말려요.",
+      image: "/illustrations/v4/newfoundland-feature-wet-coat-drying.webp",
+      imageAlt: "덮인 현관의 큰 미끄럼 방지 매트에서 보호자가 검은 성견 뉴펀랜드의 젖은 속털을 수건과 낮은 바람으로 말리는 삽화",
+    },
+  ],
+  readinessTitle: "뉴펀랜드와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "초대형 몸의 힘을 짧고 가벼운 협업 과제와 멈춤 신호 안에서 안전하게 조절할 수 있나요?",
+    "물 활동의 안전한 출구와 회복 자리를 준비하고 젖은 장비와 큰 몸을 충분히 말릴 수 있나요?",
+    "안아 옮기지 않아도 되는 차량·주거 동선과 초대형견의 공간·비용을 마련할 수 있나요?",
+  ],
+  relatedTitle: "뉴펀랜드가 마음에 들지만 망설여진다면",
+  relatedDescription: "사람과 힘을 맞춘 대형 작업견 안에서도 물과 산악 환경, 체격과 피모 관리 규모의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "portuguese-water-dog": "물에서 사람과 협력한 배경은 닮았지만 체격과 힘, 젖은 피모를 말리는 규모가 크게 달라요.",
+    "bernese-mountain-dog": "사람 곁에서 짐을 옮긴 큰 작업견의 배경은 닮았지만 물 환경과 체형, 계절 관리가 달라요.",
+  },
+});
+
+const vizslaDetail = standardBreedDetailSchema.parse({
+  slug: "vizsla",
+  nameKo: "비즐라",
+  metadataDescription: "헝가리의 들·숲·물에서 사람 가까이 탐색·포인팅·회수한 비즐라의 배경과 다목적 탐색, 독립 휴식, 야생동물 안전과 단모 점검을 살펴봅니다.",
+  heroStatement: "헝가리의 들과 숲, 물에서 사람 가까이 탐색·포인팅·회수를 함께한 다목적 사냥견이에요.",
+  story: {
+    title: "비즐라는 왜 여러 지형을 탐색하면서도 사람의 방향을 자주 확인할까요?",
+    description: "들·숲·물을 오가며 가까이 협력한 배경을 알면 넓은 활동과 보호자 재확인, 함께한 뒤 혼자 쉬는 연습을 연결할 수 있어요.",
+    steps: [
+      {
+        navLabel: "다목적 작업의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "헝가리의 들·숲·물에서 탐색과 포인팅, 회수를 함께했어요.",
+        body: "비즐라는 여러 지형에서 냄새를 찾아 위치를 알리고 물을 건너 대상을 회수하는 다목적 포인팅견으로 발달했어요. 사람과 가까운 범위에서 방향을 맞추는 협력이 중요한 역할이었어요.",
+        image: "/illustrations/v3/vizsla-history.webp",
+        imageAlt: "헝가리의 습지 들판에서 새의 위치를 향해 멈춰 서고 뒤쪽 사람과 협력하는 적갈색 성견 비즐라 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "지형이 바뀌어도 냄새를 찾고 보호자의 다음 방향을 확인할 수 있어요.",
+        body: "풀밭과 숲길, 얕은 물가를 오가며 흥미로운 냄새를 빠르게 확인할 수 있어요. 탐색 사이에 손 신호로 돌아오고 다음 구역으로 함께 이동하는 짧은 과제를 만들어요.",
+        image: "/illustrations/v4/vizsla-feature-versatile-search.webp",
+        imageAlt: "풀밭과 숲, 얕은 물이 만나는 길에서 냄새를 확인한 뒤 보호자의 손 방향을 보는 적갈색 성견 비즐라 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "함께 움직인 뒤 사람과 조금 떨어진 자리에서도 쉬는 연습이 필요해요.",
+        body: "사람의 활동을 계속 따라다니며 다음 교감을 기다릴 수 있어요. 산책 장비를 치운 뒤 같은 공간의 독립 침대에서 편히 머무는 시간을 짧게 시작해요.",
+        image: "/illustrations/v4/vizsla-feature-independent-rest.webp",
+        imageAlt: "산책 장비가 정리된 조용한 방에서 책을 읽는 보호자와 조금 떨어진 독립 침대에 편히 누운 적갈색 성견 비즐라 삽화",
+      },
+    ],
+    caution: "다목적 포인팅견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 탐색 범위와 교감, 혼자 쉬는 능력은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "비즐라의 생활 현실",
+  realities: [
+    {
+      id: "wildlife-reorientation",
+      title: "움직이는 동물을 쫓기 전에 보호자에게 돌아오는 선택",
+      body: "새와 작은 동물이 움직이면 시선과 몸이 빠르게 향할 수 있어요. 열린 지형에서는 몸에 맞는 하네스와 긴 리드를 사용하고 충분한 거리에서 손 표적으로 돌아오는 행동을 연습해요.",
+      image: "/illustrations/v4/vizsla-feature-wildlife-reorientation.webp",
+      imageAlt: "멀리 날아가는 새 대신 긴 리드 안에서 보호자의 손에 앞발을 올리며 방향을 바꾸는 적갈색 성견 비즐라 삽화",
+    },
+    {
+      id: "short-coat-check",
+      title: "여러 지형을 지난 뒤 확인하는 얇은 단모와 발",
+      body: "짧은 털은 손질은 단순해도 거친 수풀과 추위, 물기의 영향을 그대로 받을 수 있어요. 활동 뒤 가슴과 발, 귀 바깥을 살펴 작은 상처와 풀씨, 남은 습기를 확인해요.",
+      image: "/illustrations/v4/vizsla-feature-short-coat-check.webp",
+      imageAlt: "물가 활동 뒤 미끄럼 방지 매트에서 보호자가 적갈색 성견 비즐라의 짧은 털과 귀·발을 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "비즐라와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "들·숲·물처럼 달라지는 환경에서 냄새 탐색과 보호자 재확인을 함께 연습할 수 있나요?",
+    "긴 활동 뒤 장비를 치우고 사람과 조금 떨어진 자리에서 편히 쉬는 시간을 가르칠 수 있나요?",
+    "야생동물 추적을 긴 리드로 관리하고 활동 뒤 얇은 털과 귀·발을 확인할 수 있나요?",
+  ],
+  relatedTitle: "비즐라가 마음에 들지만 망설여진다면",
+  relatedDescription: "사람 가까이에서 여러 지형을 탐색한 포인팅견 안에서도 체격과 관계 거리, 피모와 활동 범위의 차이를 살펴보세요.",
+  relatedDifferences: {
+    weimaraner: "사람 가까이 일한 다목적 포인팅의 배경은 닮았지만 체격과 힘, 관계와 경계 반응이 달라요.",
+    "german-short-haired-pointing-dog": "들·숲·물의 탐색과 회수는 닮았지만 움직임의 범위와 피모, 생활 리듬을 따로 확인해야 해요.",
+  },
+});
+
 const standardBreedDetails = new Map(
   [
     japaneseSpitzDetail,
@@ -1530,6 +1731,9 @@ const standardBreedDetails = new Map(
     giantSchnauzerDetail,
     portugueseWaterDogDetail,
     irishRedSetterDetail,
+    boxerDetail,
+    newfoundlandDetail,
+    vizslaDetail,
     ...familiarStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
@@ -1548,6 +1752,7 @@ export {
   basenjiDetail,
   berneseMountainDogDetail,
   bichonFriseDetail,
+  boxerDetail,
   brittanySpanielDetail,
   cavalierKingCharlesSpanielDetail,
   englishCockerSpanielDetail,
@@ -1558,11 +1763,13 @@ export {
   irishRedSetterDetail,
   japaneseSpitzDetail,
   malteseDetail,
+  newfoundlandDetail,
   lagottoRomagnoloDetail,
   pyreneanMountainDogDetail,
   portugueseWaterDogDetail,
   shetlandSheepdogDetail,
   schnauzerDetail,
   whippetDetail,
+  vizslaDetail,
   yakutianLaikaDetail,
 };

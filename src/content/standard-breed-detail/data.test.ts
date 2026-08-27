@@ -408,6 +408,55 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    {
+      slug: "boxer",
+      storyImages: [
+        "/illustrations/v3/boxer-history.webp",
+        "/illustrations/v4/boxer-feature-controlled-energy.webp",
+        "/illustrations/v4/boxer-feature-heat-recovery.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/boxer-feature-calm-greeting.webp",
+        "/illustrations/v4/boxer-feature-low-impact-footing.webp",
+      ],
+      related: ["rottweiler", "boston-terrier"],
+    },
+    {
+      slug: "newfoundland",
+      storyImages: [
+        "/illustrations/v3/newfoundland-history.webp",
+        "/illustrations/v4/newfoundland-feature-controlled-hauling.webp",
+        "/illustrations/v4/newfoundland-feature-water-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/newfoundland-feature-massive-dog-route.webp",
+        "/illustrations/v4/newfoundland-feature-wet-coat-drying.webp",
+      ],
+      related: ["portuguese-water-dog", "bernese-mountain-dog"],
+    },
+    {
+      slug: "vizsla",
+      storyImages: [
+        "/illustrations/v3/vizsla-history.webp",
+        "/illustrations/v4/vizsla-feature-versatile-search.webp",
+        "/illustrations/v4/vizsla-feature-independent-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/vizsla-feature-wildlife-reorientation.webp",
+        "/illustrations/v4/vizsla-feature-short-coat-check.webp",
+      ],
+      related: ["weimaraner", "german-short-haired-pointing-dog"],
+    },
+  ])("adds $slug in the companion-water-and-pointer standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 
