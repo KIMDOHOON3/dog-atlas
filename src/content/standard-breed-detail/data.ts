@@ -678,6 +678,207 @@ const australianShepherdDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const yakutianLaikaDetail = standardBreedDetailSchema.parse({
+  slug: "yakutian-laika",
+  nameKo: "야쿠티안 라이카",
+  metadataDescription: "러시아 사하의 추운 환경에서 썰매와 사냥, 순록 일을 돕던 배경과 사람과의 협력, 목적 있는 활동, 이중모와 더위 관리를 살펴봅니다.",
+  heroStatement: "러시아 사하의 추위 속에서 썰매를 끌고 사냥과 순록 일을 도운 북방 작업견이에요.",
+  story: {
+    title: "야쿠티안 라이카는 왜 사람과 함께 움직이며 계속할 일을 찾을까요?",
+    description: "북방 작업견의 배경을 알면 사람의 신호를 확인하는 협력과 몸과 판단을 함께 쓰는 활동 요구를 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "북방 작업의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "사하의 추위 속에서 썰매와 여러 일을 도왔어요.",
+        body: "야쿠티안 라이카는 러시아 사하 지역에서 썰매를 끌고 사냥과 순록 관련 일을 돕던 견종이에요. 추운 환경에서 사람 곁의 여러 역할을 수행했어요.",
+        image: "/illustrations/v3/yakutian-laika-history.webp",
+        imageAlt: "러시아 사하의 눈 덮인 길에서 사람과 썰매 곁을 함께 움직이는 흑백 성견 야쿠티안 라이카 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "사람의 신호를 확인하며 함께 움직일 수 있어요.",
+        body: "사람 가까이에서 역할을 나누던 배경은 산책과 짧은 과제에 적극적으로 참여하는 모습으로 나타날 수 있어요. 움직이는 중간에도 보호자를 확인하고 기다리는 흐름을 함께 만들어요.",
+        image: "/illustrations/v4/yakutian-laika-feature-cooperation.webp",
+        imageAlt: "공원에서 벤치에 앉은 보호자의 손 신호를 바라보는 흑백 성견 야쿠티안 라이카 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "걷는 시간뿐 아니라 판단할 과제도 필요해요.",
+        body: "오래 걷기만 반복하기보다 냄새 찾기와 방향 신호처럼 몸과 판단을 함께 쓰는 활동을 번갈아 제공해요. 활동의 끝에는 호흡을 낮추고 쉬는 시간도 마련해요.",
+        image: "/illustrations/v4/yakutian-laika-feature-purposeful-activity.webp",
+        imageAlt: "숲길에서 몸에 맞는 하네스를 착용하고 보호자와 함께 움직이는 흑백 성견 야쿠티안 라이카 삽화",
+      },
+    ],
+    caution: "북방 작업견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 협력과 활동 반응은 성장 환경과 경험, 생활 조건과 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "야쿠티안 라이카의 생활 현실",
+  realities: [
+    {
+      id: "double-coat-care",
+      title: "굵은 겉털 아래까지 살피는 이중모 관리",
+      body: "굵은 겉털과 촘촘한 속털을 작은 구역으로 나누어 피부 가까이까지 빗어요. 털갈이 시기에는 빠진 속털과 엉킨 곳을 더 자주 확인해요.",
+      image: "/illustrations/v4/yakutian-laika-feature-double-coat.webp",
+      imageAlt: "선선한 실내의 미끄럼 방지 매트에서 보호자가 흑백 성견 야쿠티안 라이카의 이중모를 빗는 삽화",
+    },
+    {
+      id: "cool-rest",
+      title: "두꺼운 피모에 맞춘 더운 계절의 휴식",
+      body: "더운 날에는 선선한 시간대로 활동을 옮기고 실내 온도와 바닥의 열을 먼저 확인해요. 직사광선을 피한 시원한 자리와 물을 마련하고 회복 상태를 살펴요.",
+      image: "/illustrations/v4/yakutian-laika-feature-cool-rest.webp",
+      imageAlt: "여름 햇빛을 커튼으로 가린 시원한 실내 바닥에서 물그릇 곁에 쉬는 흑백 성견 야쿠티안 라이카 삽화",
+    },
+  ],
+  readinessTitle: "야쿠티안 라이카와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "사람과 함께 움직이는 산책과 냄새·방향 신호 과제를 규칙적으로 마련할 수 있나요?",
+    "풍성한 이중모를 피부 가까이까지 나누어 빗고 털갈이 시기를 관리할 수 있나요?",
+    "더운 계절에는 활동 시간과 실내 온도를 조절하고 충분한 회복을 확인할 수 있나요?",
+  ],
+  relatedTitle: "야쿠티안 라이카가 마음에 들지만 망설여진다면",
+  relatedDescription: "북방 작업견 안에서도 썰매 협력과 사람 곁 생활, 피모와 계절 관리 방식이 다른 견종을 살펴보세요.",
+  relatedDifferences: {
+    "siberian-husky": "썰매 작업과 지구력은 닮았지만 사람과 협력하는 방식과 실제 활동 리듬, 피모 관리 부담을 따로 살펴야 해요.",
+    samoyed: "북방에서 사람과 여러 일을 함께한 배경은 닮았지만 체격과 피모 구조, 생활 속 교감 방식이 달라요.",
+  },
+});
+
+const englishCockerSpanielDetail = standardBreedDetailSchema.parse({
+  slug: "english-cocker-spaniel",
+  nameKo: "잉글리시 코커 스패니얼",
+  metadataDescription: "영국의 낮은 덤불에서 새를 찾아 날아오르게 하고 회수하던 배경과 냄새 탐색, 활동 뒤 휴식, 계통 차이와 귀·장식털 관리를 살펴봅니다.",
+  heroStatement: "낮은 덤불에서 새를 찾아 날아오르게 하고 회수를 도운 영국의 작은 조렵견이에요.",
+  story: {
+    title: "잉글리시 코커 스패니얼은 왜 냄새를 찾고 물건을 가져오는 활동에 몰입할까요?",
+    description: "가까운 거리에서 사람과 협력한 조렵견의 배경을 알면 냄새 탐색과 운반, 활동 뒤 쉬는 전환을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "조렵의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "덤불에서 새를 찾아 날아오르게 하고 회수했어요.",
+        body: "잉글리시 코커 스패니얼은 영국의 랜드 스패니얼 계통에서 정립된 조렵견이에요. 낮은 덤불을 누비며 새를 찾아 올리고 사람에게 회수하는 일을 도왔어요.",
+        image: "/illustrations/v3/english-cocker-spaniel-history.webp",
+        imageAlt: "영국의 낮은 덤불에서 새의 위치를 찾으며 사람과 협력하는 금색 성견 잉글리시 코커 스패니얼 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "가까운 거리에서 찾고 가져오는 과제에 참여할 수 있어요.",
+        body: "풀숲 냄새를 세밀하게 확인하거나 부드러운 물건을 입에 물어 보호자에게 돌아오는 활동을 즐길 수 있어요. 짧은 탐색과 회수를 성공적으로 끝내는 경험을 마련해요.",
+        image: "/illustrations/v4/english-cocker-spaniel-feature-search-retrieve.webp",
+        imageAlt: "풀밭에서 초록색 캔버스 회수용 더미를 물고 보호자에게 돌아오는 금색 성견 잉글리시 코커 스패니얼 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "찾기 활동을 마친 뒤 조용히 쉬는 전환이 필요해요.",
+        body: "냄새와 회수 과제에 몰입한 뒤에도 다음 활동을 기다릴 수 있어요. 끝 신호 뒤 사용한 물건을 치우고 자기 자리에서 호흡을 낮추는 시간까지 한 흐름으로 만들어요.",
+        image: "/illustrations/v4/english-cocker-spaniel-feature-work-to-rest.webp",
+        imageAlt: "보호자가 회수용 더미를 바구니에 넣는 동안 현관 매트에서 편안히 쉬는 금색 성견 잉글리시 코커 스패니얼 삽화",
+      },
+    ],
+    caution: "조렵견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 탐색과 회수, 활동 반응은 성장 환경과 경험, 생활 조건과 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "잉글리시 코커 스패니얼의 생활 현실",
+  realities: [
+    {
+      id: "working-show-lines",
+      title: "작업형과 쇼형에서 달라질 수 있는 생활 규모",
+      body: "같은 견종 안에서도 작업형과 쇼형은 체형과 피모량, 활동 리듬이 다르게 나타날 수 있어요. 이름만 보지 말고 부모견과 실제 성견의 모습, 성장 환경을 함께 확인해요.",
+      image: "/illustrations/v4/english-cocker-spaniel-feature-working-show.webp",
+      imageAlt: "늘씬한 블루 론 작업형과 풍성한 금색 쇼형 성견 잉글리시 코커 스패니얼을 나란히 보여주는 삽화",
+    },
+    {
+      id: "ear-coat-care",
+      title: "산책 뒤 확인하는 긴 귀와 장식털",
+      body: "늘어진 귀와 다리·배의 장식털에는 습기와 풀씨, 작은 이물질이 머물 수 있어요. 산책 뒤 귀 안쪽과 발, 엉킨 털을 살피고 손질 접촉은 짧게 나누어요.",
+      image: "/illustrations/v4/english-cocker-spaniel-feature-ear-coat-care.webp",
+      imageAlt: "산책 뒤 보호자가 금색 성견 잉글리시 코커 스패니얼의 늘어진 귀와 다리 장식털을 살피는 삽화",
+    },
+  ],
+  readinessTitle: "잉글리시 코커 스패니얼과 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "냄새를 찾고 물건을 가져오는 짧은 과제와 활동 뒤 휴식을 규칙적으로 마련할 수 있나요?",
+    "작업형과 쇼형, 부모견과 성장 환경에 따라 달라질 생활 규모를 직접 확인할 수 있나요?",
+    "산책 뒤 늘어진 귀와 발, 긴 장식털의 습기와 이물질을 반복해서 살필 수 있나요?",
+  ],
+  relatedTitle: "잉글리시 코커 스패니얼이 마음에 들지만 망설여진다면",
+  relatedDescription: "스패니얼과 사냥견 안에서도 사람과 협력하는 방식과 활동량, 피모 관리의 규모가 다른 견종을 살펴보세요.",
+  relatedDifferences: {
+    "cavalier-king-charles-spaniel": "스패니얼 외형과 사람과의 교감은 닮았지만 반려견의 배경과 조렵 활동, 귀·피모 관리의 규모가 달라요.",
+    beagle: "냄새를 따라 탐색하는 점은 닮았지만 무리 추적과 가까운 거리의 회수 협력이라는 역할 차이가 있어요.",
+  },
+});
+
+const akitaDetail = standardBreedDetailSchema.parse({
+  slug: "akita",
+  nameKo: "아키타",
+  metadataDescription: "일본 아키타 지역의 마타기 사냥견 배경과 낯선 대상과의 거리, 큰 힘을 다루는 보행, 차량 이동 동선과 두꺼운 이중모 관리를 살펴봅니다.",
+  heroStatement: "일본 북부 산지에서 큰 동물을 상대하던 마타기 사냥견의 배경을 지닌 대형 스피츠형 견종이에요.",
+  story: {
+    title: "아키타는 왜 낯선 대상을 천천히 살피고 큰 힘을 차분히 다뤄야 할까요?",
+    description: "일본 산지 사냥견의 배경과 큰 체격을 함께 보면 관계를 서두르지 않는 거리와 일상 보행 준비를 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "산지 사냥의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "일본 아키타 지역의 마타기 사냥견에서 출발했어요.",
+        body: "아키타는 일본 북부 산지에서 곰과 같은 큰 동물을 상대하던 마타기견을 바탕으로 발전했어요. 이후 여러 변화를 거쳐 일본 고유의 대형견 모습으로 정리됐어요.",
+        image: "/illustrations/v3/akita-history.webp",
+        imageAlt: "일본 북부의 산길에서 사냥꾼 곁에 서서 주변을 살피는 적색 성견 아키타 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "낯선 대상과 꼭 가까이 인사하지 않아도 괜찮아요.",
+        body: "낯선 사람이나 개를 받아들이는 범위는 경험과 개체에 따라 달라요. 충분한 거리에서 관찰하고 피하거나 보호자 곁으로 돌아오는 선택을 막지 않아요.",
+        image: "/illustrations/v4/akita-feature-respectful-distance.webp",
+        imageAlt: "공원에서 보호자 곁에 서서 멀리 지나가는 낯선 사람을 차분히 관찰하는 적색 성견 아키타 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "큰 힘으로 당기기 전에 멈추고 돌아서는 경험이 필요해요.",
+        body: "성견의 큰 체격과 힘은 일상 산책에서도 충분한 준비를 요구해요. 넓고 조용한 길에서 보호자 신호에 맞춰 멈추고 방향을 바꾸는 동작을 짧게 연습해요.",
+        image: "/illustrations/v4/akita-feature-calm-walking.webp",
+        imageAlt: "넓은 산책로에서 보호자의 손 신호에 맞춰 멈추고 방향을 바꾸는 적색 성견 아키타 삽화",
+      },
+    ],
+    caution: "산지 사냥견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 낯선 대상과 거리 두기, 보행 반응은 사회화 경험과 생활 조건, 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "아키타의 생활 현실",
+  realities: [
+    {
+      id: "large-dog-route",
+      title: "들어 올릴 수 없는 성견의 이동 동선",
+      body: "차량 탑승이나 동물병원 이동에 사람의 힘으로 들어 올리는 방법만 기대하기 어려워요. 넓고 미끄럽지 않은 경사로를 마련하고 아프기 전부터 천천히 이용하는 경험을 쌓아요.",
+      image: "/illustrations/v4/akita-feature-large-dog-route.webp",
+      imageAlt: "보호자와 함께 넓은 미끄럼 방지 경사로를 이용해 차량에 오르는 적색 성견 아키타 삽화",
+    },
+    {
+      id: "double-coat-care",
+      title: "큰 몸 전체에서 빠지는 이중모 관리",
+      body: "두꺼운 이중모는 큰 체표를 작은 구역으로 나누어 피부 가까이까지 빗어야 해요. 털갈이 시기에는 빠진 속털이 남지 않도록 몸 전체를 반복해서 확인해요.",
+      image: "/illustrations/v4/akita-feature-double-coat-care.webp",
+      imageAlt: "넓은 미끄럼 방지 매트에서 보호자가 적색 성견 아키타의 두꺼운 옆구리 이중모를 나누어 빗는 삽화",
+    },
+  ],
+  readinessTitle: "아키타와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "낯선 사람이나 개와의 인사를 서두르지 않고 충분한 거리와 퇴로를 보장할 수 있나요?",
+    "큰 힘을 고려해 멈추고 방향을 바꾸는 보행과 차량·병원 이동 동선을 준비할 수 있나요?",
+    "큰 몸의 이중모를 작은 구역으로 나누어 빗고 털갈이 시기의 속털을 관리할 수 있나요?",
+  ],
+  relatedTitle: "아키타가 마음에 들지만 망설여진다면",
+  relatedDescription: "일본과 동아시아의 스피츠형 견종 안에서도 체격과 관계 거리, 활동과 피모 관리 부담이 다른 견종을 살펴보세요.",
+  relatedDifferences: {
+    shiba: "일본 토착 스피츠의 독립적인 판단은 닮았지만 체격과 힘, 차량·병원 이동을 포함한 생활 부담이 크게 달라요.",
+    "korea-jindo-dog": "사냥견 배경과 스스로 거리를 조절하는 모습은 닮았지만 체격과 관계 형성, 실제 생활 반응을 따로 살펴야 해요.",
+  },
+});
+
 const standardBreedDetails = new Map(
   [
     japaneseSpitzDetail,
@@ -690,6 +891,9 @@ const standardBreedDetails = new Map(
     berneseMountainDogDetail,
     shetlandSheepdogDetail,
     australianShepherdDetail,
+    yakutianLaikaDetail,
+    englishCockerSpanielDetail,
+    akitaDetail,
     ...familiarStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
@@ -703,14 +907,17 @@ export function getAllStandardBreedDetails() {
 }
 
 export {
+  akitaDetail,
   australianShepherdDetail,
   basenjiDetail,
   berneseMountainDogDetail,
   bichonFriseDetail,
+  englishCockerSpanielDetail,
   greyhoundDetail,
   japaneseSpitzDetail,
   malteseDetail,
   pyreneanMountainDogDetail,
   shetlandSheepdogDetail,
   whippetDetail,
+  yakutianLaikaDetail,
 };

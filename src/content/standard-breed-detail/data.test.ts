@@ -210,6 +210,55 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(["border-collie", "shetland-sheepdog"]);
   });
 
+  it.each([
+    {
+      slug: "yakutian-laika",
+      storyImages: [
+        "/illustrations/v3/yakutian-laika-history.webp",
+        "/illustrations/v4/yakutian-laika-feature-cooperation.webp",
+        "/illustrations/v4/yakutian-laika-feature-purposeful-activity.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/yakutian-laika-feature-double-coat.webp",
+        "/illustrations/v4/yakutian-laika-feature-cool-rest.webp",
+      ],
+      related: ["siberian-husky", "samoyed"],
+    },
+    {
+      slug: "english-cocker-spaniel",
+      storyImages: [
+        "/illustrations/v3/english-cocker-spaniel-history.webp",
+        "/illustrations/v4/english-cocker-spaniel-feature-search-retrieve.webp",
+        "/illustrations/v4/english-cocker-spaniel-feature-work-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/english-cocker-spaniel-feature-working-show.webp",
+        "/illustrations/v4/english-cocker-spaniel-feature-ear-coat-care.webp",
+      ],
+      related: ["cavalier-king-charles-spaniel", "beagle"],
+    },
+    {
+      slug: "akita",
+      storyImages: [
+        "/illustrations/v3/akita-history.webp",
+        "/illustrations/v4/akita-feature-respectful-distance.webp",
+        "/illustrations/v4/akita-feature-calm-walking.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/akita-feature-large-dog-route.webp",
+        "/illustrations/v4/akita-feature-double-coat-care.webp",
+      ],
+      related: ["shiba", "korea-jindo-dog"],
+    },
+  ])("adds $slug in the next three-breed standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("splits Pyrenean Mountain Dog height and sex-based reference weights in an expandable hero summary", () => {
     const detail = getStandardBreedDetail("pyrenean-mountain-dog")!;
 
