@@ -563,6 +563,55 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    {
+      slug: "chesapeake-bay-retriever",
+      storyImages: [
+        "/illustrations/v3/chesapeake-bay-retriever-history.webp",
+        "/illustrations/v4/chesapeake-bay-retriever-feature-rough-water-route.webp",
+        "/illustrations/v4/chesapeake-bay-retriever-feature-retrieve-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/chesapeake-bay-retriever-feature-safe-water-plan.webp",
+        "/illustrations/v4/chesapeake-bay-retriever-feature-wavy-coat-drying.webp",
+      ],
+      related: ["labrador-retriever", "flat-coated-retriever"],
+    },
+    {
+      slug: "airedale-terrier",
+      storyImages: [
+        "/illustrations/v3/airedale-terrier-history.webp",
+        "/illustrations/v4/airedale-terrier-feature-riverside-scent-search.webp",
+        "/illustrations/v4/airedale-terrier-feature-search-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/airedale-terrier-feature-pursuit-u-turn.webp",
+        "/illustrations/v4/airedale-terrier-feature-wiry-coat-care.webp",
+      ],
+      related: ["jack-russell-terrier", "miniature-schnauzer"],
+    },
+    {
+      slug: "chow-chow",
+      storyImages: [
+        "/illustrations/v3/chow-chow-history.webp",
+        "/illustrations/v4/chow-chow-feature-observation-distance.webp",
+        "/illustrations/v4/chow-chow-feature-choice-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/chow-chow-feature-heat-recovery.webp",
+        "/illustrations/v4/chow-chow-feature-dense-coat-care.webp",
+      ],
+      related: ["akita", "shiba"],
+    },
+  ])("adds $slug in the cold-water-terrier-and-spitz standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 

@@ -2042,6 +2042,207 @@ const caneCorsoDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const chowChowDetail = standardBreedDetailSchema.parse({
+  slug: "chow-chow",
+  nameKo: "차우차우",
+  metadataDescription: "중국에서 경비·사냥·반려의 여러 역할을 맡은 차우차우의 배경과 관찰 거리, 접촉 없는 휴식, 더위 대응과 촘촘한 이중모 관리를 살펴봅니다.",
+  heroStatement: "중국에서 집과 주변을 살피고 사람 곁에서 여러 역할을 맡아온 단단한 스피츠형 개예요.",
+  story: {
+    title: "차우차우는 왜 낯선 변화에 바로 다가가기보다 멈춰서 살피려 할까요?",
+    description: "집과 주변을 지키며 사람 곁에서 여러 역할을 맡은 배경을 알면 차분한 관찰과 스스로 거리를 선택하는 생활 방식을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "여러 역할의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "중국에서 집을 살피고 사냥과 반려까지 여러 역할을 맡았어요.",
+        body: "차우차우는 중국에서 집과 마당을 살피는 경비견이자 사냥과 일상에 참여하는 개로 오랫동안 기록됐어요. 주변 변화를 알아차리면서도 한곳에 단단히 머무는 태도가 중요했어요.",
+        image: "/illustrations/v3/chow-chow-history.webp",
+        imageAlt: "중국 북부의 집 안뜰에서 열린 대문 밖의 변화를 차분히 살피는 붉은 성견 차우차우 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "처음 보는 사람과 공간을 충분한 거리에서 먼저 관찰할 수 있어요.",
+        body: "낯선 사람이 보이면 바로 인사하기보다 멈춰 서서 냄새와 움직임을 살필 수 있어요. 리드를 당겨 가까이 데려가기보다 넓은 동선을 남기고 스스로 한 걸음 다가가거나 물러날 선택을 주세요.",
+        image: "/illustrations/v4/chow-chow-feature-observation-distance.webp",
+        imageAlt: "열린 정원문 너머 방문객을 충분한 거리에서 느슨한 리드로 관찰하는 붉은 성견 차우차우 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "같은 방에 머무는 교감이 언제나 만지거나 끌어안는 접촉을 뜻하지는 않아요.",
+        body: "가족 가까이에 있어도 자기 매트에서 조용히 쉬는 방식을 선택할 수 있어요. 쉬는 자리를 통행로에서 비우고 먼저 손을 뻗기보다 개가 다가와 접촉을 요청하는지 살펴요.",
+        image: "/illustrations/v4/chow-chow-feature-choice-rest.webp",
+        imageAlt: "보호자가 소파에서 책을 읽는 동안 열린 동선 옆 넓은 매트에서 떨어져 쉬는 붉은 성견 차우차우 삽화",
+      },
+    ],
+    caution: "경비와 여러 작업의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 낯선 사람에 대한 거리와 접촉 선호, 활동 방식은 사회화 경험과 환경, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "차우차우의 생활 현실",
+  realities: [
+    {
+      id: "heat-recovery",
+      title: "풍성한 털과 단단한 몸에 맞추는 서늘한 시간과 긴 휴식",
+      body: "촘촘한 이중모를 지닌 차우차우는 더운 날 긴 산책과 햇볕 아래 활동이 큰 부담이 될 수 있어요. 서늘한 시간에 짧게 걷고 그늘과 물, 바람이 통하는 휴식 자리를 먼저 확보해요.",
+      image: "/illustrations/v4/chow-chow-feature-heat-recovery.webp",
+      imageAlt: "이른 아침 공원의 깊은 그늘에서 물그릇과 냉감 매트 곁에 편안히 쉬는 붉은 성견 차우차우 삽화",
+    },
+    {
+      id: "dense-coat-care",
+      title: "겉만 쓸지 않고 피부 가까이까지 나누어 빗는 촘촘한 이중모",
+      body: "풍성한 갈기와 몸통 털은 표면만 빗으면 안쪽 엉킴과 피부 상태를 놓치기 쉬워요. 털을 작은 구역으로 나누어 피부 가까이부터 끝까지 빗고 겨드랑이와 꼬리 밑을 다시 확인해요.",
+      image: "/illustrations/v4/chow-chow-feature-dense-coat-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 붉은 성견 차우차우의 촘촘한 몸통 털을 작은 구역으로 나누어 빗는 삽화",
+    },
+  ],
+  readinessTitle: "차우차우와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "낯선 사람과 바로 인사시키지 않고 개가 관찰하며 거리를 선택할 넓은 동선을 마련할 수 있나요?",
+    "접촉을 원하지 않는 휴식 시간을 존중하고 개가 먼저 다가오는지 기다릴 수 있나요?",
+    "더운 시간대 활동을 줄이고 촘촘한 이중모를 피부 가까이부터 나누어 관리할 수 있나요?",
+  ],
+  relatedTitle: "차우차우가 마음에 들지만 망설여진다면",
+  relatedDescription: "동아시아 스피츠형 견종 안에서도 낯선 변화에 두는 거리와 활동량, 더위와 피모 관리 규모의 차이를 살펴보세요.",
+  relatedDifferences: {
+    akita: "주변을 차분히 관찰하고 접촉을 스스로 선택하는 모습은 닮았지만 체격과 활동 리듬, 피모 관리 범위가 달라요.",
+    shiba: "동아시아 스피츠형 외모와 분명한 거리 선택은 닮았지만 몸의 크기와 더위 부담, 털을 나누어 빗는 규모가 달라요.",
+  },
+});
+
+const airedaleTerrierDetail = standardBreedDetailSchema.parse({
+  slug: "airedale-terrier",
+  nameKo: "에어데일 테리어",
+  metadataDescription: "요크셔 에어 계곡의 강가에서 다양한 탐색과 사냥을 맡은 에어데일 테리어의 배경과 후각 과제, 종료 전환, 산책 방향 전환과 와이어 코트 관리를 살펴봅니다.",
+  heroStatement: "요크셔의 강가와 들을 오가며 냄새를 찾고 여러 역할을 맡았던 가장 큰 테리어예요.",
+  story: {
+    title: "에어데일 테리어는 왜 한 지점에 머물기보다 냄새를 따라 환경 전체를 확인하려 할까요?",
+    description: "물가와 들을 오가며 여러 대상을 찾은 배경을 알면 넓게 탐색하는 끈기와 과제를 끝내고 쉬는 전환을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "강가 탐색의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "요크셔 에어 계곡의 강가와 들에서 냄새를 따라 여러 대상을 찾았어요.",
+        body: "에어데일 테리어는 강둑과 물가, 들을 오가며 냄새를 추적하고 다양한 사냥과 작업을 맡도록 형성됐어요. 작은 굴에만 들어가기보다 넓은 환경을 스스로 확인하는 힘과 후각이 중요했어요.",
+        image: "/illustrations/v3/airedale-terrier-history.webp",
+        imageAlt: "요크셔 에어 계곡의 강둑에서 냄새를 따라 수풀을 확인하는 검정과 황갈색 성견 에어데일 테리어 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "서로 다른 지면을 오가며 냄새의 출처를 좁혀가는 과제에 집중할 수 있어요.",
+        body: "풀과 자갈, 쓰러진 나무처럼 냄새가 달라지는 짧은 구간에서 숨겨진 천 주머니를 찾게 해요. 리드를 느슨하게 유지하고 개가 냄새를 비교해 스스로 지점을 고를 시간을 주세요.",
+        image: "/illustrations/v4/airedale-terrier-feature-riverside-scent-search.webp",
+        imageAlt: "강가의 자갈과 풀, 쓰러진 나무를 오가며 숨겨진 천 주머니의 냄새를 찾는 성견 에어데일 테리어 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "끝까지 찾으려는 끈기가 남지 않도록 탐색 도구를 닫아 보관해야 해요.",
+        body: "과제가 끝나도 주머니와 리드를 살피며 탐색을 이어가려 할 수 있어요. 마지막 발견을 확인한 뒤 도구를 뚜껑 있는 상자에 넣고 물을 마신 다음 매트에서 쉬게 해요.",
+        image: "/illustrations/v4/airedale-terrier-feature-search-to-rest.webp",
+        imageAlt: "보호자가 후각 탐색 도구를 뚜껑 있는 상자에 정리하는 동안 물그릇 옆 매트에서 쉬는 성견 에어데일 테리어 삽화",
+      },
+    ],
+    caution: "강가 사냥과 다목적 작업의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 냄새와 움직임에 대한 반응, 끈기와 회복 속도는 성장 환경과 경험, 개체에 따라 달라요.",
+  },
+  realitiesTitle: "에어데일 테리어의 생활 현실",
+  realities: [
+    {
+      id: "pursuit-u-turn",
+      title: "쫓기 시작하기 전에 만드는 넓은 방향 전환",
+      body: "큰 테리어가 작은 동물이나 빠른 움직임을 향해 힘을 쓰면 좁은 길에서는 사람이 균형을 잃기 쉬워요. 거리를 먼저 확보하고 느슨한 리드로 넓게 돌아 보호자의 손 신호를 확인하는 연습을 해요.",
+      image: "/illustrations/v4/airedale-terrier-feature-pursuit-u-turn.webp",
+      imageAlt: "울타리 너머 다람쥐를 본 뒤 보호자의 열린 손 신호를 따라 느슨한 리드로 넓게 방향을 바꾸는 성견 에어데일 테리어 삽화",
+    },
+    {
+      id: "wiry-coat-care",
+      title: "수염과 다리 털까지 이어지는 뻣뻣한 피모 관리",
+      body: "단단한 겉털과 부드러운 속털, 얼굴 수염과 다리 장식털은 관리 부위가 달라요. 집에서는 엉킨 곳과 묻은 이물질을 자주 확인하고 피모 형태에 맞는 정기적인 전문 관리를 계획해요.",
+      image: "/illustrations/v4/airedale-terrier-feature-wiry-coat-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 성견 에어데일 테리어의 수염과 앞다리 와이어 코트를 빗는 삽화",
+    },
+  ],
+  readinessTitle: "에어데일 테리어와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "서로 다른 지면의 냄새를 비교하고 스스로 답을 찾는 후각 과제를 규칙적으로 제공할 수 있나요?",
+    "빠른 움직임을 발견했을 때 거리를 확보하고 넓게 방향을 바꾸는 산책 연습을 이어갈 수 있나요?",
+    "수염과 다리 털을 자주 살피고 와이어 코트에 맞는 전문 관리 일정을 세울 수 있나요?",
+  ],
+  relatedTitle: "에어데일 테리어가 마음에 들지만 망설여진다면",
+  relatedDescription: "테리어 안에서도 몸의 크기와 탐색 범위, 움직임을 안전하게 전환하는 방식과 피모 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "jack-russell-terrier": "냄새와 움직임을 끝까지 확인하는 테리어의 끈기는 닮았지만 체격과 리드에 실리는 힘, 탐색 범위가 크게 달라요.",
+    "miniature-schnauzer": "수염과 뻣뻣한 피모, 해로운 동물을 찾던 배경은 닮았지만 몸의 크기와 야외 작업 범위가 달라요.",
+  },
+});
+
+const chesapeakeBayRetrieverDetail = standardBreedDetailSchema.parse({
+  slug: "chesapeake-bay-retriever",
+  nameKo: "체서피크 베이 리트리버",
+  metadataDescription: "차갑고 거친 체서피크만에서 반복 회수를 맡은 체서피크 베이 리트리버의 배경과 물길 기억, 활동 종료, 입수 계획과 젖은 물결 모양 이중모 관리를 살펴봅니다.",
+  heroStatement: "차가운 바람과 물살 속에서도 출수 지점으로 돌아오며 반복 회수를 맡았던 미국의 수상 리트리버예요.",
+  story: {
+    title: "체서피크 베이 리트리버는 왜 물속 대상을 찾는 동안 돌아올 길까지 함께 기억할까요?",
+    description: "거친 만에서 여러 차례 물을 오간 배경을 알면 대상을 찾는 집중뿐 아니라 입수·회수·출수·휴식을 하나의 안전한 흐름으로 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "거친 물 회수의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "차가운 바람과 조류를 견디며 체서피크만의 물새를 반복해 회수했어요.",
+        body: "체서피크 베이 리트리버는 차갑고 거친 물에서 떨어진 대상의 위치를 기억하고 물살을 건너 사람에게 가져왔어요. 여러 번 입수하고 같은 출수 지점으로 돌아올 수 있는 힘과 집중이 중요했어요.",
+        image: "/illustrations/v3/chesapeake-bay-retriever-history.webp",
+        imageAlt: "바람 부는 체서피크만에서 캔버스 회수 도구를 물고 낮은 부두의 사람에게 돌아오는 갈색 성견 체서피크 베이 리트리버 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "물건뿐 아니라 들어간 자리와 돌아올 경로까지 기억하는 과제에 집중할 수 있어요.",
+        body: "갈대 사이의 넓은 출수 지점을 먼저 보여준 뒤 한 번의 짧은 회수와 손에 놓기를 연결해요. 물살과 바람이 강해지면 과제를 늘리지 말고 바로 육지로 돌아오는 선택을 우선해요.",
+        image: "/illustrations/v4/chesapeake-bay-retriever-feature-rough-water-route.webp",
+        imageAlt: "갈대 사이의 넓은 출수 지점으로 캔버스 회수 도구를 물고 돌아오는 갈색 성견 체서피크 베이 리트리버 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "회수 도구를 치우고 몸을 말린 뒤 쉬는 순간까지 물 활동에 포함해야 해요.",
+        body: "육지에 올라온 뒤에도 젖은 도구와 물가를 살피며 다음 출발을 기다릴 수 있어요. 도구를 닫힌 바구니에 넣고 물을 마신 다음 마른 매트에서 쉬는 종료 순서를 사용해요.",
+        image: "/illustrations/v4/chesapeake-bay-retriever-feature-retrieve-to-rest.webp",
+        imageAlt: "보호자가 젖은 회수 도구를 바구니에 넣는 동안 물그릇 옆 마른 매트에서 쉬는 갈색 성견 체서피크 베이 리트리버 삽화",
+      },
+    ],
+    caution: "거친 물 회수의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 물 선호와 회수 집중, 추위와 피로를 견디는 정도는 건강 상태와 경험, 개체에 따라 달라요.",
+  },
+  realitiesTitle: "체서피크 베이 리트리버의 생활 현실",
+  realities: [
+    {
+      id: "safe-water-plan",
+      title: "입수 전에 확인하는 바람·물살과 넓은 출수 지점",
+      body: "수영을 잘하는 견종도 수온과 조류, 가파른 물가는 스스로 해결할 수 없어요. 물에 들어가기 전에 얕은 진입부와 낮은 출수 지점을 정하고 몸에 맞는 부력 보조 장비를 준비해요.",
+      image: "/illustrations/v4/chesapeake-bay-retriever-feature-safe-water-plan.webp",
+      imageAlt: "바람 자루와 잔잔한 호숫가를 살피며 부력 보조 장비 옆에서 기다리는 갈색 성견 체서피크 베이 리트리버 삽화",
+    },
+    {
+      id: "wavy-coat-drying",
+      title: "물 활동 뒤 결을 나누어 말리는 촘촘하고 물결 모양인 털",
+      body: "짧아 보여도 물결 모양 겉털 아래 촘촘한 속털에는 물기가 남을 수 있어요. 어깨와 등 털을 손으로 나누어 닦고 귀 바깥과 겨드랑이, 발가락 사이까지 충분히 말려요.",
+      image: "/illustrations/v4/chesapeake-bay-retriever-feature-wavy-coat-drying.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 갈색 성견 체서피크 베이 리트리버의 젖은 물결 모양 어깨 털을 수건으로 나누어 말리는 삽화",
+    },
+  ],
+  readinessTitle: "체서피크 베이 리트리버와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "입수 전에 수온·바람·물살과 넓은 출수 지점을 확인하고 필요하면 물 활동을 취소할 수 있나요?",
+    "짧은 회수 뒤 도구 정리·음수·건조·휴식으로 이어지는 종료 순서를 만들 수 있나요?",
+    "젖은 물결 모양 이중모를 구역별로 나누어 귀와 발가락 사이까지 충분히 말릴 수 있나요?",
+  ],
+  relatedTitle: "체서피크 베이 리트리버가 마음에 들지만 망설여진다면",
+  relatedDescription: "물에서 사람과 협력한 리트리버 안에서도 작업 환경과 피모 구조, 회수 뒤 회복과 관리 방식의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "labrador-retriever": "수상 회수와 사람에게 전달하는 협력은 닮았지만 거친 냉수에서 반복 회수한 배경과 물결 모양 이중모 관리가 달라요.",
+    "flat-coated-retriever": "물과 들에서 대상을 회수한 역할은 닮았지만 짧고 촘촘한 물결 모양 털과 긴 장식털의 건조 방식이 달라요.",
+  },
+});
+
 const flatCoatedRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "flat-coated-retriever",
   nameKo: "플랫 코티드 리트리버",
@@ -2141,6 +2342,9 @@ const standardBreedDetails = new Map(
     novaScotiaDuckTollingRetrieverDetail,
     oldEnglishSheepdogDetail,
     caneCorsoDetail,
+    chesapeakeBayRetrieverDetail,
+    airedaleTerrierDetail,
+    chowChowDetail,
     flatCoatedRetrieverDetail,
     ...familiarStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
@@ -2155,6 +2359,7 @@ export function getAllStandardBreedDetails() {
 }
 
 export {
+  airedaleTerrierDetail,
   akitaDetail,
   australianShepherdDetail,
   basenjiDetail,
@@ -2163,6 +2368,8 @@ export {
   boxerDetail,
   brittanySpanielDetail,
   caneCorsoDetail,
+  chesapeakeBayRetrieverDetail,
+  chowChowDetail,
   cavalierKingCharlesSpanielDetail,
   englishCockerSpanielDetail,
   englishSpringerSpanielDetail,
