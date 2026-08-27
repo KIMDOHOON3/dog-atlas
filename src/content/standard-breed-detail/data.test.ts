@@ -115,6 +115,23 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(["whippet", "italian-sighthound"]);
   });
 
+  it("adds Whippet as the next standard detail beyond the Korea-familiar set", () => {
+    const detail = getStandardBreedDetail("whippet")!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === "whippet")).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual([
+      "/illustrations/v3/whippet-history.webp",
+      "/illustrations/v4/whippet-feature-visual-tracking.webp",
+      "/illustrations/v4/whippet-feature-sprint-recovery.webp",
+    ]);
+    expect(detail.realities.map((reality) => reality.image)).toEqual([
+      "/illustrations/v4/whippet-feature-warm-rest.webp",
+      "/illustrations/v4/whippet-feature-cold-weather.webp",
+    ]);
+    expect(detail.story.steps[0].body).toContain("직선 경주");
+    expect(Object.keys(detail.relatedDifferences)).toEqual(["greyhound", "italian-sighthound"]);
+  });
+
   it("separates French Bulldog ancestry from the later companion-breed formation", () => {
     const detail = getStandardBreedDetail("french-bulldog")!;
     const background = `${detail.story.steps[0].title} ${detail.story.steps[0].body}`;

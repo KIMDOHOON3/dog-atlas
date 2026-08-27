@@ -410,3 +410,9 @@ Connect each role to the attention, adaptability, environmental confidence, or h
 # 2026-08-25 — Compare past and present roles in the detail hero
 
 Replace the standard-detail `계통` card with `과거 역할` and change the former original-role position to `현재 역할`. When the role has effectively continued into the present, do not duplicate it: combine it into one `과거부터 현재까지` card and use a three-card layout. Only show guide, detection, herding, sport, or other present-day work when supported; otherwise describe the current role simply as companion.
+
+# 2026-08-27 — Follow Greyhound with Whippet in the standard detail rollout
+
+Add Whippet as the second standard detail outside the Korea-familiar set because it forms a direct, useful path from Greyhound without presenting either breed as a recommendation. Use the documented nineteenth-century British small-game and straight-racing background as the first step, then connect it cautiously to present-day visual tracking and short sprint-and-recovery rhythms.
+
+Keep indoor soft rest and outdoor cold-weather protection as separate realities. Reuse the existing history, tracking, sprint-recovery, and warm-rest assets, and add one distinct cold-weather walking scene so all five content images have different meanings. Link back to Greyhound and onward to Italian Sighthound to make body-size and household-safety differences explicit.

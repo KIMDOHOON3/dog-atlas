@@ -269,8 +269,75 @@ const greyhoundDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const whippetDetail = standardBreedDetailSchema.parse({
+  slug: "whippet",
+  nameKo: "휘펫",
+  metadataDescription: "영국에서 작은 사냥감 추적과 직선 경주에 쓰인 배경, 빠른 움직임을 보는 경향과 짧은 질주 뒤 회복, 푹신한 휴식과 보온 준비를 살펴봅니다.",
+  heroStatement: "빠른 질주와 포근한 휴식을 오가는 중형 시각하운드예요.",
+  story: {
+    title: "휘펫은 왜 빠른 움직임에 반응하고 곧 조용히 쉬기도 할까요?",
+    description: "영국 시각하운드의 배경을 알면 움직임을 쫓는 시선과 짧게 속도를 낸 뒤 회복하는 리듬을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "사냥과 경주의 배경",
+        eyebrow: "1단계 · 어떤 배경에서 출발했을까?",
+        title: "영국에서 작은 사냥감 추적과 직선 경주에 쓰였어요.",
+        body: "휘펫은 19세기 영국에서 뚜렷한 견종으로 자리 잡았어요. 작은 사냥감을 쫓는 일과 짧은 직선 경주에서 빠른 가속이 중요했어요.",
+        image: "/illustrations/v3/whippet-history.webp",
+        imageAlt: "19세기 영국 북부의 열린 들판에서 천 조각 루어를 바라보는 성견 휘펫 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "빠르게 지나가는 대상을 먼저 발견할 수 있어요.",
+        body: "산책 중 작은 동물이나 자전거처럼 빠른 움직임에 시선이 고정되고 쫓으려 할 수 있어요. 안전한 리드를 유지하고 실제 반응을 살펴야 해요.",
+        image: "/illustrations/v4/whippet-feature-visual-tracking.webp",
+        imageAlt: "공원에서 멀리 지나가는 자전거를 본 뒤 보호자의 손으로 시선을 돌리는 성견 휘펫 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "짧게 속도를 낸 뒤 천천히 회복하는 시간이 필요해요.",
+        body: "완전히 닫힌 안전한 공간에서 짧게 달릴 기회를 마련해요. 활동 뒤에는 물을 마시고 호흡과 움직임이 편안해지는지 살피며 충분히 쉬게 해요.",
+        image: "/illustrations/v4/whippet-feature-sprint-recovery.webp",
+        imageAlt: "울타리가 닫힌 운동장에서 짧게 달린 뒤 보호자 곁에서 물을 마시며 쉬는 성견 휘펫의 두 장면 삽화",
+      },
+    ],
+    caution: "시각하운드의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 건강 상태와 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "휘펫의 생활 현실",
+  realities: [
+    {
+      id: "soft-rest",
+      title: "가는 몸을 받쳐주는 푹신한 휴식 자리",
+      body: "딱딱하고 차가운 바닥보다 몸 전체를 편안히 받쳐주는 침구를 마련해요. 활동하지 않을 때 조용히 몸을 말고 쉬는 시간도 방해받지 않게 해주세요.",
+      image: "/illustrations/v4/whippet-feature-warm-rest.webp",
+      imageAlt: "실내의 두꺼운 원형 침구 위에서 몸을 말고 편안히 쉬는 성견 휘펫 삽화",
+    },
+    {
+      id: "cold-weather",
+      title: "짧은 피모에 맞춘 추운 날의 보온",
+      body: "매우 짧고 가는 피모는 차가운 바람을 막아주기 어려워요. 기온과 개별 반응에 맞는 옷을 준비하고 산책 뒤 몸이 차갑거나 불편해하지 않는지 살펴요.",
+      image: "/illustrations/v4/whippet-feature-cold-weather.webp",
+      imageAlt: "쌀쌀한 늦가을 공원에서 몸에 맞는 보온 코트를 입고 보호자와 걷는 성견 휘펫 삽화",
+    },
+  ],
+  readinessTitle: "휘펫과 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "움직이는 대상을 쫓을 수 있는 반응을 고려해 안전한 리드와 닫힌 공간을 준비할 수 있나요?",
+    "매일의 산책과 짧은 질주 기회, 활동 뒤의 충분한 회복을 함께 마련할 수 있나요?",
+    "몸을 받쳐줄 푹신한 침구와 추운 날의 보온 준비를 이어갈 수 있나요?",
+  ],
+  relatedTitle: "휘펫이 마음에 들지만 망설여진다면",
+  relatedDescription: "같은 시각하운드 안에서도 체격과 주거 동선, 보온 부담의 차이를 살펴보세요.",
+  relatedDifferences: {
+    greyhound: "질주와 휴식의 리듬은 비슷하지만 더 큰 성견의 이동과 주거 공간 부담을 함께 살펴야 해요.",
+    "italian-sighthound": "빠른 시각 반응과 짧은 피모는 닮았지만 훨씬 작은 체격에 맞춘 충돌·낙상 예방이 더 중요해요.",
+  },
+});
+
 const standardBreedDetails = new Map(
-  [japaneseSpitzDetail, malteseDetail, bichonFriseDetail, greyhoundDetail, ...familiarStandardBreedDetails].map((detail) => [detail.slug, detail]),
+  [japaneseSpitzDetail, malteseDetail, bichonFriseDetail, greyhoundDetail, whippetDetail, ...familiarStandardBreedDetails].map((detail) => [detail.slug, detail]),
 );
 
 export function getStandardBreedDetail(slug: string) {
@@ -281,4 +348,4 @@ export function getAllStandardBreedDetails() {
   return [...standardBreedDetails.values()];
 }
 
-export { bichonFriseDetail, greyhoundDetail, japaneseSpitzDetail, malteseDetail };
+export { bichonFriseDetail, greyhoundDetail, japaneseSpitzDetail, malteseDetail, whippetDetail };
