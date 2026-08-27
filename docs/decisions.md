@@ -428,3 +428,9 @@ Reuse each breed's existing history and three feature scenes where their meaning
 Let standard details reuse the compact hero size disclosure when official measurements are split by sex and no readable single-line mobile value exists. Keep the collapsed value to the overall range and a clear invitation to view sex-based weights; show female and male height-and-weight references as separate rows after expansion. Do not model sexes as breed varieties merely to reuse the Poodle or Dachshund data shape.
 
 On mobile, an opened size disclosure spans the full hero-facts grid so labels and measurements remain readable without horizontal scrolling. Keep the closed card in the normal two-column layout to preserve the hero's scan rhythm.
+
+# 2026-08-27 — Continue the standard-detail rollout with Shetland Sheepdog
+
+After the Pyrenean Mountain Dog, Basenji, and Bernese Mountain Dog batch, select Shetland Sheepdog as the next genuinely unconverted breed in MVP order. German Spitz is already represented by the standardized Pomeranian entry on the shared catalog slug, so adding it again would duplicate an existing detail.
+
+Connect the Shetland farm-dog background to present-day attention to movement and sound without presenting those tendencies as guarantees. Reuse the existing history, movement-reorientation, sound-cue, and long-coat-care illustrations, and add a distinct scent-box choice scene for a short cooperative task so all five story and reality meanings remain separate.

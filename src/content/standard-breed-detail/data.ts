@@ -544,6 +544,73 @@ const berneseMountainDogDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const shetlandSheepdogDetail = standardBreedDetailSchema.parse({
+  slug: "shetland-sheepdog",
+  nameKo: "셔틀랜드 시프독",
+  metadataDescription: "셰틀랜드 제도의 작은 농가 동물을 살피던 배경과 움직임·소리에 대한 빠른 반응, 짧은 협업 과제와 긴 이중모 관리를 살펴봅니다.",
+  heroStatement: "섬의 농가에서 작은 가축과 주변 변화를 세밀하게 살피던 목양견이에요.",
+  story: {
+    title: "셔틀랜드 시프독은 왜 움직임과 작은 소리를 빠르게 알아차릴 수 있을까요?",
+    description: "섬 지역 목양견의 배경을 알면 움직임을 읽는 집중과 가정에서 조율할 알림 반응을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "섬 목양의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "셰틀랜드 제도의 작은 농가 동물을 살피던 목양견이에요.",
+        body: "셔틀랜드 시프독은 스코틀랜드 북쪽 섬 농가에서 양과 다른 작은 가축의 움직임을 관리하고 주변 변화를 알리는 일을 했어요. 작고 민첩한 몸으로 사람의 신호를 읽는 능력이 중요했어요.",
+        image: "/illustrations/v3/shetland-sheepdog-history.webp",
+        imageAlt: "셰틀랜드 제도의 바람 센 농가에서 양 떼의 움직임을 살피는 세이블 앤 화이트 성견 셔틀랜드 시프독 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "달리는 대상의 경로를 읽고 빠르게 집중할 수 있어요.",
+        body: "가축의 방향을 살피던 배경은 자전거와 달리는 사람, 다른 동물의 움직임에 주의를 기울이는 모습으로 나타날 수 있어요. 충분한 거리를 두고 움직임을 본 뒤 보호자를 확인하는 선택을 알려주세요.",
+        image: "/illustrations/v4/shetland-sheepdog-feature-alert-reorientation.webp",
+        imageAlt: "공원에서 멀리 지나가는 자전거를 확인한 뒤 보호자의 손 신호를 바라보는 세이블 앤 화이트 성견 셔틀랜드 시프독 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "작은 소리를 알아차린 뒤 다시 쉬는 흐름이 필요해요.",
+        body: "현관 소리나 가족의 작은 움직임에도 빠르게 반응해 목소리로 알릴 수 있어요. 조용한 휴식 자리를 마련하고 소리를 확인한 뒤 짧은 신호에 집중해 다시 쉬는 순서를 연습해요.",
+        image: "/illustrations/v4/shetland-sheepdog-feature-sound-cue.webp",
+        imageAlt: "조용한 현관에서 복도 소리를 확인한 뒤 보호자의 손 신호를 바라보는 세이블 앤 화이트 성견 셔틀랜드 시프독 삽화",
+      },
+    ],
+    caution: "목양견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임과 소리에 대한 반응은 성장 환경과 경험, 생활 조건과 개체에 따라 다르게 나타날 수 있어요.",
+  },
+  realitiesTitle: "셔틀랜드 시프독의 생활 현실",
+  realities: [
+    {
+      id: "scent-choice",
+      title: "짧게 선택하고 끝내는 협업 과제",
+      body: "여러 냄새 상자 중 하나를 고르는 짧은 과제로 몸과 머리를 함께 써요. 정답을 재촉하기보다 스스로 확인하고 보호자에게 돌아온 뒤 편안히 쉬는 흐름까지 한 세트로 구성해요.",
+      image: "/illustrations/v4/shetland-sheepdog-feature-scent-choice.webp",
+      imageAlt: "거실의 세 냄새 상자 중 하나를 코로 확인하고 보호자가 조용히 지켜보는 세이블 앤 화이트 성견 셔틀랜드 시프독 삽화",
+    },
+    {
+      id: "long-coat-care",
+      title: "귀 뒤와 겨드랑이를 나누어 보는 긴 이중모 관리",
+      body: "긴 겉털 아래에는 부드럽고 촘촘한 속털이 있어요. 마찰이 잦은 귀 뒤와 겨드랑이, 다리 장식털을 작은 구역으로 나누어 빗고 피부 가까이의 엉킴을 확인해요.",
+      image: "/illustrations/v4/shetland-sheepdog-feature-long-coat-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 세이블 앤 화이트 성견 셔틀랜드 시프독의 귀 뒤와 긴 장식털을 나누어 빗는 삽화",
+    },
+  ],
+  readinessTitle: "셔틀랜드 시프독과 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "자전거와 달리는 사람을 향한 집중을 안전거리와 보호자 확인으로 전환할 수 있나요?",
+    "작은 소리에 반응한 뒤 조용한 자리로 돌아와 쉬는 순서를 꾸준히 연습할 수 있나요?",
+    "짧은 협업 과제와 귀 뒤·겨드랑이를 포함한 긴 이중모 관리를 함께 이어갈 수 있나요?",
+  ],
+  relatedTitle: "셔틀랜드 시프독이 마음에 들지만 망설여진다면",
+  relatedDescription: "목양견 안에서도 체격과 움직임 집중, 활동 뒤 회복과 피모 관리가 다른 견종을 살펴보세요.",
+  relatedDifferences: {
+    "border-collie": "가축의 움직임을 읽는 배경은 닮았지만 체격과 작업 집중의 강도, 긴 피모를 관리하는 생활 리듬이 달라요.",
+    "australian-shepherd": "사람과 협력하는 목양견이지만 더 큰 체격과 지속적인 과제 요구, 피모와 활동 규모를 따로 비교해야 해요.",
+  },
+});
+
 const standardBreedDetails = new Map(
   [
     japaneseSpitzDetail,
@@ -554,6 +621,7 @@ const standardBreedDetails = new Map(
     pyreneanMountainDogDetail,
     basenjiDetail,
     berneseMountainDogDetail,
+    shetlandSheepdogDetail,
     ...familiarStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
@@ -574,5 +642,6 @@ export {
   japaneseSpitzDetail,
   malteseDetail,
   pyreneanMountainDogDetail,
+  shetlandSheepdogDetail,
   whippetDetail,
 };

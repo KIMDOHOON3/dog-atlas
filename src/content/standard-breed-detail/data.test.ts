@@ -177,6 +177,22 @@ describe("standard breed detail editorial data", () => {
     expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
   });
 
+  it("adds Shetland Sheepdog as the next standard detail after the three-breed batch", () => {
+    const detail = getStandardBreedDetail("shetland-sheepdog")!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === detail.slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual([
+      "/illustrations/v3/shetland-sheepdog-history.webp",
+      "/illustrations/v4/shetland-sheepdog-feature-alert-reorientation.webp",
+      "/illustrations/v4/shetland-sheepdog-feature-sound-cue.webp",
+    ]);
+    expect(detail.realities.map((reality) => reality.image)).toEqual([
+      "/illustrations/v4/shetland-sheepdog-feature-scent-choice.webp",
+      "/illustrations/v4/shetland-sheepdog-feature-long-coat-care.webp",
+    ]);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(["border-collie", "australian-shepherd"]);
+  });
+
   it("splits Pyrenean Mountain Dog height and sex-based reference weights in an expandable hero summary", () => {
     const detail = getStandardBreedDetail("pyrenean-mountain-dog")!;
 
