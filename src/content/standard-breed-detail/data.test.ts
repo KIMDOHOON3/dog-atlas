@@ -506,6 +506,63 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it("distinguishes the five pointing breeds by their actual search pattern", () => {
+    expect(getStandardBreedDetail("brittany-spaniel")?.story.steps[1].title).toContain("작은 구역");
+    expect(getStandardBreedDetail("irish-red-setter")?.story.steps[1].title).toContain("큰 호");
+    expect(getStandardBreedDetail("vizsla")?.story.steps[1].title).toContain("사람 가까운 범위");
+    expect(getStandardBreedDetail("weimaraner")?.story.steps[1].title).toContain("범위를 단계적으로 좁힐");
+    expect(getStandardBreedDetail("german-short-haired-pointing-dog")?.story.steps[1].title).toContain("과제 전환");
+  });
+
+  it.each([
+    {
+      slug: "nova-scotia-duck-tolling-retriever",
+      storyImages: [
+        "/illustrations/v3/nova-scotia-duck-tolling-retriever-history.webp",
+        "/illustrations/v4/nova-scotia-duck-tolling-retriever-feature-shoreline-tolling.webp",
+        "/illustrations/v4/nova-scotia-duck-tolling-retriever-feature-retrieve-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/nova-scotia-duck-tolling-retriever-feature-safe-water-exit.webp",
+        "/illustrations/v4/nova-scotia-duck-tolling-retriever-feature-wet-coat-care.webp",
+      ],
+      related: ["golden-retriever", "labrador-retriever"],
+    },
+    {
+      slug: "old-english-sheepdog",
+      storyImages: [
+        "/illustrations/v3/old-english-sheepdog-history.webp",
+        "/illustrations/v4/old-english-sheepdog-feature-movement-redirection.webp",
+        "/illustrations/v4/old-english-sheepdog-feature-large-rest-space.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/old-english-sheepdog-feature-line-brushing.webp",
+        "/illustrations/v4/old-english-sheepdog-feature-wide-home-route.webp",
+      ],
+      related: ["border-collie", "shetland-sheepdog"],
+    },
+    {
+      slug: "cane-corso",
+      storyImages: [
+        "/illustrations/v3/cane-corso-history.webp",
+        "/illustrations/v4/cane-corso-feature-controlled-strength.webp",
+        "/illustrations/v4/cane-corso-feature-visitor-distance.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/cane-corso-feature-vehicle-access.webp",
+        "/illustrations/v4/cane-corso-feature-short-coat-check.webp",
+      ],
+      related: ["rottweiler", "boxer"],
+    },
+  ])("adds $slug in the tolling-herding-and-guardian standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 
