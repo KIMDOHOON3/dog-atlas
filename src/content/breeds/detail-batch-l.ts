@@ -13,6 +13,7 @@ type Seed = {
   role: string;
   size: string;
   fciUrl: string;
+  akcUrl?: string;
 };
 
 const groupMeta: Record<Group, {
@@ -116,7 +117,7 @@ const seeds: Seed[] = [
   { slug: "greater-swiss-mountain-dog", nameKo: "그레이터 스위스 마운틴 도그", nameEn: "Greater Swiss Mountain Dog", group: "guardian-working", origin: "스위스", role: "수레 운반과 농장 가축 관리", size: "대형 · 약 60~72cm, 50~65kg", fciUrl: "https://www.fci.be/en/nomenclature/GREAT-SWISS-MOUNTAIN-DOG-58.html" },
   { slug: "german-pinscher", nameKo: "저먼 핀셔", nameEn: "German Pinscher", group: "guardian-working", origin: "독일", role: "농장 해충 통제와 경계", size: "중형 · 약 45~50cm, 14~20kg", fciUrl: "https://www.fci.be/en/nomenclature/GERMAN-PINSCHER-184.html" },
   { slug: "kangal-shepherd-dog", nameKo: "캉갈 셰퍼드 도그", nameEn: "Kangal Shepherd Dog", group: "guardian-working", origin: "튀르키예", role: "가축 무리를 대형 포식자로부터 지키는 보호", size: "대형 · 약 65~78cm, 40~60kg", fciUrl: "https://www.fci.be/en/nomenclature/KANGAL-SHEPHERD-DOG-331.html" },
-  { slug: "bedlington-terrier", nameKo: "베들링턴 테리어", nameEn: "Bedlington Terrier", group: "terrier", origin: "영국", role: "광산 마을의 작은 사냥감과 해충 추적", size: "중형 · 약 38~43cm, 8~10kg", fciUrl: "https://www.fci.be/en/nomenclature/BEDLINGTON-TERRIER-9.html" },
+  { slug: "bedlington-terrier", nameKo: "베들링턴 테리어", nameEn: "Bedlington Terrier", group: "terrier", origin: "영국", role: "광산 마을의 작은 사냥감과 해충 추적", size: "중형 · 약 38~43cm, 8~10kg", fciUrl: "https://www.fci.be/en/nomenclature/BEDLINGTON-TERRIER-9.html", akcUrl: "https://www.akc.org/dog-breeds/bedlington-terrier/" },
   { slug: "parson-russell-terrier", nameKo: "파슨 러셀 테리어", nameEn: "Parson Russell Terrier", group: "terrier", origin: "영국", role: "굴속 여우를 쫓는 민첩한 사냥 협력", size: "소형 · 약 31~36cm, 5~8kg", fciUrl: "https://www.fci.be/en/nomenclature/PARSON-RUSSELL-TERRIER-339.html" },
   { slug: "sealyham-terrier", nameKo: "실리햄 테리어", nameEn: "Sealyham Terrier", group: "terrier", origin: "웨일스", role: "굴속 사냥감과 농장 해충 추적", size: "소형 · 약 27~30cm, 8~10kg", fciUrl: "https://www.fci.be/en/nomenclature/SEALYHAM-TERRIER-74.html" },
   { slug: "manchester-terrier", nameKo: "맨체스터 테리어", nameEn: "Manchester Terrier", group: "terrier", origin: "영국", role: "도시와 농장의 쥐 통제", size: "중형 · 약 38~41cm, 5~10kg", fciUrl: "https://www.fci.be/en/nomenclature/MANCHESTER-TERRIER-71.html" },
@@ -202,7 +203,10 @@ const makeBreed = (seed: Seed): Breed => {
       { time: "저녁", title: "차분한 교감", description: "짧은 교육과 접촉, 브러싱 등 개체가 편안해하는 루틴으로 마무리하세요." },
     ],
     related: meta.related.map(([slug, reason]) => ({ slug, reason })),
-    sources: [{ title: `${seed.nameEn} FCI breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt }],
+    sources: [
+      { title: `${seed.nameEn} FCI breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
+      ...(seed.akcUrl ? [{ title: `${seed.nameEn} breed profile`, organization: "American Kennel Club", url: seed.akcUrl, checkedAt }] : []),
+    ],
   };
 };
 

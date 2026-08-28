@@ -2243,6 +2243,207 @@ const chesapeakeBayRetrieverDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const dalmatianDetail = standardBreedDetailSchema.parse({
+  slug: "dalmatian",
+  nameKo: "달마시안",
+  metadataDescription: "마차 곁을 긴 거리 동안 달린 달마시안의 배경과 일정한 이동 리듬, 활동 종료, 시각 신호와 다양한 지면 뒤 발 점검을 살펴봅니다.",
+  heroStatement: "마차와 말의 곁을 긴 거리 동안 일정한 보폭으로 달리며 이동을 함께했던 점박이 동반견이에요.",
+  story: {
+    title: "달마시안은 왜 순간적인 속도보다 사람과 긴 이동 리듬을 맞추는 활동에 집중할까요?",
+    description: "마차 곁에서 이동한 배경을 알면 사람의 방향과 속도를 읽는 지속적인 움직임, 활동을 끝내고 회복하는 순서를 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "마차 동행의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "말이 끄는 마차 곁을 달리며 긴 이동과 정차를 함께했어요.",
+        body: "달마시안은 여행자와 소방대의 마차 곁을 따라 달리는 코치 도그로 알려졌어요. 오랜 이동에서도 말과 사람의 속도, 방향과 멈춤에 맞추는 지구력과 안정된 보폭이 중요했어요.",
+        image: "/illustrations/v3/dalmatian-history.webp",
+        imageAlt: "말이 끄는 마차 곁에서 일정한 보폭으로 이동하는 흰 바탕에 검은 점이 있는 성견 달마시안 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "빠르게 달리는 한 번보다 사람과 일정한 속도로 여러 방향을 도는 과제에 집중할 수 있어요.",
+        body: "넓은 길에서 직선과 완만한 곡선을 오가며 보호자의 보폭에 맞추게 해요. 속도와 거리를 계속 늘리기보다 느슨한 리드, 방향 전환과 짧은 정지를 한 흐름으로 연결해요.",
+        image: "/illustrations/v4/dalmatian-feature-rhythm-loop.webp",
+        imageAlt: "넓은 길의 낮은 표식 사이를 보호자와 일정한 보폭으로 도는 성견 달마시안 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "움직임을 충분히 제공한 뒤에도 장비를 치우고 쉬는 종료 순서가 필요해요.",
+        body: "활동이 끝나도 운동 도구와 현관을 살피며 다음 출발을 기다릴 수 있어요. 표식과 장비를 닫힌 수납장에 넣고 물을 마신 다음 넓은 매트에서 쉬게 해요.",
+        image: "/illustrations/v4/dalmatian-feature-activity-to-rest.webp",
+        imageAlt: "보호자가 운동 장비를 수납하는 동안 물그릇 옆 넓은 매트에서 쉬는 성견 달마시안 삽화",
+      },
+    ],
+    caution: "마차 곁을 달린 과거 배경은 행동을 이해하는 단서일 뿐이에요. 활동량과 소리·움직임에 대한 반응, 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "달마시안의 생활 현실",
+  realities: [
+    {
+      id: "visual-cues",
+      title: "소리만 부르기보다 눈으로 확인할 수 있는 일관된 손 신호",
+      body: "멀리 떨어졌거나 주변 소리가 큰 곳에서는 목소리만으로 방향을 전하기 어려울 수 있어요. 가까운 거리부터 열린 손과 바닥 표적을 함께 사용해 멈춤과 돌아오기를 눈으로도 확인하게 해요.",
+      image: "/illustrations/v4/dalmatian-feature-visual-cues.webp",
+      imageAlt: "보호자의 열린 손을 확인하고 바닥 표적으로 이동하는 성견 달마시안 삽화",
+    },
+    {
+      id: "paw-surface-check",
+      title: "오래 움직인 날 여러 지면을 지난 발을 차례로 확인하는 시간",
+      body: "긴 이동에서 아스팔트와 흙, 잔디처럼 마찰과 온도가 다른 지면을 연속해 지날 수 있어요. 돌아온 뒤 발바닥과 발가락 사이를 살피고 충분히 식고 쉴 시간을 마련해요.",
+      image: "/illustrations/v4/dalmatian-feature-paw-surface-check.webp",
+      imageAlt: "산책 뒤 보호자가 매트 위 성견 달마시안의 앞발과 발가락 사이를 살피는 삽화",
+    },
+  ],
+  readinessTitle: "달마시안과 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "속도 경쟁보다 일정한 보폭과 방향 전환, 짧은 정지를 포함한 이동 과제를 꾸준히 제공할 수 있나요?",
+    "활동 뒤 장비를 치우고 물과 넓은 매트에서 충분히 회복하는 종료 순서를 만들 수 있나요?",
+    "목소리와 함께 일관된 시각 신호를 사용하고 다양한 지면을 지난 발을 매번 확인할 수 있나요?",
+  ],
+  relatedTitle: "달마시안이 마음에 들지만 망설여진다면",
+  relatedDescription: "함께 이동하고 활동하는 중대형견 안에서도 탐색 방식과 사람에게 맞추는 거리, 피모와 회복 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    weimaraner: "사람과 긴 야외 활동을 공유하는 체력은 닮았지만 냄새 탐색과 일정한 이동 리듬이라는 활동의 중심이 달라요.",
+    "labrador-retriever": "활동적이고 사람과 협력하는 모습은 닮았지만 회수 과제보다 지속 이동과 시각 신호, 발 점검이 생활의 중심에 가까워요.",
+  },
+});
+
+const bedlingtonTerrierDetail = standardBreedDetailSchema.parse({
+  slug: "bedlington-terrier",
+  nameKo: "베들링턴 테리어",
+  metadataDescription: "잉글랜드 북부 광산 지역에서 토끼와 작은 동물을 찾은 베들링턴 테리어의 배경과 짧은 전력 질주, 출입 안전, 폭신한 피모 관리를 살펴봅니다.",
+  heroStatement: "양처럼 부드러운 외모 안에 빠르게 달려 작은 사냥감을 찾던 북잉글랜드 테리어의 움직임이 남아 있어요.",
+  story: {
+    title: "베들링턴 테리어는 왜 조용히 살피다가도 움직이는 목표 앞에서 빠르게 속도를 바꿀까요?",
+    description: "광산 지역에서 토끼와 작은 동물을 찾은 배경을 알면 짧고 빠른 추적 과제와 흥분을 끝내는 회복 순서를 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "북부 사냥의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "잉글랜드 북부의 광산 마을 주변에서 토끼와 작은 동물을 찾았어요.",
+        body: "베들링턴 테리어는 한때 로스버리 테리어로 불리며 북부 지역에서 작은 사냥감을 추적했어요. 목표가 움직이면 빠르게 속도를 올려 넓은 지면을 달리는 능력이 중요했어요.",
+        image: "/illustrations/v3/bedlington-terrier-history.webp",
+        imageAlt: "잉글랜드 북부 광산 마을 바깥 들에서 토끼의 흔적을 살피는 청회색 성견 베들링턴 테리어 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "안전하게 닫힌 공간에서 한 번의 짧은 추적과 멈춤을 빠르게 오갈 수 있어요.",
+        body: "넓은 울타리 안에서 부드러운 흰색 루어를 짧게 움직여 한 번만 달리게 해요. 도착 지점을 넓게 비우고 보호자의 손 표적에서 멈춘 뒤 바로 리듬을 낮춰요.",
+        image: "/illustrations/v4/bedlington-terrier-feature-short-lure-run.webp",
+        imageAlt: "울타리가 있는 넓은 들에서 흰색 루어를 향해 짧게 질주하는 청회색 성견 베들링턴 테리어 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "짧은 질주 뒤에는 움직이는 도구를 보이지 않게 치우고 몸을 편안히 쉬게 해야 해요.",
+        body: "루어가 계속 보이면 다음 움직임을 기다리며 시선을 떼기 어려울 수 있어요. 도구를 닫힌 수납장에 넣고 물을 마신 뒤 두꺼운 매트에서 충분히 쉬게 해요.",
+        image: "/illustrations/v4/bedlington-terrier-feature-run-to-rest.webp",
+        imageAlt: "보호자가 루어 도구를 닫힌 수납장에 넣는 동안 두꺼운 매트에서 쉬는 성견 베들링턴 테리어 삽화",
+      },
+    ],
+    caution: "토끼와 작은 동물을 찾던 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임을 향한 관심과 달리는 속도, 활동 뒤 회복은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "베들링턴 테리어의 생활 현실",
+  realities: [
+    {
+      id: "secure-sightline",
+      title: "빠른 움직임을 보기 전에 닫아 두는 이중 출입 동선",
+      body: "문밖의 작은 움직임을 발견한 순간 빠르게 출입구로 향할 수 있어요. 바깥문을 먼저 닫고 안쪽 안전문 뒤 매트에서 기다린 다음 보호자와 함께 통과하는 순서를 만들어요.",
+      image: "/illustrations/v4/bedlington-terrier-feature-secure-sightline.webp",
+      imageAlt: "보호자가 바깥 정원문을 잠그는 동안 안쪽 안전문 뒤 매트에서 기다리는 성견 베들링턴 테리어 삽화",
+    },
+    {
+      id: "linty-coat-care",
+      title: "피부에서 떠 있는 폭신한 털을 나누어 빗고 형태를 다듬는 관리",
+      body: "굵고 부드러운 털이 섞인 특유의 피모는 겉만 빗으면 안쪽 엉킴을 놓칠 수 있어요. 작은 구역으로 나누어 빗고 머리와 몸의 형태를 유지할 정기적인 전문 관리를 계획해요.",
+      image: "/illustrations/v4/bedlington-terrier-feature-linty-coat-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 성견 베들링턴 테리어의 폭신한 청회색 털을 나누어 빗는 삽화",
+    },
+  ],
+  readinessTitle: "베들링턴 테리어와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "닫힌 넓은 공간에서 짧은 추적과 손 표적 멈춤을 한 번의 과제로 구성할 수 있나요?",
+    "빠른 움직임이 보이는 출입구에 이중 안전 동선을 만들고 활동 도구를 보이지 않게 치울 수 있나요?",
+    "폭신한 피모를 작은 구역으로 나누어 빗고 정기적인 전문 관리 일정을 세울 수 있나요?",
+  ],
+  relatedTitle: "베들링턴 테리어가 마음에 들지만 망설여진다면",
+  relatedDescription: "작은 대상을 찾는 테리어와 빠르게 달리는 견종 사이에서 속도와 탐색 방식, 피모와 출입 안전의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "jack-russell-terrier": "움직이는 대상을 빠르게 확인하는 테리어의 집중은 닮았지만 달리는 체형과 운동 방식, 피모 관리가 달라요.",
+    whippet: "짧은 전력 질주와 긴 휴식의 대비는 닮았지만 테리어의 탐색 배경과 폭신한 피모 관리가 더해져요.",
+  },
+});
+
+const finnishLapponianDogDetail = standardBreedDetailSchema.parse({
+  slug: "finnish-lapponian-dog",
+  nameKo: "핀니시 라포니안 독",
+  metadataDescription: "사미 사람들과 순록을 몰고 지킨 핀니시 라포니안 독의 배경과 방향 전환, 알림 뒤 휴식, 더운 계절 동선과 발가락 사이 털 관리를 살펴봅니다.",
+  heroStatement: "북유럽의 넓은 땅에서 사미 사람과 함께 순록의 움직임을 읽고 방향을 바꾸던 민첩한 목양견이에요.",
+  story: {
+    title: "핀니시 라포니안 독은 왜 넓은 움직임을 살피며 사람의 방향 신호와 목소리를 함께 확인할까요?",
+    description: "순록 무리의 흐름을 바꾸고 주변을 알린 배경을 알면 빠른 방향 전환과 알림 뒤 조용히 회복하는 생활 순서를 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "순록 목양의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "사미 사람들과 함께 순록 무리의 방향을 바꾸고 주변을 살폈어요.",
+        body: "핀니시 라포니안 독은 오랫동안 북유럽의 사미 사람들과 순록을 몰고 지키는 일을 했어요. 움직이는 무리의 바깥을 빠르게 오가며 사람의 신호와 주변 변화를 함께 읽는 능력이 중요했어요.",
+        image: "/illustrations/v3/finnish-lapponian-dog-history.webp",
+        imageAlt: "북유럽 설원에서 사미 사람의 방향을 확인하며 순록 무리 바깥을 이동하는 검정과 황갈색 성견 핀니시 라포니안 독 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "움직이는 대상의 바깥을 돌며 사람 신호에 맞춰 방향을 빠르게 바꿀 수 있어요.",
+        body: "넓은 공간에 큰 운동 공과 낮은 표식을 놓고 바깥을 돌아 손 신호에서 방향을 전환하게 해요. 움직임을 몰아붙이기보다 한 바퀴마다 보호자를 확인하고 짧게 멈추는 구간을 넣어요.",
+        image: "/illustrations/v4/finnish-lapponian-dog-feature-direction-change.webp",
+        imageAlt: "넓은 들에서 큰 운동 공의 바깥을 돌다 보호자의 손 신호에 맞춰 방향을 바꾸는 성견 핀니시 라포니안 독 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "주변을 알린 뒤에는 움직임과 목소리를 멈추고 조용히 쉬는 전환이 필요해요.",
+        body: "현관 소리나 빠른 움직임을 알아차린 뒤 목소리와 몸의 활동이 함께 커질 수 있어요. 보호자의 열린 손을 확인하면 도구를 치우고 물과 시원한 매트가 있는 자리에서 쉬게 해요.",
+        image: "/illustrations/v4/finnish-lapponian-dog-feature-voice-to-rest.webp",
+        imageAlt: "보호자가 운동 도구를 바구니에 넣고 열린 손을 보여주는 동안 시원한 매트에서 쉬는 성견 핀니시 라포니안 독 삽화",
+      },
+    ],
+    caution: "순록 목양과 알림의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임과 소리에 대한 반응, 목소리와 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "핀니시 라포니안 독의 생활 현실",
+  realities: [
+    {
+      id: "warm-weather-route",
+      title: "풍성한 이중모에 맞춰 고르는 서늘한 시간과 그늘진 짧은 길",
+      body: "추운 환경에 맞는 촘촘한 속털과 긴 겉털은 더운 계절의 긴 야외 활동에 부담이 될 수 있어요. 이른 시간의 그늘진 짧은 길을 고르고 물과 시원한 매트에서 회복하는 시간을 충분히 둬요.",
+      image: "/illustrations/v4/finnish-lapponian-dog-feature-warm-weather-route.webp",
+      imageAlt: "이른 아침 갈림길의 그늘에서 물그릇과 냉감 매트에 쉬며 보호자와 숲길을 고르는 성견 핀니시 라포니안 독 삽화",
+    },
+    {
+      id: "foot-coat-check",
+      title: "눈과 젖은 길을 지난 뒤 발가락 사이의 촘촘한 털까지 확인하기",
+      body: "발가락 사이의 풍성한 털에는 눈덩이와 물기, 작은 이물질이 남을 수 있어요. 현관의 미끄럼 방지 매트에서 발을 하나씩 들어 털 사이를 살피고 마른 수건으로 충분히 닦아요.",
+      image: "/illustrations/v4/finnish-lapponian-dog-feature-foot-coat-check.webp",
+      imageAlt: "눈길에서 돌아와 보호자가 성견 핀니시 라포니안 독의 발가락 사이 털을 살피는 삽화",
+    },
+  ],
+  readinessTitle: "핀니시 라포니안 독과 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "넓은 공간에서 움직임의 바깥을 돌고 사람 신호에 맞춰 방향을 바꾸는 짧은 과제를 제공할 수 있나요?",
+    "알림 반응 뒤 도구를 치우고 목소리와 움직임을 낮춰 시원한 자리에서 쉬게 할 수 있나요?",
+    "더운 계절에는 그늘진 짧은 길을 고르고 눈이나 젖은 길 뒤 발가락 사이 털을 확인할 수 있나요?",
+  ],
+  relatedTitle: "핀니시 라포니안 독이 마음에 들지만 망설여진다면",
+  relatedDescription: "사람과 움직임을 조율하는 북방 목양견 안에서도 알림 반응과 방향 전환, 더위와 피모 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "shetland-sheepdog": "사람 신호로 움직임을 바꾸고 주변을 알리는 모습은 닮았지만 체격과 북방 이중모, 더위 관리 규모가 달라요.",
+    samoyed: "북부 환경의 풍성한 이중모와 사람 곁 생활은 닮았지만 순록 무리의 방향을 바꾼 목양 배경이 구별돼요.",
+  },
+});
+
 const flatCoatedRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "flat-coated-retriever",
   nameKo: "플랫 코티드 리트리버",
@@ -2345,8 +2546,11 @@ const standardBreedDetails = new Map(
     chesapeakeBayRetrieverDetail,
     airedaleTerrierDetail,
     chowChowDetail,
+    bedlingtonTerrierDetail,
+    finnishLapponianDogDetail,
     flatCoatedRetrieverDetail,
     ...familiarStandardBreedDetails,
+    dalmatianDetail,
   ].map((detail) => [detail.slug, detail]),
 );
 
@@ -2363,6 +2567,7 @@ export {
   akitaDetail,
   australianShepherdDetail,
   basenjiDetail,
+  bedlingtonTerrierDetail,
   berneseMountainDogDetail,
   bichonFriseDetail,
   boxerDetail,
@@ -2371,9 +2576,11 @@ export {
   chesapeakeBayRetrieverDetail,
   chowChowDetail,
   cavalierKingCharlesSpanielDetail,
+  dalmatianDetail,
   englishCockerSpanielDetail,
   englishSpringerSpanielDetail,
   flatCoatedRetrieverDetail,
+  finnishLapponianDogDetail,
   germanShortHairedPointingDogDetail,
   greyhoundDetail,
   giantSchnauzerDetail,

@@ -612,6 +612,55 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    {
+      slug: "dalmatian",
+      storyImages: [
+        "/illustrations/v3/dalmatian-history.webp",
+        "/illustrations/v4/dalmatian-feature-rhythm-loop.webp",
+        "/illustrations/v4/dalmatian-feature-activity-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/dalmatian-feature-visual-cues.webp",
+        "/illustrations/v4/dalmatian-feature-paw-surface-check.webp",
+      ],
+      related: ["weimaraner", "labrador-retriever"],
+    },
+    {
+      slug: "bedlington-terrier",
+      storyImages: [
+        "/illustrations/v3/bedlington-terrier-history.webp",
+        "/illustrations/v4/bedlington-terrier-feature-short-lure-run.webp",
+        "/illustrations/v4/bedlington-terrier-feature-run-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/bedlington-terrier-feature-secure-sightline.webp",
+        "/illustrations/v4/bedlington-terrier-feature-linty-coat-care.webp",
+      ],
+      related: ["jack-russell-terrier", "whippet"],
+    },
+    {
+      slug: "finnish-lapponian-dog",
+      storyImages: [
+        "/illustrations/v3/finnish-lapponian-dog-history.webp",
+        "/illustrations/v4/finnish-lapponian-dog-feature-direction-change.webp",
+        "/illustrations/v4/finnish-lapponian-dog-feature-voice-to-rest.webp",
+      ],
+      realityImages: [
+        "/illustrations/v4/finnish-lapponian-dog-feature-warm-weather-route.webp",
+        "/illustrations/v4/finnish-lapponian-dog-feature-foot-coat-check.webp",
+      ],
+      related: ["shetland-sheepdog", "samoyed"],
+    },
+  ])("adds $slug in the coach-terrier-and-reindeer-herding standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(getBreed(slug)).toBeDefined();
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 
