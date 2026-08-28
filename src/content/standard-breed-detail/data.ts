@@ -3209,6 +3209,207 @@ const bassetHoundDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const afghanHoundDetail = standardBreedDetailSchema.parse({
+  slug: "afghan-hound",
+  nameKo: "아프간 하운드",
+  metadataDescription: "아프가니스탄 산악 지형에서 시야로 대상을 쫓은 아프간 하운드의 짧은 추적과 활동 종료, 이중 출입 안전과 길고 섬세한 피모 관리 현실을 살펴봅니다.",
+  heroStatement: "아프가니스탄의 산악 지형에서 멀리 움직이는 대상을 시야로 찾아 속도와 힘을 함께 사용해 온 장모 시각하운드예요.",
+  story: {
+    title: "아프간 하운드는 왜 멀리 움직이는 대상을 오래 바라보다가 빠르게 움직일까요?",
+    description: "산악 지형의 시각 추적 배경을 알면 먼 움직임에 집중하는 순간과 짧은 질주 뒤 시야를 닫고 쉬는 순서를 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "산악 시각 추적의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "아프가니스탄의 산악 지형에서 시야로 대상을 찾아 추적했어요.",
+        body: "아프간 하운드는 산악 지형에서 사냥에 쓰인 시각하운드로 기록돼 있어요. 멀리 움직이는 대상을 눈으로 확인하고 험한 지면을 달릴 속도와 힘을 함께 갖추도록 정립됐어요.",
+        image: "/illustrations/v3/afghan-hound-history.webp",
+        imageAlt: "아프가니스탄의 넓은 산악 지형에서 사람 곁에 서서 먼 곳을 바라보는 장모 성견 아프간 하운드 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "멀리 움직이는 천 루어를 본 뒤 짧게 달리고 사람 쪽으로 돌아올 수 있어요.",
+        body: "높은 이중 울타리 안에서 생물 대신 먼 천 루어를 한 번만 움직여요. 짧은 질주가 끝나면 보호자의 열린 손을 향해 곡선을 그리며 돌아오게 해요.",
+        image: "/illustrations/v4/afghan-hound-feature-controlled-lure-run.webp",
+        imageAlt: "높은 이중 울타리가 있는 넓은 운동장에서 먼 천 루어를 본 뒤 보호자의 열린 손을 향해 돌아오는 성견 아프간 하운드 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "달리기가 끝나면 루어를 보이지 않게 치우고 바깥 시야까지 낮춰야 해요.",
+        body: "움직이는 도구와 열린 바깥 풍경이 계속 보이면 다시 주변을 살필 수 있어요. 루어와 긴 줄을 닫힌 장에 넣고 커튼을 조절한 뒤 온몸을 받치는 넓은 매트에서 쉬게 해요.",
+        image: "/illustrations/v4/afghan-hound-feature-run-to-rest.webp",
+        imageAlt: "천 루어와 긴 줄이 닫힌 장에 수납되고 바깥 시야가 가려진 방의 넓은 매트에서 쉬는 성견 아프간 하운드 삽화",
+      },
+    ],
+    caution: "사냥에 쓰인 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임을 쫓는 정도와 낯선 사람에게 두는 거리, 활동 뒤 회복은 경험과 환경, 개체에 따라 달라요.",
+  },
+  realitiesTitle: "아프간 하운드의 생활 현실",
+  realities: [
+    {
+      id: "double-gate",
+      title: "바깥 움직임이 보여도 한 번에 열린 공간으로 나가지 않는 이중 출입문",
+      body: "문밖의 빠른 움직임을 보는 순간 긴 보폭으로 출입구를 통과할 수 있어요. 안쪽 안전문 뒤 매트에서 기다리게 한 뒤 바깥문을 닫고 잠금을 확인한 다음에만 안쪽 문을 열어요.",
+      image: "/illustrations/v4/afghan-hound-feature-double-gate.webp",
+      imageAlt: "잠긴 안쪽 안전문 뒤 매트에서 기다리고 보호자는 두 번째 바깥문의 잠금을 확인하는 성견 아프간 하운드 삽화",
+    },
+    {
+      id: "long-coat-check",
+      title: "귀와 옆구리, 발의 긴 털을 작은 구역으로 나누어 확인하는 관리",
+      body: "길고 매우 고운 털에는 마른 풀씨와 작은 이물질이 숨어 피부 가까이 엉킬 수 있어요. 산책 뒤 귀·옆구리·발을 작은 구역으로 나누어 손으로 펼친 다음 넓은 빗으로 끝까지 확인해요.",
+      image: "/illustrations/v4/afghan-hound-feature-long-coat-check.webp",
+      imageAlt: "마른 길 산책 뒤 미끄럼 방지 매트에서 보호자가 성견 아프간 하운드의 긴 옆구리 털을 작은 구역으로 나누어 빗는 삽화",
+    },
+  ],
+  readinessTitle: "아프간 하운드와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "생물을 쫓게 하지 않고 높은 이중 울타리 안에서 짧은 시각 과제와 돌아오기를 연습할 수 있나요?",
+    "현관과 운동장 출입구에 두 개의 잠금 지점을 두고 하나씩 여는 순서를 지킬 수 있나요?",
+    "산책 뒤 귀·옆구리·발의 길고 고운 털을 작은 구역으로 나누어 확인할 수 있나요?",
+  ],
+  relatedTitle: "아프간 하운드가 마음에 들지만 망설여진다면",
+  relatedDescription: "장거리 시야 추적을 해 온 시각하운드 안에서도 형성된 지형과 피모, 질주 뒤 관리 규모의 차이를 살펴보세요.",
+  relatedDifferences: {
+    saluki: "서아시아의 오래된 시각하운드라는 접점은 있지만 살루키의 짧은 몸통 털과 장식털, 아프간 하운드의 긴 전신 피모는 관리 규모가 달라요.",
+    greyhound: "시야로 움직임을 쫓고 빠르게 달리는 점은 닮았지만 그레이하운드의 짧은 피모와 아프간 하운드의 긴 고운 털은 일상 관리가 크게 달라요.",
+  },
+});
+
+const beauceronDetail = standardBreedDetailSchema.parse({
+  slug: "beauceron",
+  nameKo: "보스롱",
+  metadataDescription: "프랑스 평야에서 양 떼를 이끌고 지킨 보스롱의 넓은 경계 이동과 활동 종료, 큰 체구의 출입 동선과 뒷발 이중 며느리발 점검 현실을 살펴봅니다.",
+  heroStatement: "프랑스 평야에서 양 떼의 이동을 이끌고 주변을 지키도록 정립된 크고 단단하며 두려움 없이 협력하는 목양·경비견이에요.",
+  story: {
+    title: "보스롱은 왜 무리 가까이만 머물지 않고 넓은 경계와 사람의 위치를 함께 확인할까요?",
+    description: "프랑스 평야에서 양 떼를 이끌고 지킨 배경을 알면 넓게 움직인 뒤 사람의 신호로 중심에 돌아오는 과제와 충분한 종료를 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "프랑스 목양의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "프랑스 평야에서 양 떼의 이동을 이끌고 주변을 지켰어요.",
+        body: "보스롱은 19세기 말 프랑스 평야의 오래된 목양견 유형에서 이름과 표준이 정리됐어요. 양 떼를 원하는 방향으로 이끄는 일과 주변을 지키는 일을 함께 수행하도록 선발됐어요.",
+        image: "/illustrations/v3/beauceron-history.webp",
+        imageAlt: "프랑스의 넓은 평야 길에서 목자와 함께 양 떼의 이동을 이끄는 검정과 황갈색 성견 보스롱 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "넓은 경계 표식을 따라 걷고 마지막에는 사람 곁의 중심 매트로 돌아올 수 있어요.",
+        body: "울타리 안에 멀리 떨어진 두 표식과 닫힌 문을 두고 보호자와 느슨한 줄로 둘레를 걸어요. 마지막 문에서 열린 손 신호를 확인한 뒤 중앙 매트로 돌아와 멈추게 해요.",
+        image: "/illustrations/v4/beauceron-feature-boundary-return.webp",
+        imageAlt: "울타리 안의 두 경계 표식과 닫힌 문을 지난 뒤 보호자의 열린 손과 중앙 매트로 돌아오는 성견 보스롱 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "넓은 이동이 끝나면 표식과 줄을 치우고 큰 몸 전체가 쉬는 시간을 마련해야 해요.",
+        body: "도구와 바깥문이 계속 보이면 다음 경계 이동을 기다릴 수 있어요. 표식과 긴 줄을 장에 넣고 문을 닫은 다음 온몸을 받치는 단단하고 넓은 매트에서 쉬게 해요.",
+        image: "/illustrations/v4/beauceron-feature-work-to-rest.webp",
+        imageAlt: "경계 표식과 긴 줄이 수납된 조용한 농장 방의 크고 단단한 매트에서 쉬는 자연스럽게 접힌 귀의 성견 보스롱 삽화",
+      },
+    ],
+    caution: "목양과 경비의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 낯선 변화에 두는 거리와 넓게 움직이는 방식, 사람 신호에 반응하는 속도는 경험과 환경, 개체에 따라 달라요.",
+  },
+  realitiesTitle: "보스롱의 생활 현실",
+  realities: [
+    {
+      id: "wide-doorway-halt",
+      title: "큰 체구가 방향을 바꾸고 나란히 멈출 수 있는 넓고 미끄럽지 않은 현관",
+      body: "큰 몸과 긴 보폭은 좁은 현관에서 사람과 신발장 사이를 돌 때 부딪힘을 만들 수 있어요. 문 앞 바닥을 비우고 큰 미끄럼 방지 매트를 깐 뒤 느슨한 줄로 나란히 멈추는 순서를 연습해요.",
+      image: "/illustrations/v4/beauceron-feature-wide-doorway-halt.webp",
+      imageAlt: "비어 있는 넓은 현관의 미끄럼 방지 매트에서 보호자와 나란히 멈춘 자연스럽게 접힌 귀의 성견 보스롱 삽화",
+    },
+    {
+      id: "double-dewclaw-check",
+      title: "들판 활동 뒤 큰 발바닥과 뒷발의 두 며느리발을 함께 살피는 점검",
+      body: "보스롱은 뒷발마다 서로 분리된 두 며느리발이 있는 것이 품종 특징이에요. 활동 뒤 다리를 받친 채 발바닥과 발가락 사이, 두 며느리발의 발톱과 주변 피부를 차례로 확인해요.",
+      image: "/illustrations/v4/beauceron-feature-double-dewclaw-check.webp",
+      imageAlt: "들판 활동 뒤 미끄럼 방지 매트에서 보호자가 검정과 황갈색 성견 보스롱의 뒷발과 이중 며느리발을 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "보스롱과 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "넓은 경계 이동 뒤 사람 곁의 중심 매트로 돌아오고 멈추는 순서를 꾸준히 연습할 수 있나요?",
+    "큰 몸이 현관과 실내에서 안전하게 방향을 바꿀 넓고 미끄럽지 않은 동선을 마련할 수 있나요?",
+    "활동 뒤 큰 발과 뒷발의 두 며느리발, 발톱과 주변 피부를 하나씩 확인할 수 있나요?",
+  ],
+  relatedTitle: "보스롱이 마음에 들지만 망설여진다면",
+  relatedDescription: "유럽의 큰 목양·경비견 안에서도 무리를 다루는 거리와 피모, 큰 몸을 관리하는 생활 규모의 차이를 살펴보세요.",
+  relatedDifferences: {
+    briard: "프랑스 평야에서 양 떼를 이끌고 지킨 배경은 닮았지만 브리아드의 긴 피모와 보스롱의 짧고 단단한 이중모는 관리 방식이 달라요.",
+    "german-shepherd-dog": "목양과 경비에서 사람과 협력한 점은 닮았지만 형성된 지역과 체형, 보스롱의 뒷발 이중 며느리발 같은 품종 특징을 따로 봐야 해요.",
+  },
+});
+
+const bostonTerrierDetail = standardBreedDetailSchema.parse({
+  slug: "boston-terrier",
+  nameKo: "보스턴 테리어",
+  metadataDescription: "미국에서 사람 곁의 반려견으로 정립된 보스턴 테리어의 짧은 가족 참여와 활동 종료, 더운 날의 그늘 동선과 돌출된 눈 높이 환경 관리 현실을 살펴봅니다.",
+  heroStatement: "미국에서 사람과 가까이 지내는 반려견으로 정립된 작고 단단하며 활기차고 영리한 도시 생활의 동반자예요.",
+  story: {
+    title: "보스턴 테리어는 왜 짧은 놀이에서도 사람의 손과 표정을 계속 확인하며 참여할까요?",
+    description: "사람 곁의 반려견으로 정립된 배경을 알면 가족 활동에 참여하는 짧은 과제와 편안한 호흡으로 돌아오는 종료를 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "미국 반려견의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "미국에서 작고 단정한 사람 곁의 반려견으로 정립됐어요.",
+        body: "보스턴 테리어는 미국에서 활기차고 영리한 반려견으로 정립된 품종이에요. 짧고 단단한 몸과 검정·브린들·실 바탕의 흰 무늬가 조화를 이루는 외형도 중요한 특징으로 자리 잡았어요.",
+        image: "/illustrations/v3/boston-terrier-history.webp",
+        imageAlt: "미국 보스턴의 붉은 벽돌 주택가에서 가족과 함께 서 있는 검정과 흰색 성견 보스턴 테리어 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "낮은 손 표적과 한 개의 부드러운 장난감을 오가는 짧은 가족 놀이에 참여할 수 있어요.",
+        body: "점프나 반복 투척 대신 낮은 매트와 부드러운 장난감 하나를 준비해요. 장난감을 한 번 확인한 뒤 보호자의 낮은 손에 앞발이 아니라 코로 닿고 멈추게 해요.",
+        image: "/illustrations/v4/boston-terrier-feature-short-family-play.webp",
+        imageAlt: "거실의 낮은 매트와 부드러운 장난감 옆에서 보호자의 낮은 손 표적에 코를 대는 검정과 흰색 성견 보스턴 테리어 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "짧은 놀이도 장난감을 치우고 편안한 호흡으로 돌아오는 순간까지 살펴야 해요.",
+        body: "작은 몸이 활기차게 움직였더라도 반복을 바로 이어가지 않아요. 장난감을 닫힌 바구니에 넣고 물과 서늘한 매트를 제공한 뒤 숨과 자세가 편안해지는지 확인해요.",
+        image: "/illustrations/v4/boston-terrier-feature-play-to-rest.webp",
+        imageAlt: "부드러운 장난감이 닫힌 바구니에 수납되고 물그릇 옆 서늘한 매트에서 쉬는 검정과 흰색 성견 보스턴 테리어 삽화",
+      },
+    ],
+    caution: "반려견으로 정립된 배경은 행동을 이해하는 단서일 뿐이에요. 사람에게 다가가는 방식과 놀이 강도, 활동 뒤 호흡 회복은 건강 상태와 경험, 환경과 개체에 따라 달라요.",
+  },
+  realitiesTitle: "보스턴 테리어의 생활 현실",
+  realities: [
+    {
+      id: "cool-route",
+      title: "더운 시간의 긴 산책 대신 그늘에서 짧게 돌아오는 동선",
+      body: "짧은 주둥이를 가진 개는 덥고 습한 환경에서 몸의 열을 식히는 데 더 큰 부담을 느낄 수 있어요. 햇볕이 강해지면 그늘과 물이 있는 짧은 반환 지점을 이용하고 호흡이 편안할 때 활동을 끝내요.",
+      image: "/illustrations/v4/boston-terrier-feature-cool-route.webp",
+      imageAlt: "더운 날 햇볕이 드는 긴 길 대신 나무 그늘과 물그릇이 있는 짧은 반환 지점에서 쉬는 성견 보스턴 테리어 삽화",
+    },
+    {
+      id: "eye-safe-space",
+      title: "큰 눈 높이에 닿는 날카로운 가지와 거친 물건을 치운 생활 공간",
+      body: "크고 둥근 눈은 바닥 가까운 식물 가지나 거친 물체, 빠른 몸싸움에 노출될 수 있어요. 눈 높이의 돌출물을 치우고 밝고 차분한 곳에서 얼굴 주변의 평소 모습과 변화를 짧게 확인해요.",
+      image: "/illustrations/v4/boston-terrier-feature-eye-safe-space.webp",
+      imageAlt: "눈 높이의 식물이 높은 선반으로 옮겨진 방에서 보호자가 검정과 흰색 성견 보스턴 테리어의 얼굴 주변을 살피는 삽화",
+    },
+  ],
+  readinessTitle: "보스턴 테리어와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "점프와 반복 투척 대신 낮은 손 표적과 한 개의 장난감으로 짧은 가족 놀이를 만들 수 있나요?",
+    "덥고 습한 날에는 그늘과 물이 있는 짧은 동선을 선택하고 호흡 회복을 확인할 수 있나요?",
+    "바닥 가까운 날카로운 가지와 거친 물건을 치우고 눈과 얼굴 주변의 변화를 살필 수 있나요?",
+  ],
+  relatedTitle: "보스턴 테리어가 마음에 들지만 망설여진다면",
+  relatedDescription: "짧은 주둥이와 사람 가까운 생활을 공유하는 견종 안에서도 체격과 활동 강도, 얼굴 주변 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "french-bulldog": "짧은 주둥이의 소형 반려견이라는 접점은 있지만 체형과 귀·꼬리의 특징, 움직이는 방식은 품종과 개체마다 따로 살펴야 해요.",
+    boxer: "불도그·테리어형 조상의 접점과 가족 활동 참여는 닮았지만 복서는 훨씬 큰 몸과 힘, 더 넓은 이동 공간을 필요로 해요.",
+  },
+});
+
 const flatCoatedRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "flat-coated-retriever",
   nameKo: "플랫 코티드 리트리버",
@@ -3328,6 +3529,9 @@ const standardBreedDetails = new Map(
     australianCattleDogDetail,
     barbetDetail,
     bassetHoundDetail,
+    afghanHoundDetail,
+    beauceronDetail,
+    bostonTerrierDetail,
     flatCoatedRetrieverDetail,
     ...familiarStandardBreedDetails,
     dalmatianDetail,
@@ -3344,6 +3548,7 @@ export function getAllStandardBreedDetails() {
 
 export {
   airedaleTerrierDetail,
+  afghanHoundDetail,
   alaskanMalamuteDetail,
   akitaDetail,
   australianCattleDogDetail,
@@ -3352,10 +3557,12 @@ export {
   barbetDetail,
   basenjiDetail,
   bassetHoundDetail,
+  beauceronDetail,
   bedlingtonTerrierDetail,
   berneseMountainDogDetail,
   bichonFriseDetail,
   borderTerrierDetail,
+  bostonTerrierDetail,
   boxerDetail,
   brittanySpanielDetail,
   bullTerrierDetail,

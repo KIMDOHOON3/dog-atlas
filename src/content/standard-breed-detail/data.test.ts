@@ -721,6 +721,18 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    { slug: "afghan-hound", storyImages: ["/illustrations/v3/afghan-hound-history.webp", "/illustrations/v4/afghan-hound-feature-controlled-lure-run.webp", "/illustrations/v4/afghan-hound-feature-run-to-rest.webp"], realityImages: ["/illustrations/v4/afghan-hound-feature-double-gate.webp", "/illustrations/v4/afghan-hound-feature-long-coat-check.webp"], related: ["saluki", "greyhound"] },
+    { slug: "beauceron", storyImages: ["/illustrations/v3/beauceron-history.webp", "/illustrations/v4/beauceron-feature-boundary-return.webp", "/illustrations/v4/beauceron-feature-work-to-rest.webp"], realityImages: ["/illustrations/v4/beauceron-feature-wide-doorway-halt.webp", "/illustrations/v4/beauceron-feature-double-dewclaw-check.webp"], related: ["briard", "german-shepherd-dog"] },
+    { slug: "boston-terrier", storyImages: ["/illustrations/v3/boston-terrier-history.webp", "/illustrations/v4/boston-terrier-feature-short-family-play.webp", "/illustrations/v4/boston-terrier-feature-play-to-rest.webp"], realityImages: ["/illustrations/v4/boston-terrier-feature-cool-route.webp", "/illustrations/v4/boston-terrier-feature-eye-safe-space.webp"], related: ["french-bulldog", "boxer"] },
+  ])("adds $slug in the sighthound-shepherd-and-companion standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+    expect(getBreed(slug)).toBeDefined();
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 
