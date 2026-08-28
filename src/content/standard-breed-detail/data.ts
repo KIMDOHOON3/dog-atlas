@@ -2525,6 +2525,87 @@ const englishSetterDetail = standardBreedDetailSchema.parse({
   relatedDifferences: { "german-short-haired-pointing-dog": "넓은 들의 포인팅은 닮았지만 육지·물 과제 전환과 세팅 자세, 장식털 관리가 달라요.", vizsla: "사람과 협력하며 냄새를 찾는 활동성은 닮았지만 탐색 범위와 긴 장식털, 귀 관리 부담이 달라요." },
 });
 
+const alaskanMalamuteDetail = standardBreedDetailSchema.parse({
+  slug: "alaskan-malamute",
+  nameKo: "알래스칸 말라뮤트",
+  metadataDescription: "북극권에서 무거운 짐을 꾸준히 옮긴 알래스칸 말라뮤트의 힘 조절과 활동 종료, 안전한 마당과 계절 이중모 관리 현실을 살펴봅니다.",
+  heroStatement: "북극권에서 속도 경주가 아니라 무거운 짐을 꾸준히 옮기도록 발달한 강한 썰매견이에요.",
+  story: {
+    title: "말라뮤트는 왜 빠르게 달리는 것보다 힘을 일정하게 쓰는 연습이 필요할까요?",
+    description: "북극권의 무거운 화물 운반 배경을 알면 느린 힘 조절과 활동을 끝낸 뒤 충분히 쉬는 순서를 함께 이해할 수 있어요.",
+    steps: [
+      { navLabel: "무거운 운반의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "북극권에서 무거운 짐을 안정적으로 옮기는 썰매견이었어요.", body: "말라뮤트는 북극 환경에서 썰매와 화물을 오래 옮기도록 발달했어요. 빠른 경주보다 균형 잡힌 걸음과 큰 힘을 지치지 않고 이어가는 능력이 중요했어요.", image: "/illustrations/v3/alaskan-malamute-history.webp", imageAlt: "북극권 해안 마을에서 짐을 실은 썰매를 천천히 끄는 회색과 흰색 성견 알래스칸 말라뮤트 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "가벼운 빈 수레를 끌며 느린 출발과 멈춤을 사람 신호에 맞출 수 있어요.", body: "몸에 맞는 하네스로 매우 가벼운 빈 수레를 천천히 끌고 열린 손에서 멈추게 해요. 속도와 무게를 늘리기보다 곧은 이동·넓은 회전·정지를 짧게 연결해요.", image: "/illustrations/v4/alaskan-malamute-feature-steady-freight.webp", imageAlt: "선선한 훈련장에서 가벼운 빈 수레를 끌며 보호자의 손 신호를 확인하는 성견 알래스칸 말라뮤트 삽화" },
+      { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "큰 힘을 쓴 뒤에는 장비를 치우고 시원한 자리에서 길게 쉬어야 해요.", body: "과제가 끝나도 장비가 보이면 다시 움직이려 할 수 있어요. 하네스와 수레를 수납하고 물을 마신 다음 몸 전체를 펼칠 수 있는 시원한 매트에서 쉬게 해요.", image: "/illustrations/v4/alaskan-malamute-feature-work-to-rest.webp", imageAlt: "하네스와 빈 수레가 수납된 방의 넓은 매트에서 몸을 펼쳐 쉬는 성견 알래스칸 말라뮤트 삽화" },
+    ],
+    caution: "무거운 화물 운반의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 당기는 힘과 활동량, 굴파기와 다른 동물에 대한 반응은 경험과 환경, 개체에 따라 달라요.",
+  },
+  realitiesTitle: "알래스칸 말라뮤트의 생활 현실",
+  realities: [
+    { id: "secure-yard", title: "큰 힘과 굴파기를 고려한 이중문과 하단 보강 울타리", body: "한 번 열린 문이나 약한 울타리 아래는 큰 몸이 빠져나갈 통로가 될 수 있어요. 외부 문을 닫은 뒤 안쪽 문을 여는 순서를 정하고 울타리 하단과 잠금장치, 파도 되는 별도 흙 공간을 함께 준비해요.", image: "/illustrations/v4/alaskan-malamute-feature-secure-yard.webp", imageAlt: "보호자가 외부 문 잠금장치를 확인하는 동안 닫힌 안쪽 문 뒤에서 기다리는 성견 알래스칸 말라뮤트 삽화" },
+    { id: "seasonal-undercoat", title: "계절마다 크게 달라지는 촘촘한 속털 빗질", body: "거친 겉털 아래의 촘촘한 속털은 계절에 따라 많이 빠질 수 있어요. 털을 깎기보다 어깨와 옆구리부터 구역을 나누어 빠진 속털을 빗고 피부의 습기와 엉킴을 확인해요.", image: "/illustrations/v4/alaskan-malamute-feature-seasonal-undercoat.webp", imageAlt: "미끄럼 방지 매트에서 보호자가 성견 알래스칸 말라뮤트의 빠진 속털을 구역별로 빗는 삽화" },
+  ],
+  readinessTitle: "알래스칸 말라뮤트와 보낼 일상을 생각해보세요.",
+  readinessQuestions: ["속도를 높이지 않고 큰 힘을 느린 출발·넓은 회전·멈춤 안에서 조절할 수 있나요?", "이중문과 하단 보강 울타리, 안전하게 파도 되는 공간을 마련할 수 있나요?", "더운 계절의 활동 시간을 줄이고 계절 털갈이 빗질을 꾸준히 이어갈 수 있나요?"],
+  relatedTitle: "알래스칸 말라뮤트가 마음에 들지만 망설여진다면",
+  relatedDescription: "북방 썰매견 안에서도 속도와 운반 규모, 사람과의 협력 방식과 이중모 관리의 차이를 살펴보세요.",
+  relatedDifferences: { "siberian-husky": "같은 북방 썰매견이지만 빠르고 가벼운 운행과 무거운 화물 운반이라는 기능적 중심이 달라요.", "yakutian-laika": "추운 지역의 썰매 협력과 이중모는 닮았지만 야쿠티안 라이카의 여러 생활 작업과 말라뮤트의 무거운 운반 비중이 달라요." },
+});
+
+const rhodesianRidgebackDetail = standardBreedDetailSchema.parse({
+  slug: "rhodesian-ridgeback",
+  nameKo: "로디지안 리지백",
+  metadataDescription: "남부 아프리카에서 사냥감을 추적하고 거리를 유지한 로디지안 리지백의 넓은 탐색과 회복, 추적 안전과 등 위 리지 관리 현실을 살펴봅니다.",
+  heroStatement: "남부 아프리카에서 넓은 범위를 추적하고 대상과 거리를 유지하도록 발달한 지구력 있는 하운드예요.",
+  story: {
+    title: "리지백은 왜 냄새를 따라 멀리 움직인 뒤에도 보호자와 다시 연결하는 연습이 필요할까요?",
+    description: "넓은 지역에서 사냥감을 추적하고 거리를 유지한 배경을 알면 긴 탐색과 돌아오기, 과제 뒤 회복을 한 흐름으로 이해할 수 있어요.",
+    steps: [
+      { navLabel: "거리 추적의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "남부 아프리카에서 사냥감을 추적하고 안전한 거리를 유지했어요.", body: "리지백은 넓은 지형에서 사냥감을 추적하고 민첩하게 거리를 유지하며 사람의 도착을 기다렸어요. 이 역할에는 긴 범위를 움직이는 지구력과 스스로 판단하는 능력이 필요했어요.", image: "/illustrations/v3/rhodesian-ridgeback-history.webp", imageAlt: "남부 아프리카의 넓은 초원에서 사람과 함께 먼 방향을 살피고 냄새를 추적하는 로디지안 리지백 두 마리 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "긴 줄 안에서 냄새 길을 따라가며 보호자와 거리를 조절할 수 있어요.", body: "울타리가 있는 넓은 길에 천 조각으로 짧은 냄새 경로를 만들고 긴 줄로 탐색할 거리를 줘요. 목표에 도착한 뒤 보호자에게 돌아오고 줄을 정리하는 순서까지 한 과제로 구성해요.", image: "/illustrations/v4/rhodesian-ridgeback-feature-distance-tracking.webp", imageAlt: "울타리가 있는 마른 풀길에서 긴 줄로 천 조각의 냄새 경로를 찾는 성견 로디지안 리지백 삽화" },
+      { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "넓게 움직인 날에는 추적 도구를 치우고 몸을 길게 펼쳐 회복해야 해요.", body: "긴 탐색 뒤에는 다음 자극보다 호흡과 몸의 긴장이 낮아지는 시간이 필요해요. 긴 줄과 냄새 천을 수납하고 물을 마신 뒤 넓은 매트에서 방해받지 않고 쉬게 해요.", image: "/illustrations/v4/rhodesian-ridgeback-feature-tracking-to-rest.webp", imageAlt: "긴 줄과 냄새 천이 수납된 조용한 방의 넓은 매트에서 몸을 펼쳐 쉬는 성견 로디지안 리지백 삽화" },
+    ],
+    caution: "사냥감을 추적한 과거 배경은 행동을 이해하는 단서일 뿐이에요. 추적 거리와 낯선 대상에 대한 반응, 돌아오는 속도는 경험과 환경, 개체에 따라 달라요.",
+  },
+  realitiesTitle: "로디지안 리지백의 생활 현실",
+  realities: [
+    { id: "pursuit-u-turn", title: "빠르게 움직이는 대상을 보아도 돌아올 수 있는 넓은 안전거리", body: "먼 곳의 작은 동물이나 빠른 물체가 시야에 들어오면 긴 보폭으로 접근하려 할 수 있어요. 높은 울타리 안이나 긴 줄을 쓸 수 있는 넓은 장소에서 움직임을 본 뒤 보호자의 열린 손으로 돌아오는 방향 전환을 연습해요.", image: "/illustrations/v4/rhodesian-ridgeback-feature-pursuit-u-turn.webp", imageAlt: "높은 울타리 운동장에서 먼 이동 장난감 대신 보호자의 손 신호로 돌아서는 성견 로디지안 리지백 삽화" },
+    { id: "ridge-check", title: "등 위 리지와 짧은 털 아래 피부를 함께 살피는 몸 점검", body: "등 중앙의 털이 반대 방향으로 자라는 리지는 이 견종의 뚜렷한 외형 특징이에요. 밝은 곳에서 등선을 따라 털과 피부 상태를 짧게 살피고 고무 장갑으로 온몸을 부드럽게 정리해요.", image: "/illustrations/v4/rhodesian-ridgeback-feature-ridge-check.webp", imageAlt: "미끄럼 방지 매트에서 보호자가 성견 로디지안 리지백의 등 위 리지와 짧은 털을 살피는 삽화" },
+  ],
+  readinessTitle: "로디지안 리지백과 보낼 일상을 생각해보세요.",
+  readinessQuestions: ["긴 줄 안에서 넓게 탐색한 뒤 보호자에게 돌아오고 도구를 정리하는 순서를 연습할 수 있나요?", "빠른 움직임과 야생동물이 보이는 길에서 높은 울타리나 충분한 우회 거리를 확보할 수 있나요?", "활동 뒤 몸을 길게 펼칠 휴식 자리와 등 위 리지·짧은 털을 살필 시간을 마련할 수 있나요?"],
+  relatedTitle: "로디지안 리지백이 마음에 들지만 망설여진다면",
+  relatedDescription: "아프리카의 사냥 배경을 지닌 하운드와 시각하운드 안에서도 추적 방식과 거리, 생활 안전의 차이를 살펴보세요.",
+  relatedDifferences: { basenji: "아프리카의 사냥 배경과 독립적인 판단은 닮았지만 체격과 이동 범위, 리지백의 긴 거리 추적 부담이 달라요.", greyhound: "긴 다리와 빠른 움직임은 닮았지만 시각 중심의 짧은 질주와 냄새를 섞은 장거리 추적이라는 생활 리듬이 달라요." },
+});
+
+const collieRoughDetail = standardBreedDetailSchema.parse({
+  slug: "collie-rough",
+  nameKo: "러프 콜리",
+  metadataDescription: "스코틀랜드 목동의 작업 콜리에서 정립된 러프 콜리의 넓은 방향 조절과 활동 종료, 움직임 알림과 풍성한 장모 관리 현실을 살펴봅니다.",
+  heroStatement: "스코틀랜드 목동의 작업 콜리에서 정립되어 양의 흐름과 사람 신호를 함께 읽어 온 장모 목양견이에요.",
+  story: {
+    title: "러프 콜리는 왜 움직임의 바깥을 넓게 돌며 사람의 방향 신호를 확인할까요?",
+    description: "스코틀랜드 목초지에서 양을 모은 배경을 알면 움직임을 읽는 관심과 넓은 방향 조절, 활동 뒤 휴식을 함께 이해할 수 있어요.",
+    steps: [
+      { navLabel: "목양 작업의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "스코틀랜드 목동의 작업 콜리에서 장모 목양견으로 정립됐어요.", body: "러프 콜리는 목초지에서 양의 흐름을 읽고 사람의 신호에 맞춰 무리를 모으던 작업 콜리에서 발달했어요. 아름다운 장모가 강조된 뒤에도 가볍고 효율적으로 움직이는 목양견의 바탕을 유지했어요.", image: "/illustrations/v3/collie-rough-history.webp", imageAlt: "스코틀랜드 언덕 목초지에서 목동의 신호에 맞춰 양 떼 바깥을 움직이는 세이블 성견 러프 콜리 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "넓은 호를 그리며 움직임의 바깥을 돌고 사람 신호에서 방향을 바꿀 수 있어요.", body: "울타리가 있는 잔디밭에 큰 표식을 넓게 두고 바깥을 한 바퀴 돌게 해요. 강한 응시를 오래 이어가기보다 보호자의 팔 방향을 확인하고 넓게 돌기·멈춤·돌아오기를 짧게 연결해요.", image: "/illustrations/v4/collie-rough-feature-wide-direction.webp", imageAlt: "넓은 잔디밭에서 큰 표식 바깥을 돌며 보호자의 방향 신호를 확인하는 세이블 성견 러프 콜리 삽화" },
+      { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "움직임을 살피는 활동 뒤에는 도구를 치우고 조용히 쉬는 전환이 필요해요.", body: "표식과 긴 줄이 계속 보이면 주변 움직임을 다시 확인하려 할 수 있어요. 도구를 상자에 넣고 물을 마신 다음 시야가 단순한 매트에서 몸의 긴장을 낮추게 해요.", image: "/illustrations/v4/collie-rough-feature-work-to-rest.webp", imageAlt: "표식과 긴 줄이 수납된 방의 넓은 매트에서 편안히 쉬는 세이블 성견 러프 콜리 삽화" },
+    ],
+    caution: "목양 작업의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임에 대한 관심과 알림 반응, 사람 신호에 집중하는 정도는 경험과 환경, 개체에 따라 달라요.",
+  },
+  realitiesTitle: "러프 콜리의 생활 현실",
+  realities: [
+    { id: "movement-reorientation", title: "자전거와 방문 움직임을 본 뒤 보호자에게 돌아오는 알림 전환", body: "문 밖의 자전거나 사람이 움직이면 게이트 가까이에서 오래 살필 수 있어요. 닫힌 문과 충분한 거리 안에서 움직임을 본 뒤 보호자의 열린 손을 확인하고 안쪽 매트로 돌아오는 순서를 연습해요.", image: "/illustrations/v4/collie-rough-feature-movement-reorientation.webp", imageAlt: "닫힌 마당 문 밖 자전거를 본 뒤 보호자의 손 신호를 따라 안쪽 매트로 돌아오는 성견 러프 콜리 삽화" },
+    { id: "line-brushing", title: "귀 뒤와 가슴·뒷다리 장식털까지 나누어 빗는 풍성한 이중모", body: "촘촘한 속털과 긴 겉털은 겉만 쓸어서는 안쪽 엉킴을 놓칠 수 있어요. 귀 뒤와 가슴 갈기, 겨드랑이와 뒷다리 장식털을 작은 구역으로 나누어 피부 가까이부터 빗어요.", image: "/illustrations/v4/collie-rough-feature-line-brushing.webp", imageAlt: "미끄럼 방지 매트에서 보호자가 성견 러프 콜리의 귀 뒤와 가슴·뒷다리 장식털을 나누어 빗는 삽화" },
+  ],
+  readinessTitle: "러프 콜리와 보낼 일상을 생각해보세요.",
+  readinessQuestions: ["움직임의 바깥을 넓게 돌고 사람 신호에서 방향을 바꾸는 짧은 과제를 제공할 수 있나요?", "문 밖 움직임을 본 뒤 보호자에게 돌아와 안쪽 매트에서 쉬는 순서를 연습할 수 있나요?", "귀 뒤와 가슴·겨드랑이·뒷다리 장식털을 작은 구역으로 나누어 꾸준히 빗을 수 있나요?"],
+  relatedTitle: "러프 콜리가 마음에 들지만 망설여진다면",
+  relatedDescription: "콜리형 목양견 안에서도 체격과 움직임 집중, 알림 반응과 장모 관리의 차이를 살펴보세요.",
+  relatedDifferences: { "shetland-sheepdog": "사람 신호와 주변 움직임을 읽는 모습은 닮았지만 체격과 활동 범위, 풍성한 장모를 관리하는 규모가 달라요.", "border-collie": "목양 배경과 빠른 학습은 닮았지만 강한 응시·작업 집중의 정도와 러프 콜리의 장모 관리가 달라요." },
+});
+
 const flatCoatedRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "flat-coated-retriever",
   nameKo: "플랫 코티드 리트리버",
@@ -2632,6 +2713,9 @@ const standardBreedDetails = new Map(
     leonbergerDetail,
     bullTerrierDetail,
     englishSetterDetail,
+    alaskanMalamuteDetail,
+    rhodesianRidgebackDetail,
+    collieRoughDetail,
     flatCoatedRetrieverDetail,
     ...familiarStandardBreedDetails,
     dalmatianDetail,
@@ -2648,6 +2732,7 @@ export function getAllStandardBreedDetails() {
 
 export {
   airedaleTerrierDetail,
+  alaskanMalamuteDetail,
   akitaDetail,
   australianShepherdDetail,
   basenjiDetail,
@@ -2660,6 +2745,7 @@ export {
   caneCorsoDetail,
   chesapeakeBayRetrieverDetail,
   chowChowDetail,
+  collieRoughDetail,
   cavalierKingCharlesSpanielDetail,
   dalmatianDetail,
   englishCockerSpanielDetail,
@@ -2681,6 +2767,7 @@ export {
   leonbergerDetail,
   pyreneanMountainDogDetail,
   portugueseWaterDogDetail,
+  rhodesianRidgebackDetail,
   shetlandSheepdogDetail,
   schnauzerDetail,
   whippetDetail,
