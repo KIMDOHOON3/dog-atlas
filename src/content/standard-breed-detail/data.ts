@@ -2444,6 +2444,87 @@ const finnishLapponianDogDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const leonbergerDetail = standardBreedDetailSchema.parse({
+  slug: "leonberger",
+  nameKo: "레온베르거",
+  metadataDescription: "독일 레온베르크에서 정립된 레온베르거의 큰 힘과 협력, 활동 종료, 차량 경사로와 젖은 장모 관리 현실을 살펴봅니다.",
+  heroStatement: "독일 레온베르크에서 사람 곁의 큰 생활견으로 정립되어 농장과 수레 작업에도 힘을 보탠 초대형 장모견이에요.",
+  story: {
+    title: "레온베르거는 왜 큰 몸의 힘을 사람의 속도와 방향에 맞추는 연습이 필요할까요?",
+    description: "사람 곁에서 수레와 여러 작업을 도운 배경을 알면 큰 힘을 천천히 조절하는 협력과 활동 뒤 충분한 회복을 함께 이해할 수 있어요.",
+    steps: [
+      { navLabel: "생활·작업의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "19세기 독일 레온베르크에서 큰 생활견으로 정립되어 농장과 수레 작업에도 참여했어요.", body: "레온베르거는 사자를 닮은 인상적인 개를 목표로 정립됐고 이후 가정과 농장 가까이에서 여러 일을 도왔어요. 큰 몸의 힘을 사람과 같은 방향으로 천천히 사용하는 능력이 중요했어요.", image: "/illustrations/v3/leonberger-history.webp", imageAlt: "마을 물가에서 사람 곁의 수레를 끌며 작업을 돕는 황금빛 성견 레온베르거 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "가벼운 빈 수레를 끌며 사람의 손 신호에 맞춰 넓게 방향을 바꿀 수 있어요.", body: "낮은 표식 사이에서 가벼운 빈 수레를 천천히 끌고 열린 손에서 방향을 바꾸게 해요. 무게와 거리를 늘리기보다 느린 출발·넓은 회전·멈춤을 짧게 연결해요.", image: "/illustrations/v4/leonberger-feature-controlled-cart.webp", imageAlt: "넓은 마당에서 가벼운 빈 수레를 끌며 보호자의 손 신호에 맞춰 도는 성견 레온베르거 삽화" },
+      { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "큰 몸의 활동은 장비를 풀고 넓게 누워 쉬는 시간까지 포함해야 해요.", body: "과제 뒤에는 체온과 호흡이 천천히 안정될 충분한 공간이 필요해요. 수레와 하네스를 치우고 물을 마신 다음 몸 전체를 펼칠 수 있는 시원한 매트에서 쉬게 해요.", image: "/illustrations/v4/leonberger-feature-work-to-rest.webp", imageAlt: "보호자가 하네스를 수납하는 동안 물그릇 옆 넓은 매트에 몸을 펼쳐 쉬는 성견 레온베르거 삽화" },
+    ],
+    caution: "농장과 수레 작업의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 힘과 활동량, 물 선호와 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "레온베르거의 생활 현실",
+  realities: [
+    { id: "vehicle-ramp", title: "사람이 들어 옮길 수 없는 초대형 몸을 위한 넓고 낮은 차량 경사로", body: "지치거나 다친 초대형견을 사람이 안아 차량에 싣기는 어려워요. 미끄럽지 않은 넓은 경사로에 천천히 오르고 낮은 적재 공간에서 방향을 바꾸는 경험을 미리 익혀요.", image: "/illustrations/v4/leonberger-feature-vehicle-ramp.webp", imageAlt: "보호자의 느슨한 리드와 손 표적을 따라 넓은 경사로로 차량에 오르는 성견 레온베르거 삽화" },
+    { id: "wet-coat-drying", title: "물 활동 뒤 피부 가까이까지 나누어 말리는 풍성한 장모", body: "두꺼운 이중모와 가슴·다리의 긴 털에는 물기가 오래 남을 수 있어요. 귀 뒤와 가슴, 겨드랑이와 다리 털을 구역별로 나누어 닦고 피부 가까이까지 충분히 말려요.", image: "/illustrations/v4/leonberger-feature-wet-coat-drying.webp", imageAlt: "미끄럼 방지 매트에서 보호자가 젖은 성견 레온베르거의 긴 털을 나누어 수건으로 말리는 삽화" },
+  ],
+  readinessTitle: "레온베르거와 보낼 일상을 생각해보세요.",
+  readinessQuestions: ["초대형견의 힘을 느린 출발·넓은 회전·멈춤 안에서 조절하는 협업을 연습할 수 있나요?", "몸 전체를 펼칠 서늘한 휴식 자리와 스스로 차량에 오를 넓은 경사로를 준비할 수 있나요?", "물 활동 뒤 풍성한 이중모를 피부 가까이까지 나누어 말릴 시간을 마련할 수 있나요?"],
+  relatedTitle: "레온베르거가 마음에 들지만 망설여진다면",
+  relatedDescription: "초대형 장모견 안에서도 물과 운반 작업, 이동 장비와 피모 관리의 차이를 살펴보세요.",
+  relatedDifferences: { newfoundland: "거대한 장모와 물가 작업은 닮았지만 수상 구조·운반의 중심과 육상 수레 협력의 비중이 달라요.", "saint-bernard": "초대형 몸과 사람 곁 생활은 닮았지만 산악 구조의 역사와 수레·농장 협력, 피모 관리가 달라요." },
+});
+
+const bullTerrierDetail = standardBreedDetailSchema.parse({
+  slug: "bull-terrier",
+  nameKo: "불테리어",
+  metadataDescription: "19세기 영국에서 현재 형태로 정립된 불테리어의 단단한 몸과 놀이 전환, 안전한 인사 동선과 협력적인 몸 점검을 살펴봅니다.",
+  heroStatement: "독특한 달걀형 머리와 균형 잡힌 단단한 몸으로 19세기 영국에서 현재 형태가 정립된 활기찬 테리어예요.",
+  story: {
+    title: "불테리어는 왜 힘 있게 놀이하는 동안에도 사람의 중단 신호를 확인해야 할까요?",
+    description: "단단하고 활동적인 테리어로 정립된 배경을 알면 몸 전체를 쓰는 놀이와 흥분을 낮춰 쉬는 전환을 함께 이해할 수 있어요.",
+    steps: [
+      { navLabel: "품종 정립의 배경", eyebrow: "1단계 · 어떤 배경에서 출발했을까?", title: "19세기 영국에서 균형 잡힌 몸과 달걀형 머리를 지닌 테리어로 정립됐어요.", body: "제임스 힝크스가 1850년대에 현재의 품종 형태를 다듬었고 1862년 버밍엄에서 선보였어요. 크기 수치 하나보다 단단하면서도 균형 잡히고 활동적인 몸이 중요하게 여겨졌어요.", image: "/illustrations/v3/bull-terrier-history.webp", imageAlt: "19세기 영국 전람회에서 균형 잡힌 흰색 성견 불테리어의 모습을 살피는 사람들 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "큰 공을 밀며 몸 전체를 쓰다가 열린 손 앞에서 움직임을 멈출 수 있어요.", body: "울타리가 있는 공간에서 부드러운 큰 공을 낮은 표식 사이로 한 번 밀게 해요. 공을 계속 쫓게 하기보다 보호자의 열린 손을 확인하면 멈추고 방향을 바꾸는 구간을 넣어요.", image: "/illustrations/v4/bull-terrier-feature-full-body-play.webp", imageAlt: "울타리 마당에서 큰 공을 밀다 보호자의 열린 손 신호를 확인하는 흰색 성견 불테리어 삽화" },
+      { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "힘 있는 놀이 뒤에는 큰 공을 치우고 안전한 씹기와 휴식으로 전환해야 해요.", body: "움직이는 장난감이 계속 보이면 다시 몸을 쓰려 할 수 있어요. 큰 공을 닫힌 상자에 넣고 물을 마신 뒤 매트에서 안전한 씹을 거리를 사용하며 쉬게 해요.", image: "/illustrations/v4/bull-terrier-feature-play-to-rest.webp", imageAlt: "보호자가 큰 공을 상자에 넣는 동안 매트에서 안전한 장난감을 씹으며 쉬는 성견 불테리어 삽화" },
+    ],
+    caution: "품종 정립과 테리어의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 놀이 강도와 다른 사람·동물에 대한 반응, 회복 속도는 경험과 환경, 개체에 따라 달라요.",
+  },
+  realitiesTitle: "불테리어의 생활 현실",
+  realities: [
+    { id: "visitor-gate", title: "큰 힘으로 현관에 먼저 도착하지 않게 만드는 안전문과 인사 거리", body: "방문객을 반기더라도 단단한 몸으로 가까이 돌진하면 모두가 부담스러울 수 있어요. 닫힌 안전문 뒤 매트에서 보호자의 손을 확인하고 방문객과 거리를 둔 채 차분히 인사를 시작해요.", image: "/illustrations/v4/bull-terrier-feature-visitor-gate.webp", imageAlt: "방문객과 거리를 둔 닫힌 안전문 뒤 매트에서 보호자의 손을 확인하는 성견 불테리어 삽화" },
+    { id: "cooperative-body-check", title: "단단한 몸과 짧은 털을 차례로 만져보는 협력 점검", body: "짧은 털은 관리가 단순해 보여도 발과 발톱, 피부와 몸 상태를 정기적으로 살펴야 해요. 미끄럼 방지 매트에서 한 부위씩 짧게 만지고 고무 브러시와 발 점검을 편안한 경험으로 만들어요.", image: "/illustrations/v4/bull-terrier-feature-cooperative-body-check.webp", imageAlt: "미끄럼 방지 매트에서 보호자가 성견 불테리어의 발과 짧은 털을 차분히 살피는 삽화" },
+  ],
+  readinessTitle: "불테리어와 보낼 일상을 생각해보세요.",
+  readinessQuestions: ["몸 전체를 쓰는 놀이에 열린 손 중단 신호와 방향 전환을 함께 넣을 수 있나요?", "방문객과 안전문으로 거리를 두고 차분히 인사하는 동선을 준비할 수 있나요?", "발·발톱과 짧은 털 아래 몸 상태를 보상과 함께 정기적으로 확인할 수 있나요?"],
+  relatedTitle: "불테리어가 마음에 들지만 망설여진다면",
+  relatedDescription: "활기차고 단단한 몸을 지닌 견종 안에서도 놀이 방식과 힘의 규모, 피모와 더위 관리의 차이를 살펴보세요.",
+  relatedDifferences: { "jack-russell-terrier": "테리어의 끈기와 높은 참여는 닮았지만 몸의 무게와 놀이 충돌, 인사 동선의 부담이 달라요.", boxer: "단단한 몸과 활기찬 사람 교감은 닮았지만 주둥이 길이와 더위 부담, 테리어식 놀이 집중이 달라요." },
+});
+
+const englishSetterDetail = standardBreedDetailSchema.parse({
+  slug: "english-setter",
+  nameKo: "잉글리시 세터",
+  metadataDescription: "영국 들에서 새를 찾아 몸을 낮춰 알린 잉글리시 세터의 넓은 탐색과 세팅, 활동 종료, 야생동물 거리와 장식털 관리를 살펴봅니다.",
+  heroStatement: "영국의 넓은 들에서 냄새를 찾고 새의 위치 앞에 몸을 낮춰 멈추는 세팅 동작으로 사람에게 알렸던 장모 포인팅견이에요.",
+  story: {
+    title: "잉글리시 세터는 왜 넓게 냄새를 훑다가 한 지점 앞에서 몸을 낮춰 멈출까요?",
+    description: "들새를 넓게 탐색하고 세팅 자세로 위치를 알린 배경을 알면 큰 범위의 냄새 찾기와 멈춤, 돌아오기까지 한 흐름으로 이해할 수 있어요.",
+    steps: [
+      { navLabel: "세팅 작업의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "영국의 들에서 새 냄새를 넓게 찾고 몸을 낮춰 멈춰 위치를 알렸어요.", body: "잉글리시 세터는 오래된 세팅 스패니얼 계통에서 정립되어 넓은 들의 새를 찾았어요. 목표 가까이에서 돌진하지 않고 몸을 낮춰 멈추는 세팅 동작으로 사냥꾼에게 위치를 알렸어요.", image: "/illustrations/v3/english-setter-history.webp", imageAlt: "영국의 넓은 습지 들에서 새 앞에 몸을 낮춰 멈춘 성견 잉글리시 세터 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "넓은 지그재그로 냄새를 비교하다 한 지점에서 몸을 낮추고 멈출 수 있어요.", body: "울타리 들판에 향이 다른 천을 넓게 놓고 느슨한 긴 줄로 탐색하게 해요. 정답 지점의 향기 더미 앞에서 몸을 낮추면 바로 확인하고 보호자에게 돌아오는 흐름으로 끝내요.", image: "/illustrations/v4/english-setter-feature-broad-setting-search.webp", imageAlt: "울타리 들판에서 향기 더미를 넓게 탐색하다 몸을 낮추는 성견 잉글리시 세터 삽화" },
+      { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "넓은 탐색 뒤에는 긴 줄과 향기 도구를 닫고 방해 없이 길게 쉬는 시간이 필요해요.", body: "과제가 끝나도 들 냄새와 가방을 살피며 탐색을 이어가려 할 수 있어요. 긴 줄을 감고 향기 천을 닫힌 가방에 넣은 뒤 물과 넓은 매트에서 충분히 쉬게 해요.", image: "/illustrations/v4/english-setter-feature-search-to-rest.webp", imageAlt: "보호자가 긴 줄과 향기 천을 가방에 정리하는 동안 넓은 매트에서 쉬는 성견 잉글리시 세터 삽화" },
+    ],
+    caution: "들새 탐색과 세팅의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 냄새와 야생동물에 대한 반응, 탐색 범위와 회복 속도는 경험과 환경, 개체에 따라 달라요.",
+  },
+  realitiesTitle: "잉글리시 세터의 생활 현실",
+  realities: [
+    { id: "wildlife-distance", title: "새가 날아오르기 전에 긴 줄로 확보하는 거리와 돌아오는 길", body: "들길에서 새나 작은 동물이 갑자기 움직이면 넓은 범위로 따라가려 할 수 있어요. 긴 줄을 사용하고 울타리와 넓은 우회로를 먼저 확인해 보호자의 열린 손으로 돌아오는 선택을 연습해요.", image: "/illustrations/v4/english-setter-feature-wildlife-distance.webp", imageAlt: "멀리 날아오른 새와 거리를 두고 긴 줄로 보호자의 열린 손을 확인하는 성견 잉글리시 세터 삽화" },
+    { id: "feather-coat-check", title: "젖은 들길 뒤 귀와 가슴·다리·꼬리 장식털을 나누어 확인하기", body: "긴 귀와 장식털에는 풀씨와 작은 가지, 물기와 엉킴이 남기 쉬워요. 귀 뒤와 가슴, 겨드랑이·다리·꼬리를 차례로 나누어 빗고 젖은 부분은 속까지 말려요.", image: "/illustrations/v4/english-setter-feature-feather-coat-check.webp", imageAlt: "젖은 들길 뒤 보호자가 성견 잉글리시 세터의 귀와 장식털을 나누어 빗는 삽화" },
+  ],
+  readinessTitle: "잉글리시 세터와 보낼 일상을 생각해보세요.",
+  readinessQuestions: ["넓은 냄새 탐색에 몸을 낮춰 멈추기와 보호자에게 돌아오기를 함께 구성할 수 있나요?", "야생동물이 있는 길에서 긴 줄과 넓은 우회로로 추적 거리를 관리할 수 있나요?", "들길 뒤 긴 귀와 가슴·다리·꼬리 장식털을 나누어 확인하고 말릴 수 있나요?"],
+  relatedTitle: "잉글리시 세터가 마음에 들지만 망설여진다면",
+  relatedDescription: "포인팅견 안에서도 탐색 범위와 멈추는 방식, 피모와 야외 활동 뒤 관리의 차이를 살펴보세요.",
+  relatedDifferences: { "german-short-haired-pointing-dog": "넓은 들의 포인팅은 닮았지만 육지·물 과제 전환과 세팅 자세, 장식털 관리가 달라요.", vizsla: "사람과 협력하며 냄새를 찾는 활동성은 닮았지만 탐색 범위와 긴 장식털, 귀 관리 부담이 달라요." },
+});
+
 const flatCoatedRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "flat-coated-retriever",
   nameKo: "플랫 코티드 리트리버",
@@ -2548,6 +2629,9 @@ const standardBreedDetails = new Map(
     chowChowDetail,
     bedlingtonTerrierDetail,
     finnishLapponianDogDetail,
+    leonbergerDetail,
+    bullTerrierDetail,
+    englishSetterDetail,
     flatCoatedRetrieverDetail,
     ...familiarStandardBreedDetails,
     dalmatianDetail,
@@ -2572,12 +2656,14 @@ export {
   bichonFriseDetail,
   boxerDetail,
   brittanySpanielDetail,
+  bullTerrierDetail,
   caneCorsoDetail,
   chesapeakeBayRetrieverDetail,
   chowChowDetail,
   cavalierKingCharlesSpanielDetail,
   dalmatianDetail,
   englishCockerSpanielDetail,
+  englishSetterDetail,
   englishSpringerSpanielDetail,
   flatCoatedRetrieverDetail,
   finnishLapponianDogDetail,
@@ -2592,6 +2678,7 @@ export {
   novaScotiaDuckTollingRetrieverDetail,
   oldEnglishSheepdogDetail,
   lagottoRomagnoloDetail,
+  leonbergerDetail,
   pyreneanMountainDogDetail,
   portugueseWaterDogDetail,
   shetlandSheepdogDetail,

@@ -661,6 +661,18 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    { slug: "leonberger", storyImages: ["/illustrations/v3/leonberger-history.webp", "/illustrations/v4/leonberger-feature-controlled-cart.webp", "/illustrations/v4/leonberger-feature-work-to-rest.webp"], realityImages: ["/illustrations/v4/leonberger-feature-vehicle-ramp.webp", "/illustrations/v4/leonberger-feature-wet-coat-drying.webp"], related: ["newfoundland", "saint-bernard"] },
+    { slug: "bull-terrier", storyImages: ["/illustrations/v3/bull-terrier-history.webp", "/illustrations/v4/bull-terrier-feature-full-body-play.webp", "/illustrations/v4/bull-terrier-feature-play-to-rest.webp"], realityImages: ["/illustrations/v4/bull-terrier-feature-visitor-gate.webp", "/illustrations/v4/bull-terrier-feature-cooperative-body-check.webp"], related: ["jack-russell-terrier", "boxer"] },
+    { slug: "english-setter", storyImages: ["/illustrations/v3/english-setter-history.webp", "/illustrations/v4/english-setter-feature-broad-setting-search.webp", "/illustrations/v4/english-setter-feature-search-to-rest.webp"], realityImages: ["/illustrations/v4/english-setter-feature-wildlife-distance.webp", "/illustrations/v4/english-setter-feature-feather-coat-check.webp"], related: ["german-short-haired-pointing-dog", "vizsla"] },
+  ])("adds $slug in the giant-terrier-and-setting-dog standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+    expect(getBreed(slug)).toBeDefined();
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 
