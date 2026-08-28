@@ -685,6 +685,18 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    { slug: "miniature-pinscher", storyImages: ["/illustrations/v3/miniature-pinscher-history.webp", "/illustrations/v4/miniature-pinscher-feature-scent-box-search.webp", "/illustrations/v4/miniature-pinscher-feature-search-to-rest.webp"], realityImages: ["/illustrations/v4/miniature-pinscher-feature-doorway-pause.webp", "/illustrations/v4/miniature-pinscher-feature-cold-weather.webp"], related: ["dobermann", "chihuahua"] },
+    { slug: "clumber-spaniel", storyImages: ["/illustrations/v3/clumber-spaniel-history.webp", "/illustrations/v4/clumber-spaniel-feature-leisurely-search.webp", "/illustrations/v4/clumber-spaniel-feature-search-to-rest.webp"], realityImages: ["/illustrations/v4/clumber-spaniel-feature-low-ramp.webp", "/illustrations/v4/clumber-spaniel-feature-ear-feather-check.webp"], related: ["english-cocker-spaniel", "basset-hound"] },
+    { slug: "tibetan-mastiff", storyImages: ["/illustrations/v3/tibetan-mastiff-history.webp", "/illustrations/v4/tibetan-mastiff-feature-boundary-patrol.webp", "/illustrations/v4/tibetan-mastiff-feature-evening-to-rest.webp"], realityImages: ["/illustrations/v4/tibetan-mastiff-feature-visitor-buffer.webp", "/illustrations/v4/tibetan-mastiff-feature-seasonal-undercoat.webp"], related: ["mongolian-bankhar", "newfoundland"] },
+  ])("adds $slug in the small-pinscher-spaniel-and-highland-guardian standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+    expect(getBreed(slug)).toBeDefined();
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 
