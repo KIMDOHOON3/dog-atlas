@@ -697,6 +697,18 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    { slug: "australian-kelpie", storyImages: ["/illustrations/v3/australian-kelpie-history.webp", "/illustrations/v4/australian-kelpie-feature-direction-change.webp", "/illustrations/v4/australian-kelpie-feature-work-to-rest.webp"], realityImages: ["/illustrations/v4/australian-kelpie-feature-movement-redirection.webp", "/illustrations/v4/australian-kelpie-feature-dry-trail-check.webp"], related: ["border-collie", "australian-shepherd"] },
+    { slug: "curly-coated-retriever", storyImages: ["/illustrations/v3/curly-coated-retriever-history.webp", "/illustrations/v4/curly-coated-retriever-feature-gentle-water-delivery.webp", "/illustrations/v4/curly-coated-retriever-feature-retrieve-to-rest.webp"], realityImages: ["/illustrations/v4/curly-coated-retriever-feature-safe-water-exit.webp", "/illustrations/v4/curly-coated-retriever-feature-curl-ear-drying.webp"], related: ["labrador-retriever", "flat-coated-retriever"] },
+    { slug: "border-terrier", storyImages: ["/illustrations/v3/border-terrier-history.webp", "/illustrations/v4/border-terrier-feature-scent-tunnel-search.webp", "/illustrations/v4/border-terrier-feature-search-to-rest.webp"], realityImages: ["/illustrations/v4/border-terrier-feature-lure-u-turn.webp", "/illustrations/v4/border-terrier-feature-harsh-coat-paw-check.webp"], related: ["jack-russell-terrier", "scottish-terrier"] },
+  ])("adds $slug in the kelpie-curly-and-border-terrier standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+    expect(getBreed(slug)).toBeDefined();
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 
