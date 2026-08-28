@@ -709,6 +709,18 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    { slug: "australian-cattle-dog", storyImages: ["/illustrations/v3/australian-cattle-dog-history.webp", "/illustrations/v4/australian-cattle-dog-feature-close-direction.webp", "/illustrations/v4/australian-cattle-dog-feature-work-to-rest.webp"], realityImages: ["/illustrations/v4/australian-cattle-dog-feature-visitor-buffer.webp", "/illustrations/v4/australian-cattle-dog-feature-coat-paw-check.webp"], related: ["australian-kelpie", "border-collie"] },
+    { slug: "barbet", storyImages: ["/illustrations/v3/barbet-history.webp", "/illustrations/v4/barbet-feature-reed-search.webp", "/illustrations/v4/barbet-feature-water-work-to-rest.webp"], realityImages: ["/illustrations/v4/barbet-feature-beard-ear-drying.webp", "/illustrations/v4/barbet-feature-woolly-coat-care.webp"], related: ["poodle", "portuguese-water-dog"] },
+    { slug: "basset-hound", storyImages: ["/illustrations/v3/basset-hound-history.webp", "/illustrations/v4/basset-hound-feature-slow-scent-trail.webp", "/illustrations/v4/basset-hound-feature-scent-to-rest.webp"], realityImages: ["/illustrations/v4/basset-hound-feature-low-ramp.webp", "/illustrations/v4/basset-hound-feature-ear-paw-check.webp"], related: ["beagle", "clumber-spaniel"] },
+  ])("adds $slug in the cattle-water-and-scent-hound standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+    expect(getBreed(slug)).toBeDefined();
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
     const detail = getStandardBreedDetail("lagotto-romagnolo")!;
 
