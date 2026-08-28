@@ -746,6 +746,18 @@ describe("standard breed detail editorial data", () => {
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
   });
 
+  it.each([
+    { slug: "briard", storyImages: ["/illustrations/v3/briard-history.webp", "/illustrations/v4/briard-feature-parallel-lane-turn.webp", "/illustrations/v4/briard-feature-work-to-rest.webp"], realityImages: ["/illustrations/v4/briard-feature-goat-coat-line-brushing.webp", "/illustrations/v4/briard-feature-double-dewclaw-check.webp"], related: ["beauceron", "old-english-sheepdog"] },
+    { slug: "borzoi", storyImages: ["/illustrations/v3/borzoi-history.webp", "/illustrations/v4/borzoi-feature-controlled-straight-lure.webp", "/illustrations/v4/borzoi-feature-sprint-to-rest.webp"], realityImages: ["/illustrations/v4/borzoi-feature-tall-gate-clear-space.webp", "/illustrations/v4/borzoi-feature-silky-coat-care.webp"], related: ["greyhound", "afghan-hound"] },
+    { slug: "italian-pointing-dog", storyImages: ["/illustrations/v3/italian-pointing-dog-history.webp", "/illustrations/v4/italian-pointing-dog-feature-high-air-scent.webp", "/illustrations/v4/italian-pointing-dog-feature-search-to-rest.webp"], realityImages: ["/illustrations/v4/italian-pointing-dog-feature-long-ear-drying.webp", "/illustrations/v4/italian-pointing-dog-feature-field-body-check.webp"], related: ["english-setter", "german-short-haired-pointing-dog"] },
+  ])("adds $slug in the French-herding-Russian-sighthound-and-Italian-pointer standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+    expect(getBreed(slug)).toBeDefined();
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
   it("keeps Bloodhound's current missing-person search separate from its historical wounded-game tracking", () => {
     const detail = getStandardBreedDetail("bloodhound")!;
 
