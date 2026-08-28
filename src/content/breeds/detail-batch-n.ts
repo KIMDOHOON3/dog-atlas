@@ -4,7 +4,7 @@ import { withTopicParticle } from "../../lib/korean-particles";
 const checkedAt = "2026-08-07";
 type Group = "herding" | "guardian-working" | "terrier" | "spitz-primitive" | "scent-hound" | "pointing" | "retriever-spaniel" | "companion" | "sighthound";
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";
-type Seed = { slug: string; nameKo: string; nameEn: string; group: Group; origin: string; role: string; size: string; fciUrl: string };
+type Seed = { slug: string; nameKo: string; nameEn: string; group: Group; origin: string; role: string; size: string; fciUrl: string; akcUrl?: string };
 type Meta = { label: string; tags: readonly string[]; colors: [string, string, string]; levels: [Level, Level, Level, Level, Level, Level]; related: [string, string][]; care: [string, string] };
 
 const meta: Record<Group, Meta> = {
@@ -66,7 +66,7 @@ const seeds: Seed[] = [
   { slug: "pont-audemer-spaniel", nameKo: "퐁 오데메르 스패니얼", nameEn: "Pont-Audemer Spaniel", group: "pointing", origin: "프랑스 노르망디", role: "습지에서 물새를 찾고 회수하는 작업", size: "중형 · 약 52~58cm, 18~24kg", fciUrl: "https://www.fci.be/en/nomenclature/PONT-AUDEMER-SPANIEL-114.html" },
   { slug: "stabyhoun", nameKo: "스타비하운", nameEn: "Stabyhoun", group: "pointing", origin: "네덜란드 프리슬란트", role: "들새를 찾고 작은 사냥감을 회수하는 작업", size: "중형 · 약 48~53cm, 18~25kg", fciUrl: "https://www.fci.be/en/nomenclature/STABIJHOUN-222.html" },
   { slug: "welsh-springer-spaniel", nameKo: "웰시 스프링어 스패니얼", nameEn: "Welsh Springer Spaniel", group: "retriever-spaniel", origin: "영국 웨일스", role: "덤불 속 들새를 찾아 몰아내고 회수하는 작업", size: "중형 · 약 43~48cm, 16~20kg", fciUrl: "https://www.fci.be/en/nomenclature/WELSH-SPRINGER-SPANIEL-126.html" },
-  { slug: "affenpinscher", nameKo: "아펜핀셔", nameEn: "Affenpinscher", group: "companion", origin: "독일", role: "가정과 마구간의 작은 해충을 관리하는 동반 작업", size: "소형 · 약 23~30cm, 3~6kg", fciUrl: "https://www.fci.be/en/nomenclature/AFFENPINSCHER-186.html" },
+  { slug: "affenpinscher", nameKo: "아펜핀셔", nameEn: "Affenpinscher", group: "companion", origin: "독일", role: "가정과 마구간의 작은 해충을 관리하는 동반 작업", size: "소형 · 약 25~30cm, 4~6kg", fciUrl: "https://www.fci.be/Nomenclature/Standards/186g02-en.pdf", akcUrl: "https://www.akc.org/dog-breeds/affenpinscher/" },
   { slug: "kromfohrlander", nameKo: "크롬포어랜더", nameEn: "Kromfohrländer", group: "companion", origin: "독일", role: "사람 곁에서 생활하며 가정에 적응하는 동반", size: "소형~중형 · 약 38~46cm, 9~16kg", fciUrl: "https://www.fci.be/en/nomenclature/KROMFOHRLANDER-192.html" },
   { slug: "biewer-terrier", nameKo: "비버 테리어", nameEn: "Biewer Terrier", group: "companion", origin: "독일", role: "가정에서 사람과 교감하는 소형 동반", size: "소형 · 약 18~28cm, 2~4kg", fciUrl: "https://www.fci.be/en/nomenclature/BIEWER-TERRIER.html" },
   { slug: "polish-greyhound", nameKo: "폴리시 그레이하운드", nameEn: "Polish Greyhound", group: "sighthound", origin: "폴란드", role: "넓은 들에서 시각으로 사냥감을 추적하는 질주", size: "대형 · 약 68~80cm, 27~31kg", fciUrl: "https://www.fci.be/en/nomenclature/POLISH-GREYHOUND-333.html" },
@@ -123,7 +123,10 @@ const makeBreed = (seed: Seed): Breed => {
       { time: "저녁", title: "차분한 마무리", description: "간단한 신호 연습과 부드러운 빗질로 하루의 회복 루틴을 만들어 주세요." },
     ],
     related: m.related.map(([slug, reason]) => ({ slug, reason })),
-    sources: [{ title: `${seed.nameEn} FCI breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt }],
+    sources: [
+      { title: `${seed.nameEn} FCI breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
+      ...(seed.akcUrl ? [{ title: `${seed.nameEn} Dog Breed Information`, organization: "American Kennel Club", url: seed.akcUrl, checkedAt }] : []),
+    ],
   };
 };
 

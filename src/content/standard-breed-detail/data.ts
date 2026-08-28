@@ -3410,6 +3410,234 @@ const bostonTerrierDetail = standardBreedDetailSchema.parse({
   },
 });
 
+const affenpinscherDetail = standardBreedDetailSchema.parse({
+  slug: "affenpinscher",
+  nameKo: "아펜핀셔",
+  metadataDescription: "남부 독일의 집과 마구간에서 작은 해충을 찾던 아펜핀셔의 배경과 안전한 냄새 과제, 작은 몸의 현관 동선과 거친 얼굴 털 관리를 살펴봅니다.",
+  heroStatement: "남부 독일의 집과 마구간에서 작은 해충을 찾다가 사람 곁의 반려견으로 자리 잡은 작고 끈기 있는 핀셔예요.",
+  story: {
+    title: "아펜핀셔의 작은 몸에는 왜 주변을 자세히 찾고 쉽게 물러서지 않는 태도가 남아 있을까요?",
+    description: "집과 마구간의 작은 해충을 찾던 배경을 알면 오늘의 집중적인 탐색과 과제를 끝내고 쉬는 전환을 함께 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "집 안 작업의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "남부 독일의 집과 마구간에서 작은 해충을 찾아내던 개였어요.",
+        body: "아펜핀셔의 조상은 집과 마구간 주변에서 작은 해충을 찾고 몰아내는 역할을 했어요. 작고 단단한 몸으로 좁은 공간을 살피며 쉽게 포기하지 않는 태도가 중요했어요.",
+        image: "/illustrations/v3/affenpinscher-history.webp",
+        imageAlt: "남부 독일의 오래된 마구간과 부엌 사이에서 작은 해충의 흔적을 살피는 검은 성견 아펜핀셔 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "작고 닫힌 냄새 상자를 차례로 확인하고 사람에게 답을 알릴 수 있어요.",
+        body: "살아 있는 동물을 쫓게 하기보다 같은 모양의 뚜껑 있는 상자 세 개에 안전한 냄새 천 하나를 숨겨요. 맞는 상자에서 멈춘 뒤 보호자의 열린 손을 확인하면 과제를 끝내요.",
+        image: "/illustrations/v4/affenpinscher-feature-lidded-box-search.webp",
+        imageAlt: "부엌의 뚜껑 있는 나무 냄새 상자 세 개 중 냄새 천이 든 상자를 찾고 보호자의 열린 손을 보는 검은 성견 아펜핀셔 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "짧은 찾기도 상자를 보이지 않게 치우고 작은 몸이 완전히 쉬는 데까지 이어져야 해요.",
+        body: "찾기 도구가 계속 보이면 다음 냄새를 확인하려 할 수 있어요. 상자를 닫힌 장에 넣고 물을 제공한 다음 단단한 작은 매트에서 몸을 내려놓게 해요.",
+        image: "/illustrations/v4/affenpinscher-feature-search-to-rest.webp",
+        imageAlt: "보호자가 나무 냄새 상자를 닫힌 장에 넣는 동안 작은 매트와 물그릇 옆에서 쉬는 검은 성견 아펜핀셔 삽화",
+      },
+    ],
+    caution: "작은 해충을 찾던 과거 배경은 행동을 이해하는 단서일 뿐이에요. 탐색의 끈기와 낯선 변화에 반응하는 방식은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "아펜핀셔의 생활 현실",
+  realities: [
+    {
+      id: "doorway-foot-space",
+      title: "발밑으로 끼어들지 않게 먼저 정하는 현관 안쪽 대기 자리",
+      body: "아주 작은 몸은 문을 여는 사람의 발과 짐 사이에서 잘 보이지 않을 수 있어요. 현관 안쪽에 눈에 잘 띄는 매트와 닫힌 안전문을 두고 사람이 먼저 나갈 때 그 뒤에서 기다리는 순서를 연습해요.",
+      image: "/illustrations/v4/affenpinscher-feature-doorway-foot-space.webp",
+      imageAlt: "현관 안쪽 매트와 닫힌 안전문 뒤에서 보호자가 먼저 문을 나가는 동안 기다리는 검은 성견 아펜핀셔 삽화",
+    },
+    {
+      id: "rough-coat-face-care",
+      title: "눈썹과 수염까지 나누어 살피는 거칠고 촘촘한 검은 털",
+      body: "거친 몸 털과 덥수룩한 눈썹·수염에는 음식물과 습기, 작은 이물질이 남을 수 있어요. 얼굴을 억지로 붙잡지 않고 빗과 부드러운 천에 익숙해지게 하며 눈과 입 주변을 짧게 확인해요.",
+      image: "/illustrations/v4/affenpinscher-feature-rough-coat-face-care.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 검은 성견 아펜핀셔의 눈썹과 수염을 빗고 부드러운 천으로 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "아펜핀셔와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "살아 있는 동물을 쫓게 하지 않고 뚜껑 있는 상자로 안전한 냄새 찾기와 종료를 제공할 수 있나요?",
+    "작은 몸이 발과 짐 사이에 끼지 않도록 현관 안쪽 매트와 닫힌 안전문을 마련할 수 있나요?",
+    "거친 검은 털과 눈썹·수염을 짧고 편안하게 빗고 얼굴 주변을 확인할 수 있나요?",
+  ],
+  relatedTitle: "아펜핀셔가 마음에 들지만 망설여진다면",
+  relatedDescription: "독일의 작은 핀셔·슈나우저형 견종 안에서도 체형과 탐색 강도, 얼굴 털 관리의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "miniature-schnauzer": "작은 해충을 찾던 배경과 거친 얼굴 털은 닮았지만 체격과 피모 손질 방식, 활동 범위가 달라요.",
+    "miniature-pinscher": "작고 민첩한 독일 핀셔형이라는 접점은 있지만 매끈한 단모와 거친 장모, 일상 관리가 뚜렷하게 달라요.",
+  },
+});
+
+const beardedCollieDetail = standardBreedDetailSchema.parse({
+  slug: "bearded-collie",
+  nameKo: "비어디드 콜리",
+  metadataDescription: "스코틀랜드와 잉글랜드 북부의 험한 목초지에서 양을 몰던 비어디드 콜리의 배경과 넓은 지형 이동, 활동 종료, 젖은 장모와 발 관리를 살펴봅니다.",
+  heroStatement: "스코틀랜드와 잉글랜드 북부의 험한 목초지에서 양 떼의 흐름을 바꾸며 사람과 협력한 활기찬 장모 목양견이에요.",
+  story: {
+    title: "비어디드 콜리는 왜 넓은 지형을 돌아 움직인 뒤에도 사람 쪽 통로로 다시 합류할까요?",
+    description: "험한 목초지에서 양 떼와 지형을 함께 살피던 배경을 알면 오늘의 넓은 곡선 이동과 활동 뒤 회복을 연결해 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "험한 목초지의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "스코틀랜드의 거친 목초지에서 양 떼를 이동시키는 목양견이었어요.",
+        body: "비어디드 콜리는 스코틀랜드와 잉글랜드 북부에서 양을 몰고 목자와 협력하도록 길러졌어요. 돌과 경사가 섞인 지형에서도 무리의 흐름과 사람이 있는 방향을 함께 살피는 움직임이 중요했어요.",
+        image: "/illustrations/v3/bearded-collie-history.webp",
+        imageAlt: "스코틀랜드의 바위와 경사가 있는 목초지에서 양 떼를 목자 쪽으로 이동시키는 회색과 흰색 성견 비어디드 콜리 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "낮은 지형물을 넓게 돌아 사람의 열린 손이 있는 통로로 합류할 수 있어요.",
+        body: "안전하게 울타리 친 공간에 낮고 넓은 지형물 두 개를 두고 점프하지 않는 곡선 길을 만들어요. 개가 넓은 길을 선택해 돌아온 뒤 중앙의 열린 손에서 멈추면 한 번의 이동을 끝내요.",
+        image: "/illustrations/v4/bearded-collie-feature-broad-terrain-route.webp",
+        imageAlt: "울타리 친 언덕 공간에서 낮은 바위 지형물을 넓게 돌아 보호자의 열린 손으로 합류하는 회색과 흰색 성견 비어디드 콜리 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "넓은 이동이 끝나면 길과 줄을 치우고 긴 몸 전체를 받치는 자리에서 쉬게 해야 해요.",
+        body: "지형물과 긴 줄이 계속 보이면 다음 이동을 기다릴 수 있어요. 도구를 닫힌 창고에 넣고 물을 제공한 다음 온몸이 올라가는 넓고 단단한 매트에서 쉬는 순서를 만들어요.",
+        image: "/illustrations/v4/bearded-collie-feature-work-to-rest.webp",
+        imageAlt: "보호자가 지형 패널과 긴 줄을 창고에 넣은 뒤 넓은 매트와 물그릇 옆에서 쉬는 회색과 흰색 성견 비어디드 콜리 삽화",
+      },
+    ],
+    caution: "목양견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직이는 대상에 두는 관심과 이동 범위, 사람에게 합류하는 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  realitiesTitle: "비어디드 콜리의 생활 현실",
+  realities: [
+    {
+      id: "wet-entry-drying",
+      title: "비 오는 산책 뒤 현관에서 먼저 말리는 다리·배·수염의 긴 털",
+      body: "길고 풍성한 털은 젖은 길을 걸은 뒤 다리와 배, 수염에 물기와 흙을 오래 머금을 수 있어요. 씻을 수 있는 큰 현관 매트 위에서 하부 털을 수건으로 눌러 닦고 실내로 들어가요.",
+      image: "/illustrations/v4/bearded-collie-feature-wet-entry-drying.webp",
+      imageAlt: "비 오는 산책 뒤 큰 현관 매트에서 보호자가 회색과 흰색 성견 비어디드 콜리의 젖은 다리와 배 털을 수건으로 말리는 삽화",
+    },
+    {
+      id: "line-brush-pad-check",
+      title: "피부까지 선을 나누어 빗고 발바닥 사이 털도 함께 보는 점검",
+      body: "부드러운 속털과 거칠고 긴 겉털은 겉만 쓸어서는 안쪽 엉킴을 놓칠 수 있어요. 털을 한 줄씩 나누어 피부부터 빗고 발을 편안히 받친 채 패드 사이 털과 이물질을 확인해요.",
+      image: "/illustrations/v4/bearded-collie-feature-line-brush-pad-check.webp",
+      imageAlt: "미끄럼 방지 매트에서 보호자가 회색과 흰색 성견 비어디드 콜리의 긴 이중모를 나누어 빗고 앞발 패드 사이를 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "비어디드 콜리와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "점프보다 넓은 곡선 이동과 사람 쪽 통로 합류를 사용하는 안전한 과제를 구성할 수 있나요?",
+    "비 오는 산책 뒤 현관에서 다리·배·수염의 긴 털을 닦고 충분히 말릴 수 있나요?",
+    "긴 이중모를 피부부터 나누어 빗고 발바닥 사이까지 정기적으로 확인할 수 있나요?",
+  ],
+  relatedTitle: "비어디드 콜리가 마음에 들지만 망설여진다면",
+  relatedDescription: "스코틀랜드와 영국의 목양견 안에서도 움직임을 다루는 방식과 체격, 장모 관리 규모의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "border-collie": "양 떼의 흐름을 바꾸며 사람과 협력한 점은 닮았지만 집중하는 거리와 피모, 활동 뒤 관리 규모가 달라요.",
+    "collie-rough": "스코틀랜드 목양견의 배경과 긴 털은 닮았지만 체형과 이동 방식, 얼굴과 몸의 피모 질감이 달라요.",
+  },
+});
+
+const bloodhoundModernWorkStep = {
+  navLabel: "현재의 역할",
+  eyebrow: "4단계 · 오늘은 어떤 일을 할까?",
+  title: "오늘도 사람의 개별 냄새를 따라 실종자의 이동 경로를 찾는 훈련에 참여해요.",
+  body: "블러드하운드의 뛰어난 후각과 긴 거리 추적 능력은 실종자 수색을 위한 전문 작업에도 활용돼요. 훈련된 개와 핸들러는 냄새 물품에서 시작해 이동 경로를 함께 판단하고 발견한 위치를 수색팀에 알려요.",
+  image: "/illustrations/v4/bloodhound-feature-missing-person-search.webp",
+  imageAlt: "안전한 숲속 실종자 수색 훈련에서 긴 추적줄로 냄새를 따라 자원봉사자를 찾고 핸들러가 무전으로 위치를 알리는 성견 블러드하운드 삽화",
+};
+
+const bloodhoundDetail = standardBreedDetailSchema.parse({
+  slug: "bloodhound",
+  nameKo: "블러드하운드",
+  metadataDescription: "아르덴 지역의 오래된 세인트 휴버트 하운드에서 이어진 블러드하운드의 장거리 냄새 추적과 회복, 실종자 수색 역할, 큰 몸의 이동과 긴 귀 관리를 살펴봅니다.",
+  heroStatement: "한 사람의 희미한 냄새를 긴 거리와 어려운 지형까지 이어서 따라갈 수 있는 크고 온화한 추적 하운드예요.",
+  story: {
+    title: "블러드하운드는 왜 바닥의 한 냄새를 선택하면 먼 거리의 굽은 길까지 천천히 이어서 확인할까요?",
+    description: "아르덴 지역에서 오래 이어진 냄새 추적 배경을 알면 오늘의 긴 탐색, 충분한 회복과 전문 수색 역할을 한 흐름으로 이해할 수 있어요.",
+    steps: [
+      {
+        navLabel: "장거리 추적의 배경",
+        eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+        title: "아르덴의 숲과 험한 길에서 한 냄새의 긴 흔적을 이어서 찾았어요.",
+        body: "블러드하운드는 세인트 휴버트 하운드로 이어지는 오래된 후각견으로, 상처 입은 사냥감의 흔적을 먼 거리까지 추적하는 데 쓰였어요. 어려운 지형에서도 한 냄새를 구분해 오래 따라가는 후각과 지구력이 중요했어요.",
+        image: "/illustrations/v3/bloodhound-history.webp",
+        imageAlt: "아르덴을 떠올리게 하는 숲길에서 긴 줄로 한 냄새의 흔적을 따라가는 검정과 황갈색 성견 블러드하운드 삽화",
+      },
+      {
+        navLabel: "현재의 경향",
+        eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+        title: "긴 줄 안에서 여러 번 굽는 한 냄새 길을 서두르지 않고 끝까지 확인할 수 있어요.",
+        body: "안전한 숲길에 냄새 천으로 긴 경로와 두세 번의 완만한 방향 전환을 만들어요. 편안한 추적 하네스와 긴 줄로 속도를 맞추고 마지막 냄새 주머니를 찾으면 한 번의 과제를 끝내요.",
+        image: "/illustrations/v4/bloodhound-feature-long-scent-route.webp",
+        imageAlt: "여러 번 굽는 숲길에서 긴 추적줄과 하네스로 끝의 냄새 주머니를 찾아가는 검정과 황갈색 성견 블러드하운드 삽화",
+      },
+      {
+        navLabel: "생활의 현실",
+        eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+        title: "긴 추적 뒤에는 줄과 냄새 물품을 닫힌 가방에 넣고 큰 몸 전체가 회복할 시간을 줘야 해요.",
+        body: "코를 오래 사용한 뒤에도 주변 바닥의 다음 흔적을 계속 확인하려 할 수 있어요. 긴 줄을 감아 냄새 물품과 함께 닫힌 가방에 넣고 물을 제공한 다음 온몸을 받치는 큰 매트에서 쉬게 해요.",
+        image: "/illustrations/v4/bloodhound-feature-trail-to-rest.webp",
+        imageAlt: "보호자가 긴 추적줄과 냄새 물품을 가방에 넣는 동안 큰 매트에서 물을 마시고 쉬는 검정과 황갈색 성견 블러드하운드 삽화",
+      },
+      bloodhoundModernWorkStep,
+    ],
+    caution: "장거리 냄새 추적의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 후각 집중과 지구력, 사람과 줄을 맞추는 방식은 훈련과 경험, 건강 상태와 개체에 따라 달라요.",
+  },
+  modernWork: {
+    storyStep: bloodhoundModernWorkStep,
+    title: "블러드하운드는 오늘 어떤 일을 맡고 있을까요?",
+    description: "한 사람의 냄새를 긴 거리와 어려운 지형에서 구분해 이어가는 능력은 실종자의 이동 경로를 찾는 전문 수색 작업에도 활용됩니다.",
+    roles: [
+      {
+        label: "실종자 수색 추적견",
+        title: "사람의 개별 냄새를 따라 이동 경로와 발견 위치를 찾아요.",
+        body: "FCI 표준은 블러드하운드가 실종자를 찾는 경찰 작전에 사용되는 서비스·추적견이라고 설명해요. 실제 작업은 선발과 전문 훈련, 냄새 물품 관리와 핸들러의 줄 읽기, 수색팀과의 협업을 전제로 합니다.",
+        sourceUrls: [
+          "https://www.fci.be/Nomenclature/Standards/084g06-en.pdf",
+          "https://www.akc.org/dog-breeds/bloodhound/",
+        ],
+      },
+    ],
+    caution: "실종자 수색은 선발과 전문 훈련, 현장 팀 운영을 전제로 하는 역할이에요. 모든 블러드하운드가 같은 추적 능력이나 실제 수색 적합성을 보인다는 뜻은 아닙니다.",
+  },
+  realitiesTitle: "블러드하운드의 생활 현실",
+  realities: [
+    {
+      id: "vehicle-ramp",
+      title: "큰 몸이 반복해서 뛰지 않게 마련하는 넓고 미끄럽지 않은 차량 경사로",
+      body: "크고 무거운 몸은 지치거나 아픈 날 높은 적재함을 오르내리는 일 자체가 부담이 될 수 있어요. 낮은 각도의 넓은 경사로를 차에 단단히 고정하고 하네스와 느슨한 줄로 천천히 오르는 순서를 익혀요.",
+      image: "/illustrations/v4/bloodhound-feature-vehicle-ramp.webp",
+      imageAlt: "주차된 차량의 넓고 낮은 미끄럼 방지 경사로를 보호자와 천천히 오르는 검정과 황갈색 성견 블러드하운드 삽화",
+    },
+    {
+      id: "ear-fold-drying",
+      title: "바닥과 물그릇 가까이 닿는 긴 귀와 느슨한 얼굴 피부를 함께 보는 점검",
+      body: "매우 길고 부드러운 귀와 느슨한 머리 피부에는 물기와 작은 이물질이 남을 수 있어요. 산책과 음수 뒤 귀를 받쳐 겉과 안쪽을 부드럽게 말리고 얼굴 주름을 잡아당기지 않은 채 평소 상태를 살펴요.",
+      image: "/illustrations/v4/bloodhound-feature-ear-fold-drying.webp",
+      imageAlt: "큰 미끄럼 방지 매트에서 보호자가 검정과 황갈색 성견 블러드하운드의 긴 귀를 받쳐 수건으로 말리고 얼굴 피부를 확인하는 삽화",
+    },
+  ],
+  readinessTitle: "블러드하운드와 보낼 일상을 생각해보세요.",
+  readinessQuestions: [
+    "안전한 긴 경로에서 하네스와 긴 줄로 한 냄새를 천천히 추적하고 과제를 끝낼 수 있나요?",
+    "큰 몸이 차량과 병원으로 이동할 넓고 낮은 경사로와 온몸을 받치는 휴식 자리를 마련할 수 있나요?",
+    "산책과 음수 뒤 매우 긴 귀와 느슨한 얼굴 피부의 물기와 이물질을 확인할 수 있나요?",
+  ],
+  relatedTitle: "블러드하운드가 마음에 들지만 망설여진다면",
+  relatedDescription: "후각 하운드 안에서도 냄새를 이어가는 거리와 속도, 체격과 긴 귀 관리 규모의 차이를 살펴보세요.",
+  relatedDifferences: {
+    "basset-hound": "바닥 가까운 냄새 추적과 긴 귀는 닮았지만 체고와 체중, 보폭과 차량 이동에 필요한 규모가 달라요.",
+    beagle: "후각을 따라 경로를 이어가는 즐거움은 닮았지만 블러드하운드는 훨씬 큰 몸과 긴 추적 거리, 전문 작업 배경을 지녀요.",
+  },
+});
+
 const flatCoatedRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "flat-coated-retriever",
   nameKo: "플랫 코티드 리트리버",
@@ -3532,6 +3760,9 @@ const standardBreedDetails = new Map(
     afghanHoundDetail,
     beauceronDetail,
     bostonTerrierDetail,
+    affenpinscherDetail,
+    beardedCollieDetail,
+    bloodhoundDetail,
     flatCoatedRetrieverDetail,
     ...familiarStandardBreedDetails,
     dalmatianDetail,
@@ -3548,6 +3779,7 @@ export function getAllStandardBreedDetails() {
 
 export {
   airedaleTerrierDetail,
+  affenpinscherDetail,
   afghanHoundDetail,
   alaskanMalamuteDetail,
   akitaDetail,
@@ -3558,11 +3790,13 @@ export {
   basenjiDetail,
   bassetHoundDetail,
   beauceronDetail,
+  beardedCollieDetail,
   bedlingtonTerrierDetail,
   berneseMountainDogDetail,
   bichonFriseDetail,
   borderTerrierDetail,
   bostonTerrierDetail,
+  bloodhoundDetail,
   boxerDetail,
   brittanySpanielDetail,
   bullTerrierDetail,

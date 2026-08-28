@@ -39,6 +39,7 @@ describe("standard breed detail editorial data", () => {
     const everydayProfiles = details.filter((detail) => !detail.modernWork);
 
     expect(workProfiles.map((detail) => detail.slug).sort()).toEqual([
+      "bloodhound",
       "dobermann",
       "german-shepherd-dog",
       "golden-retriever",
@@ -731,6 +732,30 @@ describe("standard breed detail editorial data", () => {
     expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
     expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
     expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
+  it.each([
+    { slug: "affenpinscher", storyImages: ["/illustrations/v3/affenpinscher-history.webp", "/illustrations/v4/affenpinscher-feature-lidded-box-search.webp", "/illustrations/v4/affenpinscher-feature-search-to-rest.webp"], realityImages: ["/illustrations/v4/affenpinscher-feature-doorway-foot-space.webp", "/illustrations/v4/affenpinscher-feature-rough-coat-face-care.webp"], related: ["miniature-schnauzer", "miniature-pinscher"] },
+    { slug: "bearded-collie", storyImages: ["/illustrations/v3/bearded-collie-history.webp", "/illustrations/v4/bearded-collie-feature-broad-terrain-route.webp", "/illustrations/v4/bearded-collie-feature-work-to-rest.webp"], realityImages: ["/illustrations/v4/bearded-collie-feature-wet-entry-drying.webp", "/illustrations/v4/bearded-collie-feature-line-brush-pad-check.webp"], related: ["border-collie", "collie-rough"] },
+    { slug: "bloodhound", storyImages: ["/illustrations/v3/bloodhound-history.webp", "/illustrations/v4/bloodhound-feature-long-scent-route.webp", "/illustrations/v4/bloodhound-feature-trail-to-rest.webp", "/illustrations/v4/bloodhound-feature-missing-person-search.webp"], realityImages: ["/illustrations/v4/bloodhound-feature-vehicle-ramp.webp", "/illustrations/v4/bloodhound-feature-ear-fold-drying.webp"], related: ["basset-hound", "beagle"] },
+  ])("adds $slug in the small-companion-collie-and-tracking-hound standard-detail batch", ({ slug, storyImages, realityImages, related }) => {
+    const detail = getStandardBreedDetail(slug)!;
+    expect(getBreed(slug)).toBeDefined();
+    expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
+    expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+    expect(Object.keys(detail.relatedDifferences)).toEqual(related);
+  });
+
+  it("keeps Bloodhound's current missing-person search separate from its historical wounded-game tracking", () => {
+    const detail = getStandardBreedDetail("bloodhound")!;
+
+    expect(detail.story.steps[0].body).toContain("상처 입은 사냥감");
+    expect(detail.story.steps[3]).toEqual(detail.modernWork?.storyStep);
+    expect(detail.modernWork?.roles[0].label).toBe("실종자 수색 추적견");
+    expect(detail.modernWork?.roles[0].sourceUrls).toEqual([
+      "https://www.fci.be/Nomenclature/Standards/084g06-en.pdf",
+      "https://www.akc.org/dog-breeds/bloodhound/",
+    ]);
   });
 
   it("keeps Lagotto Romagnolo's current truffle work separate from its original water retrieval", () => {
