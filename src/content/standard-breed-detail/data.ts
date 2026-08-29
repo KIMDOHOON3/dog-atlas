@@ -1,4 +1,5 @@
 import { standardBreedDetailSchema } from "./schema";
+import { milestoneStandardBreedDetails } from "./milestone-data";
 import { familiarStandardBreedDetails } from "./familiar-data";
 
 const japaneseSpitzDetail = standardBreedDetailSchema.parse({
@@ -3968,6 +3969,7 @@ const standardBreedDetails = new Map(
     borzoiDetail,
     italianPointingDogDetail,
     flatCoatedRetrieverDetail,
+    ...milestoneStandardBreedDetails,
     ...familiarStandardBreedDetails,
     dalmatianDetail,
   ].map((detail) => [detail.slug, detail]),

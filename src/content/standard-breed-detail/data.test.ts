@@ -10,6 +10,11 @@ const publicFile = (assetPath: string) => join(process.cwd(), "public", assetPat
 describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
+  it("locks the Poodle-standard milestone at exactly 100 breed details", () => {
+    expect(details).toHaveLength(99);
+    expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
+  });
+
   it("covers every Korea-familiar breed through the standard detail or Poodle module", () => {
     familiarKoreaBreeds.forEach((entry) => {
       expect(entry.slug === "poodle" || getStandardBreedDetail(entry.slug), entry.slug).toBeTruthy();

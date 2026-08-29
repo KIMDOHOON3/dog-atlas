@@ -1,0 +1,301 @@
+import { standardBreedDetailSchema, type StandardBreedDetail } from "./schema";
+
+type MilestoneSeed = {
+  slug: string;
+  nameKo: string;
+  hero: string;
+  backgroundTitle: string;
+  backgroundBody: string;
+  currentTitle: string;
+  currentBody: string;
+  currentImage: string;
+  currentAlt: string;
+  restTitle: string;
+  restBody: string;
+  restImage: string;
+  restAlt: string;
+  realities: [
+    { id: string; title: string; body: string; image: string; alt: string },
+    { id: string; title: string; body: string; image: string; alt: string },
+  ];
+  questions: [string, string, string];
+  related: Record<string, string>;
+};
+
+function createMilestoneDetail(seed: MilestoneSeed): StandardBreedDetail {
+  return standardBreedDetailSchema.parse({
+    slug: seed.slug,
+    nameKo: seed.nameKo,
+    metadataDescription: `${seed.nameKo}의 역할 배경과 오늘 나타날 수 있는 경향, 활동을 마치고 쉬는 흐름과 실제 생활에서 반복할 관리 조건을 살펴봅니다.`,
+    heroStatement: seed.hero,
+    story: {
+      title: `${seed.nameKo}의 과거 역할은 오늘의 생활에서 어떻게 이어질까요?`,
+      description: "과거의 역할은 행동을 단정하는 답이 아니라 오늘 필요한 활동과 안전, 회복 방식을 이해하는 하나의 단서예요.",
+      steps: [
+        {
+          navLabel: "역할의 배경",
+          eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
+          title: seed.backgroundTitle,
+          body: seed.backgroundBody,
+          image: `/illustrations/v3/${seed.slug}-history.webp`,
+          imageAlt: `${seed.nameKo}의 형성 지역과 과거 역할을 보여주는 역사 장면 삽화`,
+        },
+        {
+          navLabel: "현재의 경향",
+          eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+          title: seed.currentTitle,
+          body: seed.currentBody,
+          image: seed.currentImage,
+          imageAlt: seed.currentAlt,
+        },
+        {
+          navLabel: "생활의 현실",
+          eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
+          title: seed.restTitle,
+          body: seed.restBody,
+          image: seed.restImage,
+          imageAlt: seed.restAlt,
+        },
+      ],
+      caution: "견종의 역사와 표준은 경향을 이해하는 단서일 뿐이에요. 실제 반응과 활동 방식은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+    },
+    realitiesTitle: `${seed.nameKo}의 생활 현실`,
+    realities: seed.realities.map((reality) => ({
+      id: reality.id,
+      title: reality.title,
+      body: reality.body,
+      image: reality.image,
+      imageAlt: reality.alt,
+    })),
+    readinessTitle: `${seed.nameKo}와 보낼 일상을 생각해보세요.`,
+    readinessQuestions: seed.questions,
+    relatedTitle: `${seed.nameKo}가 마음에 들지만 망설여진다면`,
+    relatedDescription: "비슷한 첫인상보다 역할과 체격, 활동 뒤 회복과 반복 관리 조건의 차이를 살펴보세요.",
+    relatedDifferences: seed.related,
+  });
+}
+
+const seeds: MilestoneSeed[] = [
+  {
+    slug: "scottish-terrier", nameKo: "스코티시 테리어",
+    hero: "스코틀랜드의 거친 지면에서 작은 동물의 굴과 냄새를 살피도록 발달한 낮고 단단한 테리어예요.",
+    backgroundTitle: "스코틀랜드의 거친 땅에서 굴과 냄새를 가까이 살폈어요.",
+    backgroundBody: "스코티시 테리어는 땅 가까이에서 해로운 작은 동물을 찾아내는 테리어로 정립됐어요. 짧고 강한 다리와 거친 피모는 그 작업 환경과 연결돼요.",
+    currentTitle: "닫힌 냄새 상자를 고르고 사람의 종료 신호로 돌아올 수 있어요.",
+    currentBody: "낮은 상자 세 개 중 하나만 짧게 찾게 하고 선택하면 바로 보상해요. 상자를 파헤치게 두기보다 열린 손을 보고 돌아오는 순서까지 과제로 묶어요.",
+    currentImage: "/illustrations/v4/scottish-terrier-feature-lidded-scent-box-search.webp",
+    currentAlt: "닫힌 낮은 냄새 상자를 고르고 보호자의 손 신호를 확인하는 검은 성견 스코티시 테리어 삽화",
+    restTitle: "탐색이 끝나면 상자와 냄새를 치우고 낮은 매트에서 쉬게 해요.",
+    restBody: "도구가 계속 보이면 다음 탐색을 기다릴 수 있어요. 상자와 보상 주머니를 닫힌 장에 넣고 조용한 낮은 매트에서 호흡을 낮추게 해요.",
+    restImage: "/illustrations/v4/scottish-terrier-feature-search-to-rest.webp",
+    restAlt: "냄새 상자가 수납된 방의 낮은 매트에서 쉬는 검은 성견 스코티시 테리어 삽화",
+    realities: [
+      { id: "low-doorway-buffer", title: "낮은 몸이 발밑을 통과하지 않도록 분리하는 현관 안전문", body: "짧은 다리와 낮은 시야는 열린 문과 사람 발 사이로 빠르게 움직일 때 놓치기 쉬워요. 안쪽 안전문 뒤에서 기다린 뒤 바깥문을 닫고 이동해요.", image: "/illustrations/v4/scottish-terrier-feature-low-doorway-buffer.webp", alt: "닫힌 현관 안전문 뒤에서 보호자와 기다리는 성견 스코티시 테리어 삽화" },
+      { id: "wire-coat-care", title: "수염과 눈썹, 거친 겉털을 작은 구역으로 나누는 관리", body: "단단한 겉털 아래와 긴 수염에는 흙과 작은 이물질이 남을 수 있어요. 산책 뒤 얼굴과 겨드랑이, 짧은 다리를 나누어 빗고 피부를 확인해요.", image: "/illustrations/v4/scottish-terrier-feature-wire-coat-care.webp", alt: "보호자가 성견 스코티시 테리어의 거친 피모와 수염을 빗는 삽화" },
+    ],
+    questions: ["짧은 냄새 과제를 끝낸 뒤 사람에게 돌아오고 쉬는 순서까지 연습할 수 있나요?", "현관에서 낮은 몸이 발밑과 열린 문 사이로 지나가지 않게 안전문을 둘 수 있나요?", "수염과 눈썹, 거친 피모 안쪽을 작은 구역으로 나누어 관리할 수 있나요?"],
+    related: { "miniature-schnauzer": "거친 피모와 작은 해충을 살핀 배경은 닮았지만 체형과 학습 과제, 피모를 다듬는 방식이 달라요.", "west-highland-white-terrier": "스코틀랜드 테리어라는 접점은 있지만 피모색과 체형, 일상에서 탐색을 전환하는 방식이 달라요." },
+  },
+  {
+    slug: "norwegian-elkhound-grey", nameKo: "노르웨이지안 엘크하운드 그레이",
+    hero: "노르웨이의 숲과 산에서 큰 사냥감의 냄새를 추적하고 위치를 알리도록 발달한 회색 스피츠예요.",
+    backgroundTitle: "노르웨이 숲에서 큰 사냥감의 흔적을 찾고 위치를 알렸어요.",
+    backgroundBody: "노르웨이지안 엘크하운드 그레이는 냄새를 따라 이동하고 짖음으로 사냥감의 위치를 알리던 사냥견이에요. 오래 움직이며 독립적으로 판단하는 작업 배경이 있어요.",
+    currentTitle: "짧은 냄새 길을 따라간 뒤 보호자의 손 신호로 방향을 바꿔요.",
+    currentBody: "울타리 안에 두 개의 낮은 냄새 표식을 두고 느슨한 긴 줄로 따라가요. 마지막 표식에서는 더 멀리 보내지 않고 사람 쪽으로 돌아오는 행동을 보상해요.",
+    currentImage: "/illustrations/v4/norwegian-elkhound-grey-feature-forest-scent-turn.webp",
+    currentAlt: "울타리 숲길의 냄새 표식을 따라간 뒤 보호자의 손으로 방향을 바꾸는 회색 성견 엘크하운드 삽화",
+    restTitle: "추적이 끝나면 바깥 시야와 도구를 닫고 실내에서 회복해요.",
+    restBody: "냄새 도구와 열린 숲길이 계속 보이면 다시 주변을 살필 수 있어요. 줄과 표식을 수납하고 창밖 시야를 낮춘 뒤 넓은 매트에서 쉬게 해요.",
+    restImage: "/illustrations/v4/norwegian-elkhound-grey-feature-alert-to-rest.webp",
+    restAlt: "냄새 도구가 수납된 조용한 현관 매트에서 쉬는 회색 성견 노르웨이지안 엘크하운드 삽화",
+    realities: [
+      { id: "secure-gate-check", title: "냄새와 움직임이 보여도 한 번에 밖으로 나가지 않는 이중 출입", body: "바깥 자극을 확인하는 순간 문 쪽으로 움직일 수 있어요. 높은 안쪽 문 뒤에서 기다리고 바깥문 잠금을 확인한 뒤 하나씩 열어요.", image: "/illustrations/v4/norwegian-elkhound-grey-feature-secure-gate-check.webp", alt: "높은 이중 출입문 앞에서 보호자와 기다리는 회색 성견 엘크하운드 삽화" },
+      { id: "double-coat-drying", title: "젖은 회색 이중모를 피부 가까이 나누어 말리는 관리", body: "촘촘한 속털은 겉이 말라도 피부 가까이에 습기가 남을 수 있어요. 어깨와 배, 발 주변을 손으로 나누어 수건으로 누르고 완전히 말려요.", image: "/illustrations/v4/norwegian-elkhound-grey-feature-double-coat-drying.webp", alt: "보호자가 회색 성견 엘크하운드의 이중모를 나누어 말리는 삽화" },
+    ],
+    questions: ["긴 추적 대신 짧은 냄새 길과 사람에게 돌아오는 종료를 함께 연습할 수 있나요?", "현관과 마당에 높은 두 개의 잠금 지점을 두고 하나씩 여는 순서를 지킬 수 있나요?", "젖은 이중모를 어깨와 배, 발까지 나누어 완전히 말릴 수 있나요?"],
+    related: { "finnish-spitz": "북유럽 스피츠와 사냥 배경은 닮았지만 추적하고 알리는 방식과 체격, 피모 관리 규모가 달라요.", "karelian-bear-dog": "큰 사냥감과 거리를 두고 일한 배경은 닮았지만 모색과 작업 방식, 현대 생활의 안전 관리가 달라요." },
+  },
+  {
+    slug: "saluki", nameKo: "살루키",
+    hero: "서아시아의 넓고 건조한 지형에서 먼 움직임을 시야로 따라간 오래된 장거리형 시각하운드예요.",
+    backgroundTitle: "서아시아의 열린 지형에서 먼 움직임을 시야로 따라갔어요.",
+    backgroundBody: "살루키는 넓은 지역에서 시야와 빠른 보폭으로 사냥감을 추적하도록 형성된 시각하운드예요. 가볍고 균형 잡힌 몸과 지구력 있는 움직임이 강조돼요.",
+    currentTitle: "닫힌 공간에서 천 루어를 짧게 본 뒤 사람에게 곡선으로 돌아와요.",
+    currentBody: "높은 이중 울타리 안에서 생물 대신 먼 천 루어를 한 번만 움직여요. 짧은 질주가 끝나면 열린 손을 향해 크게 돌아오게 해요.",
+    currentImage: "/illustrations/v4/saluki-feature-controlled-lure-return.webp",
+    currentAlt: "높은 울타리 안에서 천 루어를 본 뒤 보호자에게 돌아오는 크림색 성견 살루키 삽화",
+    restTitle: "질주가 끝나면 시야를 닫고 긴 몸을 받치는 자리에서 쉬게 해요.",
+    restBody: "루어와 바깥 움직임이 계속 보이면 다시 주변을 살필 수 있어요. 도구를 닫힌 장에 넣고 온몸이 바닥에 닿는 긴 매트에서 회복하게 해요.",
+    restImage: "/illustrations/v4/saluki-feature-sprint-to-rest.webp",
+    restAlt: "천 루어가 수납된 조용한 방의 긴 매트에서 쉬는 크림색 성견 살루키 삽화",
+    realities: [
+      { id: "double-gate", title: "빠른 바깥 움직임과 열린 길을 한 번 더 막는 높은 이중문", body: "먼 움직임을 보는 순간 긴 보폭으로 출입구를 통과할 수 있어요. 안쪽 문에서 기다리고 바깥문을 닫은 뒤에만 다음 문을 열어요.", image: "/illustrations/v4/saluki-feature-double-gate.webp", alt: "높은 이중문 안에서 보호자와 기다리는 크림색 성견 살루키 삽화" },
+      { id: "feathering-paw-check", title: "귀와 꼬리 장식털, 길고 좁은 발에 붙은 이물질 점검", body: "가는 장식털과 발가락 사이에는 마른 풀씨가 남을 수 있어요. 산책 뒤 귀와 꼬리, 네 발을 손으로 펼쳐 작은 이물질과 엉킴을 확인해요.", image: "/illustrations/v4/saluki-feature-feathering-paw-check.webp", alt: "보호자가 크림색 성견 살루키의 귀 장식털과 발을 확인하는 삽화" },
+    ],
+    questions: ["생물을 쫓게 하지 않고 높은 울타리 안에서 짧은 시각 과제와 돌아오기를 연습할 수 있나요?", "현관과 운동장 출입구를 두 번 잠그고 하나씩 여는 순서를 지킬 수 있나요?", "활동 뒤 긴 몸을 받칠 자리와 장식털·발을 확인할 시간을 마련할 수 있나요?"],
+    related: { "afghan-hound": "서아시아의 시각하운드라는 접점은 있지만 살루키의 짧은 몸통 털과 아프간 하운드의 긴 전신 피모는 관리가 달라요.", greyhound: "빠른 시각 추적은 닮았지만 체형과 장식털, 장거리 움직임 뒤 회복 방식의 차이를 살펴봐야 해요." },
+  },
+  {
+    slug: "irish-wolfhound", nameKo: "아이리시 울프하운드",
+    hero: "아일랜드에서 큰 사냥감을 따라갈 크기와 속도를 갖추도록 형성된 매우 큰 거친털 시각하운드예요.",
+    backgroundTitle: "아일랜드에서 큰 사냥감을 추적하는 매우 큰 하운드로 기록됐어요.",
+    backgroundBody: "아이리시 울프하운드는 늑대와 큰 사냥감을 추적한 아일랜드의 대형 하운드 배경을 가져요. 오늘의 모든 개가 같은 행동을 보인다는 뜻은 아니에요.",
+    currentTitle: "넓은 표식 사이를 긴 보폭으로 걷고 사람 곁으로 돌아와요.",
+    currentBody: "높은 이중 울타리 안에서 두 표식 사이를 느슨한 줄로 크게 돌아요. 속도를 계속 높이기보다 사람 옆에 맞춰 멈추는 지점까지 과제로 만들어요.",
+    currentImage: "/illustrations/v4/irish-wolfhound-feature-long-stride-return.webp",
+    currentAlt: "높은 울타리 안의 표식을 크게 돌아 보호자 곁으로 오는 회색 성견 아이리시 울프하운드 삽화",
+    restTitle: "큰 이동이 끝나면 온몸을 받치는 긴 매트에서 충분히 쉬게 해요.",
+    restBody: "거대한 몸은 활동뿐 아니라 눕고 일어나는 자리에도 넓이가 필요해요. 도구를 치운 조용한 공간에 관절이 바닥에 직접 닿지 않는 긴 매트를 둬요.",
+    restImage: "/illustrations/v4/irish-wolfhound-feature-route-to-rest.webp",
+    restAlt: "수납장이 닫힌 조용한 방의 긴 매트에서 쉬는 회색 성견 아이리시 울프하운드 삽화",
+    realities: [
+      { id: "wide-vehicle-ramp", title: "점프하지 않고 오를 수 있는 넓고 완만한 차량 경사로", body: "매우 큰 몸은 아프거나 지친 뒤 사람이 들어 올리기 어려워요. 평소 넓은 미끄럼 방지 경사로에 천천히 오르고 머무는 연습을 해요.", image: "/illustrations/v4/irish-wolfhound-feature-wide-vehicle-ramp.webp", alt: "넓은 차량 경사로에 천천히 접근하는 회색 성견 아이리시 울프하운드 삽화" },
+      { id: "rough-coat-body-check", title: "거친 피모 아래 가슴과 팔꿈치, 큰 발을 함께 살피는 점검", body: "긴 다리와 큰 발은 다양한 지면을 지난 뒤 작은 상처와 이물질을 놓치기 쉬워요. 피모를 나누어 가슴과 팔꿈치, 발바닥을 차례로 확인해요.", image: "/illustrations/v4/irish-wolfhound-feature-rough-coat-body-check.webp", alt: "보호자가 회색 성견 아이리시 울프하운드의 거친 피모와 몸을 살피는 삽화" },
+    ],
+    questions: ["매우 큰 몸이 방향을 바꾸고 눕고 일어날 넓고 미끄럽지 않은 공간이 있나요?", "평소 차량 경사로를 연습하고 긴급 이동을 도울 사람과 장비를 마련할 수 있나요?", "활동 뒤 거친 피모 아래와 가슴, 팔꿈치, 큰 발을 차례로 확인할 수 있나요?"],
+    related: { "scottish-deerhound": "매우 큰 거친털 시각하운드라는 공통점이 있지만 형성 지역과 체형, 역사적 역할의 범위가 달라요.", borzoi: "큰 체구와 시각 추적은 닮았지만 보르조이의 실키한 장식털과 아이리시 울프하운드의 거친 피모는 관리가 달라요." },
+  },
+  {
+    slug: "bullmastiff", nameKo: "불마스티프",
+    hero: "영국의 영지에서 사람과 함께 넓은 경계를 살피고 침입자를 제지하도록 형성된 크고 강한 경비견이에요.",
+    backgroundTitle: "영국 영지에서 관리인과 함께 경계를 살피고 침입자를 제지했어요.",
+    backgroundBody: "불마스티프는 마스티프와 불도그 계통을 바탕으로 영지 관리인의 경비 작업을 돕도록 정립됐어요. 힘과 침착한 제지가 함께 요구된 배경이에요.",
+    currentTitle: "경계 표식을 돌고 사람의 손 신호로 중심 자리로 돌아와요.",
+    currentBody: "울타리 안의 두 표식을 느슨한 줄로 함께 돌아요. 바깥을 계속 살피게 하기보다 마지막에는 사람 곁의 매트로 돌아와 멈추게 해요.",
+    currentImage: "/illustrations/v4/bullmastiff-feature-boundary-return.webp",
+    currentAlt: "울타리 안 경계 표식을 돈 뒤 보호자의 손 신호로 돌아오는 황갈색 성견 불마스티프 삽화",
+    restTitle: "방문객과의 거리를 유지한 채 큰 매트에서 쉬는 선택을 줘요.",
+    restBody: "낯선 사람이 왔다고 바로 인사를 시킬 필요는 없어요. 닫힌 안전문 뒤 넓은 매트와 물을 두고 보호자에게 주의를 돌리는 행동을 보상해요.",
+    restImage: "/illustrations/v4/bullmastiff-feature-visitor-to-rest.webp",
+    restAlt: "닫힌 안전문 뒤 넓은 매트에서 방문객과 거리를 두고 쉬는 성견 불마스티프 삽화",
+    realities: [
+      { id: "double-door-buffer", title: "큰 힘과 방문객 동선을 분리하는 넓고 단단한 이중 출입", body: "큰 몸이 현관에서 갑자기 방향을 바꾸면 사람과 문 사이가 좁아질 수 있어요. 안쪽 안전문과 넓은 대기 매트를 두고 하나씩 이동해요.", image: "/illustrations/v4/bullmastiff-feature-double-door-buffer.webp", alt: "단단한 안쪽 안전문 뒤 넓은 매트에서 기다리는 황갈색 성견 불마스티프 삽화" },
+      { id: "vehicle-ramp-body-check", title: "차량 경사로와 짧은 피모 아래 몸 점검을 미리 연습해요", body: "매우 큰 몸은 이동이 어려워지기 전에 차량 경사로에 익숙해져야 해요. 활동 뒤 짧은 피모 아래 가슴과 팔꿈치, 큰 발도 손으로 확인해요.", image: "/illustrations/v4/bullmastiff-feature-vehicle-ramp-body-check.webp", alt: "차량 경사로 옆에서 보호자가 성견 불마스티프의 몸과 발을 살피는 삽화" },
+    ],
+    questions: ["방문객이 와도 바로 마주치게 하지 않고 안전문 뒤에서 거리를 선택하게 할 수 있나요?", "큰 몸이 안전하게 방향을 바꾸고 쉴 넓고 미끄럽지 않은 공간이 있나요?", "차량 경사로와 긴급 이동을 평소 연습하고 도울 사람을 마련할 수 있나요?"],
+    related: { mastiff: "영국의 큰 마스티프형 체격은 닮았지만 불마스티프의 형성 목적과 체형, 운동 규모는 따로 살펴봐야 해요.", "cane-corso": "큰 경비견 배경은 닮았지만 형성 지역과 체형, 낯선 접근을 관리하는 생활 조건이 달라요." },
+  },
+  {
+    slug: "staffordshire-bull-terrier", nameKo: "스태퍼드셔 불 테리어",
+    hero: "영국에서 형성된 작고 단단한 불 타입 테리어로, 과거의 투견 역사를 미화하지 않고 오늘의 협력과 안전을 봐야 해요.",
+    backgroundTitle: "영국에서 불도그와 테리어 계통이 섞인 역사 속에서 형성됐어요.",
+    backgroundBody: "스태퍼드셔 불 테리어의 형성에는 동물 싸움에 이용된 역사가 포함돼요. 그 과거를 오늘의 모든 개체 성격이나 공격성으로 단정해서는 안 돼요.",
+    currentTitle: "짧은 당기기 놀이를 놓기 신호로 끝내고 다음 표식으로 전환해요.",
+    currentBody: "두 손잡이 장난감으로 짧게 함께 놀고 놓는 순간 바로 보상해요. 흥분을 계속 높이기보다 다른 낮은 표식으로 이동하고 멈추는 순서를 알려줘요.",
+    currentImage: "/illustrations/v4/staffordshire-bull-terrier-feature-tug-release.webp",
+    currentAlt: "울타리 안에서 보호자와 짧은 당기기 놀이를 놓는 성견 스태퍼드셔 불 테리어 삽화",
+    restTitle: "놀이가 끝나면 장난감을 닫고 물과 매트가 있는 자리에서 쉬어요.",
+    restBody: "장난감이 계속 보이면 다음 놀이를 기다리며 흥분이 이어질 수 있어요. 장난감을 닫힌 바구니에 넣고 물을 마신 뒤 매트에서 쉬게 해요.",
+    restImage: "/illustrations/v4/staffordshire-bull-terrier-feature-play-to-rest.webp",
+    restAlt: "당기기 장난감이 수납된 방의 매트에서 쉬는 성견 스태퍼드셔 불 테리어 삽화",
+    realities: [
+      { id: "visitor-distance", title: "낯선 사람과 바로 인사하지 않고 안전문 뒤에서 선택하는 거리", body: "개체의 사회적 반응을 견종명만으로 예측할 수 없어요. 방문객은 거리를 두고 앉게 하고 개는 안전문 뒤에서 보호자를 보는 행동부터 보상해요.", image: "/illustrations/v4/staffordshire-bull-terrier-feature-visitor-distance.webp", alt: "안전문 뒤에서 방문객과 거리를 두고 보호자를 보는 성견 스태퍼드셔 불 테리어 삽화" },
+      { id: "short-coat-body-check", title: "단단한 몸과 짧은 피모 아래를 활동 뒤 손으로 살피는 점검", body: "짧은 털은 피부와 작은 상처가 바로 보이는 부분도 있지만 겨드랑이와 발은 놓치기 쉬워요. 활동 뒤 어깨와 가슴, 발과 발톱을 차례로 확인해요.", image: "/illustrations/v4/staffordshire-bull-terrier-feature-short-coat-body-check.webp", alt: "보호자가 성견 스태퍼드셔 불 테리어의 짧은 피모와 발을 확인하는 삽화" },
+    ],
+    questions: ["힘을 쓰는 놀이에 놓기와 이동, 휴식까지 포함한 분명한 종료를 만들 수 있나요?", "견종에 대한 선입견 대신 실제 개체의 거리와 신호를 보고 방문객 동선을 관리할 수 있나요?", "지역의 사육 관련 법과 주거 규정을 확인하고 안전한 외출 장비를 사용할 수 있나요?"],
+    related: { "bull-terrier": "불 타입 테리어의 역사적 접점은 있지만 머리 형태와 체격, 놀이와 방문객 동선을 관리하는 방식이 달라요.", boxer: "사람과 힘 있는 놀이를 할 수 있다는 점은 닮았지만 체격과 원래 역할, 활동 뒤 회복 규모가 달라요." },
+  },
+  {
+    slug: "chinese-crested-dog", nameKo: "차이니즈 크레스티드 도그",
+    hero: "헤어리스와 파우더퍼프 두 피모 유형이 있으며, 작은 몸의 교감과 피부·피모 환경을 함께 살펴야 하는 반려견이에요.",
+    backgroundTitle: "선박과 항구의 작은 반려견으로 알려졌고 두 피모 유형이 함께 이어져요.",
+    backgroundBody: "차이니즈 크레스티드 도그는 헤어리스와 전신에 털이 있는 파우더퍼프가 같은 견종 안에 존재해요. 외형 차이만큼 관리 방식도 달라져요.",
+    currentTitle: "낮은 표식과 손바닥 목표를 오가는 짧은 협력 과제에 참여해요.",
+    currentBody: "미끄럽지 않은 낮은 매트에 올라갔다가 열린 손을 코로 확인하게 해요. 작은 몸에 무리한 반복을 주지 않고 성공한 뒤 바로 끝내요.",
+    currentImage: "/illustrations/v4/chinese-crested-dog-feature-cooperative-target.webp",
+    currentAlt: "낮은 매트에서 보호자의 열린 손을 확인하는 헤어리스 성견 차이니즈 크레스티드 도그 삽화",
+    restTitle: "짧은 과제 뒤에는 햇빛과 찬바람을 피한 따뜻한 자리에서 쉬어요.",
+    restBody: "활동을 마친 뒤 표식과 보상을 치우고 실내 온도를 확인해요. 접촉을 강요하지 않고 몸 전체를 받치는 따뜻한 침대에서 쉬게 해요.",
+    restImage: "/illustrations/v4/chinese-crested-dog-feature-task-to-rest.webp",
+    restAlt: "햇빛이 직접 닿지 않는 따뜻한 침대에서 쉬는 헤어리스 성견 차이니즈 크레스티드 도그 삽화",
+    realities: [
+      { id: "shade-route", title: "헤어리스 피부를 강한 햇빛과 찬바람에서 보호하는 외출 동선", body: "털이 적은 피부는 계절과 날씨에 따라 보호가 필요해요. 한낮의 강한 햇빛을 피하고 실제 기온과 피부 상태에 맞는 그늘과 가벼운 보호복을 선택해요.", image: "/illustrations/v4/chinese-crested-dog-feature-shade-route.webp", alt: "그늘진 길에서 가벼운 보호복을 입고 걷는 헤어리스 성견 차이니즈 크레스티드 도그 삽화" },
+      { id: "skin-crest-care", title: "피부와 볏털, 귀 장식털과 발의 상태를 나누어 확인하는 관리", body: "헤어리스는 드러난 피부와 제한된 장식털을 함께 살펴야 해요. 피부를 자극 없이 확인하고 볏털과 발의 긴 털은 작은 구역으로 빗어요.", image: "/illustrations/v4/chinese-crested-dog-feature-skin-crest-care.webp", alt: "보호자가 헤어리스 성견 차이니즈 크레스티드 도그의 피부와 볏털을 살피는 삽화" },
+    ],
+    questions: ["헤어리스와 파우더퍼프 중 실제 개체의 피모 유형에 맞춘 관리 계획을 세울 수 있나요?", "강한 햇빛과 추위, 미끄러운 바닥을 피하는 작은 몸의 생활 동선을 마련할 수 있나요?", "피부 이상은 임의로 치료하지 않고 수의사와 상의하며 반복 상태를 기록할 수 있나요?"],
+    related: { xoloitzcuintle: "헤어리스 개체가 있다는 점은 닮았지만 체격 범위와 형성 배경, 피부와 장식털 관리가 달라요.", "continental-toy-spaniel": "작은 반려견으로 사람과 과제에 참여할 수 있지만 피모 구조와 체온·피부 관리 조건이 달라요." },
+  },
+  {
+    slug: "xoloitzcuintle", nameKo: "숄로이츠퀸틀레",
+    hero: "멕시코에서 오랫동안 이어진 세 크기의 토착 견종으로, 헤어리스와 코티드 두 피모 유형을 함께 이해해야 해요.",
+    backgroundTitle: "멕시코에서 오래 이어진 토착견이며 세 크기와 두 피모 유형이 있어요.",
+    backgroundBody: "숄로이츠퀸틀레는 멕시코에서 오랜 역사를 가진 견종으로 표준·미디엄·미니어처 크기가 있어요. 헤어리스와 짧은 털의 코티드 유형도 함께 태어날 수 있어요.",
+    currentTitle: "짧은 냄새 길을 확인한 뒤 사람의 손으로 돌아오는 과제를 해요.",
+    currentBody: "울타리 안의 낮은 표식 사이로 짧은 냄새 길을 만들어요. 마지막 표식 뒤에는 더 멀리 보내지 않고 열린 손으로 돌아오는 행동을 보상해요.",
+    currentImage: "/illustrations/v4/xoloitzcuintle-feature-scent-route-return.webp",
+    currentAlt: "낮은 냄새 표식을 따라간 뒤 보호자의 손으로 돌아오는 헤어리스 성견 숄로이츠퀸틀레 삽화",
+    restTitle: "탐색이 끝나면 바깥 시야를 닫고 따뜻한 매트에서 회복해요.",
+    restBody: "주변 변화와 도구가 계속 보이면 다시 살필 수 있어요. 냄새 표식을 치우고 외부 문을 닫은 뒤 실내 온도에 맞는 매트에서 쉬게 해요.",
+    restImage: "/illustrations/v4/xoloitzcuintle-feature-alert-to-rest.webp",
+    restAlt: "냄새 도구가 치워진 따뜻한 방의 매트에서 쉬는 헤어리스 성견 숄로이츠퀸틀레 삽화",
+    realities: [
+      { id: "temperature-route", title: "헤어리스 피부와 체격에 맞춰 햇빛·추위 노출을 조절하는 동선", body: "털이 적은 피부는 강한 햇빛과 찬 날씨에 직접 노출될 수 있어요. 그늘과 실내 회복 지점을 두고 날씨와 개체 상태에 맞게 보호복을 선택해요.", image: "/illustrations/v4/xoloitzcuintle-feature-temperature-route.webp", alt: "그늘진 길에서 가벼운 보호복을 입고 걷는 헤어리스 성견 숄로이츠퀸틀레 삽화" },
+      { id: "skin-paw-check", title: "드러난 피부와 큰 직립 귀, 발을 자극 없이 살피는 점검", body: "헤어리스 개체는 피부 변화를 바로 볼 수 있지만 과도하게 문지르거나 임의 제품을 쓰지 않아야 해요. 산책 뒤 피부와 귀, 발을 부드럽게 확인해요.", image: "/illustrations/v4/xoloitzcuintle-feature-skin-paw-check.webp", alt: "보호자가 헤어리스 성견 숄로이츠퀸틀레의 피부와 발을 부드럽게 확인하는 삽화" },
+    ],
+    questions: ["세 크기와 헤어리스·코티드 유형 중 실제 개체의 조건을 확인할 수 있나요?", "계절별 햇빛과 추위 노출을 줄일 외출 시간과 실내 회복 공간을 마련할 수 있나요?", "피부 변화에 임의 제품을 사용하지 않고 필요할 때 수의사와 상의할 수 있나요?"],
+    related: { "chinese-crested-dog": "헤어리스 개체가 있다는 점은 닮았지만 체격과 장식털, 형성 배경과 관리 방식이 달라요.", basenji: "오래된 지역 견종이라는 접점은 있지만 피모 유형과 체격, 탐색과 주변 반응의 생활 조건이 달라요." },
+  },
+  {
+    slug: "coton-de-tulear", nameKo: "코톤 드 툴레아르",
+    hero: "마다가스카르에서 형성된 작고 튼튼한 반려견으로, 사람과의 참여와 면 같은 흰 피모 관리를 함께 봐야 해요.",
+    backgroundTitle: "마다가스카르의 툴레아르 지역 이름을 가진 소형 반려견으로 정립됐어요.",
+    backgroundBody: "코톤 드 툴레아르는 마다가스카르에서 형성된 작은 반려견이에요. 이름처럼 면을 떠올리게 하는 부드럽고 풍성한 피모가 품종의 중요한 특징이에요.",
+    currentTitle: "낮은 냄새 상자를 고르고 사람의 손 신호를 확인하는 데 참여해요.",
+    currentBody: "낮은 상자 세 개 중 하나만 짧게 찾게 하고 선택을 보상해요. 계속 관심을 요구하게 두기보다 열린 손을 보고 과제를 마치는 순서를 알려줘요.",
+    currentImage: "/illustrations/v4/coton-de-tulear-feature-cooperative-scent-choice.webp",
+    currentAlt: "낮은 냄새 상자를 고르고 보호자의 손 신호를 보는 흰 성견 코톤 드 툴레아르 삽화",
+    restTitle: "함께한 과제 뒤에는 가까운 자기 매트에서 혼자 쉬는 시간을 만들어요.",
+    restBody: "사람 곁에 있는 시간과 계속 접촉하는 것은 같지 않아요. 상자와 보상을 치운 뒤 가까운 낮은 매트에서 스스로 누워 쉬는 선택을 줘요.",
+    restImage: "/illustrations/v4/coton-de-tulear-feature-task-to-rest.webp",
+    restAlt: "냄새 상자가 수납된 방의 낮은 매트에서 혼자 쉬는 흰 성견 코톤 드 툴레아르 삽화",
+    realities: [
+      { id: "low-safe-route", title: "작은 몸이 높은 곳에서 뛰지 않도록 만드는 낮고 미끄럽지 않은 동선", body: "작은 체구는 사람 발과 높은 가구 사이에서 안전한 이동 계획이 필요해요. 낮은 계단과 미끄럼 방지 매트를 두고 현관문은 안전문으로 한 번 더 나눠요.", image: "/illustrations/v4/coton-de-tulear-feature-low-safe-route.webp", alt: "낮은 계단과 안전문이 있는 현관을 보호자와 걷는 흰 성견 코톤 드 툴레아르 삽화" },
+      { id: "cotton-coat-care", title: "면 같은 흰 피모를 피부부터 작은 구역으로 나누는 빗질", body: "부드럽고 풍성한 털은 귀 뒤와 겨드랑이, 발 주변에서 엉킬 수 있어요. 겉만 쓸지 말고 피부 가까이부터 작은 구역으로 나누어 빗어요.", image: "/illustrations/v4/coton-de-tulear-feature-cotton-coat-care.webp", alt: "보호자가 흰 성견 코톤 드 툴레아르의 긴 피모를 작은 구역으로 나누어 빗는 삽화" },
+    ],
+    questions: ["사람과 함께하는 짧은 과제 뒤 혼자 편히 쉬는 시간을 함께 만들 수 있나요?", "높은 가구와 미끄러운 바닥, 열린 현관을 작은 몸에 맞게 조정할 수 있나요?", "귀 뒤와 겨드랑이, 발의 긴 피모를 피부부터 나누어 관리할 수 있나요?"],
+    related: { maltese: "흰 소형 반려견이라는 첫인상은 닮았지만 말티즈의 곧고 실키한 털과 코톤의 면 같은 피모는 관리가 달라요.", havanese: "비숑 계열의 작은 반려견이라는 접점은 있지만 형성 지역과 피모 질감, 일상 관리 방식이 달라요." },
+  },
+  {
+    slug: "norwegian-lundehund", nameKo: "노르웨이안 룬데훈트",
+    hero: "노르웨이 해안 절벽의 좁은 틈에서 퍼핀을 찾던 배경과 여섯 발가락을 포함한 독특한 신체 구조를 가진 소형 스피츠예요.",
+    backgroundTitle: "노르웨이 해안 절벽의 좁은 틈에서 퍼핀을 찾아 회수했어요.",
+    backgroundBody: "노르웨이안 룬데훈트는 가파른 바위와 좁은 틈에서 퍼핀을 찾는 데 쓰였어요. 오늘날 퍼핀 사냥은 금지됐으며 과거 역할은 안전한 현대 과제로 바꿔야 해요.",
+    currentTitle: "넓고 낮은 발판 위의 냄새 길을 천천히 지나 사람에게 돌아와요.",
+    currentBody: "절벽이나 좁은 높은 곳 대신 낮고 넓은 발판 두 개를 안정적으로 고정해요. 짧은 냄새 길을 지난 뒤 사람의 손으로 돌아오면 바로 끝내요.",
+    currentImage: "/illustrations/v4/norwegian-lundehund-feature-low-platform-search.webp",
+    currentAlt: "넓고 낮은 발판의 냄새 길을 지나 보호자에게 돌아오는 성견 노르웨이안 룬데훈트 삽화",
+    restTitle: "탐색이 끝나면 발판과 냄새 도구를 치우고 평평한 매트에서 쉬어요.",
+    restBody: "오르내릴 도구가 계속 보이면 다시 탐색할 수 있어요. 발판을 닫힌 구역에 수납하고 미끄럽지 않은 평평한 매트에서 회복하게 해요.",
+    restImage: "/illustrations/v4/norwegian-lundehund-feature-search-to-rest.webp",
+    restAlt: "낮은 발판이 수납된 방의 평평한 매트에서 쉬는 성견 노르웨이안 룬데훈트 삽화",
+    realities: [
+      { id: "climb-safe-gate", title: "발을 걸 디딤점이 없는 높고 매끄러운 출입 안전문", body: "유연한 몸과 발을 이용해 좁은 곳을 오르던 배경은 출입구 관리에서 고려할 단서예요. 문 주변 물건을 치우고 디딤점 없는 높은 문을 잠가요.", image: "/illustrations/v4/norwegian-lundehund-feature-climb-safe-gate.webp", alt: "디딤점이 없는 높은 안전문 앞에서 보호자와 기다리는 성견 노르웨이안 룬데훈트 삽화" },
+      { id: "six-toe-paw-check", title: "각 발의 여러 발가락과 패드, 발톱을 하나씩 확인하는 점검", body: "룬데훈트는 각 발에 적어도 여섯 발가락이 있는 것이 품종 특징이에요. 바위 길 뒤에는 발을 받친 채 패드와 발가락 사이, 발톱을 하나씩 살펴요.", image: "/illustrations/v4/norwegian-lundehund-feature-six-toe-paw-check.webp", alt: "보호자가 성견 노르웨이안 룬데훈트의 여러 발가락과 발을 확인하는 삽화" },
+    ],
+    questions: ["절벽이나 높은 틈 대신 낮고 안정적인 탐색 과제로 과거 역할을 바꿀 수 있나요?", "현관과 울타리 주변의 디딤점을 치우고 높고 매끄러운 안전문을 잠글 수 있나요?", "활동 뒤 각 발의 여러 발가락과 패드, 발톱을 하나씩 확인할 수 있나요?"],
+    related: { "norwegian-elkhound-grey": "노르웨이 스피츠라는 접점은 있지만 체격과 사냥 환경, 발 구조와 출입 관리가 크게 달라요.", "icelandic-sheepdog": "북유럽 소형 스피츠의 인상은 닮았지만 룬데훈트의 절벽 작업과 독특한 발 구조는 별도로 이해해야 해요." },
+  },
+  {
+    slug: "west-highland-white-terrier", nameKo: "웨스트 하이랜드 화이트 테리어",
+    hero: "스코틀랜드 서부의 거친 지형에서 땅 가까운 냄새와 굴을 살피도록 형성된 작고 단단한 흰 테리어예요.",
+    backgroundTitle: "스코틀랜드 서부의 바위와 땅속에서 작은 동물을 찾아냈어요.",
+    backgroundBody: "웨스트 하이랜드 화이트 테리어는 거친 지형에서 해로운 작은 동물을 찾는 테리어로 정립됐어요. 흰 피모는 작업 중 다른 대상과 구별하는 데 도움이 됐다고 알려져요.",
+    currentTitle: "닫힌 냄새 상자를 고른 뒤 사람의 열린 손으로 돌아와요.",
+    currentBody: "낮은 상자 세 개 중 하나를 짧게 찾게 하고 선택한 순간 보상해요. 상자를 파헤치게 두지 않고 사람에게 돌아오는 행동까지 한 순서로 묶어요.",
+    currentImage: "/illustrations/v4/west-highland-white-terrier-feature-lidded-box-search.webp",
+    currentAlt: "낮은 냄새 상자를 고른 뒤 보호자의 손을 보는 흰 성견 웨스트 하이랜드 화이트 테리어 삽화",
+    restTitle: "탐색이 끝나면 상자와 냄새를 치우고 낮은 매트에서 쉬게 해요.",
+    restBody: "탐색 도구가 계속 보이면 다음 과제를 기다릴 수 있어요. 상자와 짧은 줄을 닫힌 장에 수납하고 조용한 낮은 매트에서 쉬게 해요.",
+    restImage: "/illustrations/v4/west-highland-white-terrier-feature-search-to-rest.webp",
+    restAlt: "냄새 상자가 수납된 방의 낮은 매트에서 쉬는 흰 성견 웨스트 하이랜드 화이트 테리어 삽화",
+    realities: [
+      { id: "low-gate-buffer", title: "작은 몸이 발밑과 열린 문 사이로 지나가지 않게 막는 안전문", body: "낮고 빠른 몸은 사람이 문을 여는 순간 발밑으로 움직일 수 있어요. 바닥 틈이 좁은 안쪽 안전문 뒤에서 기다린 뒤 바깥문을 닫고 이동해요.", image: "/illustrations/v4/west-highland-white-terrier-feature-low-gate-buffer.webp", alt: "바닥 틈이 좁은 안전문 뒤에서 보호자와 기다리는 흰 성견 웨스트 하이랜드 화이트 테리어 삽화" },
+      { id: "white-wire-coat-care", title: "흰 거친 겉털과 얼굴·배·짧은 다리를 나누어 살피는 관리", body: "단단한 겉털 아래와 얼굴 장식털에는 흙과 작은 이물질이 남을 수 있어요. 산책 뒤 얼굴과 배, 겨드랑이와 짧은 다리를 작은 구역으로 나누어 확인해요.", image: "/illustrations/v4/west-highland-white-terrier-feature-white-wire-coat-care.webp", alt: "보호자가 흰 성견 웨스트 하이랜드 화이트 테리어의 거친 피모를 빗는 삽화" },
+    ],
+    questions: ["짧은 냄새 탐색 뒤 사람에게 돌아오고 쉬는 종료까지 연습할 수 있나요?", "작은 몸이 열린 문과 사람 발 사이로 지나가지 않게 바닥 틈이 좁은 안전문을 둘 수 있나요?", "흰 거친 피모의 얼굴과 배, 겨드랑이와 짧은 다리를 나누어 관리할 수 있나요?"],
+    related: { "scottish-terrier": "스코틀랜드 테리어와 굴 탐색 배경은 닮았지만 체형과 피모색, 얼굴·다리 관리 방식이 달라요.", "cairn-terrier": "서부 스코틀랜드의 작은 작업 테리어라는 접점은 있지만 피모색과 표준, 일상 탐색 과제의 강도가 달라요." },
+  },
+];
+
+export const milestoneStandardBreedDetails = seeds.map(createMilestoneDetail);

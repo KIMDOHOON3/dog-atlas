@@ -1,5 +1,11 @@
 # Decision log
 
+## 2026-08-29 — Stop standard-detail expansion at 100 breeds and begin review
+
+- Complete the Poodle-standard detail experience for exactly 100 breeds: Poodle's dedicated module plus 99 shared standard-detail records.
+- Add Scottish Terrier, Norwegian Elkhound Grey, Saluki, Irish Wolfhound, Bullmastiff, Staffordshire Bull Terrier, Chinese Crested Dog, Xoloitzcuintle, Coton de Tulear, Norwegian Lundehund, and West Highland White Terrier as the final eleven. The code audit found that the starting count was 89 including Poodle, not the previously reported 90.
+- Do not continue to a 101st standard detail. Keep the remaining catalog data as an internal expansion base while the next phase concentrates on selecting and reviewing a smaller trusted public collection.
+
 ## 2026-08-27 — Extend the standard detail beyond the familiar set with Greyhound
 
 Use Greyhound as the first standard-detail conversion outside the 32-breed Korea-familiar discovery set. Reuse the existing history, visual-tracking, sprint, and cold-weather illustrations, and add one distinct home-rest scene so the hero and five content meanings do not reuse an asset.
