@@ -2,6 +2,14 @@ import type { Breed } from "./schema";
 import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-05";
+const historyAltOverrides: Partial<Record<string, string>> = {
+  "tibetan-mastiff": "티베트 고원의 유목민 천막과 사원, 야크가 보이는 경계에 선 검정과 황갈색 티베탄 마스티프를 그린 편집 수채화",
+  "bearded-collie": "스코틀랜드의 바위와 경사가 있는 목초지에서 양 떼를 목자 쪽으로 이동시키는 회색과 흰색 비어디드 콜리를 그린 편집 수채화",
+};
+const historySources: Partial<Record<string, Breed["sources"]>> = {
+  "tibetan-mastiff": [{ title: "Tibetan Mastiff Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/tibetan-mastiff-history-ancient-guardian-monasteries/", checkedAt: "2026-08-29" }],
+  "bearded-collie": [{ title: "Bearded Collie Collection", organization: "American Kennel Club", url: "https://www.akc.org/about/american-kennel-club-archives/guide-collections/bearded-collie-collection/", checkedAt: "2026-08-29" }],
+};
 type Level = "낮은 편" | "중간" | "높은 편";
 type Seed = {
   slug: string;
@@ -64,7 +72,7 @@ const makeBreed = (seed: Seed): Breed => ({
   palette: { primary: seed.colors[0], secondary: seed.colors[1], ink: seed.colors[2] },
   illustration: `/illustrations/v2/${seed.slug}-card.webp`,
   catalog: { group: seed.group, discoveryTags: seed.tags },
-  historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
+  historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: historyAltOverrides[seed.slug] ?? `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
   identity: { origin: seed.origin, lineage: seed.lineage, originalRole: seed.role, size: seed.size, lifespan: seed.lifespan },
   behaviorClues: {
     originalRole: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역할과 환경 속에서 형성된 견종입니다. 과거의 역할은 현재 개체의 행동을 결정하지 않지만 살펴볼 단서가 될 수 있어요.`,
@@ -95,6 +103,7 @@ const makeBreed = (seed: Seed): Breed => ({
   sources: [
     { title: `${seed.nameEn} breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
     { title: `${seed.nameEn} Dog Breed Information`, organization: "American Kennel Club", url: seed.akcUrl, checkedAt },
+    ...(historySources[seed.slug] ?? []),
   ],
 });
 

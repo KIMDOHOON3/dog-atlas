@@ -440,3 +440,9 @@ On mobile, an opened size disclosure spans the full hero-facts grid so labels an
 After the Pyrenean Mountain Dog, Basenji, and Bernese Mountain Dog batch, select Shetland Sheepdog as the next genuinely unconverted breed in MVP order. German Spitz is already represented by the standardized Pomeranian entry on the shared catalog slug, so adding it again would duplicate an existing detail.
 
 Connect the Shetland farm-dog background to present-day attention to movement and sound without presenting those tendencies as guarantees. Reuse the existing history, movement-reorientation, sound-cue, and long-coat-care illustrations, and add a distinct scent-box choice scene for a short cooperative task so all five story and reality meanings remain separate.
+
+# 2026-08-29 — Normalize hero size cards across the first 100 standard details
+
+Render every verified size measurement through one label-and-value row pattern instead of switching to raw source copy whenever either height or weight is absent. Show only the measurements the data supports: one available value remains one structured row, while equal unknown parent-dependent values collapse to a single `예상 크기` row.
+
+Keep Poodle and Dachshund variety details and sex-specific measurements in the same native disclosure pattern. The closed card must remain scannable with structured summary rows and an explicit `크기별 보기` or `성별 보기` action; the expanded list preserves the actual category names and measurements. Maintain an automated assertion that all 100 standard details have structured size presentation and add focused regression cases for prior outliers.

@@ -2,6 +2,20 @@ import type { Breed } from "./schema";
 import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-05";
+const historyAltOverrides: Partial<Record<string, string>> = {
+  "finnish-lapponian-dog": "북유럽 설원에서 사미 목축인과 함께 순록 무리의 바깥을 살피는 핀니시 라포니안 독을 그린 편집 수채화",
+  "curly-coated-retriever": "영국의 물가에서 물새를 부드럽게 물고 사람에게 돌아오는 갈색 컬리 코티드 리트리버를 그린 편집 수채화",
+  "clumber-spaniel": "영국 클럼버 파크의 숲에서 코를 낮추고 흔적을 찾는 흰색과 레몬색 클럼버 스패니얼을 그린 편집 수채화",
+  barbet: "프랑스의 물풀과 강가에서 물새를 회수해 배 쪽으로 돌아오는 갈색과 흰색 바베를 그린 편집 수채화",
+  "italian-pointing-dog": "이탈리아 시골의 넓은 들에서 코를 높이 들고 사냥꾼 앞에서 방향을 가리키는 흰색과 주황색 브라코 이탈리아노를 그린 편집 수채화",
+};
+const historySources: Partial<Record<string, Breed["sources"]>> = {
+  "finnish-lapponian-dog": [{ title: "Finnish Lapphund Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/finnish-lapphund-history/", checkedAt: "2026-08-29" }],
+  "curly-coated-retriever": [{ title: "Curly-Coated Retriever Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/lifestyle/fun-facts-curly-coated-retriever/", checkedAt: "2026-08-29" }],
+  "clumber-spaniel": [{ title: "Clumber Spaniel Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/clumber-spaniel-history/", checkedAt: "2026-08-29" }],
+  barbet: [{ title: "Barbet Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/barbet-2020-new-akc-recognized-breed/", checkedAt: "2026-08-29" }],
+  "italian-pointing-dog": [{ title: "Bracco Italiano Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/bracco-italiano-becomes-newest-akc-recognized-dog-breed-in-2022/", checkedAt: "2026-08-29" }],
+};
 type Level = "낮은 편" | "중간" | "높은 편";
 type Seed = {
   slug: string; nameKo: string; nameEn: string; group: Breed["catalog"]["group"];
@@ -57,7 +71,7 @@ const makeBreed = (seed: Seed): Breed => ({
   tagline: `${seed.nameKo}의 매력은 ${seed.role}의 역사와 오늘의 생활 조건을 함께 살필 때 더 선명해져요.`,
   palette: { primary: seed.colors[0], secondary: seed.colors[1], ink: seed.colors[2] },
   illustration: `/illustrations/v2/${seed.slug}-card.webp`, catalog: { group: seed.group, discoveryTags: seed.tags },
-  historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
+  historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: historyAltOverrides[seed.slug] ?? `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
   identity: { origin: seed.origin, lineage: seed.lineage, originalRole: seed.role, size: seed.size, lifespan: seed.lifespan },
   behaviorClues: {
     originalRole: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역할과 환경 속에서 형성된 견종입니다. 과거 역할은 현재 개체의 행동을 결정하지 않지만 살펴볼 단서가 될 수 있어요.`,
@@ -88,6 +102,7 @@ const makeBreed = (seed: Seed): Breed => ({
   sources: [
     { title: `${seed.nameEn} breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
     { title: `${seed.nameEn} Dog Breed Information`, organization: "American Kennel Club", url: seed.akcUrl, checkedAt },
+    ...(historySources[seed.slug] ?? []),
   ],
 });
 

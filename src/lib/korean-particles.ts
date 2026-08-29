@@ -20,6 +20,10 @@ export function withObjectParticle(value: string) {
   return `${value}${hasFinalConsonant(value) ? "을" : "를"}`;
 }
 
+export function withSubjectParticle(value: string) {
+  return `${value}${hasFinalConsonant(value) ? "이" : "가"}`;
+}
+
 export function withAndParticle(value: string) {
   return `${value}${hasFinalConsonant(value) ? "과" : "와"}`;
 }

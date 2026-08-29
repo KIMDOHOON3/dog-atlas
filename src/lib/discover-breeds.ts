@@ -3,6 +3,7 @@ import type { Breed } from "@/content/breeds/schema";
 type DiscoverTendency = Pick<Breed["tendencies"]["activity"], "label">;
 
 export type DiscoverBreed = Pick<Breed, "slug" | "nameKo" | "nameEn" | "tagline"> & {
+  isCoreEditorialReviewComplete: boolean;
   identity: Pick<Breed["identity"], "origin" | "size">;
   tendencies: {
     activity: DiscoverTendency;
@@ -14,12 +15,13 @@ export type DiscoverBreed = Pick<Breed, "slug" | "nameKo" | "nameEn" | "tagline"
   };
 };
 
-export function toDiscoverBreed(breed: Breed): DiscoverBreed {
+export function toDiscoverBreed(breed: Breed, isCoreEditorialReviewComplete = false): DiscoverBreed {
   return {
     slug: breed.slug,
     nameKo: breed.nameKo,
     nameEn: breed.nameEn,
     tagline: breed.tagline,
+    isCoreEditorialReviewComplete,
     identity: {
       origin: breed.identity.origin,
       size: breed.identity.size,
@@ -33,4 +35,8 @@ export function toDiscoverBreed(breed: Breed): DiscoverBreed {
       grooming: { label: breed.tendencies.grooming.label },
     },
   };
+}
+
+export function filterCoreEditorialReviewBreeds<T extends Pick<DiscoverBreed, "isCoreEditorialReviewComplete">>(breeds: readonly T[], reviewedOnly: boolean): T[] {
+  return reviewedOnly ? breeds.filter((breed) => breed.isCoreEditorialReviewComplete) : [...breeds];
 }

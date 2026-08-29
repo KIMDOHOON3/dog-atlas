@@ -1,6 +1,13 @@
 import type { Breed } from "./schema";
 
 const checkedAt = "2026-08-04";
+const historyAltOverrides: Partial<Record<string, string>> = {
+  "australian-cattle-dog": "울타리가 드문 건조한 호주 목축지에서 말을 탄 사람과 함께 소 무리의 방향을 바꾸는 블루 모틀 오스트레일리안 캐틀 독을 그린 편집 수채화",
+  vizsla: "헝가리의 습지 들판에서 새의 위치를 향해 멈춰 서고 뒤쪽 사람과 협력하는 적갈색 비즐라를 그린 편집 수채화",
+  "flat-coated-retriever": "영국 물가에서 회수 도구를 부드럽게 물고 사람의 손으로 전달하는 검은 플랫 코티드 리트리버를 그린 편집 수채화",
+  "afghan-hound": "아프가니스탄의 넓은 산악 지형에서 사람 곁에 서서 먼 곳을 바라보는 장모 아프간 하운드를 그린 편집 수채화",
+  bloodhound: "아르덴을 떠올리게 하는 숲길에서 긴 줄로 한 냄새의 흔적을 따라가는 검정과 황갈색 블러드하운드를 그린 편집 수채화",
+};
 type Level = Breed["tendencies"][keyof Breed["tendencies"]]["label"];
 type DayStep = Breed["daySnapshot"][number];
 
@@ -12,7 +19,7 @@ type BatchGSeed = {
   opening: string; roleToHome: string; reality: string;
   care: [string, string, string]; levels: [Level, Level, Level, Level, Level, Level];
   days: [DayStep, DayStep, DayStep]; related: [[string, string], [string, string]];
-  fciUrl: string; akcUrl: string;
+  fciUrl: string; akcUrl: string; historyUrl?: string;
 };
 
 const seeds: BatchGSeed[] = [
@@ -32,6 +39,7 @@ const seeds: BatchGSeed[] = [
     days: [{ time: "아침", title: "움직임과 신호", description: "충분히 걷고 방향·정지 신호를 맞춰요." }, { time: "낮", title: "완전한 회복", description: "흥분을 낮추고 방해 없이 쉬게 해요." }, { time: "저녁", title: "찾기 과제", description: "냄새와 문제 해결로 집중을 전환해요." }],
     related: [["australian-kelpie", "호주 목축 환경과 높은 지구력을 공유하지만 체형과 소·양 작업의 초점이 달라요."], ["border-collie", "강한 목양 집중을 공유하며 압박 방식과 일상 과제의 차이를 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/AUSTRALIAN-CATTLE-DOG-287.html", akcUrl: "https://www.akc.org/dog-breeds/australian-cattle-dog/",
+    historyUrl: "https://cdn.akc.org/AustralianCattleDog-club-flier.pdf",
   },
   {
     slug: "giant-schnauzer", nameKo: "자이언트 슈나우저", nameEn: "Giant Schnauzer",
@@ -49,6 +57,7 @@ const seeds: BatchGSeed[] = [
     days: [{ time: "아침", title: "구조화된 긴 산책", description: "걷기와 기다리기, 냄새 찾기를 섞어요." }, { time: "낮", title: "차분한 관찰", description: "자극과 거리를 두고 편히 쉬게 해요." }, { time: "저녁", title: "협력과 털 관리", description: "짧은 과제 뒤 수염과 피모를 살펴요." }],
     related: [["miniature-schnauzer", "닮은 외형 뒤에 체격·힘과 원래 작업 규모가 크게 다르다는 점을 비교해 보세요."], ["rottweiler", "소몰이와 경비 배경을 공유하지만 체형과 피모·교육 부담이 달라요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/GIANT-SCHNAUZER-181.html", akcUrl: "https://www.akc.org/dog-breeds/giant-schnauzer/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/giant-schnauzer-history/",
   },
   {
     slug: "scottish-terrier", nameKo: "스코티시 테리어", nameEn: "Scottish Terrier",
@@ -66,6 +75,7 @@ const seeds: BatchGSeed[] = [
     days: [{ time: "아침", title: "냄새 중심 산책", description: "짧은 다리의 속도에 맞춰 탐색해요." }, { time: "낮", title: "독립 휴식", description: "방해받지 않는 낮은 자리를 마련해요." }, { time: "저녁", title: "찾기와 빗질", description: "짧은 과제 뒤 피모와 피부를 봐요." }],
     related: [["jack-russell-terrier", "작업 테리어의 끈기를 공유하지만 체형과 이동 방식이 달라요."], ["airedale-terrier", "스코틀랜드 소형 테리어와 대형 수변 테리어의 작업 규모를 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/SCOTTISH-TERRIER-73.html", akcUrl: "https://www.akc.org/dog-breeds/scottish-terrier/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/scottish-terrier-history-rugged-hunter-1930s-fad/",
   },
   {
     slug: "norwegian-elkhound-grey", nameKo: "노르웨이지안 엘크하운드 그레이", nameEn: "Norwegian Elkhound Grey",
@@ -83,6 +93,7 @@ const seeds: BatchGSeed[] = [
     days: [{ time: "아침", title: "긴 숲길 탐색", description: "리드 안에서 냄새를 충분히 따라요." }, { time: "낮", title: "시원한 회복", description: "두꺼운 털이 식도록 편히 쉬게 해요." }, { time: "저녁", title: "알림 전환", description: "소리 뒤 돌아와 쉬는 행동을 연습해요." }],
     related: [["finnish-spitz", "북유럽 스피츠형 사냥견의 발성을 공유하지만 목표 사냥감과 체격이 달라요."], ["korea-jindo-dog", "독립적인 추적과 스피츠형 체형 안에서 관계·피모 부담을 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/NORWEGIAN-ELKHOUND-GREY-242.html", akcUrl: "https://www.akc.org/dog-breeds/norwegian-elkhound/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/norwegian-elkhound-history/",
   },
   {
     slug: "bloodhound", nameKo: "블러드하운드", nameEn: "Bloodhound",
@@ -99,7 +110,7 @@ const seeds: BatchGSeed[] = [
     levels: ["높은 편", "높은 편", "높은 편", "높은 편", "높은 편", "중간"],
     days: [{ time: "아침", title: "긴 냄새길", description: "안전한 장비로 천천히 냄새를 따라요." }, { time: "낮", title: "넓은 휴식", description: "큰 몸을 받치는 시원한 자리를 줘요." }, { time: "저녁", title: "귀와 주름 확인", description: "습기와 붉어짐, 냄새를 살펴요." }],
     related: [["basset-hound", "강한 후각과 긴 귀를 공유하지만 체고와 이동·건강 관리 규모가 크게 달라요."], ["beagle", "무리 후각하운드의 탐색을 공유하며 힘과 발성, 생활 공간을 비교해 보세요."]],
-    fciUrl: "https://www.fci.be/en/nomenclature/BLOODHOUND-84.html", akcUrl: "https://www.akc.org/dog-breeds/bloodhound/",
+    fciUrl: "https://www.fci.be/en/nomenclature/BLOODHOUND-84.html", akcUrl: "https://www.akc.org/dog-breeds/bloodhound/", historyUrl: "https://www.akc.org/expert-advice/dog-breeds/bloodhound-history/",
   },
   {
     slug: "vizsla", nameKo: "비즐라", nameEn: "Hungarian Short-Haired Pointer (Vizsla)",
@@ -117,6 +128,7 @@ const seeds: BatchGSeed[] = [
     days: [{ time: "아침", title: "넓게 탐색하기", description: "달리기와 냄새 신호를 함께 구성해요." }, { time: "낮", title: "독립 휴식", description: "사람과 떨어져 편히 쉬는 연습을 해요." }, { time: "저녁", title: "찾기와 회수", description: "짧은 협력 과제로 집중을 채워요." }],
     related: [["weimaraner", "사람 가까이 일한 대형 포인팅견의 공통점과 체격·관계 리듬을 비교해 보세요."], ["german-short-haired-pointing-dog", "다목적 포인팅과 회수를 공유하며 피모·체형과 작업 범위가 달라요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/HUNGARIAN-SHORT-HAIRED-POINTER-VIZSLA-57.html", akcUrl: "https://www.akc.org/dog-breeds/vizsla/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/vizsla-history/",
   },
   {
     slug: "flat-coated-retriever", nameKo: "플랫 코티드 리트리버", nameEn: "Flat Coated Retriever",
@@ -134,6 +146,7 @@ const seeds: BatchGSeed[] = [
     days: [{ time: "아침", title: "긴 탐색과 회수", description: "걷기와 찾기, 가져오기를 섞어요." }, { time: "낮", title: "차분한 회복", description: "활동 뒤 넓은 자리에서 쉬게 해요." }, { time: "저녁", title: "털과 귀 관리", description: "장식털과 귀의 습기를 확인해요." }],
     related: [["labrador-retriever", "영국 회수견의 협력을 공유하지만 체형과 피모·수명 범위가 달라요."], ["golden-retriever", "장모 회수견 사이에서 피모색보다 체형과 관리 부담을 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/FLAT-COATED-RETRIEVER-121.html", akcUrl: "https://www.akc.org/dog-breeds/flat-coated-retriever/",
+    historyUrl: "https://www.akc.org/expert-advice/lifestyle/facts-about-flat-coated-retriever/",
   },
   {
     slug: "coton-de-tulear", nameKo: "코톤 드 툴레아르", nameEn: "Coton de Tulear",
@@ -151,6 +164,7 @@ const seeds: BatchGSeed[] = [
     days: [{ time: "아침", title: "가벼운 탐색", description: "작은 몸에 맞춰 냄새 산책을 해요." }, { time: "낮", title: "독립 휴식", description: "사람과 떨어진 자리에서도 편히 쉬어요." }, { time: "저녁", title: "놀이와 빗질", description: "짧게 교감한 뒤 털과 치아를 봐요." }],
     related: [["havanese", "비숑 관련 소형 반려견의 교감을 공유하며 피모 질감과 지역 역사가 달라요."], ["bichon-frise", "흰 소형 장모견 사이에서 털 구조와 손질 방식의 차이를 살펴보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/COTON-DE-TULEAR-283.html", akcUrl: "https://www.akc.org/dog-breeds/coton-de-tulear/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/coton-de-tulear-history/",
   },
   {
     slug: "afghan-hound", nameKo: "아프간 하운드", nameEn: "Afghan Hound",
@@ -167,7 +181,7 @@ const seeds: BatchGSeed[] = [
     levels: ["높은 편", "중간", "높은 편", "중간", "낮은 편", "높은 편"],
     days: [{ time: "아침", title: "긴 산책과 관찰", description: "안전한 리드로 넓게 주변을 살펴요." }, { time: "낮", title: "조용한 휴식", description: "긴 몸을 받치는 넓은 자리를 줘요." }, { time: "저녁", title: "질주와 피모 관리", description: "안전하게 달린 뒤 털을 나누어 봐요." }],
     related: [["borzoi", "대형 장모 시각하운드의 우아한 실루엣과 서로 다른 지형·피모 구조를 비교해 보세요."], ["greyhound", "빠른 시각 추적을 공유하지만 피모 관리와 험지 적응의 차이가 커요."]],
-    fciUrl: "https://www.fci.be/en/nomenclature/AFGHAN-HOUND-228.html", akcUrl: "https://www.akc.org/dog-breeds/afghan-hound/",
+    fciUrl: "https://www.fci.be/en/nomenclature/AFGHAN-HOUND-228.html", akcUrl: "https://www.akc.org/dog-breeds/afghan-hound/", historyUrl: "https://www.akc.org/expert-advice/dog-breeds/afghan-hound-history/",
   },
   {
     slug: "lhasa-apso", nameKo: "라사압소", nameEn: "Lhasa Apso",
@@ -199,7 +213,7 @@ export const detailBatchG = seeds.map((seed) => ({
   palette: { primary: seed.colors[0], secondary: seed.colors[1], ink: seed.colors[2] },
   illustration: `/illustrations/v2/${seed.slug}-card.webp`,
   catalog: { group: seed.group, discoveryTags: seed.tags },
-  historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
+  historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: historyAltOverrides[seed.slug] ?? `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
   identity: { origin: seed.origin, lineage: seed.lineage, originalRole: seed.role, size: seed.size, lifespan: seed.lifespan },
   behaviorClues: { originalRole: seed.originalRole, today: seed.today, guardianContext: seed.guardianContext },
   story: { opening: seed.opening, roleToHome: seed.roleToHome, reality: seed.reality },
@@ -218,5 +232,6 @@ export const detailBatchG = seeds.map((seed) => ({
   sources: [
     { title: `${seed.nameEn} breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
     { title: `${seed.nameEn} Dog Breed Information`, organization: "American Kennel Club", url: seed.akcUrl, checkedAt },
+    ...(seed.historyUrl ? [{ title: `${seed.nameEn} breed history`, organization: "American Kennel Club", url: seed.historyUrl, checkedAt: "2026-08-29" }] : []),
   ],
 })) satisfies Breed[];

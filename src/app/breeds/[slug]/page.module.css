@@ -174,10 +174,8 @@
 }
 .poodleSizeDetails summary {
   min-height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  display: grid;
+  gap: 5px;
   color: var(--ink);
   cursor: pointer;
   list-style: none;
@@ -185,19 +183,27 @@
 .poodleSizeDetails summary::-webkit-details-marker {
   display: none;
 }
-.poodleSizeDetails summary::after {
-  width: 14px;
-  height: 14px;
-  flex: 0 0 14px;
-  content: "";
-  background:
-    linear-gradient(var(--moss), var(--moss)) center / 14px 2px no-repeat,
-    linear-gradient(var(--moss), var(--moss)) center / 2px 14px no-repeat;
-  transition: background-size 260ms ease, transform 320ms cubic-bezier(.22, 1, .36, 1);
+.sizeDetailsAction {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--moss);
+  font-size: 0.68rem;
+  font-weight: 800;
+  white-space: nowrap;
 }
-.poodleSizeDetails[open] summary::after {
-  background-size: 14px 2px, 2px 0;
-  transform: rotate(180deg);
+.sizeDetailsAction::after {
+  width: 6px;
+  height: 6px;
+  content: "";
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 260ms ease;
+}
+.poodleSizeDetails[open] .sizeDetailsAction::after {
+  transform: translateY(2px) rotate(225deg);
 }
 .poodleSizeDetails {
   interpolate-size: allow-keywords;
@@ -248,7 +254,7 @@
 }
 .sizeMeasurements span {
   display: grid;
-  grid-template-columns: 3.7em 1fr;
+  grid-template-columns: max-content 1fr;
   align-items: baseline;
   gap: 6px;
 }

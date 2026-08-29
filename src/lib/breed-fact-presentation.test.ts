@@ -8,6 +8,7 @@ import {
   getBreedFactPresentation,
   getBreedLifespanDisplay,
   getBreedSizeDisplay,
+  getBreedSizeFactRows,
 } from "./breed-fact-presentation";
 
 describe("breed fact presentation", () => {
@@ -200,7 +201,38 @@ describe("breed fact presentation", () => {
       expect(facts.weight, `${slug} weight`).toBeTruthy();
     }
 
-    expect(poodleDetail.heroSizeSummary).toMatch(/체고.*몸무게/u);
-    expect(getStandardBreedDetail("dachshund")?.sizeVarieties?.summary).toMatch(/체고.*몸무게/u);
+    expect(poodleDetail.heroSizeRows).toEqual([
+      { label: "구분", value: "4가지" },
+      { label: "체고", value: "23~62cm" },
+    ]);
+    expect(getStandardBreedDetail("dachshund")?.sizeVarieties?.summaryRows).toHaveLength(3);
+  });
+
+  it("gives every standard detail a structured size row instead of raw copy", () => {
+    const exceptions = new Set(["poodle", "dachshund", "pyrenean-mountain-dog"]);
+    const standardBreeds = breeds.filter((breed) => breed.slug === "poodle" || getStandardBreedDetail(breed.slug));
+
+    expect(standardBreeds).toHaveLength(100);
+    for (const breed of standardBreeds) {
+      if (exceptions.has(breed.slug)) continue;
+      const rows = getBreedSizeFactRows(getBreedFactPresentation(breed));
+      expect(rows.length, breed.slug).toBeGreaterThan(0);
+      rows.forEach((row) => expect(row.value, `${breed.slug} ${row.label}`).not.toMatch(/(?:cm|kg)(?:이상|이하)/u));
+    }
+  });
+
+  it("normalizes the previously inconsistent size cards", () => {
+    expect(getBreedSizeFactRows(getBreedFactPresentation(getBreed("bull-terrier")!))).toEqual([
+      { label: "체고", value: "53~56cm" },
+      { label: "몸무게", value: "23~32kg" },
+    ]);
+    expect(getBreedSizeFactRows(getBreedFactPresentation(getBreed("boston-terrier")!))).toEqual([
+      { label: "몸무게", value: "11kg 이하" },
+    ]);
+    expect(getBreedSizeFactRows(getBreedFactPresentation(getBreed("borzoi")!))[0]?.value).toContain("암컷 66cm 이상");
+    expect(getBreedSizeFactRows(getBreedFactPresentation(getBreed("old-english-sheepdog")!))[0]?.value).toContain("암컷 56cm 이상");
+    expect(getBreedSizeFactRows(getBreedFactPresentation(getBreed("maltipoo")!))).toEqual([
+      { label: "예상 크기", value: "부모 크기에 따라 다름" },
+    ]);
   });
 });

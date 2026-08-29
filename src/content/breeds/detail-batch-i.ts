@@ -1,6 +1,11 @@
 import type { Breed } from "./schema";
 
 const checkedAt = "2026-08-05";
+const historyAltOverrides: Partial<Record<string, string>> = {
+  leonberger: "독일 레온베르크의 물가 마을에서 사람 곁에 서서 수레를 끄는 레온베르거를 그린 편집 수채화",
+  briard: "프랑스의 넓은 저지대 목초지에서 목자와 함께 양 떼의 이동을 살피는 황갈색 브리아드를 그린 편집 수채화",
+  "collie-rough": "스코틀랜드 언덕 목초지에서 목동의 신호에 맞춰 양 떼 바깥을 움직이는 세이블 러프 콜리를 그린 편집 수채화",
+};
 type Level = Breed["tendencies"][keyof Breed["tendencies"]]["label"];
 type DayStep = Breed["daySnapshot"][number];
 
@@ -12,7 +17,7 @@ type BatchISeed = {
   opening: string; roleToHome: string; reality: string;
   care: [string, string, string]; levels: [Level, Level, Level, Level, Level, Level];
   days: [DayStep, DayStep, DayStep]; related: [[string, string], [string, string]];
-  fciUrl: string; akcUrl: string;
+  fciUrl: string; akcUrl: string; historyUrl?: string; healthUrl?: string;
 };
 
 const seeds: BatchISeed[] = [
@@ -48,7 +53,7 @@ const seeds: BatchISeed[] = [
     levels: ["높은 편", "높은 편", "중간", "높은 편", "높은 편", "높은 편"],
     days: [{ time: "아침", title: "넓은 움직임", description: "긴 산책과 방향 신호를 함께해요." }, { time: "낮", title: "차분한 관찰", description: "자극과 거리를 두고 쉬게 해요." }, { time: "저녁", title: "협력과 빗질", description: "짧은 과제 뒤 피모를 나누어 봐요." }],
     related: [["beauceron", "프랑스 목양·보호 배경을 공유하지만 피모와 움직임의 인상이 크게 달라요."], ["old-english-sheepdog", "큰 장모 목양견 사이에서 피모 구조와 원래 작업 지역을 비교해 보세요."]],
-    fciUrl: "https://www.fci.be/en/nomenclature/BRIARD-113.html", akcUrl: "https://www.akc.org/dog-breeds/briard/",
+    fciUrl: "https://www.fci.be/en/nomenclature/BRIARD-113.html", akcUrl: "https://www.akc.org/dog-breeds/briard/", historyUrl: "https://www.akc.org/expert-advice/dog-breeds/briard-breed-history-thomas-jefferson/",
   },
   {
     slug: "collie-rough", nameKo: "러프 콜리", nameEn: "Collie Rough",
@@ -65,7 +70,7 @@ const seeds: BatchISeed[] = [
     levels: ["높은 편", "높은 편", "중간", "높은 편", "높은 편", "높은 편"],
     days: [{ time: "아침", title: "목초지형 산책", description: "넉넉히 걷고 방향 신호를 맞춰요." }, { time: "낮", title: "조용한 회복", description: "시원한 자리에서 길게 쉬게 해요." }, { time: "저녁", title: "알림과 빗질", description: "조용함을 연습하고 털을 살펴요." }],
     related: [["shetland-sheepdog", "비슷한 콜리형 외모 뒤의 체격과 생활 부담 차이를 비교해 보세요."], ["border-collie", "스코틀랜드 목양 배경을 공유하지만 응시·작업 집중과 피모 관리가 달라요."]],
-    fciUrl: "https://fci.be/en/nomenclature/COLLIE-ROUGH-156.html", akcUrl: "https://www.akc.org/dog-breeds/collie/",
+    fciUrl: "https://fci.be/en/nomenclature/COLLIE-ROUGH-156.html", akcUrl: "https://www.akc.org/dog-breeds/collie/", historyUrl: "https://www.akc.org/expert-advice/dog-breeds/collie-history-queen-victoria-lassie-beyond/",
   },
   {
     slug: "puli", nameKo: "풀리", nameEn: "Puli",
@@ -100,6 +105,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "농장견식 탐색", description: "냄새와 움직임 과제를 섞어 걸어요." }, { time: "낮", title: "차분한 대기", description: "소리에서 떨어져 편히 쉬게 해요." }, { time: "저녁", title: "수염과 피모", description: "짧은 학습 뒤 털을 살펴요." }],
     related: [["miniature-schnauzer", "같은 외형 특징 뒤의 체격과 원래 작업 규모 차이를 비교해 보세요."], ["giant-schnauzer", "슈나우저 계열 안에서 힘과 경비 책임, 피모 관리의 차이를 살펴보세요."]],
     fciUrl: "https://fci.be/en/nomenclature/SCHNAUZER-182.html", akcUrl: "https://www.akc.org/dog-breeds/standard-schnauzer/",
+    historyUrl: "https://www.akc.org/expert-advice/lifestyle/fun-facts-standard-schnauzer/",
   },
   {
     slug: "shar-pei", nameKo: "샤페이", nameEn: "Shar Pei",
@@ -150,7 +156,7 @@ const seeds: BatchISeed[] = [
     levels: ["중간", "중간", "중간", "높은 편", "중간", "높은 편"],
     days: [{ time: "아침", title: "서늘한 긴 산책", description: "큰 보폭에 맞춰 천천히 걸어요." }, { time: "낮", title: "시원한 회복", description: "넓고 서늘한 자리에서 쉬게 해요." }, { time: "저녁", title: "협력과 빗질", description: "이동 신호 뒤 피모를 살펴요." }],
     related: [["newfoundland", "거대한 장모와 물 작업을 공유하지만 기원과 체형·피모색이 달라요."], ["saint-bernard", "초대형 생활견의 공간·의료 부담을 공유하며 피모와 역사적 역할을 비교해 보세요."]],
-    fciUrl: "https://www.fci.be/en/nomenclature/LEONBERGER-145.html", akcUrl: "https://www.akc.org/dog-breeds/leonberger/",
+    fciUrl: "https://www.fci.be/en/nomenclature/LEONBERGER-145.html", akcUrl: "https://www.akc.org/dog-breeds/leonberger/", historyUrl: "https://www.akc.org/expert-advice/dog-breeds/history-behind-the-leonberger/",
   },
   {
     slug: "west-highland-white-terrier", nameKo: "웨스트 하이랜드 화이트 테리어", nameEn: "West Highland White Terrier",
@@ -168,6 +174,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "냄새 중심 산책", description: "작은 몸의 속도에 맞춰 탐색해요." }, { time: "낮", title: "독립 휴식", description: "방해받지 않는 자리를 마련해요." }, { time: "저녁", title: "찾기와 피모", description: "짧은 과제 뒤 피부와 털을 봐요." }],
     related: [["scottish-terrier", "스코틀랜드 저각 테리어의 끈기를 공유하며 체형과 피모색이 달라요."], ["border-terrier", "작은 굴 작업 테리어 사이에서 다리 길이와 대표 피모색을 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/WEST-HIGHLAND-WHITE-TERRIER-85.html", akcUrl: "https://www.akc.org/dog-breeds/west-highland-white-terrier/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/fun-facts-west-highland-white-terrier/",
   },
   {
     slug: "staffordshire-bull-terrier", nameKo: "스태퍼드셔 불 테리어", nameEn: "Staffordshire Bull Terrier",
@@ -236,6 +243,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "안전한 탐색", description: "낮은 장애물과 냄새 길을 살펴요." }, { time: "낮", title: "조용한 휴식", description: "틈과 낙상 위험 없는 자리에서 쉬어요." }, { time: "저녁", title: "상태 기록", description: "발과 식욕·변화를 확인해요." }],
     related: [["icelandic-sheepdog", "북대서양 스피츠 외형을 공유하지만 목양과 절벽 탐색이라는 역할이 달라요."], ["karelian-bear-dog", "북유럽 사냥 스피츠 사이에서 체격과 목표 환경의 극적인 차이를 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/NORWEGIAN-LUNDEHUND-265.html", akcUrl: "https://www.akc.org/dog-breeds/norwegian-lundehund/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/norwegian-lundehund-history-behind-the-breed/",
   },
   {
     slug: "xoloitzcuintle", nameKo: "숄로이츠퀸틀레", nameEn: "Xoloitzcuintle",
@@ -253,6 +261,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "기온 맞춤 산책", description: "피부와 날씨에 맞춰 냄새를 살펴요." }, { time: "낮", title: "따뜻한 휴식", description: "부드럽고 안정된 자리에서 쉬게 해요." }, { time: "저녁", title: "피부와 치아", description: "자극과 건조함을 부드럽게 확인해요." }],
     related: [["chinese-crested-dog", "헤어리스 형태를 공유하지만 크기 체계와 지역 역사가 달라요."], ["basenji", "오래된 지역 생활견의 독립성을 공유하며 체형과 환경 적응을 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/XOLOITZCUINTLE-234.html", akcUrl: "https://www.akc.org/dog-breeds/xoloitzcuintli/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/xoloitzcuintli-history/",
   },
   {
     slug: "otterhound", nameKo: "오터하운드", nameEn: "Otterhound",
@@ -287,6 +296,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "빠른 들길 탐색", description: "걷기와 냄새·멈춤을 함께해요." }, { time: "낮", title: "완전한 회복", description: "활동 뒤 방해 없이 쉬게 해요." }, { time: "저녁", title: "찾기와 회수", description: "짧은 협력 과제로 집중해요." }],
     related: [["english-setter", "새 위치를 알리는 작업을 공유하지만 체격과 피모·탐색 범위가 달라요."], ["english-springer-spaniel", "들새 작업과 회수를 공유하며 포인팅과 플러싱의 차이를 살펴보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/BRITTANY-SPANIEL-95.html", akcUrl: "https://www.akc.org/dog-breeds/brittany/",
+    historyUrl: "https://www.akc.org/expert-advice/lifestyle/fun-facts-brittany/",
   },
   {
     slug: "irish-red-setter", nameKo: "아이리시 레드 세터", nameEn: "Irish Red Setter",
@@ -304,6 +314,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "넓은 들길 산책", description: "길게 걷고 냄새와 멈춤을 맞춰요." }, { time: "낮", title: "차분한 회복", description: "활동 뒤 방해 없이 쉬게 해요." }, { time: "저녁", title: "장식털 관리", description: "찾기 놀이 뒤 귀와 털을 봐요." }],
     related: [["english-setter", "세팅 작업과 장모를 공유하지만 피모색과 지역·탐색 스타일이 달라요."], ["vizsla", "사람과 긴밀히 일하는 포인팅견의 활동성을 공유하며 피모 관리 차이가 커요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/IRISH-RED-SETTER-120.html", akcUrl: "https://www.akc.org/dog-breeds/irish-setter/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/meet-setter-breeds/",
   },
   {
     slug: "lagotto-romagnolo", nameKo: "라고토 로마뇰로", nameEn: "Lagotto Romagnolo",
@@ -321,6 +332,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "냄새 보물찾기", description: "걸으며 땅의 냄새를 충분히 살펴요." }, { time: "낮", title: "조용한 회복", description: "탐색 뒤 편히 쉬게 해요." }, { time: "저녁", title: "피모와 귀", description: "이물질과 습기를 피부까지 확인해요." }],
     related: [["portuguese-water-dog", "곱슬 수상견의 협력을 공유하지만 체격과 현대 전문 역할이 달라요."], ["poodle", "수상 회수 계통과 높은 학습 욕구를 공유하며 체형·피모 관리 방식을 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/ROMAGNA-WATER-DOG-298.html", akcUrl: "https://www.akc.org/dog-breeds/lagotto-romagnolo/",
+    historyUrl: "https://www.akc.org/expert-advice/lifestyle/5-facts-lagotto-romagnolo/",
   },
   {
     slug: "pekingese", nameKo: "페키니즈", nameEn: "Pekingese",
@@ -337,7 +349,7 @@ const seeds: BatchISeed[] = [
     levels: ["낮은 편", "중간", "높은 편", "높은 편", "중간", "높은 편"],
     days: [{ time: "아침", title: "서늘한 짧은 산책", description: "호흡에 맞춰 천천히 냄새를 봐요." }, { time: "낮", title: "독립 휴식", description: "시원하고 낮은 자리에서 쉬게 해요." }, { time: "저녁", title: "얼굴과 털", description: "눈·주름과 장모를 살펴요." }],
     related: [["shih-tzu", "중국 궁정권 장모 반려견의 역사를 공유하지만 체형과 얼굴·피모 구조가 달라요."], ["lhasa-apso", "작고 독립적인 장모 반려견 사이에서 감시 배경과 낮은 체형을 비교해 보세요."]],
-    fciUrl: "https://fci.be/en/nomenclature/PEKINGESE-207.html", akcUrl: "https://www.akc.org/dog-breeds/pekingese/",
+    fciUrl: "https://fci.be/en/nomenclature/PEKINGESE-207.html", akcUrl: "https://www.akc.org/dog-breeds/pekingese/", healthUrl: "https://www.rvc.ac.uk/small-animal-vet/specialist-referrals/advanced-techniques/brachycephaly-expertise",
   },
   {
     slug: "irish-wolfhound", nameKo: "아이리시 울프하운드", nameEn: "Irish Wolfhound",
@@ -355,6 +367,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "긴 보폭 산책", description: "안전한 리드로 천천히 넓게 걸어요." }, { time: "낮", title: "넓은 휴식", description: "긴 몸을 받치는 부드러운 자리를 줘요." }, { time: "저녁", title: "안전한 움직임", description: "짧게 움직인 뒤 충분히 회복해요." }],
     related: [["borzoi", "대형 시각하운드의 질주와 휴식을 공유하지만 피모·지역 역사가 달라요."], ["greyhound", "시야 추적과 긴 다리를 공유하며 체격 규모와 거친 피모 차이를 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/IRISH-WOLFHOUND-160.html", akcUrl: "https://www.akc.org/dog-breeds/irish-wolfhound/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/irish-wolfhound-history-behind-the-breed/",
   },
 ];
 
@@ -369,7 +382,7 @@ export const detailBatchI = seeds.map((seed) => ({
   palette: { primary: seed.colors[0], secondary: seed.colors[1], ink: seed.colors[2] },
   illustration: `/illustrations/v2/${seed.slug}-card.webp`,
   catalog: { group: seed.group, discoveryTags: seed.tags },
-  historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
+  historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: historyAltOverrides[seed.slug] ?? `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화` },
   identity: { origin: seed.origin, lineage: seed.lineage, originalRole: seed.role, size: seed.size, lifespan: seed.lifespan },
   behaviorClues: { originalRole: seed.originalRole, today: seed.today, guardianContext: seed.guardianContext },
   story: { opening: seed.opening, roleToHome: seed.roleToHome, reality: seed.reality },
@@ -388,5 +401,7 @@ export const detailBatchI = seeds.map((seed) => ({
   sources: [
     { title: `${seed.nameEn} breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
     { title: `${seed.nameEn} Dog Breed Information`, organization: "American Kennel Club", url: seed.akcUrl, checkedAt },
+    ...(seed.historyUrl ? [{ title: `${seed.nameEn} breed history`, organization: "American Kennel Club", url: seed.historyUrl, checkedAt: "2026-08-29" }] : []),
+    ...(seed.healthUrl ? [{ title: `${seed.nameEn} brachycephaly evidence`, organization: "Royal Veterinary College", url: seed.healthUrl, checkedAt: "2026-08-29" }] : []),
   ],
 })) satisfies Breed[];

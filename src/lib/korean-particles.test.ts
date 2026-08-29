@@ -4,6 +4,7 @@ import {
   hasFinalConsonant,
   withAndParticle,
   withObjectParticle,
+  withSubjectParticle,
   withTopicParticle,
 } from "./korean-particles";
 
@@ -27,6 +28,11 @@ describe("Korean particles", () => {
     expect(withObjectParticle("무리 사냥")).toBe("무리 사냥을");
     expect(withObjectParticle("가축 보호")).toBe("가축 보호를");
     expect(withObjectParticle("경비 작업")).toBe("경비 작업을");
+  });
+
+  it("adds a natural subject particle", () => {
+    expect(withSubjectParticle("치와와")).toBe("치와와가");
+    expect(withSubjectParticle("그레이트 덴")).toBe("그레이트 덴이");
   });
 
   it("adds a natural connective particle", () => {

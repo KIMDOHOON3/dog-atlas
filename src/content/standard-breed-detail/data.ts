@@ -231,8 +231,8 @@ const greyhoundDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "짧게 속도를 낸 뒤에는 충분한 회복이 필요해요.",
-        body: "안전하게 닫힌 공간에서 짧게 달릴 기회와 매일 냄새를 맡는 산책을 마련해요. 활동 뒤에는 조용히 쉬며 회복할 시간을 주어야 해요.",
+        title: "울타리가 닫힌 운동장에서 짧게 속도를 내요.",
+        body: "안전하게 닫힌 공간에서 짧게 달릴 기회와 매일 냄새를 맡는 산책을 마련해요. 달리기가 끝나면 조용한 자리로 이동해 충분히 쉬게 해 주세요.",
         image: "/illustrations/v4/greyhound-feature-sprint-rest.webp",
         imageAlt: "안전하게 울타리가 설치된 공원 운동장에서 짧게 달리는 성견 그레이하운드 삽화",
       },
@@ -285,7 +285,7 @@ const whippetDetail = standardBreedDetailSchema.parse({
         title: "영국에서 작은 사냥감 추적과 직선 경주에 쓰였어요.",
         body: "휘펫은 19세기 영국에서 뚜렷한 견종으로 자리 잡았어요. 작은 사냥감을 쫓는 일과 짧은 직선 경주에서 빠른 가속이 중요했어요.",
         image: "/illustrations/v3/whippet-history.webp",
-        imageAlt: "19세기 영국 북부의 열린 들판에서 천 조각 루어를 바라보는 성견 휘펫 삽화",
+        imageAlt: "19세기 영국 북부의 열린 들판에서 움직이는 천 조각을 바라보는 성견 휘펫 삽화",
       },
       {
         navLabel: "현재의 경향",
@@ -343,7 +343,11 @@ const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
   metadataDescription: "피레네산맥에서 가축을 지키던 배경과 독립적으로 주변을 살피는 경향, 밤의 알림 환경과 초대형 이동 동선, 풍성한 이중모 관리를 살펴봅니다.",
   heroStatement: "넓은 산지에서 가축 곁을 지키며 스스로 판단하던 초대형 보호견이에요.",
   heroSizeDetails: {
-    summary: "체고 65~80cm · 성별 체중 보기",
+    summaryRows: [
+      { label: "체고", value: "65~80cm" },
+      { label: "몸무게", value: "성별로 다름" },
+    ],
+    detailsLabel: "성별 보기",
     items: [
       { id: "female", label: "암컷", value: "체고 65~75cm · 약 39kg" },
       { id: "male", label: "수컷", value: "체고 70~80cm · 약 45kg" },
@@ -414,7 +418,7 @@ const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
 const basenjiDetail = standardBreedDetailSchema.parse({
   slug: "basenji",
   nameKo: "바센지",
-  metadataDescription: "중앙아프리카에서 시각과 후각으로 사냥을 돕던 배경, 움직임을 추적하는 경향과 독특한 소리 표현, 선택형 탐색과 추운 날의 보온을 살펴봅니다.",
+  metadataDescription: "중앙아프리카에서 시각과 후각으로 사냥을 돕던 배경, 움직임을 추적하는 경향과 독특한 소리 표현, 스스로 고르는 냄새 탐색과 추운 날의 보온을 살펴봅니다.",
   heroStatement: "시각과 후각을 함께 쓰며 사냥을 돕던 중앙아프리카의 원시견형 사냥견이에요.",
   story: {
     title: "바센지는 왜 주변을 스스로 탐색하고 독특한 소리로 표현할까요?",
@@ -468,7 +472,7 @@ const basenjiDetail = standardBreedDetailSchema.parse({
   readinessQuestions: [
     "빠른 움직임을 추적할 수 있는 반응을 고려해 하네스와 출입 동선을 점검할 수 있나요?",
     "일반적인 짖음과 다른 소리도 생활 속 표현으로 관찰하고 조율할 수 있나요?",
-    "선택형 탐색 활동과 추운 날의 보온·따뜻한 휴식을 함께 마련할 수 있나요?",
+    "스스로 냄새를 고르고 찾아볼 활동과 추운 날의 따뜻한 휴식 자리를 마련할 수 있나요?",
   ],
   relatedTitle: "바센지가 마음에 들지만 망설여진다면",
   relatedDescription: "사냥 배경을 공유해도 탐색 감각과 관계 방식, 활동 리듬이 다른 견종을 살펴보세요.",
@@ -707,8 +711,8 @@ const yakutianLaikaDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "걷는 시간뿐 아니라 판단할 과제도 필요해요.",
-        body: "오래 걷기만 반복하기보다 냄새 찾기와 방향 신호처럼 몸과 판단을 함께 쓰는 활동을 번갈아 제공해요. 활동의 끝에는 호흡을 낮추고 쉬는 시간도 마련해요.",
+        title: "하네스를 착용하고 보호자와 함께 숲길을 걸어요.",
+        body: "몸에 맞는 하네스를 착용하고 보호자와 보조를 맞춰 숲길을 걸어요. 걷는 중간에는 냄새를 살피거나 방향 신호를 확인하고, 활동이 끝나면 조용한 자리에서 쉬게 해 주세요.",
         image: "/illustrations/v4/yakutian-laika-feature-purposeful-activity.webp",
         imageAlt: "숲길에서 몸에 맞는 하네스를 착용하고 보호자와 함께 움직이는 흑백 성견 야쿠티안 라이카 삽화",
       },
@@ -817,7 +821,7 @@ const akitaDetail = standardBreedDetailSchema.parse({
   slug: "akita",
   nameKo: "아키타",
   metadataDescription: "일본 아키타 지역의 마타기 사냥견 배경과 낯선 대상과의 거리, 큰 힘을 다루는 보행, 차량 이동 동선과 두꺼운 이중모 관리를 살펴봅니다.",
-  heroStatement: "일본 북부 산지에서 큰 동물을 상대하던 마타기 사냥견의 배경을 지닌 대형 스피츠형 견종이에요.",
+  heroStatement: "일본 북부 산지의 마타기 사냥견에서 이어진 대형 스피츠형 견종이에요.",
   story: {
     title: "아키타는 왜 낯선 대상을 천천히 살피고 큰 힘을 차분히 다뤄야 할까요?",
     description: "일본 산지 사냥견의 배경과 큰 체격을 함께 보면 관계를 서두르지 않는 거리와 일상 보행 준비를 이해할 수 있어요.",
@@ -873,7 +877,7 @@ const akitaDetail = standardBreedDetailSchema.parse({
     "큰 몸의 이중모를 작은 구역으로 나누어 빗고 털갈이 시기의 속털을 관리할 수 있나요?",
   ],
   relatedTitle: "아키타가 마음에 들지만 망설여진다면",
-  relatedDescription: "일본과 동아시아의 스피츠형 견종 안에서도 체격과 관계 거리, 활동과 피모 관리 부담이 다른 견종을 살펴보세요.",
+  relatedDescription: "일본과 동아시아의 스피츠형 견종도 체격과 낯선 대상을 대하는 방식, 활동량과 피모 관리 부담이 달라요.",
   relatedDifferences: {
     shiba: "일본 토착 스피츠의 독립적인 판단은 닮았지만 체격과 힘, 차량·병원 이동을 포함한 생활 부담이 크게 달라요.",
     "korea-jindo-dog": "사냥견 배경과 스스로 거리를 조절하는 모습은 닮았지만 체격과 관계 형성, 실제 생활 반응을 따로 살펴야 해요.",
@@ -950,8 +954,8 @@ const cavalierKingCharlesSpanielDetail = standardBreedDetailSchema.parse({
 const englishSpringerSpanielDetail = standardBreedDetailSchema.parse({
   slug: "english-springer-spaniel",
   nameKo: "잉글리시 스프링거 스패니얼",
-  metadataDescription: "영국의 들과 덤불에서 새를 찾아 날아오르게 하고 회수한 배경과 가까운 탐색, 활동 뒤 휴식, 구조화된 회수와 귀·장식털 관리를 살펴봅니다.",
-  heroStatement: "영국의 들과 덤불을 누비며 새를 찾아 날아오르게 하고 회수한 활동적인 스패니얼이에요.",
+  metadataDescription: "영국의 들과 덤불에서 새를 찾아 날아오르게 하고 회수한 배경과 가까운 탐색, 활동 뒤 휴식, 순서가 있는 회수 놀이와 귀·장식털 관리를 살펴봅니다.",
+  heroStatement: "영국의 들과 덤불에서 새를 찾아 날아오르게 하고 회수한 스패니얼이에요.",
   story: {
     title: "잉글리시 스프링거 스패니얼은 왜 사람 가까이에서 넓게 찾고 회수하려 할까요?",
     description: "사람과 보조를 맞춰 덤불을 탐색한 배경을 알면 냄새 찾기와 회수, 활동 뒤 휴식까지 이어지는 리듬을 이해할 수 있어요.",
@@ -976,7 +980,7 @@ const englishSpringerSpanielDetail = standardBreedDetailSchema.parse({
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
         title: "충분히 움직인 뒤 흥분을 낮추고 쉬는 전환까지 필요해요.",
-        body: "탐색과 회수에 적극적으로 참여한 뒤에도 다음 과제를 기다리며 들뜰 수 있어요. 끝 신호 뒤 장비를 치우고 조용한 자리에서 호흡을 낮추는 시간을 함께 설계해요.",
+        body: "탐색과 회수에 적극적으로 참여한 뒤에도 다음 활동을 기다리며 들뜰 수 있어요. 끝 신호 뒤 장비를 치우고 조용한 자리에서 숨을 고르도록 도와요.",
         image: "/illustrations/v4/english-springer-spaniel-feature-work-to-rest.webp",
         imageAlt: "야외 활동을 마친 뒤 보호자가 장비를 정리하는 동안 매트에서 쉬는 리버 앤 화이트 성견 잉글리시 스프링거 스패니얼 삽화",
       },
@@ -1018,7 +1022,7 @@ const havaneseDetail = standardBreedDetailSchema.parse({
   slug: "havanese",
   nameKo: "하바니즈",
   metadataDescription: "쿠바의 가정에서 사람 가까이 지낸 소형 반려견의 배경과 가족 활동 참여, 독립 휴식, 긴 피모 관리와 가벼운 냄새 산책을 살펴봅니다.",
-  heroStatement: "쿠바의 가정에서 사람 가까이 지내며 일상에 참여해 온 작고 탄력 있는 반려견이에요.",
+  heroStatement: "쿠바의 가정에서 사람 곁의 일상에 참여해 온 작은 반려견이에요.",
   story: {
     title: "하바니즈는 왜 가족의 일상에 빠르게 참여하려 할까요?",
     description: "사람 가까이 지내온 소형 반려견의 배경을 알면 높은 교감과 일상 참여, 혼자 쉬는 능력을 함께 이해할 수 있어요.",
@@ -1152,7 +1156,7 @@ const brittanySpanielDetail = standardBreedDetailSchema.parse({
   slug: "brittany-spaniel",
   nameKo: "브리트니",
   metadataDescription: "프랑스 브르타뉴의 들과 수풀에서 짧고 빠르게 새를 찾은 브리트니의 배경과 촘촘한 탐색, 활동 뒤 회복, 수풀 안전과 귀·장식털 관리를 살펴봅니다.",
-  heroStatement: "프랑스 브르타뉴의 들과 수풀을 빠르게 탐색하며 새의 위치를 멈춰 알리던 포인팅견이에요.",
+  heroStatement: "브르타뉴의 들과 수풀에서 새를 찾아 멈춰 알리던 포인팅견이에요.",
   story: {
     title: "브리트니는 왜 수풀을 빠르게 오가다 냄새 앞에서 갑자기 멈출까요?",
     description: "비교적 작고 민첩한 포인팅견의 배경을 알면 촘촘한 방향 전환과 포인팅, 짧고 강한 활동 뒤 회복을 한 흐름으로 이해할 수 있어요.",
@@ -1176,8 +1180,8 @@ const brittanySpanielDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "짧고 빠른 탐색을 여러 번 반복한 뒤에는 과제를 완전히 끝내야 해요.",
-        body: "작은 구역을 빠르게 바꾸어 찾는 활동은 짧아도 흥분이 이어질 수 있어요. 마지막 구역을 알린 뒤 장비를 치우고 물을 마신 다음 조용한 매트에서 쉬는 종료 순서를 마련해요.",
+        title: "마지막 탐색 뒤에는 리드를 정리하고 그늘진 매트에서 쉬어요.",
+        body: "작은 구역을 빠르게 바꾸어 찾는 활동이 끝나면 마지막 구역을 알려줘요. 보호자가 긴 리드를 정리하는 동안 그늘진 매트에 몸을 내려놓고 충분히 쉬게 해 주세요.",
         image: "/illustrations/v4/brittany-spaniel-feature-work-to-rest.webp",
         imageAlt: "들판 활동을 마친 뒤 보호자가 긴 리드를 정리하는 동안 그늘진 매트에서 쉬는 주황과 흰색 성견 브리트니 삽화",
       },
@@ -1228,7 +1232,7 @@ const lagottoRomagnoloDetail = standardBreedDetailSchema.parse({
   slug: "lagotto-romagnolo",
   nameKo: "라고토 로마뇰로",
   metadataDescription: "이탈리아 로마냐의 수상 회수견에서 트러플 탐색견으로 전환된 배경과 냄새 수색, 활동 뒤 회복, 안전한 파기와 곱슬 피모 관리를 살펴봅니다.",
-  heroStatement: "로마냐 습지의 수상 회수견에서 땅속 트러플을 찾는 전문 탐색견으로 역할을 바꾼 견종이에요.",
+  heroStatement: "습지의 수상 회수견에서 트러플 탐색견으로 역할을 바꾼 견종이에요.",
   story: {
     title: "라고토 로마뇰로는 어떻게 물새 회수견에서 트러플 탐색견이 되었을까요?",
     description: "습지 환경의 변화에 따라 역할을 바꾼 역사를 알면 오늘의 높은 후각 집중과 파기, 활동 뒤 회복을 함께 이해할 수 있어요.",
@@ -1376,8 +1380,8 @@ const giantSchnauzerDetail = standardBreedDetailSchema.parse({
 const portugueseWaterDogDetail = standardBreedDetailSchema.parse({
   slug: "portuguese-water-dog",
   nameKo: "포르투갈 워터 도그",
-  metadataDescription: "포르투갈 해안에서 어구를 회수하고 배와 육지를 오가던 수상 작업견의 배경과 구조화된 회수, 출수 뒤 회복, 안전 장비와 곱슬 피모 관리를 살펴봅니다.",
-  heroStatement: "포르투갈 해안에서 물에 들어가 어구를 회수하고 배와 육지 사이의 일을 돕던 수상 작업견이에요.",
+  metadataDescription: "포르투갈 해안에서 어구를 회수하고 배와 육지를 오가던 수상 작업견의 배경과 단계별 회수 활동, 물에서 나온 뒤의 휴식, 안전 장비와 곱슬 피모 관리를 살펴봅니다.",
+  heroStatement: "포르투갈 해안에서 어구를 회수하고 배와 육지의 일을 도운 수상 작업견이에요.",
   story: {
     title: "포르투갈 워터 도그는 왜 물속 대상을 찾아 사람에게 가져오려 할까요?",
     description: "어선 곁에서 물과 배를 오가던 배경을 알면 물에 대한 관심과 회수, 사람과 순서를 맞추는 협력을 한 흐름으로 이해할 수 있어요.",
@@ -1468,8 +1472,8 @@ const irishRedSetterDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "큰 범위를 오래 움직인 날에는 몸 전체가 식는 시간까지 계산해야 해요.",
-        body: "긴 보폭으로 들을 오간 뒤에도 다음 출발을 기다리며 들뜰 수 있어요. 마지막에는 천천히 걷고 물을 마신 다음 그늘진 매트에서 호흡과 몸의 열이 가라앉을 때까지 쉬게 해요.",
+        title: "긴 들판 활동 뒤에는 그늘진 매트에서 충분히 쉬어요.",
+        body: "긴 보폭으로 들을 오간 뒤에는 천천히 걸으며 물을 마셔요. 보호자 곁의 그늘진 매트에서 호흡과 몸의 열이 가라앉을 때까지 쉬게 해 주세요.",
         image: "/illustrations/v4/irish-red-setter-feature-work-to-rest.webp",
         imageAlt: "들판 활동을 마친 뒤 보호자가 긴 리드를 정리하는 동안 그늘진 매트에서 쉬는 붉은 성견 아이리시 레드 세터 삽화",
       },
@@ -1503,15 +1507,15 @@ const irishRedSetterDetail = standardBreedDetailSchema.parse({
   relatedDescription: "새를 찾아 위치를 알리는 견종 안에서도 탐색 범위와 체격, 피모 관리와 사람에게 돌아오는 방식의 차이를 살펴보세요.",
   relatedDifferences: {
     "english-setter": "넓은 들에서 새의 위치를 알리는 역할은 닮았지만 털색과 피모, 움직임을 제공하는 방식이 달라요.",
-    vizsla: "사람과 함께 새를 찾는 활동성과 협력은 닮았지만 장식털 관리와 관계 거리를 체감하는 방식이 달라요.",
+    vizsla: "사람과 함께 새를 찾는 활동성과 협력은 닮았지만 장식털 관리와 사람 곁에 머무는 정도가 달라요.",
   },
 });
 
 const boxerDetail = standardBreedDetailSchema.parse({
   slug: "boxer",
   nameKo: "복서",
-  metadataDescription: "독일에서 사람 곁의 경비·작업견으로 정립된 복서의 배경과 활기를 조절하는 협업, 더위 속 회복, 차분한 인사와 미끄럼 방지 동선을 살펴봅니다.",
-  heroStatement: "독일에서 사람 가까이 움직이며 경비와 여러 작업에 협력하도록 정립된 활기찬 작업견이에요.",
+  metadataDescription: "불렌바이서 계통에서 독일의 경비·작업견으로 정립된 복서의 배경과 활기를 조절하는 협업, 더위 속 회복, 차분한 인사와 미끄럼 방지 동선을 살펴봅니다.",
+  heroStatement: "큰 사냥감을 붙잡던 불렌바이서 계통에서 독일의 경비·작업견으로 정립됐어요.",
   story: {
     title: "복서는 왜 몸을 크게 쓰면서도 사람의 멈춤 신호를 배워야 할까요?",
     description: "사람 곁에서 힘과 민첩성을 사용한 배경을 알면 활기찬 참여와 멈춤, 더운 날의 조기 종료를 한 흐름으로 이해할 수 있어요.",
@@ -1519,8 +1523,8 @@ const boxerDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "작업견의 배경",
         eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
-        title: "독일에서 사람 곁의 경비·작업견으로 정립됐어요.",
-        body: "복서는 불렌바이서 계통을 바탕으로 독일에서 발달해 사람과 가까이 움직이는 보호·작업견으로 정리됐어요. 단단한 몸과 빠른 움직임을 사람의 방향에 맞추는 능력이 중요했어요.",
+        title: "불렌바이서 계통에서 독일의 경비·작업견으로 정립됐어요.",
+        body: "현대 복서는 큰 사냥감을 붙잡던 불렌바이서 계통을 바탕으로 19세기 말 독일에서 정립됐어요. 이후 가축 상인과 정육업자를 돕고 사람과 재산을 지키는 일도 맡았어요.",
         image: "/illustrations/v3/boxer-history.webp",
         imageAlt: "독일 농가의 작업 공간에서 사람 곁을 살피는 황갈색과 흰색 성견 복서 삽화",
       },
@@ -1578,7 +1582,7 @@ const newfoundlandDetail = standardBreedDetailSchema.parse({
   slug: "newfoundland",
   nameKo: "뉴펀랜드",
   metadataDescription: "뉴펀들랜드 섬에서 무거운 짐과 수상 작업을 도운 초대형견의 배경과 힘 조절, 물 활동 뒤 회복, 큰 몸의 이동과 젖은 이중모 관리를 살펴봅니다.",
-  heroStatement: "차가운 북대서양 연안에서 무거운 짐을 옮기고 물가의 일을 돕던 거대한 수상 작업견이에요.",
+  heroStatement: "북대서양 연안에서 무거운 짐을 옮기고 물가 일을 도운 수상 작업견이에요.",
   story: {
     title: "뉴펀랜드는 왜 큰 힘을 천천히 쓰고 물가에서 사람과 협력할까요?",
     description: "육지의 무거운 짐과 거친 바다를 오가던 배경을 알면 큰 힘의 조절과 물 활동, 초대형 몸의 회복을 함께 이해할 수 있어요.",
@@ -1645,7 +1649,7 @@ const vizslaDetail = standardBreedDetailSchema.parse({
   slug: "vizsla",
   nameKo: "비즐라",
   metadataDescription: "헝가리의 들·숲·물에서 사람 가까이 탐색·포인팅·회수한 비즐라의 배경과 다목적 탐색, 독립 휴식, 야생동물 안전과 단모 점검을 살펴봅니다.",
-  heroStatement: "헝가리의 들과 숲, 물에서 사람 가까이 탐색·포인팅·회수를 함께한 다목적 사냥견이에요.",
+  heroStatement: "헝가리의 들·숲·물에서 탐색과 포인팅·회수를 함께한 사냥견이에요.",
   story: {
     title: "비즐라는 왜 들과 숲, 물을 오가면서도 사람 가까운 범위에서 일할까요?",
     description: "여러 지형에서 사람과 가까이 협력한 배경을 알면 지형을 바꾸는 탐색과 밀접한 참여, 함께한 뒤 혼자 쉬는 연습을 연결할 수 있어요.",
@@ -1689,7 +1693,7 @@ const vizslaDetail = standardBreedDetailSchema.parse({
     {
       id: "short-coat-check",
       title: "여러 지형을 지난 뒤 확인하는 얇은 단모와 발",
-      body: "짧은 털은 손질은 단순해도 거친 수풀과 추위, 물기의 영향을 그대로 받을 수 있어요. 활동 뒤 가슴과 발, 귀 바깥을 살펴 작은 상처와 풀씨, 남은 습기를 확인해요.",
+      body: "짧은 털은 손질이 비교적 단순하지만 거친 수풀과 추위, 물기의 영향을 그대로 받을 수 있어요. 활동 뒤 가슴과 발, 귀 바깥을 살펴 작은 상처와 풀씨, 남은 습기를 확인해요.",
       image: "/illustrations/v4/vizsla-feature-short-coat-check.webp",
       imageAlt: "물가 활동 뒤 미끄럼 방지 매트에서 보호자가 적갈색 성견 비즐라의 짧은 털과 귀·발을 확인하는 삽화",
     },
@@ -1701,7 +1705,7 @@ const vizslaDetail = standardBreedDetailSchema.parse({
     "야생동물 추적을 긴 리드로 관리하고 활동 뒤 얇은 털과 귀·발을 확인할 수 있나요?",
   ],
   relatedTitle: "비즐라가 마음에 들지만 망설여진다면",
-  relatedDescription: "사람 가까이에서 여러 지형을 탐색한 포인팅견 안에서도 체격과 관계 거리, 피모와 활동 범위의 차이를 살펴보세요.",
+  relatedDescription: "사람 가까이에서 여러 지형을 탐색한 포인팅견도 체격과 사람 곁에 머무는 정도, 피모와 활동 범위가 달라요.",
   relatedDifferences: {
     weimaraner: "사람 가까이 일한 다목적 포인팅의 배경은 닮았지만 체격과 힘, 관계와 경계 반응이 달라요.",
     "german-short-haired-pointing-dog": "들·숲·물의 탐색과 회수는 닮았지만 움직임의 범위와 피모, 생활 리듬을 따로 확인해야 해요.",
@@ -1712,7 +1716,7 @@ const weimaranerDetail = standardBreedDetailSchema.parse({
   slug: "weimaraner",
   nameKo: "와이머라너",
   metadataDescription: "독일의 들·숲·물에서 체계적으로 탐색하고 포인팅과 회수를 수행한 와이머라너의 배경과 넓은 시야 탐색, 독립 휴식, 방문 동선과 단모 점검을 살펴봅니다.",
-  heroStatement: "바이마르 주변에서 들과 숲, 물을 오가며 체계적인 탐색과 포인팅·회수를 수행한 은회색 사냥견이에요.",
+  heroStatement: "들·숲·물을 오가며 탐색과 포인팅·회수를 맡은 은회색 사냥견이에요.",
   story: {
     title: "와이머라너는 왜 넓은 공간에서 한 냄새길을 오래 좁혀 갈까요?",
     description: "사냥 전후의 여러 작업을 체계적으로 수행한 배경을 알면 공간을 살피고 냄새 범위를 좁혀 가는 집중, 활동 뒤 독립 휴식을 한 흐름으로 이해할 수 있어요.",
@@ -1742,7 +1746,7 @@ const weimaranerDetail = standardBreedDetailSchema.parse({
         imageAlt: "보호자가 산책 장비를 바구니에 정리하는 동안 넓은 독립 침대에서 쉬는 은회색 성견 와이머라너 삽화",
       },
     ],
-    caution: "다목적 사냥견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 탐색 범위와 관계 거리, 휴식 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+    caution: "다목적 사냥견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 얼마나 멀리 탐색하는지, 사람 곁에 얼마나 가까이 머무는지와 쉬는 속도는 개체마다 달라요.",
   },
   realitiesTitle: "와이머라너의 생활 현실",
   realities: [
@@ -1768,7 +1772,7 @@ const weimaranerDetail = standardBreedDetailSchema.parse({
     "방문 동선을 나누고 수풀 활동 뒤 얇은 단모와 귀·발을 반복해서 확인할 수 있나요?",
   ],
   relatedTitle: "와이머라너가 마음에 들지만 망설여진다면",
-  relatedDescription: "사람과 협력한 대륙 포인팅견 안에서도 탐색 범위와 체격, 피모와 관계 거리의 차이를 살펴보세요.",
+  relatedDescription: "사람과 협력한 대륙 포인팅견도 탐색 범위와 체격, 피모와 사람 곁에 머무는 정도가 달라요.",
   relatedDifferences: {
     vizsla: "들·숲·물에서 가까이 협력한 배경은 닮았지만 체격과 피모, 사람과 거리를 조절하는 생활 리듬이 달라요.",
     "german-short-haired-pointing-dog": "독일 다목적 포인팅견의 작업 범위는 닮았지만 피모 형태와 움직임, 일상에서 필요한 과제 구성이 달라요.",
@@ -1779,7 +1783,7 @@ const germanShortHairedPointingDogDetail = standardBreedDetailSchema.parse({
   slug: "german-short-haired-pointing-dog",
   nameKo: "저먼 쇼트헤어드 포인터",
   metadataDescription: "독일의 들·숲·물에서 포인팅과 추적·회수를 수행한 저먼 쇼트헤어드 포인터의 배경과 작업 전환, 활동 뒤 회복, 야생동물 안전과 현장 점검을 살펴봅니다.",
-  heroStatement: "들에서 위치를 알리고 숲과 물에서 추적·회수까지 이어 가도록 정립된 독일의 다목적 포인팅견이에요.",
+  heroStatement: "들·숲·물을 오가며 멈춰 알리고 추적·회수한 독일 포인팅견이에요.",
   story: {
     title: "저먼 쇼트헤어드 포인터는 왜 지형과 과제가 바뀌어도 빠르게 다음 일로 전환할까요?",
     description: "단순히 멀리 달리는 견종이 아니라 여러 사냥 단계를 수행한 배경을 알면 탐색·포인팅·회수와 회복을 하나의 순서로 설계할 수 있어요.",
@@ -1830,14 +1834,14 @@ const germanShortHairedPointingDogDetail = standardBreedDetailSchema.parse({
   ],
   readinessTitle: "저먼 쇼트헤어드 포인터와 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "탐색·멈춤·회수를 짧은 구간으로 나누고 과제 사이에 보호자 재확인을 넣을 수 있나요?",
+    "탐색·멈춤·회수를 짧게 나누고 중간마다 보호자를 다시 확인하게 할 수 있나요?",
     "야생동물 추적을 긴 리드로 관리하고 높은 활동 뒤 충분한 물과 회복 시간을 제공할 수 있나요?",
     "들판과 물가 활동 뒤 짧은 털과 귀·발에 남은 습기와 이물질을 확인할 수 있나요?",
   ],
   relatedTitle: "저먼 쇼트헤어드 포인터가 마음에 들지만 망설여진다면",
   relatedDescription: "들·숲·물을 오간 포인팅견 안에서도 작업의 폭과 사람과의 거리, 체격과 피모의 차이를 살펴보세요.",
   relatedDifferences: {
-    vizsla: "여러 지형의 포인팅과 회수는 닮았지만 사람과의 관계 거리, 피모와 체격에서 다른 생활 리듬이 나타날 수 있어요.",
+    vizsla: "여러 지형에서 포인팅하고 회수하는 모습은 닮았지만 사람 곁에 머무는 정도와 피모, 체격이 달라요.",
     weimaraner: "독일에서 정립된 다목적 작업 범위는 닮았지만 시야와 냄새를 쓰는 방식, 피모와 힘의 차이를 함께 봐야 해요.",
   },
 });
@@ -1846,7 +1850,7 @@ const novaScotiaDuckTollingRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "nova-scotia-duck-tolling-retriever",
   nameKo: "노바 스코샤 덕 톨링 리트리버",
   metadataDescription: "캐나다 노바스코샤 물가에서 활기찬 움직임으로 오리를 가까이 유인하고 회수한 톨러의 배경과 물가 놀이, 흥분 뒤 휴식, 안전한 출수와 젖은 이중모 관리를 살펴봅니다.",
-  heroStatement: "물가를 빠르게 오가며 오리의 관심을 끈 뒤 물속 대상을 회수하도록 발달한 캐나다의 작은 리트리버예요.",
+  heroStatement: "물가에서 오리의 관심을 끈 뒤 물속 대상을 회수한 캐나다 리트리버예요.",
   story: {
     title: "톨러는 왜 물가를 빠르게 오가며 물건을 가져오는 움직임에 몰입할까요?",
     description: "유인과 회수를 한 작업 안에서 반복한 배경을 알면 물가의 빠른 왕복과 전달, 높은 흥분을 끝내는 휴식까지 연결할 수 있어요.",
@@ -1870,8 +1874,8 @@ const novaScotiaDuckTollingRetrieverDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "다음 회수를 기다리는 흥분까지 끝내는 종료 순서가 필요해요.",
-        body: "물건을 한 번 가져온 뒤에도 바구니와 사람의 손을 살피며 다음 출발을 기다릴 수 있어요. 회수 도구를 바구니에 넣고 물을 마신 다음 마른 매트에 눕는 순서를 일관되게 사용해요.",
+        title: "회수 도구를 바구니에 정리한 뒤 마른 매트에서 쉬어요.",
+        body: "짧은 왕복 회수가 끝나면 보호자가 회수 도구를 바구니에 정리해요. 물을 마시고 마른 매트에 몸을 내려놓아 다음 출발을 기다리는 움직임이 잦아들 때까지 쉬게 해 주세요.",
         image: "/illustrations/v4/nova-scotia-duck-tolling-retriever-feature-retrieve-to-rest.webp",
         imageAlt: "보호자가 회수 도구를 바구니에 정리하는 동안 물그릇 곁 마른 매트에서 쉬는 붉은 성견 톨러 삽화",
       },
@@ -1912,8 +1916,16 @@ const novaScotiaDuckTollingRetrieverDetail = standardBreedDetailSchema.parse({
 const oldEnglishSheepdogDetail = standardBreedDetailSchema.parse({
   slug: "old-english-sheepdog",
   nameKo: "올드 잉글리시 시프독",
-  metadataDescription: "영국 농경지에서 가축의 이동을 도운 올드 잉글리시 시프독의 배경과 움직임 전환, 큰 몸의 휴식 공간, 전신 라인 브러싱과 안전한 주거 동선을 살펴봅니다.",
+  metadataDescription: "영국 농경지에서 가축의 이동을 도운 올드 잉글리시 시프독의 배경과 방향 전환, 큰 몸의 휴식 공간, 털을 구역별로 나누어 빗는 방법과 안전한 주거 동선을 살펴봅니다.",
   heroStatement: "풍성한 털 아래 큰 몸으로 영국 농경지의 가축 이동을 도운 민첩한 목양견이에요.",
+  heroSizeDetails: {
+    summaryRows: [{ label: "체고", value: "성별로 다름" }],
+    detailsLabel: "성별 보기",
+    items: [
+      { id: "male", label: "수컷", value: "체고 61cm 이상" },
+      { id: "female", label: "암컷", value: "체고 56cm 이상" },
+    ],
+  },
   story: {
     title: "올드 잉글리시 시프독은 왜 움직이는 대상을 따라 방향을 바꾸려 할까요?",
     description: "큰 몸으로 가축의 이동을 도운 배경을 알면 움직임을 읽고 방향을 바꾸는 참여와 활동 뒤 필요한 넓은 회복 공간을 함께 이해할 수 있어요.",
@@ -1929,7 +1941,7 @@ const oldEnglishSheepdogDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
-        title: "움직임을 따라가기보다 사람 신호에 맞춰 진행 방향을 바꿀 수 있어요.",
+        title: "움직임을 따라가기보다 보호자의 신호에 맞춰 방향을 바꿀 수 있어요.",
         body: "빠르게 움직이는 공이나 가족의 동선을 따라 몸으로 방향을 막으려 할 수 있어요. 낮은 표식 둘레를 천천히 돌고 손 신호에 맞춰 반대 방향으로 전환하는 협업 과제를 제공해요.",
         image: "/illustrations/v4/old-english-sheepdog-feature-movement-redirection.webp",
         imageAlt: "넓은 정원에서 낮은 표식 사이를 돌다가 보호자의 손 신호에 맞춰 방향을 바꾸는 회백색 성견 올드 잉글리시 시프독 삽화",
@@ -1964,7 +1976,7 @@ const oldEnglishSheepdogDetail = standardBreedDetailSchema.parse({
   ],
   readinessTitle: "올드 잉글리시 시프독과 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "움직이는 대상을 몸으로 막는 대신 사람 신호에 맞춰 방향을 바꾸는 과제를 제공할 수 있나요?",
+    "움직이는 대상을 몸으로 막지 않고 보호자의 신호에 맞춰 방향을 바꾸게 할 수 있나요?",
     "큰 몸을 온전히 펼칠 넓고 서늘한 휴식 자리와 미끄럽지 않은 주거 동선을 마련할 수 있나요?",
     "풍성한 전신 털을 작은 구역으로 나누어 피부 가까이부터 빗을 시간을 꾸준히 확보할 수 있나요?",
   ],
@@ -1980,10 +1992,10 @@ const caneCorsoDetail = standardBreedDetailSchema.parse({
   slug: "cane-corso",
   nameKo: "카네 코르소",
   metadataDescription: "이탈리아 농장에서 재산·가족·가축을 지킨 카네 코르소의 배경과 힘을 조절하는 협업, 방문객 거리, 대형견 차량 동선과 단모·몸 상태 점검을 살펴봅니다.",
-  heroStatement: "이탈리아 농장에서 재산과 가족, 가축을 지키고 여러 일을 맡았던 크고 민첩한 작업견이에요.",
+  heroStatement: "이탈리아 농장에서 가족과 가축을 지키고 여러 일을 맡은 작업견이에요.",
   story: {
     title: "카네 코르소는 왜 큰 힘을 쓰면서도 주변 변화와 사람의 방향을 함께 살필까요?",
-    description: "농장 안팎을 지키고 가축 이동을 도운 배경을 알면 큰 힘을 사람 신호 안에서 조절하는 협업과 낯선 접근에 필요한 거리를 함께 이해할 수 있어요.",
+    description: "농장 안팎을 지키고 가축 이동을 도운 배경을 알면 큰 힘을 보호자의 신호에 맞춰 조절하는 법과 낯선 대상과의 안전거리를 함께 이해할 수 있어요.",
     steps: [
       {
         navLabel: "농장 작업의 배경",
@@ -2047,7 +2059,7 @@ const chowChowDetail = standardBreedDetailSchema.parse({
   slug: "chow-chow",
   nameKo: "차우차우",
   metadataDescription: "중국에서 경비·사냥·반려의 여러 역할을 맡은 차우차우의 배경과 관찰 거리, 접촉 없는 휴식, 더위 대응과 촘촘한 이중모 관리를 살펴봅니다.",
-  heroStatement: "중국에서 집과 주변을 살피고 사람 곁에서 여러 역할을 맡아온 단단한 스피츠형 개예요.",
+  heroStatement: "중국에서 집과 주변을 살피며 여러 역할을 맡아온 스피츠형 개예요.",
   story: {
     title: "차우차우는 왜 낯선 변화에 바로 다가가기보다 멈춰서 살피려 할까요?",
     description: "집과 주변을 지키며 사람 곁에서 여러 역할을 맡은 배경을 알면 차분한 관찰과 스스로 거리를 선택하는 생활 방식을 함께 이해할 수 있어요.",
@@ -2138,8 +2150,8 @@ const airedaleTerrierDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "끝까지 찾으려는 끈기가 남지 않도록 탐색 도구를 닫아 보관해야 해요.",
-        body: "과제가 끝나도 주머니와 리드를 살피며 탐색을 이어가려 할 수 있어요. 마지막 발견을 확인한 뒤 도구를 뚜껑 있는 상자에 넣고 물을 마신 다음 매트에서 쉬게 해요.",
+        title: "탐색 도구를 뚜껑 있는 상자에 넣고 매트에서 쉬어요.",
+        body: "냄새 찾기가 끝나면 보호자가 탐색 도구를 뚜껑 있는 상자에 넣어 보이지 않게 정리해요. 물을 마시고 매트에 몸을 내려놓아 탐색하던 움직임이 잦아들 때까지 쉬게 해 주세요.",
         image: "/illustrations/v4/airedale-terrier-feature-search-to-rest.webp",
         imageAlt: "보호자가 후각 탐색 도구를 뚜껑 있는 상자에 정리하는 동안 물그릇 옆 매트에서 쉬는 성견 에어데일 테리어 삽화",
       },
@@ -2153,7 +2165,7 @@ const airedaleTerrierDetail = standardBreedDetailSchema.parse({
       title: "쫓기 시작하기 전에 만드는 넓은 방향 전환",
       body: "큰 테리어가 작은 동물이나 빠른 움직임을 향해 힘을 쓰면 좁은 길에서는 사람이 균형을 잃기 쉬워요. 거리를 먼저 확보하고 느슨한 리드로 넓게 돌아 보호자의 손 신호를 확인하는 연습을 해요.",
       image: "/illustrations/v4/airedale-terrier-feature-pursuit-u-turn.webp",
-      imageAlt: "울타리 너머 다람쥐를 본 뒤 보호자의 열린 손 신호를 따라 느슨한 리드로 넓게 방향을 바꾸는 성견 에어데일 테리어 삽화",
+      imageAlt: "울타리 너머 다람쥐를 본 뒤 보호자의 손짓을 따라 느슨한 리드로 넓게 방향을 바꾸는 성견 에어데일 테리어 삽화",
     },
     {
       id: "wiry-coat-care",
@@ -2180,8 +2192,8 @@ const airedaleTerrierDetail = standardBreedDetailSchema.parse({
 const chesapeakeBayRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "chesapeake-bay-retriever",
   nameKo: "체서피크 베이 리트리버",
-  metadataDescription: "차갑고 거친 체서피크만에서 반복 회수를 맡은 체서피크 베이 리트리버의 배경과 물길 기억, 활동 종료, 입수 계획과 젖은 물결 모양 이중모 관리를 살펴봅니다.",
-  heroStatement: "차가운 바람과 물살 속에서도 출수 지점으로 돌아오며 반복 회수를 맡았던 미국의 수상 리트리버예요.",
+  metadataDescription: "차갑고 거친 체서피크만에서 반복 회수를 맡은 체서피크 베이 리트리버의 배경과 물길 기억, 활동을 마치는 순서, 입수 계획과 젖은 물결 모양 이중모 관리를 살펴봅니다.",
+  heroStatement: "차가운 바람과 물살 속에서 반복 회수를 맡은 미국의 수상 리트리버예요.",
   story: {
     title: "체서피크 베이 리트리버는 왜 물속 대상을 찾는 동안 돌아올 길까지 함께 기억할까요?",
     description: "거친 만에서 여러 차례 물을 오간 배경을 알면 대상을 찾는 집중뿐 아니라 입수·회수·출수·휴식을 하나의 안전한 흐름으로 이해할 수 있어요.",
@@ -2206,7 +2218,7 @@ const chesapeakeBayRetrieverDetail = standardBreedDetailSchema.parse({
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
         title: "회수 도구를 치우고 몸을 말린 뒤 쉬는 순간까지 물 활동에 포함해야 해요.",
-        body: "육지에 올라온 뒤에도 젖은 도구와 물가를 살피며 다음 출발을 기다릴 수 있어요. 도구를 닫힌 바구니에 넣고 물을 마신 다음 마른 매트에서 쉬는 종료 순서를 사용해요.",
+        body: "육지에 올라온 뒤에도 젖은 도구와 물가를 살피며 다음 출발을 기다릴 수 있어요. 도구를 보이지 않게 치우고 물을 마신 다음 마른 자리에서 쉬게 해요.",
         image: "/illustrations/v4/chesapeake-bay-retriever-feature-retrieve-to-rest.webp",
         imageAlt: "보호자가 젖은 회수 도구를 바구니에 넣는 동안 물그릇 옆 마른 매트에서 쉬는 갈색 성견 체서피크 베이 리트리버 삽화",
       },
@@ -2247,8 +2259,8 @@ const chesapeakeBayRetrieverDetail = standardBreedDetailSchema.parse({
 const dalmatianDetail = standardBreedDetailSchema.parse({
   slug: "dalmatian",
   nameKo: "달마시안",
-  metadataDescription: "마차 곁을 긴 거리 동안 달린 달마시안의 배경과 일정한 이동 리듬, 활동 종료, 시각 신호와 다양한 지면 뒤 발 점검을 살펴봅니다.",
-  heroStatement: "마차와 말의 곁을 긴 거리 동안 일정한 보폭으로 달리며 이동을 함께했던 점박이 동반견이에요.",
+  metadataDescription: "마차 곁을 긴 거리 동안 달린 달마시안의 배경과 일정한 이동 리듬, 활동을 마치는 순서, 눈으로 확인하는 신호와 여러 지면을 지난 뒤의 발 관리를 살펴봅니다.",
+  heroStatement: "마차와 말 곁에서 긴 거리를 일정한 보폭으로 달린 점박이 동반견이에요.",
   story: {
     title: "달마시안은 왜 순간적인 속도보다 사람과 긴 이동 리듬을 맞추는 활동에 집중할까요?",
     description: "마차 곁에서 이동한 배경을 알면 사람의 방향과 속도를 읽는 지속적인 움직임, 활동을 끝내고 회복하는 순서를 함께 이해할 수 있어요.",
@@ -2272,7 +2284,7 @@ const dalmatianDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "움직임을 충분히 제공한 뒤에도 장비를 치우고 쉬는 종료 순서가 필요해요.",
+        title: "운동 장비를 수납한 뒤 물그릇 옆 넓은 매트에서 쉬어요.",
         body: "활동이 끝나도 운동 도구와 현관을 살피며 다음 출발을 기다릴 수 있어요. 표식과 장비를 닫힌 수납장에 넣고 물을 마신 다음 넓은 매트에서 쉬게 해요.",
         image: "/illustrations/v4/dalmatian-feature-activity-to-rest.webp",
         imageAlt: "보호자가 운동 장비를 수납하는 동안 물그릇 옆 넓은 매트에서 쉬는 성견 달마시안 삽화",
@@ -2285,9 +2297,9 @@ const dalmatianDetail = standardBreedDetailSchema.parse({
     {
       id: "visual-cues",
       title: "소리만 부르기보다 눈으로 확인할 수 있는 일관된 손 신호",
-      body: "멀리 떨어졌거나 주변 소리가 큰 곳에서는 목소리만으로 방향을 전하기 어려울 수 있어요. 가까운 거리부터 열린 손과 바닥 표적을 함께 사용해 멈춤과 돌아오기를 눈으로도 확인하게 해요.",
+      body: "멀리 떨어졌거나 주변 소리가 큰 곳에서는 목소리만으로 방향을 전하기 어려울 수 있어요. 가까운 거리부터 보호자의 손짓과 바닥 표적을 함께 사용해 멈춤과 돌아오기를 눈으로도 확인하게 해요.",
       image: "/illustrations/v4/dalmatian-feature-visual-cues.webp",
-      imageAlt: "보호자의 열린 손을 확인하고 바닥 표적으로 이동하는 성견 달마시안 삽화",
+      imageAlt: "보호자의 손짓을 확인하고 바닥 표적으로 이동하는 성견 달마시안 삽화",
     },
     {
       id: "paw-surface-check",
@@ -2315,7 +2327,7 @@ const bedlingtonTerrierDetail = standardBreedDetailSchema.parse({
   slug: "bedlington-terrier",
   nameKo: "베들링턴 테리어",
   metadataDescription: "잉글랜드 북부 광산 지역에서 토끼와 작은 동물을 찾은 베들링턴 테리어의 배경과 짧은 전력 질주, 출입 안전, 폭신한 피모 관리를 살펴봅니다.",
-  heroStatement: "양처럼 부드러운 외모 안에 빠르게 달려 작은 사냥감을 찾던 북잉글랜드 테리어의 움직임이 남아 있어요.",
+  heroStatement: "부드러운 외모 안에 작은 사냥감을 빠르게 쫓던 테리어의 움직임이 남아 있어요.",
   story: {
     title: "베들링턴 테리어는 왜 조용히 살피다가도 움직이는 목표 앞에서 빠르게 속도를 바꿀까요?",
     description: "광산 지역에서 토끼와 작은 동물을 찾은 배경을 알면 짧고 빠른 추적 과제와 흥분을 끝내는 회복 순서를 함께 이해할 수 있어요.",
@@ -2332,17 +2344,17 @@ const bedlingtonTerrierDetail = standardBreedDetailSchema.parse({
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
         title: "안전하게 닫힌 공간에서 한 번의 짧은 추적과 멈춤을 빠르게 오갈 수 있어요.",
-        body: "넓은 울타리 안에서 부드러운 흰색 루어를 짧게 움직여 한 번만 달리게 해요. 도착 지점을 넓게 비우고 보호자의 손 표적에서 멈춘 뒤 바로 리듬을 낮춰요.",
+        body: "넓은 울타리 안에서 부드러운 흰색 천 장난감을 짧게 움직여 한 번만 달리게 해요. 도착 지점을 넓게 비우고 보호자의 손짓에 멈춘 뒤 바로 쉬게 해요.",
         image: "/illustrations/v4/bedlington-terrier-feature-short-lure-run.webp",
-        imageAlt: "울타리가 있는 넓은 들에서 흰색 루어를 향해 짧게 질주하는 청회색 성견 베들링턴 테리어 삽화",
+        imageAlt: "울타리가 있는 넓은 들에서 흰색 천 장난감을 향해 짧게 질주하는 청회색 성견 베들링턴 테리어 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
         title: "짧은 질주 뒤에는 움직이는 도구를 보이지 않게 치우고 몸을 편안히 쉬게 해야 해요.",
-        body: "루어가 계속 보이면 다음 움직임을 기다리며 시선을 떼기 어려울 수 있어요. 도구를 닫힌 수납장에 넣고 물을 마신 뒤 두꺼운 매트에서 충분히 쉬게 해요.",
+        body: "움직이는 장난감이 계속 보이면 다음 움직임을 기다리며 시선을 떼기 어려울 수 있어요. 도구를 보이지 않게 치우고 물을 마신 뒤 푹신한 자리에서 쉬게 해요.",
         image: "/illustrations/v4/bedlington-terrier-feature-run-to-rest.webp",
-        imageAlt: "보호자가 루어 도구를 닫힌 수납장에 넣는 동안 두꺼운 매트에서 쉬는 성견 베들링턴 테리어 삽화",
+        imageAlt: "보호자가 움직이는 장난감을 수납장에 넣는 동안 푹신한 자리에서 쉬는 성견 베들링턴 테리어 삽화",
       },
     ],
     caution: "토끼와 작은 동물을 찾던 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임을 향한 관심과 달리는 속도, 활동 뒤 회복은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
@@ -2382,15 +2394,15 @@ const finnishLapponianDogDetail = standardBreedDetailSchema.parse({
   slug: "finnish-lapponian-dog",
   nameKo: "핀니시 라포니안 독",
   metadataDescription: "사미 사람들과 순록을 몰고 지킨 핀니시 라포니안 독의 배경과 방향 전환, 알림 뒤 휴식, 더운 계절 동선과 발가락 사이 털 관리를 살펴봅니다.",
-  heroStatement: "북유럽의 넓은 땅에서 사미 사람과 함께 순록의 움직임을 읽고 방향을 바꾸던 민첩한 목양견이에요.",
+  heroStatement: "북유럽에서 사미 사람과 함께 순록 무리의 방향을 바꾸던 민첩한 목양견이에요.",
   story: {
-    title: "핀니시 라포니안 독은 왜 넓은 움직임을 살피며 사람의 방향 신호와 목소리를 함께 확인할까요?",
-    description: "순록 무리의 흐름을 바꾸고 주변을 알린 배경을 알면 빠른 방향 전환과 알림 뒤 조용히 회복하는 생활 순서를 함께 이해할 수 있어요.",
+    title: "핀니시 라포니안 독은 왜 움직임과 소리에 빠르게 반응할까요?",
+    description: "순록 무리를 몰고 주변 변화를 알리던 배경은 빠른 방향 전환과 소리에 대한 반응을 이해하는 단서가 돼요.",
     steps: [
       {
         navLabel: "순록 목양의 배경",
         eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
-        title: "사미 사람들과 함께 순록 무리의 방향을 바꾸고 주변을 살폈어요.",
+        title: "사미 사람들과 함께 순록을 몰고 주변을 살폈어요.",
         body: "핀니시 라포니안 독은 오랫동안 북유럽의 사미 사람들과 순록을 몰고 지키는 일을 했어요. 움직이는 무리의 바깥을 빠르게 오가며 사람의 신호와 주변 변화를 함께 읽는 능력이 중요했어요.",
         image: "/illustrations/v3/finnish-lapponian-dog-history.webp",
         imageAlt: "북유럽 설원에서 사미 사람의 방향을 확인하며 순록 무리 바깥을 이동하는 검정과 황갈색 성견 핀니시 라포니안 독 삽화",
@@ -2398,7 +2410,7 @@ const finnishLapponianDogDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
-        title: "움직이는 대상의 바깥을 돌며 사람 신호에 맞춰 방향을 빠르게 바꿀 수 있어요.",
+        title: "움직임의 바깥을 돌다가 보호자의 신호에 맞춰 방향을 바꿔요.",
         body: "넓은 공간에 큰 운동 공과 낮은 표식을 놓고 바깥을 돌아 손 신호에서 방향을 전환하게 해요. 움직임을 몰아붙이기보다 한 바퀴마다 보호자를 확인하고 짧게 멈추는 구간을 넣어요.",
         image: "/illustrations/v4/finnish-lapponian-dog-feature-direction-change.webp",
         imageAlt: "넓은 들에서 큰 운동 공의 바깥을 돌다 보호자의 손 신호에 맞춰 방향을 바꾸는 성견 핀니시 라포니안 독 삽화",
@@ -2406,10 +2418,10 @@ const finnishLapponianDogDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "주변을 알린 뒤에는 움직임과 목소리를 멈추고 조용히 쉬는 전환이 필요해요.",
-        body: "현관 소리나 빠른 움직임을 알아차린 뒤 목소리와 몸의 활동이 함께 커질 수 있어요. 보호자의 열린 손을 확인하면 도구를 치우고 물과 시원한 매트가 있는 자리에서 쉬게 해요.",
+        title: "운동 도구를 바구니에 넣은 뒤 시원한 매트에서 쉬어요.",
+        body: "주변 변화를 알린 뒤에는 보호자가 운동 도구를 바구니에 정리해 활동의 끝을 보여 줘요. 물을 마시고 시원한 매트에 몸을 내려놓아 목소리와 움직임이 잦아들 때까지 쉬게 해 주세요.",
         image: "/illustrations/v4/finnish-lapponian-dog-feature-voice-to-rest.webp",
-        imageAlt: "보호자가 운동 도구를 바구니에 넣고 열린 손을 보여주는 동안 시원한 매트에서 쉬는 성견 핀니시 라포니안 독 삽화",
+        imageAlt: "보호자가 운동 도구를 바구니에 넣는 동안 물그릇 옆 시원한 매트에서 쉬는 성견 핀니시 라포니안 독 삽화",
       },
     ],
     caution: "순록 목양과 알림의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임과 소리에 대한 반응, 목소리와 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
@@ -2418,14 +2430,14 @@ const finnishLapponianDogDetail = standardBreedDetailSchema.parse({
   realities: [
     {
       id: "warm-weather-route",
-      title: "풍성한 이중모에 맞춰 고르는 서늘한 시간과 그늘진 짧은 길",
+      title: "더운 날에는 서늘한 시간과 그늘진 짧은 길을 골라요",
       body: "추운 환경에 맞는 촘촘한 속털과 긴 겉털은 더운 계절의 긴 야외 활동에 부담이 될 수 있어요. 이른 시간의 그늘진 짧은 길을 고르고 물과 시원한 매트에서 회복하는 시간을 충분히 둬요.",
       image: "/illustrations/v4/finnish-lapponian-dog-feature-warm-weather-route.webp",
       imageAlt: "이른 아침 갈림길의 그늘에서 물그릇과 냉감 매트에 쉬며 보호자와 숲길을 고르는 성견 핀니시 라포니안 독 삽화",
     },
     {
       id: "foot-coat-check",
-      title: "눈과 젖은 길을 지난 뒤 발가락 사이의 촘촘한 털까지 확인하기",
+      title: "눈길과 젖은 길을 지난 뒤 발가락 사이 털을 살펴요",
       body: "발가락 사이의 풍성한 털에는 눈덩이와 물기, 작은 이물질이 남을 수 있어요. 현관의 미끄럼 방지 매트에서 발을 하나씩 들어 털 사이를 살피고 마른 수건으로 충분히 닦아요.",
       image: "/illustrations/v4/finnish-lapponian-dog-feature-foot-coat-check.webp",
       imageAlt: "눈길에서 돌아와 보호자가 성견 핀니시 라포니안 독의 발가락 사이 털을 살피는 삽화",
@@ -2433,14 +2445,14 @@ const finnishLapponianDogDetail = standardBreedDetailSchema.parse({
   ],
   readinessTitle: "핀니시 라포니안 독과 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "넓은 공간에서 움직임의 바깥을 돌고 사람 신호에 맞춰 방향을 바꾸는 짧은 과제를 제공할 수 있나요?",
+    "넓은 공간에서 움직임의 바깥을 돌다가 보호자의 신호에 맞춰 방향을 바꾸게 할 수 있나요?",
     "알림 반응 뒤 도구를 치우고 목소리와 움직임을 낮춰 시원한 자리에서 쉬게 할 수 있나요?",
     "더운 계절에는 그늘진 짧은 길을 고르고 눈이나 젖은 길 뒤 발가락 사이 털을 확인할 수 있나요?",
   ],
   relatedTitle: "핀니시 라포니안 독이 마음에 들지만 망설여진다면",
   relatedDescription: "사람과 움직임을 조율하는 북방 목양견 안에서도 알림 반응과 방향 전환, 더위와 피모 관리의 차이를 살펴보세요.",
   relatedDifferences: {
-    "shetland-sheepdog": "사람 신호로 움직임을 바꾸고 주변을 알리는 모습은 닮았지만 체격과 북방 이중모, 더위 관리 규모가 달라요.",
+    "shetland-sheepdog": "보호자의 신호에 맞춰 방향을 바꾸고 주변 변화를 알리는 모습은 닮았지만 체격과 피모, 더위 관리 부담이 달라요.",
     samoyed: "북부 환경의 풍성한 이중모와 사람 곁 생활은 닮았지만 순록 무리의 방향을 바꾼 목양 배경이 구별돼요.",
   },
 });
@@ -2448,14 +2460,14 @@ const finnishLapponianDogDetail = standardBreedDetailSchema.parse({
 const leonbergerDetail = standardBreedDetailSchema.parse({
   slug: "leonberger",
   nameKo: "레온베르거",
-  metadataDescription: "독일 레온베르크에서 정립된 레온베르거의 큰 힘과 협력, 활동 종료, 차량 경사로와 젖은 장모 관리 현실을 살펴봅니다.",
-  heroStatement: "독일 레온베르크에서 사람 곁의 큰 생활견으로 정립되어 농장과 수레 작업에도 힘을 보탠 초대형 장모견이에요.",
+  metadataDescription: "독일 레온베르크에서 정립된 레온베르거의 큰 힘과 협력, 활동 뒤 휴식, 차량 경사로와 젖은 장모 관리 현실을 살펴봅니다.",
+  heroStatement: "독일 레온베르크에서 반려와 농장·수레 일을 함께하도록 정립된 대형견이에요.",
   story: {
     title: "레온베르거는 왜 큰 몸의 힘을 사람의 속도와 방향에 맞추는 연습이 필요할까요?",
     description: "사람 곁에서 수레와 여러 작업을 도운 배경을 알면 큰 힘을 천천히 조절하는 협력과 활동 뒤 충분한 회복을 함께 이해할 수 있어요.",
     steps: [
-      { navLabel: "생활·작업의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "19세기 독일 레온베르크에서 큰 생활견으로 정립되어 농장과 수레 작업에도 참여했어요.", body: "레온베르거는 사자를 닮은 인상적인 개를 목표로 정립됐고 이후 가정과 농장 가까이에서 여러 일을 도왔어요. 큰 몸의 힘을 사람과 같은 방향으로 천천히 사용하는 능력이 중요했어요.", image: "/illustrations/v3/leonberger-history.webp", imageAlt: "마을 물가에서 사람 곁의 수레를 끌며 작업을 돕는 황금빛 성견 레온베르거 삽화" },
-      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "가벼운 빈 수레를 끌며 사람의 손 신호에 맞춰 넓게 방향을 바꿀 수 있어요.", body: "낮은 표식 사이에서 가벼운 빈 수레를 천천히 끌고 열린 손에서 방향을 바꾸게 해요. 무게와 거리를 늘리기보다 느린 출발·넓은 회전·멈춤을 짧게 연결해요.", image: "/illustrations/v4/leonberger-feature-controlled-cart.webp", imageAlt: "넓은 마당에서 가벼운 빈 수레를 끌며 보호자의 손 신호에 맞춰 도는 성견 레온베르거 삽화" },
+      { navLabel: "생활·작업의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "19세기 독일에서 대형 반려견으로 정립되어 농장과 수레 작업도 도왔어요.", body: "레온베르거는 사자를 닮은 인상적인 개를 목표로 정립됐고 이후 가정과 농장 가까이에서 여러 일을 도왔어요. 큰 몸의 힘을 사람과 같은 방향으로 천천히 사용하는 능력이 중요했어요.", image: "/illustrations/v3/leonberger-history.webp", imageAlt: "마을 물가에서 사람 곁의 수레를 끌며 작업을 돕는 황금빛 성견 레온베르거 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "가벼운 빈 수레를 끌며 사람의 손 신호에 맞춰 넓게 방향을 바꿀 수 있어요.", body: "낮은 표식 사이에서 가벼운 빈 수레를 천천히 끌고 보호자의 손짓에 맞춰 방향을 바꾸게 해요. 무게와 거리를 늘리기보다 느린 출발·넓은 회전·멈춤을 짧게 연결해요.", image: "/illustrations/v4/leonberger-feature-controlled-cart.webp", imageAlt: "넓은 마당에서 가벼운 빈 수레를 끌며 보호자의 손 신호에 맞춰 도는 성견 레온베르거 삽화" },
       { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "큰 몸의 활동은 장비를 풀고 넓게 누워 쉬는 시간까지 포함해야 해요.", body: "과제 뒤에는 체온과 호흡이 천천히 안정될 충분한 공간이 필요해요. 수레와 하네스를 치우고 물을 마신 다음 몸 전체를 펼칠 수 있는 시원한 매트에서 쉬게 해요.", image: "/illustrations/v4/leonberger-feature-work-to-rest.webp", imageAlt: "보호자가 하네스를 수납하는 동안 물그릇 옆 넓은 매트에 몸을 펼쳐 쉬는 성견 레온베르거 삽화" },
     ],
     caution: "농장과 수레 작업의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 힘과 활동량, 물 선호와 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
@@ -2475,14 +2487,14 @@ const leonbergerDetail = standardBreedDetailSchema.parse({
 const bullTerrierDetail = standardBreedDetailSchema.parse({
   slug: "bull-terrier",
   nameKo: "불테리어",
-  metadataDescription: "19세기 영국에서 현재 형태로 정립된 불테리어의 단단한 몸과 놀이 전환, 안전한 인사 동선과 협력적인 몸 점검을 살펴봅니다.",
-  heroStatement: "독특한 달걀형 머리와 균형 잡힌 단단한 몸으로 19세기 영국에서 현재 형태가 정립된 활기찬 테리어예요.",
+  metadataDescription: "19세기 영국에서 현재 형태로 정립된 불테리어의 단단한 몸과 놀이 전환, 안전한 인사 동선과 피부·발을 함께 살피는 관리를 알아봅니다.",
+  heroStatement: "달걀형 머리와 단단한 몸이 특징인 활기찬 영국 테리어예요.",
   story: {
     title: "불테리어는 왜 힘 있게 놀이하는 동안에도 사람의 중단 신호를 확인해야 할까요?",
     description: "단단하고 활동적인 테리어로 정립된 배경을 알면 몸 전체를 쓰는 놀이와 흥분을 낮춰 쉬는 전환을 함께 이해할 수 있어요.",
     steps: [
-      { navLabel: "품종 정립의 배경", eyebrow: "1단계 · 어떤 배경에서 출발했을까?", title: "19세기 영국에서 균형 잡힌 몸과 달걀형 머리를 지닌 테리어로 정립됐어요.", body: "제임스 힝크스가 1850년대에 현재의 품종 형태를 다듬었고 1862년 버밍엄에서 선보였어요. 크기 수치 하나보다 단단하면서도 균형 잡히고 활동적인 몸이 중요하게 여겨졌어요.", image: "/illustrations/v3/bull-terrier-history.webp", imageAlt: "19세기 영국 전람회에서 균형 잡힌 흰색 성견 불테리어의 모습을 살피는 사람들 삽화" },
-      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "큰 공을 밀며 몸 전체를 쓰다가 열린 손 앞에서 움직임을 멈출 수 있어요.", body: "울타리가 있는 공간에서 부드러운 큰 공을 낮은 표식 사이로 한 번 밀게 해요. 공을 계속 쫓게 하기보다 보호자의 열린 손을 확인하면 멈추고 방향을 바꾸는 구간을 넣어요.", image: "/illustrations/v4/bull-terrier-feature-full-body-play.webp", imageAlt: "울타리 마당에서 큰 공을 밀다 보호자의 열린 손 신호를 확인하는 흰색 성견 불테리어 삽화" },
+      { navLabel: "품종 정립의 배경", eyebrow: "1단계 · 어떤 배경에서 출발했을까?", title: "투견에 쓰인 불도그·테리어 계통에서 19세기 영국의 전람회견으로 정립됐어요.", body: "오늘날 불테리어의 조상인 불 앤드 테리어 계통은 당시 투견에 쓰였어요. 이후 제임스 힝크스가 체형과 흰 피모를 다듬어 1862년 버밍엄 전람회에 새로운 불테리어를 선보였으며, 독특한 머리 형태는 뒤이은 선택 교배로 자리 잡았어요.", image: "/illustrations/v3/bull-terrier-history.webp", imageAlt: "19세기 영국 전람회에서 균형 잡힌 흰색 성견 불테리어의 모습을 살피는 사람들 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "큰 공을 밀며 몸 전체를 쓰다가 보호자의 멈춤 손짓에 움직임을 멈춰요.", body: "울타리가 있는 공간에서 부드러운 큰 공을 낮은 표식 사이로 한 번 밀게 해요. 공을 계속 쫓게 하기보다 보호자의 멈춤 손짓을 확인하면 멈추고 방향을 바꾸는 구간을 넣어요.", image: "/illustrations/v4/bull-terrier-feature-full-body-play.webp", imageAlt: "울타리 마당에서 큰 공을 밀다 보호자의 멈춤 손짓을 확인하는 흰색 성견 불테리어 삽화" },
       { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "힘 있는 놀이 뒤에는 큰 공을 치우고 안전한 씹기와 휴식으로 전환해야 해요.", body: "움직이는 장난감이 계속 보이면 다시 몸을 쓰려 할 수 있어요. 큰 공을 닫힌 상자에 넣고 물을 마신 뒤 매트에서 안전한 씹을 거리를 사용하며 쉬게 해요.", image: "/illustrations/v4/bull-terrier-feature-play-to-rest.webp", imageAlt: "보호자가 큰 공을 상자에 넣는 동안 매트에서 안전한 장난감을 씹으며 쉬는 성견 불테리어 삽화" },
     ],
     caution: "품종 정립과 테리어의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 놀이 강도와 다른 사람·동물에 대한 반응, 회복 속도는 경험과 환경, 개체에 따라 달라요.",
@@ -2493,7 +2505,7 @@ const bullTerrierDetail = standardBreedDetailSchema.parse({
     { id: "cooperative-body-check", title: "단단한 몸과 짧은 털을 차례로 만져보는 협력 점검", body: "짧은 털은 관리가 단순해 보여도 발과 발톱, 피부와 몸 상태를 정기적으로 살펴야 해요. 미끄럼 방지 매트에서 한 부위씩 짧게 만지고 고무 브러시와 발 점검을 편안한 경험으로 만들어요.", image: "/illustrations/v4/bull-terrier-feature-cooperative-body-check.webp", imageAlt: "미끄럼 방지 매트에서 보호자가 성견 불테리어의 발과 짧은 털을 차분히 살피는 삽화" },
   ],
   readinessTitle: "불테리어와 보낼 일상을 생각해보세요.",
-  readinessQuestions: ["몸 전체를 쓰는 놀이에 열린 손 중단 신호와 방향 전환을 함께 넣을 수 있나요?", "방문객과 안전문으로 거리를 두고 차분히 인사하는 동선을 준비할 수 있나요?", "발·발톱과 짧은 털 아래 몸 상태를 보상과 함께 정기적으로 확인할 수 있나요?"],
+  readinessQuestions: ["몸 전체를 쓰는 놀이에 멈춤 손짓과 방향 전환을 함께 넣을 수 있나요?", "방문객과 안전문으로 거리를 두고 차분히 인사하는 동선을 준비할 수 있나요?", "발·발톱과 짧은 털 아래 몸 상태를 보상과 함께 정기적으로 확인할 수 있나요?"],
   relatedTitle: "불테리어가 마음에 들지만 망설여진다면",
   relatedDescription: "활기차고 단단한 몸을 지닌 견종 안에서도 놀이 방식과 힘의 규모, 피모와 더위 관리의 차이를 살펴보세요.",
   relatedDifferences: { "jack-russell-terrier": "테리어의 끈기와 높은 참여는 닮았지만 몸의 무게와 놀이 충돌, 인사 동선의 부담이 달라요.", boxer: "단단한 몸과 활기찬 사람 교감은 닮았지만 주둥이 길이와 더위 부담, 테리어식 놀이 집중이 달라요." },
@@ -2502,21 +2514,21 @@ const bullTerrierDetail = standardBreedDetailSchema.parse({
 const englishSetterDetail = standardBreedDetailSchema.parse({
   slug: "english-setter",
   nameKo: "잉글리시 세터",
-  metadataDescription: "영국 들에서 새를 찾아 몸을 낮춰 알린 잉글리시 세터의 넓은 탐색과 세팅, 활동 종료, 야생동물 거리와 장식털 관리를 살펴봅니다.",
-  heroStatement: "영국의 넓은 들에서 냄새를 찾고 새의 위치 앞에 몸을 낮춰 멈추는 세팅 동작으로 사람에게 알렸던 장모 포인팅견이에요.",
+  metadataDescription: "영국 들에서 새를 찾아 몸을 낮춰 알린 잉글리시 세터의 넓은 탐색과 세팅, 활동 뒤 휴식, 야생동물과의 안전거리와 장식털 관리를 살펴봅니다.",
+  heroStatement: "영국의 들에서 냄새를 찾고 몸을 낮춰 새의 위치를 알리던 장모 포인팅견이에요.",
   story: {
     title: "잉글리시 세터는 왜 넓게 냄새를 훑다가 한 지점 앞에서 몸을 낮춰 멈출까요?",
     description: "들새를 넓게 탐색하고 세팅 자세로 위치를 알린 배경을 알면 큰 범위의 냄새 찾기와 멈춤, 돌아오기까지 한 흐름으로 이해할 수 있어요.",
     steps: [
       { navLabel: "세팅 작업의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "영국의 들에서 새 냄새를 넓게 찾고 몸을 낮춰 멈춰 위치를 알렸어요.", body: "잉글리시 세터는 오래된 세팅 스패니얼 계통에서 정립되어 넓은 들의 새를 찾았어요. 목표 가까이에서 돌진하지 않고 몸을 낮춰 멈추는 세팅 동작으로 사냥꾼에게 위치를 알렸어요.", image: "/illustrations/v3/english-setter-history.webp", imageAlt: "영국의 넓은 습지 들에서 새 앞에 몸을 낮춰 멈춘 성견 잉글리시 세터 삽화" },
       { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "넓은 지그재그로 냄새를 비교하다 한 지점에서 몸을 낮추고 멈출 수 있어요.", body: "울타리 들판에 향이 다른 천을 넓게 놓고 느슨한 긴 줄로 탐색하게 해요. 정답 지점의 향기 더미 앞에서 몸을 낮추면 바로 확인하고 보호자에게 돌아오는 흐름으로 끝내요.", image: "/illustrations/v4/english-setter-feature-broad-setting-search.webp", imageAlt: "울타리 들판에서 향기 더미를 넓게 탐색하다 몸을 낮추는 성견 잉글리시 세터 삽화" },
-      { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "넓은 탐색 뒤에는 긴 줄과 향기 도구를 닫고 방해 없이 길게 쉬는 시간이 필요해요.", body: "과제가 끝나도 들 냄새와 가방을 살피며 탐색을 이어가려 할 수 있어요. 긴 줄을 감고 향기 천을 닫힌 가방에 넣은 뒤 물과 넓은 매트에서 충분히 쉬게 해요.", image: "/illustrations/v4/english-setter-feature-search-to-rest.webp", imageAlt: "보호자가 긴 줄과 향기 천을 가방에 정리하는 동안 넓은 매트에서 쉬는 성견 잉글리시 세터 삽화" },
+      { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "넓은 탐색 뒤에는 긴 줄을 정리하고 넓은 자리에서 쉬어요.", body: "넓은 들을 탐색한 뒤에는 보호자가 긴 줄과 젖은 장비를 가방에 정리해요. 물을 마신 다음 몸을 길게 내려놓고 방해 없이 쉬게 해 주세요.", image: "/illustrations/v4/english-setter-feature-search-to-rest.webp", imageAlt: "젖은 들판 활동 뒤 보호자가 긴 줄과 장비를 가방에 정리하는 동안 넓은 매트에 누워 쉬는 성견 잉글리시 세터 삽화" },
     ],
     caution: "들새 탐색과 세팅의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 냄새와 야생동물에 대한 반응, 탐색 범위와 회복 속도는 경험과 환경, 개체에 따라 달라요.",
   },
   realitiesTitle: "잉글리시 세터의 생활 현실",
   realities: [
-    { id: "wildlife-distance", title: "새가 날아오르기 전에 긴 줄로 확보하는 거리와 돌아오는 길", body: "들길에서 새나 작은 동물이 갑자기 움직이면 넓은 범위로 따라가려 할 수 있어요. 긴 줄을 사용하고 울타리와 넓은 우회로를 먼저 확인해 보호자의 열린 손으로 돌아오는 선택을 연습해요.", image: "/illustrations/v4/english-setter-feature-wildlife-distance.webp", imageAlt: "멀리 날아오른 새와 거리를 두고 긴 줄로 보호자의 열린 손을 확인하는 성견 잉글리시 세터 삽화" },
+    { id: "wildlife-distance", title: "새가 날아오르기 전에 긴 줄로 확보하는 거리와 돌아오는 길", body: "들길에서 새나 작은 동물이 갑자기 움직이면 넓은 범위로 따라가려 할 수 있어요. 긴 줄을 사용하고 울타리와 넓은 우회로를 먼저 확인해 보호자의 손짓을 보고 돌아오는 연습을 해요.", image: "/illustrations/v4/english-setter-feature-wildlife-distance.webp", imageAlt: "멀리 날아오른 새와 거리를 두고 긴 줄 안에서 보호자의 손짓을 확인하는 성견 잉글리시 세터 삽화" },
     { id: "feather-coat-check", title: "젖은 들길 뒤 귀와 가슴·다리·꼬리 장식털을 나누어 확인하기", body: "긴 귀와 장식털에는 풀씨와 작은 가지, 물기와 엉킴이 남기 쉬워요. 귀 뒤와 가슴, 겨드랑이·다리·꼬리를 차례로 나누어 빗고 젖은 부분은 속까지 말려요.", image: "/illustrations/v4/english-setter-feature-feather-coat-check.webp", imageAlt: "젖은 들길 뒤 보호자가 성견 잉글리시 세터의 귀와 장식털을 나누어 빗는 삽화" },
   ],
   readinessTitle: "잉글리시 세터와 보낼 일상을 생각해보세요.",
@@ -2529,14 +2541,14 @@ const englishSetterDetail = standardBreedDetailSchema.parse({
 const alaskanMalamuteDetail = standardBreedDetailSchema.parse({
   slug: "alaskan-malamute",
   nameKo: "알래스칸 말라뮤트",
-  metadataDescription: "북극권에서 무거운 짐을 꾸준히 옮긴 알래스칸 말라뮤트의 힘 조절과 활동 종료, 안전한 마당과 계절 이중모 관리 현실을 살펴봅니다.",
-  heroStatement: "북극권에서 속도 경주가 아니라 무거운 짐을 꾸준히 옮기도록 발달한 강한 썰매견이에요.",
+  metadataDescription: "북극권에서 무거운 짐을 꾸준히 옮긴 알래스칸 말라뮤트의 힘 조절과 활동 뒤 휴식, 안전한 마당과 계절 이중모 관리 현실을 살펴봅니다.",
+  heroStatement: "북극권에서 무거운 짐을 꾸준히 옮기도록 발달한 강한 썰매견이에요.",
   story: {
     title: "말라뮤트는 왜 빠르게 달리는 것보다 힘을 일정하게 쓰는 연습이 필요할까요?",
     description: "북극권의 무거운 화물 운반 배경을 알면 느린 힘 조절과 활동을 끝낸 뒤 충분히 쉬는 순서를 함께 이해할 수 있어요.",
     steps: [
       { navLabel: "무거운 운반의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "북극권에서 무거운 짐을 안정적으로 옮기는 썰매견이었어요.", body: "말라뮤트는 북극 환경에서 썰매와 화물을 오래 옮기도록 발달했어요. 빠른 경주보다 균형 잡힌 걸음과 큰 힘을 지치지 않고 이어가는 능력이 중요했어요.", image: "/illustrations/v3/alaskan-malamute-history.webp", imageAlt: "북극권 해안 마을에서 짐을 실은 썰매를 천천히 끄는 회색과 흰색 성견 알래스칸 말라뮤트 삽화" },
-      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "가벼운 빈 수레를 끌며 느린 출발과 멈춤을 사람 신호에 맞출 수 있어요.", body: "몸에 맞는 하네스로 매우 가벼운 빈 수레를 천천히 끌고 열린 손에서 멈추게 해요. 속도와 무게를 늘리기보다 곧은 이동·넓은 회전·정지를 짧게 연결해요.", image: "/illustrations/v4/alaskan-malamute-feature-steady-freight.webp", imageAlt: "선선한 훈련장에서 가벼운 빈 수레를 끌며 보호자의 손 신호를 확인하는 성견 알래스칸 말라뮤트 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "가벼운 빈 수레를 끌며 보호자의 신호에 맞춰 천천히 출발하고 멈춰요.", body: "몸에 맞는 하네스로 매우 가벼운 빈 수레를 천천히 끌고 보호자의 멈춤 손짓에 맞춰 서게 해요. 속도와 무게를 늘리기보다 곧은 이동·넓은 회전·정지를 짧게 연결해요.", image: "/illustrations/v4/alaskan-malamute-feature-steady-freight.webp", imageAlt: "선선한 훈련장에서 가벼운 빈 수레를 끌며 보호자의 손 신호를 확인하는 성견 알래스칸 말라뮤트 삽화" },
       { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "큰 힘을 쓴 뒤에는 장비를 치우고 시원한 자리에서 길게 쉬어야 해요.", body: "과제가 끝나도 장비가 보이면 다시 움직이려 할 수 있어요. 하네스와 수레를 수납하고 물을 마신 다음 몸 전체를 펼칠 수 있는 시원한 매트에서 쉬게 해요.", image: "/illustrations/v4/alaskan-malamute-feature-work-to-rest.webp", imageAlt: "하네스와 빈 수레가 수납된 방의 넓은 매트에서 몸을 펼쳐 쉬는 성견 알래스칸 말라뮤트 삽화" },
     ],
     caution: "무거운 화물 운반의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 당기는 힘과 활동량, 굴파기와 다른 동물에 대한 반응은 경험과 환경, 개체에 따라 달라요.",
@@ -2557,7 +2569,7 @@ const rhodesianRidgebackDetail = standardBreedDetailSchema.parse({
   slug: "rhodesian-ridgeback",
   nameKo: "로디지안 리지백",
   metadataDescription: "남부 아프리카에서 사냥감을 추적하고 거리를 유지한 로디지안 리지백의 넓은 탐색과 회복, 추적 안전과 등 위 리지 관리 현실을 살펴봅니다.",
-  heroStatement: "남부 아프리카에서 넓은 범위를 추적하고 대상과 거리를 유지하도록 발달한 지구력 있는 하운드예요.",
+  heroStatement: "남부 아프리카에서 넓은 범위를 추적하며 대상과 거리를 유지한 하운드예요.",
   story: {
     title: "리지백은 왜 냄새를 따라 멀리 움직인 뒤에도 보호자와 다시 연결하는 연습이 필요할까요?",
     description: "넓은 지역에서 사냥감을 추적하고 거리를 유지한 배경을 알면 긴 탐색과 돌아오기, 과제 뒤 회복을 한 흐름으로 이해할 수 있어요.",
@@ -2570,8 +2582,8 @@ const rhodesianRidgebackDetail = standardBreedDetailSchema.parse({
   },
   realitiesTitle: "로디지안 리지백의 생활 현실",
   realities: [
-    { id: "pursuit-u-turn", title: "빠르게 움직이는 대상을 보아도 돌아올 수 있는 넓은 안전거리", body: "먼 곳의 작은 동물이나 빠른 물체가 시야에 들어오면 긴 보폭으로 접근하려 할 수 있어요. 높은 울타리 안이나 긴 줄을 쓸 수 있는 넓은 장소에서 움직임을 본 뒤 보호자의 열린 손으로 돌아오는 방향 전환을 연습해요.", image: "/illustrations/v4/rhodesian-ridgeback-feature-pursuit-u-turn.webp", imageAlt: "높은 울타리 운동장에서 먼 이동 장난감 대신 보호자의 손 신호로 돌아서는 성견 로디지안 리지백 삽화" },
-    { id: "ridge-check", title: "등 위 리지와 짧은 털 아래 피부를 함께 살피는 몸 점검", body: "등 중앙의 털이 반대 방향으로 자라는 리지는 이 견종의 뚜렷한 외형 특징이에요. 밝은 곳에서 등선을 따라 털과 피부 상태를 짧게 살피고 고무 장갑으로 온몸을 부드럽게 정리해요.", image: "/illustrations/v4/rhodesian-ridgeback-feature-ridge-check.webp", imageAlt: "미끄럼 방지 매트에서 보호자가 성견 로디지안 리지백의 등 위 리지와 짧은 털을 살피는 삽화" },
+    { id: "pursuit-u-turn", title: "빠르게 움직이는 대상을 보아도 돌아올 수 있는 넓은 안전거리", body: "먼 곳의 작은 동물이나 빠른 물체를 보면 접근하려 할 수 있어요. 높은 울타리 안이나 긴 줄을 쓸 수 있는 장소에서, 움직임을 본 뒤 보호자의 손짓을 따라 돌아오는 연습을 해요.", image: "/illustrations/v4/rhodesian-ridgeback-feature-pursuit-u-turn.webp", imageAlt: "높은 울타리 운동장에서 먼 이동 장난감 대신 보호자의 손 신호로 돌아서는 성견 로디지안 리지백 삽화" },
+    { id: "ridge-check", title: "등 위 리지와 짧은 털 아래 피부를 함께 살펴요", body: "등 중앙의 털이 반대 방향으로 자라는 리지는 이 견종의 뚜렷한 외형 특징이에요. 밝은 곳에서 등선을 따라 털과 피부 상태를 짧게 살피고 고무 장갑으로 온몸을 부드럽게 정리해요.", image: "/illustrations/v4/rhodesian-ridgeback-feature-ridge-check.webp", imageAlt: "미끄럼 방지 매트에서 보호자가 성견 로디지안 리지백의 등 위 리지와 짧은 털을 살피는 삽화" },
   ],
   readinessTitle: "로디지안 리지백과 보낼 일상을 생각해보세요.",
   readinessQuestions: ["긴 줄 안에서 넓게 탐색한 뒤 보호자에게 돌아오고 도구를 정리하는 순서를 연습할 수 있나요?", "빠른 움직임과 야생동물이 보이는 길에서 높은 울타리나 충분한 우회 거리를 확보할 수 있나요?", "활동 뒤 몸을 길게 펼칠 휴식 자리와 등 위 리지·짧은 털을 살필 시간을 마련할 수 있나요?"],
@@ -2583,35 +2595,35 @@ const rhodesianRidgebackDetail = standardBreedDetailSchema.parse({
 const collieRoughDetail = standardBreedDetailSchema.parse({
   slug: "collie-rough",
   nameKo: "러프 콜리",
-  metadataDescription: "스코틀랜드 목동의 작업 콜리에서 정립된 러프 콜리의 넓은 방향 조절과 활동 종료, 움직임 알림과 풍성한 장모 관리 현실을 살펴봅니다.",
-  heroStatement: "스코틀랜드 목동의 작업 콜리에서 정립되어 양의 흐름과 사람 신호를 함께 읽어 온 장모 목양견이에요.",
+  metadataDescription: "스코틀랜드 목동의 작업 콜리에서 정립된 러프 콜리의 넓은 방향 조절과 활동 뒤 휴식, 움직임 알림과 풍성한 장모 관리 현실을 살펴봅니다.",
+  heroStatement: "스코틀랜드 목초지에서 양의 흐름과 목동의 신호를 읽던 장모 목양견이에요.",
   story: {
     title: "러프 콜리는 왜 움직임의 바깥을 넓게 돌며 사람의 방향 신호를 확인할까요?",
     description: "스코틀랜드 목초지에서 양을 모은 배경을 알면 움직임을 읽는 관심과 넓은 방향 조절, 활동 뒤 휴식을 함께 이해할 수 있어요.",
     steps: [
       { navLabel: "목양 작업의 배경", eyebrow: "1단계 · 어떤 역할에서 출발했을까?", title: "스코틀랜드 목동의 작업 콜리에서 장모 목양견으로 정립됐어요.", body: "러프 콜리는 목초지에서 양의 흐름을 읽고 사람의 신호에 맞춰 무리를 모으던 작업 콜리에서 발달했어요. 아름다운 장모가 강조된 뒤에도 가볍고 효율적으로 움직이는 목양견의 바탕을 유지했어요.", image: "/illustrations/v3/collie-rough-history.webp", imageAlt: "스코틀랜드 언덕 목초지에서 목동의 신호에 맞춰 양 떼 바깥을 움직이는 세이블 성견 러프 콜리 삽화" },
-      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "넓은 호를 그리며 움직임의 바깥을 돌고 사람 신호에서 방향을 바꿀 수 있어요.", body: "울타리가 있는 잔디밭에 큰 표식을 넓게 두고 바깥을 한 바퀴 돌게 해요. 강한 응시를 오래 이어가기보다 보호자의 팔 방향을 확인하고 넓게 돌기·멈춤·돌아오기를 짧게 연결해요.", image: "/illustrations/v4/collie-rough-feature-wide-direction.webp", imageAlt: "넓은 잔디밭에서 큰 표식 바깥을 돌며 보호자의 방향 신호를 확인하는 세이블 성견 러프 콜리 삽화" },
+      { navLabel: "현재의 경향", eyebrow: "2단계 · 오늘은 어떻게 나타날까?", title: "넓게 돌다가 보호자의 신호에 맞춰 방향을 바꿀 수 있어요.", body: "울타리가 있는 잔디밭에 큰 표식을 넓게 두고 바깥을 한 바퀴 돌게 해요. 강한 응시를 오래 이어가기보다 보호자의 팔 방향을 확인하고 넓게 돌기·멈춤·돌아오기를 짧게 연결해요.", image: "/illustrations/v4/collie-rough-feature-wide-direction.webp", imageAlt: "넓은 잔디밭에서 큰 표식 바깥을 돌며 보호자의 방향 신호를 확인하는 세이블 성견 러프 콜리 삽화" },
       { navLabel: "생활의 현실", eyebrow: "3단계 · 보호자는 무엇을 체감할까?", title: "움직임을 살피는 활동 뒤에는 도구를 치우고 조용히 쉬는 전환이 필요해요.", body: "표식과 긴 줄이 계속 보이면 주변 움직임을 다시 확인하려 할 수 있어요. 도구를 상자에 넣고 물을 마신 다음 시야가 단순한 매트에서 몸의 긴장을 낮추게 해요.", image: "/illustrations/v4/collie-rough-feature-work-to-rest.webp", imageAlt: "표식과 긴 줄이 수납된 방의 넓은 매트에서 편안히 쉬는 세이블 성견 러프 콜리 삽화" },
     ],
-    caution: "목양 작업의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임에 대한 관심과 알림 반응, 사람 신호에 집중하는 정도는 경험과 환경, 개체에 따라 달라요.",
+    caution: "목양 작업의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임에 관심을 보이는 정도와 주변 변화를 알리는 방식, 보호자에게 집중하는 정도는 개체마다 달라요.",
   },
   realitiesTitle: "러프 콜리의 생활 현실",
   realities: [
-    { id: "movement-reorientation", title: "자전거와 방문 움직임을 본 뒤 보호자에게 돌아오는 알림 전환", body: "문 밖의 자전거나 사람이 움직이면 게이트 가까이에서 오래 살필 수 있어요. 닫힌 문과 충분한 거리 안에서 움직임을 본 뒤 보호자의 열린 손을 확인하고 안쪽 매트로 돌아오는 순서를 연습해요.", image: "/illustrations/v4/collie-rough-feature-movement-reorientation.webp", imageAlt: "닫힌 마당 문 밖 자전거를 본 뒤 보호자의 손 신호를 따라 안쪽 매트로 돌아오는 성견 러프 콜리 삽화" },
+    { id: "movement-reorientation", title: "자전거와 방문 움직임을 본 뒤 보호자에게 돌아오는 알림 전환", body: "문 밖의 자전거나 사람이 움직이면 게이트 가까이에서 오래 살필 수 있어요. 닫힌 문과 충분한 거리 안에서 움직임을 본 뒤 보호자의 손짓을 확인하고 안쪽 매트로 돌아오는 순서를 연습해요.", image: "/illustrations/v4/collie-rough-feature-movement-reorientation.webp", imageAlt: "닫힌 마당 문 밖 자전거를 본 뒤 보호자의 손 신호를 따라 안쪽 매트로 돌아오는 성견 러프 콜리 삽화" },
     { id: "line-brushing", title: "귀 뒤와 가슴·뒷다리 장식털까지 나누어 빗는 풍성한 이중모", body: "촘촘한 속털과 긴 겉털은 겉만 쓸어서는 안쪽 엉킴을 놓칠 수 있어요. 귀 뒤와 가슴 갈기, 겨드랑이와 뒷다리 장식털을 작은 구역으로 나누어 피부 가까이부터 빗어요.", image: "/illustrations/v4/collie-rough-feature-line-brushing.webp", imageAlt: "미끄럼 방지 매트에서 보호자가 성견 러프 콜리의 귀 뒤와 가슴·뒷다리 장식털을 나누어 빗는 삽화" },
   ],
   readinessTitle: "러프 콜리와 보낼 일상을 생각해보세요.",
-  readinessQuestions: ["움직임의 바깥을 넓게 돌고 사람 신호에서 방향을 바꾸는 짧은 과제를 제공할 수 있나요?", "문 밖 움직임을 본 뒤 보호자에게 돌아와 안쪽 매트에서 쉬는 순서를 연습할 수 있나요?", "귀 뒤와 가슴·겨드랑이·뒷다리 장식털을 작은 구역으로 나누어 꾸준히 빗을 수 있나요?"],
+  readinessQuestions: ["넓게 돌다가 보호자의 신호에 맞춰 방향을 바꾸는 활동을 마련할 수 있나요?", "문 밖 움직임을 본 뒤 보호자에게 돌아와 정해진 자리에서 쉬게 할 수 있나요?", "귀 뒤와 가슴·겨드랑이·뒷다리 장식털을 작은 구역으로 나누어 꾸준히 빗을 수 있나요?"],
   relatedTitle: "러프 콜리가 마음에 들지만 망설여진다면",
   relatedDescription: "콜리형 목양견 안에서도 체격과 움직임 집중, 알림 반응과 장모 관리의 차이를 살펴보세요.",
-  relatedDifferences: { "shetland-sheepdog": "사람 신호와 주변 움직임을 읽는 모습은 닮았지만 체격과 활동 범위, 풍성한 장모를 관리하는 규모가 달라요.", "border-collie": "목양 배경과 빠른 학습은 닮았지만 강한 응시·작업 집중의 정도와 러프 콜리의 장모 관리가 달라요." },
+  relatedDifferences: { "shetland-sheepdog": "보호자의 신호와 주변 움직임을 읽는 모습은 닮았지만 체격과 활동 범위, 장모 관리 부담이 달라요.", "border-collie": "목양 배경과 빠른 학습은 닮았지만 강한 응시·작업 집중의 정도와 러프 콜리의 장모 관리가 달라요." },
 });
 
 const miniaturePinscherDetail = standardBreedDetailSchema.parse({
   slug: "miniature-pinscher",
   nameKo: "미니어처 핀셔",
-  metadataDescription: "독일의 집과 마구간에서 작은 해충의 흔적을 살피던 미니어처 핀셔의 빠른 탐색과 활동 종료, 출입문 안전과 짧은 피모의 보온 현실을 살펴봅니다.",
-  heroStatement: "도베르만의 축소판이 아니라, 독일의 작은 핀셔로 독립적으로 정립된 활기찬 반려견이에요.",
+  metadataDescription: "독일의 집과 마구간에서 작은 해충의 흔적을 살피던 미니어처 핀셔의 빠른 탐색과 활동 뒤 휴식, 출입문 안전과 짧은 피모의 보온 현실을 살펴봅니다.",
+  heroStatement: "도베르만의 축소판이 아니라 독립적으로 정립된 독일의 작은 핀셔예요.",
   story: {
     title: "미니어처 핀셔는 왜 작은 몸으로도 바닥 가까운 냄새와 움직임을 빠르게 확인할까요?",
     description: "집과 마구간 주변을 살피던 배경을 알면 짧고 빠른 탐색과 과제를 끝낸 뒤 쉬는 순서를 함께 이해할 수 있어요.",
@@ -2628,7 +2640,7 @@ const miniaturePinscherDetail = standardBreedDetailSchema.parse({
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
         title: "닫힌 냄새 상자를 빠르게 확인하고 정답 앞에서 멈출 수 있어요.",
-        body: "생물을 쫓게 하기보다 구멍이 난 닫힌 상자 세 개에 안전한 냄새를 넣어 짧은 탐색을 만들어요. 정답을 찾으면 보호자의 열린 손을 확인하고 멈추게 해요.",
+        body: "생물을 쫓게 하기보다 구멍이 난 닫힌 상자 세 개에 안전한 냄새를 넣어 짧은 탐색을 만들어요. 정답을 찾으면 보호자의 멈춤 손짓을 확인하고 기다리게 해요.",
         image: "/illustrations/v4/miniature-pinscher-feature-scent-box-search.webp",
         imageAlt: "실내 작업 공간에서 세 개의 닫힌 냄새 상자를 확인하는 검정과 황갈색 성견 미니어처 핀셔 삽화",
       },
@@ -2678,7 +2690,7 @@ const clumberSpanielDetail = standardBreedDetailSchema.parse({
   slug: "clumber-spaniel",
   nameKo: "클럼버 스패니얼",
   metadataDescription: "클럼버 파크의 숲과 덤불에서 조용하고 천천히 사냥감을 찾아낸 클럼버 스패니얼의 냄새 탐색과 회복, 낮은 차량 램프와 귀·장식털 관리 현실을 살펴봅니다.",
-  heroStatement: "영국의 숲과 덤불에서 빠른 질주보다 조용하고 끈기 있는 냄새 탐색을 맡았던 무거운 스패니얼이에요.",
+  heroStatement: "영국의 숲과 덤불에서 조용하고 끈기 있게 냄새를 찾던 무거운 스패니얼이에요.",
   story: {
     title: "클럼버 스패니얼은 왜 빠르게 달리기보다 코를 낮추고 천천히 길을 확인할까요?",
     description: "숲과 덤불에서 조용히 사냥감을 찾아낸 배경을 알면 느린 냄새 탐색과 활동 뒤 회복을 한 흐름으로 이해할 수 있어요.",
@@ -2744,19 +2756,19 @@ const clumberSpanielDetail = standardBreedDetailSchema.parse({
 const tibetanMastiffDetail = standardBreedDetailSchema.parse({
   slug: "tibetan-mastiff",
   nameKo: "티베탄 마스티프",
-  metadataDescription: "티베트 고원에서 유목 가축과 사원 주변을 지켜 온 티베탄 마스티프의 독립적인 경계와 활동 종료, 방문객 완충과 계절성 이중모 관리 현실을 살펴봅니다.",
-  heroStatement: "티베트 고원에서 유목 가축과 사원 주변을 지키며 스스로 경계를 판단해 온 거대한 산악 경비견이에요.",
+  metadataDescription: "티베트 고원에서 유목민의 천막과 사원 문 주변을 지켜 온 티베탄 마스티프의 독립적인 경계와 활동 뒤 휴식, 방문객 동선 분리와 계절성 이중모 관리 현실을 살펴봅니다.",
+  heroStatement: "티베트 고원에서 유목민의 천막과 사원 문을 지키던 산악 경비견이에요.",
   story: {
     title: "티베탄 마스티프는 왜 넓은 경계를 천천히 확인하고 스스로 멈춰 판단하려 할까요?",
-    description: "고원의 가축과 사원을 지킨 배경을 알면 독립적인 경계 순찰과 저녁에 경계 상태를 끝내는 생활 구조를 함께 이해할 수 있어요.",
+    description: "고원의 천막과 사원 문을 지킨 배경을 알면 독립적인 경계 순찰과 저녁에 경계 상태를 끝내는 생활 구조를 함께 이해할 수 있어요.",
     steps: [
       {
         navLabel: "고원 경비의 배경",
         eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
-        title: "티베트 고원에서 유목 가축과 사원 주변을 살피고 지켰어요.",
-        body: "티베탄 마스티프는 티베트의 유목민과 함께 가축 주변을 지키고 사원의 경비를 맡아 온 오래된 작업견이에요. 사람의 지시가 닿지 않는 순간에도 영역과 변화를 스스로 확인해야 했어요.",
+        title: "티베트 고원에서 유목민의 천막과 사원 문 주변을 살피고 지켰어요.",
+        body: "티베탄 마스티프는 티베트 유목민의 천막과 정착지, 사원의 문을 지켜 온 오래된 경비견이에요. 사람의 지시가 닿지 않는 순간에도 영역과 변화를 스스로 확인해야 했어요.",
         image: "/illustrations/v3/tibetan-mastiff-history.webp",
-        imageAlt: "티베트 고원의 유목 가축과 사원 주변을 지키는 검정과 황갈색 성견 티베탄 마스티프 삽화",
+        imageAlt: "티베트 고원의 유목민 천막과 사원, 야크가 보이는 경계에 선 검정과 황갈색 성견 티베탄 마스티프 삽화",
       },
       {
         navLabel: "현재의 경향",
@@ -2775,7 +2787,7 @@ const tibetanMastiffDetail = standardBreedDetailSchema.parse({
         imageAlt: "잠긴 대문 안쪽의 큰 매트에서 저녁 순찰을 마치고 쉬는 검정과 황갈색 성견 티베탄 마스티프 삽화",
       },
     ],
-    caution: "가축과 사원을 지킨 과거 배경은 행동을 이해하는 단서일 뿐이에요. 낯선 사람과 영역 변화에 대한 반응, 경계와 회복의 정도는 사회화 경험과 환경, 개체에 따라 달라요.",
+    caution: "천막과 사원 문을 지킨 과거 배경은 행동을 이해하는 단서일 뿐이에요. 낯선 사람과 영역 변화에 대한 반응, 경계와 회복의 정도는 사회화 경험과 환경, 개체에 따라 달라요.",
   },
   realitiesTitle: "티베탄 마스티프의 생활 현실",
   realities: [
@@ -2811,8 +2823,8 @@ const tibetanMastiffDetail = standardBreedDetailSchema.parse({
 const australianKelpieDetail = standardBreedDetailSchema.parse({
   slug: "australian-kelpie",
   nameKo: "오스트레일리안 켈피",
-  metadataDescription: "호주의 넓고 덥고 건조한 방목지에서 양 떼의 흐름을 조절해 온 오스트레일리안 켈피의 방향 전환과 활동 종료, 움직임 관리와 건조한 길의 몸 점검을 살펴봅니다.",
-  heroStatement: "넓고 거친 호주의 방목지에서 양의 움직임을 읽고 빠르게 방향을 바꾸며 일해 온 민첩한 목양견이에요.",
+  metadataDescription: "호주의 넓고 건조한 방목지에서 양 떼의 흐름을 조절해 온 오스트레일리안 켈피의 방향 전환과 활동 뒤 휴식, 빠른 움직임 관리와 야외 활동 뒤 몸 상태 확인을 살펴봅니다.",
+  heroStatement: "호주의 거친 방목지에서 양의 움직임을 읽고 방향을 바꿔 온 민첩한 목양견이에요.",
   story: {
     title: "오스트레일리안 켈피는 왜 멀리 움직이면서도 사람의 신호에 맞춰 빠르게 방향을 바꿀까요?",
     description: "넓은 방목지에서 흩어진 양의 흐름을 조절한 배경을 알면 움직임을 읽는 집중과 활동 뒤 휴식을 한 흐름으로 이해할 수 있어요.",
@@ -2836,7 +2848,7 @@ const australianKelpieDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "집중해서 움직인 뒤에는 도구를 치우고 몸의 긴장을 낮추는 종료가 필요해요.",
+        title: "큰 공과 표식을 치운 뒤 그늘진 매트에서 쉬어요.",
         body: "공과 표식이 계속 보이면 다음 움직임을 기다리며 다시 집중할 수 있어요. 도구를 수납하고 물을 마신 다음 그늘의 시원한 매트에서 충분히 쉬게 해요.",
         image: "/illustrations/v4/australian-kelpie-feature-work-to-rest.webp",
         imageAlt: "큰 공과 표식이 수납된 그늘진 공간의 시원한 매트에서 편안히 쉬는 성견 오스트레일리안 켈피 삽화",
@@ -2849,7 +2861,7 @@ const australianKelpieDetail = standardBreedDetailSchema.parse({
     {
       id: "movement-redirection",
       title: "자전거처럼 빠른 움직임을 본 뒤 보호자에게 돌아오는 방향 전환",
-      body: "울타리 밖의 자전거나 달리는 사람이 시야에 들어오면 움직임을 오래 따라볼 수 있어요. 이중 울타리와 느슨한 긴 줄 안에서 대상을 본 뒤 보호자의 열린 손을 확인하고 안쪽 매트로 돌아오게 해요.",
+      body: "울타리 밖의 자전거나 달리는 사람이 시야에 들어오면 움직임을 오래 따라볼 수 있어요. 이중 울타리와 느슨한 긴 줄 안에서 대상을 본 뒤 보호자의 손짓을 확인하고 안쪽 매트로 돌아오게 해요.",
       image: "/illustrations/v4/australian-kelpie-feature-movement-redirection.webp",
       imageAlt: "이중 울타리 밖의 자전거를 본 뒤 보호자의 손 신호를 따라 안쪽 매트로 방향을 바꾸는 성견 오스트레일리안 켈피 삽화",
     },
@@ -2868,7 +2880,7 @@ const australianKelpieDetail = standardBreedDetailSchema.parse({
     "집중 활동 뒤 도구를 치우고 물·그늘·휴식과 발 점검까지 이어갈 수 있나요?",
   ],
   relatedTitle: "오스트레일리안 켈피가 마음에 들지만 망설여진다면",
-  relatedDescription: "목양견 안에서도 움직임을 다루는 방식과 사람 신호에 집중하는 정도, 피모와 활동 규모의 차이를 살펴보세요.",
+  relatedDescription: "목양견도 움직임을 다루는 방식과 보호자의 신호에 집중하는 정도, 피모와 활동 규모가 달라요.",
   relatedDifferences: {
     "border-collie": "양의 흐름을 읽고 방향을 조절한 배경은 닮았지만 자세와 응시 방식, 작업 속도를 같은 것으로 단정하면 안 돼요.",
     "australian-shepherd": "넓은 목장에서 가축과 협력한 배경은 닮았지만 형성 지역과 피모 구조, 일상에서 필요한 관리가 달라요.",
@@ -2878,8 +2890,8 @@ const australianKelpieDetail = standardBreedDetailSchema.parse({
 const curlyCoatedRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "curly-coated-retriever",
   nameKo: "컬리 코티드 리트리버",
-  metadataDescription: "영국의 물과 수풀에서 대상을 회수해 온 컬리 코티드 리트리버의 부드러운 전달과 활동 종료, 안전한 물가 동선과 촘촘한 곱슬털·귀 관리 현실을 살펴봅니다.",
-  heroStatement: "단단한 체격과 독립적인 판단, 몸을 덮은 작고 촘촘한 곱슬털을 함께 지닌 영국의 수상 회수견이에요.",
+  metadataDescription: "영국의 물과 수풀에서 대상을 회수해 온 컬리 코티드 리트리버의 부드러운 전달과 활동 뒤 휴식, 안전한 물가 동선과 촘촘한 곱슬털·귀 관리 현실을 살펴봅니다.",
+  heroStatement: "독립적인 판단과 촘촘한 곱슬털을 지닌 영국의 수상 회수견이에요.",
   story: {
     title: "컬리 코티드 리트리버는 왜 물을 건너 물건을 찾은 뒤 사람의 손까지 가져오려 할까요?",
     description: "물과 수풀에서 대상을 찾아 회수한 배경을 알면 물건을 찾고 전달하는 협력과 젖은 몸을 쉬게 하는 순서를 함께 이해할 수 있어요.",
@@ -2896,9 +2908,9 @@ const curlyCoatedRetrieverDetail = standardBreedDetailSchema.parse({
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
         title: "잔잔한 물에서 찾은 캔버스 더미를 사람의 손까지 부드럽게 전달할 수 있어요.",
-        body: "수심과 출구를 확인한 물가에서 캔버스 더미 하나를 찾고 돌아오는 짧은 과제를 만들어요. 물건을 반복해서 던지기보다 기다림·입수·운반·열린 손에 놓기를 한 흐름으로 연결해요.",
+        body: "수심과 출구를 확인한 물가에서 캔버스 더미 하나를 찾고 돌아오는 짧은 과제를 만들어요. 물건을 반복해서 던지기보다 기다림·입수·운반·보호자가 내민 두 손에 놓기를 한 흐름으로 연결해요.",
         image: "/illustrations/v4/curly-coated-retriever-feature-gentle-water-delivery.webp",
-        imageAlt: "관리된 잔잔한 연못에서 캔버스 더미를 물고 보호자의 열린 두 손으로 다가오는 검은 성견 컬리 코티드 리트리버 삽화",
+        imageAlt: "관리된 잔잔한 연못에서 캔버스 더미를 물고 보호자가 내민 두 손으로 다가오는 검은 성견 컬리 코티드 리트리버 삽화",
       },
       {
         navLabel: "생활의 현실",
@@ -2945,8 +2957,8 @@ const curlyCoatedRetrieverDetail = standardBreedDetailSchema.parse({
 const borderTerrierDetail = standardBreedDetailSchema.parse({
   slug: "border-terrier",
   nameKo: "보더 테리어",
-  metadataDescription: "영국과 스코틀랜드의 경계 지역에서 말을 따라 이동하고 좁은 굴을 살핀 보더 테리어의 냄새 탐색과 활동 종료, 움직임 전환과 거친 피모·발 점검을 살펴봅니다.",
-  heroStatement: "말을 따라갈 체력과 좁은 굴을 살필 작은 몸을 함께 요구받았던 영국 경계 지역의 작업 테리어예요.",
+  metadataDescription: "영국과 스코틀랜드의 경계 지역에서 말을 따라 이동하고 좁은 굴을 살핀 보더 테리어의 냄새 탐색과 활동 뒤 휴식, 빠른 움직임 관리와 거친 피모·발 점검을 살펴봅니다.",
+  heroStatement: "말을 따라갈 체력과 굴을 살필 작은 몸을 함께 갖춘 작업 테리어예요.",
   story: {
     title: "보더 테리어는 왜 오래 이동한 뒤에도 작은 틈의 냄새를 끈기 있게 확인할까요?",
     description: "말을 따라 이동하고 좁은 굴을 살핀 배경을 알면 이동 체력과 냄새 탐색, 과제를 끝낸 뒤 쉬는 순서를 함께 이해할 수 있어요.",
@@ -2983,9 +2995,9 @@ const borderTerrierDetail = standardBreedDetailSchema.parse({
     {
       id: "lure-u-turn",
       title: "멀리 움직이는 대상을 본 뒤 보호자에게 돌아오는 유턴",
-      body: "작은 동물이나 빠른 물체가 멀리 움직이면 좁은 틈을 찾으며 다가가려 할 수 있어요. 두 겹 울타리와 긴 줄 안에서 생물 대신 먼 이동 장난감을 본 뒤 보호자의 열린 손으로 돌아오는 방향 전환을 연습해요.",
+      body: "작은 동물이나 빠른 물체를 보면 좁은 틈으로 다가가려 할 수 있어요. 두 겹 울타리와 긴 줄 안에서 이동 장난감을 본 뒤 보호자의 손짓을 따라 돌아오는 연습을 해요.",
       image: "/illustrations/v4/border-terrier-feature-lure-u-turn.webp",
-      imageAlt: "두 겹 울타리 밖의 먼 이동 장난감을 본 뒤 보호자의 열린 손을 향해 유턴하는 성견 보더 테리어 삽화",
+      imageAlt: "두 겹 울타리 밖의 먼 이동 장난감을 본 뒤 보호자의 손짓을 향해 유턴하는 성견 보더 테리어 삽화",
     },
     {
       id: "harsh-coat-paw-check",
@@ -3012,11 +3024,11 @@ const borderTerrierDetail = standardBreedDetailSchema.parse({
 const australianCattleDogDetail = standardBreedDetailSchema.parse({
   slug: "australian-cattle-dog",
   nameKo: "오스트레일리안 캐틀 독",
-  metadataDescription: "울타리가 드물던 초기 호주의 거친 목축지에서 소를 움직인 오스트레일리안 캐틀 독의 가까운 방향 조절과 활동 종료, 방문객 완충과 짧은 이중모·발 점검을 살펴봅니다.",
-  heroStatement: "울타리가 드문 호주의 거친 땅에서 소의 발굽 가까이 움직이며 무리의 방향을 바꿔 온 강하고 민첩한 소몰이견이에요.",
+  metadataDescription: "울타리가 드물던 초기 호주의 거친 목축지에서 소를 움직인 오스트레일리안 캐틀 독의 가까운 방향 조절과 활동 뒤 휴식, 방문객 동선 분리와 짧은 이중모·발 점검을 살펴봅니다.",
+  heroStatement: "호주의 거친 땅에서 소의 발굽 가까이 움직인 민첩한 소몰이견이에요.",
   story: {
-    title: "오스트레일리안 캐틀 독은 왜 큰 동작보다 가까운 움직임을 빠르게 읽고 방향을 바꾸려 할까요?",
-    description: "넓고 좁은 목축지에서 소를 통제한 배경을 알면 가까운 움직임에 집중하는 태도와 사람 신호에서 활동을 끝내는 순서를 함께 이해할 수 있어요.",
+    title: "캐틀 독은 왜 소의 가까운 움직임을 읽고 방향을 바꿀까요?",
+    description: "소 가까이에서 움직이던 배경을 알면 주변의 빠른 움직임에 집중하는 모습과 보호자의 신호에 맞춰 멈추는 연습이 왜 필요한지 이해할 수 있어요.",
     steps: [
       {
         navLabel: "호주 소몰이의 배경",
@@ -3030,17 +3042,17 @@ const australianCattleDogDetail = standardBreedDetailSchema.parse({
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
         title: "가까운 표식 사이를 지나 마지막 지점에서 사람 쪽으로 돌아설 수 있어요.",
-        body: "울타리가 있는 공간에 높고 부드러운 원통 표식을 세워 가까운 동선을 만들어요. 세 지점을 빠르게 통과한 뒤 보호자의 열린 손을 보고 방향을 바꾸고 멈추게 해요.",
+        body: "울타리가 있는 공간에 높고 부드러운 원통 표식을 세워 가까운 동선을 만들어요. 세 지점을 빠르게 통과한 뒤 보호자의 손짓을 보고 방향을 바꾸고 멈추게 해요.",
         image: "/illustrations/v4/australian-cattle-dog-feature-close-direction.webp",
         imageAlt: "건조한 울타리 운동장에서 세 개의 높은 부드러운 원통 표식 사이를 지나 보호자의 손 신호로 돌아서는 블루 모틀 성견 오스트레일리안 캐틀 독 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "짧고 강한 집중 뒤에는 표식을 치우고 경계 상태까지 낮추는 종료가 필요해요.",
-        body: "표식과 줄이 계속 보이면 다음 움직임을 기다리며 주변을 다시 살필 수 있어요. 도구를 닫힌 장에 넣고 물을 마신 다음 그늘의 넓은 매트에서 쉬게 해요.",
+        title: "표식과 긴 줄을 치운 뒤에는 그늘진 자리에서 쉬어요.",
+        body: "짧고 강하게 집중한 뒤에는 원통 표식과 긴 줄을 보이지 않게 치워요. 물을 마시고 그늘의 넓은 자리에서 주변을 살피는 움직임이 잦아들 때까지 쉬게 해 주세요.",
         image: "/illustrations/v4/australian-cattle-dog-feature-work-to-rest.webp",
-        imageAlt: "원통 표식과 긴 줄이 닫힌 장에 수납된 그늘진 공간의 넓은 매트에서 쉬는 블루 모틀 성견 오스트레일리안 캐틀 독 삽화",
+        imageAlt: "원통 표식과 긴 줄을 치운 그늘진 공간의 넓은 자리에서 쉬는 블루 모틀 성견 오스트레일리안 캐틀 독 삽화",
       },
     ],
     caution: "소를 움직인 과거 배경은 행동을 이해하는 단서일 뿐이에요. 가까운 움직임에 반응하는 속도와 낯선 변화에 대한 경계, 활동 뒤 회복은 경험과 환경, 개체에 따라 달라요.",
@@ -3072,15 +3084,15 @@ const australianCattleDogDetail = standardBreedDetailSchema.parse({
   relatedDescription: "호주와 영국계 목양견 안에서도 다루던 가축과 작업 거리, 움직임을 통제하는 방식의 차이를 살펴보세요.",
   relatedDifferences: {
     "australian-kelpie": "호주의 거친 목축지에서 오래 일한 배경은 닮았지만 캐틀 독은 소의 발굽 가까이에서 압박하고 켈피는 양 떼의 넓은 흐름을 조절한 차이가 있어요.",
-    "border-collie": "사람 신호와 가축 움직임을 함께 읽는 점은 닮았지만 낮은 응시로 양을 모으는 방식과 소 가까이에서 밀어내는 방식은 달라요.",
+    "border-collie": "보호자의 신호와 가축 움직임을 함께 읽는 점은 닮았지만 낮은 자세로 양을 모으는 방식과 소 가까이에서 밀어내는 방식은 달라요.",
   },
 });
 
 const barbetDetail = standardBreedDetailSchema.parse({
   slug: "barbet",
   nameKo: "바베",
-  metadataDescription: "프랑스의 물풀 속에서 물새를 찾아 몰아내고 회수한 바베의 수색과 활동 종료, 젖은 수염·귀 건조와 긴 양모성 곱슬털 관리 현실을 살펴봅니다.",
-  heroStatement: "물건을 가져오는 데 그치지 않고 프랑스의 차가운 물과 수초를 헤치며 숨어 있는 대상을 찾아낸 워터도그예요.",
+  metadataDescription: "프랑스의 물풀 속에서 물새를 찾아 몰아내고 회수한 바베의 수색과 활동 뒤 휴식, 젖은 수염·귀 건조와 긴 양모성 곱슬털 관리 현실을 살펴봅니다.",
+  heroStatement: "프랑스의 차가운 물과 수초를 헤치며 숨은 대상을 찾던 워터도그예요.",
   story: {
     title: "바베는 왜 보이는 물건으로 바로 가지 않고 물풀 사이부터 꼼꼼히 찾을까요?",
     description: "수초에 숨은 물새를 찾아 몰아낸 뒤 회수한 배경을 알면 물속 수색과 전달, 젖은 몸을 쉬게 하는 순서를 함께 이해할 수 있어요.",
@@ -3097,7 +3109,7 @@ const barbetDetail = standardBreedDetailSchema.parse({
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
         title: "얕은 물의 수초 사이를 먼저 확인한 뒤 숨겨 둔 캔버스 더미를 찾을 수 있어요.",
-        body: "수심과 바닥을 확인한 얕은 물에 작은 수초 구역 두 곳과 캔버스 더미 하나를 준비해요. 보이는 물건으로 곧장 보내기보다 수초 사이를 냄새 맡고 찾은 뒤 보호자의 열린 손으로 돌아오게 해요.",
+        body: "수심과 바닥을 확인한 얕은 물에 작은 수초 구역 두 곳과 캔버스 더미 하나를 준비해요. 보이는 물건으로 곧장 보내기보다 수초 사이를 냄새 맡고 찾은 뒤 보호자가 내민 손으로 돌아오게 해요.",
         image: "/illustrations/v4/barbet-feature-reed-search.webp",
         imageAlt: "관리된 얕은 습지에서 두 수초 구역 사이를 냄새 맡아 숨겨 둔 캔버스 더미를 찾는 갈색과 흰색 성견 바베 삽화",
       },
@@ -3124,7 +3136,7 @@ const barbetDetail = standardBreedDetailSchema.parse({
     {
       id: "woolly-coat-care",
       title: "완전히 마른 뒤 작은 구역으로 나누어 확인하는 긴 양모성 곱슬털",
-      body: "길고 양모처럼 곱슬거리는 털에는 수초 조각과 씨앗이 숨어 피부 가까이 엉킬 수 있어요. 컬 형태로 관리할 때는 완전히 말린 뒤 작은 구역으로 나누어 피부부터 빗고 줄 형태로 기른다면 그 방식에 맞는 전문 관리 계획을 세워요.",
+      body: "긴 곱슬털에는 수초 조각과 씨앗이 숨어 피부 가까이 엉킬 수 있어요. 완전히 말린 뒤 작은 구역으로 나누어 피부부터 빗고, 줄 형태로 기른다면 전문가와 관리 계획을 세워요.",
       image: "/illustrations/v4/barbet-feature-woolly-coat-care.webp",
       imageAlt: "실내 미끄럼 방지 매트에서 보호자가 갈색과 흰색 성견 바베의 마른 양모성 곱슬털을 작은 구역으로 나누어 빗는 삽화",
     },
@@ -3146,8 +3158,8 @@ const barbetDetail = standardBreedDetailSchema.parse({
 const bassetHoundDetail = standardBreedDetailSchema.parse({
   slug: "basset-hound",
   nameKo: "바셋 하운드",
-  metadataDescription: "프랑스 바셋에서 이어져 영국에서 정립된 바셋 하운드의 느리고 끈기 있는 냄새 추적과 활동 종료, 낮은 이동 경사로와 긴 귀·큰 발 점검 현실을 살펴봅니다.",
-  heroStatement: "낮고 무거운 몸으로 땅 가까운 냄새를 붙잡아 사람이 걸어서 따라갈 수 있는 속도로 오래 추적한 후각하운드예요.",
+  metadataDescription: "프랑스 바셋에서 이어져 영국에서 정립된 바셋 하운드의 느리고 끈기 있는 냄새 추적과 활동 뒤 휴식, 낮은 이동 경사로와 긴 귀·큰 발 점검 현실을 살펴봅니다.",
+  heroStatement: "낮고 무거운 몸으로 땅 가까운 냄새를 사람의 걸음 속도로 추적한 후각하운드예요.",
   story: {
     title: "바셋 하운드는 왜 서두르지 않고 코를 땅 가까이 둔 채 한 냄새를 오래 이어갈까요?",
     description: "빽빽한 지형에서 냄새를 느린 속도로 먼 거리까지 따라간 배경을 알면 충분히 냄새 맡는 산책과 탐색 뒤 회복을 함께 이해할 수 있어요.",
@@ -3171,7 +3183,7 @@ const bassetHoundDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "느린 냄새 산책도 끝에는 주머니를 치우고 몸을 길게 쉬게 해야 해요.",
+        title: "느린 냄새 산책도 끝에는 주머니를 치우고 몸을 길게 뻗어 쉬게 해야 해요.",
         body: "짧은 거리라도 냄새를 오래 분석하면 충분한 집중 활동이 될 수 있어요. 냄새 주머니와 긴 줄을 닫힌 벤치에 넣고 물을 마신 다음 넓고 단단한 낮은 매트에서 쉬게 해요.",
         image: "/illustrations/v4/basset-hound-feature-scent-to-rest.webp",
         imageAlt: "냄새 주머니와 긴 줄이 닫힌 벤치에 수납된 조용한 방의 넓고 낮은 매트에서 몸을 길게 쉬는 삼색 성견 바셋 하운드 삽화",
@@ -3184,7 +3196,7 @@ const bassetHoundDetail = standardBreedDetailSchema.parse({
     {
       id: "low-ramp",
       title: "긴 몸과 짧은 다리가 반복해서 뛰지 않아도 되는 넓고 낮은 경사로",
-      body: "낮지만 무게가 있는 몸으로 차량 적재함이나 높은 턱을 반복해 뛰는 동선은 부담이 될 수 있어요. 넓고 미끄럽지 않은 완만한 경사로를 고정하고 보호자의 열린 손을 따라 천천히 오르내리게 해요.",
+      body: "낮지만 무게가 있는 몸으로 차량 적재함이나 높은 턱을 반복해 뛰는 동선은 부담이 될 수 있어요. 넓고 미끄럽지 않은 완만한 경사로를 고정하고 보호자의 손짓을 따라 천천히 오르내리게 해요.",
       image: "/illustrations/v4/basset-hound-feature-low-ramp.webp",
       imageAlt: "낮은 차량 적재함에 고정된 넓고 완만한 미끄럼 방지 경사로를 천천히 오르는 삼색 성견 바셋 하운드 삽화",
     },
@@ -3213,11 +3225,11 @@ const bassetHoundDetail = standardBreedDetailSchema.parse({
 const afghanHoundDetail = standardBreedDetailSchema.parse({
   slug: "afghan-hound",
   nameKo: "아프간 하운드",
-  metadataDescription: "아프가니스탄 산악 지형에서 시야로 대상을 쫓은 아프간 하운드의 짧은 추적과 활동 종료, 이중 출입 안전과 길고 섬세한 피모 관리 현실을 살펴봅니다.",
-  heroStatement: "아프가니스탄의 산악 지형에서 멀리 움직이는 대상을 시야로 찾아 속도와 힘을 함께 사용해 온 장모 시각하운드예요.",
+  metadataDescription: "아프가니스탄 산악 지형에서 눈으로 대상을 쫓은 아프간 하운드의 짧은 추적과 활동 뒤 휴식, 이중 출입 안전과 길고 섬세한 피모 관리 현실을 살펴봅니다.",
+  heroStatement: "아프가니스탄 산악 지형에서 먼 대상을 눈으로 추적한 장모 시각하운드예요.",
   story: {
     title: "아프간 하운드는 왜 멀리 움직이는 대상을 오래 바라보다가 빠르게 움직일까요?",
-    description: "산악 지형의 시각 추적 배경을 알면 먼 움직임에 집중하는 순간과 짧은 질주 뒤 시야를 닫고 쉬는 순서를 함께 이해할 수 있어요.",
+    description: "산악 지형에서 눈으로 대상을 추적한 배경을 알면 먼 움직임에 집중하는 모습과 달린 뒤 바깥 자극을 줄이고 쉬는 시간이 왜 필요한지 이해할 수 있어요.",
     steps: [
       {
         navLabel: "산악 시각 추적의 배경",
@@ -3230,18 +3242,18 @@ const afghanHoundDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
-        title: "멀리 움직이는 천 루어를 본 뒤 짧게 달리고 사람 쪽으로 돌아올 수 있어요.",
-        body: "높은 이중 울타리 안에서 생물 대신 먼 천 루어를 한 번만 움직여요. 짧은 질주가 끝나면 보호자의 열린 손을 향해 곡선을 그리며 돌아오게 해요.",
+        title: "멀리 움직이는 천 장난감을 본 뒤 짧게 달리고 보호자에게 돌아올 수 있어요.",
+        body: "높은 이중 울타리 안에서 생물 대신 먼 곳의 천 장난감을 한 번만 움직여요. 짧은 질주가 끝나면 보호자의 손짓을 향해 곡선을 그리며 돌아오게 해요.",
         image: "/illustrations/v4/afghan-hound-feature-controlled-lure-run.webp",
-        imageAlt: "높은 이중 울타리가 있는 넓은 운동장에서 먼 천 루어를 본 뒤 보호자의 열린 손을 향해 돌아오는 성견 아프간 하운드 삽화",
+        imageAlt: "높은 이중 울타리가 있는 넓은 운동장에서 먼 천 장난감을 본 뒤 보호자의 손짓을 향해 돌아오는 성견 아프간 하운드 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "달리기가 끝나면 루어를 보이지 않게 치우고 바깥 시야까지 낮춰야 해요.",
-        body: "움직이는 도구와 열린 바깥 풍경이 계속 보이면 다시 주변을 살필 수 있어요. 루어와 긴 줄을 닫힌 장에 넣고 커튼을 조절한 뒤 온몸을 받치는 넓은 매트에서 쉬게 해요.",
+        title: "달리기가 끝나면 천 장난감을 치우고 바깥 자극도 줄여야 해요.",
+        body: "움직이는 장난감과 바깥 풍경이 계속 보이면 다시 주변을 살필 수 있어요. 장난감과 긴 줄을 보이지 않게 치우고 커튼으로 바깥 자극을 줄인 뒤 넓은 자리에서 쉬게 해요.",
         image: "/illustrations/v4/afghan-hound-feature-run-to-rest.webp",
-        imageAlt: "천 루어와 긴 줄이 닫힌 장에 수납되고 바깥 시야가 가려진 방의 넓은 매트에서 쉬는 성견 아프간 하운드 삽화",
+        imageAlt: "움직이는 천 장난감과 긴 줄을 치우고 커튼으로 바깥 풍경을 가린 방의 넓은 자리에서 쉬는 성견 아프간 하운드 삽화",
       },
     ],
     caution: "사냥에 쓰인 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임을 쫓는 정도와 낯선 사람에게 두는 거리, 활동 뒤 회복은 경험과 환경, 개체에 따라 달라요.",
@@ -3280,11 +3292,11 @@ const afghanHoundDetail = standardBreedDetailSchema.parse({
 const beauceronDetail = standardBreedDetailSchema.parse({
   slug: "beauceron",
   nameKo: "보스롱",
-  metadataDescription: "프랑스 평야에서 양 떼를 이끌고 지킨 보스롱의 넓은 경계 이동과 활동 종료, 큰 체구의 출입 동선과 뒷발 이중 며느리발 점검 현실을 살펴봅니다.",
-  heroStatement: "프랑스 평야에서 양 떼의 이동을 이끌고 주변을 지키도록 정립된 크고 단단하며 두려움 없이 협력하는 목양·경비견이에요.",
+  metadataDescription: "프랑스 평야에서 양 떼를 이끌고 지킨 보스롱의 넓은 이동과 활동 뒤 휴식, 큰 체구의 출입 동선과 뒷발 이중 며느리발 점검 현실을 살펴봅니다.",
+  heroStatement: "프랑스 평야에서 양 떼를 이끌고 주변을 지키던 크고 단단한 목양·경비견이에요.",
   story: {
-    title: "보스롱은 왜 무리 가까이만 머물지 않고 넓은 경계와 사람의 위치를 함께 확인할까요?",
-    description: "프랑스 평야에서 양 떼를 이끌고 지킨 배경을 알면 넓게 움직인 뒤 사람의 신호로 중심에 돌아오는 과제와 충분한 종료를 함께 이해할 수 있어요.",
+    title: "보스롱은 왜 넓게 움직이며 주변과 보호자를 함께 살필까요?",
+    description: "양 떼를 이끌고 주변을 지킨 배경은 넓게 움직이다 보호자의 신호에 맞춰 돌아오는 모습을 이해하는 단서가 돼요.",
     steps: [
       {
         navLabel: "프랑스 목양의 배경",
@@ -3297,34 +3309,34 @@ const beauceronDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
-        title: "넓은 경계 표식을 따라 걷고 마지막에는 사람 곁의 중심 매트로 돌아올 수 있어요.",
-        body: "울타리 안에 멀리 떨어진 두 표식과 닫힌 문을 두고 보호자와 느슨한 줄로 둘레를 걸어요. 마지막 문에서 열린 손 신호를 확인한 뒤 중앙 매트로 돌아와 멈추게 해요.",
+        title: "넓게 둘러본 뒤 보호자 곁의 정해진 자리로 돌아올 수 있어요.",
+        body: "울타리 안에 멀리 떨어진 두 표식과 닫힌 문을 두고 보호자와 느슨한 줄로 둘레를 걸어요. 마지막 문에서 보호자의 손짓을 확인한 뒤 가운데 쉴 자리로 돌아와 멈추게 해요.",
         image: "/illustrations/v4/beauceron-feature-boundary-return.webp",
-        imageAlt: "울타리 안의 두 경계 표식과 닫힌 문을 지난 뒤 보호자의 열린 손과 중앙 매트로 돌아오는 성견 보스롱 삽화",
+        imageAlt: "울타리 안의 두 경계 표식과 닫힌 문을 지난 뒤 보호자의 손짓과 가운데 쉴 자리로 돌아오는 성견 보스롱 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "넓은 이동이 끝나면 표식과 줄을 치우고 큰 몸 전체가 쉬는 시간을 마련해야 해요.",
-        body: "도구와 바깥문이 계속 보이면 다음 경계 이동을 기다릴 수 있어요. 표식과 긴 줄을 장에 넣고 문을 닫은 다음 온몸을 받치는 단단하고 넓은 매트에서 쉬게 해요.",
+        title: "넓게 움직인 뒤에는 도구를 치우고 충분히 쉬게 해요.",
+        body: "도구와 바깥문이 계속 보이면 다음 경계 이동을 기다릴 수 있어요. 표식과 긴 줄을 수납장에 넣고 문을 닫은 다음 온몸을 받치는 단단하고 넓은 매트에서 쉬게 해요.",
         image: "/illustrations/v4/beauceron-feature-work-to-rest.webp",
         imageAlt: "경계 표식과 긴 줄이 수납된 조용한 농장 방의 크고 단단한 매트에서 쉬는 자연스럽게 접힌 귀의 성견 보스롱 삽화",
       },
     ],
-    caution: "목양과 경비의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 낯선 변화에 두는 거리와 넓게 움직이는 방식, 사람 신호에 반응하는 속도는 경험과 환경, 개체에 따라 달라요.",
+    caution: "목양과 경비의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 낯선 사람이나 상황과 거리를 두는 정도, 움직이는 범위와 보호자의 신호에 반응하는 속도는 개체마다 달라요.",
   },
   realitiesTitle: "보스롱의 생활 현실",
   realities: [
     {
       id: "wide-doorway-halt",
-      title: "큰 체구가 방향을 바꾸고 나란히 멈출 수 있는 넓고 미끄럽지 않은 현관",
+      title: "큰 몸이 돌아설 수 있는 넓고 미끄럽지 않은 현관",
       body: "큰 몸과 긴 보폭은 좁은 현관에서 사람과 신발장 사이를 돌 때 부딪힘을 만들 수 있어요. 문 앞 바닥을 비우고 큰 미끄럼 방지 매트를 깐 뒤 느슨한 줄로 나란히 멈추는 순서를 연습해요.",
       image: "/illustrations/v4/beauceron-feature-wide-doorway-halt.webp",
       imageAlt: "비어 있는 넓은 현관의 미끄럼 방지 매트에서 보호자와 나란히 멈춘 자연스럽게 접힌 귀의 성견 보스롱 삽화",
     },
     {
       id: "double-dewclaw-check",
-      title: "들판 활동 뒤 큰 발바닥과 뒷발의 두 며느리발을 함께 살피는 점검",
+      title: "들판 활동 뒤 큰 발과 뒷발의 두 며느리발을 살펴요",
       body: "보스롱은 뒷발마다 서로 분리된 두 며느리발이 있는 것이 품종 특징이에요. 활동 뒤 다리를 받친 채 발바닥과 발가락 사이, 두 며느리발의 발톱과 주변 피부를 차례로 확인해요.",
       image: "/illustrations/v4/beauceron-feature-double-dewclaw-check.webp",
       imageAlt: "들판 활동 뒤 미끄럼 방지 매트에서 보호자가 검정과 황갈색 성견 보스롱의 뒷발과 이중 며느리발을 확인하는 삽화",
@@ -3332,7 +3344,7 @@ const beauceronDetail = standardBreedDetailSchema.parse({
   ],
   readinessTitle: "보스롱과 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "넓은 경계 이동 뒤 사람 곁의 중심 매트로 돌아오고 멈추는 순서를 꾸준히 연습할 수 있나요?",
+    "주변을 넓게 둘러본 뒤 보호자 곁의 정해진 자리로 돌아와 멈추게 할 수 있나요?",
     "큰 몸이 현관과 실내에서 안전하게 방향을 바꿀 넓고 미끄럽지 않은 동선을 마련할 수 있나요?",
     "활동 뒤 큰 발과 뒷발의 두 며느리발, 발톱과 주변 피부를 하나씩 확인할 수 있나요?",
   ],
@@ -3347,8 +3359,8 @@ const beauceronDetail = standardBreedDetailSchema.parse({
 const bostonTerrierDetail = standardBreedDetailSchema.parse({
   slug: "boston-terrier",
   nameKo: "보스턴 테리어",
-  metadataDescription: "미국에서 사람 곁의 반려견으로 정립된 보스턴 테리어의 짧은 가족 참여와 활동 종료, 더운 날의 그늘 동선과 돌출된 눈 높이 환경 관리 현실을 살펴봅니다.",
-  heroStatement: "미국에서 사람과 가까이 지내는 반려견으로 정립된 작고 단단하며 활기차고 영리한 도시 생활의 동반자예요.",
+  metadataDescription: "미국에서 사람 곁의 반려견으로 정립된 보스턴 테리어의 짧은 가족 활동과 충분한 휴식, 더운 날의 그늘 동선과 돌출된 눈을 고려한 환경 관리를 살펴봅니다.",
+  heroStatement: "미국에서 사람 곁의 반려견으로 정립된 작고 활기찬 도시 생활의 동반자예요.",
   story: {
     title: "보스턴 테리어는 왜 짧은 놀이에서도 사람의 손과 표정을 계속 확인하며 참여할까요?",
     description: "사람 곁의 반려견으로 정립된 배경을 알면 가족 활동에 참여하는 짧은 과제와 편안한 호흡으로 돌아오는 종료를 함께 이해할 수 있어요.",
@@ -3356,8 +3368,8 @@ const bostonTerrierDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "미국 반려견의 배경",
         eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
-        title: "미국에서 작고 단정한 사람 곁의 반려견으로 정립됐어요.",
-        body: "보스턴 테리어는 미국에서 활기차고 영리한 반려견으로 정립된 품종이에요. 짧고 단단한 몸과 검정·브린들·실 바탕의 흰 무늬가 조화를 이루는 외형도 중요한 특징으로 자리 잡았어요.",
+        title: "투견에 쓰이던 불도그·테리어 계통에서 미국의 반려견으로 정립됐어요.",
+        body: "보스턴 테리어의 초기 계통은 19세기 미국에서 투견에 쓰이던 불도그·테리어형 개와 연결돼요. 보스턴 지역의 선택 교배를 거치며 더 작고 단정한 체형과 사람 곁에서 지내는 반려견의 모습으로 바뀌었어요.",
         image: "/illustrations/v3/boston-terrier-history.webp",
         imageAlt: "미국 보스턴의 붉은 벽돌 주택가에서 가족과 함께 서 있는 검정과 흰색 성견 보스턴 테리어 삽화",
       },
@@ -3415,7 +3427,7 @@ const affenpinscherDetail = standardBreedDetailSchema.parse({
   slug: "affenpinscher",
   nameKo: "아펜핀셔",
   metadataDescription: "남부 독일의 집과 마구간에서 작은 해충을 찾던 아펜핀셔의 배경과 안전한 냄새 과제, 작은 몸의 현관 동선과 거친 얼굴 털 관리를 살펴봅니다.",
-  heroStatement: "남부 독일의 집과 마구간에서 작은 해충을 찾다가 사람 곁의 반려견으로 자리 잡은 작고 끈기 있는 핀셔예요.",
+  heroStatement: "남부 독일에서 작은 해충을 찾다가 사람 곁의 반려견으로 자리 잡은 핀셔예요.",
   story: {
     title: "아펜핀셔의 작은 몸에는 왜 주변을 자세히 찾고 쉽게 물러서지 않는 태도가 남아 있을까요?",
     description: "집과 마구간의 작은 해충을 찾던 배경을 알면 오늘의 집중적인 탐색과 과제를 끝내고 쉬는 전환을 함께 이해할 수 있어요.",
@@ -3432,17 +3444,17 @@ const affenpinscherDetail = standardBreedDetailSchema.parse({
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
         title: "작고 닫힌 냄새 상자를 차례로 확인하고 사람에게 답을 알릴 수 있어요.",
-        body: "살아 있는 동물을 쫓게 하기보다 같은 모양의 뚜껑 있는 상자 세 개에 안전한 냄새 천 하나를 숨겨요. 맞는 상자에서 멈춘 뒤 보호자의 열린 손을 확인하면 과제를 끝내요.",
+        body: "살아 있는 동물을 쫓게 하기보다 같은 모양의 뚜껑 있는 상자 세 개에 안전한 냄새 천 하나를 숨겨요. 맞는 상자에서 멈춘 뒤 보호자의 손짓을 확인하면 과제를 끝내요.",
         image: "/illustrations/v4/affenpinscher-feature-lidded-box-search.webp",
-        imageAlt: "부엌의 뚜껑 있는 나무 냄새 상자 세 개 중 냄새 천이 든 상자를 찾고 보호자의 열린 손을 보는 검은 성견 아펜핀셔 삽화",
+        imageAlt: "부엌의 뚜껑 있는 나무 냄새 상자 세 개 중 냄새 천이 든 상자를 찾고 보호자의 손짓을 보는 검은 성견 아펜핀셔 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
         title: "짧은 찾기도 상자를 보이지 않게 치우고 작은 몸이 완전히 쉬는 데까지 이어져야 해요.",
-        body: "찾기 도구가 계속 보이면 다음 냄새를 확인하려 할 수 있어요. 상자를 닫힌 장에 넣고 물을 제공한 다음 단단한 작은 매트에서 몸을 내려놓게 해요.",
+        body: "찾기 도구가 계속 보이면 다음 냄새를 확인하려 할 수 있어요. 상자를 보이지 않게 치우고 물을 준 다음 작은 자리에서 편히 엎드리게 해요.",
         image: "/illustrations/v4/affenpinscher-feature-search-to-rest.webp",
-        imageAlt: "보호자가 나무 냄새 상자를 닫힌 장에 넣는 동안 작은 매트와 물그릇 옆에서 쉬는 검은 성견 아펜핀셔 삽화",
+        imageAlt: "보호자가 나무 냄새 상자를 치우는 동안 작은 자리와 물그릇 옆에서 쉬는 검은 성견 아펜핀셔 삽화",
       },
     ],
     caution: "작은 해충을 찾던 과거 배경은 행동을 이해하는 단서일 뿐이에요. 탐색의 끈기와 낯선 변화에 반응하는 방식은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
@@ -3481,8 +3493,8 @@ const affenpinscherDetail = standardBreedDetailSchema.parse({
 const beardedCollieDetail = standardBreedDetailSchema.parse({
   slug: "bearded-collie",
   nameKo: "비어디드 콜리",
-  metadataDescription: "스코틀랜드와 잉글랜드 북부의 험한 목초지에서 양을 몰던 비어디드 콜리의 배경과 넓은 지형 이동, 활동 종료, 젖은 장모와 발 관리를 살펴봅니다.",
-  heroStatement: "스코틀랜드와 잉글랜드 북부의 험한 목초지에서 양 떼의 흐름을 바꾸며 사람과 협력한 활기찬 장모 목양견이에요.",
+  metadataDescription: "스코틀랜드와 잉글랜드 북부의 험한 목초지에서 양을 몰던 비어디드 콜리의 배경과 넓은 지형 이동, 활동 뒤 휴식, 젖은 장모와 발 관리를 살펴봅니다.",
+  heroStatement: "영국 북부의 험한 목초지에서 양 떼의 흐름을 바꾸며 협력한 장모 목양견이에요.",
   story: {
     title: "비어디드 콜리는 왜 넓은 지형을 돌아 움직인 뒤에도 사람 쪽 통로로 다시 합류할까요?",
     description: "험한 목초지에서 양 떼와 지형을 함께 살피던 배경을 알면 오늘의 넓은 곡선 이동과 활동 뒤 회복을 연결해 이해할 수 있어요.",
@@ -3498,16 +3510,16 @@ const beardedCollieDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
-        title: "낮은 지형물을 넓게 돌아 사람의 열린 손이 있는 통로로 합류할 수 있어요.",
-        body: "안전하게 울타리 친 공간에 낮고 넓은 지형물 두 개를 두고 점프하지 않는 곡선 길을 만들어요. 개가 넓은 길을 선택해 돌아온 뒤 중앙의 열린 손에서 멈추면 한 번의 이동을 끝내요.",
+        title: "낮은 지형물을 넓게 돌아 보호자가 기다리는 통로로 합류할 수 있어요.",
+        body: "안전하게 울타리 친 공간에 낮고 넓은 지형물 두 개를 두고 점프하지 않는 곡선 길을 만들어요. 개가 넓은 길을 선택해 돌아온 뒤 중앙에서 기다리는 보호자의 손짓 앞에 멈추면 한 번의 이동을 끝내요.",
         image: "/illustrations/v4/bearded-collie-feature-broad-terrain-route.webp",
-        imageAlt: "울타리 친 언덕 공간에서 낮은 바위 지형물을 넓게 돌아 보호자의 열린 손으로 합류하는 회색과 흰색 성견 비어디드 콜리 삽화",
+        imageAlt: "울타리 친 언덕 공간에서 낮은 바위 지형물을 넓게 돌아 보호자의 손짓을 따라 합류하는 회색과 흰색 성견 비어디드 콜리 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
         title: "넓은 이동이 끝나면 길과 줄을 치우고 긴 몸 전체를 받치는 자리에서 쉬게 해야 해요.",
-        body: "지형물과 긴 줄이 계속 보이면 다음 이동을 기다릴 수 있어요. 도구를 닫힌 창고에 넣고 물을 제공한 다음 온몸이 올라가는 넓고 단단한 매트에서 쉬는 순서를 만들어요.",
+        body: "지형물과 긴 줄이 계속 보이면 다음 이동을 기다릴 수 있어요. 도구를 보이지 않게 치우고 물을 준 다음 온몸이 올라가는 넓고 단단한 자리에서 쉬게 해요.",
         image: "/illustrations/v4/bearded-collie-feature-work-to-rest.webp",
         imageAlt: "보호자가 지형 패널과 긴 줄을 창고에 넣은 뒤 넓은 매트와 물그릇 옆에서 쉬는 회색과 흰색 성견 비어디드 콜리 삽화",
       },
@@ -3548,8 +3560,8 @@ const beardedCollieDetail = standardBreedDetailSchema.parse({
 const bloodhoundModernWorkStep = {
   navLabel: "현재의 역할",
   eyebrow: "4단계 · 오늘은 어떤 일을 할까?",
-  title: "오늘도 사람의 개별 냄새를 따라 실종자의 이동 경로를 찾는 훈련에 참여해요.",
-  body: "블러드하운드의 뛰어난 후각과 긴 거리 추적 능력은 실종자 수색을 위한 전문 작업에도 활용돼요. 훈련된 개와 핸들러는 냄새 물품에서 시작해 이동 경로를 함께 판단하고 발견한 위치를 수색팀에 알려요.",
+  title: "오늘도 사람의 냄새를 따라 실종자의 이동 경로를 찾아요.",
+  body: "블러드하운드의 후각과 장거리 추적 능력은 실종자 수색에도 활용돼요. 훈련된 개와 담당자는 냄새 물품에서 출발해 이동 경로를 찾고 발견 위치를 수색팀에 알려요.",
   image: "/illustrations/v4/bloodhound-feature-missing-person-search.webp",
   imageAlt: "안전한 숲속 실종자 수색 훈련에서 긴 추적줄로 냄새를 따라 자원봉사자를 찾고 핸들러가 무전으로 위치를 알리는 성견 블러드하운드 삽화",
 };
@@ -3558,23 +3570,23 @@ const bloodhoundDetail = standardBreedDetailSchema.parse({
   slug: "bloodhound",
   nameKo: "블러드하운드",
   metadataDescription: "아르덴 지역의 오래된 세인트 휴버트 하운드에서 이어진 블러드하운드의 장거리 냄새 추적과 회복, 실종자 수색 역할, 큰 몸의 이동과 긴 귀 관리를 살펴봅니다.",
-  heroStatement: "한 사람의 희미한 냄새를 긴 거리와 어려운 지형까지 이어서 따라갈 수 있는 크고 온화한 추적 하운드예요.",
+  heroStatement: "한 사람의 희미한 냄새를 먼 거리까지 따라가는 추적 하운드예요.",
   story: {
-    title: "블러드하운드는 왜 바닥의 한 냄새를 선택하면 먼 거리의 굽은 길까지 천천히 이어서 확인할까요?",
-    description: "아르덴 지역에서 오래 이어진 냄새 추적 배경을 알면 오늘의 긴 탐색, 충분한 회복과 전문 수색 역할을 한 흐름으로 이해할 수 있어요.",
+    title: "블러드하운드는 왜 한 냄새를 먼 거리까지 따라갈까요?",
+    description: "오랫동안 냄새를 추적해 온 배경은 긴 탐색과 충분한 휴식, 오늘날의 전문 수색 역할을 이해하는 단서가 돼요.",
     steps: [
       {
         navLabel: "장거리 추적의 배경",
         eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
-        title: "아르덴의 숲과 험한 길에서 한 냄새의 긴 흔적을 이어서 찾았어요.",
-        body: "블러드하운드는 세인트 휴버트 하운드로 이어지는 오래된 후각견으로, 상처 입은 사냥감의 흔적을 먼 거리까지 추적하는 데 쓰였어요. 어려운 지형에서도 한 냄새를 구분해 오래 따라가는 후각과 지구력이 중요했어요.",
+        title: "아르덴의 숲과 험한 길에서 한 냄새를 오래 추적했어요.",
+        body: "블러드하운드는 세인트 휴버트 하운드로 이어지는 오래된 후각견이에요. 상처 입은 사냥감의 냄새를 어려운 지형에서도 먼 거리까지 따라가는 후각과 지구력이 중요했어요.",
         image: "/illustrations/v3/bloodhound-history.webp",
         imageAlt: "아르덴을 떠올리게 하는 숲길에서 긴 줄로 한 냄새의 흔적을 따라가는 검정과 황갈색 성견 블러드하운드 삽화",
       },
       {
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
-        title: "긴 줄 안에서 여러 번 굽는 한 냄새 길을 서두르지 않고 끝까지 확인할 수 있어요.",
+        title: "긴 줄 안에서 굽은 냄새 길을 천천히 따라가요.",
         body: "안전한 숲길에 냄새 천으로 긴 경로와 두세 번의 완만한 방향 전환을 만들어요. 편안한 추적 하네스와 긴 줄로 속도를 맞추고 마지막 냄새 주머니를 찾으면 한 번의 과제를 끝내요.",
         image: "/illustrations/v4/bloodhound-feature-long-scent-route.webp",
         imageAlt: "여러 번 굽는 숲길에서 긴 추적줄과 하네스로 끝의 냄새 주머니를 찾아가는 검정과 황갈색 성견 블러드하운드 삽화",
@@ -3582,7 +3594,7 @@ const bloodhoundDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "긴 추적 뒤에는 줄과 냄새 물품을 닫힌 가방에 넣고 큰 몸 전체가 회복할 시간을 줘야 해요.",
+        title: "긴 추적 뒤에는 도구를 치우고 큰 몸을 충분히 쉬게 해요.",
         body: "코를 오래 사용한 뒤에도 주변 바닥의 다음 흔적을 계속 확인하려 할 수 있어요. 긴 줄을 감아 냄새 물품과 함께 닫힌 가방에 넣고 물을 제공한 다음 온몸을 받치는 큰 매트에서 쉬게 해요.",
         image: "/illustrations/v4/bloodhound-feature-trail-to-rest.webp",
         imageAlt: "보호자가 긴 추적줄과 냄새 물품을 가방에 넣는 동안 큰 매트에서 물을 마시고 쉬는 검정과 황갈색 성견 블러드하운드 삽화",
@@ -3612,14 +3624,14 @@ const bloodhoundDetail = standardBreedDetailSchema.parse({
   realities: [
     {
       id: "vehicle-ramp",
-      title: "큰 몸이 반복해서 뛰지 않게 마련하는 넓고 미끄럽지 않은 차량 경사로",
+      title: "큰 몸을 위한 넓고 미끄럽지 않은 차량 경사로",
       body: "크고 무거운 몸은 지치거나 아픈 날 높은 적재함을 오르내리는 일 자체가 부담이 될 수 있어요. 낮은 각도의 넓은 경사로를 차에 단단히 고정하고 하네스와 느슨한 줄로 천천히 오르는 순서를 익혀요.",
       image: "/illustrations/v4/bloodhound-feature-vehicle-ramp.webp",
       imageAlt: "주차된 차량의 넓고 낮은 미끄럼 방지 경사로를 보호자와 천천히 오르는 검정과 황갈색 성견 블러드하운드 삽화",
     },
     {
       id: "ear-fold-drying",
-      title: "바닥과 물그릇 가까이 닿는 긴 귀와 느슨한 얼굴 피부를 함께 보는 점검",
+      title: "긴 귀와 느슨한 얼굴 피부의 물기를 살펴요",
       body: "매우 길고 부드러운 귀와 느슨한 머리 피부에는 물기와 작은 이물질이 남을 수 있어요. 산책과 음수 뒤 귀를 받쳐 겉과 안쪽을 부드럽게 말리고 얼굴 주름을 잡아당기지 않은 채 평소 상태를 살펴요.",
       image: "/illustrations/v4/bloodhound-feature-ear-fold-drying.webp",
       imageAlt: "큰 미끄럼 방지 매트에서 보호자가 검정과 황갈색 성견 블러드하운드의 긴 귀를 받쳐 수건으로 말리고 얼굴 피부를 확인하는 삽화",
@@ -3643,15 +3655,15 @@ const briardDetail = standardBreedDetailSchema.parse({
   slug: "briard",
   nameKo: "브리아드",
   metadataDescription: "프랑스 저지대에서 양 떼를 몰고 지키던 브리아드의 배경과 긴 보폭의 방향 전환, 활동 뒤 회복, 긴 염소털 같은 피모와 뒷발 이중 며느리발톱 관리를 살펴봅니다.",
-  heroStatement: "프랑스의 넓은 평야에서 양 떼를 이동시키고 지키며 사람과 보조를 맞춘 크고 침착한 장모 목양견이에요.",
+  heroStatement: "프랑스 평야에서 양 떼를 몰고 지키며 목자와 보조를 맞춘 큰 장모 목양견이에요.",
   story: {
-    title: "브리아드는 왜 넓은 곡선을 그리며 움직인 뒤 사람의 신호 앞에 다시 멈출까요?",
-    description: "프랑스 저지대에서 양 떼의 이동과 경계를 함께 맡은 배경을 알면 오늘의 긴 보폭, 방향 전환과 활동 종료를 한 흐름으로 이해할 수 있어요.",
+    title: "브리아드는 왜 넓게 움직이다 목자의 신호에 맞춰 멈출까요?",
+    description: "프랑스 저지대에서 양 떼를 몰고 지킨 배경을 알면 넓게 움직이다 방향을 바꾸고, 활동 뒤 쉬는 흐름을 함께 이해할 수 있어요.",
     steps: [
       {
         navLabel: "평야 목양의 배경",
         eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
-        title: "프랑스의 넓은 저지대에서 양 떼를 몰고 지키는 목양견이었어요.",
+        title: "프랑스 저지대에서 양 떼를 몰고 지켰어요.",
         body: "브리아드는 프랑스 평야에서 흩어진 양을 모아 이동시키고 무리 주변을 지키도록 길러졌어요. 넓은 지형을 오래 움직이면서도 목자의 위치와 가축의 흐름을 함께 살피는 판단이 중요했어요.",
         image: "/illustrations/v3/briard-history.webp",
         imageAlt: "프랑스의 넓은 저지대 목초지에서 목자와 함께 양 떼의 이동을 살피는 황갈색 성견 브리아드 삽화",
@@ -3659,18 +3671,18 @@ const briardDetail = standardBreedDetailSchema.parse({
       {
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
-        title: "긴 보폭으로 넓은 곡선을 돌아 열린 손이 있는 통로에 합류할 수 있어요.",
-        body: "안전하게 울타리 친 넓은 공간에 완만한 곡선 길과 중앙 매트를 만들어요. 개가 길을 돌아 사람의 열린 손 앞에 네 발로 멈추면 한 번의 이동을 끝내고 다음 신호를 기다려요.",
+        title: "넓은 곡선을 돌아 보호자가 기다리는 통로로 돌아와요.",
+        body: "안전하게 울타리 친 넓은 공간에 완만한 곡선 길과 쉴 자리를 마련해요. 개가 길을 돌아 보호자의 손짓 앞에 네 발로 멈추면 이동을 끝내고 다음 신호를 기다려요.",
         image: "/illustrations/v4/briard-feature-parallel-lane-turn.webp",
-        imageAlt: "울타리 친 넓은 목초지의 완만한 곡선 길을 돌아 중앙 매트에 선 보호자의 열린 손으로 합류하는 황갈색 성견 브리아드 삽화",
+        imageAlt: "울타리 친 넓은 목초지의 완만한 곡선 길을 돌아 가운데 쉴 자리의 보호자 손짓으로 합류하는 황갈색 성견 브리아드 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "넓은 이동이 끝나면 길과 줄을 치우고 큰 몸 전체가 쉬는 시간을 분명히 나눠야 해요.",
-        body: "이동 표식과 긴 줄이 계속 보이면 다음 과제를 기다리며 주변을 살필 수 있어요. 도구를 닫힌 보관함에 넣고 물을 제공한 다음 긴 몸이 모두 올라가는 단단한 매트에서 쉬게 해요.",
+        title: "넓게 움직인 뒤에는 도구를 치우고 충분히 쉬게 해요.",
+        body: "이동 표식과 긴 줄이 계속 보이면 다음 활동을 기다리며 주변을 살필 수 있어요. 도구를 보이지 않게 치우고 물을 준 다음 긴 몸 전체가 올라가는 단단한 자리에서 쉬게 해요.",
         image: "/illustrations/v4/briard-feature-work-to-rest.webp",
-        imageAlt: "보호자가 이동 표식과 긴 줄을 닫힌 보관함에 넣는 동안 큰 매트와 물그릇 옆에서 쉬는 황갈색 성견 브리아드 삽화",
+        imageAlt: "보호자가 이동 표식과 긴 줄을 치우는 동안 큰 자리와 물그릇 옆에서 쉬는 황갈색 성견 브리아드 삽화",
       },
     ],
     caution: "목양과 경비의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직이는 대상에 두는 관심과 경계 범위, 사람에게 돌아오는 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
@@ -3687,14 +3699,14 @@ const briardDetail = standardBreedDetailSchema.parse({
     {
       id: "double-dewclaw-check",
       title: "긴 다리 털 안에서 따로 확인하는 두 개의 뒷발 며느리발톱",
-      body: "브리아드는 양쪽 뒷다리에 두 개씩의 며느리발톱을 지녀 긴 털 아래 발톱 길이와 피부 상태를 놓치기 쉬워요. 다리를 비틀지 않고 발을 편안히 받친 채 두 발톱을 하나씩 찾아 걸림과 갈라짐이 없는지 살펴요.",
+      body: "브리아드는 양쪽 뒷다리에 며느리발톱이 두 개씩 있어 긴 털 아래 상태를 놓치기 쉬워요. 발을 편안히 받치고 각 발톱의 걸림과 갈라짐을 살펴요.",
       image: "/illustrations/v4/briard-feature-double-dewclaw-check.webp",
       imageAlt: "보호자가 황갈색 성견 브리아드의 털이 긴 뒷발을 받쳐 두 개의 며느리발톱을 각각 확인하는 삽화",
     },
   ],
   readinessTitle: "브리아드와 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "긴 보폭으로 넓은 곡선을 움직인 뒤 사람의 열린 손 앞에서 멈추는 안전한 과제를 만들 수 있나요?",
+    "긴 보폭으로 넓은 곡선을 움직인 뒤 보호자의 손짓 앞에서 멈추는 안전한 활동을 만들 수 있나요?",
     "길고 건조한 겉털을 작은 구역으로 나누어 피부부터 빗고 눈썹과 수염도 확인할 수 있나요?",
     "양쪽 뒷발의 이중 며느리발톱을 긴 털 사이에서 하나씩 찾아 정기적으로 살필 수 있나요?",
   ],
@@ -3709,8 +3721,19 @@ const briardDetail = standardBreedDetailSchema.parse({
 const borzoiDetail = standardBreedDetailSchema.parse({
   slug: "borzoi",
   nameKo: "보르조이",
-  metadataDescription: "러시아의 넓은 초원에서 시야로 사냥감을 찾아 추적한 보르조이의 배경과 안전한 직선 루어, 질주 뒤 회복, 큰 체형의 출입 공간과 실키한 장식털 관리를 살펴봅니다.",
-  heroStatement: "러시아의 넓은 들에서 먼 움직임을 눈으로 찾아 빠르게 추적하고, 평소에는 차분하게 주변을 살피는 매우 큰 시각하운드예요.",
+  metadataDescription: "러시아의 넓은 초원에서 눈으로 사냥감을 찾아 추적한 보르조이의 배경과 안전한 천 장난감 놀이, 질주 뒤 휴식, 큰 체형의 출입 공간과 부드러운 장식털 관리를 살펴봅니다.",
+  heroStatement: "러시아의 넓은 들에서 먼 움직임을 눈으로 찾아 빠르게 추적한 대형 시각하운드예요.",
+  heroSizeDetails: {
+    summaryRows: [
+      { label: "체고", value: "성별로 다름" },
+      { label: "몸무게", value: "약 27~48kg" },
+    ],
+    detailsLabel: "성별 보기",
+    items: [
+      { id: "male", label: "수컷", value: "체고 71cm 이상" },
+      { id: "female", label: "암컷", value: "체고 66cm 이상" },
+    ],
+  },
   story: {
     title: "보르조이는 왜 먼 움직임을 발견하면 넓은 공간에서 곧게 속도를 올리려 할까요?",
     description: "러시아의 넓은 초원에서 시야로 대상을 찾고 추적한 배경을 알면 오늘의 짧은 직선 질주와 충분한 회복을 함께 이해할 수 있어요.",
@@ -3727,17 +3750,17 @@ const borzoiDetail = standardBreedDetailSchema.parse({
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
         title: "높은 울타리 안에서 흰 천 하나를 따라 짧은 직선 질주로 끝낼 수 있어요.",
-        body: "매우 높고 안전한 울타리가 있는 넓은 공간에서 흰 천 루어 하나를 곧은 지면 선으로 한 번만 움직여요. 개가 짧게 달려 도착하면 루어를 멈추고 다음 추적 없이 보호자에게 돌아오는 순서로 마쳐요.",
+        body: "매우 높고 안전한 울타리가 있는 넓은 공간에서 흰 천 장난감 하나를 곧은 방향으로 한 번만 움직여요. 개가 짧게 달려 도착하면 장난감을 멈추고 다음 추적 없이 보호자에게 돌아오게 해요.",
         image: "/illustrations/v4/borzoi-feature-controlled-straight-lure.webp",
-        imageAlt: "매우 높은 울타리로 둘러싼 넓은 잔디밭에서 한 개의 흰 천 루어를 따라 직선으로 짧게 질주하는 흰색과 황갈색 성견 보르조이 삽화",
+        imageAlt: "매우 높은 울타리로 둘러싼 넓은 잔디밭에서 한 개의 흰 천 장난감을 따라 직선으로 짧게 질주하는 흰색과 황갈색 성견 보르조이 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "질주가 끝나면 루어를 닫힌 상자에 넣고 긴 몸 전체가 뻗어 쉬게 해야 해요.",
-        body: "짧게 달린 뒤에도 움직이는 천과 주변 동선을 계속 찾을 수 있어요. 루어와 줄을 닫힌 상자에 보관하고 물을 제공한 다음 아주 긴 매트에서 몸을 완전히 뻗어 쉬게 해요.",
+        title: "질주가 끝나면 장난감을 치우고 긴 몸을 완전히 뻗어 쉬게 해야 해요.",
+        body: "짧게 달린 뒤에도 움직이는 천과 주변을 계속 찾을 수 있어요. 장난감과 줄을 보이지 않게 치우고 물을 준 다음 긴 몸을 완전히 뻗어 쉬게 해요.",
         image: "/illustrations/v4/borzoi-feature-sprint-to-rest.webp",
-        imageAlt: "루어와 줄이 든 닫힌 상자 옆 그늘에서 아주 긴 매트에 몸을 완전히 뻗고 물그릇과 함께 쉬는 흰색과 황갈색 성견 보르조이 삽화",
+        imageAlt: "움직이는 장난감과 줄을 치운 뒤 그늘의 긴 자리에 몸을 완전히 뻗고 물그릇과 함께 쉬는 흰색과 황갈색 성견 보르조이 삽화",
       },
     ],
     caution: "시각하운드의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 움직임을 쫓는 강도와 달리는 거리, 활동 뒤 회복 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
@@ -3747,7 +3770,7 @@ const borzoiDetail = standardBreedDetailSchema.parse({
     {
       id: "tall-gate-clear-space",
       title: "아주 큰 키와 긴 몸이 돌아설 공간까지 포함하는 높은 이중 출입 동선",
-      body: "키가 크고 보폭이 긴 보르조이는 낮은 문이나 좁은 현관에서 몸을 돌릴 때 사람과 물건에 부딪힐 수 있어요. 높은 바깥문을 먼저 잠그고 넓은 미끄럼 방지 매트에서 기다린 뒤 안쪽 문을 여는 순서를 만들어요.",
+      body: "큰 키와 긴 보폭 때문에 좁은 현관에서 몸을 돌리다 부딪힐 수 있어요. 높은 바깥문을 잠그고 넓은 미끄럼 방지 매트에서 기다린 뒤 안쪽 문을 열어요.",
       image: "/illustrations/v4/borzoi-feature-tall-gate-clear-space.webp",
       imageAlt: "넓은 현관의 미끄럼 방지 매트에서 기다리는 매우 큰 성견 보르조이와 높은 바깥문을 잠근 뒤 안쪽 문을 여는 보호자 삽화",
     },
@@ -3761,7 +3784,7 @@ const borzoiDetail = standardBreedDetailSchema.parse({
   ],
   readinessTitle: "보르조이와 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "매우 높은 울타리 안에서 살아 있는 동물 대신 천 루어로 한 번의 짧은 직선 질주를 끝낼 수 있나요?",
+    "매우 높은 울타리 안에서 살아 있는 동물 대신 천 장난감으로 한 번의 짧은 직선 질주를 끝낼 수 있나요?",
     "아주 큰 키와 긴 몸이 안전하게 돌아설 현관 공간과 온몸을 받치는 긴 휴식 자리를 마련할 수 있나요?",
     "귀 뒤와 목·가슴·꼬리의 부드러운 장식털을 작은 구역으로 나누어 정기적으로 빗을 수 있나요?",
   ],
@@ -3777,34 +3800,34 @@ const italianPointingDogDetail = standardBreedDetailSchema.parse({
   slug: "italian-pointing-dog",
   nameKo: "브라코 이탈리아노",
   metadataDescription: "이탈리아의 오래된 조렵견 브라코 이탈리아노가 높은 코와 넓은 보폭으로 냄새를 찾고 위치를 알린 배경, 탐색 뒤 회복, 긴 귀와 짧은 피모·발 점검을 살펴봅니다.",
-  heroStatement: "이탈리아의 들에서 코를 높이 들고 넓고 빠른 속보로 냄새를 찾은 뒤, 몸을 멈춰 대상의 위치를 알린 크고 온화한 포인팅견이에요.",
+  heroStatement: "이탈리아의 들에서 코를 높이 들고 냄새를 찾아 멈춰 알리던 포인팅견이에요.",
   story: {
-    title: "브라코 이탈리아노는 왜 코를 높이 들고 넓은 보폭으로 움직이다 한 지점에서 멈출까요?",
-    description: "오래된 이탈리아 조렵견의 넓은 탐색과 포인팅 배경을 알면 오늘의 공중 냄새 찾기, 위치 알림과 활동 종료를 이어서 이해할 수 있어요.",
+    title: "브라코 이탈리아노는 왜 코를 높이 들고 걷다가 멈출까요?",
+    description: "넓은 들에서 공기 중 냄새를 찾고 멈춰 위치를 알리던 배경을 알면, 오늘의 탐색 활동과 마무리 순서를 함께 이해할 수 있어요.",
     steps: [
       {
         navLabel: "이탈리아 조렵의 배경",
         eyebrow: "1단계 · 어떤 역할에서 출발했을까?",
-        title: "이탈리아의 들에서 새의 냄새를 넓게 찾고 위치를 알리는 조렵견이었어요.",
-        body: "브라코 이탈리아노는 수백 년 동안 넓은 들을 빠르고 길게 걷는 속보로 탐색하며 코를 높이 들어 공중 냄새를 확인했어요. 대상을 발견하면 방향을 몸으로 가리키고 사람과 함께 회수하는 협력이 중요했어요.",
+        title: "이탈리아의 들에서 새의 냄새를 찾고 위치를 알렸어요.",
+        body: "브라코 이탈리아노는 넓은 들을 빠른 걸음으로 누비며 코를 높이 들어 공기 중 냄새를 찾았어요. 대상을 발견하면 몸을 멈춰 방향을 가리키고 사람과 함께 회수했어요.",
         image: "/illustrations/v3/italian-pointing-dog-history.webp",
         imageAlt: "이탈리아 시골의 넓은 들에서 코를 높이 들고 사냥꾼 앞에서 방향을 가리키는 흰색과 주황색 성견 브라코 이탈리아노 삽화",
       },
       {
         navLabel: "현재의 경향",
         eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
-        title: "코를 등선보다 높이 들고 두 냄새 상자 사이를 속보로 탐색한 뒤 한 곳을 가리킬 수 있어요.",
-        body: "울타리 친 넓은 공간에 낮은 통풍 상자 두 개를 띄엄띄엄 두고 한 상자에만 냄새 천을 숨겨요. 개가 넓은 보폭으로 이동하다 맞는 상자 앞에서 멈추면 사람의 열린 손으로 돌아와 한 번의 탐색을 끝내요.",
+        title: "코를 높이 들고 냄새를 찾다가 한 지점에서 멈춰요.",
+        body: "울타리 친 공간에 낮은 상자 두 개를 두고 한쪽에만 냄새 천을 숨겨요. 맞는 상자 앞에서 멈추면 보호자의 손짓을 따라 돌아와 탐색을 마치게 해요.",
         image: "/illustrations/v4/italian-pointing-dog-feature-high-air-scent.webp",
         imageAlt: "울타리 친 이탈리아풍 목초지에서 코를 높이 들고 두 개의 낮은 냄새 상자 사이를 속보로 탐색하는 흰색과 주황색 성견 브라코 이탈리아노 삽화",
       },
       {
         navLabel: "생활의 현실",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "넓은 탐색이 끝나면 냄새 상자를 닫고 큰 몸과 긴 귀가 편안히 놓이는 자리에서 쉬게 해야 해요.",
-        body: "냄새 상자와 천이 계속 보이면 다음 탐색을 기다리며 주변 공기를 확인할 수 있어요. 도구를 닫힌 상자에 넣고 물을 제공한 다음 긴 귀가 밟히지 않는 넓은 매트에서 쉬게 해요.",
+        title: "탐색이 끝나면 도구를 치우고 긴 귀가 편한 자리에서 쉬게 해요.",
+        body: "냄새 상자와 천이 계속 보이면 다음 탐색을 기다리며 주변 공기를 확인할 수 있어요. 도구를 보이지 않게 치우고 물을 준 다음 긴 귀가 밟히지 않는 넓은 자리에서 쉬게 해요.",
         image: "/illustrations/v4/italian-pointing-dog-feature-search-to-rest.webp",
-        imageAlt: "냄새 상자가 든 닫힌 보관함 옆 그늘의 큰 매트에서 긴 귀를 편안히 놓고 물그릇과 함께 쉬는 흰색과 주황색 성견 브라코 이탈리아노 삽화",
+        imageAlt: "냄새 상자를 치운 뒤 그늘의 큰 자리에 긴 귀를 편안히 놓고 물그릇과 함께 쉬는 흰색과 주황색 성견 브라코 이탈리아노 삽화",
       },
     ],
     caution: "포인팅견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 냄새를 찾는 범위와 포인팅 자세, 사람과 보조를 맞추는 속도는 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
@@ -3813,14 +3836,14 @@ const italianPointingDogDetail = standardBreedDetailSchema.parse({
   realities: [
     {
       id: "long-ear-drying",
-      title: "산책과 물 활동 뒤 받쳐서 말리는 매우 길고 낮게 달린 귀",
+      title: "산책과 물 활동 뒤 긴 귀를 받쳐서 말려요",
       body: "코끝 가까이 닿을 만큼 길고 부드러운 귀와 느슨한 입술 가장자리에는 습기와 작은 이물질이 남을 수 있어요. 한쪽 귀씩 손바닥으로 받쳐 부드러운 수건으로 안팎을 말리고 입가도 함께 닦아요.",
       image: "/illustrations/v4/italian-pointing-dog-feature-long-ear-drying.webp",
       imageAlt: "큰 미끄럼 방지 매트에서 보호자가 흰색과 주황색 성견 브라코 이탈리아노의 매우 긴 한쪽 귀를 받쳐 수건으로 말리는 삽화",
     },
     {
       id: "field-body-check",
-      title: "들판 활동 뒤 짧고 윤기 있는 털과 큰 타원형 발을 빠르게 보는 점검",
+      title: "들판 활동 뒤 짧은 털과 큰 발을 살펴요",
       body: "짧고 촘촘한 털은 긴 풀과 덤불을 지난 뒤 피부의 작은 이물질을 눈으로 확인하기 쉬워요. 겨드랑이와 다리를 손으로 훑고 한 발씩 받쳐 큰 발바닥과 발가락 사이를 살펴요.",
       image: "/illustrations/v4/italian-pointing-dog-feature-field-body-check.webp",
       imageAlt: "들판 활동 뒤 현관의 미끄럼 방지 매트에서 보호자가 흰색과 주황색 성견 브라코 이탈리아노의 겨드랑이와 앞발 패드를 확인하는 삽화",
@@ -3828,7 +3851,7 @@ const italianPointingDogDetail = standardBreedDetailSchema.parse({
   ],
   readinessTitle: "브라코 이탈리아노와 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "높은 코와 넓은 보폭을 사용할 수 있는 냄새 탐색을 짧게 구성하고 열린 손으로 종료할 수 있나요?",
+    "높은 코와 넓은 보폭을 사용할 수 있는 냄새 탐색을 짧게 구성하고 보호자의 손짓으로 마칠 수 있나요?",
     "산책과 물 활동 뒤 매우 긴 귀의 안팎과 느슨한 입술 가장자리의 습기를 닦을 수 있나요?",
     "들판 활동 뒤 짧은 털 아래 피부와 큰 발바닥, 발가락 사이를 한 부위씩 확인할 수 있나요?",
   ],
@@ -3844,7 +3867,7 @@ const flatCoatedRetrieverDetail = standardBreedDetailSchema.parse({
   slug: "flat-coated-retriever",
   nameKo: "플랫 코티드 리트리버",
   metadataDescription: "영국의 들과 물에서 위치를 기억하고 대상을 부드럽게 회수한 플랫 코티드 리트리버의 배경과 전달·종료 순서, 젖은 장식털과 차량 이동 현실을 살펴봅니다.",
-  heroStatement: "영국의 들과 물에서 대상의 위치를 기억하고 부드럽게 물어 사람에게 전달한 검은 장모 회수견이에요.",
+  heroStatement: "영국의 들과 물에서 대상을 기억하고 부드럽게 물어 전달한 장모 회수견이에요.",
   story: {
     title: "플랫 코티드 리트리버는 왜 물건을 찾는 것뿐 아니라 사람에게 전달하는 순간까지 집중할까요?",
     description: "물과 수풀에서 대상을 찾아 부드럽게 회수한 배경을 알면 기억·운반·전달과 과제를 끝내는 휴식까지 한 흐름으로 이해할 수 있어요.",

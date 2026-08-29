@@ -87,7 +87,12 @@ describe("standard breed detail editorial data", () => {
     expect(detail.story.steps[0].title).toContain("굴속");
     expect(detail.story.steps[1].title).toContain("보호자를 확인");
     expect(detail.story.steps[1].image).toBe("/illustrations/v6/dachshund-present-alerting.webp");
-    expect(detail.sizeVarieties?.summary).toContain("가슴둘레");
+    expect(detail.sizeVarieties?.summaryRows).toEqual([
+      { label: "구분", value: "3가지" },
+      { label: "체고", value: "약 13~23cm" },
+      { label: "몸무게", value: "약 3.5~14.5kg" },
+    ]);
+    expect(detail.sizeVarieties?.detailsLabel).toBe("크기별 보기");
     expect(detail.sizeVarieties?.items.map((item) => item.label)).toEqual(["래빗", "미니어처", "스탠더드"]);
     expect(detail.realities[1].id).toBe("size-varieties");
     expect(detail.realities[1].body).toContain("예상 성견 크기");
@@ -789,12 +794,65 @@ describe("standard breed detail editorial data", () => {
   it("splits Pyrenean Mountain Dog height and sex-based reference weights in an expandable hero summary", () => {
     const detail = getStandardBreedDetail("pyrenean-mountain-dog")!;
 
-    expect(detail.heroSizeDetails?.summary).toBe("체고 65~80cm · 성별 체중 보기");
+    expect(detail.heroSizeDetails?.summaryRows).toEqual([
+      { label: "체고", value: "65~80cm" },
+      { label: "몸무게", value: "성별로 다름" },
+    ]);
+    expect(detail.heroSizeDetails?.detailsLabel).toBe("성별 보기");
     expect(detail.heroSizeDetails?.items).toEqual([
       { id: "female", label: "암컷", value: "체고 65~75cm · 약 39kg" },
       { id: "male", label: "수컷", value: "체고 70~80cm · 약 45kg" },
     ]);
     expect(detail.sizeVarieties).toBeUndefined();
+  });
+
+  it("keeps the final milestone history scenes specific and directly sourced", () => {
+    const evidenceSlugs = [
+      "scottish-terrier",
+      "norwegian-elkhound-grey",
+      "saluki",
+      "irish-wolfhound",
+      "bullmastiff",
+      "chinese-crested-dog",
+      "xoloitzcuintle",
+      "coton-de-tulear",
+      "norwegian-lundehund",
+      "west-highland-white-terrier",
+    ];
+
+    evidenceSlugs.forEach((slug) => {
+      const detail = getStandardBreedDetail(slug)!;
+      expect(detail.story.steps[0].imageAlt, slug).not.toContain("형성 지역과 과거 역할");
+      expect(getBreed(slug)?.sources.some((source) => source.url.includes("/expert-advice/")), slug).toBe(true);
+    });
+  });
+
+  it.each([
+    {
+      slug: "old-english-sheepdog",
+      summaryRows: [{ label: "체고", value: "성별로 다름" }],
+      items: [
+        { id: "male", label: "수컷", value: "체고 61cm 이상" },
+        { id: "female", label: "암컷", value: "체고 56cm 이상" },
+      ],
+    },
+    {
+      slug: "borzoi",
+      summaryRows: [
+        { label: "체고", value: "성별로 다름" },
+        { label: "몸무게", value: "약 27~48kg" },
+      ],
+      items: [
+        { id: "male", label: "수컷", value: "체고 71cm 이상" },
+        { id: "female", label: "암컷", value: "체고 66cm 이상" },
+      ],
+    },
+  ])("keeps $slug sex-specific heights readable behind one shared size-card pattern", ({ slug, summaryRows, items }) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(detail.heroSizeDetails?.summaryRows).toEqual(summaryRows);
+    expect(detail.heroSizeDetails?.detailsLabel).toBe("성별 보기");
+    expect(detail.heroSizeDetails?.items).toEqual(items);
   });
 
   it("separates French Bulldog ancestry from the later companion-breed formation", () => {
@@ -805,6 +863,383 @@ describe("standard breed detail editorial data", () => {
     expect(background).toContain("조상");
     expect(background).toContain("반려견으로 정립");
     expect(background).not.toMatch(/프렌치 불도그가 [^.!?]*투우/u);
+  });
+
+  it.each([
+    ["chihuahua", "낮은 자기 자리"],
+    ["pug", "서늘한 자기 자리"],
+    ["french-bulldog", "편안한 숨"],
+    ["pekingese", "낮은 자리"],
+    ["great-dane", "큰 몸을 완전히 펴고"],
+    ["saint-bernard", "큰 몸을 완전히 펴고"],
+  ])("keeps the $0 daily-rhythm copy aligned with its resting illustration", (slug, expectedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const dailyRhythm = detail.story.steps.find((step) => step.image.includes("daily-rhythm"))!;
+
+    expect(`${dailyRhythm.title} ${dailyRhythm.body}`).toContain(expectedCopy);
+  });
+
+  it.each([
+    ["chihuahua", "American Kennel Club", "Chihuahua-club-flier.pdf"],
+    ["pug", "Royal Veterinary College", "brachycephaly/health-issues"],
+    ["french-bulldog", "Royal Veterinary College", "brachycephaly/health-issues"],
+    ["pekingese", "Royal Veterinary College", "brachycephaly-expertise"],
+    ["great-dane", "MSD Veterinary Manual", "gastric-dilation-and-volvulus"],
+    ["saint-bernard", "MSD Veterinary Manual", "gastric-dilation-and-volvulus"],
+  ])("keeps direct health or safety evidence for $0", (slug, organization, urlPart) => {
+    expect(getBreed(slug)?.sources).toContainEqual(expect.objectContaining({ organization, url: expect.stringContaining(urlPart) }));
+  });
+
+  it("uses a natural subject particle in related-breed headings", () => {
+    expect(getStandardBreedDetail("great-dane")?.relatedTitle).toBe("그레이트 덴이 마음에 들지만 망설여진다면");
+    expect(getStandardBreedDetail("chihuahua")?.relatedTitle).toBe("치와와가 마음에 들지만 망설여진다면");
+  });
+
+  it.each([
+    "labrador-retriever",
+    "golden-retriever",
+    "dachshund",
+    "beagle",
+    "border-collie",
+    "german-shepherd-dog",
+    "siberian-husky",
+    "samoyed",
+    "shiba",
+    "rottweiler",
+  ])("keeps a direct breed-history source for core editorial review breed %s", (slug) => {
+    expect(getBreed(slug)?.sources.some((source) => source.url.includes("/expert-advice/dog-breeds/") && source.url.includes("history"))).toBe(true);
+  });
+
+  it.each([
+    "golden-retriever",
+    "dachshund",
+    "beagle",
+    "border-collie",
+    "german-shepherd-dog",
+    "siberian-husky",
+    "samoyed",
+    "shiba",
+    "rottweiler",
+  ])("keeps the %s rest scene copy and alt specific to the visible illustration", (slug) => {
+    const dailyRhythm = getStandardBreedDetail(slug)!.story.steps.find((step) => step.image.includes("daily-rhythm"))!;
+
+    expect(dailyRhythm.imageAlt).not.toContain("편안한 리듬으로 전환");
+    expect(dailyRhythm.title).toMatch(/쉬|정리|매트/u);
+  });
+
+  it("describes the visible Rottweiler droving and cart scene", () => {
+    expect(getBreed("rottweiler")?.historyVisual?.alt).toContain("가축 시장과 수레");
+  });
+
+  it.each([
+    ["german-spitz", "손짓"],
+    ["shih-tzu", "관리 도구"],
+    ["korea-jindo-dog", "편안한 거리"],
+    ["yorkshire-terrier", "활동 도구"],
+    ["welsh-corgi-pembroke", "몸을 길게"],
+    ["miniature-schnauzer", "활동 도구"],
+    ["italian-sighthound", "폭신한 침대"],
+    ["jack-russell-terrier", "관목과 땅 냄새"],
+  ])("keeps the %s daily scene copy and alt specific to the visible illustration", (slug, visibleDetail) => {
+    const dailyRhythm = getStandardBreedDetail(slug)!.story.steps.find((step) => step.image.includes("daily-rhythm"))!;
+
+    expect(dailyRhythm.imageAlt).not.toContain("편안한 리듬으로 전환");
+    expect(dailyRhythm.imageAlt).toContain(visibleDetail);
+    expect(`${dailyRhythm.title} ${dailyRhythm.body}`).not.toContain("생활 리듬이 필요");
+  });
+
+  it.each([
+    ["german-spitz", "유럽 농가 마당"],
+    ["italian-sighthound", "유럽의 저택 뜰"],
+    ["jack-russell-terrier", "말을 탄 사냥대"],
+  ])("describes the visible %s history scene", (slug, visibleDetail) => {
+    expect(getBreed(slug)?.historyVisual?.alt).toContain(visibleDetail);
+  });
+
+  it.each([
+    ["maltese", "maltese-history"],
+    ["welsh-corgi-pembroke", "pembroke-welsh-corgi-history"],
+    ["yorkshire-terrier", "yorkshire-terrier-history"],
+    ["italian-sighthound", "italian-greyhound-history"],
+    ["jack-russell-terrier", "jackrussellterrier"],
+    ["korea-jindo-dog", "korean-jindo-dog"],
+  ])("keeps an additional direct breed source for reviewed breed %s", (slug, urlPart) => {
+    expect(getBreed(slug)?.sources.some((source) => source.url.includes(urlPart))).toBe(true);
+  });
+
+  it.each([
+    ["bichon-frise", "bichon-frise-history"],
+    ["greyhound", "club-history"],
+    ["whippet", "whippet-history"],
+    ["pyrenean-mountain-dog", "great-pyrenees-history"],
+    ["basenji", "basenji-history"],
+    ["bernese-mountain-dog", "bernese-mountain-dog-history"],
+    ["shetland-sheepdog", "shetland-sheepdog-history"],
+    ["australian-shepherd", "australian-shepherd-history"],
+    ["akita", "akita-history"],
+    ["cavalier-king-charles-spaniel", "cavalier-king-charles-spaniel-history"],
+  ])("keeps a direct history source for fifth editorial review breed %s", (slug, urlPart) => {
+    expect(getBreed(slug)?.sources.some((source) => source.url.includes(urlPart))).toBe(true);
+  });
+
+  it("describes the visible Greyhound sprint before moving recovery to the next sentence", () => {
+    const sprint = getStandardBreedDetail("greyhound")!.story.steps[2];
+
+    expect(sprint.title).toContain("울타리가 닫힌 운동장");
+    expect(sprint.imageAlt).toContain("짧게 달리는");
+    expect(sprint.body).toContain("달리기가 끝나면");
+  });
+
+  it.each([
+    ["yakutian-laika", "yakutian-laika-breed-history"],
+    ["english-cocker-spaniel", "english-cocker-spaniel-history"],
+    ["english-springer-spaniel", "english-springer-spaniel-history"],
+    ["havanese", "havanese-history"],
+    ["schnauzer", "fun-facts-standard-schnauzer"],
+    ["brittany-spaniel", "fun-facts-brittany"],
+    ["lagotto-romagnolo", "5-facts-lagotto-romagnolo"],
+    ["giant-schnauzer", "giant-schnauzer-history"],
+    ["portuguese-water-dog", "portuguese-water-dog-history"],
+    ["irish-red-setter", "meet-setter-breeds"],
+  ])("keeps a direct official history source for sixth editorial review breed %s", (slug, urlPart) => {
+    expect(getBreed(slug)?.sources.some((source) => source.url.includes(urlPart))).toBe(true);
+  });
+
+  it.each([
+    ["yakutian-laika", "하네스를 착용", "하네스를 착용"],
+    ["brittany-spaniel", "리드를 정리", "긴 리드를 정리"],
+    ["irish-red-setter", "그늘진 매트", "그늘진 매트"],
+  ])("keeps the %s third story step aligned with its visible scene", (slug, titleDetail, altDetail) => {
+    const thirdStep = getStandardBreedDetail(slug)!.story.steps[2];
+
+    expect(thirdStep.title).toContain(titleDetail);
+    expect(thirdStep.imageAlt).toContain(altDetail);
+    expect(thirdStep.body).toMatch(/쉬/u);
+  });
+
+  it.each([
+    ["boxer", "boxer-history"],
+    ["newfoundland", "newfoundland-history"],
+    ["weimaraner", "fun-facts-weimaraner"],
+    ["german-short-haired-pointing-dog", "german-shorthaired-pointer-history"],
+    ["australian-cattle-dog", "AustralianCattleDog-club-flier"],
+    ["vizsla", "vizsla-history"],
+    ["flat-coated-retriever", "facts-about-flat-coated-retriever"],
+    ["beauceron", "beauceron-vs-doberman"],
+    ["english-setter", "english-setter-history"],
+    ["chesapeake-bay-retriever", "chesapeake-bay-retriever-history"],
+  ])("keeps a direct official history source for seventh editorial review breed %s", (slug, urlPart) => {
+    expect(getBreed(slug)?.sources.some((source) => source.url.includes(urlPart))).toBe(true);
+  });
+
+  it.each([
+    ["boxer", "작업장 마당"],
+    ["newfoundland", "젖은 줄과 어망"],
+    ["weimaraner", "숲 가장자리"],
+    ["german-short-haired-pointing-dog", "얕은 습지"],
+    ["australian-cattle-dog", "소 무리"],
+    ["vizsla", "습지 들판"],
+    ["flat-coated-retriever", "사람의 손"],
+    ["beauceron", "양 떼"],
+    ["english-setter", "몸을 낮춰"],
+    ["chesapeake-bay-retriever", "낮은 부두"],
+  ])("describes the visible history scene for seventh editorial review breed %s", (slug, visibleDetail) => {
+    const alt = getBreed(slug)?.historyVisual?.alt ?? "";
+
+    expect(alt).toContain(visibleDetail);
+    expect(alt).not.toContain("원래 역할과 생활 환경");
+  });
+
+  it("restores the Boxer hunting ancestry before its later working roles", () => {
+    const historyStep = getStandardBreedDetail("boxer")!.story.steps[0];
+
+    expect(historyStep.body).toContain("큰 사냥감");
+    expect(historyStep.body).toContain("가축 상인");
+  });
+
+  it.each([
+    ["english-setter", "긴 줄을 정리", "긴 줄과 장비"],
+    ["australian-cattle-dog", "표식과 긴 줄을 치운", "원통 표식과 긴 줄"],
+  ])("keeps the %s third story step aligned with its visible gear-and-rest scene", (slug, titleDetail, altDetail) => {
+    const thirdStep = getStandardBreedDetail(slug)!.story.steps[2];
+
+    expect(thirdStep.title).toContain(titleDetail);
+    expect(thirdStep.imageAlt).toContain(altDetail);
+    expect(thirdStep.body).toMatch(/쉬/u);
+  });
+
+  it("uses ordinary Korean for the Australian Cattle Dog signal and Beauceron storage", () => {
+    expect(getStandardBreedDetail("australian-cattle-dog")!.story.steps[1].body).toContain("보호자의 손짓");
+    expect(getStandardBreedDetail("australian-cattle-dog")!.story.steps[1].body).not.toContain("열린 손");
+    expect(getStandardBreedDetail("beauceron")!.story.steps[2].body).toContain("수납장");
+    expect(JSON.stringify(getStandardBreedDetail("english-setter"))).not.toContain("보호자의 열린 손");
+  });
+
+  it.each([
+    ["nova-scotia-duck-tolling-retriever", "nova-scotia-duck-tolling-retriever-history"],
+    ["old-english-sheepdog", "fun-facts-old-english-sheepdog"],
+    ["cane-corso", "cane-corso-history"],
+    ["airedale-terrier", "history-of-the-airedale-terrier"],
+    ["chow-chow", "fun-facts-chow-chow"],
+    ["bedlington-terrier", "bedlington-terrier-history"],
+    ["finnish-lapponian-dog", "finnish-lapphund-history"],
+    ["leonberger", "history-behind-the-leonberger"],
+    ["bull-terrier", "bull-terrier-history"],
+    ["alaskan-malamute", "alaskan-malamute-history-arctic-sled"],
+  ])("keeps a direct official history source for eighth editorial review breed %s", (slug, urlPart) => {
+    expect(getBreed(slug)?.sources.some((source) => source.url.includes(urlPart))).toBe(true);
+  });
+
+  it.each([
+    ["nova-scotia-duck-tolling-retriever", "갈대 뒤"],
+    ["old-english-sheepdog", "돌담길"],
+    ["cane-corso", "열린 문"],
+    ["airedale-terrier", "에어 계곡"],
+    ["chow-chow", "중국 북부"],
+    ["bedlington-terrier", "광산 마을"],
+    ["finnish-lapponian-dog", "순록 무리"],
+    ["leonberger", "수레"],
+    ["bull-terrier", "전람회"],
+    ["alaskan-malamute", "무거운 짐"],
+  ])("describes the visible history scene for eighth editorial review breed %s", (slug, visibleDetail) => {
+    const alt = getBreed(slug)?.historyVisual?.alt ?? "";
+
+    expect(alt).toContain(visibleDetail);
+    expect(alt).not.toMatch(/원래 역할과 생활 환경|편집 초안 역사 장면/u);
+  });
+
+  it.each([
+    ["nova-scotia-duck-tolling-retriever", "회수 도구", "마른 매트"],
+    ["airedale-terrier", "뚜껑 있는 상자", "물그릇 옆 매트"],
+    ["finnish-lapponian-dog", "운동 도구", "시원한 매트"],
+  ])("keeps the %s third story step concrete and aligned with the visible rest scene", (slug, titleDetail, altDetail) => {
+    const thirdStep = getStandardBreedDetail(slug)!.story.steps[2];
+
+    expect(thirdStep.title).toContain(titleDetail);
+    expect(thirdStep.imageAlt).toContain(altDetail);
+    expect(thirdStep.body).toMatch(/정리|쉬/u);
+  });
+
+  it("states the Bull Terrier's ancestry and later show-breed refinement without translated signal copy", () => {
+    const detail = getStandardBreedDetail("bull-terrier")!;
+
+    expect(detail.story.steps[0].body).toContain("투견");
+    expect(detail.story.steps[0].body).toContain("제임스 힝크스");
+    expect(detail.story.steps[0].body).toContain("전람회");
+    expect(JSON.stringify(detail)).not.toContain("열린 손");
+  });
+
+  it.each([
+    ["miniature-pinscher", "miniature-pinscher-history"],
+    ["clumber-spaniel", "clumber-spaniel-history"],
+    ["tibetan-mastiff", "tibetan-mastiff-history"],
+    ["australian-kelpie", "fun-facts-australian-kelpie"],
+    ["curly-coated-retriever", "fun-facts-curly-coated-retriever"],
+    ["border-terrier", "border-terrier-facts"],
+    ["barbet", "barbet-2020-new-akc-recognized-breed"],
+    ["basset-hound", "basset-hound-history"],
+    ["afghan-hound", "afghan-hound-history"],
+    ["boston-terrier", "boston-terrier-history"],
+  ])("keeps a direct official history source for ninth editorial review breed %s", (slug, urlPart) => {
+    expect(getBreed(slug)?.sources.some((source) => source.url.includes(urlPart))).toBe(true);
+  });
+
+  it.each([
+    ["miniature-pinscher", "마구간"],
+    ["clumber-spaniel", "클럼버 파크"],
+    ["tibetan-mastiff", "유목민 천막"],
+    ["australian-kelpie", "양 떼"],
+    ["curly-coated-retriever", "물새"],
+    ["border-terrier", "경계 언덕"],
+    ["barbet", "물풀과 강가"],
+    ["basset-hound", "울타리 길"],
+    ["afghan-hound", "산악 지형"],
+    ["boston-terrier", "붉은 벽돌"],
+  ])("describes the visible history scene for ninth editorial review breed %s", (slug, visibleDetail) => {
+    const alt = getBreed(slug)?.historyVisual?.alt ?? "";
+
+    expect(alt).toContain(visibleDetail);
+    expect(alt).not.toMatch(/원래 역할과 생활 환경|편집 초안 역사 장면/u);
+  });
+
+  it("uses concrete Korean for the Kelpie rest scene and Curly delivery cue", () => {
+    const kelpie = getStandardBreedDetail("australian-kelpie")!;
+    const curly = getStandardBreedDetail("curly-coated-retriever")!;
+
+    expect(kelpie.story.steps[2].title).toContain("큰 공과 표식");
+    expect(kelpie.story.steps[2].title).toContain("그늘진 매트");
+    expect(curly.story.steps[1].body).toContain("내민 두 손");
+    expect(JSON.stringify(curly)).not.toContain("열린 두 손");
+  });
+
+  it("states the Boston Terrier's early fighting ancestry before companion refinement", () => {
+    const history = getStandardBreedDetail("boston-terrier")!.story.steps[0];
+
+    expect(history.body).toContain("투견");
+    expect(history.body).toContain("반려견");
+    expect(history.title).toContain("불도그·테리어");
+  });
+
+  it("describes the Tibetan Mastiff's documented gate-guardian role without calling it a livestock guardian", () => {
+    const detail = getStandardBreedDetail("tibetan-mastiff")!;
+
+    expect(detail.story.steps[0].body).toContain("천막");
+    expect(detail.story.steps[0].body).toContain("사원의 문");
+    expect(detail.story.steps[0].body).not.toContain("가축 주변을 지키");
+  });
+
+  it.each([
+    ["rhodesian-ridgeback", "rhodesian-ridgeback-once-hunted-lions"],
+    ["collie-rough", "collie-history-queen-victoria-lassie-beyond"],
+    ["affenpinscher", "affenpinscher-history"],
+    ["bearded-collie", "bearded-collie-collection"],
+    ["bloodhound", "bloodhound-history"],
+    ["briard", "briard-breed-history-thomas-jefferson"],
+    ["borzoi", "borzoi-history"],
+    ["italian-pointing-dog", "bracco-italiano-becomes-newest-akc-recognized-dog-breed"],
+    ["dalmatian", "dalmatian-history"],
+    ["continental-toy-spaniel", "pappy-anniversary-papillon-joins-akc-century-club"],
+    ["dobermann", "doberman-pinscher-history"],
+  ])("keeps a direct official history source for final editorial review breed %s", (slug, urlPart) => {
+    expect(getBreed(slug)?.sources.some((source) => source.url.includes(urlPart))).toBe(true);
+  });
+
+  it.each([
+    ["rhodesian-ridgeback", "넓은 초원"],
+    ["collie-rough", "언덕 목초지"],
+    ["affenpinscher", "마구간과 부엌"],
+    ["bearded-collie", "바위와 경사"],
+    ["bloodhound", "아르덴"],
+    ["briard", "저지대 목초지"],
+    ["borzoi", "말을 탄 사냥대"],
+    ["italian-pointing-dog", "코를 높이"],
+    ["dalmatian", "말이 끄는 마차"],
+    ["maltipoo", "말티즈와 토이·미니어처 푸들"],
+    ["continental-toy-spaniel", "유럽 저택"],
+    ["dobermann", "19세기 독일 도시"],
+  ])("describes the visible history scene for final editorial review breed %s", (slug, visibleDetail) => {
+    const alt = getBreed(slug)?.historyVisual?.alt ?? "";
+
+    expect(alt).toContain(visibleDetail);
+    expect(alt).not.toMatch(/원래 역할과 생활 환경|편집 초안 역사 장면/u);
+  });
+
+  it.each([
+    ["maltipoo", "리드와 장난감", "리드와 공 장난감"],
+    ["continental-toy-spaniel", "리드를 정리", "냄새 주머니와 리드"],
+    ["dobermann", "하네스를 풀고", "하네스와 느슨한 리드"],
+  ])("keeps the %s daily rest copy aligned with its visible equipment", (slug, titleDetail, altDetail) => {
+    const thirdStep = getStandardBreedDetail(slug)!.story.steps[2];
+
+    expect(thirdStep.title).toContain(titleDetail);
+    expect(thirdStep.imageAlt).toContain(altDetail);
+    expect(thirdStep.body).toMatch(/정리|쉬/u);
+  });
+
+  it("keeps Papillon and Dobermann history concrete and removes translated open-hand copy", () => {
+    expect(getStandardBreedDetail("continental-toy-spaniel")!.story.steps[0].body).toMatch(/파피용.*파렌/u);
+    expect(getStandardBreedDetail("dobermann")!.story.steps[0].body).toContain("세금 징수원");
+    expect(JSON.stringify(details)).not.toContain("열린 손");
   });
 
   it.each(details)("keeps every $nameKo story and reality image distinct and available", (detail) => {
@@ -836,6 +1271,19 @@ describe("standard breed detail editorial data", () => {
       expect(sentenceCount, block).toBeLessThanOrEqual(2);
     });
     expect(exposedCopy).not.toMatch(/예방접종|배변|월령|성장 단계|추천 견종|잘 맞는 견종/);
+  });
+
+  it("avoids internal editorial jargon, broken Korean particles, and the old repeated filler copy", () => {
+    const exposedCopy = JSON.stringify(details);
+
+    const opaqueCopy = exposedCopy.match(
+      /관계 거리|사람 신호|활동 종료|시야를 닫|중심 매트|중앙 매트|위치 알림|보호자 재확인|몸 점검|라인 브러싱|(?<!이)루어|구조화된|선택형|사람의 열린 손|다음 과제|닫힌 장/u,
+    )?.[0];
+    expect(opaqueCopy ?? null).toBeNull();
+    expect(exposedCopy).not.toMatch(/참여과|관계과|안전과 오늘|더위과|주의과|신뢰과|회수과|과제과|거리과|보행과 오늘/u);
+    expect(exposedCopy).not.toContain("과거의 역할은 오늘의 생활에서도 환경 선택과 회복 루틴에 영향을 줘요.");
+    expect(exposedCopy).not.toContain("같은 견종 안에서도 성향과 건강은 다를 수 있어요. 이 설명은 경향을 이해하는 출발점으로만 사용해 주세요.");
+    expect(exposedCopy).not.toContain("비슷해 보여도 활동 방식과 관리 부담은 달라요. 이름보다 실제 생활 조건을 함께 비교해 보세요.");
   });
 
   it.each(details)("links only existing related breeds and retains $nameKo internal source data", (detail) => {

@@ -157,6 +157,7 @@ const draftBreeds = [
     sources: [
       { title: "Maltese Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/maltese/", checkedAt },
       { title: "Is the Maltese a Good Fit for Your Lifestyle?", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/maltese-right-for-you/", checkedAt },
+      { title: "Maltese History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/maltese-history/", checkedAt: "2026-08-29" },
       { title: "FCI Standard No. 65 — Maltese", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/nomenclature/Standards/065g09-en.pdf", checkedAt },
     ],
   },
@@ -209,6 +210,7 @@ const draftBreeds = [
       { title: "Border Collie Dog Breed Information", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/border-collie/", checkedAt },
       { title: "Is the Border Collie a Good Fit for You?", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/border-collie-right-for-you/", checkedAt },
       { title: "Official Standard of the Border Collie", organization: "American Kennel Club", url: "https://images.akc.org/pdf/breeds/standards/Border_Collie.pdf", checkedAt },
+      { title: "Border Collie History: The Herding Dog’s Development Through Time", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/border-collie-history/", checkedAt: "2026-08-29" },
     ],
   },
   {

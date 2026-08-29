@@ -68,7 +68,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "몰이와 움직임",
         title: "움직이는 대상을 먼저 읽고 따라갈 수 있어요.",
-        description: "양 떼의 방향을 읽고 모으도록 발달한 목양견이에요. 달리는 사람이나 놀이하는 아이처럼 빠르게 움직이는 대상에 시선이 고정되거나 따라가려는 모습이 보이면 거리를 두고 보호자에게 돌아오는 신호를 연습해주세요.",
+        description: "양 떼의 방향을 읽고 모으던 목양견이에요. 달리는 사람이나 아이에게 시선이 고정되면 거리를 두고 보호자에게 돌아오는 신호를 연습해 주세요.",
         image: "/illustrations/v4/border-collie-feature-herding-focus.webp",
         alt: "공원에서 멀리 지나가는 사람과 자전거를 알아차린 뒤 보호자를 바라보는 성견 보더콜리 삽화",
         sourceUrls: ["https://images.akc.org/pdf/breeds/standards/Border_Collie.pdf", "https://www.akc.org/expert-advice/dog-breeds/border-collie-right-for-you/"],
@@ -460,7 +460,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
         title: "다가오고 물러날 선택권으로 관계를 쌓아요.",
         description: "낯선 사람이나 접촉을 받아들이는 속도는 개체마다 달라요. 억지로 안거나 인사시키기보다 편안한 거리를 두고, 개가 스스로 다가왔을 때 짧고 차분하게 반응해주세요.",
         image: "/illustrations/v4/korea-jindo-dog-feature-choice-and-trust.webp",
-        alt: "조용한 공원에서 앉은 보호자의 열린 손으로 스스로 다가가는 백색 성견 진돗개 삽화",
+        alt: "조용한 공원에서 앉은 보호자가 내민 손으로 스스로 다가가는 백색 성견 진돗개 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/334g05-en.pdf", "https://www.thekkf.or.kr/new_home/03_kkf_service/03_approval_3.php?gid=5&idx=70"],
       },
       {
@@ -670,7 +670,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
         title: "알아차린 뒤 보호자 곁으로 돌아오는 순서를 만들어요.",
         description: "현관 소리나 방문객을 빠르게 알아차리는 개체가 있어요. 반응을 혼내기보다 문과 거리를 둔 매트를 마련하고, 한 번 확인한 뒤 보호자의 손 신호를 따라 돌아와 쉬는 순서를 짧게 연습해주세요.",
         image: "/illustrations/v4/miniature-schnauzer-feature-alert-return.webp",
-        alt: "닫힌 현관문을 확인한 뒤 보호자의 열린 손과 작은 매트 쪽으로 돌아오는 솔트앤페퍼 성견 미니어처 슈나우저 삽화",
+        alt: "닫힌 현관문을 확인한 뒤 보호자가 내민 손과 작은 매트 쪽으로 돌아오는 솔트앤페퍼 성견 미니어처 슈나우저 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/183g02-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/miniature-schnauzer/"],
       },
       {
@@ -714,7 +714,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "실키 코트 관리",
         title: "긴 털은 피부 가까이부터 나누어 빗어요.",
-        description: "몸 양옆으로 곧게 내려오는 가늘고 긴 피모는 엉킴과 바닥의 이물질을 자주 확인해야 해요. 미끄럽지 않은 자리에서 털을 층별로 나누어 빗고, 눈을 가리는 얼굴 털과 생활에 맞는 길이도 함께 관리하세요.",
+        description: "가늘고 긴 피모는 엉킴과 바닥의 이물질을 자주 확인해야 해요. 미끄럽지 않은 자리에서 층별로 빗고, 눈을 가리는 얼굴 털과 생활에 맞는 길이도 관리하세요.",
         image: "/illustrations/v4/yorkshire-terrier-feature-silky-coat-care.webp",
         alt: "미끄럼 방지 매트에서 보호자가 청색과 황갈색 성견 요크셔 테리어의 길고 곧은 피모를 나누어 빗는 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/086g03-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/yorkshire-terrier/"],
@@ -730,7 +730,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
         title: "다가오고 물러날 선택권을 남겨두어요.",
         description: "접촉을 받아들이는 속도와 방식은 개체마다 달라요. 먼저 손을 뻗어 붙잡기보다 편안한 거리를 두고, 개가 스스로 다가왔을 때 짧게 반응한 뒤 물러날 수 있게 해주세요.",
         image: "/illustrations/v4/shiba-feature-choice-and-trust.webp",
-        alt: "조용한 거실에서 앉은 보호자의 열린 손으로 스스로 다가가는 적색 성견 시바 삽화",
+        alt: "조용한 거실에서 앉은 보호자가 내민 손으로 스스로 다가가는 적색 성견 시바 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/257g05-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/japanese-shiba-inu/"],
       },
       {
@@ -908,7 +908,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "보호자 중심의 주의",
         title: "주변을 살피면서도 보호자의 위치와 반응을 함께 확인할 수 있어요.",
-        description: "사람 가까이에서 주변을 살피던 역할은 생활에서도 낯선 접근을 빠르게 알아차리고 보호자의 반응을 확인하는 모습으로 나타날 수 있어요. 경계를 키우기보다 충분한 거리를 두고 본 뒤 보호자에게 시선을 돌리는 흐름을 반복해주세요.",
+        description: "낯선 접근을 빠르게 알아차리고 보호자의 반응을 확인할 수 있어요. 경계를 키우기보다 충분한 거리에서 본 뒤 보호자에게 시선을 돌리는 연습을 반복해요.",
         image: "/illustrations/v4/dobermann-feature-handler-focused-attention.webp",
         alt: "현대 공원에서 멀리 있는 방문자를 확인한 뒤 보호자의 손 신호를 바라보는 자연 귀와 긴 꼬리의 성견 도베르만 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/143g02-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/working/dobermann/"],
@@ -916,7 +916,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "빠른 판단과 협업",
         title: "주변을 살핀 뒤 보호자의 작은 신호로 빠르게 돌아올 수 있어요.",
-        description: "빠른 주의 전환과 높은 협업 욕구가 함께 나타나는 개체는 짧고 분명한 신호 과제에 깊이 집중할 수 있어요. 자극을 본 뒤 보호자에게 돌아오고 함께 이동하는 과제로 민첩함을 안전한 협업 방향으로 연결해주세요.",
+        description: "빠르게 주의를 돌리고 협력하려는 개체는 짧고 분명한 활동에 집중할 수 있어요. 자극을 본 뒤 보호자에게 돌아와 함께 이동하는 연습으로 민첩함을 안전하게 이끌어요.",
         image: "/illustrations/v4/dobermann-feature-handler-cooperation.webp",
         alt: "공원의 낮은 표식을 확인한 뒤 느슨한 리드로 보호자의 손 신호를 바라보는 자연 귀와 긴 꼬리의 성견 도베르만 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/143g02-en.pdf"],
@@ -924,7 +924,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "짧은 피모와 추위",
         title: "몸에 밀착된 짧은 털은 추운 날 보온을 대신해주지 못해요.",
-        description: "도베르만의 피모는 짧고 단단하며 몸에 가깝게 붙어 있어 날렵한 윤곽이 그대로 드러납니다. 기온이 낮거나 바람이 센 날에는 활동 시간과 몸 상태를 살피고, 필요한 개체에게 움직임을 방해하지 않는 보온 의류를 준비하세요.",
+        description: "짧고 단단한 피모가 몸에 붙어 날렵한 윤곽이 드러나요. 춥거나 바람이 센 날에는 몸 상태를 살피고, 필요한 개체에게 움직임을 막지 않는 보온 의류를 준비하세요.",
         image: "/illustrations/v4/dobermann-feature-short-coat-cold.webp",
         alt: "눈이 쌓인 길로 나가기 전 현관에서 보호자가 자연 귀와 긴 꼬리의 성견 도베르만에게 보온 외투를 입히는 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/143g02-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/working/dobermann/"],
@@ -954,7 +954,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "서 있는 이중모",
         title: "풍성한 겉털 아래의 두꺼운 속털까지 나누어 확인해요.",
-        description: "곧게 서는 긴 겉털과 짧고 두꺼운 속털, 목 둘레의 풍성한 갈기는 포메라이언의 외형을 만들어요. 겉면만 빗으면 빠진 속털과 엉킴을 놓칠 수 있으므로 작은 구역씩 털을 들어 올려 피부 가까이까지 살펴주세요.",
+        description: "긴 겉털과 두꺼운 속털, 풍성한 목 갈기가 특징이에요. 겉면만 빗지 말고 작은 구역씩 털을 들어 피부 가까이의 빠진 속털과 엉킴을 살펴요.",
         image: "/illustrations/v4/german-spitz-feature-double-coat-care.webp",
         alt: "미끄럼 방지 매트에서 보호자가 주황색 성견 포메라이언의 풍성한 이중모를 작은 구역으로 나누어 빗는 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/097g05-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/pomeranian/"],

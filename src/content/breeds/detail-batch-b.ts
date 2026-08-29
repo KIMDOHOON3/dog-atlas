@@ -62,6 +62,7 @@ export const detailBatchB = [
     sources: [
       { title: "FCI Standard No. 166: German Shepherd Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/166g01-en.pdf", checkedAt: completedAt },
       { title: "German Shepherd Dog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/german-shepherd-dog/", checkedAt: completedAt },
+      { title: "German Shepherd Dog History: From Sheep Herding Dog to Popular Companion", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/german-shepherd-dog-history/", checkedAt: "2026-08-29" },
     ],
   },
   {
@@ -123,6 +124,7 @@ export const detailBatchB = [
     sources: [
       { title: "FCI Standard No. 334: Korea Jindo Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/334g05-en.pdf", checkedAt: completedAt },
       { title: "한국진도견", organization: "한국애견연맹", url: "https://www.thekkf.or.kr/new_home/03_kkf_service/03_approval_3.php?gid=5&idx=70", checkedAt: completedAt },
+      { title: "Korean Jindo Dog", organization: "American Kennel Club", url: "https://www.akc.org/dog-breeds/korean-jindo-dog/", checkedAt: "2026-08-29" },
     ],
   },
   {
@@ -184,6 +186,7 @@ export const detailBatchB = [
     sources: [
       { title: "FCI Standard No. 270: Siberian Husky", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/270g05-en.pdf", checkedAt: completedAt },
       { title: "Siberian Husky", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/working/siberian-husky/", checkedAt: completedAt },
+      { title: "Siberian Husky History: From Arctic Protector to Active Companion", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/siberian-husky-history/", checkedAt: "2026-08-29" },
     ],
   },
   {
@@ -246,6 +249,7 @@ export const detailBatchB = [
       { title: "FCI Standard No. 162: Whippet", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/162g10-en.pdf", checkedAt: completedAt },
       { title: "Whippet", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/whippet/", checkedAt: completedAt },
       { title: "Breed Weight Chart", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/nutrition/breed-weight-chart/", checkedAt: completedAt },
+      { title: "Whippet History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/whippet-history/", checkedAt: "2026-08-29" },
     ],
   },
   {
@@ -308,6 +312,7 @@ export const detailBatchB = [
       { title: "FCI Standard No. 137: Pyrenean Mountain Dog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/137g02-en.pdf", checkedAt: completedAt },
       { title: "Pyrenean Mountain Dog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/pyrenean-mountain-dog/", checkedAt: completedAt },
       { title: "Official Standard of the Great Pyrenees", organization: "American Kennel Club", url: "https://images.akc.org/pdf/breeds/standards/GreatPyrenees.pdf", checkedAt: completedAt },
+      { title: "Great Pyrenees History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/great-pyrenees-history/", checkedAt: "2026-08-29" },
     ],
   },
   {
@@ -370,6 +375,7 @@ export const detailBatchB = [
       { title: "FCI Standard No. 101: French Bulldog", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/101g09-en.pdf", checkedAt: completedAt },
       { title: "French Bulldog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/french-bulldog/", checkedAt: completedAt },
       { title: "French Bulldog History: A Complicated Past From Brothels to Royals", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/breed-history-french-bulldog/", checkedAt: completedAt },
+      { title: "Brachycephaly: health issues", organization: "Royal Veterinary College", url: "https://www.rvc.ac.uk/research/focus/brachycephaly/health-issues", checkedAt: "2026-08-29" },
     ],
   },
   {
@@ -431,6 +437,7 @@ export const detailBatchB = [
     sources: [
       { title: "FCI Standard No. 43: Basenji", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/043g05-en.pdf", checkedAt: completedAt },
       { title: "Basenji", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/basenji/", checkedAt: completedAt },
+      { title: "Basenji History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/basenji-history/", checkedAt: "2026-08-29" },
     ],
   },
 ] satisfies Breed[];

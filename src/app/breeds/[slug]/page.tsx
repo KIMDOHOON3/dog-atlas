@@ -18,7 +18,7 @@ import { getStandardBreedDetail } from "@/content/standard-breed-detail/data";
 import {
   getBreedLifePresentation,
 } from "@/lib/breed-life-presentation";
-import { getBreedFactPresentation } from "@/lib/breed-fact-presentation";
+import { getBreedFactPresentation, getBreedSizeFactRows, type BreedSizeFactRow } from "@/lib/breed-fact-presentation";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
 import { getBreedRoleFacts } from "@/lib/breed-role-presentation";
 import { withObjectParticle } from "@/lib/korean-particles";
@@ -67,6 +67,14 @@ const tendencyLevelScore = {
   "높은 편": 3,
   "개체별 확인 필요": 0,
 } as const;
+
+function SizeFactRows({ rows }: { rows: BreedSizeFactRow[] }) {
+  return (
+    <span className={styles.sizeMeasurements}>
+      {rows.map((row) => <span key={row.label}><small>{row.label}</small>{row.value}</span>)}
+    </span>
+  );
+}
 
 function BreedDetailExperience({ breed }: { breed: Breed }) {
   const { lifePoints, dayPoints } = getBreedLifePresentation(breed);
@@ -194,7 +202,8 @@ export default async function BreedDetail({ params }: PageProps) {
     ).values()];
   const facts = getBreedFactPresentation(breed);
   const roleFacts = isStandardDetail ? getBreedRoleFacts(breed) : [];
-  const hasSizeFact = breed.slug === "poodle" || Boolean(facts.height || facts.weight || facts.size);
+  const sizeFactRows = getBreedSizeFactRows(facts);
+  const hasSizeFact = breed.slug === "poodle" || Boolean(sizeFactRows.length || facts.size);
   const factCount = Number(hasSizeFact) + Number(Boolean(facts.lifespan)) + (isStandardDetail ? roleFacts.length : 2);
 
   return (
@@ -218,7 +227,10 @@ export default async function BreedDetail({ params }: PageProps) {
                     <dt>크기</dt>
                     <dd>
                       <details className={styles.poodleSizeDetails}>
-                        <summary>{standardDetail.heroSizeDetails.summary}</summary>
+                        <summary>
+                          <SizeFactRows rows={standardDetail.heroSizeDetails.summaryRows} />
+                          <span className={styles.sizeDetailsAction}>{standardDetail.heroSizeDetails.detailsLabel}</span>
+                        </summary>
                         <ul>{standardDetail.heroSizeDetails.items.map((item) => <li key={item.id}><span>{item.label}</span><strong>{item.value}</strong></li>)}</ul>
                       </details>
                     </dd>
@@ -228,7 +240,10 @@ export default async function BreedDetail({ params }: PageProps) {
                     <dt>크기</dt>
                     <dd>
                       <details className={styles.poodleSizeDetails}>
-                        <summary>{standardDetail.sizeVarieties.summary}</summary>
+                        <summary>
+                          <SizeFactRows rows={standardDetail.sizeVarieties.summaryRows} />
+                          <span className={styles.sizeDetailsAction}>{standardDetail.sizeVarieties.detailsLabel}</span>
+                        </summary>
                         <ul>{standardDetail.sizeVarieties.items.map((size) => <li key={size.id}><span>{size.label}</span><strong>{size.range}</strong></li>)}</ul>
                       </details>
                     </dd>
@@ -238,18 +253,18 @@ export default async function BreedDetail({ params }: PageProps) {
                     <dt>크기</dt>
                     <dd>
                       <details className={styles.poodleSizeDetails}>
-                        <summary>{poodleDetail.heroSizeSummary}</summary>
+                        <summary>
+                          <SizeFactRows rows={poodleDetail.heroSizeRows} />
+                          <span className={styles.sizeDetailsAction}>{poodleDetail.heroSizeDetailsLabel}</span>
+                        </summary>
                         <ul>{poodleDetail.sizes.map((size) => <li key={size.id}><span>{size.label}</span><strong>{size.range}</strong></li>)}</ul>
                       </details>
                     </dd>
                   </div>
-                ) : facts.height && facts.weight ? (
+                ) : sizeFactRows.length > 0 ? (
                   <div>
                     <dt>크기</dt>
-                    <dd className={styles.sizeMeasurements}>
-                      <span><small>체고</small>{facts.height}</span>
-                      <span><small>몸무게</small>{facts.weight}</span>
-                    </dd>
+                    <dd><SizeFactRows rows={sizeFactRows} /></dd>
                   </div>
                 ) : facts.size ? <div><dt>크기</dt><dd>{facts.size}</dd></div> : null}
                 {facts.lifespan && <div><dt>평균 수명</dt><dd>{facts.lifespan}</dd></div>}

@@ -4,6 +4,14 @@
 .resultHeader > div > span { color: #ad5b31; font-size: .73rem; font-weight: 800; letter-spacing: .04em; }
 .resultHeader h1 { margin: 5px 0 0; color: #332923; font-size: clamp(1.4rem, 2.2vw, 1.75rem); line-height: 1.25; letter-spacing: -.035em; }
 .quickFilters { margin-bottom: 14px; }
+.reviewFilter { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 14px; padding: 12px 14px; border: 1px dashed #d7b99f; border-radius: 16px; background: #fffaf5; }
+.reviewFilter > div { min-width: 0; display: grid; gap: 2px; }
+.reviewFilter > div > span { color: #8f4826; font-size: .75rem; font-weight: 800; }
+.reviewFilter small { color: #756a63; font-size: .68rem; line-height: 1.45; }
+.reviewFilter button { min-height: 38px; flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 13px; border: 0; border-radius: 999px; color: #8f4826; background: #f3e5d8; font-size: .73rem; font-weight: 800; white-space: nowrap; cursor: pointer; }
+.reviewFilter button > span { width: 0; overflow: hidden; opacity: 0; }
+.reviewFilter button[aria-pressed="true"] { color: #fff; background: #9d542f; }
+.reviewFilter button[aria-pressed="true"] > span { width: 12px; opacity: 1; }
 .quickFiltersLabel { display: block; margin-bottom: 8px; color: #756a63; font-size: .7rem; font-weight: 750; }
 .quickFilterList { display: flex; flex-wrap: wrap; gap: 7px; }
 .quickFilterList button { min-height: 38px; display: inline-flex; align-items: center; gap: 6px; padding: 8px 13px; border: 0; border-radius: 999px; color: #665a52; background: #f7f2ec; box-shadow: 0 5px 16px rgb(65 46 34 / 5%); font-size: .73rem; font-weight: 750; white-space: nowrap; cursor: pointer; transition: color .18s ease, background-color .18s ease, box-shadow .18s ease, transform .18s ease; }
@@ -47,7 +55,7 @@
 .filterGuide dd { margin: 0; font-size: .68rem; line-height: 1.45; }
 .filterGuide small { display: block; color: #9a4d29; }
 .applyFilter { width: 100%; min-height: 48px; margin-top: 6px; padding: 12px; border: 0; border-radius: 13px; color: #fff; background: #b86437; font-weight: 750; cursor: pointer; }
-.filterTrigger:focus-visible, .quickFilterList button:focus-visible, .optionGrid button:focus-visible, .selectedChips button:focus-visible, .applyFilter:focus-visible, .closeFilter:focus-visible, .emptyState button:focus-visible, .filterGuide summary:focus-visible { outline: 3px solid #c56b3c; outline-offset: 3px; }
+.filterTrigger:focus-visible, .reviewFilter button:focus-visible, .quickFilterList button:focus-visible, .optionGrid button:focus-visible, .selectedChips button:focus-visible, .applyFilter:focus-visible, .closeFilter:focus-visible, .emptyState button:focus-visible, .filterGuide summary:focus-visible { outline: 3px solid #c56b3c; outline-offset: 3px; }
 .selectedChips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
 .selectedChips button { min-height: 34px; padding: 7px 10px; border: 0; border-radius: 999px; color: #8f4826; background: #f4e7dc; font-size: .72rem; white-space: nowrap; cursor: pointer; }
 .selectedChips button span { margin-left: 4px; font-weight: 700; }
@@ -79,6 +87,8 @@
   .catalogControls { margin-bottom: 16px; }
   .resultHeader { margin-bottom: 14px; }
   .resultHeader h1 { font-size: 1.35rem; }
+  .reviewFilter { align-items: stretch; flex-direction: column; gap: 9px; padding: 11px 12px; }
+  .reviewFilter button { width: 100%; justify-content: center; }
   .quickFilters { margin-bottom: 12px; }
   .quickFiltersLabel { margin-bottom: 7px; }
   .quickFilterList { flex-wrap: nowrap; margin-inline: calc(var(--page-inline) / -2); padding: 0 calc(var(--page-inline) / 2) 5px; overflow-x: auto; scrollbar-width: none; scroll-padding-inline: calc(var(--page-inline) / 2); }
@@ -101,4 +111,4 @@
   .resultMeta span { display: block; }
   .resultMeta span:last-child { margin-top: 2px; }
 }
-@media (prefers-reduced-motion: reduce) { .filterPanel, .resultCard, .filterTrigger, .quickFilterList button, .quickFilterList button > span { transition: none; } .resultCard:hover, .quickFilterList button:hover { translate: none; } .loadingMark { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .filterPanel, .resultCard, .filterTrigger, .reviewFilter button, .quickFilterList button, .quickFilterList button > span { transition: none; } .resultCard:hover, .quickFilterList button:hover { translate: none; } .loadingMark { animation: none; } }

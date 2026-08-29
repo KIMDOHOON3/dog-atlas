@@ -5,7 +5,11 @@ const checkedAt = "2026-08-23";
 
 const poodleDetailSchema = z.object({
   heroStatement: z.string().min(20),
-  heroSizeSummary: z.string().min(10),
+  heroSizeRows: z.array(z.object({
+    label: z.string().min(2),
+    value: z.string().min(2),
+  })).length(2),
+  heroSizeDetailsLabel: z.string().min(4),
   metadataDescription: z.string().min(50),
   sizes: z.array(z.object({
     id: z.enum(["toy", "miniature", "medium", "standard"]),
@@ -41,7 +45,11 @@ const poodleDetailSchema = z.object({
 
 export const poodleDetail = poodleDetailSchema.parse({
   heroStatement: "푸들은 물속 사냥감을 회수하던 개였어요.",
-  heroSizeSummary: "4가지 크기 · 체고 23~62cm · 몸무게는 체형에 따라 다름",
+  heroSizeRows: [
+    { label: "구분", value: "4가지" },
+    { label: "체고", value: "23~62cm" },
+  ],
+  heroSizeDetailsLabel: "크기별 보기",
   metadataDescription: "우아한 곱슬 피모 안에는 물에서 회수하던 움직임과 크기별로 다른 생활 조건이 있어요. 푸들의 과거 역할과 오늘날의 행동 경향, 함께 살 때 체감되는 점을 살펴봅니다.",
   sizes: [
     { id: "toy", label: "토이", range: "23~28cm", image: "/illustrations/v6/poodle-size-toy.webp", imageAlt: "작은 체구의 토이 푸들 한 마리가 서 있는 삽화" },

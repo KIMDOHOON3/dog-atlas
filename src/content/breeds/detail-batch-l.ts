@@ -2,6 +2,12 @@ import type { Breed } from "./schema";
 import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-06";
+const historyAltOverrides: Partial<Record<string, string>> = {
+  "bedlington-terrier": "잉글랜드 북부 광산 마을 가장자리의 들판에서 토끼 흔적을 찾는 청회색 베들링턴 테리어를 그린 편집 수채화",
+};
+const historySources: Partial<Record<string, Breed["sources"]>> = {
+  "bedlington-terrier": [{ title: "Bedlington Terrier Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/bedlington-terrier-history/", checkedAt: "2026-08-29" }],
+};
 type Group = Exclude<Breed["catalog"]["group"], "northern-working" | "dachshund">;
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";
 type Seed = {
@@ -175,7 +181,7 @@ const makeBreed = (seed: Seed): Breed => {
     palette: { primary: meta.colors[0], secondary: meta.colors[1], ink: meta.colors[2] },
     illustration: `/illustrations/v2/${seed.slug}-card.webp`,
     catalog: { group: seed.group, discoveryTags: [...meta.tags, seed.origin] },
-    historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 기원과 역할을 보여 주는 편집 초안 역사 장면` },
+    historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: historyAltOverrides[seed.slug] ?? `${seed.nameKo}의 기원과 역할을 보여 주는 편집 초안 역사 장면` },
     identity: { origin: seed.origin, lineage: `${seed.origin}의 오래된 ${meta.label} 계통에서 발전한 품종`, originalRole: seed.role, size: seed.size, lifespan: "개체와 관리 환경에 따라 달라지며 공식 자료와 수의사 상담을 함께 확인하세요." },
     behaviorClues: {
       originalRole: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역할과 환경 속에서 형성되었습니다. 과거의 역할은 현재 개체의 행동을 단정하지 않지만 생활 설계의 참고 단서가 될 수 있습니다.`,
@@ -206,6 +212,7 @@ const makeBreed = (seed: Seed): Breed => {
     sources: [
       { title: `${seed.nameEn} FCI breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
       ...(seed.akcUrl ? [{ title: `${seed.nameEn} breed profile`, organization: "American Kennel Club", url: seed.akcUrl, checkedAt }] : []),
+      ...(historySources[seed.slug] ?? []),
     ],
   };
 };

@@ -17,6 +17,11 @@ const standardRealitySchema = z.object({
   imageAlt: z.string().min(15),
 });
 
+const sizeSummaryRowSchema = z.object({
+  label: z.string().min(2),
+  value: z.string().min(2),
+});
+
 const modernWorkSchema = z.object({
   storyStep: standardStoryStepSchema,
   title: z.string().min(10),
@@ -31,7 +36,8 @@ const modernWorkSchema = z.object({
 });
 
 const sizeVarietiesSchema = z.object({
-  summary: z.string().min(10),
+  summaryRows: z.array(sizeSummaryRowSchema).min(2).max(3),
+  detailsLabel: z.string().min(4),
   measurementLabel: z.string().min(2),
   items: z.array(z.object({
     id: z.string().regex(/^[a-z0-9-]+$/),
@@ -43,7 +49,8 @@ const sizeVarietiesSchema = z.object({
 });
 
 const heroSizeDetailsSchema = z.object({
-  summary: z.string().min(10),
+  summaryRows: z.array(sizeSummaryRowSchema).min(1).max(3),
+  detailsLabel: z.string().min(4),
   items: z.array(z.object({
     id: z.string().regex(/^[a-z0-9-]+$/),
     label: z.string().min(2),

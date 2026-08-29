@@ -47,11 +47,11 @@ describe("detail batch E", () => {
     }
   });
 
-  it("keeps individual editorial copy and two official source records", () => {
+  it("keeps individual editorial copy and the two baseline official source records", () => {
     expect(new Set(detailBatchE.map((breed) => breed.tagline)).size).toBe(10);
     expect(new Set(detailBatchE.map((breed) => breed.story.reality)).size).toBe(10);
     for (const breed of detailBatchE) {
-      expect(breed.sources).toHaveLength(2);
+      expect(breed.sources.length).toBeGreaterThanOrEqual(2);
       expect(breed.sources[0].organization).toBe("Fédération Cynologique Internationale");
       expect(breed.sources[1].organization).toBe("American Kennel Club");
     }

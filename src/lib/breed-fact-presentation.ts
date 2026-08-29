@@ -181,7 +181,44 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     height: "46~58cm",
     weight: "18~29kg",
   },
-  "bull-terrier": { size: "53~56cm · 23~32kg" },
+  boxer: {
+    size: "53~63cm",
+    height: "53~63cm",
+  },
+  "alaskan-malamute": {
+    size: "58~64cm",
+    height: "58~64cm",
+  },
+  "boston-terrier": {
+    size: "11kg 이하",
+    weight: "11kg 이하",
+  },
+  "chow-chow": {
+    size: "46~56cm",
+    height: "46~56cm",
+  },
+  weimaraner: {
+    size: "57~70cm",
+    height: "57~70cm",
+  },
+  "nova-scotia-duck-tolling-retriever": {
+    size: "45~51cm",
+    height: "45~51cm",
+  },
+  "old-english-sheepdog": {
+    size: "수컷 61cm 이상 · 암컷 56cm 이상",
+    height: "수컷 61cm 이상 · 암컷 56cm 이상",
+  },
+  borzoi: {
+    size: "수컷 71cm 이상 · 암컷 66cm 이상 · 약 27~48kg",
+    height: "수컷 71cm 이상 · 암컷 66cm 이상",
+    weight: "약 27~48kg",
+  },
+  "bull-terrier": {
+    size: "53~56cm · 23~32kg",
+    height: "53~56cm",
+    weight: "23~32kg",
+  },
   "continental-toy-spaniel": {
     size: "20~28cm · 2.3~4.5kg",
     height: "20~28cm",
@@ -223,6 +260,14 @@ function normalizeRange(value: string) {
   return value.replace(/[–—-]/gu, "~").replace(/\s*~\s*/gu, "~");
 }
 
+function normalizeMeasurementValue(value: string) {
+  return value
+    .replace(/\s*~\s*/gu, "~")
+    .replace(/\s*(cm|kg)/gu, "$1")
+    .replace(/(cm|kg)\s*(이상|이하)/gu, "$1 $2")
+    .trim();
+}
+
 export function getBreedSizeDisplay(breed: Breed): string | undefined {
   const override = breedFactOverrides[breed.slug]?.size;
   if (override) return override;
@@ -257,17 +302,29 @@ export function getBreedFactPresentation(breed: Breed) {
     .map((part) => part.trim());
   const height = measurements.find((part) => /cm/u.test(part))
     ?.replace(/^.*?(?=\d)/u, "")
-    .replace(/\s+/gu, "");
+    .replace(/^약\s*/u, "약 ");
   const weight = measurements.find((part) => /kg/u.test(part))
     ?.replace(/^.*?(?=(?:최대\s*)?(?:약\s*)?\d)/u, "")
-    .replace(/\s+/gu, "")
-    .replace(/^최대약/u, "최대 ")
-    .replace(/^약/u, "약 ");
+    .replace(/^최대\s*약\s*/u, "최대 ")
+    .replace(/^약\s*/u, "약 ");
 
   return {
     size: getBreedSizeDisplay(breed),
-    height: override?.height ?? height,
-    weight: override?.weight ?? weight,
+    height: override?.height ?? (height ? normalizeMeasurementValue(height) : undefined),
+    weight: override?.weight ?? (weight ? normalizeMeasurementValue(weight) : undefined),
     lifespan: getBreedLifespanDisplay(breed),
   };
+}
+
+export type BreedSizeFactRow = { label: string; value: string };
+
+export function getBreedSizeFactRows(facts: ReturnType<typeof getBreedFactPresentation>): BreedSizeFactRow[] {
+  if (facts.height && facts.height === facts.weight) {
+    return [{ label: "예상 크기", value: facts.height }];
+  }
+
+  return [
+    ...(facts.height ? [{ label: "체고", value: facts.height }] : []),
+    ...(facts.weight ? [{ label: "몸무게", value: facts.weight }] : []),
+  ];
 }

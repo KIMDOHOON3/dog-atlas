@@ -1,6 +1,6 @@
 import { getBreedFeatures } from "@/content/breed-features/data";
 import { getBreed } from "@/content/breeds/data";
-import { withAndParticle } from "@/lib/korean-particles";
+import { withAndParticle, withObjectParticle, withSubjectParticle, withTopicParticle } from "@/lib/korean-particles";
 import { standardBreedDetailSchema, type StandardBreedDetail } from "./schema";
 
 type EditorialCard = {
@@ -256,12 +256,32 @@ type FamiliarStandardSlug = (typeof familiarStandardSlugs)[number];
 type StandardStoryStep = StandardBreedDetail["story"]["steps"][number];
 
 const storyStepOverrides: Partial<Record<FamiliarStandardSlug, { background?: StandardStoryStep; tendency?: StandardStoryStep }>> = {
+  "continental-toy-spaniel": {
+    background: {
+      navLabel: "유럽 반려견의 배경",
+      eyebrow: "1단계 · 어떤 배경에서 출발했을까?",
+      title: "르네상스 시대 유럽 초상화에도 등장한 작은 토이 스패니얼이에요.",
+      body: "콘티넨탈 토이 스패니얼은 유럽 귀족 가정에서 사람 곁을 지낸 작은 반려견으로, 16세기 그림에도 등장해요. 귀가 선 파피용과 귀가 늘어진 파렌은 같은 견종의 두 모습이에요.",
+      image: "/illustrations/v3/continental-toy-spaniel-history.webp",
+      imageAlt: "유럽 저택의 응접실에서 귀족 여성 곁을 바라보는 흰색과 갈색 파피용을 그린 편집 수채화",
+    },
+  },
+  dobermann: {
+    background: {
+      navLabel: "보호견의 형성",
+      eyebrow: "1단계 · 어떤 배경에서 출발했을까?",
+      title: "19세기 독일에서 세금 징수원을 가까이 지키는 보호견으로 만들어졌어요.",
+      body: "튀링겐의 세금 징수원 루이스 도베르만은 위험한 이동에 동행할 강하고 민첩한 개를 만들었어요. 정확한 조합 기록은 없지만 이후 선택 교배를 거쳐 오늘날의 도베르만으로 정립됐어요.",
+      image: "/illustrations/v3/dobermann-history.webp",
+      imageAlt: "19세기 독일 도시에서 세금 징수원을 가까이 동행하며 주변을 살피는 검정과 황갈색 도베르만을 그린 편집 수채화",
+    },
+  },
   "french-bulldog": {
     background: {
       navLabel: "조상 계통과 형성",
       eyebrow: "1단계 · 어떤 배경에서 출발했을까?",
       title: "투우 미끼 경기의 불도그 계통에서 도시 반려견으로 바뀌었어요.",
-      body: "영국 불도그 조상은 과거 소를 상대로 한 투우 미끼 경기에 동원된 계통과 연결돼요. 현재의 프렌치 불도그는 그 관행이 금지된 뒤 소형 불도그가 프랑스로 건너가 19세기 파리에서 반려견으로 정립된 견종이에요.",
+      body: "조상인 영국 불도그는 과거 투우 미끼 경기에 동원된 계통과 연결돼요. 이 관행이 금지된 뒤 소형 불도그가 프랑스로 건너가 19세기 파리의 반려견으로 정립됐어요.",
       image: "/illustrations/v3/french-bulldog-history.webp",
       imageAlt: "19세기 파리의 거리에서 상인과 노동자 곁에 있는 작은 불도그를 그린 편집 수채화",
     },
@@ -310,7 +330,12 @@ const realityCardIndexes: Partial<Record<FamiliarStandardSlug, readonly [number,
 
 const sizeVarietyProfiles: Partial<Record<FamiliarStandardSlug, NonNullable<StandardBreedDetail["sizeVarieties"]>>> = {
   dachshund: {
-    summary: "체고 약 13~23cm · 몸무게 약 3.5~14.5kg · 가슴둘레로 3가지 구분",
+    summaryRows: [
+      { label: "구분", value: "3가지" },
+      { label: "체고", value: "약 13~23cm" },
+      { label: "몸무게", value: "약 3.5~14.5kg" },
+    ],
+    detailsLabel: "크기별 보기",
     measurementLabel: "가슴둘레",
     items: [
       {
@@ -339,34 +364,34 @@ const sizeVarietyProfiles: Partial<Record<FamiliarStandardSlug, NonNullable<Stan
 };
 
 const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string> = {
-  "german-spitz": "작은 체구의 안전과 풍성한 이중모 관리를 함께 준비해요.",
-  chihuahua: "작은 몸에 맞춘 안전과 보온을 따로 준비해야 해요.",
-  "shih-tzu": "짧은 얼굴과 긴 피모는 매일 다른 관리 시간을 요구해요.",
-  "korea-jindo-dog": "선택 가능한 거리와 안전한 출입 관리가 함께 필요해요.",
-  "yorkshire-terrier": "찾기 활동을 짧게 끝내고 편안히 쉬는 흐름이 필요해요.",
-  maltipoo: "작은 체구와 적은 털 빠짐이 가벼운 관리를 뜻하지 않아요.",
-  "welsh-corgi-pembroke": "낮고 긴 몸에 맞춘 움직임과 체중 관리가 필요해요.",
-  "golden-retriever": "다정한 첫인상과 별개로 활동과 체격 부담은 커요.",
-  dachshund: "긴 허리에 맞춘 낮은 동선과 체중 관리가 필요해요.",
-  beagle: "냄새 추적과 먹거리 관리는 매일의 환경 조정이 필요해요.",
-  "miniature-schnauzer": "활동과 알림 반응, 피모 관리를 한 일정으로 준비해야 해요.",
-  pug: "짧은 활동 뒤 호흡 회복과 더위를 먼저 살펴야 해요.",
-  "french-bulldog": "운동량보다 호흡 회복과 체온 조절이 먼저예요.",
-  pekingese: "작은 체격 안에 호흡·눈·피모 관리가 함께 들어 있어요.",
-  "continental-toy-spaniel": "작은 몸에도 산책과 학습, 안전한 휴식이 모두 필요해요.",
-  "italian-sighthound": "짧게 달린 뒤 편안히 회복하는 생활 리듬이 필요해요.",
-  "jack-russell-terrier": "작은 체격이 적은 활동과 쉬운 양육을 뜻하지 않아요.",
+  "german-spitz": "짧은 놀이 뒤에는 자기 매트로 돌아와 쉬어요.",
+  chihuahua: "활동 뒤에는 방해받지 않는 낮은 자기 자리에서 쉬어요.",
+  "shih-tzu": "관리 도구를 정리한 뒤 자기 매트에서 편안히 쉬어요.",
+  "korea-jindo-dog": "산책 뒤에는 서로 편한 거리를 두고 매트에서 쉬어요.",
+  "yorkshire-terrier": "짧은 찾기 활동 뒤에는 자기 매트에서 편안히 쉬는 흐름을 만들어요.",
+  maltipoo: "산책과 짧은 놀이 뒤에는 리드와 장난감을 내려놓고 매트에서 쉬어요.",
+  "welsh-corgi-pembroke": "활동 뒤에는 오르내릴 필요 없는 낮은 자리에서 쉬어요.",
+  "golden-retriever": "회수 놀이가 끝나면 물건을 정리하고 잔잔하게 쉬어요.",
+  dachshund: "냄새 산책 뒤에는 나무 그늘의 낮은 자리에서 쉬어요.",
+  beagle: "찾기 활동이 끝나면 자기 자리에서 쉬는 순서로 마쳐요.",
+  "miniature-schnauzer": "짧은 과제를 마치면 도구를 정리하고 매트에서 쉬어요.",
+  pug: "짧은 활동 뒤에는 서늘한 자기 자리에서 충분히 쉬어요.",
+  "french-bulldog": "활동이 끝나면 편안한 숨으로 돌아올 때까지 쉬어요.",
+  pekingese: "짧게 움직인 뒤 몸을 편히 받치는 낮은 자리에서 쉬어요.",
+  "continental-toy-spaniel": "짧은 냄새 찾기 뒤에는 리드를 정리하고 낮은 매트에서 쉬어요.",
+  "italian-sighthound": "짧게 달린 뒤에는 폭신한 자기 자리에서 쉬어요.",
+  "jack-russell-terrier": "산책에서는 거리보다 냄새를 살필 시간을 줘요.",
   "labrador-retriever": "큰 체격과 먹거리 관심까지 생활 전체에서 조율해야 해요.",
-  "border-collie": "많이 달리는 것만으로 작업 욕구가 채워지지는 않아요.",
-  samoyed: "두꺼운 피모와 큰 활동 규모를 계절에 맞춰 조정해야 해요.",
-  "siberian-husky": "지구력과 탈출 안전, 더위 관리를 함께 준비해야 해요.",
-  shiba: "독립적인 선택과 출입 안전을 함께 존중해야 해요.",
-  "german-shepherd-dog": "영리함만으로 큰 체격과 경계 관리가 쉬워지지는 않아요.",
-  dobermann: "날렵한 외형 뒤에 운동·사회화·건강 관리 부담이 커요.",
-  rottweiler: "큰 체격에 맞는 주거·이동·의료 계획이 필요해요.",
+  "border-collie": "과제가 끝나면 장난감을 내려놓고 자기 자리에서 쉬어요.",
+  samoyed: "활동 뒤에는 털과 장비를 정리하며 차분히 쉬어요.",
+  "siberian-husky": "선선한 바깥 활동 뒤 울타리 안에서 숨을 고르며 쉬어요.",
+  shiba: "산책 뒤에는 서로 편한 거리를 두고 나무 그늘에서 쉬어요.",
+  "german-shepherd-dog": "짧은 과제 뒤에는 넓은 매트에서 차분히 쉬어요.",
+  dobermann: "산책과 과제가 끝나면 하네스를 풀고 넓은 매트에서 쉬어요.",
+  rottweiler: "큰 몸을 편히 펴고 보호자 곁에서 쉬는 시간이 필요해요.",
   dalmatian: "눈에 띄는 무늬보다 활동과 의사소통 준비가 먼저예요.",
-  "great-dane": "차분해 보여도 초대형견의 공간과 비용 부담은 커요.",
-  "saint-bernard": "온화한 이미지가 초대형견의 생활 부담을 줄이지는 않아요.",
+  "great-dane": "큰 몸을 완전히 펴고 방해 없이 쉴 자리가 필요해요.",
+  "saint-bernard": "활동 뒤에는 큰 몸을 완전히 펴고 충분히 쉬어요.",
 };
 
 const heroStatementOverrides: Partial<Record<(typeof familiarStandardSlugs)[number], string>> = {
@@ -401,14 +426,55 @@ const heroStatementOverrides: Partial<Record<(typeof familiarStandardSlugs)[numb
 };
 
 const dailyRealityBodyOverrides: Partial<Record<(typeof familiarStandardSlugs)[number], string>> = {
-  "german-spitz": "소파나 침대에서 반복해 뛰어내리지 않도록 낮은 발판과 미끄럽지 않은 동선을 마련해요. 풍성한 이중모는 피부 가까이까지 나누어 빗고, 소리에 반응한 뒤에는 보호자에게 돌아와 쉬는 순서를 연습해 주세요.",
-  chihuahua: "작은 체구는 추위와 거친 접촉에 더 세심한 준비가 필요할 수 있어요. 따뜻한 휴식 자리와 부드러운 신체 다루기, 어린이나 다른 동물과 천천히 만나는 환경을 마련해 주세요.",
-  "korea-jindo-dog": "낯선 사람과 동물에 대한 반응과 회복 속도는 개체마다 다르게 나타나요. 억지 인사보다 편안한 거리를 확보하고, 현관과 산책에서는 이중 안전장치와 몸에 맞는 장비를 확인해 주세요.",
-  "yorkshire-terrier": "냄새를 찾는 활동에 오래 몰입하면 스스로 멈추기 어려울 수 있어요. 짧은 과제를 마친 뒤 장난감을 정리하고 편안한 자리에서 쉬는 순서까지 한 흐름으로 알려주세요.",
-  pug: "짧은 산책도 선선한 시간에 하고, 호흡이 편안해질 때까지 시원한 실내에서 쉬게 해요. 움직임을 더 권하기보다 그날의 반응에 맞춰 일정을 줄여야 해요.",
-  "french-bulldog": "기온과 습도가 높다면 산책 시간을 줄이고 시원한 실내에서 회복을 우선해요. 짧은 활동 뒤에도 호흡이 편안해지는지 살피며 하루 일정을 조정해야 해요.",
-  "italian-sighthound": "움직이는 대상에 반응해 순간적으로 속도를 낼 수 있지만, 활동 뒤에는 사람 가까운 조용한 자리에서 오래 쉬기도 해요. 닫힌 공간에서 짧게 움직인 뒤 방해받지 않고 회복하는 흐름을 마련해 주세요.",
-  rottweiler: "큰 체격에 맞는 주거 규정과 이동 동선, 교육 지원을 입양 전에 확인해야 해요. 차량 탑승과 병원 이동에 필요한 장비와 의료비도 함께 계획해 주세요.",
+  maltipoo: "공원 산책과 공 놀이를 짧게 마치면 리드를 내려놓고 장난감을 옆에 정리해요. 보호자 곁의 낮은 매트에 몸을 내려놓고 다음 활동을 재촉받지 않게 쉬게 해 주세요.",
+  "continental-toy-spaniel": "짧은 냄새 찾기를 마치면 냄새 주머니와 리드를 정리해요. 작은 몸이 오르내릴 필요 없는 낮은 매트에서 보호자 곁에 머물며 쉬게 해 주세요.",
+  dobermann: "산책과 짧은 과제가 끝나면 하네스와 리드의 긴장을 풀고 넓은 매트로 이동해요. 보호자 곁에서 큰 몸을 편히 내려놓고 다음 일정 전까지 쉬게 해 주세요.",
+  "german-spitz": "실내 놀이와 신호 연습을 마치면 사용한 도구를 치워요. 보호자의 손짓을 따라 낮은 매트로 돌아와 차분히 쉬게 해 주세요.",
+  chihuahua: "발에 부딪히거나 높은 곳에서 떨어지지 않도록 조용한 바닥 자리를 마련해요. 사람의 동선과 큰 동물의 거친 움직임에서 떨어져 편히 쉬게 해 주세요.",
+  "shih-tzu": "짧은 빗질과 얼굴 주변 정리가 끝나면 도구를 치우고 같은 자리에서 쉬게 해요. 한 번에 오래 붙잡기보다 짧게 마치고 편안한 일상으로 돌아가게 해 주세요.",
+  "korea-jindo-dog": "바깥 활동이 끝나면 조용한 자리에 매트를 펴고 보호자도 가까이 앉아요. 편한 거리는 개체마다 다르게 나타나므로 접촉을 이어가기보다 스스로 쉬게 해 주세요.",
+  "yorkshire-terrier": "낮은 찾기 활동을 마치면 장난감과 도구를 정리해요. 보호자 곁의 매트에 몸을 내려놓고 다음 활동 전까지 편히 쉬게 해 주세요.",
+  "welsh-corgi-pembroke": "산책과 짧은 놀이가 끝나면 낮고 평평한 매트로 이동해요. 보호자 곁에서 몸을 길게 내려놓고 편히 쉬게 해 주세요.",
+  pug: "짧게 움직인 뒤에는 서늘하고 조용한 자리에서 호흡이 편안해질 때까지 쉬게 해요. 회복이 평소보다 늦다면 다음 활동을 재촉하지 말고 일정을 줄여 주세요.",
+  "french-bulldog": "짧게 움직인 뒤에는 시원하고 조용한 자리에서 호흡이 편안해질 때까지 쉬게 해요. 회복이 평소보다 늦다면 활동을 더 권하지 말고 상태를 살펴야 해요.",
+  pekingese: "긴 털이 바닥에 눌리거나 몸에 열이 머물지 않도록 낮고 서늘한 휴식 자리를 마련해요. 짧은 활동 뒤에는 스스로 편한 자세를 고르고 충분히 쉬게 해 주세요.",
+  "golden-retriever": "잔디길에서 짧은 회수 놀이를 마치면 사용한 물건을 가방에 정리해요. 성견 골든 리트리버는 보호자 곁에 누워 다음 활동을 재촉받지 않고 쉬게 해 주세요.",
+  dachshund: "냄새를 살핀 산책 뒤에는 오르내릴 필요 없는 낮은 자리를 골라요. 나무 그늘에서 몸을 길게 내려놓고 방해 없이 쉬게 해 주세요.",
+  beagle: "찾기 활동이 끝나면 산책 장비와 먹거리 도구를 치우고 자기 매트로 이동해요. 더 찾도록 재촉하지 않고 누워 쉬는 것까지 한 흐름으로 마쳐 주세요.",
+  "border-collie": "짧은 과제를 마치면 장난감과 도구를 정리하고 매트로 이동해요. 보호자 가까이에서 몸을 내려놓고 조용히 쉬는 시간까지 활동에 포함해 주세요.",
+  "german-shepherd-dog": "냄새 상자나 신호 과제를 마치면 도구를 치우고 넓은 매트로 이동해요. 큰 몸을 편히 내려놓고 다음 일정 전까지 쉬게 해 주세요.",
+  "siberian-husky": "선선한 바깥에서 함께 움직인 뒤에는 닫힌 울타리 안의 조용한 자리로 돌아와요. 보호자 곁에 누워 물을 마시고 충분히 쉬게 해 주세요.",
+  samoyed: "활동이 끝나면 사용한 장비를 벗기고 매트에 누운 상태에서 털의 이물질을 살펴요. 한 번에 오래 붙잡지 말고 정리가 끝나면 편히 쉬게 해 주세요.",
+  shiba: "산책 뒤에는 보호자와 성견 시바가 서로 편한 거리를 두고 나무 그늘에 머물러요. 접촉을 이어가기보다 조용히 누워 쉬는 시간을 보장해 주세요.",
+  "miniature-schnauzer": "낮은 찾기 도구를 살핀 뒤에는 더 이어가기보다 정리하는 순서를 보여줘요. 보호자 곁의 매트에서 몸을 내려놓고 쉬게 해 주세요.",
+  "italian-sighthound": "안전한 공간에서 짧게 움직인 뒤에는 몸을 받쳐 주는 폭신한 자리에 누워요. 보호자가 담요를 정리하는 동안 방해받지 않고 쉬게 해 주세요.",
+  "jack-russell-terrier": "안전한 산책로에서 관목과 땅의 냄새를 충분히 확인하게 해요. 보호자는 리드 범위를 지키며 탐색이 끝날 때까지 서두르지 않고 기다려 주세요.",
+  rottweiler: "산책과 짧은 과제가 끝나면 넓고 평평한 자리에 몸을 내려놓게 해요. 보호자 곁에서 큰 몸을 편히 펴고 방해 없이 쉬게 해 주세요.",
+  "great-dane": "몸 전체를 펴도 가장자리에 걸리지 않는 큰 잠자리를 마련해요. 가구 사이를 돌거나 일어설 때 부딪히지 않도록 휴식 자리 주변의 동선도 넓게 비워 주세요.",
+  "saint-bernard": "큰 몸 전체를 받쳐 주는 서늘하고 넓은 자리를 마련해요. 활동이 끝난 뒤에는 사람의 통행에서 벗어나 몸을 편히 펴고 충분히 쉬게 해 주세요.",
+};
+
+const dailyRealityImageAltOverrides: Partial<Record<(typeof familiarStandardSlugs)[number], string>> = {
+  maltipoo: "공원 산책 뒤 리드와 공 장난감 옆의 낮은 매트에 누워 보호자 곁에서 쉬는 흰색 성견 말티푸 삽화",
+  "continental-toy-spaniel": "공원에서 냄새 주머니와 리드를 정리한 보호자 곁 낮은 매트에 서 있는 흰색과 갈색 성견 파피용 삽화",
+  dobermann: "산책 뒤 하네스와 느슨한 리드를 착용한 채 넓은 실내 매트에 누워 보호자 곁에서 쉬는 검정과 황갈색 성견 도베르만 삽화",
+  "german-spitz": "거실의 낮은 매트에 엎드린 주황색 성견 포메라니안이 보호자의 손짓을 바라보는 삽화",
+  "shih-tzu": "거실 매트에 누운 흰색과 금색 성견 시추 곁에서 보호자가 빗과 관리 도구를 정리하는 삽화",
+  "korea-jindo-dog": "공원의 매트에 누운 백색 성견 진돗개와 편안한 거리를 두고 마주 앉은 보호자 삽화",
+  "yorkshire-terrier": "거실 매트에 누운 청색과 황갈색 성견 요크셔 테리어 곁에서 보호자가 활동 도구를 정리하는 삽화",
+  "welsh-corgi-pembroke": "창가의 낮은 매트에 몸을 길게 눕힌 적백색 성견 웰시 코기 펨브로크와 벤치에 앉은 보호자 삽화",
+  "golden-retriever": "잔디길에 누워 쉬는 성견 골든 리트리버 곁에서 보호자가 가방과 회수 도구를 정리하는 삽화",
+  dachshund: "나무 그늘 산책로에 몸을 길게 눕혀 쉬는 붉은 단모 성견 닥스훈트와 곁에 앉은 보호자 삽화",
+  beagle: "현관 옆 매트에 누운 성견 비글 곁에서 보호자가 산책 장비와 그릇을 정리하는 삽화",
+  "miniature-schnauzer": "야외 매트에서 낮은 활동 도구 곁에 누운 솔트앤페퍼 성견 미니어처 슈나우저와 보호자 삽화",
+  "italian-sighthound": "창가의 폭신한 침대에 누운 회색 성견 이탈리안 그레이하운드 곁에서 보호자가 담요를 정리하는 삽화",
+  "jack-russell-terrier": "산책로 가장자리의 관목과 땅 냄새를 살피는 흰색과 황갈색 성견 잭 러셀 테리어와 뒤에서 기다리는 보호자 삽화",
+  "border-collie": "실내 매트에 누워 쉬는 성견 보더 콜리 곁에서 보호자가 장난감과 활동 도구를 정리하는 삽화",
+  "german-shepherd-dog": "야외 매트에 누워 쉬는 성견 저먼 셰퍼드 독 곁에서 보호자가 훈련 도구를 정리하는 삽화",
+  "siberian-husky": "나무 울타리 안 흙길에 누워 쉬는 성견 시베리안 허스키와 곁에 앉은 보호자 삽화",
+  samoyed: "마당의 매트에 누운 성견 사모예드 곁에서 보호자가 털과 활동 장비를 정리하는 삽화",
+  shiba: "나무 그늘 산책로에 누워 쉬는 적색 성견 시바와 가까이 앉은 보호자 삽화",
+  rottweiler: "나무 그늘의 평평한 자리에 몸을 펴고 누운 성견 롯트와일러와 곁에 앉은 보호자 삽화",
 };
 
 const modernWorkProfiles: Partial<Record<(typeof familiarStandardSlugs)[number], NonNullable<StandardBreedDetail["modernWork"]>>> = {
@@ -465,7 +531,7 @@ const modernWorkProfiles: Partial<Record<(typeof familiarStandardSlugs)[number],
       navLabel: "현재의 역할",
       eyebrow: "4단계 · 오늘은 어떤 일을 할까?",
       title: "경찰 순찰과 수색·구조 현장에서 협력해요.",
-      body: "저먼 셰퍼드 독은 경찰 순찰이나 도시 수색·구조 작업에 선발되어 담당자의 신호에 따라 탐색하고 위치를 알려요. 이런 전문 작업은 엄격한 선발과 통제된 훈련을 전제로 하며 반려견에게 공격성을 요구할 근거가 아니에요.",
+      body: "저먼 셰퍼드 독은 경찰 순찰이나 수색·구조 작업에 선발되어 담당자와 협력해요. 전문 작업은 엄격한 선발과 훈련이 필요하며 반려견에게 공격성을 요구할 근거가 아니에요.",
       image: "/illustrations/v4/german-shepherd-dog-feature-modern-search-rescue.webp",
       imageAlt: "안전하게 통제된 구조 훈련장에서 성견 저먼 셰퍼드 독이 냄새를 찾고 담당자에게 위치를 알리는 삽화",
     },
@@ -530,7 +596,7 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
     sizeVarieties,
     story: {
       title: `${breed.nameKo}의 과거 배경은 오늘의 생활에서 어떻게 이어질까요?`,
-      description: "과거의 역할과 형성 배경을 단서로 삼아 현재 보일 수 있는 경향과 보호자가 체감할 생활 조건을 함께 살펴보세요.",
+      description: `출발점은 ${breed.identity.originalRole}의 배경이에요. 오늘의 생활에서는 ${withObjectParticle(cards[0].eyebrow)} 먼저 살펴봐요.`,
       steps: [
         storyOverrides?.background ?? {
           navLabel: "역할의 배경",
@@ -558,11 +624,11 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
             : `/illustrations/v4/${slug}-feature-daily-rhythm.webp`,
           imageAlt: slug === "labrador-retriever"
             ? "산책과 짧은 과제를 마친 뒤 미끄럼 방지 매트에서 쉬고 보호자가 회수 도구와 먹거리 보관함을 정리하는 검은 성견 래브라도 리트리버 삽화"
-            : `보호자와 일상 활동을 마친 뒤 편안한 리듬으로 전환하는 성견 ${breed.nameKo} 삽화`,
+            : dailyRealityImageAltOverrides[slug] ?? `보호자와 일상 활동을 마친 뒤 편안한 리듬으로 전환하는 성견 ${breed.nameKo} 삽화`,
         },
         ...(modernWork ? [modernWork.storyStep] : []),
       ],
-      caution: "견종의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 건강 상태와 개체에 따라 다르게 나타날 수 있어요.",
+      caution: `${breed.nameKo}의 과거 역할만으로 지금의 행동을 단정할 수 없어요. ${withTopicParticle(cards[0].eyebrow)} 중요한 단서지만 실제 모습은 성장 환경과 경험, 건강 상태에 따라 달라요.`,
     },
     modernWork,
     realitiesTitle: `${breed.nameKo}의 생활 현실`,
@@ -585,8 +651,8 @@ function createFamiliarStandardDetail(slug: (typeof familiarStandardSlugs)[numbe
       `${cards[1].eyebrow}에 필요한 생활 환경과 관리 시간을 꾸준히 마련할 수 있나요?`,
       `${cards[2].eyebrow}에 필요한 반복 관리와 비용을 현실적으로 이어갈 수 있나요?`,
     ],
-    relatedTitle: `${breed.nameKo}가 마음에 들지만 망설여진다면`,
-    relatedDescription: "비슷한 첫인상보다 체격과 활동, 반복 관리 조건의 차이를 먼저 살펴보세요.",
+    relatedTitle: `${withSubjectParticle(breed.nameKo)} 마음에 들지만 망설여진다면`,
+    relatedDescription: `‘${cards[1].eyebrow}’, ‘${cards[2].eyebrow}’처럼 생활에서 확인할 조건은 견종마다 달라요.`,
     relatedDifferences: Object.fromEntries(breed.related.map((related) => [related.slug, related.reason])),
   });
 }

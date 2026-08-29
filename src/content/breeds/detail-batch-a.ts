@@ -78,6 +78,12 @@ export const detailBatchA = [
         url: "https://www.akc.org/expert-advice/dog-breeds/chihuahua-history/",
         checkedAt: completedAt,
       },
+      {
+        title: "Chihuahua Club Flier",
+        organization: "American Kennel Club",
+        url: "https://cdn.akc.org/Chihuahua-club-flier.pdf",
+        checkedAt: "2026-08-29",
+      },
     ],
   },
   {
@@ -111,7 +117,7 @@ export const detailBatchA = [
     story: {
       opening: "시추는 티베트의 작은 개들에 뿌리를 두고 중국 황실에서 반려견으로 발전한 것으로 알려져 있습니다. 정확한 초기 계보를 하나로 단정하기는 어렵지만, 궁정 안에서 사람 가까이 생활해 온 역사는 여러 기록과 그림에 남아 있습니다.",
       roleToHome: "20세기 초 유럽에 소개된 뒤 라사 압소와 구분되는 별도의 견종으로 정리되었고, 오늘날에는 세계 여러 지역에서 반려견으로 함께하고 있습니다. 몸보다 길게 자라는 풍성한 피모와 짧고 넓은 주둥이는 지금의 시추를 알아보게 하는 특징입니다.",
-      reality: "격한 운동량만으로 생활 적합성을 판단하기보다 얼굴과 피모를 매일 관리할 시간, 더위와 실내 온도를 조절할 환경, 짧고 편안한 산책을 제공할 수 있는지 살펴야 합니다. 관리 접촉을 싫어하는 개체라면 적응 과정에 더 많은 시간이 듭니다.",
+      reality: "얼굴과 피모를 매일 관리할 시간, 더위와 실내 온도를 조절할 환경, 짧고 편안한 산책이 필요합니다. 관리 접촉을 싫어하는 개체는 천천히 적응시켜야 합니다.",
     },
     tendencies: {
       activity: { label: "중간", note: "짧은 산책과 실내 놀이를 무리하지 않게 나누어 제공할 수 있어요." },
@@ -266,7 +272,7 @@ export const detailBatchA = [
     story: {
       opening: "닥스훈트라는 이름은 독일어로 오소리 개라는 뜻과 연결됩니다. 낮고 긴 몸은 단순한 외형이 아니라 땅굴 속 사냥감을 추적하도록 발전한 역할의 흔적이며, 크기와 피모 유형도 하나로만 설명하기 어렵습니다.",
       roleToHome: "어두운 굴에서 냄새를 쫓고 스스로 결정을 내려야 했던 일은 오늘날 끈질긴 냄새 탐색, 파기, 물건 찾기, 뚜렷한 알림 소리로 보일 수 있습니다. 이는 가능한 경향이지 모든 닥스훈트의 행동을 미리 정하는 규칙은 아닙니다.",
-      reality: "산책 거리만 늘리기보다 코를 쓰는 시간과 안전한 탐색을 제공하고, 집에서는 반복되는 점프와 미끄럼을 줄이는 구조가 필요합니다. 고집이라는 표현으로 교육을 포기하지 말고 동기가 되는 보상과 짧은 단계로 협력 방식을 찾아보세요.",
+      reality: "코를 쓰는 탐색을 제공하고 집에서는 점프와 미끄럼을 줄여야 합니다. 고집으로 단정하지 말고 동기가 되는 보상과 짧은 단계로 협력 방식을 찾아보세요.",
     },
     tendencies: {
       activity: { label: "중간", note: "체형을 고려한 규칙적 산책과 냄새 탐색을 무리 없이 구성해야 해요." },
@@ -304,6 +310,7 @@ export const detailBatchA = [
         url: "https://www.akc.org/dog-breeds/dachshund/",
         checkedAt: completedAt,
       },
+      { title: "Dachshund History: The Badger Dog’s Fascinating Past", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/dachshund-history-badger-dog-breed/", checkedAt: "2026-08-29" },
     ],
   },
   {
@@ -337,7 +344,7 @@ export const detailBatchA = [
     story: {
       opening: "비글은 영국에서 작은 사냥감을 무리로 추적해 온 후각 하운드입니다. 이름의 어원에는 여러 설이 있어 이 초안에서는 확정하지 않으며, 코와 동료를 활용한 원래 작업에 초점을 맞춥니다.",
       roleToHome: "넓은 들판에서 냄새 길을 오래 따라가던 일은 오늘날 산책 중 멈춰 냄새를 분석하고, 숨긴 간식을 찾고, 목소리로 상태를 표현하는 장면으로 이어질 수 있습니다. 그러나 모든 비글이 같은 수준으로 짖거나 다른 개를 좋아하는 것은 아닙니다.",
-      reality: "운동장 몇 바퀴보다 냄새를 충분히 맡을 시간과 안전하게 추적할 환경이 중요할 수 있습니다. 호출 교육이 잘되더라도 냄새에 몰입하는 순간을 가정해 이탈 방지를 준비하고, 음식 접근과 소리 문제를 벌 대신 환경 설계와 연습으로 다뤄야 합니다.",
+      reality: "냄새를 충분히 맡고 안전하게 추적할 환경이 필요합니다. 냄새에 몰입할 순간을 대비해 이탈을 막고, 음식과 소리 문제는 벌보다 환경 설계와 연습으로 다뤄야 합니다.",
     },
     tendencies: {
       activity: { label: "높은 편", note: "지속적인 산책과 탐색 활동을 매일 제공할 수 있는지 먼저 계산해보세요." },
@@ -375,6 +382,7 @@ export const detailBatchA = [
         url: "https://www.akc.org/dog-breeds/beagle/",
         checkedAt: completedAt,
       },
+      { title: "Beagle History: From Ancient Small Pack-Hounds to Snoopy", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/beagle-history/", checkedAt: "2026-08-29" },
     ],
   },
   {
@@ -446,6 +454,12 @@ export const detailBatchA = [
         url: "https://www.akc.org/dog-breeds/english-cocker-spaniel/",
         checkedAt: completedAt,
       },
+      {
+        title: "English Cocker Spaniel History",
+        organization: "American Kennel Club",
+        url: "https://www.akc.org/expert-advice/dog-breeds/english-cocker-spaniel-history/",
+        checkedAt: "2026-08-29",
+      },
     ],
   },
   {
@@ -479,7 +493,7 @@ export const detailBatchA = [
     story: {
       opening: "래브라도 리트리버의 출발점은 이름과 달리 캐나다 뉴펀들랜드의 물가입니다. 어부 곁에서 물건을 회수하던 개들이 영국으로 건너가 물새 회수견으로 발전했다는 공식 설명이 오늘의 행동을 읽는 배경이 됩니다.",
       roleToHome: "차가운 물에서 물건을 찾아 사람에게 가져오던 일은 오늘날 물건 운반, 반복 회수 놀이, 물가 탐색, 사람과 함께 과제를 수행하는 장면으로 이어질 수 있습니다. 역할의 역사가 곧 모든 개체의 사교성이나 순종성을 보증하지는 않습니다.",
-      reality: "성견은 힘이 크고 젊은 시기에는 활동과 흥분의 규모도 상당할 수 있습니다. 긴 산책만이 아니라 냄새 찾기와 회수 과제, 인사 전 기다리기, 충분한 수면을 함께 설계하고 음식과 물놀이의 안전 기준도 미리 세워야 합니다.",
+      reality: "성견은 힘이 크고 젊을 때 활동과 흥분도 클 수 있습니다. 냄새 찾기·회수, 인사 전 기다리기, 충분한 수면을 함께 마련하고 음식과 물놀이 안전 기준도 세워야 합니다.",
     },
     tendencies: {
       activity: { label: "높은 편", note: "큰 체격에 맞는 충분한 운동과 관절에 무리 없는 회복을 함께 계획하세요." },
@@ -517,6 +531,7 @@ export const detailBatchA = [
         url: "https://www.akc.org/dog-breeds/labrador-retriever/",
         checkedAt: completedAt,
       },
+      { title: "Labrador Retriever History: From Water Dogs to Beloved Companions", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/labrador-retriever-history/", checkedAt: "2026-08-29" },
     ],
   },
   {
@@ -550,7 +565,7 @@ export const detailBatchA = [
     story: {
       opening: "골든 리트리버는 19세기 스코틀랜드에서 물과 육지를 오가며 새를 회수할 목적으로 발전한 건도그입니다. 사람과 가까이 협력하며 대상을 찾아 부드럽게 운반한 역사는 오늘의 생활 요구를 읽는 출발점입니다.",
       roleToHome: "냄새를 따라 대상을 찾고 입에 물어 사람에게 돌아오는 작업은 장난감 운반, 회수 놀이, 물가 탐색, 반복 학습으로 이어질 수 있습니다. 유명한 친화성 이미지도 낯선 사람·어린이·동물에 대한 개별 반응을 대신 확인해주지는 않습니다.",
-      reality: "털이 풍성한 중대형견과 사는 일에는 충분한 운동과 젖은 피모 건조, 빗질, 이동 공간, 노년기 돌봄까지 포함됩니다. 즐겁게 뛰는 시간만큼 흥분을 낮추고 혼자 쉬는 연습을 제공할 수 있는지가 중요한 생활 조건입니다.",
+      reality: "충분한 운동뿐 아니라 젖은 피모 건조, 빗질, 이동 공간과 노년기 돌봄까지 준비해야 합니다. 뛰는 시간만큼 흥분을 낮추고 혼자 쉬는 연습도 중요합니다.",
     },
     tendencies: {
       activity: { label: "높은 편", note: "지속적인 산책과 회수·탐색 활동, 충분한 회복 시간을 함께 마련하세요." },
@@ -590,6 +605,7 @@ export const detailBatchA = [
         url: "https://www.akc.org/dog-breeds/golden-retriever/",
         checkedAt: completedAt,
       },
+      { title: "Golden Retriever History: Behind the Breed’s Unfashionable Past", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/golden-retriever-history/", checkedAt: "2026-08-29" },
     ],
   },
 ] satisfies Breed[];

@@ -6,6 +6,7 @@ import { FamiliarBreedStart } from "@/components/familiar-breed-start";
 import { SiteHeader } from "@/components/site-header";
 import { breeds } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
+import { getStandardBreedDetail } from "@/content/standard-breed-detail/data";
 import { toDiscoverBreed } from "@/lib/discover-breeds";
 import styles from "./page.module.css";
 
@@ -36,7 +37,7 @@ export default function DiscoverPage() {
         </div>
         <FamiliarBreedStart breeds={breeds} />
         <Suspense fallback={<div className={styles.loading}>견종 필터를 준비하고 있어요.</div>}>
-          <DiscoverExplorer breeds={breeds.map(toDiscoverBreed)} />
+          <DiscoverExplorer breeds={breeds.map((breed) => toDiscoverBreed(breed, breed.slug === "poodle" || Boolean(getStandardBreedDetail(breed.slug))))} />
         </Suspense>
       </main>
     </>

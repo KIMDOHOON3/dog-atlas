@@ -27,11 +27,11 @@ describe("detail batch H mapping", () => {
     }
   });
 
-  it("keeps individual copy and two official sources", () => {
+  it("keeps individual copy and at least two official sources", () => {
     expect(new Set(detailBatchH.map((breed) => breed.tagline)).size).toBe(10);
     expect(new Set(detailBatchH.map((breed) => breed.story.reality)).size).toBe(10);
     for (const breed of detailBatchH) {
-      expect(breed.sources).toHaveLength(2);
+      expect(breed.sources.length).toBeGreaterThanOrEqual(2);
       expect(breed.sources[0].organization).toBe("Fédération Cynologique Internationale");
       expect(breed.sources[1].organization).toBe("American Kennel Club");
     }

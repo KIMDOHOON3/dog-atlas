@@ -1,6 +1,29 @@
 import type { Breed } from "./schema";
 
 const checkedAt = "2026-08-04";
+const historyAltOverrides: Partial<Record<string, string>> = {
+  "italian-sighthound": "유럽의 저택 뜰에서 사람들 곁을 가볍게 달리는 작은 이탈리안 그레이하운드를 그린 편집 수채화",
+  weimaraner: "중부 독일의 숲 가장자리에서 넓은 들을 향해 포인팅하며 사람과 협력하는 은회색 와이머라너를 그린 편집 수채화",
+  "chow-chow": "중국 북부의 안뜰에서 열린 대문 너머 움직임을 살피는 붉은 차우차우를 그린 편집 수채화",
+  "nova-scotia-duck-tolling-retriever": "노바스코샤 물가에서 갈대 뒤 사냥꾼과 협력해 나뭇가지를 물가로 옮기는 붉은 톨러를 그린 편집 수채화",
+  "old-english-sheepdog": "영국의 돌담길에서 사람과 함께 양 떼를 이동시키는 올드 잉글리시 시프도그를 그린 편집 수채화",
+  "cane-corso": "이탈리아 남부 농장의 열린 문 앞에서 사람과 가축 주변을 살피는 회색 카네 코르소를 그린 편집 수채화",
+  "bull-terrier": "19세기 영국 전람회에서 관람객이 흰색 불테리어의 체형을 살피는 장면을 그린 편집 수채화",
+  dalmatian: "말이 끄는 마차 곁에서 일정한 보폭으로 이동하는 흰 바탕에 검은 점이 있는 달마시안을 그린 편집 수채화",
+  "continental-toy-spaniel": "유럽 저택의 응접실에서 귀족 여성 곁을 바라보는 흰색과 갈색 파피용을 그린 편집 수채화",
+};
+
+const historySources: Partial<Record<string, { title: string; organization: string; url: string; checkedAt: string }[]>> = {
+  "italian-sighthound": [{ title: "Italian Greyhound History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/italian-greyhound-history/", checkedAt: "2026-08-29" }],
+  weimaraner: [{ title: "Weimaraner Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/lifestyle/fun-facts-weimaraner/", checkedAt: "2026-08-29" }],
+  "chow-chow": [{ title: "Chow Chow Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/lifestyle/fun-facts-chow-chow/", checkedAt: "2026-08-29" }],
+  "nova-scotia-duck-tolling-retriever": [{ title: "Nova Scotia Duck Tolling Retriever History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/nova-scotia-duck-tolling-retriever-history/", checkedAt: "2026-08-29" }],
+  "old-english-sheepdog": [{ title: "Old English Sheepdog Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/fun-facts-old-english-sheepdog/", checkedAt: "2026-08-29" }],
+  "cane-corso": [{ title: "Cane Corso Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/cane-corso-history/", checkedAt: "2026-08-29" }],
+  "bull-terrier": [{ title: "Bull Terrier Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/bull-terrier-history/", checkedAt: "2026-08-29" }],
+  dalmatian: [{ title: "Dalmatian Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/dalmatian-history/", checkedAt: "2026-08-29" }],
+  "continental-toy-spaniel": [{ title: "Papillon Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/news/pappy-anniversary-papillon-joins-akc-century-club/", checkedAt: "2026-08-29" }],
+};
 type Level = Breed["tendencies"][keyof Breed["tendencies"]]["label"];
 type DayStep = Breed["daySnapshot"][number];
 
@@ -29,6 +52,7 @@ type BatchESeed = {
   related: [[string, string], [string, string]];
   fciUrl: string;
   akcUrl: string;
+  evidenceUrl?: string;
 };
 
 const seeds: BatchESeed[] = [
@@ -161,6 +185,7 @@ const seeds: BatchESeed[] = [
     related: [["newfoundland", "초대형 작업견의 온화한 이미지와 물·산악 환경에서의 역할 차이를 비교해 보세요."], ["bernese-mountain-dog", "스위스 대형견 사이에서 수명과 체격, 피모·이동 부담을 함께 살펴보세요."]],
     fciUrl: "https://www.fci.be/Nomenclature/Standards/061g02-en.pdf",
     akcUrl: "https://www.akc.org/dog-breeds/st-bernard/",
+    evidenceUrl: "https://www.msdvetmanual.com/digestive-system/surgical-problems-of-the-gastrointestinal-tract-in-small-animals/gastric-dilation-and-volvulus-in-small-animals",
   },
   {
     slug: "weimaraner",
@@ -307,7 +332,7 @@ export const detailBatchE = seeds.map((seed) => ({
   catalog: { group: seed.group, discoveryTags: seed.tags },
   historyVisual: {
     src: `/illustrations/v3/${seed.slug}-history.webp`,
-    alt: `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화`,
+    alt: historyAltOverrides[seed.slug] ?? `${seed.nameKo}의 원래 역할과 생활 환경을 표현한 편집 수채화`,
   },
   identity: { origin: seed.origin, lineage: seed.lineage, originalRole: seed.role, size: seed.size, lifespan: seed.lifespan },
   behaviorClues: { originalRole: seed.originalRole, today: seed.today, guardianContext: seed.guardianContext },
@@ -327,5 +352,7 @@ export const detailBatchE = seeds.map((seed) => ({
   sources: [
     { title: `${seed.nameEn} breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
     { title: `${seed.nameEn} Dog Breed Information`, organization: "American Kennel Club", url: seed.akcUrl, checkedAt },
+    ...(historySources[seed.slug] ?? []),
+    ...(seed.evidenceUrl ? [{ title: "Gastric Dilation and Volvulus in Small Animals", organization: "MSD Veterinary Manual", url: seed.evidenceUrl, checkedAt: "2026-08-29" }] : []),
   ],
 })) satisfies Breed[];

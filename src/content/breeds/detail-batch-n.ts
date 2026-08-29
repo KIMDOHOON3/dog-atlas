@@ -2,6 +2,12 @@ import type { Breed } from "./schema";
 import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-07";
+const historyAltOverrides: Partial<Record<string, string>> = {
+  affenpinscher: "남부 독일의 오래된 마구간과 부엌 사이에서 작은 해충의 흔적을 살피는 검은 아펜핀셔를 그린 편집 수채화",
+};
+const historySources: Partial<Record<string, Breed["sources"]>> = {
+  affenpinscher: [{ title: "Affenpinscher Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/affenpinscher-history/", checkedAt: "2026-08-29" }],
+};
 type Group = "herding" | "guardian-working" | "terrier" | "spitz-primitive" | "scent-hound" | "pointing" | "retriever-spaniel" | "companion" | "sighthound";
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";
 type Seed = { slug: string; nameKo: string; nameEn: string; group: Group; origin: string; role: string; size: string; fciUrl: string; akcUrl?: string };
@@ -95,7 +101,7 @@ const makeBreed = (seed: Seed): Breed => {
     palette: { primary: m.colors[0], secondary: m.colors[1], ink: m.colors[2] },
     illustration: `/illustrations/v2/${seed.slug}-card.webp`,
     catalog: { group: seed.group, discoveryTags: [...m.tags, seed.origin] },
-    historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 기원과 원래 역할을 보여 주는 편집 초안 역사 장면` },
+    historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: historyAltOverrides[seed.slug] ?? `${seed.nameKo}의 기원과 원래 역할을 보여 주는 편집 초안 역사 장면` },
     identity: { origin: seed.origin, lineage: `${seed.origin}의 ${m.label} 계통에서 발전한 품종`, originalRole: seed.role, size: seed.size, lifespan: "개체와 생활 환경에 따라 달라지므로 공식 자료와 수의학적 상담을 함께 확인하세요." },
     behaviorClues: {
       originalRole: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역할과 환경 속에서 형성되었습니다. 과거의 역할이 현재 개체의 행동을 보장하지는 않지만 생활 과제를 설계할 때 참고가 될 수 있습니다.`,
@@ -126,6 +132,7 @@ const makeBreed = (seed: Seed): Breed => {
     sources: [
       { title: `${seed.nameEn} FCI breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
       ...(seed.akcUrl ? [{ title: `${seed.nameEn} Dog Breed Information`, organization: "American Kennel Club", url: seed.akcUrl, checkedAt }] : []),
+      ...(historySources[seed.slug] ?? []),
     ],
   };
 };
