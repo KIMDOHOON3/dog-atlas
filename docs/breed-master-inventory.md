@@ -87,7 +87,7 @@
 | mastiff | 마스티프 | Mastiff | 2 | definitive | later | verified-fci |
 | cane-corso | 카네 코르소 | Italian Cane Corso | 2 | definitive | later | verified-fci |
 | neapolitan-mastiff | 네아폴리탄 마스티프 | Neapolitan Mastiff | 2 | definitive | later | verified-fci |
-| newfoundland | 뉴펀랜드 | Newfoundland | 2 | definitive | later | verified-fci |
+| newfoundland | 뉴펀들랜드 | Newfoundland | 2 | definitive | later | verified-fci |
 | leonberger | 레온베르거 | Leonberger | 2 | definitive | later | verified-fci |
 | pyrenean-mountain-dog | 그레이트 피레니즈 | Pyrenean Mountain Dog | 2 | definitive | next | verified-fci |
 | saint-bernard | 세인트 버나드 | St. Bernard | 2 | definitive | later | verified-fci |
@@ -120,10 +120,10 @@
 | karelian-bear-dog | 카렐리안 베어 독 | Karelian Bear Dog | 5 | definitive | later | verified-fci |
 | norwegian-elkhound-grey | 노르웨이지안 엘크하운드 그레이 | Norwegian Elkhound Grey | 5 | definitive | later | verified-fci; ko-name-review |
 | norwegian-lundehund | 노르웨이지안 룬데훈트 | Norwegian Lundehund | 5 | definitive | later | verified-fci; ko-name-review |
-| finnish-lapponian-dog | 핀니시 라포니안 독 | Finnish Lapponian Dog | 5 | definitive | later | verified-fci; ko-name-review |
+| finnish-lapponian-dog | 핀니시 라프훈트 | Finnish Lapponian Dog | 5 | definitive | later | verified-fci |
 | icelandic-sheepdog | 아이슬란딕 시프독 | Icelandic Sheepdog | 5 | definitive | later | verified-fci |
 | swedish-vallhund | 스웨디시 발훈트 | Swedish Vallhund | 5 | definitive | later | verified-fci; ko-name-review |
-| german-spitz | 저먼 스피츠 | German Spitz | 5 | definitive | later | verified-fci; FCI-varieties |
+| german-spitz | 포메라니안 | German Spitz | 5 | definitive | later | verified-fci; FCI-varieties |
 | italian-volpino | 볼피노 이탈리아노 | Italian Volpino | 5 | definitive | later | verified-fci; ko-name-review |
 | chow-chow | 차우차우 | Chow Chow | 5 | definitive | later | verified-fci |
 | eurasier | 유라시어 | Eurasian | 5 | definitive | later | verified-fci; ko-name-review |
@@ -154,7 +154,7 @@
 | rhodesian-ridgeback | 로디지안 리지백 | Rhodesian Ridgeback | 6 | definitive | later | verified-fci |
 | german-short-haired-pointing-dog | 저먼 쇼트헤어드 포인터 | German Short-Haired Pointing Dog | 7 | definitive | later | verified-fci |
 | german-wire-haired-pointing-dog | 저먼 와이어헤어드 포인터 | German Wire-Haired Pointing Dog | 7 | definitive | later | verified-fci |
-| weimaraner | 와이머라너 | Weimaraner | 7 | definitive | later | verified-fci |
+| weimaraner | 와이마라너 | Weimaraner | 7 | definitive | later | verified-fci |
 | vizsla | 비즐라 | Hungarian Short-Haired Pointer (Vizsla) | 7 | definitive | later | verified-fci |
 | italian-pointing-dog | 브라코 이탈리아노 | Italian Pointing Dog | 7 | definitive | later | verified-fci; ko-name-review |
 | brittany-spaniel | 브리트니 스패니얼 | Brittany Spaniel | 7 | definitive | later | verified-fci |
@@ -183,11 +183,11 @@
 | maltese | 말티즈 | Maltese | 9 | definitive | core | verified-fci |
 | havanese | 하바니즈 | Havanese | 9 | definitive | later | verified-fci |
 | bolognese | 볼로네즈 | Bolognese | 9 | definitive | later | verified-fci |
-| coton-de-tulear | 코톤 드 툴레아르 | Coton de Tulear | 9 | definitive | later | verified-fci |
+| coton-de-tulear | 꼬똥 드 툴레아 | Coton de Tulear | 9 | definitive | later | verified-fci |
 | poodle | 푸들 | Poodle | 9 | definitive | next | verified-fci; FCI-varieties |
 | chinese-crested-dog | 차이니즈 크레스티드 독 | Chinese Crested Dog | 9 | definitive | later | verified-fci |
 | lhasa-apso | 라사압소 | Lhasa Apso | 9 | definitive | later | verified-fci |
-| shih-tzu | 시추 | Shih Tzu | 9 | definitive | next | verified-fci |
+| shih-tzu | 시츄 | Shih Tzu | 9 | definitive | next | verified-fci |
 | tibetan-spaniel | 티베탄 스패니얼 | Tibetan Spaniel | 9 | definitive | later | verified-fci |
 | tibetan-terrier | 티베탄 테리어 | Tibetan Terrier | 9 | definitive | later | verified-fci |
 | chihuahua | 치와와 | Chihuahua | 9 | definitive | next | verified-fci |
@@ -229,7 +229,7 @@
 | miniature-pinscher | 미니핀 |
 | west-highland-white-terrier | 웨스티 |
 | yorkshire-terrier | 요키, 요크셔 |
-| german-spitz | 포메라니안, 포메라니언, 포메, 키스혼드, 울프스피츠 |
+| german-spitz | 저먼 스피츠, 포메라니언, 포메리안, 포메라이언, 포메, 키스혼드, 울프스피츠 |
 | dachshund | 미니어처 닥스훈트, 카니헨 닥스훈트, 장모 닥스훈트, 단모 닥스훈트, 와이어 닥스훈트 |
 | poodle | 푸들, 스탠더드 푸들, 미디엄 푸들, 미니어처 푸들, 토이 푸들 |
 | korea-jindo-dog | 진도개, 진도견, 코리아 진도 독 |

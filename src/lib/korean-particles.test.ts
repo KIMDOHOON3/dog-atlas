@@ -36,7 +36,7 @@ describe("Korean particles", () => {
   });
 
   it("adds a natural connective particle", () => {
-    expect(withAndParticle("포메라이언")).toBe("포메라이언과");
+    expect(withAndParticle("포메라니안")).toBe("포메라니안과");
     expect(withAndParticle("치와와")).toBe("치와와와");
   });
 });

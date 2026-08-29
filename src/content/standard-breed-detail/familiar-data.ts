@@ -459,7 +459,7 @@ const dailyRealityImageAltOverrides: Partial<Record<(typeof familiarStandardSlug
   "continental-toy-spaniel": "공원에서 냄새 주머니와 리드를 정리한 보호자 곁 낮은 매트에 서 있는 흰색과 갈색 성견 파피용 삽화",
   dobermann: "산책 뒤 하네스와 느슨한 리드를 착용한 채 넓은 실내 매트에 누워 보호자 곁에서 쉬는 검정과 황갈색 성견 도베르만 삽화",
   "german-spitz": "거실의 낮은 매트에 엎드린 주황색 성견 포메라니안이 보호자의 손짓을 바라보는 삽화",
-  "shih-tzu": "거실 매트에 누운 흰색과 금색 성견 시추 곁에서 보호자가 빗과 관리 도구를 정리하는 삽화",
+  "shih-tzu": "거실 매트에 누운 흰색과 금색 성견 시츄 곁에서 보호자가 빗과 관리 도구를 정리하는 삽화",
   "korea-jindo-dog": "공원의 매트에 누운 백색 성견 진돗개와 편안한 거리를 두고 마주 앉은 보호자 삽화",
   "yorkshire-terrier": "거실 매트에 누운 청색과 황갈색 성견 요크셔 테리어 곁에서 보호자가 활동 도구를 정리하는 삽화",
   "welsh-corgi-pembroke": "창가의 낮은 매트에 몸을 길게 눕힌 적백색 성견 웰시 코기 펨브로크와 벤치에 앉은 보호자 삽화",

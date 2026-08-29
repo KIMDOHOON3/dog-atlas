@@ -3,7 +3,7 @@ import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-05";
 const historyAltOverrides: Partial<Record<string, string>> = {
-  "finnish-lapponian-dog": "북유럽 설원에서 사미 목축인과 함께 순록 무리의 바깥을 살피는 핀니시 라포니안 독을 그린 편집 수채화",
+  "finnish-lapponian-dog": "북유럽 설원에서 사미 목축인과 함께 순록 무리의 바깥을 살피는 핀니시 라프훈트를 그린 편집 수채화",
   "curly-coated-retriever": "영국의 물가에서 물새를 부드럽게 물고 사람에게 돌아오는 갈색 컬리 코티드 리트리버를 그린 편집 수채화",
   "clumber-spaniel": "영국 클럼버 파크의 숲에서 코를 낮추고 흔적을 찾는 흰색과 레몬색 클럼버 스패니얼을 그린 편집 수채화",
   barbet: "프랑스의 물풀과 강가에서 물새를 회수해 배 쪽으로 돌아오는 갈색과 흰색 바베를 그린 편집 수채화",

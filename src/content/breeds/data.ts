@@ -338,11 +338,16 @@ const draftBreeds = [
   ...detailBatchU,
 ] satisfies Breed[];
 
-export const breeds = breedCollectionSchema.parse(draftBreeds.map((breed) => (
-  breed.slug === "german-spitz"
-    ? { ...breed, nameKo: "포메라이언", nameEn: "Pomeranian" }
-    : breed
-)));
+const representativeNameOverrides: Partial<Record<string, Pick<Breed, "nameKo"> & Partial<Pick<Breed, "nameEn">>>> = {
+  "german-spitz": { nameKo: "포메라니안", nameEn: "Pomeranian" },
+  newfoundland: { nameKo: "뉴펀들랜드" },
+  "finnish-lapponian-dog": { nameKo: "핀니시 라프훈트" },
+};
+
+export const breeds = breedCollectionSchema.parse(draftBreeds.map((breed) => {
+  const override = representativeNameOverrides[breed.slug];
+  return override ? { ...breed, ...override } : breed;
+}));
 
 export function getBreed(slug: string) {
   return breeds.find((breed) => breed.slug === slug);

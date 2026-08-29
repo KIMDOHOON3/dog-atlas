@@ -68,7 +68,7 @@ describe("master breed catalog", () => {
   });
 
   it("resolves Korean search aliases for common varieties and spelling variants", () => {
-    expect(getMasterBreed("german-spitz")?.aliasesKo).toContain("포메라니안");
+    expect(getMasterBreed("german-spitz")?.aliasesKo).toContain("포메라이언");
     expect(getMasterBreed("belgian-malinois")?.aliasesKo).toContain("말리누아");
     expect(getMasterBreed("poodle")?.aliasesKo).toContain("토이 푸들");
     expect(getMasterBreed("maltese")?.nameKo).toBe("말티즈");
@@ -108,8 +108,22 @@ describe("master breed catalog", () => {
       "belgian-tervueren",
     ].every((slug) => getMasterBreed(slug)?.verificationNotes.some((note) => note.includes("바라이어티")))).toBe(true);
     expect(getMasterBreed("dachshund")?.varieties).toHaveLength(9);
-    expect(getMasterBreed("german-spitz")?.varieties.map((variety) => variety.nameKo)).toContain("포메라이언");
+    expect(getMasterBreed("german-spitz")?.varieties.map((variety) => variety.nameKo)).toContain("포메라니안");
     expect(getMasterBreed("poodle")?.varieties.map((variety) => variety.nameKo)).toContain("토이 푸들");
     expect(getMasterBreed("continental-toy-spaniel")?.varieties).toHaveLength(2);
+  });
+
+  it.each([
+    ["coton-de-tulear", "꼬똥 드 툴레아", ["코톤 드 툴레아르", "꼬동 드 툴레아"]],
+    ["german-spitz", "포메라니안", ["포메라이언", "포메라니언"]],
+    ["newfoundland", "뉴펀들랜드", ["뉴펀랜드"]],
+    ["weimaraner", "와이마라너", ["와이머라너", "바이마라너"]],
+    ["shih-tzu", "시츄", ["시추"]],
+    ["finnish-lapponian-dog", "핀니시 라프훈트", ["핀니시 라포니안 독", "핀란드 라프훈트"]],
+  ])("keeps familiar Korean names prominent and older spellings searchable for %s", (slug, nameKo, aliases) => {
+    const breed = getMasterBreed(slug);
+
+    expect(breed?.nameKo).toBe(nameKo);
+    expect(breed?.aliasesKo).toEqual(expect.arrayContaining(aliases));
   });
 });

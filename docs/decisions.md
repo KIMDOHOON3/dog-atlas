@@ -1,10 +1,23 @@
 # Decision log
 
+## 2026-08-29 — Gate every new breed detail during production
+
+- A new standard detail is not editorially complete when it merely renders. It must pass the shared identity and Korean-name, sourced measurements, breed-specific copy, image and scene alignment, browser and accessibility, and automated verification gates.
+- Research and complete one breed at a time; batches of one to three are the default working size. Do not multiply a shared draft across a batch before the first breed has passed its content and image gates.
+- Preserve veterinary, behavior, and conformation expert review as separate approval records. Passing the production gate means editorial readiness only and must never be presented as expert certification.
+- Use [`breed-detail-production-gate.md`](breed-detail-production-gate.md) as the operational source of truth and record each breed's evidence, aliases, scene audit, browser check, and verification result.
+
 ## 2026-08-29 — Stop standard-detail expansion at 100 breeds and begin review
 
 - Complete the Poodle-standard detail experience for exactly 100 breeds: Poodle's dedicated module plus 99 shared standard-detail records.
 - Add Scottish Terrier, Norwegian Elkhound Grey, Saluki, Irish Wolfhound, Bullmastiff, Staffordshire Bull Terrier, Chinese Crested Dog, Xoloitzcuintle, Coton de Tulear, Norwegian Lundehund, and West Highland White Terrier as the final eleven. The code audit found that the starting count was 89 including Poodle, not the previously reported 90.
 - Do not continue to a 101st standard detail. Keep the remaining catalog data as an internal expansion base while the next phase concentrates on selecting and reviewing a smaller trusted public collection.
+
+## 2026-08-29 — Prefer familiar Korean breed names and retain formal spellings as aliases
+
+- Use the Korean name most users are likely to recognize as the primary display label for the first 100 reviewed breeds. A registry transliteration is evidence for identity, but does not automatically make it the clearest product label.
+- Keep older labels, formal transliterations, spacing variants, and widely used alternate spellings as search aliases so existing links and user vocabulary continue to resolve to one breed detail.
+- Apply this rule to `꼬똥 드 툴레아`, `포메라니안`, `뉴펀들랜드`, `와이마라너`, `시츄`, and `핀니시 라프훈트` in the current audit. Revisit uncommon names with Korean kennel-club or established Korean breed references before public release.
 
 ## 2026-08-27 — Extend the standard detail beyond the familiar set with Greyhound
 
@@ -255,7 +268,7 @@ Use the global directional scroll control on any sufficiently long page. On `/di
 
 Apply the same 48-item incremental rendering to every `견종 모아보기` theme, while small collections naturally render in one batch. A jump-to-bottom action must continue following the document end while an infinite list appends new batches.
 
-Keep Pomeranian within the registered German Spitz entry rather than creating a duplicate catalog breed. Use `포메라이언` as the user-facing Korean label and retain common Korean spelling variants as search aliases.
+Keep Pomeranian within the registered German Spitz entry rather than creating a duplicate catalog breed. Use `포메라니안` as the user-facing Korean label and retain `포메라이언` and other common Korean spelling variants as search aliases.
 
 # 2026-08-17 — Expose the four Belgian Shepherd varieties as separate browse entries
 

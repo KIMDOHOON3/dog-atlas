@@ -68,7 +68,7 @@ describe("standard breed detail editorial data", () => {
     const detail = getStandardBreedDetail("german-spitz")!;
     const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body])].join(" ");
 
-    expect(copy).toContain("포메라이언");
+    expect(copy).toContain("포메라니안");
     expect(copy).not.toMatch(/울프스피츠|다섯 바라이어티|55cm/u);
     expect(detail.story.steps[1].image).toBe("/illustrations/v4/german-spitz-feature-cooperative-play.webp");
   });
