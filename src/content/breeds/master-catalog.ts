@@ -80,6 +80,7 @@ function getInclusionDetails(slug: string, status: RegistryStatus): InclusionDet
 }
 
 const aliasesKo: Partial<Record<string, string[]>> = {
+  "american-cocker-spaniel": ["아메리칸 코커 스파니엘", "아메리칸 코카 스패니얼", "아메리칸 코카 스파니엘", "아메리칸 코커"],
   "japanese-spitz": ["제패니즈 스피츠"],
   "shih-tzu": ["시추"],
   "english-cocker-spaniel": ["잉글리쉬 코커 스파니엘", "잉글리시 코커 스파니엘", "잉글리쉬 코커 스패니얼"],

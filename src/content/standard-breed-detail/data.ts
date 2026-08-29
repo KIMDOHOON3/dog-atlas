@@ -1,6 +1,14 @@
 import { standardBreedDetailSchema } from "./schema";
 import { milestoneStandardBreedDetails } from "./milestone-data";
 import { familiarStandardBreedDetails } from "./familiar-data";
+import { americanCockerSpanielDetail } from "./american-cocker-spaniel-data";
+import {
+  belgianGroenendaelDetail,
+  caucasianShepherdDogDetail,
+  expansionBatchAStandardBreedDetails,
+  mongolianBankharDetail,
+} from "./expansion-batch-a-data";
+import { expansionBatchBStandardBreedDetails } from "./expansion-batch-b-data";
 
 const japaneseSpitzDetail = standardBreedDetailSchema.parse({
   slug: "japanese-spitz",
@@ -3995,6 +4003,9 @@ const standardBreedDetails = new Map(
     ...milestoneStandardBreedDetails,
     ...familiarStandardBreedDetails,
     dalmatianDetail,
+    americanCockerSpanielDetail,
+    ...expansionBatchAStandardBreedDetails,
+    ...expansionBatchBStandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
 
@@ -4007,6 +4018,8 @@ export function getAllStandardBreedDetails() {
 }
 
 export {
+  americanCockerSpanielDetail,
+  belgianGroenendaelDetail,
   airedaleTerrierDetail,
   affenpinscherDetail,
   afghanHoundDetail,
@@ -4038,6 +4051,7 @@ export {
   collieRoughDetail,
   curlyCoatedRetrieverDetail,
   cavalierKingCharlesSpanielDetail,
+  caucasianShepherdDogDetail,
   dalmatianDetail,
   englishCockerSpanielDetail,
   englishSetterDetail,
@@ -4053,6 +4067,7 @@ export {
   japaneseSpitzDetail,
   malteseDetail,
   miniaturePinscherDetail,
+  mongolianBankharDetail,
   newfoundlandDetail,
   novaScotiaDuckTollingRetrieverDetail,
   oldEnglishSheepdogDetail,

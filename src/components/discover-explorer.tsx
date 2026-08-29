@@ -90,6 +90,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
   const filtersRef = useRef(filters);
   const reviewedOnlyRef = useRef(reviewedOnly);
   const results = useMemo(() => filterCoreEditorialReviewBreeds(filterBreeds(breeds, filters), reviewedOnly), [breeds, filters, reviewedOnly]);
+  const reviewedCount = useMemo(() => breeds.filter((breed) => breed.isCoreEditorialReviewComplete).length, [breeds]);
   const visibleResults = useMemo(() => results.slice(0, visibleCount), [results, visibleCount]);
   const activeCount = Object.values(filters).reduce((count, values) => count + values.length, reviewedOnly ? 1 : 0);
 
@@ -256,7 +257,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
         <div className={styles.reviewFilter}>
           <div><span>임시 검수 보기</span><small>편집 검수를 마친 핵심 상세만 모아 직접 확인해요.</small></div>
           <button type="button" aria-pressed={reviewedOnly} onClick={() => commitFilterState(filtersRef.current, !reviewedOnlyRef.current)}>
-            <span aria-hidden="true">{reviewedOnly ? "✓" : ""}</span>편집 검수 완료 100종
+            <span aria-hidden="true">{reviewedOnly ? "✓" : ""}</span>편집 검수 완료 {reviewedCount}종
           </button>
         </div>
 

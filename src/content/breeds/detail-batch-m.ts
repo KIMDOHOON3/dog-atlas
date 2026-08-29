@@ -1,6 +1,10 @@
 import type { Breed } from "./schema";
 import { withTopicParticle } from "../../lib/korean-particles";
 
+const historySources: Partial<Record<string, Breed["sources"]>> = {
+  komondor: [{ title: "Komondor FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/053g01-en.pdf", checkedAt: "2026-08-29" }],
+};
+
 const checkedAt = "2026-08-06";
 type Group = "herding" | "guardian-working" | "terrier" | "spitz-primitive" | "scent-hound" | "pointing";
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";
@@ -126,7 +130,10 @@ const makeBreed = (seed: Seed): Breed => {
       { time: "저녁", title: "차분한 교감", description: "짧은 교육과 접촉, 브러싱 등 편안한 루틴으로 마무리하세요." },
     ],
     related: m.related.map(([slug, reason]) => ({ slug, reason })),
-    sources: [{ title: `${seed.nameEn} FCI breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt }],
+    sources: [
+      { title: `${seed.nameEn} FCI breed standard`, organization: "Fédération Cynologique Internationale", url: seed.fciUrl, checkedAt },
+      ...(historySources[seed.slug] ?? []),
+    ],
   };
 };
 

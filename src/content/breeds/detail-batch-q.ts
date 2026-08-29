@@ -59,6 +59,7 @@ export const detailBatchQ = [
     sources: [
       { title: "Media Kit", organization: "Mongolian Bankhar Dog Project", url: "https://www.bankhar.org/press-kit/", checkedAt },
       { title: "Impact of livestock guardian dogs on livestock predation in rural Mongolia", organization: "Conservation Science and Practice", url: "https://conbio.onlinelibrary.wiley.com/doi/10.1111/csp2.509", checkedAt },
+      { title: "몽골 초원의 가축수호견 방카르 생활 사례", organization: "EBS", url: "https://www.youtube.com/watch?v=OhJCHkNyWug", checkedAt: "2026-08-29" },
     ],
   },
 ] satisfies Breed[];

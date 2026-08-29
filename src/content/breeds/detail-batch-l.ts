@@ -7,6 +7,9 @@ const historyAltOverrides: Partial<Record<string, string>> = {
 };
 const historySources: Partial<Record<string, Breed["sources"]>> = {
   "bedlington-terrier": [{ title: "Bedlington Terrier Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/bedlington-terrier-history/", checkedAt: "2026-08-29" }],
+  bolognese: [{ title: "Bolognese FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/196g09-en.pdf", checkedAt: "2026-08-29" }],
+  mudi: [{ title: "Mudi FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/238g01-en.pdf", checkedAt: "2026-08-29" }],
+  kooikerhondje: [{ title: "Nederlandse Kooikerhondje FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/314g08-en.pdf", checkedAt: "2026-08-29" }],
 };
 type Group = Exclude<Breed["catalog"]["group"], "northern-working" | "dachshund">;
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";
@@ -146,7 +149,7 @@ const seeds: Seed[] = [
   { slug: "field-spaniel", nameKo: "필드 스패니얼", nameEn: "Field Spaniel", group: "retriever-spaniel", origin: "영국", role: "들판과 숲에서 사냥감을 찾아내고 회수", size: "중형 · 약 43~46cm, 16~20kg", fciUrl: "https://www.fci.be/en/nomenclature/FIELD-SPANIEL-123.html" },
   { slug: "sussex-spaniel", nameKo: "서식스 스패니얼", nameEn: "Sussex Spaniel", group: "retriever-spaniel", origin: "영국", role: "숲과 덤불에서 사냥감을 찾아내는 조렵 작업", size: "중형 · 약 33~38cm, 16~20kg", fciUrl: "https://www.fci.be/en/nomenclature/SUSSEX-SPANIEL-127.html" },
   { slug: "wetterhoun", nameKo: "베터훈", nameEn: "Wetterhoun", group: "retriever-spaniel", origin: "네덜란드", role: "습지에서 수달과 물새를 추적·회수", size: "중형 · 약 55~59cm, 25~35kg", fciUrl: "https://www.fci.be/en/nomenclature/WETTERHOUN-221.html" },
-  { slug: "kooikerhondje", nameKo: "쿠이커혼제", nameEn: "Nederlandse Kooikerhondje", group: "retriever-spaniel", origin: "네덜란드", role: "오리 유인과 회수에 협력하는 수상 작업", size: "소형~중형 · 약 35~40cm, 9~11kg", fciUrl: "https://www.fci.be/en/nomenclature/NEDERLANDSE-KOOIKERHONDJE-314.html" },
+  { slug: "kooikerhondje", nameKo: "쿠이커혼제", nameEn: "Nederlandse Kooikerhondje", group: "retriever-spaniel", origin: "네덜란드", role: "오리 유인장에서 가림막 사이를 움직여 오리의 호기심을 끄는 작업", size: "소형~중형 · 약 35~40cm, 9~11kg", fciUrl: "https://www.fci.be/en/nomenclature/NEDERLANDSE-KOOIKERHONDJE-314.html" },
   { slug: "drentsche-patrijshond", nameKo: "드렌츠허 파트레이스훈트", nameEn: "Drentsche Patrijshond", group: "retriever-spaniel", origin: "네덜란드", role: "들판에서 새를 찾고 가리키며 회수", size: "중형 · 약 55~63cm, 20~25kg", fciUrl: "https://www.fci.be/en/nomenclature/DRENTSCHE-PATRIJSHOND-224.html" },
   { slug: "griffon-bruxellois", nameKo: "브뤼셀 그리폰", nameEn: "Griffon Bruxellois", group: "companion", origin: "벨기에", role: "도시 가정의 동반과 작은 해충 경계", size: "소형 · 약 18~28cm, 3.5~6kg", fciUrl: "https://www.fci.be/en/nomenclature/GRIFFON-BELGE-81.html" },
   { slug: "petit-brabancon", nameKo: "프티 브라방송", nameEn: "Petit Brabancon", group: "companion", origin: "벨기에", role: "도시 가정의 동반과 경계 알림", size: "소형 · 약 18~28cm, 3.5~6kg", fciUrl: "https://www.fci.be/en/nomenclature/PETIT-BRABANCON-82.html" },

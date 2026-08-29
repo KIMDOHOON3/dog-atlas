@@ -1,6 +1,8 @@
 # MVP scope
 
-## Detailed collection: 100 breeds
+## Detailed collection: 101 breeds and gated expansion
+
+The original 100-breed milestone remains the reviewed baseline. Further breeds may be added one at a time only after passing [`breed-detail-production-gate.md`](breed-detail-production-gate.md). The first post-milestone addition is American Cocker Spaniel.
 
 ### Core editorial set
 

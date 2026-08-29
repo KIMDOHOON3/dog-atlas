@@ -7,6 +7,8 @@ const historyAltOverrides: Partial<Record<string, string>> = {
 };
 const historySources: Partial<Record<string, Breed["sources"]>> = {
   affenpinscher: [{ title: "Affenpinscher Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/affenpinscher-history/", checkedAt: "2026-08-29" }],
+  "caucasian-shepherd-dog": [{ title: "세상에 나쁜 개는 없다: 코카시안 오브차카 생활 사례", organization: "EBS", url: "https://www.youtube.com/watch?v=l2w3ZqyBgEA", checkedAt: "2026-08-29" }],
+  "presa-canario": [{ title: "Presa Canario FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/346g02-en.pdf", checkedAt: "2026-08-29" }],
 };
 type Group = "herding" | "guardian-working" | "terrier" | "spitz-primitive" | "scent-hound" | "pointing" | "retriever-spaniel" | "companion" | "sighthound";
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";

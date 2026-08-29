@@ -3,6 +3,7 @@ import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-05";
 const historyAltOverrides: Partial<Record<string, string>> = {
+  "american-cocker-spaniel": "낮은 풀과 덤불이 있는 들판에서 새가 날아오르는 방향을 살피며 움직이는 황금색 성견 아메리칸 코커 스패니얼 편집 삽화",
   "finnish-lapponian-dog": "북유럽 설원에서 사미 목축인과 함께 순록 무리의 바깥을 살피는 핀니시 라프훈트를 그린 편집 수채화",
   "curly-coated-retriever": "영국의 물가에서 물새를 부드럽게 물고 사람에게 돌아오는 갈색 컬리 코티드 리트리버를 그린 편집 수채화",
   "clumber-spaniel": "영국 클럼버 파크의 숲에서 코를 낮추고 흔적을 찾는 흰색과 레몬색 클럼버 스패니얼을 그린 편집 수채화",
@@ -10,6 +11,10 @@ const historyAltOverrides: Partial<Record<string, string>> = {
   "italian-pointing-dog": "이탈리아 시골의 넓은 들에서 코를 높이 들고 사냥꾼 앞에서 방향을 가리키는 흰색과 주황색 브라코 이탈리아노를 그린 편집 수채화",
 };
 const historySources: Partial<Record<string, Breed["sources"]>> = {
+  "american-cocker-spaniel": [
+    { title: "Cocker Spaniel History: Behind America's Most Popular Dog Breed", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/cocker-spaniel-history/", checkedAt: "2026-08-29" },
+    { title: "Is the Cocker Spaniel a Good Fit for Your Lifestyle?", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/cocker-spaniel-right-for-you/", checkedAt: "2026-08-29" },
+  ],
   "finnish-lapponian-dog": [{ title: "Finnish Lapphund Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/finnish-lapphund-history/", checkedAt: "2026-08-29" }],
   "curly-coated-retriever": [{ title: "Curly-Coated Retriever Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/lifestyle/fun-facts-curly-coated-retriever/", checkedAt: "2026-08-29" }],
   "clumber-spaniel": [{ title: "Clumber Spaniel Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/clumber-spaniel-history/", checkedAt: "2026-08-29" }],

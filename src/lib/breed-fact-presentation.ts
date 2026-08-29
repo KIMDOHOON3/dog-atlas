@@ -254,6 +254,11 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
     height: "65~90cm",
     weight: "54~82kg",
   },
+  boerboel: {
+    size: "암컷 56~64cm · 수컷 61~69cm · 68~91kg",
+    height: "암컷 56~64cm · 수컷 61~69cm",
+    weight: "68~91kg",
+  },
 };
 
 function normalizeRange(value: string) {

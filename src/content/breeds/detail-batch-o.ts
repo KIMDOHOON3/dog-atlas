@@ -2,6 +2,10 @@ import type { Breed } from "./schema";
 import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-07";
+const supplementarySources: Partial<Record<string, Breed["sources"]>> = {
+  sapsaree: [{ title: "경산의 삽살개 외형과 보존 자료", organization: "한국삽살개재단", url: "https://www.sapsaree.org/", checkedAt: "2026-08-29" }],
+  donggyeongi: [{ title: "경주개 동경이 꼬리 형질 연구 보도자료", organization: "농촌진흥청", url: "https://www.rda.go.kr/board/boardfarminfo.do?CONTENT1=&dataNo=100000739174&mode=view&prgId=day_farmprmninfoEntry", checkedAt: "2026-08-29" }],
+};
 type Group = "herding" | "guardian-working" | "terrier" | "spitz-primitive" | "scent-hound" | "pointing" | "retriever-spaniel" | "companion" | "sighthound";
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";
 type Seed = {
@@ -175,7 +179,10 @@ const makeBreed = (seed: Seed): Breed => {
       { time: "저녁", title: "관계와 관리", description: "간단한 학습과 브러싱, 수분·식사 상태를 차분히 확인하세요." },
     ],
     related: m.related.map(([slug, reason]) => ({ slug, reason })),
-    sources: [{ title: sourceTitle, organization: sourceOrganization, url: sourceUrl, checkedAt }],
+    sources: [
+      { title: sourceTitle, organization: sourceOrganization, url: sourceUrl, checkedAt },
+      ...(supplementarySources[seed.slug] ?? []),
+    ],
   };
 };
 

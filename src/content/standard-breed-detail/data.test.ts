@@ -10,9 +10,92 @@ const publicFile = (assetPath: string) => join(process.cwd(), "public", assetPat
 describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
-  it("locks the Poodle-standard milestone at exactly 100 breed details", () => {
-    expect(details).toHaveLength(99);
+  it("keeps the gated expansion beyond the 100-breed milestone", () => {
+    expect(details).toHaveLength(113);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
+    expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
+    expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
+      "belgian-groenendael",
+      "caucasian-shepherd-dog",
+      "mongolian-bankhar",
+      "belgian-malinois",
+      "belgian-tervueren",
+      "komondor",
+      "boerboel",
+      "presa-canario",
+      "sapsaree",
+      "donggyeongi",
+      "mudi",
+      "bolognese",
+      "kooikerhondje",
+    ]));
+  });
+
+  it.each([
+    ["belgian-malinois", "양 떼", "움직이는 자극"],
+    ["belgian-tervueren", "가축", "긴 털"],
+    ["komondor", "가축 무리", "코드를"],
+    ["boerboel", "외딴 농장", "방문객"],
+    ["presa-canario", "소의 이동", "방문객"],
+    ["sapsaree", "집과 마을", "얼굴 털"],
+    ["donggyeongi", "경주", "귀와 눈"],
+    ["mudi", "가축", "알린 뒤"],
+    ["bolognese", "실내", "경사로"],
+    ["kooikerhondje", "오리", "물새"],
+  ])("connects ten-breed batch %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [
+      ...detail.story.steps.map((step) => step.image),
+      ...detail.realities.map((reality) => reality.image),
+    ];
+    const storyCopy = detail.story.steps.map((step) => `${step.title} ${step.body}`).join(" ");
+    const realityCopy = [detail.realitiesTitle, ...detail.realities.flatMap((reality) => [reality.title, reality.body])].join(" ");
+
+    expect(storyCopy).toContain(roleCopy);
+    expect(realityCopy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
+  });
+
+  it.each([
+    ["belgian-groenendael", "양 떼", "방문"],
+    ["caucasian-shepherd-dog", "거주지", "이중 경계"],
+    ["mongolian-bankhar", "가축 곁", "가축과의 결속"],
+  ])("connects %s history to a breed-specific lived reality", (slug, historyDetail, realityDetail) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [
+      ...detail.story.steps.map((step) => step.image),
+      ...detail.realities.map((reality) => reality.image),
+    ];
+
+    expect(detail.story.steps[0].body).toContain(historyDetail);
+    expect([detail.realitiesTitle, ...detail.realities.map((reality) => reality.title)].join(" ")).toContain(realityDetail);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
+  });
+
+  it("connects American Cocker history, present participation, and lived realities", () => {
+    const detail = getStandardBreedDetail("american-cocker-spaniel")!;
+    const breed = getBreed("american-cocker-spaniel")!;
+    const images = [
+      ...detail.story.steps.map((step) => step.image),
+      ...detail.realities.flatMap((reality) => reality.image ? [reality.image] : []),
+    ];
+
+    expect(detail.story.steps.map((step) => step.navLabel)).toEqual(["과거의 역할", "현재의 경향", "생활의 현실"]);
+    expect(detail.story.steps[0].body).toContain("조렵견");
+    expect(detail.story.steps[1].body).toContain("오늘날");
+    expect(detail.story.steps[2].body).toContain("매일");
+    expect(detail.realitiesTitle).toContain("악마견");
+    expect(detail.realities[0].body).toContain("과장돼 붙었어요");
+    expect(detail.realities[1].body).toContain("활동");
+    expect(detail.realities[1].body).toContain("피모");
+    expect(detail.realities[1].imageAlt).toContain("전신");
+    expect(detail.realities[1].imageAlt).not.toContain("클로즈업");
+    expect(detail.realities.every((reality) => Boolean(reality.image))).toBe(true);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
+    expect(breed.sources.some((source) => source.url.includes("cocker-spaniel-history"))).toBe(true);
   });
 
   it("covers every Korea-familiar breed through the standard detail or Poodle module", () => {
@@ -1243,7 +1326,10 @@ describe("standard breed detail editorial data", () => {
   });
 
   it.each(details)("keeps every $nameKo story and reality image distinct and available", (detail) => {
-    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const images = [
+      ...detail.story.steps.map((step) => step.image),
+      ...detail.realities.flatMap((reality) => reality.image ? [reality.image] : []),
+    ];
 
     expect(new Set(images).size).toBe(images.length);
     images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));

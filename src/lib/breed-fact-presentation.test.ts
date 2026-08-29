@@ -209,16 +209,48 @@ describe("breed fact presentation", () => {
   });
 
   it("gives every standard detail a structured size row instead of raw copy", () => {
-    const exceptions = new Set(["poodle", "dachshund", "pyrenean-mountain-dog"]);
+    const exceptions = new Set(["poodle", "dachshund", "pyrenean-mountain-dog", "mongolian-bankhar"]);
     const standardBreeds = breeds.filter((breed) => breed.slug === "poodle" || getStandardBreedDetail(breed.slug));
 
-    expect(standardBreeds).toHaveLength(100);
+    expect(standardBreeds).toHaveLength(114);
     for (const breed of standardBreeds) {
       if (exceptions.has(breed.slug)) continue;
       const rows = getBreedSizeFactRows(getBreedFactPresentation(breed));
       expect(rows.length, breed.slug).toBeGreaterThan(0);
       rows.forEach((row) => expect(row.value, `${breed.slug} ${row.label}`).not.toMatch(/(?:cm|kg)(?:이상|이하)/u));
     }
+  });
+
+  it("shows height and weight for every post-100 expansion, with an explicit landrace basis", () => {
+    const numericSizeSlugs = [
+      "american-cocker-spaniel",
+      "belgian-groenendael",
+      "caucasian-shepherd-dog",
+      "belgian-malinois",
+      "belgian-tervueren",
+      "komondor",
+      "boerboel",
+      "presa-canario",
+      "sapsaree",
+      "donggyeongi",
+      "mudi",
+      "bolognese",
+      "kooikerhondje",
+    ];
+
+    numericSizeSlugs.forEach((slug) => {
+      const facts = getBreedFactPresentation(getBreed(slug)!);
+      expect(facts.height, `${slug} height`).toBeTruthy();
+      expect(facts.weight, `${slug} weight`).toBeTruthy();
+    });
+
+    const bankharSize = getStandardBreedDetail("mongolian-bankhar")?.heroSizeDetails;
+    expect(bankharSize?.summaryRows).toEqual([
+      { label: "기준", value: "보존 프로젝트 평균" },
+      { label: "체고", value: "수컷 약 76cm" },
+      { label: "몸무게", value: "암컷 약 45kg · 수컷 약 54kg" },
+    ]);
+    expect(bankharSize?.items).toHaveLength(2);
   });
 
   it("normalizes the previously inconsistent size cards", () => {

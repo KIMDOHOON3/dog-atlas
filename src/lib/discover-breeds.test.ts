@@ -17,12 +17,15 @@ describe("discover breed DTO", () => {
     expect(result).not.toHaveProperty("careNotes");
   });
 
-  it("marks exactly the 100 core details that completed editorial review", () => {
+  it("marks every detail that completed the production gate", () => {
     const projected = breeds.map((breed) => toDiscoverBreed(breed, breed.slug === "poodle" || Boolean(getStandardBreedDetail(breed.slug))));
     const reviewed = filterCoreEditorialReviewBreeds(projected, true);
 
-    expect(reviewed).toHaveLength(100);
+    expect(reviewed).toHaveLength(114);
     expect(reviewed.some((breed) => breed.slug === "poodle")).toBe(true);
+    expect(reviewed.some((breed) => breed.slug === "american-cocker-spaniel")).toBe(true);
+    expect(reviewed.some((breed) => breed.slug === "mongolian-bankhar")).toBe(true);
+    expect(reviewed.some((breed) => breed.slug === "kooikerhondje")).toBe(true);
     expect(filterCoreEditorialReviewBreeds(projected, false)).toHaveLength(376);
   });
 

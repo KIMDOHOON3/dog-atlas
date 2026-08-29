@@ -1,13 +1,22 @@
 # Decision log
 
+## 2026-08-29 — Resume standard-detail expansion one gated breed at a time
+
+- The earlier stop at 100 was a review milestone, not a permanent product ceiling. Resume expansion only for a breed that completes the production gate in the same change.
+- Add American Cocker Spaniel as the first post-milestone detail. Follow the Poodle information flow: original role, how that role can appear today, what a guardian experiences in daily life, and two concrete lived realities.
+- Do not replace this flow with a conformation gallery, color catalog, or a new breed-specific layout. Keep Poodle's shared section and card structure unchanged; section 02 leads with the Korean `devil dog` nickname and then the combined activity-and-grooming workload, with one directly matching image per card.
+- Derive the temporary discovery filter count from completed detail data so later gated additions do not leave stale UI copy.
+
 ## 2026-08-29 — Gate every new breed detail during production
 
 - A new standard detail is not editorially complete when it merely renders. It must pass the shared identity and Korean-name, sourced measurements, breed-specific copy, image and scene alignment, browser and accessibility, and automated verification gates.
-- Research and complete one breed at a time; batches of one to three are the default working size. Do not multiply a shared draft across a batch before the first breed has passed its content and image gates.
+- Research and complete each breed through its own gate. Once the shared detail system is stable, up to ten independently written breeds may travel as one reviewable batch; do not multiply one shared draft across them.
 - Preserve veterinary, behavior, and conformation expert review as separate approval records. Passing the production gate means editorial readiness only and must never be presented as expert certification.
 - Use [`breed-detail-production-gate.md`](breed-detail-production-gate.md) as the operational source of truth and record each breed's evidence, aliases, scene audit, browser check, and verification result.
 
 ## 2026-08-29 — Stop standard-detail expansion at 100 breeds and begin review
+
+> Superseded later on 2026-08-29 by the gated one-breed-at-a-time expansion decision above. This entry remains as the record of the 100-breed review milestone.
 
 - Complete the Poodle-standard detail experience for exactly 100 breeds: Poodle's dedicated module plus 99 shared standard-detail records.
 - Add Scottish Terrier, Norwegian Elkhound Grey, Saluki, Irish Wolfhound, Bullmastiff, Staffordshire Bull Terrier, Chinese Crested Dog, Xoloitzcuintle, Coton de Tulear, Norwegian Lundehund, and West Highland White Terrier as the final eleven. The code audit found that the starting count was 89 including Poodle, not the previously reported 90.
@@ -459,3 +468,21 @@ Connect the Shetland farm-dog background to present-day attention to movement an
 Render every verified size measurement through one label-and-value row pattern instead of switching to raw source copy whenever either height or weight is absent. Show only the measurements the data supports: one available value remains one structured row, while equal unknown parent-dependent values collapse to a single `예상 크기` row.
 
 Keep Poodle and Dachshund variety details and sex-specific measurements in the same native disclosure pattern. The closed card must remain scannable with structured summary rows and an explicit `크기별 보기` or `성별 보기` action; the expanded list preserves the actual category names and measurements. Maintain an automated assertion that all 100 standard details have structured size presentation and add focused regression cases for prior outliers.
+
+# 2026-08-29 — Add Korean lived-experience sources to the breed-detail gate
+
+Use Korean breed-specific material, including Kang Hyung-wook's BodeumTV `견종백과`, alongside official standards when choosing the ownership questions and everyday realities that Korean readers are likely to recognize. Treat these videos as contextual editorial sources, not substitutes for registration standards, measurements, veterinary evidence, or direct historical sources.
+
+Do not generalize one featured dog, a provocative title, or isolated comments to an entire breed. Record the video URL and the specific lived-experience question it informed, and publish the point only as a tendency when it can be reconciled with the breed's documented role, activity, or care requirements.
+
+# 2026-08-29 — Keep post-100 expansion data in bounded batch modules
+
+Continue to render every new breed through the shared `StandardBreedDetailExperience`, interactions and Zod schema. Do not add per-breed page branches or duplicate layout components unless the information structure genuinely cannot be represented by the shared schema.
+
+Place each reviewable expansion in its own data module, then register the validated objects in the central detail map. This keeps source and copy review local, prevents the already large central data file from growing through every new breed, and preserves one UI implementation for performance and maintenance fixes.
+
+# 2026-08-29 — Increase established standard-detail batches to ten breeds
+
+Use ten breeds as the default expansion unit now that the shared renderer, schema, asset rules and production gate are stable. Keep the speed gain at the orchestration level only: every breed still needs its own documented role, Korean-readable copy, four distinct full-body life scenes, related-breed comparison and automated asset checks.
+
+Store each ten-breed set in one bounded content module and make no breed-specific UI component unless the shared information structure genuinely cannot represent the content. A failed or repetitive breed must be revised or withheld without lowering the gate for the other nine.

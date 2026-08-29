@@ -7,6 +7,7 @@ const historyAltOverrides: Partial<Record<string, string>> = {
   "bearded-collie": "스코틀랜드의 바위와 경사가 있는 목초지에서 양 떼를 목자 쪽으로 이동시키는 회색과 흰색 비어디드 콜리를 그린 편집 수채화",
 };
 const historySources: Partial<Record<string, Breed["sources"]>> = {
+  "belgian-groenendael": [{ title: "강형욱 첫사랑 공개합니다 | 견종백과 그로넨달편", organization: "강형욱의 보듬TV", url: "https://www.youtube.com/watch?v=XqeqKOUuim0", checkedAt: "2026-08-29" }],
   "tibetan-mastiff": [{ title: "Tibetan Mastiff Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/tibetan-mastiff-history-ancient-guardian-monasteries/", checkedAt: "2026-08-29" }],
   "bearded-collie": [{ title: "Bearded Collie Collection", organization: "American Kennel Club", url: "https://www.akc.org/about/american-kennel-club-archives/guide-collections/bearded-collie-collection/", checkedAt: "2026-08-29" }],
 };
