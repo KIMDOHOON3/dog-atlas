@@ -4,6 +4,7 @@ import { withTopicParticle } from "../../lib/korean-particles";
 const checkedAt = "2026-08-06";
 const historyAltOverrides: Partial<Record<string, string>> = {
   "bedlington-terrier": "잉글랜드 북부 광산 마을 가장자리의 들판에서 토끼 흔적을 찾는 청회색 베들링턴 테리어를 그린 편집 수채화",
+  "tibetan-spaniel": "티베트 수도원의 낮고 넓은 담 위 안전한 자리에서 승려 곁의 계곡 길을 살피는 티베탄 스패니얼을 그린 편집 수채화",
 };
 const historySources: Partial<Record<string, Breed["sources"]>> = {
   "bedlington-terrier": [{ title: "Bedlington Terrier Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/bedlington-terrier-history/", checkedAt: "2026-08-29" }],
@@ -109,7 +110,7 @@ const groupMeta: Record<Group, {
 
 const seeds: Seed[] = [
   { slug: "bolognese", nameKo: "볼로네즈", nameEn: "Bolognese", group: "companion", origin: "이탈리아", role: "귀족 가정의 동반과 교감", size: "소형 · 약 25~30cm, 2.5~4kg", fciUrl: "https://www.fci.be/en/nomenclature/BOLOGNESE-196.html" },
-  { slug: "tibetan-spaniel", nameKo: "티베탄 스패니얼", nameEn: "Tibetan Spaniel", group: "companion", origin: "티베트", role: "사원과 가정의 경계 알림 및 동반", size: "소형 · 약 24~26cm, 4~7kg", fciUrl: "https://www.fci.be/en/nomenclature/TIBETAN-SPANIEL-231.html" },
+  { slug: "tibetan-spaniel", nameKo: "티베탄 스패니얼", nameEn: "Tibetan Spaniel", group: "companion", origin: "티베트", role: "사원과 가정의 경계 알림 및 동반", size: "소형 · 약 24~26cm, 4~7kg", fciUrl: "https://www.fci.be/en/nomenclature/TIBETAN-SPANIEL-231.html", akcUrl: "https://www.akc.org/dog-breeds/tibetan-spaniel/" },
   { slug: "tibetan-terrier", nameKo: "티베탄 테리어", nameEn: "Tibetan Terrier", group: "companion", origin: "티베트", role: "수도원과 유목 가정의 동반·경계 알림", size: "중형 · 약 35~41cm, 8~14kg", fciUrl: "https://www.fci.be/en/nomenclature/TIBETAN-TERRIER-209.html" },
   { slug: "japanese-chin", nameKo: "재패니즈 친", nameEn: "Japanese Chin", group: "companion", origin: "일본", role: "궁정과 가정의 교감 중심 반려", size: "소형 · 약 20~27cm, 1.5~6kg", fciUrl: "https://www.fci.be/en/nomenclature/JAPANESE-CHIN-206.html" },
   { slug: "prague-ratter", nameKo: "프라하 라터", nameEn: "Prague Ratter", group: "companion", origin: "체코", role: "도시 가정의 작은 설치류 추적과 동반", size: "소형 · 약 21~23cm, 2~3kg", fciUrl: "https://www.fci.be/en/nomenclature/PRAGUE-RATTER-363.html" },

@@ -9,6 +9,7 @@ import {
   mongolianBankharDetail,
 } from "./expansion-batch-a-data";
 import { expansionBatchBStandardBreedDetails } from "./expansion-batch-b-data";
+import { americanAkitaDetail, bulldogDetail, expansionTo200Batch01StandardBreedDetails, finnishSpitzDetail, karelianBearDogDetail, lhasaApsoDetail, puliDetail, sharPeiDetail, tibetanSpanielDetail, welshCorgiCardiganDetail, whiteSwissShepherdDogDetail } from "./expansion-to-200-batch-01-data";
 
 const japaneseSpitzDetail = standardBreedDetailSchema.parse({
   slug: "japanese-spitz",
@@ -4006,6 +4007,7 @@ const standardBreedDetails = new Map(
     americanCockerSpanielDetail,
     ...expansionBatchAStandardBreedDetails,
     ...expansionBatchBStandardBreedDetails,
+    ...expansionTo200Batch01StandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
 
@@ -4075,6 +4077,16 @@ export {
   leonbergerDetail,
   pyreneanMountainDogDetail,
   portugueseWaterDogDetail,
+  puliDetail,
+  americanAkitaDetail,
+  bulldogDetail,
+  finnishSpitzDetail,
+  karelianBearDogDetail,
+  lhasaApsoDetail,
+  sharPeiDetail,
+  tibetanSpanielDetail,
+  whiteSwissShepherdDogDetail,
+  welshCorgiCardiganDetail,
   rhodesianRidgebackDetail,
   shetlandSheepdogDetail,
   schnauzerDetail,

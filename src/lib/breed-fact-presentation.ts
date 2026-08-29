@@ -11,6 +11,16 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  puli: { size: "36~45cm · 10~15kg", height: "36~45cm", weight: "10~15kg" },
+  "white-swiss-shepherd-dog": { size: "53~66cm · 25~40kg", height: "53~66cm", weight: "25~40kg" },
+  "welsh-corgi-cardigan": { size: "27~32cm · 11~17kg", height: "27~32cm", weight: "11~17kg" },
+  "shar-pei": { size: "44~51cm · 20~27kg", height: "44~51cm", weight: "20~27kg" },
+  bulldog: { size: "31~40cm · 18~25kg", height: "31~40cm", weight: "18~25kg" },
+  "american-akita": { size: "61~71cm · 32~59kg", height: "61~71cm", weight: "32~59kg" },
+  "finnish-spitz": { size: "39~50cm · 9~15kg", height: "39~50cm", weight: "9~15kg" },
+  "karelian-bear-dog": { size: "49~60cm · 17~28kg", height: "49~60cm", weight: "17~28kg" },
+  "lhasa-apso": { size: "25~28cm · 5~8kg", height: "25~28cm", weight: "5~8kg" },
+  "tibetan-spaniel": { size: "24~26cm · 4~7kg", height: "24~26cm", weight: "4~7kg" },
   "japanese-spitz": {
     size: "30~38cm · 5~11kg",
     height: "30~38cm",

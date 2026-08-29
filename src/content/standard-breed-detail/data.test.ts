@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(113);
+    expect(details).toHaveLength(123);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -28,8 +28,95 @@ describe("standard breed detail editorial data", () => {
       "mudi",
       "bolognese",
       "kooikerhondje",
+      "puli",
+      "white-swiss-shepherd-dog",
+      "welsh-corgi-cardigan",
+      "shar-pei",
+      "bulldog",
+      "american-akita",
+      "finnish-spitz",
+      "karelian-bear-dog",
+      "lhasa-apso",
+      "tibetan-spaniel",
     ]));
   });
+
+  it("connects the Puli herding role to distinct modern movement, rest, visitor, and cord-care scenes", () => {
+    const detail = getStandardBreedDetail("puli")!;
+    const images = [
+      ...detail.story.steps.map((step) => step.image),
+      ...detail.realities.map((reality) => reality.image),
+    ];
+    const copy = [
+      detail.heroStatement,
+      ...detail.story.steps.flatMap((step) => [step.title, step.body]),
+      ...detail.realities.flatMap((reality) => [reality.title, reality.body]),
+    ].join(" ");
+
+    expect(copy).toContain("양 떼");
+    expect(copy).toContain("곡선");
+    expect(copy).toContain("안전문");
+    expect(copy).toContain("코드");
+    expect(detail.heroSizeDetails?.summaryRows).toEqual([
+      { label: "체고", value: "성별로 다름" },
+      { label: "몸무게", value: "성별로 다름" },
+    ]);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
+  });
+
+  it.each([
+    ["puli", "양 떼", "코드"],
+    ["white-swiss-shepherd-dog", "북미", "이중모"],
+    ["welsh-corgi-cardigan", "소", "경사로"],
+    ["shar-pei", "중국 남부", "안전문"],
+    ["bulldog", "해로운 오락", "그늘"],
+    ["american-akita", "북미", "큰 이중모"],
+    ["finnish-spitz", "나무 위 새", "창 하단"],
+    ["karelian-bear-dog", "큰 사냥감", "야생동물"],
+    ["lhasa-apso", "수도원", "얇은 층"],
+    ["tibetan-spaniel", "높은 담", "보조 잠금"],
+  ])("connects 200-expansion batch-01 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [
+      ...detail.story.steps.map((step) => step.image),
+      ...detail.realities.map((reality) => reality.image),
+    ];
+    const copy = [
+      detail.heroStatement,
+      ...detail.story.steps.flatMap((step) => [step.title, step.body]),
+      ...detail.realities.flatMap((reality) => [reality.title, reality.body]),
+    ].join(" ");
+
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
+  });
+
+  it.each(["puli", "white-swiss-shepherd-dog", "american-akita", "karelian-bear-dog"])(
+    "keeps %s sex-specific numbers behind a compact size summary",
+    (slug) => {
+      const size = getStandardBreedDetail(slug)?.heroSizeDetails;
+      expect(size?.summaryRows).toEqual([
+        { label: "체고", value: "성별로 다름" },
+        { label: "몸무게", value: "성별로 다름" },
+      ]);
+      expect(size?.items).toHaveLength(2);
+    },
+  );
+
+  it("keeps Finnish Spitz sex-specific height compact without hiding its shared weight range", () => {
+    expect(getStandardBreedDetail("finnish-spitz")?.heroSizeDetails?.summaryRows).toEqual([
+      { label: "체고", value: "성별로 다름" },
+      { label: "몸무게", value: "약 9~15kg" },
+    ]);
+  });
+
+  it.each(["welsh-corgi-cardigan", "shar-pei", "bulldog", "lhasa-apso", "tibetan-spaniel"])(
+    "does not repeat %s simple height and weight in an expandable block",
+    (slug) => expect(getStandardBreedDetail(slug)?.heroSizeDetails).toBeUndefined(),
+  );
 
   it.each([
     ["belgian-malinois", "양 떼", "움직이는 자극"],

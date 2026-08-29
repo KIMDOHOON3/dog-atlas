@@ -244,8 +244,10 @@
   margin-top: 5px;
 }
 .poodleSizeDetails li strong {
+  min-width: 0;
   color: var(--ink);
   font-size: inherit;
+  overflow-wrap: anywhere;
   text-align: right;
 }
 .sizeMeasurements {
@@ -257,6 +259,8 @@
   grid-template-columns: max-content 1fr;
   align-items: baseline;
   gap: 6px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .sizeMeasurements small {
   color: var(--ink-soft);

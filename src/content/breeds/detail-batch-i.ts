@@ -5,6 +5,7 @@ const historyAltOverrides: Partial<Record<string, string>> = {
   leonberger: "독일 레온베르크의 물가 마을에서 사람 곁에 서서 수레를 끄는 레온베르거를 그린 편집 수채화",
   briard: "프랑스의 넓은 저지대 목초지에서 목자와 함께 양 떼의 이동을 살피는 황갈색 브리아드를 그린 편집 수채화",
   "collie-rough": "스코틀랜드 언덕 목초지에서 목동의 신호에 맞춰 양 떼 바깥을 움직이는 세이블 러프 콜리를 그린 편집 수채화",
+  puli: "헝가리 목초지에서 목동의 신호에 맞춰 양 떼 앞을 가로지르는 검은 성견 풀리를 그린 편집 수채화",
 };
 type Level = Breed["tendencies"][keyof Breed["tendencies"]]["label"];
 type DayStep = Breed["daySnapshot"][number];
@@ -87,7 +88,8 @@ const seeds: BatchISeed[] = [
     levels: ["높은 편", "높은 편", "중간", "높은 편", "높은 편", "높은 편"],
     days: [{ time: "아침", title: "민첩한 탐색", description: "걷기와 방향 과제를 함께해요." }, { time: "낮", title: "완전한 휴식", description: "흥분을 낮추고 편히 쉬게 해요." }, { time: "저녁", title: "코드 확인", description: "피부와 습기, 이물질을 살펴요." }],
     related: [["border-collie", "높은 목양 집중을 공유하지만 체격과 피모·몰이 방식이 달라요."], ["old-english-sheepdog", "풍성한 피모의 목양견 사이에서 코드 구조와 관리 차이를 살펴보세요."]],
-    fciUrl: "https://www.fci.be/en/nomenclature/Puli-55.html", akcUrl: "https://www.akc.org/dog-breeds/puli/",
+    fciUrl: "https://www.fci.be/en/nomenclature/PULI-55.html", akcUrl: "https://www.akc.org/dog-breeds/puli/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/puli-history/",
   },
   {
     slug: "schnauzer", nameKo: "스탠더드 슈나우저", nameEn: "Schnauzer",
@@ -122,7 +124,8 @@ const seeds: BatchISeed[] = [
     levels: ["중간", "중간", "높은 편", "중간", "높은 편", "중간"],
     days: [{ time: "아침", title: "조용한 산책", description: "붐비지 않는 길에서 냄새를 살펴요." }, { time: "낮", title: "독립 휴식", description: "방해받지 않는 자리를 마련해요." }, { time: "저녁", title: "피부 상태 확인", description: "눈·귀와 주름을 부드럽게 살펴요." }],
     related: [["chow-chow", "중국계 피모·혀 특징과 신중함을 공유하지만 체형과 털 관리가 달라요."], ["bullmastiff", "몰로서형 힘과 경계를 공유하되 체격·주름과 운동 부담이 크게 달라요."]],
-    fciUrl: "https://fci.be/en/nomenclature/SHAR-PEI-309.html", akcUrl: "https://www.akc.org/dog-breeds/chinese-shar-pei/",
+    fciUrl: "https://www.fci.be/en/nomenclature/SHAR-PEI-309.html", akcUrl: "https://www.akc.org/dog-breeds/chinese-shar-pei/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/chinese-shar-pei-history/",
   },
   {
     slug: "mastiff", nameKo: "마스티프", nameEn: "Mastiff",
@@ -214,7 +217,7 @@ const seeds: BatchISeed[] = [
     slug: "karelian-bear-dog", nameKo: "카렐리안 베어 도그", nameEn: "Karelian Bear Dog",
     tagline: "검정과 흰색의 선명한 몸에는 핀란드 숲에서 큰 사냥감의 흔적을 찾아 소리와 거리로 위치를 알리던 담대함이 있어요.",
     group: "spitz-primitive", tags: ["핀란드 북유럽 사냥견", "큰 사냥감 추적", "강한 발성과 독립성"], colors: ["#363b39", "#dfe1d6", "#242625"],
-    origin: "핀란드", lineage: "카렐리아 지역의 북유럽 스피츠형 사냥견", role: "숲에서 큰 사냥감을 추적하고 거리 두며 위치 알림", size: "중형 · 약 49~60cm, 20~23kg", lifespan: "약 11~13년 (AKC 참고, 개체별 차이 있음)",
+    origin: "핀란드", lineage: "카렐리아 지역의 북유럽 스피츠형 사냥견", role: "숲에서 큰 사냥감을 추적하고 거리 두며 위치 알림", size: "중형 · 수컷 약 54~60cm·25~28kg, 암컷 약 49~55cm·17~20kg", lifespan: "약 11~13년 (AKC 참고, 개체별 차이 있음)",
     originalRole: "핀란드와 카렐리아의 숲에서 큰 사냥감의 냄새를 찾아 독립적으로 이동하고, 안전한 거리를 유지하며 짖음으로 위치를 알렸습니다.",
     today: "냄새를 따라 멀리 움직이고 야생동물을 추적하거나 강한 목소리로 알릴 수 있지만 강도는 개체마다 달라요.",
     guardianContext: "오프리드 활동을 피하고 높은 울타리와 튼튼한 장비를 사용하며, 다른 동물·개와의 거리는 실제 반응에 맞춰 관리하세요.",
@@ -225,7 +228,7 @@ const seeds: BatchISeed[] = [
     levels: ["높은 편", "높은 편", "높은 편", "중간", "높은 편", "중간"],
     days: [{ time: "아침", title: "긴 숲길 추적", description: "리드 안에서 냄새를 충분히 따라요." }, { time: "낮", title: "독립 회복", description: "시원하고 조용한 자리에서 쉬어요." }, { time: "저녁", title: "알림 전환", description: "소리 뒤 돌아와 쉬는 연습을 해요." }],
     related: [["norwegian-elkhound-grey", "큰 사냥감 추적과 발성을 공유하지만 체형·피모색과 작업 방식이 달라요."], ["finnish-spitz", "핀란드 사냥 스피츠의 발성을 공유하며 목표 사냥감과 체격을 비교해 보세요."]],
-    fciUrl: "https://fci.be/en/nomenclature/KARELIAN-BEAR-DOG-48.html", akcUrl: "https://www.akc.org/dog-breeds/karelian-bear-dog/",
+    fciUrl: "https://www.fci.be/en/nomenclature/KARELIAN-BEAR-DOG-48.html", akcUrl: "https://www.akc.org/dog-breeds/karelian-bear-dog/",
   },
   {
     slug: "norwegian-lundehund", nameKo: "노르웨이안 룬데훈트", nameEn: "Norwegian Lundehund",
