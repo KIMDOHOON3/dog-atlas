@@ -3,10 +3,19 @@ import { withTopicParticle } from "../../lib/korean-particles";
 
 const checkedAt = "2026-08-05";
 const historyAltOverrides: Partial<Record<string, string>> = {
+  "belgian-laekenois": "벨기에 라컨 왕실 영지의 들판에 널어둔 아마포 곁을 지키는 거친 황갈색 라케노이즈를 그린 편집 수채화",
+  "czechoslovakian-wolfdog": "옛 체코슬로바키아 국경의 긴 산길을 순찰자와 함께 이동하는 회색 울프도그를 그린 편집 수채화",
+  "bouvier-des-flandres": "플랑드르 농장에서 소 떼의 길을 막아 방향을 바꾸고 수레 일을 돕는 검은 부비에 데 플랑드르를 그린 편집 수채화",
+  "miniature-american-shepherd": "미국 로데오 경기장의 말과 이동식 패널 곁에서 작은 가축을 모으는 미니어처 아메리칸 셰퍼드를 그린 편집 수채화",
+  "dogo-argentino": "아르헨티나의 넓은 지형에서 무리와 함께 큰 사냥감의 냄새를 추적하는 흰 도고 아르헨티노를 그린 편집 수채화",
   "tibetan-mastiff": "티베트 고원의 유목민 천막과 사원, 야크가 보이는 경계에 선 검정과 황갈색 티베탄 마스티프를 그린 편집 수채화",
   "bearded-collie": "스코틀랜드의 바위와 경사가 있는 목초지에서 양 떼를 목자 쪽으로 이동시키는 회색과 흰색 비어디드 콜리를 그린 편집 수채화",
 };
 const historySources: Partial<Record<string, Breed["sources"]>> = {
+  "belgian-laekenois": [{ title: "Meet the Newest AKC-Recognized Breed: Belgian Laekenois", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/newest-recognized-breed-belgian-laekenois/", checkedAt: "2026-08-30" }],
+  "bouvier-des-flandres": [{ title: "Bouvier des Flandres History: Belgium's Farm Dog", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/bouvier-des-flandres-history-belgiums-farm-dog-germanys-enemy/", checkedAt: "2026-08-30" }],
+  "miniature-american-shepherd": [{ title: "Miniature American Shepherd Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/miniature-american-shepherd-history/", checkedAt: "2026-08-30" }],
+  "dogo-argentino": [{ title: "Dogo Argentino History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/dogo-argentino-history/", checkedAt: "2026-08-30" }],
   "belgian-groenendael": [{ title: "강형욱 첫사랑 공개합니다 | 견종백과 그로넨달편", organization: "강형욱의 보듬TV", url: "https://www.youtube.com/watch?v=XqeqKOUuim0", checkedAt: "2026-08-29" }],
   "tibetan-mastiff": [{ title: "Tibetan Mastiff Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/tibetan-mastiff-history-ancient-guardian-monasteries/", checkedAt: "2026-08-29" }],
   "bearded-collie": [{ title: "Bearded Collie Collection", organization: "American Kennel Club", url: "https://www.akc.org/about/american-kennel-club-archives/guide-collections/bearded-collie-collection/", checkedAt: "2026-08-29" }],

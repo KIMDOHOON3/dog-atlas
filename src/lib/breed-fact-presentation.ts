@@ -11,6 +11,16 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  "icelandic-sheepdog": { size: "42~46cm · 9~14kg", height: "42~46cm", weight: "9~14kg" },
+  "dutch-shepherd-dog": { size: "55~62cm · 19~34kg", height: "55~62cm", weight: "19~34kg" },
+  mastiff: { size: "70cm 이상 · 54~104kg", height: "70cm 이상", weight: "54~104kg" },
+  "soft-coated-wheaten-terrier": { size: "43~48cm · 14~18kg", height: "43~48cm", weight: "14~18kg" },
+  otterhound: { size: "61~69cm · 36~52kg", height: "61~69cm", weight: "36~52kg" },
+  "belgian-laekenois": { size: "56~66cm · 20~30kg", height: "56~66cm", weight: "20~30kg" },
+  "czechoslovakian-wolfdog": { size: "60cm 이상 · 20kg 이상", height: "60cm 이상", weight: "20kg 이상" },
+  "bouvier-des-flandres": { size: "59~68cm · 27~40kg", height: "59~68cm", weight: "27~40kg" },
+  "miniature-american-shepherd": { size: "33~46cm · 9~18kg", height: "33~46cm", weight: "9~18kg" },
+  "dogo-argentino": { size: "61~67cm · 40~45kg", height: "61~67cm", weight: "40~45kg" },
   puli: { size: "36~45cm · 10~15kg", height: "36~45cm", weight: "10~15kg" },
   "white-swiss-shepherd-dog": { size: "53~66cm · 25~40kg", height: "53~66cm", weight: "25~40kg" },
   "welsh-corgi-cardigan": { size: "27~32cm · 11~17kg", height: "27~32cm", weight: "11~17kg" },

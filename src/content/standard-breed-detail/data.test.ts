@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(123);
+    expect(details).toHaveLength(133);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -38,6 +38,16 @@ describe("standard breed detail editorial data", () => {
       "karelian-bear-dog",
       "lhasa-apso",
       "tibetan-spaniel",
+      "icelandic-sheepdog",
+      "dutch-shepherd-dog",
+      "mastiff",
+      "soft-coated-wheaten-terrier",
+      "otterhound",
+      "belgian-laekenois",
+      "czechoslovakian-wolfdog",
+      "bouvier-des-flandres",
+      "miniature-american-shepherd",
+      "dogo-argentino",
     ]));
   });
 

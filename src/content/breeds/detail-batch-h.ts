@@ -2,6 +2,7 @@ import type { Breed } from "./schema";
 
 const checkedAt = "2026-08-04";
 const historyAltOverrides: Partial<Record<string, string>> = {
+  "icelandic-sheepdog": "아이슬란드의 바람 부는 농경지에서 양과 말을 모으고 보호자에게 위치를 알리는 아이슬란딕 시프도그를 그린 편집 수채화",
   beauceron: "프랑스의 넓은 평야에서 목자와 함께 양 떼의 이동을 이끄는 검정과 황갈색 보스롱을 그린 편집 수채화",
   "english-setter": "영국의 넓은 습지 들에서 새 앞에 몸을 낮춰 멈춘 성견 잉글리시 세터를 그린 편집 수채화",
   "chesapeake-bay-retriever": "바람 부는 체서피크만에서 회수 도구를 물고 낮은 부두의 사람에게 돌아오는 갈색 체서피크 베이 리트리버를 그린 편집 수채화",
@@ -92,6 +93,7 @@ const seeds: BatchHSeed[] = [
     days: [{ time: "아침", title: "움직임과 탐색", description: "넉넉히 걷고 방향 신호를 맞춰요." }, { time: "낮", title: "시원한 휴식", description: "두꺼운 털이 식도록 편히 쉬게 해요." }, { time: "저녁", title: "알림 전환", description: "소리 뒤 돌아와 쉬는 행동을 연습해요." }],
     related: [["finnish-spitz", "북유럽 스피츠의 외형과 발성을 공유하지만 사냥과 목양이라는 역할이 달라요."], ["shetland-sheepdog", "섬 환경의 목양과 풍부한 알림을 공유하며 체형과 피모를 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/ICELANDIC-SHEEPDOG-289.html", akcUrl: "https://www.akc.org/dog-breeds/icelandic-sheepdog/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/icelandic-sheepdog-history-beloved-scandinavian-symbol/",
   },
   {
     slug: "rhodesian-ridgeback", nameKo: "로디지안 리지백", nameEn: "Rhodesian Ridgeback",

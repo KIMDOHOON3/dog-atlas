@@ -2,6 +2,10 @@ import type { Breed } from "./schema";
 
 const checkedAt = "2026-08-05";
 const historyAltOverrides: Partial<Record<string, string>> = {
+  "dutch-shepherd-dog": "네덜란드 농경지의 밭 경계를 따라 양 떼를 작물에서 떨어뜨리는 브린들 더치 셰퍼드 독을 그린 편집 수채화",
+  mastiff: "영국 영지의 대문 가까이에서 낯선 접근을 감시하는 검은 마스크의 거대한 마스티프를 그린 편집 수채화",
+  "soft-coated-wheaten-terrier": "아일랜드 농가에서 해충을 찾고 가축 이동과 집 주변 알림을 돕는 밀빛 위튼 테리어를 그린 편집 수채화",
+  otterhound: "영국의 강과 하천에서 물속 냄새를 따라가는 거친 방수 털과 물갈퀴 발의 오터하운드를 그린 편집 수채화",
   leonberger: "독일 레온베르크의 물가 마을에서 사람 곁에 서서 수레를 끄는 레온베르거를 그린 편집 수채화",
   briard: "프랑스의 넓은 저지대 목초지에서 목자와 함께 양 떼의 이동을 살피는 황갈색 브리아드를 그린 편집 수채화",
   "collie-rough": "스코틀랜드 언덕 목초지에서 목동의 신호에 맞춰 양 떼 바깥을 움직이는 세이블 러프 콜리를 그린 편집 수채화",
@@ -143,6 +147,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "서늘한 보행", description: "차분하게 걷고 주변 냄새를 봐요." }, { time: "낮", title: "넓은 휴식", description: "큰 몸을 받치는 자리를 마련해요." }, { time: "저녁", title: "이동 신호", description: "자리와 차량 이동을 짧게 연습해요." }],
     related: [["bullmastiff", "영국 마스티프형 체격을 공유하지만 형성 시기와 크기·활동 리듬이 달라요."], ["great-dane", "초대형견의 생활 부담을 공유하며 골격과 원래 역할의 차이를 비교해 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/MASTIFF-264.html", akcUrl: "https://www.akc.org/dog-breeds/mastiff/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/mastiff-history/",
   },
   {
     slug: "leonberger", nameKo: "레온베르거", nameEn: "Leonberger",
@@ -212,6 +217,7 @@ const seeds: BatchISeed[] = [
     days: [{ time: "아침", title: "농장견식 탐색", description: "걷기와 냄새 찾기를 길게 해요." }, { time: "낮", title: "차분한 회복", description: "흥분을 낮추고 편히 쉬게 해요." }, { time: "저녁", title: "놀이와 빗질", description: "협력 놀이 뒤 피모를 살펴요." }],
     related: [["airedale-terrier", "다목적 농장 테리어의 체력과 협력을 공유하지만 체격·피모가 달라요."], ["border-terrier", "작업 테리어의 탐색을 공유하며 체격과 부드러운 장모 관리의 차이를 보세요."]],
     fciUrl: "https://www.fci.be/en/nomenclature/IRISH-SOFT-COATED-WHEATEN-TERRIER-40.html", akcUrl: "https://www.akc.org/dog-breeds/soft-coated-wheaten-terrier/",
+    historyUrl: "https://www.akc.org/expert-advice/dog-breeds/soft-coated-wheaten-terrier-history-ireland/",
   },
   {
     slug: "karelian-bear-dog", nameKo: "카렐리안 베어 도그", nameEn: "Karelian Bear Dog",
