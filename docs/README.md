@@ -59,6 +59,7 @@
 - [`image-prompts-american-cocker-spaniel-standard-2026-08-29.md`](image-prompts-american-cocker-spaniel-standard-2026-08-29.md) — 100종 이후 첫 게이트 확장인 아메리칸 코커 스패니얼의 근거·원고 축·이미지 제작과 중복 장면 폐기 기록
 - [`image-prompts-expansion-batch-a-2026-08-29.md`](image-prompts-expansion-batch-a-2026-08-29.md) — 그로넨달·코카시안 셰퍼드·몽골 방카르의 국내외 근거, 12개 전신 생활 장면 프롬프트와 파일 매핑
 - [`image-prompts-expansion-batch-b-10-breeds-2026-08-29.md`](image-prompts-expansion-batch-b-10-breeds-2026-08-29.md) — 10종 단위 첫 표준 상세 확장의 공식 근거, 견종별 생활 장면 40개, 원본·WebP 매핑과 폐기 기록
+- [`image-prompts-expansion-to-300-batch-01-2026-08-31.md`](image-prompts-expansion-to-300-batch-01-2026-08-31.md) — 300종 확장 첫 제작 초안 10종의 공식 크기·역할 근거, 신규 생활 장면 40개와 `production-draft` 판정 기록
 
 배치 A·B 문서는 현재 전체 368종 자산 목록이 아니라 초기 제작 배치의 재현 기록이다. 최신 외형 점검 상태는 `breed-visual-audit.md`를 기준으로 본다.
 

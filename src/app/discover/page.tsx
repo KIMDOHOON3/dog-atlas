@@ -37,7 +37,10 @@ export default function DiscoverPage() {
         </div>
         <FamiliarBreedStart breeds={breeds} />
         <Suspense fallback={<div className={styles.loading}>견종 필터를 준비하고 있어요.</div>}>
-          <DiscoverExplorer breeds={breeds.map((breed) => toDiscoverBreed(breed, breed.slug === "poodle" || Boolean(getStandardBreedDetail(breed.slug))))} />
+          <DiscoverExplorer breeds={breeds.map((breed) => {
+            const detail = getStandardBreedDetail(breed.slug);
+            return toDiscoverBreed(breed, breed.slug === "poodle" || detail?.reviewStatus === "editorial-reviewed");
+          })} />
         </Suspense>
       </main>
     </>

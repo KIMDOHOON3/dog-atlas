@@ -212,7 +212,7 @@ describe("breed fact presentation", () => {
     const exceptions = new Set(["poodle", "dachshund", "pyrenean-mountain-dog", "mongolian-bankhar"]);
     const standardBreeds = breeds.filter((breed) => breed.slug === "poodle" || getStandardBreedDetail(breed.slug));
 
-    expect(standardBreeds).toHaveLength(200);
+    expect(standardBreeds).toHaveLength(210);
     for (const breed of standardBreeds) {
       if (exceptions.has(breed.slug)) continue;
       const rows = getBreedSizeFactRows(getBreedFactPresentation(breed));
@@ -310,6 +310,16 @@ describe("breed fact presentation", () => {
       "german-long-haired-pointer",
       "french-spaniel",
       "braque-saint-germain",
+      "american-pit-bull-terrier",
+      "american-bully",
+      "blue-picardy-spaniel",
+      "field-spaniel",
+      "sussex-spaniel",
+      "wetterhoun",
+      "drentsche-patrijshond",
+      "griffon-bruxellois",
+      "petit-brabancon",
+      "russian-toy",
     ];
 
     numericSizeSlugs.forEach((slug) => {

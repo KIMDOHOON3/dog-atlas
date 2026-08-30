@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(199);
+    expect(details).toHaveLength(209);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -115,7 +115,39 @@ describe("standard breed detail editorial data", () => {
       "german-long-haired-pointer",
       "french-spaniel",
       "braque-saint-germain",
+      "american-pit-bull-terrier",
+      "american-bully",
+      "blue-picardy-spaniel",
+      "field-spaniel",
+      "sussex-spaniel",
+      "wetterhoun",
+      "drentsche-patrijshond",
+      "griffon-bruxellois",
+      "petit-brabancon",
+      "russian-toy",
     ]));
+  });
+
+  it.each([
+    ["american-pit-bull-terrier", "소·돼지", "이중 출입"],
+    ["american-bully", "가족 반려", "넓은 회전"],
+    ["blue-picardy-spaniel", "피카디", "풀씨"],
+    ["field-spaniel", "플러싱", "낮고 넓은 발판"],
+    ["sussex-spaniel", "목소리", "황금빛 간색"],
+    ["wetterhoun", "수달", "곱슬털"],
+    ["drentsche-patrijshond", "드렌터", "긴 줄"],
+    ["griffon-bruxellois", "마구간", "수염"],
+    ["petit-brabancon", "스무제", "찬 바닥"],
+    ["russian-toy", "1958년", "사람 발"],
+  ])("connects 300-expansion batch-01 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body]), ...detail.realities.flatMap((reality) => [reality.title, reality.body])].join(" ");
+    expect(detail.reviewStatus).toBe("production-draft");
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
   });
 
   it.each([

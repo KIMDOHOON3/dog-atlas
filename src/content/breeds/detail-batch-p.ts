@@ -1,6 +1,6 @@
 import type { Breed } from "./schema";
 
-const checkedAt = "2026-08-09";
+const checkedAt = "2026-08-30";
 
 export const detailBatchP = [
   {
@@ -56,7 +56,10 @@ export const detailBatchP = [
       { slug: "american-bully", reason: "공유하는 계통과 서로 다른 체형·현대 역할을 같은 기준으로 비교해 보세요." },
       { slug: "american-staffordshire-terrier", reason: "가까운 역사적 계통에서 등록 기준과 체형 표현이 어떻게 달라지는지 살펴보세요." },
     ],
-    sources: [{ title: "American Pit Bull Terrier Breed Standard", organization: "United Kennel Club", url: "https://www.ukcdogs.com/american-pit-bull-terrier", checkedAt }],
+    sources: [
+      { title: "American Pit Bull Terrier Breed Standard", organization: "United Kennel Club", url: "https://www.ukcdogs.com/american-pit-bull-terrier", checkedAt },
+      { title: "Official UKC American Pit Bull Terrier Breed Standard (PDF)", organization: "United Kennel Club", url: "https://www.ukcdogs.com/docs/breeds/american-pit-bull-terrier.pdf", checkedAt },
+    ],
   },
   {
     slug: "american-bully",
@@ -111,6 +114,9 @@ export const detailBatchP = [
       { slug: "american-pit-bull-terrier", reason: "형성에 영향을 준 계통과 현재의 체형·역할 차이를 함께 살펴보세요." },
       { slug: "american-staffordshire-terrier", reason: "비슷해 보이는 외형보다 등록 기준과 균형 잡힌 체형의 차이를 비교해 보세요." },
     ],
-    sources: [{ title: "American Bully Breed Standard", organization: "United Kennel Club", url: "https://www.ukcdogs.com/breed-groups/american-bully", checkedAt }],
+    sources: [
+      { title: "American Bully Breed Standard", organization: "United Kennel Club", url: "https://www.ukcdogs.com/american-bully", checkedAt },
+      { title: "American Bully Breed Standard Update", organization: "United Kennel Club", url: "https://www.ukcdogs.com/article/american-bully-breed-standard-update?news_id=3", checkedAt },
+    ],
   },
 ] satisfies Breed[];

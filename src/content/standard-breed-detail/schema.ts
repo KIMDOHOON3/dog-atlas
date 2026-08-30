@@ -60,6 +60,7 @@ const heroSizeDetailsSchema = z.object({
 
 export const standardBreedDetailSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
+  reviewStatus: z.enum(["production-draft", "editorial-reviewed"]).default("editorial-reviewed"),
   nameKo: z.string().min(2),
   metadataDescription: z.string().min(50),
   heroStatement: z.string().min(15),

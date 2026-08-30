@@ -486,3 +486,9 @@ Place each reviewable expansion in its own data module, then register the valida
 Use ten breeds as the default expansion unit now that the shared renderer, schema, asset rules and production gate are stable. Keep the speed gain at the orchestration level only: every breed still needs its own documented role, Korean-readable copy, four distinct full-body life scenes, related-breed comparison and automated asset checks.
 
 Store each ten-breed set in one bounded content module and make no breed-specific UI component unless the shared information structure genuinely cannot represent the content. A failed or repetitive breed must be revised or withheld without lowering the gate for the other nine.
+
+# 2026-08-31 — Separate 300-breed production drafts from editorially reviewed details
+
+Build the next 100 details in ten-breed batches before running the slower cross-batch editorial review. Mark every new batch as `production-draft` after its official-source, schema, size, unique-copy, related-link and asset checks pass. Keep these pages reachable for inspection, but exclude them from the discovery page's `검수 완료` filter.
+
+Promote a detail to `editorial-reviewed` only after Korean readability, image-copy sync, mobile layout, search naming and cross-batch repetition have been checked. This workflow changes sequencing, not the evidence standard, and it does not imply veterinary, behavior or conformation-expert review.
