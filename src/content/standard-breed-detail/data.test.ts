@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(153);
+    expect(details).toHaveLength(163);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -68,7 +68,38 @@ describe("standard breed detail editorial data", () => {
       "kishu",
       "shikoku",
       "canaan-dog",
+      "harrier",
+      "english-foxhound",
+      "petit-basset-griffon-vendeen",
+      "finnish-hound",
+      "alpine-dachsbracke",
+      "bavarian-mountain-scent-hound",
+      "german-wire-haired-pointing-dog",
+      "small-munsterlander",
+      "wire-haired-pointing-griffon-korthals",
+      "english-pointer",
     ]));
+  });
+
+  it.each([
+    ["harrier", "토끼", "울타리"],
+    ["english-foxhound", "말을 탄 사냥대", "안전문"],
+    ["petit-basset-griffon-vendeen", "방데", "낮은 틈"],
+    ["finnish-hound", "토끼와 여우", "울음"],
+    ["alpine-dachsbracke", "다친 사슴", "경사판"],
+    ["bavarian-mountain-scent-hound", "오래된 땅 냄새", "긴 리드"],
+    ["german-wire-haired-pointing-dog", "들·숲·물", "수염"],
+    ["small-munsterlander", "문스터", "장식털"],
+    ["wire-haired-pointing-griffon-korthals", "코르탈스", "풀씨"],
+    ["english-pointer", "몸을 멈춰", "얇은 짧은 털"],
+  ])("connects 200-expansion batch-05 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body]), ...detail.realities.flatMap((reality) => [reality.title, reality.body])].join(" ");
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
   });
 
   it.each([

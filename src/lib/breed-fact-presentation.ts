@@ -11,6 +11,16 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  harrier: { size: "48~55cm · 20~27kg", height: "48~55cm", weight: "20~27kg" },
+  "english-foxhound": { size: "약 58~64cm · 27~34kg", height: "약 58~64cm", weight: "27~34kg" },
+  "petit-basset-griffon-vendeen": { size: "33~39cm · 11~18kg", height: "33~39cm", weight: "11~18kg" },
+  "finnish-hound": { size: "52~61cm · 몸무게 고정 기준 없음", height: "52~61cm", weight: "고정 기준 없음" },
+  "alpine-dachsbracke": { size: "34~42cm · 몸무게 고정 기준 없음", height: "34~42cm", weight: "고정 기준 없음" },
+  "bavarian-mountain-scent-hound": { size: "44~52cm · 17~30kg", height: "44~52cm", weight: "17~30kg" },
+  "german-wire-haired-pointing-dog": { size: "57~68cm · 23~32kg", height: "57~68cm", weight: "23~32kg" },
+  "small-munsterlander": { size: "50~56cm · 18~27kg", height: "50~56cm", weight: "18~27kg" },
+  "wire-haired-pointing-griffon-korthals": { size: "50~60cm · 16~32kg", height: "50~60cm", weight: "16~32kg" },
+  "english-pointer": { size: "61~69cm · 20~34kg", height: "61~69cm", weight: "20~34kg" },
   "american-staffordshire-terrier": { size: "43~48cm · 몸무게 고정 기준 없음", height: "43~48cm", weight: "고정 기준 없음" },
   "australian-silky-terrier": { size: "23~26cm · 약 4.5kg", height: "23~26cm", weight: "약 4.5kg" },
   "swedish-vallhund": { size: "30~35cm · 9~16kg", height: "30~35cm", weight: "9~16kg" },
