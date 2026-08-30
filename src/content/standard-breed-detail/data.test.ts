@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(193);
+    expect(details).toHaveLength(199);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -109,7 +109,30 @@ describe("standard breed detail editorial data", () => {
       "gascon-saintongeois",
       "grand-basset-griffon-vendeen",
       "schweizer-laufhund",
+      "porcelaine",
+      "petit-bleu-de-gascogne",
+      "gordon-setter",
+      "german-long-haired-pointer",
+      "french-spaniel",
+      "braque-saint-germain",
     ]));
+  });
+
+  it.each([
+    ["porcelaine", "도자기", "얇은 흰 털"],
+    ["petit-bleu-de-gascogne", "그랑 블뢰", "말린 긴 귀"],
+    ["gordon-setter", "스코틀랜드", "장식털"],
+    ["german-long-haired-pointer", "들판·물·숲", "속털"],
+    ["french-spaniel", "중세", "생활용 천"],
+    ["braque-saint-germain", "왕실 견사", "고를"],
+  ])("connects 200-expansion batch-09 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body]), ...detail.realities.flatMap((reality) => [reality.title, reality.body])].join(" ");
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
   });
 
   it.each([
