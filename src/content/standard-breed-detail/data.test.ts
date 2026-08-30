@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(173);
+    expect(details).toHaveLength(183);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -88,7 +88,37 @@ describe("standard breed detail editorial data", () => {
       "sloughi",
       "galgo-espanol",
       "bergamasco-shepherd",
+      "schipperke",
+      "slovakian-cuvac",
+      "polish-lowland-sheepdog",
+      "appenzeller-cattle-dog",
+      "entlebucher-mountain-dog",
+      "greater-swiss-mountain-dog",
+      "german-pinscher",
+      "kangal-shepherd-dog",
+      "parson-russell-terrier",
+      "sealyham-terrier",
     ]));
+  });
+
+  it.each([
+    ["schipperke", "작은 목자", "목갈기"],
+    ["slovakian-cuvac", "타트라", "두 번째 경계"],
+    ["polish-lowland-sheepdog", "좋은 기억력", "눈가"],
+    ["appenzeller-cattle-dog", "소 떼", "말린 꼬리"],
+    ["entlebucher-mountain-dog", "가장 작고 낮은 몸", "자연스럽게 짧은 꼬리"],
+    ["greater-swiss-mountain-dog", "수레", "큰 몸"],
+    ["german-pinscher", "슈나우저", "현관"],
+    ["kangal-shepherd-dog", "포식자", "이중문"],
+    ["parson-russell-terrier", "존 러셀", "울타리 아래"],
+    ["sealyham-terrier", "실리햄 영지", "흰 거친 털"],
+  ])("connects 200-expansion batch-07 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body]), ...detail.realities.flatMap((reality) => [reality.title, reality.body])].join(" ");
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
   });
 
   it.each([
