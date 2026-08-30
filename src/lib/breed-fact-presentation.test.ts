@@ -212,7 +212,7 @@ describe("breed fact presentation", () => {
     const exceptions = new Set(["poodle", "dachshund", "pyrenean-mountain-dog", "mongolian-bankhar"]);
     const standardBreeds = breeds.filter((breed) => breed.slug === "poodle" || getStandardBreedDetail(breed.slug));
 
-    expect(standardBreeds).toHaveLength(164);
+    expect(standardBreeds).toHaveLength(174);
     for (const breed of standardBreeds) {
       if (exceptions.has(breed.slug)) continue;
       const rows = getBreedSizeFactRows(getBreedFactPresentation(breed));
@@ -273,6 +273,16 @@ describe("breed fact presentation", () => {
       "small-munsterlander",
       "wire-haired-pointing-griffon-korthals",
       "english-pointer",
+      "irish-water-spaniel",
+      "spanish-water-dog",
+      "american-water-spaniel",
+      "tibetan-terrier",
+      "japanese-chin",
+      "prague-ratter",
+      "azawakh",
+      "sloughi",
+      "galgo-espanol",
+      "bergamasco-shepherd",
     ];
 
     numericSizeSlugs.forEach((slug) => {

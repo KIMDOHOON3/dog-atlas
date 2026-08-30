@@ -11,6 +11,13 @@ const historySources: Partial<Record<string, Breed["sources"]>> = {
   bolognese: [{ title: "Bolognese FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/196g09-en.pdf", checkedAt: "2026-08-29" }],
   mudi: [{ title: "Mudi FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/238g01-en.pdf", checkedAt: "2026-08-29" }],
   kooikerhondje: [{ title: "Nederlandse Kooikerhondje FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/314g08-en.pdf", checkedAt: "2026-08-29" }],
+  "tibetan-terrier": [{ title: "Tibetan Terrier FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/209g09-en.pdf", checkedAt: "2026-08-30" }],
+  "japanese-chin": [{ title: "Japanese Chin FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/206g09-en.pdf", checkedAt: "2026-08-30" }],
+  "prague-ratter": [{ title: "Prague Ratter FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/363g09-en.pdf", checkedAt: "2026-08-30" }],
+  azawakh: [{ title: "Azawakh FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/307g10-en.pdf", checkedAt: "2026-08-30" }],
+  sloughi: [{ title: "Sloughi FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/188g10-en.pdf", checkedAt: "2026-08-30" }],
+  "galgo-espanol": [{ title: "Spanish Greyhound FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/285g10-en.pdf", checkedAt: "2026-08-30" }],
+  "bergamasco-shepherd": [{ title: "Bergamasco Shepherd Dog FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/194g01-en.pdf", checkedAt: "2026-08-30" }],
 };
 type Group = Exclude<Breed["catalog"]["group"], "northern-working" | "dachshund">;
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";

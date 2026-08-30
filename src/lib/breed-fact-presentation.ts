@@ -11,6 +11,16 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  "irish-water-spaniel": { size: "51~59cm · 20~31kg", height: "51~59cm", weight: "20~31kg" },
+  "spanish-water-dog": { size: "40~50cm · 14~22kg", height: "40~50cm", weight: "14~22kg" },
+  "american-water-spaniel": { size: "38~46cm · 11~20kg", height: "38~46cm", weight: "11~20kg" },
+  "tibetan-terrier": { size: "수컷 36~41cm · 암컷은 약간 작음 · 8~14kg", height: "수컷 36~41cm · 암컷은 약간 작음", weight: "8~14kg" },
+  "japanese-chin": { size: "수컷 약 25cm · 암컷은 약간 작음 · 3.2~5kg", height: "수컷 약 25cm · 암컷은 약간 작음", weight: "3.2~5kg" },
+  "prague-ratter": { size: "20~24cm · 약 2.6kg", height: "20~24cm", weight: "약 2.6kg" },
+  azawakh: { size: "60~74cm · 15~25kg", height: "60~74cm", weight: "15~25kg" },
+  sloughi: { size: "61~72cm · 20~29kg", height: "61~72cm", weight: "20~29kg" },
+  "galgo-espanol": { size: "60~70cm · 몸무게 고정 기준 없음", height: "60~70cm", weight: "고정 기준 없음" },
+  "bergamasco-shepherd": { size: "54~62cm · 26~38kg", height: "54~62cm", weight: "26~38kg" },
   harrier: { size: "48~55cm · 20~27kg", height: "48~55cm", weight: "20~27kg" },
   "english-foxhound": { size: "약 58~64cm · 27~34kg", height: "약 58~64cm", weight: "27~34kg" },
   "petit-basset-griffon-vendeen": { size: "33~39cm · 11~18kg", height: "33~39cm", weight: "11~18kg" },

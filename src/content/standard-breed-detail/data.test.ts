@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(163);
+    expect(details).toHaveLength(173);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -78,7 +78,37 @@ describe("standard breed detail editorial data", () => {
       "small-munsterlander",
       "wire-haired-pointing-griffon-korthals",
       "english-pointer",
+      "irish-water-spaniel",
+      "spanish-water-dog",
+      "american-water-spaniel",
+      "tibetan-terrier",
+      "japanese-chin",
+      "prague-ratter",
+      "azawakh",
+      "sloughi",
+      "galgo-espanol",
+      "bergamasco-shepherd",
     ]));
+  });
+
+  it.each([
+    ["irish-water-spaniel", "랫 테일", "매끈한 꼬리"],
+    ["spanish-water-dog", "목양", "코드"],
+    ["american-water-spaniel", "작은 보트", "발판"],
+    ["tibetan-terrier", "테리어가 아니라", "넓은 발"],
+    ["japanese-chin", "신라", "눈가"],
+    ["prague-ratter", "설치류", "사람 발"],
+    ["azawakh", "유목민", "관찰 거리"],
+    ["sloughi", "북아프리카", "긴 보폭"],
+    ["galgo-espanol", "스페인 평원", "매우 긴 꼬리"],
+    ["bergamasco-shepherd", "계절", "플록"],
+  ])("connects 200-expansion batch-06 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body]), ...detail.realities.flatMap((reality) => [reality.title, reality.body])].join(" ");
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
   });
 
   it.each([
