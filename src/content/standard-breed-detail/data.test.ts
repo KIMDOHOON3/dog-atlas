@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(183);
+    expect(details).toHaveLength(193);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -98,7 +98,38 @@ describe("standard breed detail editorial data", () => {
       "kangal-shepherd-dog",
       "parson-russell-terrier",
       "sealyham-terrier",
+      "bedlington-terrier",
+      "manchester-terrier",
+      "cesky-terrier",
+      "thai-ridgeback",
+      "portuguese-podengo",
+      "greenland-dog",
+      "peruvian-hairless-dog",
+      "cirneco-dell-etna",
+      "gascon-saintongeois",
+      "grand-basset-griffon-vendeen",
+      "schweizer-laufhund",
     ]));
+  });
+
+  it.each([
+    ["schweizer-laufhund", "네 가지", "긴 귀"],
+    ["manchester-terrier", "쥐잡이", "단모"],
+    ["cesky-terrier", "실리햄", "클리핑"],
+    ["thai-ridgeback", "수레 호위", "리지"],
+    ["portuguese-podengo", "세 체급", "하네스"],
+    ["greenland-dog", "썰매", "극지 이중모"],
+    ["peruvian-hairless-dog", "프리잉카", "뜨거운 바닥"],
+    ["cirneco-dell-etna", "화산암", "발바닥"],
+    ["gascon-saintongeois", "큰형", "긴 귀"],
+    ["grand-basset-griffon-vendeen", "약 43cm", "발판"],
+  ])("connects 200-expansion batch-08 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body]), ...detail.realities.flatMap((reality) => [reality.title, reality.body])].join(" ");
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
   });
 
   it.each([

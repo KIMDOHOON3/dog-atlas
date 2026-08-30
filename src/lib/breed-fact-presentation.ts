@@ -11,6 +11,17 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  "bedlington-terrier": { size: "약 41cm · 8~10kg", height: "약 41cm", weight: "8~10kg" },
+  "manchester-terrier": { size: "38~41cm · 고정 기준 없음", height: "38~41cm", weight: "고정 기준 없음" },
+  "cesky-terrier": { size: "25~32cm · 6~10kg", height: "25~32cm", weight: "6~10kg" },
+  "thai-ridgeback": { size: "48.5~63.5cm · 고정 기준 없음", height: "48.5~63.5cm", weight: "고정 기준 없음" },
+  "portuguese-podengo": { size: "유형별 20~70cm · 4~30kg", height: "유형별 20~70cm", weight: "유형별 4~30kg" },
+  "greenland-dog": { size: "암컷 55cm 이상 · 수컷 60cm 이상 · 고정 기준 없음", height: "암컷 55cm 이상 · 수컷 60cm 이상", weight: "고정 기준 없음" },
+  "peruvian-hairless-dog": { size: "유형별 25~65cm · 4~30kg", height: "유형별 25~65cm", weight: "유형별 4~30kg" },
+  "cirneco-dell-etna": { size: "42~52cm · 8~13kg", height: "42~52cm", weight: "8~13kg" },
+  "gascon-saintongeois": { size: "유형·성별 54~72cm · 고정 기준 없음", height: "유형·성별 54~72cm", weight: "고정 기준 없음" },
+  "grand-basset-griffon-vendeen": { size: "38~45cm · 고정 기준 없음", height: "38~45cm", weight: "고정 기준 없음" },
+  "schweizer-laufhund": { size: "47~59cm · 고정 기준 없음", height: "47~59cm", weight: "고정 기준 없음" },
   "irish-water-spaniel": { size: "51~59cm · 20~31kg", height: "51~59cm", weight: "20~31kg" },
   "spanish-water-dog": { size: "40~50cm · 14~22kg", height: "40~50cm", weight: "14~22kg" },
   "american-water-spaniel": { size: "38~46cm · 11~20kg", height: "38~46cm", weight: "11~20kg" },
