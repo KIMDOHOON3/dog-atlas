@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(133);
+    expect(details).toHaveLength(143);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -48,7 +48,46 @@ describe("standard breed detail editorial data", () => {
       "bouvier-des-flandres",
       "miniature-american-shepherd",
       "dogo-argentino",
+      "dogue-de-bordeaux",
+      "neapolitan-mastiff",
+      "continental-bulldog",
+      "smooth-fox-terrier",
+      "wire-fox-terrier",
+      "kerry-blue-terrier",
+      "cairn-terrier",
+      "norfolk-terrier",
+      "norwich-terrier",
+      "miniature-bull-terrier",
     ]));
+  });
+
+  it.each([
+    ["dogue-de-bordeaux", "정육업자", "침과 얼굴 주름"],
+    ["neapolitan-mastiff", "농장 뜰", "주름의 깊이"],
+    ["continental-bulldog", "스위스", "피부와 발"],
+    ["smooth-fox-terrier", "여우굴", "작은 동물과 바퀴"],
+    ["wire-fox-terrier", "굴속 여우", "거친 겉털"],
+    ["kerry-blue-terrier", "아일랜드 농장", "청회색"],
+    ["cairn-terrier", "돌무더기", "파도 되는 한 구역"],
+    ["norfolk-terrier", "마구간", "접힌 귀"],
+    ["norwich-terrier", "케임브리지", "직립 귀"],
+    ["miniature-bull-terrier", "쥐잡이", "짧은 흰 털"],
+  ])("connects 200-expansion batch-03 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [
+      ...detail.story.steps.map((step) => step.image),
+      ...detail.realities.map((reality) => reality.image),
+    ];
+    const copy = [
+      detail.heroStatement,
+      ...detail.story.steps.flatMap((step) => [step.title, step.body]),
+      ...detail.realities.flatMap((reality) => [reality.title, reality.body]),
+    ].join(" ");
+
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
   });
 
   it("connects the Puli herding role to distinct modern movement, rest, visitor, and cord-care scenes", () => {

@@ -212,7 +212,7 @@ describe("breed fact presentation", () => {
     const exceptions = new Set(["poodle", "dachshund", "pyrenean-mountain-dog", "mongolian-bankhar"]);
     const standardBreeds = breeds.filter((breed) => breed.slug === "poodle" || getStandardBreedDetail(breed.slug));
 
-    expect(standardBreeds).toHaveLength(134);
+    expect(standardBreeds).toHaveLength(144);
     for (const breed of standardBreeds) {
       if (exceptions.has(breed.slug)) continue;
       const rows = getBreedSizeFactRows(getBreedFactPresentation(breed));
@@ -256,6 +256,13 @@ describe("breed fact presentation", () => {
       "bouvier-des-flandres",
       "miniature-american-shepherd",
       "dogo-argentino",
+      "dogue-de-bordeaux",
+      "neapolitan-mastiff",
+      "continental-bulldog",
+      "smooth-fox-terrier",
+      "wire-fox-terrier",
+      "kerry-blue-terrier",
+      "cairn-terrier",
     ];
 
     numericSizeSlugs.forEach((slug) => {
@@ -286,5 +293,24 @@ describe("breed fact presentation", () => {
     expect(getBreedSizeFactRows(getBreedFactPresentation(getBreed("maltipoo")!))).toEqual([
       { label: "예상 크기", value: "부모 크기에 따라 다름" },
     ]);
+    });
   });
-});
+
+  it("keeps batch-03 official size distinctions instead of filling absent standards", () => {
+    expect(getBreedFactPresentation(getBreed("cairn-terrier")!)).toMatchObject({
+      height: "약 28~31cm",
+      weight: "6~7.5kg",
+    });
+    expect(getBreedFactPresentation(getBreed("norfolk-terrier")!)).toMatchObject({
+      height: "이상적 체고 약 25cm",
+      weight: "5~6kg",
+    });
+    expect(getBreedFactPresentation(getBreed("norwich-terrier")!)).toMatchObject({
+      height: "이상적 체고 약 25cm",
+      weight: "5~6kg",
+    });
+    expect(getBreedFactPresentation(getBreed("miniature-bull-terrier")!)).toMatchObject({
+      height: "25.4~35.6cm",
+      weight: "고정 기준 없음",
+    });
+  });

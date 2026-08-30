@@ -21,7 +21,7 @@ describe("discover breed DTO", () => {
     const projected = breeds.map((breed) => toDiscoverBreed(breed, breed.slug === "poodle" || Boolean(getStandardBreedDetail(breed.slug))));
     const reviewed = filterCoreEditorialReviewBreeds(projected, true);
 
-    expect(reviewed).toHaveLength(134);
+    expect(reviewed).toHaveLength(144);
     expect(reviewed.some((breed) => breed.slug === "poodle")).toBe(true);
     expect(reviewed.some((breed) => breed.slug === "american-cocker-spaniel")).toBe(true);
     expect(reviewed.some((breed) => breed.slug === "mongolian-bankhar")).toBe(true);
@@ -29,6 +29,7 @@ describe("discover breed DTO", () => {
     expect(reviewed.some((breed) => breed.slug === "puli")).toBe(true);
     expect(reviewed.some((breed) => breed.slug === "tibetan-spaniel")).toBe(true);
     expect(reviewed.some((breed) => breed.slug === "dogo-argentino")).toBe(true);
+    expect(reviewed.some((breed) => breed.slug === "miniature-bull-terrier")).toBe(true);
     expect(filterCoreEditorialReviewBreeds(projected, false)).toHaveLength(376);
   });
 
