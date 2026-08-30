@@ -12,6 +12,7 @@ import { expansionBatchBStandardBreedDetails } from "./expansion-batch-b-data";
 import { americanAkitaDetail, bulldogDetail, expansionTo200Batch01StandardBreedDetails, finnishSpitzDetail, karelianBearDogDetail, lhasaApsoDetail, puliDetail, sharPeiDetail, tibetanSpanielDetail, welshCorgiCardiganDetail, whiteSwissShepherdDogDetail } from "./expansion-to-200-batch-01-data";
 import { expansionTo200Batch02StandardBreedDetails } from "./expansion-to-200-batch-02-data";
 import { expansionTo200Batch03StandardBreedDetails } from "./expansion-to-200-batch-03-data";
+import { expansionTo200Batch04StandardBreedDetails } from "./expansion-to-200-batch-04-data";
 
 const japaneseSpitzDetail = standardBreedDetailSchema.parse({
   slug: "japanese-spitz",
@@ -4012,6 +4013,7 @@ const standardBreedDetails = new Map(
     ...expansionTo200Batch01StandardBreedDetails,
     ...expansionTo200Batch02StandardBreedDetails,
     ...expansionTo200Batch03StandardBreedDetails,
+    ...expansionTo200Batch04StandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
 

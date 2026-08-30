@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(143);
+    expect(details).toHaveLength(153);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -58,7 +58,38 @@ describe("standard breed detail editorial data", () => {
       "norfolk-terrier",
       "norwich-terrier",
       "miniature-bull-terrier",
+      "american-staffordshire-terrier",
+      "australian-silky-terrier",
+      "swedish-vallhund",
+      "italian-volpino",
+      "eurasier",
+      "hokkaido",
+      "kai",
+      "kishu",
+      "shikoku",
+      "canaan-dog",
     ]));
+  });
+
+  it.each([
+    ["american-staffordshire-terrier", "투견", "두 겹"],
+    ["australian-silky-terrier", "시드니", "긴 털"],
+    ["swedish-vallhund", "소의 발뒤꿈치", "자연 꼬리"],
+    ["italian-volpino", "수레꾼", "소리를 줄일"],
+    ["eurasier", "울프스피츠", "선택"],
+    ["hokkaido", "아이누", "높은 울타리"],
+    ["kai", "야마나시", "줄무늬"],
+    ["kishu", "기이 반도", "동물과 마주치면"],
+    ["shikoku", "고치현", "미끄럽지 않은"],
+    ["canaan-dog", "메신저", "뜨거운 바닥"],
+  ])("connects 200-expansion batch-04 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body]), ...detail.realities.flatMap((reality) => [reality.title, reality.body])].join(" ");
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
   });
 
   it.each([

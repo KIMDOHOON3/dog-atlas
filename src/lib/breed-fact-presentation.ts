@@ -11,6 +11,16 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  "american-staffordshire-terrier": { size: "43~48cm · 몸무게 고정 기준 없음", height: "43~48cm", weight: "고정 기준 없음" },
+  "australian-silky-terrier": { size: "23~26cm · 약 4.5kg", height: "23~26cm", weight: "약 4.5kg" },
+  "swedish-vallhund": { size: "30~35cm · 9~16kg", height: "30~35cm", weight: "9~16kg" },
+  "italian-volpino": { size: "25~30cm · 3.6~7.3kg", height: "25~30cm", weight: "3.6~7.3kg" },
+  eurasier: { size: "48~60cm · 18~30kg", height: "48~60cm", weight: "18~30kg" },
+  hokkaido: { size: "45.5~51.5cm · 20~30kg", height: "45.5~51.5cm", weight: "20~30kg" },
+  kai: { size: "42~53cm · 11.3~18.1kg", height: "42~53cm", weight: "11.3~18.1kg" },
+  kishu: { size: "46~55cm · 13.6~27.2kg", height: "46~55cm", weight: "13.6~27.2kg" },
+  shikoku: { size: "46~55cm · 15.9~24.9kg", height: "46~55cm", weight: "15.9~24.9kg" },
+  "canaan-dog": { size: "50~60cm · 18~25kg", height: "50~60cm", weight: "18~25kg" },
   "icelandic-sheepdog": { size: "42~46cm · 9~14kg", height: "42~46cm", weight: "9~14kg" },
   "dutch-shepherd-dog": { size: "55~62cm · 19~34kg", height: "55~62cm", weight: "19~34kg" },
   mastiff: { size: "70cm 이상 · 54~104kg", height: "70cm 이상", weight: "54~104kg" },
