@@ -1,5 +1,12 @@
 # Decision log
 
+## 2026-08-31 — Separate production readiness from the new owner-facing content audit
+
+- Keep `production-draft` and `editorial-reviewed` as production states. They do not prove that the history-to-present story and its images passed the newly requested breed-specific content audit.
+- Track the 200 previously reviewed details through a separate three-step state: `needs-review`, `awaiting-owner-review`, and `approved`. Start all 200 at `needs-review`; move a breed only after its copy and images are corrected, then after the owner confirms the rendered page.
+- Show the state on discovery cards with a text label plus a circular symbol, and expose URL-addressable state filters. Do not rely on color alone.
+- Keep the state in a small source-controlled registry for the current no-auth, no-database MVP so the user and future editing sessions share one review truth.
+
 ## 2026-08-31 — Do not expose a standard detail after its visual set is discarded
 
 - Remove the 96 breed-detail 3D scenes that conflict with the established Poodle watercolor direction. Keep the intentional 3D home UI diorama because it belongs to a separate visual system.
