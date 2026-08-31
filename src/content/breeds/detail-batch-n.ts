@@ -4,11 +4,25 @@ import { withTopicParticle } from "../../lib/korean-particles";
 const checkedAt = "2026-08-07";
 const historyAltOverrides: Partial<Record<string, string>> = {
   affenpinscher: "남부 독일의 오래된 마구간과 부엌 사이에서 작은 해충의 흔적을 살피는 검은 아펜핀셔를 그린 편집 수채화",
+  "berger-picard": "프랑스 피카르디 농장에서 양 떼를 지키는 직립 귀와 거친 털의 피카르디 셰퍼드 편집 수채화",
+  pumi: "헝가리 농장에서 양 떼를 모는 앞으로 접힌 귀와 곱슬털의 푸미 편집 수채화",
+  "pyrenean-sheepdog": "피레네 산악 목초지에서 양 떼를 움직이는 긴 털의 피레니안 셰퍼드 편집 수채화",
+  "lancashire-heeler": "영국 랭커셔 농장에서 소 떼 앞에 선 검정과 탄색의 낮은 랭커셔 힐러 편집 수채화",
+  "saarloos-wolfdog": "네덜란드 숲의 수레 곁에 선 회갈색 사르로스 울프도그 편집 수채화",
+  aidi: "모로코 아틀라스 산맥의 텐트와 가축 곁을 지키는 반수직 귀와 거친 반장모의 아이디 편집 수채화",
+  "black-russian-terrier": "러시아 군 시설의 철문 앞에 선 크고 검은 블랙 러시안 테리어 편집 수채화",
 };
 const historySources: Partial<Record<string, Breed["sources"]>> = {
   affenpinscher: [{ title: "Affenpinscher Breed History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/affenpinscher-history/", checkedAt: "2026-08-29" }],
   "caucasian-shepherd-dog": [{ title: "세상에 나쁜 개는 없다: 코카시안 오브차카 생활 사례", organization: "EBS", url: "https://www.youtube.com/watch?v=l2w3ZqyBgEA", checkedAt: "2026-08-29" }],
   "presa-canario": [{ title: "Presa Canario FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/346g02-en.pdf", checkedAt: "2026-08-29" }],
+  "berger-picard": [{ title: "Berger Picard FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/176g01-en.pdf", checkedAt: "2026-08-31" }],
+  pumi: [{ title: "Pumi FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/056g01-en.pdf", checkedAt: "2026-08-31" }],
+  "pyrenean-sheepdog": [{ title: "Pyrenean Sheepdog Long-Haired FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/141g01-en.pdf", checkedAt: "2026-08-31" }],
+  "lancashire-heeler": [{ title: "Lancashire Heeler FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/360g01-en.pdf", checkedAt: "2026-08-31" }],
+  "saarloos-wolfdog": [{ title: "Saarlooswolfdog FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/311g01-en.pdf", checkedAt: "2026-08-31" }],
+  aidi: [{ title: "Atlas Mountain Dog (Aidi) FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/247g02-en.pdf", checkedAt: "2026-08-31" }],
+  "black-russian-terrier": [{ title: "Russian Black Terrier FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/327g02-en.pdf", checkedAt: "2026-08-31" }],
 };
 type Group = "herding" | "guardian-working" | "terrier" | "spitz-primitive" | "scent-hound" | "pointing" | "retriever-spaniel" | "companion" | "sighthound";
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";
@@ -28,15 +42,15 @@ const meta: Record<Group, Meta> = {
 };
 
 const seeds: Seed[] = [
-  { slug: "berger-picard", nameKo: "피카르디 셰퍼드", nameEn: "Berger Picard", group: "herding", origin: "프랑스 피카르디", role: "농장 가축을 모으고 지키는 목양 작업", size: "중형 · 약 55~65cm, 20~30kg", fciUrl: "https://www.fci.be/en/nomenclature/PICARDY-SHEPHERD-DOG-176.html" },
-  { slug: "pumi", nameKo: "푸미", nameEn: "Pumi", group: "herding", origin: "헝가리", role: "가축을 몰고 농장 주변을 감시하는 작업", size: "중형 · 약 38~47cm, 8~15kg", fciUrl: "https://www.fci.be/en/nomenclature/PUMI-56.html" },
-  { slug: "pyrenean-sheepdog", nameKo: "피레니안 셰퍼드", nameEn: "Pyrenean Sheepdog", group: "herding", origin: "프랑스 피레네", role: "산악 목장에서 양 떼를 빠르게 이동시키는 작업", size: "소형~중형 · 약 40~54cm, 8~15kg", fciUrl: "https://www.fci.be/en/nomenclature/PYRENEAN-SHEEPDOG-141.html" },
-  { slug: "lancashire-heeler", nameKo: "랭커셔 힐러", nameEn: "Lancashire Heeler", group: "herding", origin: "영국 랭커셔", role: "소를 몰고 농장의 작은 해충을 관리하는 작업", size: "소형 · 약 25~31cm, 5~8kg", fciUrl: "https://www.fci.be/en/nomenclature/LANCASHIRE-HEELER-360.html" },
-  { slug: "saarloos-wolfdog", nameKo: "사르로스 울프도그", nameEn: "Saarloos Wolfdog", group: "herding", origin: "네덜란드", role: "사람과 협력하는 작업견 계통을 연구한 동반·작업", size: "대형 · 약 60~75cm, 30~45kg", fciUrl: "https://www.fci.be/en/nomenclature/SAARLOOS-WOLFDOG-311.html" },
-  { slug: "aidi", nameKo: "아이디", nameEn: "Aidi", group: "guardian-working", origin: "모로코 아틀라스 산맥", role: "유목민의 가축과 야영지를 지키는 경비", size: "중형 · 약 52~62cm, 20~30kg", fciUrl: "https://www.fci.be/en/nomenclature/ATLAS-MOUNTAIN-DOG-AIDI-247.html" },
+  { slug: "berger-picard", nameKo: "피카르디 셰퍼드", nameEn: "Berger Picard", group: "herding", origin: "프랑스 피카르디", role: "양 떼를 몰고 지키며 농가를 경계하는 작업", size: "중형 · 암컷 55~60cm, 수컷 60~65cm(허용 ±1cm), FCI 고정 몸무게 없음", fciUrl: "https://www.fci.be/en/nomenclature/PICARDY-SHEPHERD-DOG-176.html" },
+  { slug: "pumi", nameKo: "푸미", nameEn: "Pumi", group: "herding", origin: "헝가리", role: "큰 가축까지 몰고 농장 주변의 포식자·설치류에 대응하는 작업", size: "중형 · 암컷 38~44cm·8~13kg, 수컷 41~47cm·10~15kg", fciUrl: "https://www.fci.be/en/nomenclature/PUMI-56.html" },
+  { slug: "pyrenean-sheepdog", nameKo: "피레니안 셰퍼드", nameEn: "Pyrenean Sheepdog", group: "herding", origin: "프랑스 피레네", role: "산악 농장과 목초지에서 양 떼를 빠르게 이동시키는 작업", size: "소형~중형 · 암컷 40~46cm, 수컷 42~48cm(우수한 타입 ±2cm), FCI 고정 몸무게 없음", fciUrl: "https://www.fci.be/en/nomenclature/PYRENEAN-SHEEPDOG-141.html" },
+  { slug: "lancashire-heeler", nameKo: "랭커셔 힐러", nameEn: "Lancashire Heeler", group: "herding", origin: "영국 랭커셔", role: "소를 몰고 토끼·쥐를 다루는 농장 작업", size: "소형 · 이상적 체고 암컷 25cm·수컷 30cm, FCI 고정 몸무게 없음", fciUrl: "https://www.fci.be/en/nomenclature/LANCASHIRE-HEELER-360.html" },
+  { slug: "saarloos-wolfdog", nameKo: "사르로스 울프도그", nameEn: "Saarloos Wolfdog", group: "herding", origin: "네덜란드", role: "더 나은 작업견 개발 실험에서 시작했으나 작업견이 아닌 반려견으로 정립", size: "대형 · 암컷 60~70cm, 수컷 65~75cm, FCI 고정 몸무게 없음", fciUrl: "https://www.fci.be/en/nomenclature/SAARLOOS-WOLFDOG-311.html" },
+  { slug: "aidi", nameKo: "아이디", nameEn: "Aidi", group: "guardian-working", origin: "모로코 아틀라스 산맥", role: "양을 모으는 대신 유목민의 텐트·재산·가축을 지키는 산악 경비", size: "중형~대형 · 체고 52~62cm, FCI 고정 몸무게 없음", fciUrl: "https://www.fci.be/en/nomenclature/ATLAS-MOUNTAIN-DOG-AIDI-247.html" },
   { slug: "caucasian-shepherd-dog", nameKo: "코카시안 셰퍼드", nameEn: "Caucasian Shepherd Dog", group: "guardian-working", origin: "코카서스 지역", role: "가축과 거주지를 지키는 강건한 경비", size: "대형 · 약 64~75cm, 45~70kg", fciUrl: "https://www.fci.be/en/nomenclature/CAUCASIAN-SHEPHERD-DOG-328.html" },
   { slug: "presa-canario", nameKo: "프레사 카나리오", nameEn: "Presa Canario", group: "guardian-working", origin: "스페인 카나리아 제도", role: "농장 가축을 다루고 재산을 지키는 작업", size: "대형 · 약 56~66cm, 40~65kg", fciUrl: "https://www.fci.be/en/nomenclature/PRESA-CANARIO-346.html" },
-  { slug: "black-russian-terrier", nameKo: "블랙 러시안 테리어", nameEn: "Black Russian Terrier", group: "guardian-working", origin: "러시아", role: "시설과 사람을 지키는 군·경비 작업", size: "대형 · 약 66~78cm, 36~60kg", fciUrl: "https://www.fci.be/en/nomenclature/BLACK-RUSSIAN-TERRIER-327.html" },
+  { slug: "black-russian-terrier", nameKo: "블랙 러시안 테리어", nameEn: "Black Russian Terrier", group: "guardian-working", origin: "러시아", role: "여러 기후에서 시설과 사람을 지키는 군·경비 작업", size: "대형 · 암컷 68~72cm·45~50kg, 수컷 72~76cm·50~60kg", fciUrl: "https://www.fci.be/en/nomenclature/BLACK-RUSSIAN-TERRIER-327.html" },
   { slug: "austrian-pinscher", nameKo: "오스트리안 핀셔", nameEn: "Austrian Pinscher", group: "guardian-working", origin: "오스트리아", role: "농장과 가축 주변을 지키는 다목적 작업", size: "중형 · 약 42~50cm, 12~18kg", fciUrl: "https://www.fci.be/en/nomenclature/AUSTRIAN-PINSCHER-64.html" },
   { slug: "danish-swedish-farmdog", nameKo: "덴마크-스웨디시 팜도그", nameEn: "Danish-Swedish Farmdog", group: "guardian-working", origin: "덴마크·스웨덴", role: "농장의 작은 해충을 관리하고 가족을 알리는 작업", size: "소형 · 약 32~37cm, 6~10kg", fciUrl: "https://www.fci.be/en/nomenclature/DANISH-SWEDISH-FARMDOG-356.html" },
   { slug: "estrela-mountain-dog", nameKo: "에스트렐라 마운틴 도그", nameEn: "Estrela Mountain Dog", group: "guardian-working", origin: "포르투갈 에스트렐라 산맥", role: "산악 목장의 가축을 지키는 경비", size: "대형 · 약 62~72cm, 30~50kg", fciUrl: "https://www.fci.be/en/nomenclature/ESTRELA-MOUNTAIN-DOG-173.html" },

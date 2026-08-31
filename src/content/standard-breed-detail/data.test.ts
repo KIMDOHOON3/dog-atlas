@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(259);
+    expect(details).toHaveLength(269);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -175,7 +175,42 @@ describe("standard breed detail editorial data", () => {
       "braque-d-auvergne",
       "german-stichelhaar",
       "spinone-italiano",
+      "large-munsterlander",
+      "irish-red-and-white-setter",
+      "hungarian-wirehaired-vizsla",
+      "berger-picard",
+      "pumi",
+      "pyrenean-sheepdog",
+      "lancashire-heeler",
+      "saarloos-wolfdog",
+      "aidi",
+      "black-russian-terrier",
     ]));
+  });
+
+  it.each([
+    ["large-munsterlander", "1909년", "field-water-choice-retrieve", "munster-water-exit"],
+    ["irish-red-and-white-setter", "1920년대", "red-island-wide-search", "setter-field-distance"],
+    ["hungarian-wirehaired-vizsla", "1930년대", "dry-water-one-choice", "vizsla-water-ramp"],
+    ["berger-picard", "1863년", "wide-herding-return", "picard-visitor-buffer"],
+    ["pumi", "20세기 초", "short-s-herding-balls", "pumi-motion-u-turn"],
+    ["pyrenean-sheepdog", "피레네", "mountain-wide-to-narrow", "pyrenean-traction-lane"],
+    ["lancashire-heeler", "소의 발뒤꿈치", "low-ball-heel-arc", "heeler-low-ramp-door"],
+    ["saarloos-wolfdog", "1975년", "choice-forest-return", "saarloos-double-gate"],
+    ["aidi", "유럽식", "three-boundary-center", "aidi-visitor-airlock"],
+    ["black-russian-terrier", "레드 스타", "two-station-check-in", "black-russian-wide-airlock"],
+  ])("keeps expansion-to-300 batch 07 breed %s specific and production-gated", (slug, historyPhrase, activityId, realityId) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = `${detail.heroStatement} ${detail.story.title} ${detail.story.steps[0].title} ${detail.story.steps[0].body}`;
+
+    expect(detail.reviewStatus).toBe("production-draft");
+    expect(copy).toContain(historyPhrase);
+    expect(detail.story.steps[1].image).toContain(activityId);
+    expect(detail.realities[0].image).toContain(realityId);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
+    expect(getBreed(slug)?.sources.length).toBeGreaterThanOrEqual(2);
   });
 
   it.each([

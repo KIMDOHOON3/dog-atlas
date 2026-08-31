@@ -65,6 +65,7 @@
 - [`image-prompts-expansion-to-300-batch-04-2026-08-31.md`](image-prompts-expansion-to-300-batch-04-2026-08-31.md) — 토르냐크부터 재패니즈 테리어까지 네 번째 제작 초안 10종의 공식 크기·역할 근거, 신규 생활 장면 40개와 단일 개체 재생성 판정 기록
 - [`image-prompts-expansion-to-300-batch-05-2026-08-31.md`](image-prompts-expansion-to-300-batch-05-2026-08-31.md) — 저먼 헌팅 테리어부터 빌리까지 다섯 번째 제작 초안 10종의 공식 크기·역할 근거, 신규 생활 장면 40개와 접촉표 판정 기록
 - [`image-prompts-expansion-to-300-batch-06-2026-08-31.md`](image-prompts-expansion-to-300-batch-06-2026-08-31.md) — 브리케 그리폰 방데앙부터 스피노네 이탈리아노까지 여섯 번째 제작 초안 10종의 공식 크기·역할 근거, 신규 생활 장면 40개와 접촉표 판정 기록
+- [`image-prompts-expansion-to-300-batch-07-2026-08-31.md`](image-prompts-expansion-to-300-batch-07-2026-08-31.md) — 라지 뮌스터랜더부터 블랙 러시안 테리어까지 일곱 번째 제작 초안 10종의 공식 기준, 푸들풍 수채화로 교정한 신규 생활 장면 40개와 폐기 시안 기록
 
 배치 A·B 문서는 현재 전체 368종 자산 목록이 아니라 초기 제작 배치의 재현 기록이다. 최신 외형 점검 상태는 `breed-visual-audit.md`를 기준으로 본다.
 
