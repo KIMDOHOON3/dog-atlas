@@ -107,6 +107,7 @@ const aliasesKo: Partial<Record<string, string[]>> = {
   xoloitzcuintle: ["솔로이츠퀸틀리", "숄로이츠퀸틀리"],
   "labrador-retriever": ["라브라도 리트리버", "래브라도", "라브라도", "랩"],
   newfoundland: ["뉴펀랜드"],
+  mastiff: ["잉글리시 마스티프", "잉글리쉬 마스티프", "마스티브", "잉글리시 마스티브", "잉글리쉬 마스티브"],
   weimaraner: ["와이머라너", "바이마라너"],
   "bichon-frise": ["비숑", "비숑프리제"],
   maltese: ["몰티즈"],
@@ -114,6 +115,7 @@ const aliasesKo: Partial<Record<string, string[]>> = {
   "anatolian-shepherd-dog": ["아나톨리안 셰퍼드 독", "아나톨리안 셰퍼드 도그", "아나톨리아 셰퍼드", "아나톨리아 목양견"],
   bulgae: ["영주 불개", "영주불개"],
   "central-asian-shepherd-dog": ["알라바이", "알라바이견", "투르크멘 알라바이", "중앙아시아 셰퍼드", "중앙아시아 목양견"],
+  "caucasian-shepherd-dog": ["코카시안 오브차카", "코카서스 오브차카", "코카시안 오브카", "카프카스 오브차카", "오브차카"],
   "french-bulldog": ["프렌치 불독"],
   poodle: ["스탠더드 푸들", "미디엄 푸들", "미니어처 푸들", "토이 푸들", "토이푸들"],
   "pyrenean-mountain-dog": ["피레니언 마운틴 독", "피레니안 마운틴독"],
@@ -156,6 +158,8 @@ const aliasesEn: Partial<Record<string, string[]>> = {
   "continental-toy-spaniel": ["Papillon", "Phalene"],
   "italian-sighthound": ["Italian Greyhound"],
   "central-asian-shepherd-dog": ["Alabai", "Turkmen Alabay", "Central Asian Ovcharka"],
+  "caucasian-shepherd-dog": ["Caucasian Ovcharka", "Caucasian Mountain Dog", "Kavkazskaya Ovcharka"],
+  mastiff: ["English Mastiff"],
   bulgae: ["Yeongju Bulgae", "Bul-Gae"],
 };
 

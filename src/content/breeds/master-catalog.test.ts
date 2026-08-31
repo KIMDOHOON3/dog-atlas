@@ -78,6 +78,10 @@ describe("master breed catalog", () => {
     expect(getMasterBreed("central-asian-shepherd-dog")?.aliasesEn).toContain("Alabai");
     expect(getMasterBreed("welsh-corgi-pembroke")?.aliasesKo).toContain("웰시코기");
     expect(getMasterBreed("american-cocker-spaniel")?.aliasesKo).toEqual(expect.arrayContaining(["아메리칸 코커 스파니엘", "아메리칸 코카 스파니엘"]));
+    expect(getMasterBreed("mastiff")?.aliasesKo).toEqual(expect.arrayContaining(["잉글리시 마스티프", "잉글리시 마스티브", "마스티브"]));
+    expect(getMasterBreed("mastiff")?.aliasesEn).toContain("English Mastiff");
+    expect(getMasterBreed("caucasian-shepherd-dog")?.aliasesKo).toEqual(expect.arrayContaining(["코카시안 오브차카", "코카서스 오브차카", "오브차카"]));
+    expect(getMasterBreed("caucasian-shepherd-dog")?.aliasesEn).toContain("Caucasian Ovcharka");
   });
 
   it("separates registry status from the evidence-based inclusion type", () => {
