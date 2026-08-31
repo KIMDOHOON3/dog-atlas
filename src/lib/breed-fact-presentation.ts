@@ -11,6 +11,16 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  "german-hunting-terrier": { size: "33~40cm · 몸무게는 체격에 비례", height: "33~40cm", weight: "체격에 비례" },
+  "norwegian-buhund": { size: "암컷 41~45cm·약 12~16kg · 수컷 43~47cm·약 14~18kg", height: "암컷 41~45cm · 수컷 43~47cm", weight: "암컷 약 12~16kg · 수컷 약 14~18kg" },
+  "russian-european-laika": { size: "암컷 48~54cm · 수컷 52~58cm · 고정 기준 없음", height: "암컷 48~54cm · 수컷 52~58cm", weight: "고정 기준 없음" },
+  "east-siberian-laika": { size: "암컷 53~60cm · 수컷 57~64cm · 고정 기준 없음", height: "암컷 53~60cm · 수컷 57~64cm", weight: "고정 기준 없음" },
+  "west-siberian-laika": { size: "암컷 51~58cm · 수컷 55~62cm · 고정 기준 없음", height: "암컷 51~58cm · 수컷 55~62cm", weight: "고정 기준 없음" },
+  norrbottenspets: { size: "암컷 이상적 42cm(±2cm) · 수컷 이상적 45cm(±2cm) · 고정 기준 없음", height: "암컷 이상적 42cm(±2cm) · 수컷 이상적 45cm(±2cm)", weight: "고정 기준 없음" },
+  jamthund: { size: "암컷 52~60cm(이상적 56cm) · 수컷 57~65cm(이상적 61cm) · 고정 기준 없음", height: "암컷 52~60cm(이상적 56cm) · 수컷 57~65cm(이상적 61cm)", weight: "고정 기준 없음" },
+  ariegeois: { size: "암컷 50~56cm · 수컷 52~58cm · 고정 기준 없음", height: "암컷 50~56cm · 수컷 52~58cm", weight: "고정 기준 없음" },
+  "anglo-francais-de-petite-venerie": { size: "48~56cm(예외 허용 ±2cm) · 고정 기준 없음", height: "48~56cm(예외 허용 ±2cm)", weight: "고정 기준 없음" },
+  billy: { size: "암컷 58~62cm · 수컷 60~70cm · 고정 기준 없음", height: "암컷 58~62cm · 수컷 60~70cm", weight: "고정 기준 없음" },
   tornjak: { size: "암컷 60~65cm(±2cm) · 수컷 65~70cm(±2cm) · 고정 기준 없음", height: "암컷 60~65cm(±2cm) · 수컷 65~70cm(±2cm)", weight: "고정 기준 없음" },
   "central-asian-shepherd-dog": { size: "암컷 65cm·40kg 이상 · 수컷 70cm·50kg 이상", height: "암컷 65cm 이상 · 수컷 70cm 이상", weight: "암컷 40kg 이상 · 수컷 50kg 이상" },
   "spanish-mastiff": { size: "암컷 최소 72cm(권장 75cm 초과) · 수컷 최소 77cm(권장 80cm 초과) · 고정 기준 없음", height: "암컷 최소 72cm(권장 75cm 초과) · 수컷 최소 77cm(권장 80cm 초과)", weight: "고정 기준 없음" },

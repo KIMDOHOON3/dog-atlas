@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(239);
+    expect(details).toHaveLength(249);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -155,7 +155,42 @@ describe("standard breed detail editorial data", () => {
       "dandie-dinmont-terrier",
       "glen-of-imaal-terrier",
       "japanese-terrier",
+      "german-hunting-terrier",
+      "norwegian-buhund",
+      "russian-european-laika",
+      "east-siberian-laika",
+      "west-siberian-laika",
+      "norrbottenspets",
+      "jamthund",
+      "ariegeois",
+      "anglo-francais-de-petite-venerie",
+      "billy",
     ]));
+  });
+
+  it.each([
+    ["german-hunting-terrier", "1920년대", "open-box-forest-scent", "jagd-gap-block"],
+    ["norwegian-buhund", "바이킹", "three-soft-balls-pen", "buhund-curled-tail-door"],
+    ["russian-european-laika", "1947년", "black-white-fork-scent", "rel-high-gate"],
+    ["east-siberian-laika", "퉁구스", "distant-tree-scent-return", "east-laika-line-zone"],
+    ["west-siberian-laika", "한티·만시", "two-texture-scent-boards", "west-laika-window-screen"],
+    ["norrbottenspets", "멸종 선언", "two-height-forest-scent", "norrbotten-fine-gap"],
+    ["jamthund", "엘크", "one-bay-grey-marker", "jamthund-wide-vehicle-ramp"],
+    ["ariegeois", "브리케", "gentle-curve-scent-posts", "ariegeois-line-entry"],
+    ["anglo-francais-de-petite-venerie", "프티트 베네리", "three-cloth-chain", "anglo-separate-lanes"],
+    ["billy", "큰 사냥감", "lemon-post-long-line", "billy-long-vehicle-ramp"],
+  ])("keeps expansion-to-300 batch 05 breed %s specific and production-gated", (slug, historyPhrase, activityId, realityId) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = `${detail.heroStatement} ${detail.story.title} ${detail.story.steps[0].title} ${detail.story.steps[0].body}`;
+
+    expect(detail.reviewStatus).toBe("production-draft");
+    expect(copy).toContain(historyPhrase);
+    expect(detail.story.steps[1].image).toContain(activityId);
+    expect(detail.realities[0].image).toContain(realityId);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
+    expect(getBreed(slug)?.sources.length).toBeGreaterThanOrEqual(2);
   });
 
   it.each([
