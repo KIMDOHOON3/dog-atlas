@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(209);
+    expect(details).toHaveLength(219);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -125,7 +125,39 @@ describe("standard breed detail editorial data", () => {
       "griffon-bruxellois",
       "petit-brabancon",
       "russian-toy",
+      "lowchen",
+      "english-toy-spaniel",
+      "scottish-deerhound",
+      "hungarian-greyhound",
+      "catalan-sheepdog",
+      "croatian-sheepdog",
+      "kuvasz",
+      "schapendoes",
+      "portuguese-sheepdog",
+      "maremma-sheepdog",
     ]));
+  });
+
+  it.each([
+    ["lowchen", "태피스트리", "발판"],
+    ["english-toy-spaniel", "궁정", "긴 귀"],
+    ["scottish-deerhound", "붉은사슴", "긴 침대"],
+    ["hungarian-greyhound", "평원", "이중 출입문"],
+    ["catalan-sheepdog", "카탈루냐", "앞쪽과 뒤쪽"],
+    ["croatian-sheepdog", "가축", "검은 곱슬"],
+    ["kuvasz", "가축", "이중 출입"],
+    ["schapendoes", "목초지", "착지"],
+    ["portuguese-sheepdog", "알렌테주", "속털"],
+    ["maremma-sheepdog", "계절 이동", "이중문"],
+  ])("connects 300-expansion batch-02 breed %s to its own role and lived reality", (slug, roleCopy, livedCopy) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = [detail.heroStatement, ...detail.story.steps.flatMap((step) => [step.title, step.body]), ...detail.realities.flatMap((reality) => [reality.title, reality.body])].join(" ");
+    expect(detail.reviewStatus).toBe("production-draft");
+    expect(copy).toContain(roleCopy);
+    expect(copy).toContain(livedCopy);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
   });
 
   it.each([

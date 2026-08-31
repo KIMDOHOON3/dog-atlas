@@ -41,6 +41,8 @@ describe("discover breed DTO", () => {
     expect(reviewed.some((breed) => breed.slug === "braque-saint-germain")).toBe(true);
     expect(reviewed.some((breed) => breed.slug === "american-pit-bull-terrier")).toBe(false);
     expect(reviewed.some((breed) => breed.slug === "russian-toy")).toBe(false);
+    expect(reviewed.some((breed) => breed.slug === "lowchen")).toBe(false);
+    expect(reviewed.some((breed) => breed.slug === "maremma-sheepdog")).toBe(false);
     expect(filterCoreEditorialReviewBreeds(projected, false)).toHaveLength(376);
   });
 

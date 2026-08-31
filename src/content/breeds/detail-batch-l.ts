@@ -52,6 +52,10 @@ const historySources: Partial<Record<string, Breed["sources"]>> = {
   "kangal-shepherd-dog": [{ title: "Kangal Shepherd Dog FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/331g02-en.pdf", checkedAt: "2026-08-30" }],
   "parson-russell-terrier": [{ title: "Parson Russell Terrier FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/339g03-en.pdf", checkedAt: "2026-08-30" }],
   "sealyham-terrier": [{ title: "Sealyham Terrier FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/074g03-en.pdf", checkedAt: "2026-08-30" }],
+  lowchen: [{ title: "Lowchen FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/233g09-en.pdf", checkedAt: "2026-08-31" }],
+  "english-toy-spaniel": [{ title: "King Charles Spaniel FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/128g09-en.pdf", checkedAt: "2026-08-31" }],
+  "scottish-deerhound": [{ title: "Deerhound FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/164g10-en.pdf", checkedAt: "2026-08-31" }],
+  "hungarian-greyhound": [{ title: "Magyar Agar FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/240g10-en.pdf", checkedAt: "2026-08-31" }],
 };
 type Group = Exclude<Breed["catalog"]["group"], "northern-working" | "dachshund">;
 type Level = "낮은 편" | "중간" | "높은 편" | "개체별 확인 필요";
@@ -196,10 +200,10 @@ const seeds: Seed[] = [
   { slug: "griffon-bruxellois", nameKo: "브뤼셀 그리폰", nameEn: "Griffon Bruxellois", group: "companion", origin: "벨기에", role: "마차 경계와 마구간 설치류 통제", size: "소형 · 체고 고정 기준 없음, 3.5~6kg", fciUrl: "https://www.fci.be/en/nomenclature/GRIFFON-BRUXELLOIS-80.html" },
   { slug: "petit-brabancon", nameKo: "프티 브라방송", nameEn: "Petit Brabancon", group: "companion", origin: "벨기에", role: "마차 경계와 마구간 설치류 통제", size: "소형 · 체고 고정 기준 없음, 3.5~6kg", fciUrl: "https://www.fci.be/en/nomenclature/PETIT-BRABANCON-82.html" },
   { slug: "russian-toy", nameKo: "러시안 토이", nameEn: "Russian Toy", group: "companion", origin: "러시아", role: "러시아에서 독자적으로 형성된 초소형 반려", size: "소형 · 22~27cm, 3kg 이하", fciUrl: "https://www.fci.be/en/nomenclature/RUSSIAN-TOY-352.html" },
-  { slug: "lowchen", nameKo: "뢰첸", nameEn: "Lowchen", group: "companion", origin: "프랑스·독일권", role: "가정의 동반과 사람 곁의 경계 알림", size: "소형 · 약 26~32cm, 4~8kg", fciUrl: "https://www.fci.be/en/nomenclature/LOWCHEN-233.html" },
-  { slug: "english-toy-spaniel", nameKo: "잉글리시 토이 스패니얼", nameEn: "English Toy Spaniel", group: "companion", origin: "영국", role: "궁정과 가정의 동반 및 교감", size: "소형 · 약 23~28cm, 3.5~6.5kg", fciUrl: "https://www.fci.be/en/nomenclature/KING-CHARLES-SPANIEL-128.html" },
-  { slug: "scottish-deerhound", nameKo: "스코티시 디어하운드", nameEn: "Scottish Deerhound", group: "sighthound", origin: "스코틀랜드", role: "넓은 고지대에서 사슴을 시각 추적", size: "대형 · 약 71~80cm, 34~50kg", fciUrl: "https://www.fci.be/en/nomenclature/DEERHOUND-164.html" },
-  { slug: "hungarian-greyhound", nameKo: "헝가리안 그레이하운드", nameEn: "Hungarian Greyhound", group: "sighthound", origin: "헝가리", role: "평원에서 토끼와 사슴을 시각 추적", size: "대형 · 약 62~70cm, 22~30kg", fciUrl: "https://www.fci.be/en/nomenclature/MAGYAR-AGAR-240.html" },
+  { slug: "lowchen", nameKo: "뢰첸", nameEn: "Lowchen", group: "companion", origin: "프랑스·독일권", role: "가정의 동반과 사람 곁의 경계 알림", size: "소형 · 26~32cm(±1cm), 약 6kg", fciUrl: "https://www.fci.be/en/nomenclature/LOWCHEN-233.html" },
+  { slug: "english-toy-spaniel", nameKo: "잉글리시 토이 스패니얼", nameEn: "English Toy Spaniel", group: "companion", origin: "영국", role: "궁정과 가정의 동반 및 교감", size: "소형 · 체고 고정 기준 없음, 3.6~6.3kg", fciUrl: "https://www.fci.be/en/nomenclature/KING-CHARLES-SPANIEL-128.html" },
+  { slug: "scottish-deerhound", nameKo: "스코티시 디어하운드", nameEn: "Scottish Deerhound", group: "sighthound", origin: "스코틀랜드", role: "넓은 고지대에서 사슴을 시각 추적", size: "대형 · 암컷 71cm 이상·약 36.5kg, 수컷 76cm 이상·약 45.5kg", fciUrl: "https://www.fci.be/en/nomenclature/DEERHOUND-164.html" },
+  { slug: "hungarian-greyhound", nameKo: "헝가리안 그레이하운드", nameEn: "Hungarian Greyhound", group: "sighthound", origin: "헝가리", role: "평원에서 토끼와 사슴을 시각 추적", size: "대형 · 암컷 이상적 62~67cm, 수컷 이상적 65~70cm, FCI 고정 몸무게 없음", fciUrl: "https://www.fci.be/en/nomenclature/MAGYAR-AGAR-240.html" },
 ];
 
 const roleHome = (group: Group) => {

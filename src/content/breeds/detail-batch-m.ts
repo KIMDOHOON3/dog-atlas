@@ -3,6 +3,12 @@ import { withTopicParticle } from "../../lib/korean-particles";
 
 const historySources: Partial<Record<string, Breed["sources"]>> = {
   komondor: [{ title: "Komondor FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/053g01-en.pdf", checkedAt: "2026-08-29" }],
+  "catalan-sheepdog": [{ title: "Catalan Sheepdog FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/087g01-en.pdf", checkedAt: "2026-08-31" }],
+  "croatian-sheepdog": [{ title: "Croatian Shepherd Dog FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/277g01-en.pdf", checkedAt: "2026-08-31" }],
+  kuvasz: [{ title: "Kuvasz FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/054g01-en.pdf", checkedAt: "2026-08-31" }],
+  schapendoes: [{ title: "Schapendoes FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/313g01-en.pdf", checkedAt: "2026-08-31" }],
+  "portuguese-sheepdog": [{ title: "Portuguese Sheepdog FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/093g01-en.pdf", checkedAt: "2026-08-31" }],
+  "maremma-sheepdog": [{ title: "Maremma and Abruzzo Shepherd Dog FCI breed standard PDF", organization: "Fédération Cynologique Internationale", url: "https://www.fci.be/Nomenclature/Standards/201g01-en.pdf", checkedAt: "2026-08-31" }],
 };
 
 const checkedAt = "2026-08-06";
@@ -41,13 +47,13 @@ const meta: Record<Group, {
 };
 
 const seeds: Seed[] = [
-  { slug: "catalan-sheepdog", nameKo: "카탈란 셰퍼드", nameEn: "Catalan Sheepdog", group: "herding", origin: "스페인 카탈루냐", role: "산악 목초지에서 양 떼를 모으고 지키는 작업", size: "중형 · 약 45~55cm, 16~25kg", fciUrl: "https://www.fci.be/en/nomenclature/CATALAN-SHEEPDOG-87.html" },
-  { slug: "croatian-sheepdog", nameKo: "크로아티안 셰퍼드", nameEn: "Croatian Sheepdog", group: "herding", origin: "크로아티아", role: "농장의 가축을 몰고 주변을 경계하는 작업", size: "중형 · 약 40~50cm, 13~20kg", fciUrl: "https://www.fci.be/en/nomenclature/CROATIAN-SHEPHERD-DOG-277.html" },
+  { slug: "catalan-sheepdog", nameKo: "카탈란 셰퍼드", nameEn: "Catalan Sheepdog", group: "herding", origin: "스페인 카탈루냐", role: "산악 목초지에서 양 떼를 모으고 지키는 작업", size: "중형 · 암컷 45~53cm, 수컷 47~55cm, FCI 고정 몸무게 없음", fciUrl: "https://www.fci.be/en/nomenclature/CATALAN-SHEEPDOG-87.html" },
+  { slug: "croatian-sheepdog", nameKo: "크로아티안 셰퍼드", nameEn: "Croatian Sheepdog", group: "herding", origin: "크로아티아", role: "농장의 가축을 몰고 주변을 경계하는 작업", size: "중형 · 암컷 43~48cm, 수컷 45~50cm(우수한 타입 ±3cm), FCI 고정 몸무게 없음", fciUrl: "https://www.fci.be/en/nomenclature/CROATIAN-SHEPHERD-DOG-277.html" },
   { slug: "komondor", nameKo: "코몬도르", nameEn: "Komondor", group: "herding", origin: "헝가리", role: "목초지의 가축을 포식자로부터 지키는 보호", size: "대형 · 약 65~80cm, 40~60kg", fciUrl: "https://www.fci.be/en/nomenclature/KOMONDOR-53.html" },
-  { slug: "kuvasz", nameKo: "쿠바스", nameEn: "Kuvasz", group: "herding", origin: "헝가리", role: "가축과 영지를 지키는 야간 경비", size: "대형 · 약 66~76cm, 37~62kg", fciUrl: "https://www.fci.be/en/nomenclature/KUVASZ-54.html" },
-  { slug: "schapendoes", nameKo: "샤펜도스", nameEn: "Schapendoes", group: "herding", origin: "네덜란드", role: "목초지에서 양 떼를 모으는 민첩한 작업", size: "중형 · 약 40~50cm, 12~25kg", fciUrl: "https://www.fci.be/en/nomenclature/SCHAPENDOES-313.html" },
-  { slug: "portuguese-sheepdog", nameKo: "포르투기즈 셰퍼드", nameEn: "Portuguese Sheepdog", group: "herding", origin: "포르투갈", role: "가축을 몰고 농장 주변을 관리하는 작업", size: "중형 · 약 42~55cm, 12~18kg", fciUrl: "https://www.fci.be/en/nomenclature/PORTUGUESE-SHEEPDOG-93.html" },
-  { slug: "maremma-sheepdog", nameKo: "마렘마 앤 아브루초 셰퍼드", nameEn: "Maremma and Abruzzo Shepherd Dog", group: "herding", origin: "이탈리아", role: "양 떼를 대형 포식자로부터 지키는 보호", size: "대형 · 약 60~73cm, 30~45kg", fciUrl: "https://www.fci.be/en/nomenclature/MAREMMA-AND-ABRUZZES-SHEEPDOG-201.html" },
+  { slug: "kuvasz", nameKo: "쿠바스", nameEn: "Kuvasz", group: "herding", origin: "헝가리", role: "가축과 영지를 지키는 야간 경비", size: "대형 · 암컷 66~70cm·37~50kg, 수컷 71~76cm·48~62kg", fciUrl: "https://www.fci.be/en/nomenclature/KUVASZ-54.html" },
+  { slug: "schapendoes", nameKo: "샤펜도스", nameEn: "Schapendoes", group: "herding", origin: "네덜란드", role: "목초지에서 양 떼를 모으는 민첩한 작업", size: "중형 · 암컷 40~47cm, 수컷 43~50cm, FCI 고정 몸무게 없음", fciUrl: "https://www.fci.be/en/nomenclature/SCHAPENDOES-313.html" },
+  { slug: "portuguese-sheepdog", nameKo: "포르투기즈 셰퍼드", nameEn: "Portuguese Sheepdog", group: "herding", origin: "포르투갈", role: "가축을 몰고 농장 주변을 관리하는 작업", size: "중형 · 암컷 42~52cm, 수컷 45~55cm, 17~27kg", fciUrl: "https://www.fci.be/en/nomenclature/PORTUGUESE-SHEEPDOG-93.html" },
+  { slug: "maremma-sheepdog", nameKo: "마렘마 앤 아브루초 셰퍼드", nameEn: "Maremma and Abruzzo Shepherd Dog", group: "herding", origin: "이탈리아", role: "양 떼를 대형 포식자로부터 지키는 보호", size: "대형 · 암컷 62~70cm·35~45kg, 수컷 67~73.5cm·40~52kg", fciUrl: "https://www.fci.be/en/nomenclature/MAREMMA-AND-ABRUZZES-SHEEPDOG-201.html" },
   { slug: "polish-tatra-sheepdog", nameKo: "폴리시 타트라 셰퍼드", nameEn: "Tatra Shepherd Dog", group: "herding", origin: "폴란드 타트라", role: "산악 목초지의 양과 농장을 지키는 보호", size: "대형 · 약 60~70cm, 30~45kg", fciUrl: "https://www.fci.be/en/nomenclature/TATRA-SHEPHERD-DOG-252.html" },
   { slug: "romanian-mioritic-shepherd-dog", nameKo: "루마니안 미오리틱 셰퍼드", nameEn: "Romanian Mioritic Shepherd Dog", group: "herding", origin: "루마니아", role: "카르파티아 목초지에서 가축을 지키는 보호", size: "대형 · 약 65~75cm, 45~65kg", fciUrl: "https://www.fci.be/en/nomenclature/ROMANIAN-MIORITIC-SHEPHERD-DOG-349.html" },
   { slug: "romanian-carpathian-shepherd-dog", nameKo: "루마니안 카르파티안 셰퍼드", nameEn: "Romanian Carpathian Shepherd Dog", group: "herding", origin: "루마니아 카르파티아", role: "산악 가축 무리와 목장을 지키는 보호", size: "대형 · 약 59~73cm, 35~65kg", fciUrl: "https://www.fci.be/en/nomenclature/ROMANIAN-CARPATHIAN-SHEPHERD-DOG-350.html" },

@@ -212,7 +212,7 @@ describe("breed fact presentation", () => {
     const exceptions = new Set(["poodle", "dachshund", "pyrenean-mountain-dog", "mongolian-bankhar"]);
     const standardBreeds = breeds.filter((breed) => breed.slug === "poodle" || getStandardBreedDetail(breed.slug));
 
-    expect(standardBreeds).toHaveLength(210);
+    expect(standardBreeds).toHaveLength(220);
     for (const breed of standardBreeds) {
       if (exceptions.has(breed.slug)) continue;
       const rows = getBreedSizeFactRows(getBreedFactPresentation(breed));
@@ -320,6 +320,16 @@ describe("breed fact presentation", () => {
       "griffon-bruxellois",
       "petit-brabancon",
       "russian-toy",
+      "lowchen",
+      "english-toy-spaniel",
+      "scottish-deerhound",
+      "hungarian-greyhound",
+      "catalan-sheepdog",
+      "croatian-sheepdog",
+      "kuvasz",
+      "schapendoes",
+      "portuguese-sheepdog",
+      "maremma-sheepdog",
     ];
 
     numericSizeSlugs.forEach((slug) => {
