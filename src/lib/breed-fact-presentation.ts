@@ -11,6 +11,16 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  "briquet-griffon-vendeen": { size: "암컷 48~53cm(±1cm) · 수컷 50~55cm(±1cm) · 고정 기준 없음", height: "암컷 48~53cm(±1cm) · 수컷 50~55cm(±1cm)", weight: "고정 기준 없음" },
+  dunker: { size: "암컷 47~54cm(이상적 49~51cm) · 수컷 50~58cm(이상적 52~54cm) · 고정 기준 없음", height: "암컷 47~54cm(이상적 49~51cm) · 수컷 50~58cm(이상적 52~54cm)", weight: "고정 기준 없음" },
+  "halden-hound": { size: "암컷 50~58cm(이상적 54cm) · 수컷 52~60cm(이상적 56cm) · 고정 기준 없음", height: "암컷 50~58cm(이상적 54cm) · 수컷 52~60cm(이상적 56cm)", weight: "고정 기준 없음" },
+  "hygen-hound": { size: "암컷 47~55cm(이상적 51cm) · 수컷 50~58cm(이상적 54cm) · 고정 기준 없음", height: "암컷 47~55cm(이상적 51cm) · 수컷 50~58cm(이상적 54cm)", weight: "고정 기준 없음" },
+  "transylvanian-hound": { size: "이상적 55~65cm · 최소 25kg", height: "이상적 55~65cm", weight: "최소 25kg" },
+  "tyrolean-hound": { size: "암컷 42~48cm · 수컷 44~50cm · 고정 기준 없음", height: "암컷 42~48cm · 수컷 44~50cm", weight: "고정 기준 없음" },
+  "braque-francais-type-gascogne": { size: "암컷 58~68cm · 수컷 60~69cm · 고정 기준 없음", height: "암컷 58~68cm · 수컷 60~69cm", weight: "고정 기준 없음" },
+  "braque-d-auvergne": { size: "암컷 53~59cm(이상적 56cm) · 수컷 57~63cm(이상적 60cm) · 허용 +2/-1cm · 고정 기준 없음", height: "암컷 53~59cm(이상적 56cm) · 수컷 57~63cm(이상적 60cm) · 허용 +2/-1cm", weight: "고정 기준 없음" },
+  "german-stichelhaar": { size: "암컷 58~68cm · 수컷 60~70cm · 고정 기준 없음", height: "암컷 58~68cm · 수컷 60~70cm", weight: "고정 기준 없음" },
+  "spinone-italiano": { size: "암컷 58~65cm·28~30kg · 수컷 60~70cm·32~37kg", height: "암컷 58~65cm · 수컷 60~70cm", weight: "암컷 28~30kg · 수컷 32~37kg" },
   "german-hunting-terrier": { size: "33~40cm · 몸무게는 체격에 비례", height: "33~40cm", weight: "체격에 비례" },
   "norwegian-buhund": { size: "암컷 41~45cm·약 12~16kg · 수컷 43~47cm·약 14~18kg", height: "암컷 41~45cm · 수컷 43~47cm", weight: "암컷 약 12~16kg · 수컷 약 14~18kg" },
   "russian-european-laika": { size: "암컷 48~54cm · 수컷 52~58cm · 고정 기준 없음", height: "암컷 48~54cm · 수컷 52~58cm", weight: "고정 기준 없음" },

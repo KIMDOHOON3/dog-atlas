@@ -23,6 +23,7 @@ import { expansionTo300Batch02StandardBreedDetails } from "./expansion-to-300-ba
 import { expansionTo300Batch03StandardBreedDetails } from "./expansion-to-300-batch-03-data";
 import { expansionTo300Batch04StandardBreedDetails } from "./expansion-to-300-batch-04-data";
 import { expansionTo300Batch05StandardBreedDetails } from "./expansion-to-300-batch-05-data";
+import { expansionTo300Batch06StandardBreedDetails } from "./expansion-to-300-batch-06-data";
 
 const japaneseSpitzDetail = standardBreedDetailSchema.parse({
   slug: "japanese-spitz",
@@ -4034,6 +4035,7 @@ const standardBreedDetails = new Map(
     ...expansionTo300Batch03StandardBreedDetails,
     ...expansionTo300Batch04StandardBreedDetails,
     ...expansionTo300Batch05StandardBreedDetails,
+    ...expansionTo300Batch06StandardBreedDetails,
   ].map((detail) => [detail.slug, detail]),
 );
 

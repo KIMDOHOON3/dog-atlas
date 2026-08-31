@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(249);
+    expect(details).toHaveLength(259);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -165,7 +165,42 @@ describe("standard breed detail editorial data", () => {
       "ariegeois",
       "anglo-francais-de-petite-venerie",
       "billy",
+      "briquet-griffon-vendeen",
+      "dunker",
+      "halden-hound",
+      "hygen-hound",
+      "transylvanian-hound",
+      "tyrolean-hound",
+      "braque-francais-type-gascogne",
+      "braque-d-auvergne",
+      "german-stichelhaar",
+      "spinone-italiano",
     ]));
+  });
+
+  it.each([
+    ["briquet-griffon-vendeen", "1946년", "bramble-scent-arches", "briquet-ear-gate"],
+    ["dunker", "빌헬름 콘라트 둥케르", "merle-two-track", "dunker-line-lock"],
+    ["halden-hound", "설원", "snow-three-posts", "halden-wide-gate"],
+    ["hygen-hound", "산토끼와 여우", "red-black-scent-turn", "hygen-door-line"],
+    ["transylvanian-hound", "1968년", "carpathian-long-loop", "transylvanian-double-gate"],
+    ["tyrolean-hound", "1500년", "mountain-wound-trail-cloth", "tyrolean-slope-ramp"],
+    ["braque-francais-type-gascogne", "피레네", "brown-white-point-stand", "gascogne-vehicle-ramp"],
+    ["braque-d-auvergne", "200년", "black-white-point-square", "auvergne-line-door"],
+    ["german-stichelhaar", "1888년", "field-water-two-marker", "stichelhaar-foot-seed-check"],
+    ["spinone-italiano", "1683년", "thorn-water-retrieve-cloth", "spinone-wide-ramp"],
+  ])("keeps expansion-to-300 batch 06 breed %s specific and production-gated", (slug, historyPhrase, activityId, realityId) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+    const copy = `${detail.heroStatement} ${detail.story.title} ${detail.story.steps[0].title} ${detail.story.steps[0].body}`;
+
+    expect(detail.reviewStatus).toBe("production-draft");
+    expect(copy).toContain(historyPhrase);
+    expect(detail.story.steps[1].image).toContain(activityId);
+    expect(detail.realities[1].image).toContain(realityId);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
+    expect(getBreed(slug)?.sources.length).toBeGreaterThanOrEqual(2);
   });
 
   it.each([
