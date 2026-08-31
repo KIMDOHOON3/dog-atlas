@@ -11,6 +11,16 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  "polish-tatra-sheepdog": { size: "암컷 60~65cm · 수컷 65~70cm · 고정 기준 없음", height: "암컷 60~65cm · 수컷 65~70cm", weight: "고정 기준 없음" },
+  "romanian-mioritic-shepherd-dog": { size: "암컷 최소 65cm(이상적 70cm) · 수컷 최소 70cm(이상적 75cm) · 체격에 비례", height: "암컷 최소 65cm(이상적 70cm) · 수컷 최소 70cm(이상적 75cm)", weight: "체격에 비례" },
+  "romanian-carpathian-shepherd-dog": { size: "암컷 이상적 59~67cm(±2cm) · 수컷 65~73cm(±2cm) · 체격에 비례", height: "암컷 이상적 59~67cm(±2cm) · 수컷 65~73cm(±2cm)", weight: "체격에 비례" },
+  broholmer: { size: "암컷 약 70cm·40~60kg · 수컷 약 75cm·50~70kg", height: "암컷 약 70cm · 수컷 약 75cm", weight: "암컷 40~60kg · 수컷 50~70kg" },
+  "fila-brasileiro": { size: "암컷 60~70cm·40kg 이상 · 수컷 65~75cm·50kg 이상", height: "암컷 60~70cm · 수컷 65~75cm", weight: "암컷 40kg 이상 · 수컷 50kg 이상" },
+  hovawart: { size: "암컷 58~65cm · 수컷 63~70cm · 고정 기준 없음", height: "암컷 58~65cm · 수컷 63~70cm", weight: "고정 기준 없음" },
+  landseer: { size: "암컷 67~72cm · 수컷 72~80cm · 고정 기준 없음", height: "암컷 67~72cm · 수컷 72~80cm", weight: "고정 기준 없음" },
+  "pyrenean-mastiff": { size: "암컷 최소 72cm(권장 75cm 초과) · 수컷 최소 77cm(권장 81cm 초과) · 고정 기준 없음", height: "암컷 최소 72cm(권장 75cm 초과) · 수컷 최소 77cm(권장 81cm 초과)", weight: "고정 기준 없음" },
+  sarplaninac: { size: "암컷 평균 58cm(최소 54cm)·30~40kg · 수컷 평균 62cm(최소 56cm)·35~45kg", height: "암컷 평균 58cm(최소 54cm) · 수컷 평균 62cm(최소 56cm)", weight: "암컷 30~40kg · 수컷 35~45kg" },
+  tosa: { size: "암컷 55cm 이상 · 수컷 60cm 이상 · 고정 기준 없음", height: "암컷 55cm 이상 · 수컷 60cm 이상", weight: "고정 기준 없음" },
   "bedlington-terrier": { size: "약 41cm · 8~10kg", height: "약 41cm", weight: "8~10kg" },
   "manchester-terrier": { size: "38~41cm · 고정 기준 없음", height: "38~41cm", weight: "고정 기준 없음" },
   "cesky-terrier": { size: "25~32cm · 6~10kg", height: "25~32cm", weight: "6~10kg" },

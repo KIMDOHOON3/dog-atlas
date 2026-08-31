@@ -61,6 +61,7 @@
 - [`image-prompts-expansion-batch-b-10-breeds-2026-08-29.md`](image-prompts-expansion-batch-b-10-breeds-2026-08-29.md) — 10종 단위 첫 표준 상세 확장의 공식 근거, 견종별 생활 장면 40개, 원본·WebP 매핑과 폐기 기록
 - [`image-prompts-expansion-to-300-batch-01-2026-08-31.md`](image-prompts-expansion-to-300-batch-01-2026-08-31.md) — 300종 확장 첫 제작 초안 10종의 공식 크기·역할 근거, 신규 생활 장면 40개와 `production-draft` 판정 기록
 - [`image-prompts-expansion-to-300-batch-02-2026-08-31.md`](image-prompts-expansion-to-300-batch-02-2026-08-31.md) — 뢰첸부터 마렘마 앤 아브루초 셰퍼드까지 두 번째 제작 초안 10종의 공식 기준, 신규 생활 장면 40개와 이미지 재생성 판정 기록
+- [`image-prompts-expansion-to-300-batch-03-2026-08-31.md`](image-prompts-expansion-to-300-batch-03-2026-08-31.md) — 폴리시 타트라 셰퍼드부터 도사까지 세 번째 제작 초안 10종의 공식 크기·역할 근거, 신규 생활 장면 40개와 외형 재생성 판정 기록
 
 배치 A·B 문서는 현재 전체 368종 자산 목록이 아니라 초기 제작 배치의 재현 기록이다. 최신 외형 점검 상태는 `breed-visual-audit.md`를 기준으로 본다.
 

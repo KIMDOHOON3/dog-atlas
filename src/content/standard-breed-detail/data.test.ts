@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(219);
+    expect(details).toHaveLength(229);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -135,7 +135,38 @@ describe("standard breed detail editorial data", () => {
       "schapendoes",
       "portuguese-sheepdog",
       "maremma-sheepdog",
+      "polish-tatra-sheepdog",
+      "romanian-mioritic-shepherd-dog",
+      "romanian-carpathian-shepherd-dog",
+      "broholmer",
+      "fila-brasileiro",
+      "hovawart",
+      "landseer",
+      "pyrenean-mastiff",
+      "sarplaninac",
+      "tosa",
     ]));
+  });
+
+  it.each([
+    ["polish-tatra-sheepdog", "양", "tatra-boundary-three", "white-guardian-gate"],
+    ["romanian-mioritic-shepherd-dog", "곰·늑대", "carpathian-distant-check", "mioritic-wide-turn"],
+    ["romanian-carpathian-shepherd-dog", "가축", "wolfgrey-semicircle", "carpathian-corner-clearance"],
+    ["broholmer", "사슴", "estate-scent-crates", "broholmer-wide-ramp"],
+    ["fila-brasileiro", "가축", "brazil-wide-pace", "fila-locked-vestibule"],
+    ["hovawart", "농장", "estate-track-cloths", "hovawart-vehicle-turn"],
+    ["landseer", "뉴펀들랜드", "landseer-water-bowls", "landseer-wide-ramp"],
+    ["pyrenean-mastiff", "늑대와 곰", "pyrenean-two-boundaries", "mastiff-extra-wide-gate"],
+    ["sarplaninac", "포식자", "shar-gentle-slope", "sarplaninac-slope-traction"],
+    ["tosa", "시코쿠견", "tosa-light-push", "tosa-locked-double-door"],
+  ])("keeps expansion-to-300 batch 03 breed %s specific and production-gated", (slug, historyPhrase, activityId, realityId) => {
+    const detail = getStandardBreedDetail(slug)!;
+
+    expect(detail.reviewStatus).toBe("production-draft");
+    expect(`${detail.heroStatement} ${detail.story.steps[0].body}`).toContain(historyPhrase);
+    expect(detail.story.steps[1].image).toContain(activityId);
+    expect(detail.realities[0].image).toContain(realityId);
+    expect(getBreed(slug)?.sources.length).toBeGreaterThanOrEqual(2);
   });
 
   it.each([
