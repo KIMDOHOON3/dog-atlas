@@ -10,6 +10,8 @@
 4. [`decisions.md`](decisions.md) — 날짜별 주요 제품·기술 결정
 5. [`design-visual-guide.md`](design-visual-guide.md) — 이미지 역할, 시각 자산, 접근성 원칙
 
+긴 작업을 새 대화에서 이어받을 때는 [`next-thread-handoff.md`](next-thread-handoff.md)의 현재 대기 목록과 복사 가능한 시작 문구를 함께 읽는다.
+
 현재 코드와 문서가 충돌하면 `project-status.md`에 차이를 기록하고, 코드와 테스트를 사실 확인의 기준으로 삼는다. 제품 원칙이 충돌하면 `product-brief.md`와 `decisions.md`를 우선한다.
 
 ## 분야별 참고 문서

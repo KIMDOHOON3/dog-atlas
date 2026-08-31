@@ -1,5 +1,11 @@
 # Decision log
 
+## 2026-08-31 — Do not expose a standard detail after its visual set is discarded
+
+- Remove the 96 breed-detail 3D scenes that conflict with the established Poodle watercolor direction. Keep the intentional 3D home UI diorama because it belongs to a separate visual system.
+- Temporarily exclude the affected 24 text drafts from the standard-detail registry instead of rendering broken pages or treating the drafts as lost work. Their catalog records, official sources, and draft copy remain available behind the basic breed page.
+- Restore these breeds three at a time only after breed-specific copy, four watercolor lifestyle scenes, representative-image alignment, Korean readability, size facts, and automated checks pass together.
+
 ## 2026-08-29 — Resume standard-detail expansion one gated breed at a time
 
 - The earlier stop at 100 was a review milestone, not a permanent product ceiling. Resume expansion only for a breed that completes the production gate in the same change.

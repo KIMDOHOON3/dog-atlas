@@ -4,6 +4,7 @@ import { DiscoverExplorer } from "@/components/discover-explorer";
 import { DiscoverSearch } from "@/components/discover-search";
 import { FamiliarBreedStart } from "@/components/familiar-breed-start";
 import { SiteHeader } from "@/components/site-header";
+import { getBreedContentAuditStatus } from "@/content/breed-content-audit";
 import { breeds } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
 import { getStandardBreedDetail } from "@/content/standard-breed-detail/data";
@@ -39,7 +40,8 @@ export default function DiscoverPage() {
         <Suspense fallback={<div className={styles.loading}>견종 필터를 준비하고 있어요.</div>}>
           <DiscoverExplorer breeds={breeds.map((breed) => {
             const detail = getStandardBreedDetail(breed.slug);
-            return toDiscoverBreed(breed, breed.slug === "poodle" || detail?.reviewStatus === "editorial-reviewed");
+            const isEditorialReviewComplete = breed.slug === "poodle" || detail?.reviewStatus === "editorial-reviewed";
+            return toDiscoverBreed(breed, getBreedContentAuditStatus(breed.slug, isEditorialReviewComplete));
           })} />
         </Suspense>
       </main>

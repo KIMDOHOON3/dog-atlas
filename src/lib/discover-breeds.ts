@@ -1,9 +1,10 @@
 import type { Breed } from "@/content/breeds/schema";
+import type { BreedContentAuditStatus } from "@/content/breed-content-audit";
 
 type DiscoverTendency = Pick<Breed["tendencies"]["activity"], "label">;
 
 export type DiscoverBreed = Pick<Breed, "slug" | "nameKo" | "nameEn" | "tagline"> & {
-  isCoreEditorialReviewComplete: boolean;
+  contentAuditStatus: BreedContentAuditStatus | null;
   identity: Pick<Breed["identity"], "origin" | "size">;
   tendencies: {
     activity: DiscoverTendency;
@@ -15,13 +16,13 @@ export type DiscoverBreed = Pick<Breed, "slug" | "nameKo" | "nameEn" | "tagline"
   };
 };
 
-export function toDiscoverBreed(breed: Breed, isCoreEditorialReviewComplete = false): DiscoverBreed {
+export function toDiscoverBreed(breed: Breed, contentAuditStatus: BreedContentAuditStatus | null = null): DiscoverBreed {
   return {
     slug: breed.slug,
     nameKo: breed.nameKo,
     nameEn: breed.nameEn,
     tagline: breed.tagline,
-    isCoreEditorialReviewComplete,
+    contentAuditStatus,
     identity: {
       origin: breed.identity.origin,
       size: breed.identity.size,
@@ -37,6 +38,9 @@ export function toDiscoverBreed(breed: Breed, isCoreEditorialReviewComplete = fa
   };
 }
 
-export function filterCoreEditorialReviewBreeds<T extends Pick<DiscoverBreed, "isCoreEditorialReviewComplete">>(breeds: readonly T[], reviewedOnly: boolean): T[] {
-  return reviewedOnly ? breeds.filter((breed) => breed.isCoreEditorialReviewComplete) : [...breeds];
+export function filterBreedsByContentAuditStatus<T extends Pick<DiscoverBreed, "contentAuditStatus">>(
+  breeds: readonly T[],
+  status: BreedContentAuditStatus | null,
+): T[] {
+  return status ? breeds.filter((breed) => breed.contentAuditStatus === status) : [...breeds];
 }

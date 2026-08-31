@@ -5,6 +5,11 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { BreedVisual } from "@/components/breed-visual";
 import {
+  breedContentAuditStatuses,
+  breedContentAuditStatusLabels,
+  type BreedContentAuditStatus,
+} from "@/content/breed-content-audit";
+import {
   applyBreedFilterPreset,
   breedFilterPresets,
   emptyBreedFilters,
@@ -20,7 +25,7 @@ import {
 import { useHistoryEntryState } from "@/lib/history-entry-state";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
 import { presentBreedOrigin } from "@/lib/breed-origin-presentation";
-import { filterCoreEditorialReviewBreeds, type DiscoverBreed } from "@/lib/discover-breeds";
+import { filterBreedsByContentAuditStatus, type DiscoverBreed } from "@/lib/discover-breeds";
 import styles from "./discover-explorer.module.css";
 
 const sizeOptions: Array<{ value: BreedSize; label: string }> = [
@@ -49,10 +54,28 @@ const quickPresets = breedFilterPresets.filter((preset) => ["calm", "active", "s
 
 const INITIAL_RESULT_COUNT = 48;
 const RESULT_BATCH_SIZE = 48;
-const REVIEWED_QUERY_VALUE = "core";
+const AUDIT_QUERY_KEY = "audit";
 const isValidVisibleCount = (value: unknown): value is number => (
   Number.isInteger(value) && Number(value) >= INITIAL_RESULT_COUNT
 );
+
+function parseAuditStatus(params: URLSearchParams): BreedContentAuditStatus | null {
+  const value = params.get(AUDIT_QUERY_KEY);
+  if (breedContentAuditStatuses.some((status) => status === value)) return value as BreedContentAuditStatus;
+  return params.get("reviewed") === "core" ? "needs-review" : null;
+}
+
+function auditStatusClass(status: BreedContentAuditStatus) {
+  if (status === "needs-review") return styles.auditBadgeNeedsReview;
+  if (status === "awaiting-owner-review") return styles.auditBadgeAwaiting;
+  return styles.auditBadgeApproved;
+}
+
+function auditStatusIcon(status: BreedContentAuditStatus) {
+  if (status === "needs-review") return "!";
+  if (status === "awaiting-owner-review") return "·";
+  return "✓";
+}
 
 function cloneFilters(filters: BreedFilters): BreedFilters {
   return {
@@ -79,20 +102,23 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
   const queryString = searchParams.toString();
   const syncedQueryRef = useRef(queryString);
   const urlFilters = useMemo(() => parseBreedFilters(new URLSearchParams(queryString)), [queryString]);
-  const urlReviewedOnly = useMemo(() => new URLSearchParams(queryString).get("reviewed") === REVIEWED_QUERY_VALUE, [queryString]);
+  const urlAuditStatus = useMemo(() => parseAuditStatus(new URLSearchParams(queryString)), [queryString]);
   const [filters, setFilters] = useState<BreedFilters>(() => urlFilters);
-  const [reviewedOnly, setReviewedOnly] = useState(urlReviewedOnly);
+  const [auditStatus, setAuditStatus] = useState<BreedContentAuditStatus | null>(urlAuditStatus);
   const [visibleCount, setVisibleCount] = useHistoryEntryState(
     "discoverVisibleCount",
     INITIAL_RESULT_COUNT,
     isValidVisibleCount,
   );
   const filtersRef = useRef(filters);
-  const reviewedOnlyRef = useRef(reviewedOnly);
-  const results = useMemo(() => filterCoreEditorialReviewBreeds(filterBreeds(breeds, filters), reviewedOnly), [breeds, filters, reviewedOnly]);
-  const reviewedCount = useMemo(() => breeds.filter((breed) => breed.isCoreEditorialReviewComplete).length, [breeds]);
+  const auditStatusRef = useRef(auditStatus);
+  const results = useMemo(() => filterBreedsByContentAuditStatus(filterBreeds(breeds, filters), auditStatus), [auditStatus, breeds, filters]);
+  const auditCounts = useMemo(() => Object.fromEntries(
+    breedContentAuditStatuses.map((status) => [status, breeds.filter((breed) => breed.contentAuditStatus === status).length]),
+  ) as Record<BreedContentAuditStatus, number>, [breeds]);
+  const auditTargetCount = useMemo(() => breeds.filter((breed) => breed.contentAuditStatus !== null).length, [breeds]);
   const visibleResults = useMemo(() => results.slice(0, visibleCount), [results, visibleCount]);
-  const activeCount = Object.values(filters).reduce((count, values) => count + values.length, reviewedOnly ? 1 : 0);
+  const activeCount = Object.values(filters).reduce((count, values) => count + values.length, auditStatus ? 1 : 0);
 
   useEffect(() => {
     if (pendingQueryRef.current !== null) {
@@ -107,11 +133,11 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
 
     syncedQueryRef.current = queryString;
     filtersRef.current = urlFilters;
-    reviewedOnlyRef.current = urlReviewedOnly;
+    auditStatusRef.current = urlAuditStatus;
     setFilters(urlFilters);
-    setReviewedOnly(urlReviewedOnly);
+    setAuditStatus(urlAuditStatus);
     setVisibleCount(INITIAL_RESULT_COUNT);
-  }, [queryString, setVisibleCount, urlFilters, urlReviewedOnly]);
+  }, [queryString, setVisibleCount, urlAuditStatus, urlFilters]);
 
   useEffect(() => {
     if (!filterOpen) return;
@@ -202,14 +228,14 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
     requestAnimationFrame(() => filterTriggerRef.current?.focus());
   }
 
-  function commitFilterState(nextFilters: BreedFilters, nextReviewedOnly = reviewedOnlyRef.current) {
+  function commitFilterState(nextFilters: BreedFilters, nextAuditStatus = auditStatusRef.current) {
     filtersRef.current = nextFilters;
-    reviewedOnlyRef.current = nextReviewedOnly;
+    auditStatusRef.current = nextAuditStatus;
     setFilters(nextFilters);
-    setReviewedOnly(nextReviewedOnly);
+    setAuditStatus(nextAuditStatus);
     setVisibleCount(INITIAL_RESULT_COUNT);
     const params = filtersToSearchParams(nextFilters);
-    if (nextReviewedOnly) params.set("reviewed", REVIEWED_QUERY_VALUE);
+    if (nextAuditStatus) params.set(AUDIT_QUERY_KEY, nextAuditStatus);
     const query = params.toString();
     pendingQueryRef.current = query;
     router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
@@ -254,11 +280,30 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
           <div><span>전체 도감</span><h1 id="discover-results-title">{activeCount > 0 ? `${results.length}종을 살펴보세요` : `${breeds.length}종 모두 보기`}</h1></div>
         </div>
 
-        <div className={styles.reviewFilter}>
-          <div><span>임시 검수 보기</span><small>편집 검수를 마친 핵심 상세만 모아 직접 확인해요.</small></div>
-          <button type="button" aria-pressed={reviewedOnly} onClick={() => commitFilterState(filtersRef.current, !reviewedOnlyRef.current)}>
-            <span aria-hidden="true">{reviewedOnly ? "✓" : ""}</span>편집 검수 완료 {reviewedCount}종
-          </button>
+        <div className={styles.auditFilter}>
+          <div className={styles.auditFilterCopy}>
+            <span>콘텐츠 재검수</span>
+            <small>역사에서 오늘의 생활로 이어지는 원고와 이미지 {auditTargetCount}종을 차례로 확인해요.</small>
+          </div>
+          <div className={styles.auditFilterOptions} aria-label="콘텐츠 검수 상태">
+            {breedContentAuditStatuses.map((status) => {
+              const active = auditStatus === status;
+              const count = auditCounts[status];
+              return (
+                <button
+                  type="button"
+                  key={status}
+                  aria-pressed={active}
+                  disabled={count === 0}
+                  onClick={() => commitFilterState(filtersRef.current, active ? null : status)}
+                >
+                  <span className={`${styles.auditFilterIcon} ${auditStatusClass(status)}`} aria-hidden="true">{auditStatusIcon(status)}</span>
+                  <span>{breedContentAuditStatusLabels[status]}</span>
+                  <strong>{count}</strong>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         <div className={styles.quickFilters}>
@@ -289,9 +334,9 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
 
         {activeCount > 0 && (
           <div className={styles.selectedChips} aria-label="선택한 필터">
-            {reviewedOnly && <button type="button" aria-label="편집 검수 완료 필터 제거" onClick={() => commitFilterState(filtersRef.current, false)}>편집 검수 완료 <span aria-hidden="true">×</span></button>}
+            {auditStatus && <button type="button" aria-label={`${breedContentAuditStatusLabels[auditStatus]} 필터 제거`} onClick={() => commitFilterState(filtersRef.current, null)}>{breedContentAuditStatusLabels[auditStatus]} <span aria-hidden="true">×</span></button>}
             {selectedEntries.map(({ key, value }) => <button type="button" key={`${key}-${value}`} aria-label={`${selectedLabel(key, value)} 필터 제거`} onClick={() => clearOne(key, value)}>{selectedLabel(key, value)} <span aria-hidden="true">×</span></button>)}
-            <button className={styles.clearFilters} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilterState(emptyBreedFilters(), false)}>모두 지우기</button>
+            <button className={styles.clearFilters} type="button" aria-label="선택한 필터 모두 지우기" onClick={() => commitFilterState(emptyBreedFilters(), null)}>모두 지우기</button>
           </div>
         )}
       </section>
@@ -356,6 +401,12 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
                 : defaultHighlights;
               return (
                 <Link className={styles.resultCard} href={`/breeds/${breed.slug}`} key={breed.slug} aria-label={`${breed.nameKo} 상세 이야기 보기`}>
+                  {breed.contentAuditStatus && (
+                    <span className={`${styles.auditBadge} ${auditStatusClass(breed.contentAuditStatus)}`}>
+                      <span className={styles.auditBadgeIcon} aria-hidden="true">{auditStatusIcon(breed.contentAuditStatus)}</span>
+                      {breedContentAuditStatusLabels[breed.contentAuditStatus]}
+                    </span>
+                  )}
                   <BreedVisual breed={breed} variant="tile" />
                   <div className={styles.resultCopy}>
                     <div className={styles.resultMeta}><span>{breed.nameEn}</span><span>{presentBreedOrigin(breed.identity.origin)}</span></div>
@@ -375,7 +426,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
               <span>{visibleResults.length} / {results.length}마리 · 아래로 내리면 계속 보여요</span>
             </div>
           )}
-          {results.length === 0 && <div className={styles.emptyState}><h2>이 조건에 맞는 견종이 아직 없어요.</h2><p>조건을 하나씩 줄이거나 선택을 모두 지우고 다시 살펴보세요.</p><button type="button" onClick={() => commitFilterState(emptyBreedFilters(), false)}>선택 지우기</button></div>}
+          {results.length === 0 && <div className={styles.emptyState}><h2>이 조건에 맞는 견종이 아직 없어요.</h2><p>조건을 하나씩 줄이거나 선택을 모두 지우고 다시 살펴보세요.</p><button type="button" onClick={() => commitFilterState(emptyBreedFilters(), null)}>선택 지우기</button></div>}
         </section>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { getBreed } from "@/content/breeds/data";
 import { familiarKoreaBreeds } from "@/content/familiar-korea-breeds";
-import { getAllStandardBreedDetails, getStandardBreedDetail } from "./data";
+import { getAllStandardBreedDetails, getStandardBreedDetail, paused3dStandardBreedSlugs } from "./data";
 
 const publicFile = (assetPath: string) => join(process.cwd(), "public", assetPath.slice(1));
 
@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(269);
+    expect(details).toHaveLength(245);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -151,30 +151,6 @@ describe("standard breed detail editorial data", () => {
       "australian-terrier",
       "irish-terrier",
       "lakeland-terrier",
-      "skye-terrier",
-      "dandie-dinmont-terrier",
-      "glen-of-imaal-terrier",
-      "japanese-terrier",
-      "german-hunting-terrier",
-      "norwegian-buhund",
-      "russian-european-laika",
-      "east-siberian-laika",
-      "west-siberian-laika",
-      "norrbottenspets",
-      "jamthund",
-      "ariegeois",
-      "anglo-francais-de-petite-venerie",
-      "billy",
-      "briquet-griffon-vendeen",
-      "dunker",
-      "halden-hound",
-      "hygen-hound",
-      "transylvanian-hound",
-      "tyrolean-hound",
-      "braque-francais-type-gascogne",
-      "braque-d-auvergne",
-      "german-stichelhaar",
-      "spinone-italiano",
       "large-munsterlander",
       "irish-red-and-white-setter",
       "hungarian-wirehaired-vizsla",
@@ -213,67 +189,18 @@ describe("standard breed detail editorial data", () => {
     expect(getBreed(slug)?.sources.length).toBeGreaterThanOrEqual(2);
   });
 
-  it.each([
-    ["briquet-griffon-vendeen", "1946년", "bramble-scent-arches", "briquet-ear-gate"],
-    ["dunker", "빌헬름 콘라트 둥케르", "merle-two-track", "dunker-line-lock"],
-    ["halden-hound", "설원", "snow-three-posts", "halden-wide-gate"],
-    ["hygen-hound", "산토끼와 여우", "red-black-scent-turn", "hygen-door-line"],
-    ["transylvanian-hound", "1968년", "carpathian-long-loop", "transylvanian-double-gate"],
-    ["tyrolean-hound", "1500년", "mountain-wound-trail-cloth", "tyrolean-slope-ramp"],
-    ["braque-francais-type-gascogne", "피레네", "brown-white-point-stand", "gascogne-vehicle-ramp"],
-    ["braque-d-auvergne", "200년", "black-white-point-square", "auvergne-line-door"],
-    ["german-stichelhaar", "1888년", "field-water-two-marker", "stichelhaar-foot-seed-check"],
-    ["spinone-italiano", "1683년", "thorn-water-retrieve-cloth", "spinone-wide-ramp"],
-  ])("keeps expansion-to-300 batch 06 breed %s specific and production-gated", (slug, historyPhrase, activityId, realityId) => {
-    const detail = getStandardBreedDetail(slug)!;
-    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
-    const copy = `${detail.heroStatement} ${detail.story.title} ${detail.story.steps[0].title} ${detail.story.steps[0].body}`;
-
-    expect(detail.reviewStatus).toBe("production-draft");
-    expect(copy).toContain(historyPhrase);
-    expect(detail.story.steps[1].image).toContain(activityId);
-    expect(detail.realities[1].image).toContain(realityId);
-    expect(new Set(images).size).toBe(5);
-    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
-    expect(getBreed(slug)?.sources.length).toBeGreaterThanOrEqual(2);
+  it("pauses every detail whose discarded 3D assets are awaiting replacement", () => {
+    expect(paused3dStandardBreedSlugs.size).toBe(24);
+    paused3dStandardBreedSlugs.forEach((slug) => expect(getStandardBreedDetail(slug), slug).toBeUndefined());
   });
 
   it.each([
-    ["german-hunting-terrier", "1920년대", "open-box-forest-scent", "jagd-gap-block"],
-    ["norwegian-buhund", "바이킹", "three-soft-balls-pen", "buhund-curled-tail-door"],
-    ["russian-european-laika", "1947년", "black-white-fork-scent", "rel-high-gate"],
-    ["east-siberian-laika", "퉁구스", "distant-tree-scent-return", "east-laika-line-zone"],
-    ["west-siberian-laika", "한티·만시", "two-texture-scent-boards", "west-laika-window-screen"],
-    ["norrbottenspets", "멸종 선언", "two-height-forest-scent", "norrbotten-fine-gap"],
-    ["jamthund", "엘크", "one-bay-grey-marker", "jamthund-wide-vehicle-ramp"],
-    ["ariegeois", "브리케", "gentle-curve-scent-posts", "ariegeois-line-entry"],
-    ["anglo-francais-de-petite-venerie", "프티트 베네리", "three-cloth-chain", "anglo-separate-lanes"],
-    ["billy", "큰 사냥감", "lemon-post-long-line", "billy-long-vehicle-ramp"],
-  ])("keeps expansion-to-300 batch 05 breed %s specific and production-gated", (slug, historyPhrase, activityId, realityId) => {
-    const detail = getStandardBreedDetail(slug)!;
-    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
-    const copy = `${detail.heroStatement} ${detail.story.title} ${detail.story.steps[0].title} ${detail.story.steps[0].body}`;
-
-    expect(detail.reviewStatus).toBe("production-draft");
-    expect(copy).toContain(historyPhrase);
-    expect(detail.story.steps[1].image).toContain(activityId);
-    expect(detail.realities[0].image).toContain(realityId);
-    expect(new Set(images).size).toBe(5);
-    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
-    expect(getBreed(slug)?.sources.length).toBeGreaterThanOrEqual(2);
-  });
-
-  it.each([
-    ["tornjak", "1067년", "mountain-oval-trot", "tornjak-wide-gate"],
-    ["central-asian-shepherd-dog", "카라반", "three-corners-water", "central-asian-locked-court"],
-    ["spanish-mastiff", "메리노", "transhumance-straight-walk", "spanish-mastiff-extra-wide-door"],
-    ["australian-terrier", "개척지", "low-rock-scent-tube", "australian-terrier-gap-screen"],
-    ["irish-terrier", "전령견", "message-pouch-return", "irish-terrier-tall-clear-gate"],
-    ["lakeland-terrier", "여우", "open-arches-scent", "lakeland-rock-gap-barrier"],
-    ["skye-terrier", "서부 섬", "flat-long-scent-line", "skye-low-ramp"],
-    ["dandie-dinmont-terrier", "월터 스콧", "reed-scent-pouches", "dandie-gentle-step"],
-    ["glen-of-imaal-terrier", "회전바퀴", "quiet-farm-tins", "glen-wide-low-ramp"],
-    ["japanese-terrier", "나가사키", "harbor-cloth-choice", "japanese-terrier-door-gap"],
+    ["tornjak", "1067년", "quiet-boundary-return", "visitor-buffer-double-gate"],
+    ["central-asian-shepherd-dog", "카라반", "boundary-disengage-return", "reinforced-offset-court"],
+    ["spanish-mastiff", "메리노", "broad-track-steady-walk", "wide-vehicle-ramp"],
+    ["australian-terrier", "개척지", "shed-edge-scent-return", "rigid-gap-screen-check"],
+    ["irish-terrier", "전령견", "canvas-pouch-return", "hedge-distance-turn"],
+    ["lakeland-terrier", "여우", "open-slate-scent-check", "stone-wall-rigid-mesh"],
   ])("keeps expansion-to-300 batch 04 breed %s specific and production-gated", (slug, historyPhrase, activityId, realityId) => {
     const detail = getStandardBreedDetail(slug)!;
     const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];

@@ -3954,6 +3954,36 @@ const flatCoatedRetrieverDetail = standardBreedDetailSchema.parse({
   },
 });
 
+// The copy drafts stay available for the next editorial pass, but these entries
+// must not render as standard details until their discarded 3D assets have been
+// replaced with breed-specific watercolor scenes.
+export const paused3dStandardBreedSlugs = new Set([
+  "skye-terrier",
+  "dandie-dinmont-terrier",
+  "glen-of-imaal-terrier",
+  "japanese-terrier",
+  "german-hunting-terrier",
+  "norwegian-buhund",
+  "russian-european-laika",
+  "east-siberian-laika",
+  "west-siberian-laika",
+  "norrbottenspets",
+  "jamthund",
+  "ariegeois",
+  "anglo-francais-de-petite-venerie",
+  "billy",
+  "briquet-griffon-vendeen",
+  "dunker",
+  "halden-hound",
+  "hygen-hound",
+  "transylvanian-hound",
+  "tyrolean-hound",
+  "braque-francais-type-gascogne",
+  "braque-d-auvergne",
+  "german-stichelhaar",
+  "spinone-italiano",
+]);
+
 const standardBreedDetails = new Map(
   [
     japaneseSpitzDetail,
@@ -4038,7 +4068,9 @@ const standardBreedDetails = new Map(
     ...expansionTo300Batch05StandardBreedDetails,
     ...expansionTo300Batch06StandardBreedDetails,
     ...expansionTo300Batch07StandardBreedDetails,
-  ].map((detail) => [detail.slug, detail]),
+  ]
+    .filter((detail) => !paused3dStandardBreedSlugs.has(detail.slug))
+    .map((detail) => [detail.slug, detail]),
 );
 
 export function getStandardBreedDetail(slug: string) {
