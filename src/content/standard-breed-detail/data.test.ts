@@ -11,7 +11,7 @@ describe("standard breed detail editorial data", () => {
   const details = getAllStandardBreedDetails();
 
   it("keeps the gated expansion beyond the 100-breed milestone", () => {
-    expect(details).toHaveLength(229);
+    expect(details).toHaveLength(239);
     expect(details.some((detail) => detail.slug === "poodle")).toBe(false);
     expect(details.some((detail) => detail.slug === "american-cocker-spaniel")).toBe(true);
     expect(details.map((detail) => detail.slug)).toEqual(expect.arrayContaining([
@@ -145,7 +145,41 @@ describe("standard breed detail editorial data", () => {
       "pyrenean-mastiff",
       "sarplaninac",
       "tosa",
+      "tornjak",
+      "central-asian-shepherd-dog",
+      "spanish-mastiff",
+      "australian-terrier",
+      "irish-terrier",
+      "lakeland-terrier",
+      "skye-terrier",
+      "dandie-dinmont-terrier",
+      "glen-of-imaal-terrier",
+      "japanese-terrier",
     ]));
+  });
+
+  it.each([
+    ["tornjak", "1067년", "mountain-oval-trot", "tornjak-wide-gate"],
+    ["central-asian-shepherd-dog", "카라반", "three-corners-water", "central-asian-locked-court"],
+    ["spanish-mastiff", "메리노", "transhumance-straight-walk", "spanish-mastiff-extra-wide-door"],
+    ["australian-terrier", "개척지", "low-rock-scent-tube", "australian-terrier-gap-screen"],
+    ["irish-terrier", "전령견", "message-pouch-return", "irish-terrier-tall-clear-gate"],
+    ["lakeland-terrier", "여우", "open-arches-scent", "lakeland-rock-gap-barrier"],
+    ["skye-terrier", "서부 섬", "flat-long-scent-line", "skye-low-ramp"],
+    ["dandie-dinmont-terrier", "월터 스콧", "reed-scent-pouches", "dandie-gentle-step"],
+    ["glen-of-imaal-terrier", "회전바퀴", "quiet-farm-tins", "glen-wide-low-ramp"],
+    ["japanese-terrier", "나가사키", "harbor-cloth-choice", "japanese-terrier-door-gap"],
+  ])("keeps expansion-to-300 batch 04 breed %s specific and production-gated", (slug, historyPhrase, activityId, realityId) => {
+    const detail = getStandardBreedDetail(slug)!;
+    const images = [...detail.story.steps.map((step) => step.image), ...detail.realities.map((reality) => reality.image)];
+
+    expect(detail.reviewStatus).toBe("production-draft");
+    expect(`${detail.heroStatement} ${detail.story.steps[0].title} ${detail.story.steps[0].body}`).toContain(historyPhrase);
+    expect(detail.story.steps[1].image).toContain(activityId);
+    expect(detail.realities[0].image).toContain(realityId);
+    expect(new Set(images).size).toBe(5);
+    images.forEach((image) => expect(existsSync(publicFile(image)), image).toBe(true));
+    expect(getBreed(slug)?.sources.length).toBeGreaterThanOrEqual(2);
   });
 
   it.each([

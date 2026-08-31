@@ -11,6 +11,16 @@ type BreedFactOverride = {
 // breed sources linked from each detail page. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
+  tornjak: { size: "암컷 60~65cm(±2cm) · 수컷 65~70cm(±2cm) · 고정 기준 없음", height: "암컷 60~65cm(±2cm) · 수컷 65~70cm(±2cm)", weight: "고정 기준 없음" },
+  "central-asian-shepherd-dog": { size: "암컷 65cm·40kg 이상 · 수컷 70cm·50kg 이상", height: "암컷 65cm 이상 · 수컷 70cm 이상", weight: "암컷 40kg 이상 · 수컷 50kg 이상" },
+  "spanish-mastiff": { size: "암컷 최소 72cm(권장 75cm 초과) · 수컷 최소 77cm(권장 80cm 초과) · 고정 기준 없음", height: "암컷 최소 72cm(권장 75cm 초과) · 수컷 최소 77cm(권장 80cm 초과)", weight: "고정 기준 없음" },
+  "australian-terrier": { size: "수컷 약 25cm·6.5kg · 암컷은 조금 작음", height: "수컷 약 25cm · 암컷은 조금 작음", weight: "수컷 약 6.5kg · 암컷은 조금 가벼움" },
+  "irish-terrier": { size: "약 45.5cm · 암컷 11.4kg · 수컷 12.25kg", height: "약 45.5cm", weight: "암컷 11.4kg · 수컷 12.25kg" },
+  "lakeland-terrier": { size: "37cm 이하 · 암컷 6.8kg · 수컷 7.7kg", height: "37cm 이하", weight: "암컷 6.8kg · 수컷 7.7kg" },
+  "skye-terrier": { size: "수컷 이상적 25~26cm · 암컷은 조금 작음 · 고정 기준 없음", height: "수컷 이상적 25~26cm · 암컷은 조금 작음", weight: "고정 기준 없음" },
+  "dandie-dinmont-terrier": { size: "체고 고정 기준 없음 · 8~11kg", height: "고정 기준 없음", weight: "8~11kg" },
+  "glen-of-imaal-terrier": { size: "수컷 35.5cm 이하·16kg · 암컷은 알맞게 작음", height: "수컷 35.5cm 이하 · 암컷은 알맞게 작음", weight: "수컷 16kg · 암컷은 알맞게 가벼움" },
+  "japanese-terrier": { size: "약 30~33cm · 고정 기준 없음", height: "약 30~33cm", weight: "고정 기준 없음" },
   "polish-tatra-sheepdog": { size: "암컷 60~65cm · 수컷 65~70cm · 고정 기준 없음", height: "암컷 60~65cm · 수컷 65~70cm", weight: "고정 기준 없음" },
   "romanian-mioritic-shepherd-dog": { size: "암컷 최소 65cm(이상적 70cm) · 수컷 최소 70cm(이상적 75cm) · 체격에 비례", height: "암컷 최소 65cm(이상적 70cm) · 수컷 최소 70cm(이상적 75cm)", weight: "체격에 비례" },
   "romanian-carpathian-shepherd-dog": { size: "암컷 이상적 59~67cm(±2cm) · 수컷 65~73cm(±2cm) · 체격에 비례", height: "암컷 이상적 59~67cm(±2cm) · 수컷 65~73cm(±2cm)", weight: "체격에 비례" },
