@@ -539,3 +539,9 @@ Treat the five-level breed-size system as complete at 376 profiles: 312 confirme
 Use the midpoint of a complete range only as an internal classification value and choose the higher height or weight class. Never use `identity.size` as classification evidence. Exclude provisional, variable-parentage, and missing profiles from fixed-size filters; match varieties only through independently calculable types; never invent measurements or a class for missing data.
 
 Freeze the current v1 structure and UI. Manage future evidence work as a separate backlog: complete the 53 provisional profiles, fill incomplete varieties when official data permits, revisit Bulgae only if an official standard appears, and review whether the German Spitz catalog entry should be separated from the Pomeranian-facing content identity.
+
+# 2026-09-01 — Separate three tall breeds from the giant service class
+
+Keep the numeric profile and `resolveBreedSize()` result intact, but classify Greyhound, Black Russian Terrier, and Polish Greyhound as `large` in product filtering and labels. Their tall or boundary-reaching measurements put them in the calculated giant class, while their body type and perceived living scale make the giant discovery grouping feel inconsistent.
+
+Store these as explicit, auditable service overrides rather than changing source measurements or adding another hidden string heuristic. This changes the actual filter counts to extra-small 4, small 48, medium 114, large 130, and giant 23.

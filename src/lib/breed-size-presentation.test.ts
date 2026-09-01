@@ -21,7 +21,9 @@ describe("breed size service presentation", () => {
 
   it.each([
     ["kangal-shepherd-dog", "giant"],
-    ["greyhound", "giant"],
+    ["greyhound", "large"],
+    ["black-russian-terrier", "large"],
+    ["polish-greyhound", "large"],
     ["saluki", "large"],
     ["bernese-mountain-dog", "large"],
     ["rottweiler", "large"],
@@ -74,7 +76,7 @@ describe("breed size service presentation", () => {
       filters.size = [size as (typeof filters.size)[number]];
       return [size, filterBreeds(discoverBreeds, filters).length];
     }));
-    expect(counts).toEqual({ "extra-small": 4, small: 48, medium: 114, large: 127, giant: 26 });
+    expect(counts).toEqual({ "extra-small": 4, small: 48, medium: 114, large: 130, giant: 23 });
   });
 
   it("presents source ranges rather than internal midpoint values", () => {

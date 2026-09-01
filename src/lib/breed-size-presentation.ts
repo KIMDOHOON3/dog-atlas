@@ -1,4 +1,5 @@
 import { getBreedSizeProfile } from "@/content/breed-sizes/data";
+import { breedSizeServiceOverrideBySlug } from "@/content/breed-sizes/service-overrides";
 import type { DogAtlasSizeClass, Measurement } from "@/content/breed-sizes/schema";
 import { DOG_ATLAS_SIZE_ORDER, resolveBreedSize } from "@/lib/breed-size";
 
@@ -82,11 +83,14 @@ export function getBreedSizePresentation(slug: string): BreedSizePresentation {
 
   if (resolved.status === "missing") return { status: resolved.status, filterClasses: [] };
 
+  const serviceOverride = breedSizeServiceOverrideBySlug.get(slug);
+  const finalClass = resolved.status === "confirmed" ? serviceOverride?.finalClass ?? resolved.finalClass : undefined;
+
   return {
     status: resolved.status,
-    filterClasses: resolved.status === "confirmed" && resolved.finalClass ? [resolved.finalClass] : [],
-    displayLabel: resolved.status === "confirmed" && resolved.finalClass
-      ? dogAtlasSizeLabels[resolved.finalClass]
+    filterClasses: finalClass ? [finalClass] : [],
+    displayLabel: finalClass
+      ? dogAtlasSizeLabels[finalClass]
       : "크기 정보 보완 중",
     height: formatBreedMeasurement(profile.heightCm, "cm"),
     weight: formatBreedMeasurement(profile.weightKg, "kg"),
