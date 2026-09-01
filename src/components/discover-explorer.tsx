@@ -16,6 +16,7 @@ import {
   filterBreeds,
   filtersToSearchParams,
   getBreedFilterValue,
+  getBreedSizeClasses,
   parseBreedFilters,
   type BreedFilters,
   type BreedSize,
@@ -29,6 +30,7 @@ import { filterBreedsByContentAuditStatus, type DiscoverBreed } from "@/lib/disc
 import styles from "./discover-explorer.module.css";
 
 const sizeOptions: Array<{ value: BreedSize; label: string }> = [
+  { value: "extra-small", label: "초소형" },
   { value: "small", label: "소형" },
   { value: "medium", label: "중형" },
   { value: "large", label: "대형" },
@@ -384,16 +386,17 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
         <section className={styles.resultsPanel} aria-live="polite" aria-labelledby="discover-results-title">
           <div className={styles.resultGrid}>
             {visibleResults.map((breed) => {
-              const size = getBreedFilterValue(breed, "size");
+              const sizes = getBreedSizeClasses(breed);
+              const showSizeHighlight = sizes.length > 0 || breed.sizeDisplay?.startsWith("유형별");
               const defaultHighlights: Array<{ key: "size" | TendencyFilterKey; label: string }> = [
-                ...(size ? [{ key: "size" as const, label: selectedLabel("size", size) }] : []),
+                ...(showSizeHighlight && breed.sizeDisplay ? [{ key: "size" as const, label: `체구 · ${breed.sizeDisplay}` }] : []),
                 { key: "activity" as const, label: `활동량 · ${breed.tendencies.activity.label}` },
               ];
               const highlights: Array<{ key: "size" | TendencyFilterKey; label: string }> = selectedEntries.length > 0
                 ? selectedEntries
                   .map(({ key, value }) => {
                     const matches = key === "size"
-                      ? getBreedFilterValue(breed, "size") === value as BreedSize
+                      ? sizes.includes(value as BreedSize)
                       : getBreedFilterValue(breed, key) === value;
                     return matches ? { key, label: selectedLabel(key, value) } : undefined;
                   })

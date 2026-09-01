@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { breeds } from "./data";
 import { detailBatchS } from "./detail-batch-s";
 import { getMasterBreed } from "./master-catalog";
-import { getBreedSizeCategory } from "@/lib/breed-filters";
+import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
 
 describe("detail batch S", () => {
   it("publishes the source-backed Boerboel entry", () => {
@@ -14,7 +14,7 @@ describe("detail batch S", () => {
       inclusionType: "international-registered",
       detailStatus: "published",
     });
-    expect(getBreedSizeCategory(detailBatchS[0].identity.size)).toBe("giant");
+    expect(getBreedSizePresentation(detailBatchS[0].slug).filterClasses).toEqual(["giant"]);
   });
 
   it("supports the spelling used in the request as a search alias", () => {

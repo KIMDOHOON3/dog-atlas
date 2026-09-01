@@ -50,7 +50,7 @@
 .filterPanel legend { float: left; width: 100%; margin: 0 0 10px; padding: 0; color: #40342d; font-size: .81rem; font-weight: 800; }
 .filterLegendLabel { display: inline-block; padding: 2px 0; }
 .optionGrid { clear: both; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
-.filterPanel fieldset:first-of-type .optionGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.filterPanel fieldset:first-of-type .optionGrid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .optionGrid button { min-height: 40px; padding: 7px 5px; border: 0; border-radius: 10px; color: #5d5149; background: #fff; font-size: .73rem; font-weight: 700; cursor: pointer; }
 .optionGrid button:hover, .optionGrid button:focus-visible { color: #9a4d29; background: #f3e5da; }
 .optionGrid button[aria-pressed="true"] { color: #fff; background: #b86437; }

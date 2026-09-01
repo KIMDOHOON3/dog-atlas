@@ -3984,8 +3984,7 @@ export const paused3dStandardBreedSlugs = new Set([
   "spinone-italiano",
 ]);
 
-const standardBreedDetails = new Map(
-  [
+const authoredStandardBreedDetails = [
     japaneseSpitzDetail,
     malteseDetail,
     bichonFriseDetail,
@@ -4068,7 +4067,10 @@ const standardBreedDetails = new Map(
     ...expansionTo300Batch05StandardBreedDetails,
     ...expansionTo300Batch06StandardBreedDetails,
     ...expansionTo300Batch07StandardBreedDetails,
-  ]
+  ];
+
+const standardBreedDetails = new Map(
+  authoredStandardBreedDetails
     .filter((detail) => !paused3dStandardBreedSlugs.has(detail.slug))
     .map((detail) => [detail.slug, detail]),
 );
@@ -4079,6 +4081,11 @@ export function getStandardBreedDetail(slug: string) {
 
 export function getAllStandardBreedDetails() {
   return [...standardBreedDetails.values()];
+}
+
+/** Includes paused drafts so migration audits can inspect their structured facts without publishing them. */
+export function getAllAuthoredStandardBreedDetails() {
+  return [...authoredStandardBreedDetails];
 }
 
 export {

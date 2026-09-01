@@ -1,17 +1,19 @@
 import { describe, expect, it } from "vitest";
 import { breeds } from "@/content/breeds/data";
+import { toDiscoverBreed } from "@/lib/discover-breeds";
 import {
   emptyBreedFilters,
   applyBreedFilterPreset,
   breedFilterPresets,
   filterBreeds,
   filtersToSearchParams,
-  getBreedSizeCategory,
+  getBreedSizeClasses,
   normalizeTendencyLabel,
   parseBreedFilters,
 } from "./breed-filters";
 
 describe("breed filter normalization", () => {
+  const projected = breeds.map((breed) => toDiscoverBreed(breed));
   it("normalizes tendency labels without changing source content", () => {
     expect(normalizeTendencyLabel("낮은 편")).toBe("low");
     expect(normalizeTendencyLabel("중간")).toBe("medium");
@@ -19,25 +21,16 @@ describe("breed filter normalization", () => {
     expect(normalizeTendencyLabel("개체별 확인 필요")).toBe("unknown");
   });
 
-  it("maps every known size phrase to one exclusive discovery category", () => {
-    expect(getBreedSizeCategory("초소형")).toBe("small");
-    expect(getBreedSizeCategory("소형~중소형")).toBe("medium");
-    expect(getBreedSizeCategory("중대형")).toBe("large");
-    expect(getBreedSizeCategory("중형~대형")).toBe("large");
-    expect(getBreedSizeCategory("대형~초대형 · 약 65~80cm")).toBe("giant");
-    expect(getBreedSizeCategory("미니어처와 스탠더드, 세 가지 피모 유형")).toBe("small");
-    expect(getBreedSizeCategory("크기 정보 확인 중")).toBeUndefined();
-  });
-
-  it("assigns every published breed to exactly one size category", () => {
-    const categories = breeds.map((breed) => getBreedSizeCategory(breed.identity.size));
-    expect(categories).not.toContain(undefined);
-    expect(getBreedSizeCategory(breeds.find((breed) => breed.slug === "samoyed")!.identity.size)).toBe("large");
-    expect(getBreedSizeCategory(breeds.find((breed) => breed.slug === "shiba")!.identity.size)).toBe("medium");
+  it("uses normalized profile classes instead of editorial size strings", () => {
+    expect(getBreedSizeClasses(projected.find((breed) => breed.slug === "samoyed")!)).toEqual(["medium"]);
+    expect(getBreedSizeClasses(projected.find((breed) => breed.slug === "shiba")!)).toEqual(["small"]);
+    expect(getBreedSizeClasses(projected.find((breed) => breed.slug === "kangal-shepherd-dog")!)).toEqual(["giant"]);
+    expect(getBreedSizeClasses(projected.find((breed) => breed.slug === "bulgae")!)).toEqual([]);
   });
 });
 
 describe("breed filters", () => {
+  const projected = breeds.map((breed) => toDiscoverBreed(breed));
   it("keeps the home and discover quick exploration options in one six-item set", () => {
     expect(breedFilterPresets.map((preset) => preset.label)).toEqual([
       "느긋한 활동",
@@ -55,9 +48,9 @@ describe("breed filters", () => {
     const filters = emptyBreedFilters();
     filters.size = ["small", "medium"];
     filters.activity = ["high"];
-    const result = filterBreeds(breeds, filters);
+    const result = filterBreeds(projected, filters);
     expect(result.length).toBeGreaterThan(0);
-    expect(result.every((breed) => filters.size.includes(getBreedSizeCategory(breed.identity.size)!))).toBe(true);
+    expect(result.every((breed) => filters.size.some((size) => getBreedSizeClasses(breed).includes(size)))).toBe(true);
   });
 
   it("round-trips comma-separated URL values", () => {
@@ -66,5 +59,10 @@ describe("breed filters", () => {
     filters.socialConnection = ["high"];
     const parsed = parseBreedFilters(filtersToSearchParams(filters));
     expect(parsed).toEqual(filters);
+  });
+
+  it("supports the extra-small URL value without changing existing values", () => {
+    expect(parseBreedFilters(new URLSearchParams("size=extra-small,small"))).toMatchObject({ size: ["extra-small", "small"] });
+    expect(parseBreedFilters(new URLSearchParams("size=small"))).toMatchObject({ size: ["small"] });
   });
 });

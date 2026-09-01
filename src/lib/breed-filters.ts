@@ -1,11 +1,13 @@
 import type { Breed } from "@/content/breeds/schema";
+import type { DogAtlasSizeClass } from "@/content/breed-sizes/schema";
 
 export type TendencyLevel = "low" | "medium" | "high" | "unknown";
-export type BreedSize = "small" | "medium" | "large" | "giant";
+export type BreedSize = DogAtlasSizeClass;
 export type TendencyFilterKey = "activity" | "mentalStimulation" | "socialConnection" | "independence" | "alerting" | "grooming";
 
 export type FilterableBreed = {
-  identity: Pick<Breed["identity"], "size">;
+  slug: string;
+  sizeClasses: readonly BreedSize[];
   tendencies: Record<TendencyFilterKey, Pick<Breed["tendencies"][TendencyFilterKey], "label">>;
 };
 
@@ -43,37 +45,19 @@ export function normalizeTendencyLabel(label: string): TendencyLevel {
   return tendencyLabelMap[label] ?? "unknown";
 }
 
-export function getBreedSizeCategory(size: string): BreedSize | undefined {
-  const normalized = size.replace(/\s+/g, "");
-
-  // These entries cover multiple registered varieties. Their discovery card
-  // uses the named representative variety, so the filter follows that one
-  // instead of placing a single catalog entry in several size groups.
-  if (normalized.includes("대표이미지는미니어처")) return "small";
-  if (normalized.includes("미니어처와스탠더드")) return "small";
-  if (normalized.includes("초소형부터중형이상")) return "small";
-
-  // Discovery size is intentionally exclusive. When editorial copy describes
-  // a boundary or range, use its upper category so living-space and handling
-  // demands are not understated.
-  if (normalized.includes("초대형")) return "giant";
-  if (normalized.includes("대형")) return "large";
-  if (normalized.includes("중형") || normalized.includes("중소형") || normalized.includes("소중형")) return "medium";
-  if (normalized.includes("초소형") || normalized.includes("소형") || normalized.includes("토이") || normalized.includes("미니어처")) return "small";
-  return undefined;
+export function getBreedSizeClasses(breed: FilterableBreed): BreedSize[] {
+  return [...breed.sizeClasses];
 }
 
-export function getBreedFilterValue(breed: FilterableBreed, key: "size"): BreedSize | undefined;
 export function getBreedFilterValue(breed: FilterableBreed, key: TendencyFilterKey): TendencyLevel;
-export function getBreedFilterValue(breed: FilterableBreed, key: "size" | TendencyFilterKey): BreedSize | TendencyLevel | undefined {
-  if (key === "size") return getBreedSizeCategory(breed.identity.size);
+export function getBreedFilterValue(breed: FilterableBreed, key: TendencyFilterKey): TendencyLevel {
   return normalizeTendencyLabel(breed.tendencies[key].label);
 }
 
 export function filterBreeds<T extends FilterableBreed>(breeds: readonly T[], filters: BreedFilters): T[] {
   return breeds.filter((breed) => {
-    const size = getBreedFilterValue(breed, "size");
-    if (filters.size.length > 0 && (!size || !filters.size.includes(size))) return false;
+    const sizes = getBreedSizeClasses(breed);
+    if (filters.size.length > 0 && !filters.size.some((size) => sizes.includes(size))) return false;
 
     return tendencyFilterKeys.every((key) => {
       const selected = filters[key];
@@ -93,7 +77,7 @@ const queryKeyByFilter: Record<"size" | TendencyFilterKey, string> = {
 };
 
 const filterKeyByQuery = Object.fromEntries(Object.entries(queryKeyByFilter).map(([key, query]) => [query, key])) as Record<string, "size" | TendencyFilterKey>;
-const validSizes = new Set<BreedSize>(["small", "medium", "large", "giant"]);
+const validSizes = new Set<BreedSize>(["extra-small", "small", "medium", "large", "giant"]);
 const validLevels = new Set<TendencyLevel>(["low", "medium", "high"]);
 
 export function parseBreedFilters(searchParams: URLSearchParams | Readonly<Record<string, string | string[] | undefined>>): BreedFilters {

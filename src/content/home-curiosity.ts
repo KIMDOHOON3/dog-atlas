@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { sourceSchema, type Breed } from "@/content/breeds/schema";
-import { getBreedFilterValue } from "@/lib/breed-filters";
+import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
 
 const curiositySourceSchema = sourceSchema.extend({
   label: z.string().min(2),
@@ -202,12 +202,12 @@ export function getHomeCuriosityBreeds(theme: HomeCuriosityTheme, allBreeds: rea
   if (theme.catalogRule) {
     return allBreeds
       .filter((breed) => {
-        const size = getBreedFilterValue(breed, "size");
-        if (theme.catalogRule === "large-and-giant") return size === "large" || size === "giant";
-        return size === "small" || breed.catalog.group === "companion";
+        const sizes = getBreedSizePresentation(breed.slug).filterClasses;
+        if (theme.catalogRule === "large-and-giant") return sizes.includes("large") || sizes.includes("giant");
+        return sizes.includes("extra-small") || sizes.includes("small") || breed.catalog.group === "companion";
       })
       .sort((a, b) => a.nameKo.localeCompare(b.nameKo, "ko"))
-      .map((breed) => ({ breed, fact: breed.identity.size }));
+      .map((breed) => ({ breed, fact: getBreedSizePresentation(breed.slug).displayLabel ?? "크기 정보를 확인하고 있어요" }));
   }
 
   const breedsBySlug = new Map(allBreeds.map((breed) => [breed.slug, breed]));

@@ -505,3 +505,37 @@ Store each ten-breed set in one bounded content module and make no breed-specifi
 Build the next 100 details in ten-breed batches before running the slower cross-batch editorial review. Mark every new batch as `production-draft` after its official-source, schema, size, unique-copy, related-link and asset checks pass. Keep these pages reachable for inspection, but exclude them from the discovery page's `검수 완료` filter.
 
 Promote a detail to `editorial-reviewed` only after Korean readability, image-copy sync, mobile layout, search naming and cross-batch repetition have been checked. This workflow changes sequencing, not the evidence standard, and it does not imply veterinary, behavior or conformation-expert review.
+
+# 2026-09-01 — Adopt one numeric five-level breed-size standard
+
+Use adult-height boundaries of 25/40/55/70cm and adult-weight boundaries of 4/10/25/50kg. A boundary value belongs to the higher class. For a complete range, use its midpoint and choose the higher of the height and weight classes as the final Dog Atlas class. A two-class-or-greater gap, a missing dimension, or a minimum/maximum-only value must not be automatically confirmed.
+
+Keep `confirmed`, `provisional`, `varieties`, `variable-parentage`, `conflict`, and `missing` distinct during migration. Official size varieties are calculated independently and do not receive one breed-wide midpoint; parent-dependent designer crosses do not receive an arbitrary single class. Preserve conflicting internal values with their evidence instead of widening or averaging them. The first migration stage establishes the schema, registry, calculator, tests, and audit only; discovery filters and all user-facing size labels remain unchanged until the data gaps are reviewed.
+
+# 2026-09-01 — Resolve internal size differences by meaning before external research
+
+Do not treat every different numeric string as an equal source conflict. Classify the initial differences as `rounding`, `minor`, `meaning-difference`, or `true-conflict`, retain the original evidence, and select an internal value only when its unit conversion, scope, sex coverage, or standard-versus-general meaning is explicit. Never average conflicting candidates or widen their ranges.
+
+Inspect both active and paused authored detail records for migration without publishing paused content. Promote only records that end with complete height and weight measurements; move a resolved difference to `provisional` when an incomplete boundary or missing dimension remains. Keep Boerboel unresolved because minimum/ideal standard values and a general adult range are different concepts, and keep German Spitz as a variety-level content-model review rather than silently redefining its catalog slug. UI and legacy filters remain unchanged until external gaps are addressed.
+
+# 2026-09-01 — Keep official standard values distinct from official general adult ranges
+
+Use FCI standards first for standard height, tolerance, minimum and variety semantics. When an FCI standard deliberately omits weight, an AKC official breed-information or staff weight range may fill the missing general adult dimension, but label it `official-general-adult-range` rather than presenting it as an FCI conformation requirement. Preserve pounds and sex-specific source values alongside normalized kilograms.
+
+Do not accept visibly anomalous aggregation values such as the AKC Boxer `15–80 lb` row, do not map AKC's three Poodle groupings onto FCI's four height varieties, and do not turn “weight corresponding to size” into a numeric range. Keep Bulgae missing because the Korean government conservation material documents a scarce Yeongju population but no established breed standard or adult measurement range.
+
+# 2026-09-01 — Use normalized size profiles in every product surface
+
+Drive discovery filtering and user-facing size labels from `breedSizeProfile → resolveBreedSize()` rather than parsing `identity.size`. Use the five URL values `extra-small`, `small`, `medium`, `large`, and `giant`; keep the four existing non-extra-small values compatible with old links.
+
+Include only confirmed single profiles and independently confirmed varieties in fixed-size filters. A multi-size breed may match several filters but appears once per result set. Keep provisional, variable-parentage, and missing profiles visible in the full catalog and name search without assigning them an inferred filter class. Do not expose internal status names to users.
+
+Show original height and weight ranges on detail pages, never classification midpoints. Retain `identity.size` as migration evidence and editorial source copy, but do not use it for product size decisions. Treat Bulgae as missing rather than provisional, and keep Goldendoodle and Maltipoo outside fixed classes because parentage determines their adult size.
+
+# 2026-09-01 — Close Dog Atlas breed-size classification v1
+
+Treat the five-level breed-size system as complete at 376 profiles: 312 confirmed, 53 provisional, 8 varieties, 2 variable-parentage, 0 conflict, and 1 missing. The final height boundaries are `<25`, `25–<40`, `40–<55`, `55–<70`, and `≥70cm`; the final weight boundaries are `<4`, `4–<10`, `10–<25`, `25–<50`, and `≥50kg`.
+
+Use the midpoint of a complete range only as an internal classification value and choose the higher height or weight class. Never use `identity.size` as classification evidence. Exclude provisional, variable-parentage, and missing profiles from fixed-size filters; match varieties only through independently calculable types; never invent measurements or a class for missing data.
+
+Freeze the current v1 structure and UI. Manage future evidence work as a separate backlog: complete the 53 provisional profiles, fill incomplete varieties when official data permits, revisit Bulgae only if an official standard appears, and review whether the German Spitz catalog entry should be separated from the Pomeranian-facing content identity.

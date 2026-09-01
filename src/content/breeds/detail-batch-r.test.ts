@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { breeds } from "./data";
 import { detailBatchR } from "./detail-batch-r";
 import { getMasterBreed } from "./master-catalog";
-import { getBreedSizeCategory } from "@/lib/breed-filters";
+import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
 
 describe("detail batch R designer crosses", () => {
   it("publishes Goldendoodle and Maltipoo without presenting them as registered breeds", () => {
@@ -31,8 +31,8 @@ describe("detail batch R designer crosses", () => {
     }
   });
 
-  it("uses the existing size filters without adding a designer-cross filter", () => {
-    expect(getBreedSizeCategory(detailBatchR[0].identity.size)).toBe("large");
-    expect(getBreedSizeCategory(detailBatchR[1].identity.size)).toBe("small");
+  it("keeps designer crosses out of fixed size filters", () => {
+    expect(getBreedSizePresentation(detailBatchR[0].slug)).toMatchObject({ status: "variable-parentage", filterClasses: [] });
+    expect(getBreedSizePresentation(detailBatchR[1].slug)).toMatchObject({ status: "variable-parentage", filterClasses: [] });
   });
 });

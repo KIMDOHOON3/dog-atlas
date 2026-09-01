@@ -171,7 +171,18 @@ export function StandardStorySteps({ detail }: { detail: StoryDetail }) {
   );
 }
 
-export function StandardRealityCards({ detail }: { detail: StandardBreedDetail }) {
+type NormalizedSizeVariety = {
+  id: string;
+  height?: string;
+  weight?: string;
+  otherMeasurement?: string;
+  sizeLabel?: string;
+};
+
+export function StandardRealityCards({ detail, normalizedSizeVarieties }: {
+  detail: StandardBreedDetail;
+  normalizedSizeVarieties?: NormalizedSizeVariety[];
+}) {
   const [activeSize, setActiveSize] = useState(0);
   const {
     current,
@@ -199,11 +210,17 @@ export function StandardRealityCards({ detail }: { detail: StandardBreedDetail }
                   key={item.image}
                 />
               ))}
-              {detail.sizeVarieties.items.map((item, index) => (
-                <span aria-hidden={activeSize !== index} aria-live={activeSize === index ? "polite" : undefined} data-active={activeSize === index || undefined} key={item.id}>
-                  <strong>{item.label}</strong><small>{item.range}</small>
-                </span>
-              ))}
+              {detail.sizeVarieties.items.map((item, index) => {
+                const normalized = normalizedSizeVarieties?.find((variety) => variety.id === item.id);
+                const normalizedRange = normalized
+                  ? [normalized.height && `체고 ${normalized.height}`, normalized.weight && `몸무게 ${normalized.weight}`, normalized.otherMeasurement, normalized.sizeLabel].filter(Boolean).join(" · ")
+                  : undefined;
+                return (
+                  <span aria-hidden={activeSize !== index} aria-live={activeSize === index ? "polite" : undefined} data-active={activeSize === index || undefined} key={item.id}>
+                    <strong>{item.label}</strong><small>{normalizedRange || item.range}</small>
+                  </span>
+                );
+              })}
             </div>
             <div className={styles.realityBody}>
               <h3>{reality.title}</h3>

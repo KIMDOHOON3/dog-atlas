@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { breeds } from "@/content/breeds/data";
 import { getHomeCuriosityBreeds, getHomeCuriosityTheme, homeCuriosityThemes } from "./home-curiosity";
-import { getBreedFilterValue } from "@/lib/breed-filters";
+import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
 
 describe("home curiosity themes", () => {
   it("defines six unique themes and resolves every collection from the catalog", () => {
@@ -32,9 +32,9 @@ describe("home curiosity themes", () => {
     const smallSlugs = new Set(getHomeCuriosityBreeds(smallTheme, breeds).map(({ breed }) => breed.slug));
 
     for (const breed of breeds) {
-      const size = getBreedFilterValue(breed, "size");
-      if (size === "large" || size === "giant") expect(largeSlugs.has(breed.slug)).toBe(true);
-      if (size === "small" || breed.catalog.group === "companion") {
+      const sizes = getBreedSizePresentation(breed.slug).filterClasses;
+      if (sizes.includes("large") || sizes.includes("giant")) expect(largeSlugs.has(breed.slug)).toBe(true);
+      if (sizes.includes("extra-small") || sizes.includes("small") || breed.catalog.group === "companion") {
         expect(smallSlugs.has(breed.slug)).toBe(true);
       }
     }

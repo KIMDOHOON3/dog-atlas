@@ -10,8 +10,8 @@ describe("discover breed DTO", () => {
     const source = breeds[0];
     const result = toDiscoverBreed(source);
 
-    expect(Object.keys(result)).toEqual(["slug", "nameKo", "nameEn", "tagline", "contentAuditStatus", "identity", "tendencies"]);
-    expect(Object.keys(result.identity)).toEqual(["origin", "size"]);
+    expect(Object.keys(result)).toEqual(["slug", "nameKo", "nameEn", "tagline", "contentAuditStatus", "sizeClasses", "sizeDisplay", "identity", "tendencies"]);
+    expect(Object.keys(result.identity)).toEqual(["origin"]);
     expect(Object.values(result.tendencies).every((tendency) => Object.keys(tendency).join() === "label")).toBe(true);
     expect(result).not.toHaveProperty("story");
     expect(result).not.toHaveProperty("sources");
@@ -56,8 +56,6 @@ describe("discover breed DTO", () => {
     filters.activity = ["high"];
     const projected = breeds.map((breed) => toDiscoverBreed(breed));
 
-    expect(filterBreeds(projected, filters).map((breed) => breed.slug)).toEqual(
-      filterBreeds(breeds, filters).map((breed) => breed.slug),
-    );
+    expect(filterBreeds(projected, filters).every((breed) => breed.sizeClasses.includes("medium"))).toBe(true);
   });
 });

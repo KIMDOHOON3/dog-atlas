@@ -18,9 +18,10 @@ import { getStandardBreedDetail } from "@/content/standard-breed-detail/data";
 import {
   getBreedLifePresentation,
 } from "@/lib/breed-life-presentation";
-import { getBreedFactPresentation, getBreedSizeFactRows, type BreedSizeFactRow } from "@/lib/breed-fact-presentation";
+import { getBreedLifespanDisplay } from "@/lib/breed-fact-presentation";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
 import { getBreedRoleFacts } from "@/lib/breed-role-presentation";
+import { getBreedSizePresentation, type BreedSizePresentation } from "@/lib/breed-size-presentation";
 import { withObjectParticle } from "@/lib/korean-particles";
 import styles from "./page.module.css";
 
@@ -68,12 +69,42 @@ const tendencyLevelScore = {
   "개체별 확인 필요": 0,
 } as const;
 
-function SizeFactRows({ rows }: { rows: BreedSizeFactRow[] }) {
+function SizeFactRows({ rows }: { rows: Array<{ label: string; value: string }> }) {
   return (
     <span className={styles.sizeMeasurements}>
       {rows.map((row) => <span key={row.label}><small>{row.label}</small>{row.value}</span>)}
     </span>
   );
+}
+
+function BreedSizeOverview({ size }: { size: BreedSizePresentation }) {
+  const rows = [
+    ...(size.height ? [{ label: "체고", value: size.height }] : []),
+    ...(size.weight ? [{ label: "몸무게", value: size.weight }] : []),
+  ];
+  if (!size.displayLabel && rows.length === 0 && !size.varieties?.length) return null;
+
+  if (size.varieties?.length) {
+    return (
+      <details className={styles.poodleSizeDetails}>
+        <summary>
+          <strong>{size.displayLabel}</strong>
+          <span className={styles.sizeDetailsAction}>유형별 체고·몸무게 보기</span>
+        </summary>
+        <ul>{size.varieties.map((variety) => {
+          const values = [
+            variety.height ? `체고 ${variety.height}` : undefined,
+            variety.weight ? `몸무게 ${variety.weight}` : undefined,
+            variety.otherMeasurement,
+            variety.sizeLabel,
+          ].filter(Boolean).join(" · ");
+          return <li key={variety.id}><span>{variety.label}</span><strong>{values || "공식 수치 확인 중"}</strong></li>;
+        })}</ul>
+      </details>
+    );
+  }
+
+  return <><strong>{size.displayLabel}</strong>{rows.length > 0 && <SizeFactRows rows={rows} />}</>;
 }
 
 function BreedDetailExperience({ breed }: { breed: Breed }) {
@@ -200,11 +231,11 @@ export default async function BreedDetail({ params }: PageProps) {
     : [...new Map(
       [...breed.sources, ...(growthGuide?.sources ?? []), ...behaviorContextSources].map((source) => [source.url, source]),
     ).values()];
-  const facts = getBreedFactPresentation(breed);
+  const lifespan = getBreedLifespanDisplay(breed);
+  const sizePresentation = getBreedSizePresentation(breed.slug);
   const roleFacts = isStandardDetail ? getBreedRoleFacts(breed) : [];
-  const sizeFactRows = getBreedSizeFactRows(facts);
-  const hasSizeFact = breed.slug === "poodle" || Boolean(sizeFactRows.length || facts.size);
-  const factCount = Number(hasSizeFact) + Number(Boolean(facts.lifespan)) + (isStandardDetail ? roleFacts.length : 2);
+  const hasSizeFact = Boolean(sizePresentation.height || sizePresentation.weight || sizePresentation.displayLabel || sizePresentation.varieties?.length);
+  const factCount = Number(hasSizeFact) + Number(Boolean(lifespan)) + (isStandardDetail ? roleFacts.length : 2);
 
   return (
     <>
@@ -222,52 +253,8 @@ export default async function BreedDetail({ params }: PageProps) {
             {standardDetail && <p className={styles.poodleHeroStatement}>{standardDetail.heroStatement}</p>}
             <div className={styles.atAGlance}>
               <dl className={`${styles.facts} ${factCount % 2 === 1 ? styles.factsOdd : ""}`}>
-                {standardDetail?.heroSizeDetails ? (
-                  <div>
-                    <dt>크기</dt>
-                    <dd>
-                      <details className={styles.poodleSizeDetails}>
-                        <summary>
-                          <SizeFactRows rows={standardDetail.heroSizeDetails.summaryRows} />
-                          <span className={styles.sizeDetailsAction}>{standardDetail.heroSizeDetails.detailsLabel}</span>
-                        </summary>
-                        <ul>{standardDetail.heroSizeDetails.items.map((item) => <li key={item.id}><span>{item.label}</span><strong>{item.value}</strong></li>)}</ul>
-                      </details>
-                    </dd>
-                  </div>
-                ) : standardDetail?.sizeVarieties ? (
-                  <div>
-                    <dt>크기</dt>
-                    <dd>
-                      <details className={styles.poodleSizeDetails}>
-                        <summary>
-                          <SizeFactRows rows={standardDetail.sizeVarieties.summaryRows} />
-                          <span className={styles.sizeDetailsAction}>{standardDetail.sizeVarieties.detailsLabel}</span>
-                        </summary>
-                        <ul>{standardDetail.sizeVarieties.items.map((size) => <li key={size.id}><span>{size.label}</span><strong>{size.range}</strong></li>)}</ul>
-                      </details>
-                    </dd>
-                  </div>
-                ) : breed.slug === "poodle" ? (
-                  <div>
-                    <dt>크기</dt>
-                    <dd>
-                      <details className={styles.poodleSizeDetails}>
-                        <summary>
-                          <SizeFactRows rows={poodleDetail.heroSizeRows} />
-                          <span className={styles.sizeDetailsAction}>{poodleDetail.heroSizeDetailsLabel}</span>
-                        </summary>
-                        <ul>{poodleDetail.sizes.map((size) => <li key={size.id}><span>{size.label}</span><strong>{size.range}</strong></li>)}</ul>
-                      </details>
-                    </dd>
-                  </div>
-                ) : sizeFactRows.length > 0 ? (
-                  <div>
-                    <dt>크기</dt>
-                    <dd><SizeFactRows rows={sizeFactRows} /></dd>
-                  </div>
-                ) : facts.size ? <div><dt>크기</dt><dd>{facts.size}</dd></div> : null}
-                {facts.lifespan && <div><dt>평균 수명</dt><dd>{facts.lifespan}</dd></div>}
+                {hasSizeFact && <div><dt>크기</dt><dd><BreedSizeOverview size={sizePresentation} /></dd></div>}
+                {lifespan && <div><dt>평균 수명</dt><dd>{lifespan}</dd></div>}
                 {isStandardDetail ? roleFacts.map((role) => (
                   <div key={role.label}><dt>{role.label}</dt><dd>{role.value}</dd></div>
                 )) : (
@@ -307,7 +294,7 @@ export default async function BreedDetail({ params }: PageProps) {
             <StandardBreedDetailExperience
               detail={standardDetail}
               related={related}
-              realityCards={<StandardRealityCards detail={standardDetail} />}
+              realityCards={<StandardRealityCards detail={standardDetail} normalizedSizeVarieties={sizePresentation.varieties} />}
             />
           ) : (
             <BreedDetailExperience breed={breed} />

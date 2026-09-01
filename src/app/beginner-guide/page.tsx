@@ -7,6 +7,7 @@ import { LegalCareNotice } from "@/components/legal-care-notice";
 import { JapaneseSpitzReadiness } from "@/components/japanese-spitz-readiness";
 import { getBreed } from "@/content/breeds/data";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
+import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default async function BeginnerGuidePage({ searchParams }: PageProps) {
   const breed = typeof breedParam === "string" ? getBreed(breedParam) : undefined;
   if (!breed) redirect("/discover");
   const isReadinessPilot = breed.slug === "japanese-spitz";
+  const sizeDisplay = getBreedSizePresentation(breed.slug).displayLabel;
 
   return (
     <>
@@ -35,7 +37,7 @@ export default async function BeginnerGuidePage({ searchParams }: PageProps) {
           </div>
           <aside className={styles.breedCard} aria-label={`선택한 강아지 ${breed.nameKo}`}>
             <BreedVisual breed={breed} variant="tile" />
-            <div><small>내가 선택한 강아지</small><strong>{breed.nameKo}</strong><span>{breed.identity.size} · {breed.identity.lineage}</span></div>
+            <div><small>내가 선택한 강아지</small><strong>{breed.nameKo}</strong><span>{sizeDisplay ? `${sizeDisplay} · ` : ""}{breed.identity.lineage}</span></div>
           </aside>
         </header>
 

@@ -408,6 +408,11 @@ const breedFactOverrides: Record<string, BreedFactOverride> = {
   },
 };
 
+/** Migration-only read access. Product UI should keep using the presentation helpers below. */
+export function getBreedFactOverrideForSizeAudit(slug: string): Readonly<BreedFactOverride> | undefined {
+  return breedFactOverrides[slug];
+}
+
 function normalizeRange(value: string) {
   return value.replace(/[–—-]/gu, "~").replace(/\s*~\s*/gu, "~");
 }
