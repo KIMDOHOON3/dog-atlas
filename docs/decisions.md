@@ -545,3 +545,15 @@ Freeze the current v1 structure and UI. Manage future evidence work as a separat
 Keep the numeric profile and `resolveBreedSize()` result intact, but classify Greyhound, Black Russian Terrier, and Polish Greyhound as `large` in product filtering and labels. Their tall or boundary-reaching measurements put them in the calculated giant class, while their body type and perceived living scale make the giant discovery grouping feel inconsistent.
 
 Store these as explicit, auditable service overrides rather than changing source measurements or adding another hidden string heuristic. This changes the actual filter counts to extra-small 4, small 48, medium 114, large 130, and giant 23.
+
+# 2026-09-01 — Promote three large guardian breeds to the giant service class
+
+Keep the numeric profiles and `resolveBreedSize()` results intact, but classify Rafeiro do Alentejo, Maremma and Abruzzes Sheepdog, and Macedonian Shepherd Dog Karaman as `giant` in product filtering and labels. Their source ranges reach 74cm/60kg, 73.5cm/52kg, and 75cm/55kg respectively, and their livestock-guardian build makes the giant discovery grouping more natural than the midpoint-only large result.
+
+Use the existing explicit service-override registry so the editorial choice stays auditable and does not alter source evidence or the common thresholds. The actual filter counts become extra-small 4, small 48, medium 114, large 127, and giant 26.
+
+# 2026-09-01 — Return Black Russian Terrier to the giant service class
+
+Supersede the earlier large service exception for Black Russian Terrier. Its 68–76cm height, 45–60kg weight, and substantial working-dog build fit the giant discovery group, so keep the source profile unchanged and set its explicit service override to `giant`.
+
+Greyhound and Polish Greyhound remain the two tall, light-framed breeds separated into `large`. The actual filter counts become extra-small 4, small 48, medium 114, large 126, and giant 27.
