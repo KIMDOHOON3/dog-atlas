@@ -706,7 +706,7 @@ describe("standard breed detail editorial data", () => {
       storyImages: [
         "/illustrations/v3/pyrenean-mountain-dog-history.webp",
         "/illustrations/v4/pyrenean-mountain-dog-feature-independent-watch.webp",
-        "/illustrations/v4/pyrenean-mountain-dog-feature-night-alert.webp",
+        "/illustrations/v4/pyrenean-mountain-dog-feature-guided-turn.webp",
       ],
       realityImages: [
         "/illustrations/v4/pyrenean-mountain-dog-feature-giant-scale.webp",
@@ -743,6 +743,16 @@ describe("standard breed detail editorial data", () => {
     expect(familiarKoreaBreeds.some((entry) => entry.slug === slug)).toBe(false);
     expect(detail.story.steps.map((step) => step.image)).toEqual(storyImages);
     expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
+  });
+
+  it("frames Great Pyrenees control as preventive, reward-based management", () => {
+    const detail = getStandardBreedDetail("pyrenean-mountain-dog")!;
+    const controlStep = detail.story.steps[2];
+
+    expect(controlStep.title).toContain("움직이기 전에 조율");
+    expect(controlStep.body).toContain("방향 전환");
+    expect(controlStep.body).toContain("필요한 개체");
+    expect(controlStep.image).toBe("/illustrations/v4/pyrenean-mountain-dog-feature-guided-turn.webp");
   });
 
   it("adds Shetland Sheepdog as the next standard detail after the three-breed batch", () => {

@@ -33,3 +33,27 @@
 - 목적: 기존 `whippet-feature-warm-rest.webp`가 맡던 실내의 푹신한 휴식과 야외 보온을 분리해, 짧은 피모의 기온 관리를 독립된 생활 현실로 보여준다.
 - 외형·화풍 참조: `whippet-card.webp`, `whippet-feature-warm-rest.webp`, `whippet-feature-visual-tracking.webp`
 - 최종 장면: 쌀쌀한 늦가을 공원에서 황갈색·흰색 성견 휘펫 한 마리가 몸에 맞는 세이지색 보온 코트를 입고 보호자와 안전한 리드로 걷는다. 달리기·추적·실내 침구·살아 있는 사냥감·과장된 한파는 제외했다.
+
+## 2026-09-01 그레이트 피레니즈 3단계 통제 장면
+
+- 추가 자산: `public/illustrations/v4/pyrenean-mountain-dog-feature-guided-turn.webp`
+- 규격: 1200×900 WebP, Codex 내장 ImageGen 신규 생성
+- 목적: 기존 표준 상세의 야간 알림 장면을, 큰 힘이 움직이기 전에 보호자에게 돌아오기·방향 전환을 보상으로 연습하는 생활 통제 장면으로 교체한다.
+- 외형·화풍 참조: `public/illustrations/v2/pyrenean-mountain-dog-card.webp`, `public/illustrations/v4/pyrenean-mountain-dog-feature-independent-watch.webp`
+- 검수: 성견 한 마리와 보호자 한 명, 흰 장모·처진 귀·낮은 장식 꼬리, 느슨한 J자 리드, 보상 손 신호와 방향 전환을 확인했다. 입마개는 모든 개체의 기본 장비처럼 보이지 않도록 이미지에서 제외하고 원고의 조건부 안전 준비로만 남겼다.
+
+### 전체 생성 프롬프트
+
+```text
+Use case: style-transfer
+Asset type: Dog Atlas breed-detail story image, landscape 4:3, final project intent 1200×900 WebP
+Primary request: Create a new third-step lifestyle illustration for the Great Pyrenees about preventing loss of control through calm, reward-based direction-change practice. This replaces the old nighttime alert scene.
+Input images: Image 1 is the authoritative adult Great Pyrenees morphology and coat reference. Image 2 is the established outdoor Dog Atlas watercolor-and-colored-pencil lifestyle style, palette, paper texture, landscape density, and finish reference.
+Scene/backdrop: a quiet, broad neighborhood walking path with low shrubs, a secure low fence, open visibility, and plenty of turning space in gentle daylight; no livestock, mountains, house interior, traffic, crowds, or training course.
+Subject/action: exactly one very large adult Great Pyrenees and one adult guardian. The dog has the same imposing yet elegant pure-white long double coat, small triangular drop ears, broad chest, strong legs, dark eyes and nose, and long low feathered tail as Image 1. Show the dog already making a calm U-turn toward the guardian after noticing something out of frame: body curved naturally through the turn, head and eyes voluntarily returning to the guardian, mouth relaxed, tail neutral. The guardian stands balanced rather than bracing, gives a simple open-hand cue and rewards the return with a small treat. Use a well-fitted muted-sage Y-shaped harness and a sturdy leash hanging in a clearly loose J-curve.
+Style/medium: warm premium Korean editorial natural-history watercolor with delicate colored-pencil detail on cream paper, matching Image 2; soft sage, oat, muted earth, and warm gray palette; clearly 2D, not photorealistic.
+Composition/framing: landscape 4:3; entire adult dog visible from ears through every paw and tail with comfortable margins; handler visible enough to read the calm hand cue and balanced posture; dog remains the primary focal point. The U-turn and slack leash must be immediately understandable at mobile card size.
+Lighting/mood: calm diffuse late-afternoon daylight, prepared and cooperative rather than tense or corrective.
+Constraints: one dog only; one guardian only; humane reward-based handling; anatomically coherent Great Pyrenees; no muzzle in this illustration because optional muzzle acclimation is explained in copy; no leash tension, pulling, lunging, barking, exposed teeth, threat, struggle, force, punishment, choke chain, prong collar, shock collar, neck correction, police or military imagery, cones, hurdles, livestock, second dog, second person, cropped dog, close-up, duplicated animal, text, labels, logo, watermark, UI, photo realism, or 3D render.
+Avoid: Samoyed face, pointed ears, curled spitz tail, short coat, yellow coat, puppy proportions, obese body, handler dragging or restraining the dog.
+```

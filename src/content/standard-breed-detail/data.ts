@@ -364,7 +364,7 @@ const whippetDetail = standardBreedDetailSchema.parse({
 const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
   slug: "pyrenean-mountain-dog",
   nameKo: "그레이트 피레니즈",
-  metadataDescription: "피레네산맥에서 가축을 지키던 배경과 독립적으로 주변을 살피는 경향, 밤의 알림 환경과 초대형 이동 동선, 풍성한 이중모 관리를 살펴봅니다.",
+  metadataDescription: "피레네산맥에서 가축을 지키던 배경과 독립적으로 주변을 살피는 경향, 큰 힘을 미리 조율하는 산책·출입 연습과 초대형 이동 동선, 풍성한 이중모 관리를 살펴봅니다.",
   heroStatement: "넓은 산지에서 가축 곁을 지키며 스스로 판단하던 초대형 보호견이에요.",
   heroSizeDetails: {
     summaryRows: [
@@ -378,8 +378,8 @@ const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
     ],
   },
   story: {
-    title: "그레이트 피레니즈는 왜 주변을 오래 살피고 밤에도 알릴 수 있을까요?",
-    description: "산악 가축보호견의 배경을 알면 독립적인 관찰과 가정에서 조율해야 할 알림 행동을 함께 이해할 수 있어요.",
+    title: "그레이트 피레니즈는 왜 주변을 오래 살피고 큰 힘을 미리 조율해야 할까요?",
+    description: "산악 가축보호견의 독립적인 관찰이 오늘의 산책과 출입 통제에 어떤 준비를 요구하는지 살펴봐요.",
     steps: [
       {
         navLabel: "산악 보호의 배경",
@@ -398,12 +398,12 @@ const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
         imageAlt: "안전하게 울타리가 설치된 넓은 정원의 그늘에서 주변을 살피는 성견 그레이트 피레니즈 삽화",
       },
       {
-        navLabel: "생활의 현실",
+        navLabel: "큰 힘의 조율",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "밤의 소리와 움직임을 알릴 이유부터 줄여야 해요.",
-        body: "밤에도 창밖 움직임이나 먼 소리를 확인해 알릴 수 있어요. 시야를 가리고 휴식 자리를 창에서 옮긴 뒤 차분히 자기 자리로 돌아오는 순서를 마련해요.",
-        image: "/illustrations/v4/pyrenean-mountain-dog-feature-night-alert.webp",
-        imageAlt: "밤에 보호자가 암막 커튼을 닫는 동안 창에서 떨어진 큰 매트에서 쉬는 성견 그레이트 피레니즈 삽화",
+        title: "큰 힘은 움직인 뒤가 아니라 움직이기 전에 조율해야 해요.",
+        body: "낯선 사람이나 개, 소리에 주의를 오래 둘 수 있고 큰 몸이 움직인 뒤에는 힘으로 붙잡기 어려워요. 느슨한 리드 걷기·보호자에게 돌아보기·방향 전환·현관 대기를 보상으로 반복하고, 필요한 개체는 전문가와 바스켓형 입마개 적응도 준비하세요.",
+        image: "/illustrations/v4/pyrenean-mountain-dog-feature-guided-turn.webp",
+        imageAlt: "넓은 산책로에서 느슨한 리드로 보호자에게 돌아와 보상을 받으며 방향을 바꾸는 성견 그레이트 피레니즈 삽화",
       },
     ],
     caution: "가축보호견의 과거 배경은 행동을 이해하는 단서일 뿐이에요. 성장 환경과 경험, 생활 공간과 개체에 따라 다르게 나타날 수 있어요.",
@@ -427,7 +427,7 @@ const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
   ],
   readinessTitle: "그레이트 피레니즈와 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "주변 소리와 접근을 오래 살필 때 시야와 휴식 환경을 조율할 수 있나요?",
+    "낯선 사람이나 개, 소리에 주의를 오래 둘 때 돌아보기·방향 전환·현관 대기를 반복할 수 있나요?",
     "초대형 성견이 집과 차량, 동물병원을 안전하게 오갈 동선을 준비할 수 있나요?",
     "큰 몸의 이중모를 나누어 빗고 젖은 속털까지 충분히 말릴 수 있나요?",
   ],

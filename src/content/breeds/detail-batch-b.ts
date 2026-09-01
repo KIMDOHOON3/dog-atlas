@@ -278,12 +278,12 @@ export const detailBatchB = [
     behaviorClues: {
       originalRole: "넓은 산지에서 사람의 즉각적인 지시 없이도 가축 곁을 지키고 위험을 판단하며 접근을 막는 역할을 해 왔습니다.",
       today: "집과 가족 주변의 소리나 접근을 오래 살피고 스스로 결정을 내리는 모습으로 나타날 수 있지만, 모든 개체의 경계 강도가 같지는 않습니다.",
-      guardianContext: "짖음을 단순히 멈추게 하기보다 무엇에 반응하는지 기록하고 시야 차단, 충분한 거리, 차분한 대체 행동을 함께 설계해야 합니다.",
+      guardianContext: "경계 반응을 힘으로 억누르기보다 무엇에 주의를 두는지 기록하고 충분한 거리, 보호자에게 돌아보기와 방향 전환, 현관 대기를 보상으로 설계해야 합니다.",
     },
     story: {
       opening: "그레이트 피레니즈는 피레네산맥에서 가축 무리를 지키던 대형 보호견입니다. 오래전부터 성과 목초지의 경비에 쓰였다는 기록이 남아 있고, 크기만큼 스스로 상황을 판단하는 능력이 중요했습니다.",
-      roleToHome: "오늘의 가정에서는 그 독립적인 판단이 밤의 소리나 낯선 방문객을 오래 확인하는 행동으로 이어질 수 있습니다. 훈련 명령만 늘리기보다 개가 경계하지 않아도 되는 환경을 만드는 일이 먼저입니다.",
-      reality: "순한 흰 대형견이라는 인상만으로 선택하기에는 공간, 이동 수단, 의료비, 피모 관리와 이웃에게 들리는 소리의 부담이 큽니다. 성견의 실제 크기로 일상을 미리 계산해야 합니다.",
+      roleToHome: "오늘의 가정에서는 그 독립적인 판단이 낯선 사람이나 개, 소리를 오래 확인하는 행동으로 이어질 수 있습니다. 경계하지 않아도 되는 거리와 환경을 만들고 보호자에게 돌아오는 선택을 보상으로 알려야 합니다.",
+      reality: "순한 흰 대형견이라는 인상만으로 선택하기에는, 큰 몸이 움직인 뒤 힘으로 제지하기 어려운 통제 현실과 공간·이동·피모 관리 부담이 큽니다. 성견의 실제 크기로 산책과 출입 동선을 미리 계산해야 합니다.",
     },
     tendencies: {
       activity: { label: "중간", note: "격한 속도 운동보다 넓은 범위를 차분히 이동하고 살피는 활동이 어울릴 수 있어요." },
@@ -295,14 +295,14 @@ export const detailBatchB = [
     },
     careNotes: [
       "성견의 크기로 현관, 엘리베이터, 차량과 동물병원 이동 경로를 미리 점검하세요.",
-      "야간 소리와 창밖 움직임에 대한 반응을 기록하고 시야 차단과 실내 휴식 위치를 조절하세요.",
+      "낯선 사람이나 개, 소리에 대한 반응을 기록하고 충분한 거리에서 돌아보기와 방향 전환을 보상으로 연습하세요.",
       "성장기 체중과 보행, 관절 부담을 확인하며 운동과 급여 계획을 수의사와 조정하세요.",
     ],
     healthEditorialNote: "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 성장 속도와 관절·보행, 체중은 개별 검진으로 확인하고 복부 팽창이나 급격한 컨디션 변화가 보이면 즉시 동물병원에 문의하세요.",
     daySnapshot: [
       { time: "아침", title: "천천히 영역 읽기", description: "서두르지 않고 주변 냄새와 변화를 확인하며 걸어요." },
       { time: "낮", title: "서늘한 휴식", description: "넓고 시원한 자리에서 관절을 편하게 두고 쉬어요." },
-      { time: "저녁", title: "경계 낮추기", description: "창밖 자극을 줄이고 차분히 자리로 돌아오는 연습을 해요." },
+      { time: "저녁", title: "차분히 돌아오기", description: "자극과 거리를 두고 보호자에게 돌아와 방향을 바꾸는 연습을 해요." },
     ],
     related: [
       { slug: "samoyed", reason: "풍성한 흰 이중모는 닮았지만 가축 보호와 북방 협업이라는 역할의 차이가 커요." },
@@ -313,6 +313,9 @@ export const detailBatchB = [
       { title: "Pyrenean Mountain Dog", organization: "The Royal Kennel Club", url: "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/pastoral/pyrenean-mountain-dog/", checkedAt: completedAt },
       { title: "Official Standard of the Great Pyrenees", organization: "American Kennel Club", url: "https://images.akc.org/pdf/breeds/standards/GreatPyrenees.pdf", checkedAt: completedAt },
       { title: "Great Pyrenees History", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/great-pyrenees-history/", checkedAt: "2026-08-29" },
+      { title: "Is the Great Pyrenees a Good Fit for Your Lifestyle?", organization: "American Kennel Club", url: "https://www.akc.org/expert-advice/dog-breeds/great-pyrenees-right-for-you/", checkedAt: "2026-09-01" },
+      { title: "Humane Dog Training Position Statement", organization: "American Veterinary Society of Animal Behavior", url: "https://avsab.org/wp-content/uploads/2021/08/AVSAB-Humane-Dog-Training-Position-Statement-2021.pdf", checkedAt: "2026-09-01" },
+      { title: "Professional Dog Walkers’ Guidelines", organization: "RSPCA", url: "https://www.rspca.org.uk/webContent/staticImages/Downloads/DogWalkingGuide.pdf", checkedAt: "2026-09-01" },
     ],
   },
   {
