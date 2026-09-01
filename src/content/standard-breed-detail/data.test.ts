@@ -1436,13 +1436,24 @@ describe("standard breed detail editorial data", () => {
     ["pug", "서늘한 자기 자리"],
     ["french-bulldog", "편안한 숨"],
     ["pekingese", "낮은 자리"],
-    ["great-dane", "큰 몸을 완전히 펴고"],
     ["saint-bernard", "큰 몸을 완전히 펴고"],
   ])("keeps the $0 daily-rhythm copy aligned with its resting illustration", (slug, expectedCopy) => {
     const detail = getStandardBreedDetail(slug)!;
     const dailyRhythm = detail.story.steps.find((step) => step.image.includes("daily-rhythm"))!;
 
     expect(`${dailyRhythm.title} ${dailyRhythm.body}`).toContain(expectedCopy);
+  });
+
+  it("frames Great Dane control as preventive, reward-based giant-dog management", () => {
+    const detail = getStandardBreedDetail("great-dane")!;
+    const controlStep = detail.story.steps[2];
+
+    expect(controlStep.title).toContain("움직이기 전에 조율");
+    expect(controlStep.body).toContain("느슨한 리드 걷기");
+    expect(controlStep.body).toContain("필요한 개체");
+    expect(controlStep.image).toBe("/illustrations/v4/great-dane-feature-daily-rhythm.webp");
+    expect(getBreed("great-dane")?.sources).toContainEqual(expect.objectContaining({ organization: "American Veterinary Society of Animal Behavior" }));
+    expect(getBreed("great-dane")?.sources).toContainEqual(expect.objectContaining({ organization: "RSPCA" }));
   });
 
   it.each([

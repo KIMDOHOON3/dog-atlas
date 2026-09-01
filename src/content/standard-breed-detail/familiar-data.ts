@@ -179,21 +179,21 @@ const fallbackCards: Record<string, [EditorialCard, EditorialCard, EditorialCard
       title: "차분한 움직임도 넉넉한 회전 공간과 협력 연습이 필요해요.",
       description: "사람 가까이에서 침착한 개체도 몸집만으로 가구와 사람을 밀 수 있어요. 넓은 동선에서 멈추기와 방향 바꾸기를 보상으로 짧게 연습하세요.",
       image: "/illustrations/v4/great-dane-feature-body-control.webp",
-      alt: "넓은 거실에서 보호자의 손 신호에 맞춰 천천히 방향을 바꾸는 성견 그레이트 덴 삽화",
+      alt: "넓은 거실에서 보호자의 손 신호에 맞춰 천천히 방향을 바꾸는 검은 단모와 흰 가슴의 성견 그레이트 덴 삽화",
     },
     {
       eyebrow: "초대형견 이동 동선",
       title: "차량과 병원까지 이어지는 넓은 이동 경로를 미리 준비해요.",
       description: "초대형 체격은 차량 탑승과 아픈 날의 이동에 큰 장비와 도움이 필요해요. 넓은 경사로와 미끄럽지 않은 바닥을 건강할 때부터 익혀주세요.",
       image: "/illustrations/v4/great-dane-feature-large-dog-route.webp",
-      alt: "대형 차량의 넓은 미끄럼 방지 경사로를 연습하는 성견 그레이트 덴 삽화",
+      alt: "대형 차량의 넓은 미끄럼 방지 경사로를 연습하는 검은 단모와 흰 가슴의 성견 그레이트 덴 삽화",
     },
     {
       eyebrow: "식사와 조용한 회복",
       title: "식사 전후에는 격한 움직임 대신 충분히 쉬는 흐름을 만들어요.",
       description: "큰 식사와 격한 활동이 바로 이어지지 않도록 하루 일정을 나누어야 해요. 갑작스러운 복부 팽창이나 불편이 보이면 즉시 진료가 필요해요.",
       image: "/illustrations/v4/great-dane-feature-meal-rest.webp",
-      alt: "식사 뒤 큰 낮은 침대에서 보호자 곁에 조용히 쉬는 성견 그레이트 덴 삽화",
+      alt: "식사 뒤 큰 낮은 침대에서 보호자 곁에 조용히 쉬는 검은 단모와 흰 가슴의 성견 그레이트 덴 삽화",
     },
   ],
   "saint-bernard": [
@@ -390,7 +390,7 @@ const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string>
   dobermann: "산책과 과제가 끝나면 하네스를 풀고 넓은 매트에서 쉬어요.",
   rottweiler: "큰 몸을 편히 펴고 보호자 곁에서 쉬는 시간이 필요해요.",
   dalmatian: "눈에 띄는 무늬보다 활동과 의사소통 준비가 먼저예요.",
-  "great-dane": "큰 몸을 완전히 펴고 방해 없이 쉴 자리가 필요해요.",
+  "great-dane": "초대형 몸은 움직인 뒤가 아니라 움직이기 전에 조율해야 해요.",
   "saint-bernard": "활동 뒤에는 큰 몸을 완전히 펴고 충분히 쉬어요.",
 };
 
@@ -450,7 +450,7 @@ const dailyRealityBodyOverrides: Partial<Record<(typeof familiarStandardSlugs)[n
   "italian-sighthound": "안전한 공간에서 짧게 움직인 뒤에는 몸을 받쳐 주는 폭신한 자리에 누워요. 보호자가 담요를 정리하는 동안 방해받지 않고 쉬게 해 주세요.",
   "jack-russell-terrier": "안전한 산책로에서 관목과 땅의 냄새를 충분히 확인하게 해요. 보호자는 리드 범위를 지키며 탐색이 끝날 때까지 서두르지 않고 기다려 주세요.",
   rottweiler: "산책과 짧은 과제가 끝나면 넓고 평평한 자리에 몸을 내려놓게 해요. 보호자 곁에서 큰 몸을 편히 펴고 방해 없이 쉬게 해 주세요.",
-  "great-dane": "몸 전체를 펴도 가장자리에 걸리지 않는 큰 잠자리를 마련해요. 가구 사이를 돌거나 일어설 때 부딪히지 않도록 휴식 자리 주변의 동선도 넓게 비워 주세요.",
+  "great-dane": "온화하고 차분한 개체도 긴 보폭과 큰 힘으로 한두 걸음 움직인 뒤에는 보호자가 힘으로 되돌리기 어려워요. 느슨한 리드 걷기·보호자에게 돌아보기·방향 전환·현관 대기를 보상으로 반복하고, 필요한 개체는 전문가와 바스켓형 입마개 적응도 준비하세요.",
   "saint-bernard": "큰 몸 전체를 받쳐 주는 서늘하고 넓은 자리를 마련해요. 활동이 끝난 뒤에는 사람의 통행에서 벗어나 몸을 편히 펴고 충분히 쉬게 해 주세요.",
 };
 
@@ -475,6 +475,7 @@ const dailyRealityImageAltOverrides: Partial<Record<(typeof familiarStandardSlug
   samoyed: "마당의 매트에 누운 성견 사모예드 곁에서 보호자가 털과 활동 장비를 정리하는 삽화",
   shiba: "나무 그늘 산책로에 누워 쉬는 적색 성견 시바와 가까이 앉은 보호자 삽화",
   rottweiler: "나무 그늘의 평평한 자리에 몸을 펴고 누운 성견 롯트와일러와 곁에 앉은 보호자 삽화",
+  "great-dane": "넓은 산책로에서 느슨한 리드로 보호자에게 돌아와 보상을 받으며 방향을 바꾸는 검은 단모와 흰 가슴의 성견 그레이트 덴 삽화",
 };
 
 const modernWorkProfiles: Partial<Record<(typeof familiarStandardSlugs)[number], NonNullable<StandardBreedDetail["modernWork"]>>> = {

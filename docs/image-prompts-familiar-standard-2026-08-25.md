@@ -61,11 +61,12 @@ Avoid: photorealism, cartoon exaggeration, cropped anatomy, duplicate limbs, and
   - `dalmatian-feature-hand-signal.webp`
   - `dalmatian-feature-safe-running.webp`
   - `dalmatian-feature-daily-rhythm.webp`
-- 그레이트 덴: 초대형 몸의 방향 전환, 차량 경사로, 식사 뒤 조용한 휴식, 넓은 보행 동선
+- 그레이트 덴: 초대형 몸의 실내 방향 전환, 차량 경사로, 식사 뒤 조용한 휴식, 느슨한 리드 방향 전환
   - `great-dane-feature-body-control.webp`
   - `great-dane-feature-large-dog-route.webp`
   - `great-dane-feature-meal-rest.webp`
   - `great-dane-feature-daily-rhythm.webp`
+  - 2026-09-01 재생성: 대표 카드와 같은 검은 단모·흰 가슴 패치·솟은 귀·긴 다리의 성견 한 마리로 역사 1장과 위 상세 4장을 모두 교체했다. 3단계 장면은 넓은 산책로의 느슨한 J자 리드, 보호자 재집중과 방향 전환을 담았고 입마개는 모든 개체의 기본 장비처럼 보이지 않도록 이미지에서 제외했다.
 - 세인트 버나드: 사람 곁의 큰 휴식 자리, 더위 회복, 차량 경사로, 서늘한 시간의 보행
   - `saint-bernard-feature-companionship.webp`
   - `saint-bernard-feature-heat-recovery.webp`
