@@ -745,13 +745,14 @@ describe("standard breed detail editorial data", () => {
     expect(detail.realities.map((reality) => reality.image)).toEqual(realityImages);
   });
 
-  it("frames Great Pyrenees control as preventive, reward-based management", () => {
+  it("connects Great Pyrenees independent guarding to ending a household watch", () => {
     const detail = getStandardBreedDetail("pyrenean-mountain-dog")!;
     const controlStep = detail.story.steps[2];
 
-    expect(controlStep.title).toContain("움직이기 전에 조율");
-    expect(controlStep.body).toContain("방향 전환");
-    expect(controlStep.body).toContain("필요한 개체");
+    expect(controlStep.title).toContain("경계에서 물러나는");
+    expect(controlStep.body).toContain("조용한 자리");
+    expect(controlStep.body).toContain("시야와 거리를 조절");
+    expect(controlStep.body).not.toContain("바스켓형 입마개");
     expect(controlStep.image).toBe("/illustrations/v4/pyrenean-mountain-dog-feature-guided-turn.webp");
   });
 
@@ -1444,32 +1445,31 @@ describe("standard breed detail editorial data", () => {
     expect(`${dailyRhythm.title} ${dailyRhythm.body}`).toContain(expectedCopy);
   });
 
-  it("frames Great Dane control as preventive, reward-based giant-dog management", () => {
+  it("connects Great Dane companionship and long stride to shared living routes", () => {
     const detail = getStandardBreedDetail("great-dane")!;
     const controlStep = detail.story.steps[2];
 
-    expect(controlStep.title).toContain("움직이기 전에 조율");
-    expect(controlStep.body).toContain("느슨한 리드 걷기");
-    expect(controlStep.body).toContain("필요한 개체");
+    expect(detail.story.steps[1].title).toContain("사람 곁");
+    expect(controlStep.title).toContain("긴 보폭");
+    expect(controlStep.body).toContain("생활 동선");
+    expect(controlStep.body).toContain("보폭을 맞춰");
+    expect(controlStep.body).not.toContain("바스켓형 입마개");
     expect(controlStep.image).toBe("/illustrations/v4/great-dane-feature-daily-rhythm.webp");
-    expect(getBreed("great-dane")?.sources).toContainEqual(expect.objectContaining({ organization: "American Veterinary Society of Animal Behavior" }));
-    expect(getBreed("great-dane")?.sources).toContainEqual(expect.objectContaining({ organization: "RSPCA" }));
   });
 
-  it("frames Newfoundland water access and giant-dog control as preventive and reward-based", () => {
+  it("connects Newfoundland water work to safe exit, drying, and recovery", () => {
     const detail = getStandardBreedDetail("newfoundland")!;
     const waterStep = detail.story.steps[1];
-    const controlStep = detail.story.steps[2];
+    const recoveryStep = detail.story.steps[2];
 
     expect(getBreed("newfoundland")?.nameKo).toBe("뉴펀들랜드");
     expect(waterStep.title).toContain("안전한 출구");
     expect(waterStep.body).toContain("구명조끼");
-    expect(controlStep.title).toContain("움직이기 전에 조율");
-    expect(controlStep.body).toContain("느슨한 리드 걷기");
-    expect(controlStep.body).toContain("필요한 개체");
-    expect(controlStep.image).toBe("/illustrations/v4/newfoundland-feature-guided-turn.webp");
-    expect(getBreed("newfoundland")?.sources).toContainEqual(expect.objectContaining({ organization: "American Veterinary Society of Animal Behavior" }));
-    expect(getBreed("newfoundland")?.sources).toContainEqual(expect.objectContaining({ organization: "RSPCA" }));
+    expect(recoveryStep.title).toContain("젖은 큰 몸");
+    expect(recoveryStep.body).toContain("건조 자리");
+    expect(recoveryStep.body).toContain("속털을 나누어 말리고");
+    expect(recoveryStep.body).not.toContain("바스켓형 입마개");
+    expect(recoveryStep.image).toBe("/illustrations/v4/newfoundland-feature-guided-turn.webp");
   });
 
   it.each([

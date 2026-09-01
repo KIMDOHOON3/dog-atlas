@@ -364,7 +364,7 @@ const whippetDetail = standardBreedDetailSchema.parse({
 const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
   slug: "pyrenean-mountain-dog",
   nameKo: "그레이트 피레니즈",
-  metadataDescription: "피레네산맥에서 가축을 지키던 배경과 독립적으로 주변을 살피는 경향, 큰 힘을 미리 조율하는 산책·출입 연습과 초대형 이동 동선, 풍성한 이중모 관리를 살펴봅니다.",
+  metadataDescription: "피레네산맥에서 가축을 지키던 배경과 독립적으로 주변을 살피는 경향, 확인을 마친 뒤 경계에서 물러나는 생활 순서와 초대형 이동 동선, 풍성한 이중모 관리를 살펴봅니다.",
   heroStatement: "넓은 산지에서 가축 곁을 지키며 스스로 판단하던 초대형 보호견이에요.",
   heroSizeDetails: {
     summaryRows: [
@@ -378,8 +378,8 @@ const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
     ],
   },
   story: {
-    title: "그레이트 피레니즈는 왜 주변을 오래 살피고 큰 힘을 미리 조율해야 할까요?",
-    description: "산악 가축보호견의 독립적인 관찰이 오늘의 산책과 출입 통제에 어떤 준비를 요구하는지 살펴봐요.",
+    title: "그레이트 피레니즈는 왜 주변을 오래 살피고 확인 뒤에도 쉽게 물러나지 않을 수 있을까요?",
+    description: "산악 가축보호견의 독립적인 관찰이 오늘의 소리·방문객 경계와 경계를 마치는 생활 순서로 어떻게 이어지는지 살펴봐요.",
     steps: [
       {
         navLabel: "산악 보호의 배경",
@@ -398,10 +398,10 @@ const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
         imageAlt: "안전하게 울타리가 설치된 넓은 정원의 그늘에서 주변을 살피는 성견 그레이트 피레니즈 삽화",
       },
       {
-        navLabel: "큰 힘의 조율",
+        navLabel: "경계를 마치는 순서",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "큰 힘은 움직인 뒤가 아니라 움직이기 전에 조율해야 해요.",
-        body: "낯선 사람이나 개, 소리에 주의를 오래 둘 수 있고 큰 몸이 움직인 뒤에는 힘으로 붙잡기 어려워요. 느슨한 리드 걷기·보호자에게 돌아보기·방향 전환·현관 대기를 보상으로 반복하고, 필요한 개체는 전문가와 바스켓형 입마개 적응도 준비하세요.",
+        title: "확인을 시작하는 것만큼 경계에서 물러나는 순서도 필요해요.",
+        body: "창과 울타리, 현관에서 낯선 사람이나 개, 밤의 소리를 오래 확인할 수 있어요. 초대형 몸이 통로를 지키기 전에 시야와 거리를 조절하고, 확인을 마치면 보호자에게 돌아와 조용한 자리로 이동하는 선택을 보상해 주세요.",
         image: "/illustrations/v4/pyrenean-mountain-dog-feature-guided-turn.webp",
         imageAlt: "넓은 산책로에서 느슨한 리드로 보호자에게 돌아와 보상을 받으며 방향을 바꾸는 성견 그레이트 피레니즈 삽화",
       },
@@ -427,7 +427,7 @@ const pyreneanMountainDogDetail = standardBreedDetailSchema.parse({
   ],
   readinessTitle: "그레이트 피레니즈와 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "낯선 사람이나 개, 소리에 주의를 오래 둘 때 돌아보기·방향 전환·현관 대기를 반복할 수 있나요?",
+    "낯선 사람이나 개, 밤의 소리를 확인한 뒤 보호자와 경계에서 물러나 조용한 자리로 돌아오는 순서를 만들 수 있나요?",
     "초대형 성견이 집과 차량, 동물병원을 안전하게 오갈 동선을 준비할 수 있나요?",
     "큰 몸의 이중모를 나누어 빗고 젖은 속털까지 충분히 말릴 수 있나요?",
   ],
@@ -1605,11 +1605,11 @@ const boxerDetail = standardBreedDetailSchema.parse({
 const newfoundlandDetail = standardBreedDetailSchema.parse({
   slug: "newfoundland",
   nameKo: "뉴펀들랜드",
-  metadataDescription: "뉴펀들랜드 섬에서 물가 일을 도운 초대형견의 배경과 안전한 물 접근, 큰 힘을 미리 조율하는 산책·출입 연습, 차량 이동과 젖은 이중모 관리를 살펴봅니다.",
+  metadataDescription: "뉴펀들랜드 섬에서 물가 일을 도운 초대형견의 배경과 안전한 물 접근, 물에서 나온 젖은 큰 몸의 이동·건조·회복과 차량 동선을 살펴봅니다.",
   heroStatement: "북대서양 연안에서 무거운 짐을 옮기고 물가 일을 도운 수상 작업견이에요.",
   story: {
-    title: "뉴펀들랜드는 왜 물가의 협력과 초대형 몸의 통제를 함께 준비해야 할까요?",
-    description: "어부와 함께한 수상 작업의 배경을 오늘의 안전한 물 접근, 큰 힘의 조율과 이동·피모 관리로 바꿔 살펴봐요.",
+    title: "뉴펀들랜드는 왜 물에 들어가는 순간보다 안전하게 돌아와 회복하는 과정까지 준비해야 할까요?",
+    description: "어부와 함께한 수상 작업의 배경이 오늘의 자발적인 물 접근과 안전한 출수, 젖은 초대형 몸의 건조와 회복으로 어떻게 이어지는지 살펴봐요.",
     steps: [
       {
         navLabel: "수상 작업의 배경",
@@ -1628,15 +1628,15 @@ const newfoundlandDetail = standardBreedDetailSchema.parse({
         imageAlt: "낮은 물가 출구에서 구명조끼를 입고 느슨한 라인으로 보호자의 손 신호를 바라보는 검은 성견 뉴펀들랜드 삽화",
       },
       {
-        navLabel: "큰 힘의 조율",
+        navLabel: "물에서 나온 뒤",
         eyebrow: "3단계 · 보호자는 무엇을 체감할까?",
-        title: "온순한 개체도 초대형 몸의 힘은 움직이기 전에 조율해야 해요.",
-        body: "사람 가까이 협력하는 개체도 한두 걸음 크게 나간 뒤에는 보호자가 힘으로 되돌리기 어려워요. 느슨한 리드 걷기·보호자에게 돌아보기·방향 전환·현관과 차량 대기를 보상으로 반복하고, 필요한 개체는 전문가와 바스켓형 입마개 적응도 준비하세요.",
+        title: "물에서 나온 뒤 젖은 큰 몸을 말리고 쉬는 과정까지가 한 번의 활동이에요.",
+        body: "젖은 성견은 바닥에서 미끄러질 수 있고 사람이 들어 옮기기도 어려워요. 낮은 출구에서 건조 자리까지 넓고 미끄럽지 않은 길을 만들고, 구명조끼를 벗긴 뒤 속털을 나누어 말리고 물을 마시며 충분히 쉬게 해 주세요.",
         image: "/illustrations/v4/newfoundland-feature-guided-turn.webp",
-        imageAlt: "넓은 공원길에서 Y형 하네스와 느슨한 리드로 보호자에게 돌아와 보상을 받으며 방향을 바꾸는 검은 성견 뉴펀들랜드 삽화",
+        imageAlt: "물가 활동을 마친 뒤 넓은 길에서 보호자와 함께 건조 자리로 돌아가는 검은 성견 뉴펀들랜드 삽화",
       },
     ],
-    caution: "운반과 수상 작업의 과거 배경이나 온순한 품종 표준이 모든 개체의 물 반응·통제 가능성을 보증하지 않아요. 실제 모습은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
+    caution: "운반과 수상 작업의 과거 배경이나 온순한 품종 표준이 모든 개체의 물 선호와 수영 능력을 보증하지 않아요. 실제 반응과 회복은 성장 환경과 경험, 건강 상태와 개체에 따라 달라요.",
   },
   realitiesTitle: "뉴펀들랜드의 생활 현실",
   realities: [
@@ -1657,7 +1657,7 @@ const newfoundlandDetail = standardBreedDetailSchema.parse({
   ],
   readinessTitle: "뉴펀들랜드와 보낼 일상을 생각해보세요.",
   readinessQuestions: [
-    "느슨한 리드 걷기·보호자에게 돌아보기·방향 전환·현관과 차량 대기를 보상으로 반복할 수 있나요?",
+    "물에서 나온 초대형 성견을 안아 옮기지 않고 건조 자리까지 이동시켜 속털을 나누어 말릴 수 있나요?",
     "몸에 맞는 구명조끼와 안전한 출구를 준비하고 물 접근과 회복을 개체의 속도에 맞출 수 있나요?",
     "안아 옮기지 않아도 되는 차량·주거 동선과 초대형견의 공간·비용을 마련할 수 있나요?",
   ],

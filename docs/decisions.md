@@ -1,5 +1,11 @@
 # Decision log
 
+## 2026-09-01 — Let breed history determine the giant-dog living reality
+
+- Do not finish every giant-breed story with the same leash, turn, doorway, and muzzle checklist. Size changes the weight of a responsibility, but it is not a substitute for breed-specific causality.
+- Keep the shared sequence `original role → possible present-day tendency → lived household consequence`. The third step must follow from the first two: ending a livestock guardian's watch, sharing routes with a long-striding companion, or exiting and drying a water-working dog.
+- Use general giant-dog transport, space, and cost guidance in readiness or reality cards where relevant. Do not let it erase the distinct subject of the three-step story.
+
 ## 2026-08-31 — Separate production readiness from the new owner-facing content audit
 
 - Keep `production-draft` and `editorial-reviewed` as production states. They do not prove that the history-to-present story and its images passed the newly requested breed-specific content audit.

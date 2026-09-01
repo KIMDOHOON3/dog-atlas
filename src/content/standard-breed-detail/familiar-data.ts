@@ -304,6 +304,16 @@ const storyStepOverrides: Partial<Record<FamiliarStandardSlug, { background?: St
       imageAlt: "닫힌 현관문 소리를 확인한 뒤 보호자의 차분한 손 신호를 바라보는 성견 닥스훈트 삽화",
     },
   },
+  "great-dane": {
+    tendency: {
+      navLabel: "현재의 경향",
+      eyebrow: "2단계 · 오늘은 어떻게 나타날까?",
+      title: "사람 곁을 따르는 일상에서도 긴 보폭과 몸의 방향이 크게 보여요.",
+      body: "사람 가까이 머무르는 개체는 방과 산책 동선을 자연스럽게 함께 움직이려 할 수 있어요. 넓은 공간에서 보호자의 속도에 맞춰 걷고 멈추고 천천히 돌아서는 경험을 짧게 쌓아 주세요.",
+      image: "/illustrations/v4/great-dane-feature-body-control.webp",
+      imageAlt: "넓은 거실에서 보호자의 손 신호에 맞춰 천천히 방향을 바꾸는 검은 단모와 흰 가슴의 성견 그레이트 덴 삽화",
+    },
+  },
   "yorkshire-terrier": {
     background: {
       navLabel: "역할의 배경",
@@ -390,7 +400,7 @@ const dailyRealityTitles: Record<(typeof familiarStandardSlugs)[number], string>
   dobermann: "산책과 과제가 끝나면 하네스를 풀고 넓은 매트에서 쉬어요.",
   rottweiler: "큰 몸을 편히 펴고 보호자 곁에서 쉬는 시간이 필요해요.",
   dalmatian: "눈에 띄는 무늬보다 활동과 의사소통 준비가 먼저예요.",
-  "great-dane": "초대형 몸은 움직인 뒤가 아니라 움직이기 전에 조율해야 해요.",
+  "great-dane": "긴 보폭은 사람과 함께 쓰는 생활 동선에서 먼저 체감돼요.",
   "saint-bernard": "활동 뒤에는 큰 몸을 완전히 펴고 충분히 쉬어요.",
 };
 
@@ -450,7 +460,7 @@ const dailyRealityBodyOverrides: Partial<Record<(typeof familiarStandardSlugs)[n
   "italian-sighthound": "안전한 공간에서 짧게 움직인 뒤에는 몸을 받쳐 주는 폭신한 자리에 누워요. 보호자가 담요를 정리하는 동안 방해받지 않고 쉬게 해 주세요.",
   "jack-russell-terrier": "안전한 산책로에서 관목과 땅의 냄새를 충분히 확인하게 해요. 보호자는 리드 범위를 지키며 탐색이 끝날 때까지 서두르지 않고 기다려 주세요.",
   rottweiler: "산책과 짧은 과제가 끝나면 넓고 평평한 자리에 몸을 내려놓게 해요. 보호자 곁에서 큰 몸을 편히 펴고 방해 없이 쉬게 해 주세요.",
-  "great-dane": "온화하고 차분한 개체도 긴 보폭과 큰 힘으로 한두 걸음 움직인 뒤에는 보호자가 힘으로 되돌리기 어려워요. 느슨한 리드 걷기·보호자에게 돌아보기·방향 전환·현관 대기를 보상으로 반복하고, 필요한 개체는 전문가와 바스켓형 입마개 적응도 준비하세요.",
+  "great-dane": "사람 곁을 따라 움직이는 긴 다리는 좁은 현관이나 산책로에서 작은 방향 전환도 크게 만들어요. 생활 동선의 회전 구간과 출입 통로를 비워두고, 바깥에서는 보호자와 보폭을 맞춰 넓게 돌아오는 경험을 차분히 반복해 주세요.",
   "saint-bernard": "큰 몸 전체를 받쳐 주는 서늘하고 넓은 자리를 마련해요. 활동이 끝난 뒤에는 사람의 통행에서 벗어나 몸을 편히 펴고 충분히 쉬게 해 주세요.",
 };
 

@@ -136,8 +136,35 @@ const roleHome: Record<Group, string> = {
   sighthound: "시각 추적과 질주의 배경은 안전한 공간의 짧은 운동과 충분한 회복으로 이어집니다.",
 };
 
+const breedCopyOverrides: Partial<Record<string, {
+  tagline: string;
+  behaviorClues: Breed["behaviorClues"];
+  story: Breed["story"];
+  careNotes: Breed["careNotes"];
+}>> = {
+  "macedonian-shepherd-dog-karaman": {
+    tagline: "검은 장모와 거대한 체격보다 먼저, 산악 목초지에서 가축 무리의 경계를 스스로 살피던 보호견의 생활 방식을 봐야 해요.",
+    behaviorClues: {
+      originalRole: "북마케도니아의 산악 목초지에서 가축 곁에 머물며 포식자와 낯선 접근을 먼저 발견하고, 무리와 위험 사이의 경계를 지키는 역할을 했습니다.",
+      today: "오늘의 생활에서는 울타리와 현관, 산책 경계에서 낯선 사람이나 동물을 오래 살피고 스스로 거리를 유지하려는 모습으로 이어질 수 있어요. 경계 강도는 개체와 경험에 따라 다릅니다.",
+      guardianContext: "마주친 뒤 힘으로 떼어놓기보다 방문객과 다른 동물이 들어오기 전 잠금문과 충분한 거리를 마련하세요. 확인을 마치면 보호자와 함께 시야가 닿지 않는 조용한 자리로 돌아오는 순서를 알려주세요.",
+    },
+    story: {
+      opening: "마케도니안 셰퍼드 도그 카라만은 북마케도니아의 산악 목초지에서 가축 무리 곁을 지키며 살아온 보호견이에요. 넓은 지역에서 사람의 지시를 계속 기다리기보다 접근하는 위험을 스스로 살피고 무리와 그 사이를 지키는 판단이 중요했습니다.",
+      roleToHome: "산지에서 무리의 경계를 오래 확인하던 배경은 오늘날 집과 가족 주변의 낯선 움직임을 신중하게 살피는 모습으로 이어질 수 있어요. 인사를 서두르기보다 안전한 거리에서 확인하고 보호자와 물러나는 경험이 필요합니다.",
+      reality: "초대형 몸으로 출입구나 울타리 앞에 머물면 나중에 힘으로 이동시키기 어려워요. 방문객 동선과 생활 공간을 잠금문으로 나누고, 야간 소리와 바깥 시야를 조절하며, 큰 장모 몸이 방해받지 않고 식을 수 있는 자리를 준비해야 합니다.",
+    },
+    careNotes: [
+      "방문객이나 다른 개와 바로 마주치게 하지 말고 잠금문과 충분한 거리를 먼저 마련하세요.",
+      "울타리와 현관을 확인한 뒤 보호자와 함께 조용한 자리로 돌아오는 순서를 보상으로 알려주세요.",
+      "큰 장모 몸을 위한 서늘한 휴식 공간과 차량·진료 이동 동선을 성견 크기로 점검하세요.",
+    ],
+  },
+};
+
 const makeBreed = (seed: Seed): Breed => {
   const m = meta[seed.group];
+  const copyOverride = breedCopyOverrides[seed.slug];
   const sourceUrl = seed.sourceUrl ?? fciGroupUrls[seed.group];
   const sourceOrganization = seed.sourceOrganization ?? "Fédération Cynologique Internationale";
   const sourceTitle = seed.sourceTitle ?? `${seed.nameEn} — FCI breeds nomenclature`;
@@ -147,18 +174,18 @@ const makeBreed = (seed: Seed): Breed => {
     contentStatus: "mvp-editorial-draft",
     nameKo: seed.nameKo,
     nameEn: seed.nameEn,
-    tagline: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역사적 배경을 지녔으며, 오늘날에는 개체 차이와 생활 조건을 함께 살펴야 합니다.`,
+    tagline: copyOverride?.tagline ?? `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역사적 배경을 지녔으며, 오늘날에는 개체 차이와 생활 조건을 함께 살펴야 합니다.`,
     palette: { primary: m.colors[0], secondary: m.colors[1], ink: m.colors[2] },
     illustration: `/illustrations/v2/${seed.slug}-card.webp`,
     catalog: { group: seed.group, discoveryTags: [...m.tags, seed.origin] },
     historyVisual: { src: `/illustrations/v3/${seed.slug}-history.webp`, alt: `${seed.nameKo}의 기원과 원래 역할을 보여 주는 편집 수채화 역사 장면` },
     identity: { origin: seed.origin, lineage: `${seed.origin}의 ${m.label} 계통에서 발전한 견종`, originalRole: seed.role, size: seed.size, lifespan: "개체와 생활 환경에 따라 달라지므로 공식 자료와 수의학적 상담을 함께 확인하세요." },
-    behaviorClues: {
+    behaviorClues: copyOverride?.behaviorClues ?? {
       originalRole: `${withTopicParticle(seed.nameKo)} ${seed.role}이라는 역할과 환경 속에서 형성되었습니다. 과거 역할이 현재 개체의 행동을 보장하지는 않지만 생활 과제를 설계할 때 참고가 됩니다.`,
       today: `오늘날에는 원래 역할과 연결된 탐색·협력 욕구를 안전한 산책과 짧은 학습 과제로 전환할 수 있습니다. 반응과 회복 속도는 개체마다 다릅니다.`,
       guardianContext: `${seed.nameKo}와 함께 살 때는 ${seed.size}에 맞는 공간, 휴식, 사회화, 건강 관리를 함께 계획해야 합니다. 보호자의 경험과 환경도 중요한 변수입니다.`,
     },
-    story: {
+    story: copyOverride?.story ?? {
       opening: `${withTopicParticle(seed.nameKo)} ${seed.origin}에서 ${seed.role}이라는 역사적 배경과 함께 발전했습니다. 이름이나 외형만으로 생활 적합성을 단정하기보다 역사와 개체 차이를 함께 살펴보세요.`,
       roleToHome: roleHome[seed.group],
       reality: `품종의 경향은 개체의 성격을 보장하지 않습니다. ${seed.nameKo}와 살려면 ${seed.size}에 맞는 공간과 일상, 건강 상태, 보호자의 경험을 함께 점검하는 준비가 필요합니다.${registryNote}`,
@@ -171,7 +198,7 @@ const makeBreed = (seed: Seed): Breed => {
       alerting: { label: m.levels[4], note: "주변 자극에 대한 반응은 사회화와 생활 환경에 따라 달라질 수 있습니다." },
       grooming: { label: m.levels[5], note: "피모와 귀·발 상태를 확인하고 필요한 관리 루틴을 일찍 익혀 주세요." },
     },
-    careNotes: m.care,
+    careNotes: copyOverride?.careNotes ?? m.care,
     healthEditorialNote: "건강 항목은 품종에서 관찰되는 경향을 소개하는 편집 초안이며, 진단이나 개체 예측이 아닙니다. 이상 신호는 수의사에게 확인하세요.",
     daySnapshot: [
       { time: "아침", title: "몸 상태 확인", description: "컨디션과 발·귀 상태를 살피고 짧은 탐색 과제로 하루를 시작하세요." },

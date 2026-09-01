@@ -48,4 +48,14 @@ describe("detail batch O mapping", () => {
     expect(cardHashes.size).toBe(detailBatchO.length);
     expect(historyHashes.size).toBe(detailBatchO.length);
   });
+
+  it("keeps Macedonian Shepherd Dog Karaman copy specific to mountain flock guarding", () => {
+    const karaman = detailBatchO.find((breed) => breed.slug === "macedonian-shepherd-dog-karaman")!;
+
+    expect(karaman.behaviorClues.originalRole).toContain("산악 목초지");
+    expect(karaman.story.opening).toContain("가축 무리");
+    expect(karaman.story.roleToHome).toContain("경계를 오래 확인");
+    expect(karaman.story.reality).toContain("잠금문");
+    expect(karaman.story.reality).not.toContain("품종의 경향은 개체의 성격을 보장하지 않습니다");
+  });
 });
