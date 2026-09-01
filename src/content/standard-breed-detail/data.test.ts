@@ -1003,8 +1003,8 @@ describe("standard breed detail editorial data", () => {
       slug: "newfoundland",
       storyImages: [
         "/illustrations/v3/newfoundland-history.webp",
-        "/illustrations/v4/newfoundland-feature-controlled-hauling.webp",
-        "/illustrations/v4/newfoundland-feature-water-to-rest.webp",
+        "/illustrations/v4/newfoundland-feature-safe-water-entry.webp",
+        "/illustrations/v4/newfoundland-feature-guided-turn.webp",
       ],
       realityImages: [
         "/illustrations/v4/newfoundland-feature-massive-dog-route.webp",
@@ -1456,6 +1456,22 @@ describe("standard breed detail editorial data", () => {
     expect(getBreed("great-dane")?.sources).toContainEqual(expect.objectContaining({ organization: "RSPCA" }));
   });
 
+  it("frames Newfoundland water access and giant-dog control as preventive and reward-based", () => {
+    const detail = getStandardBreedDetail("newfoundland")!;
+    const waterStep = detail.story.steps[1];
+    const controlStep = detail.story.steps[2];
+
+    expect(getBreed("newfoundland")?.nameKo).toBe("뉴펀들랜드");
+    expect(waterStep.title).toContain("안전한 출구");
+    expect(waterStep.body).toContain("구명조끼");
+    expect(controlStep.title).toContain("움직이기 전에 조율");
+    expect(controlStep.body).toContain("느슨한 리드 걷기");
+    expect(controlStep.body).toContain("필요한 개체");
+    expect(controlStep.image).toBe("/illustrations/v4/newfoundland-feature-guided-turn.webp");
+    expect(getBreed("newfoundland")?.sources).toContainEqual(expect.objectContaining({ organization: "American Veterinary Society of Animal Behavior" }));
+    expect(getBreed("newfoundland")?.sources).toContainEqual(expect.objectContaining({ organization: "RSPCA" }));
+  });
+
   it.each([
     ["chihuahua", "American Kennel Club", "Chihuahua-club-flier.pdf"],
     ["pug", "Royal Veterinary College", "brachycephaly/health-issues"],
@@ -1611,7 +1627,7 @@ describe("standard breed detail editorial data", () => {
 
   it.each([
     ["boxer", "작업장 마당"],
-    ["newfoundland", "젖은 줄과 어망"],
+    ["newfoundland", "젖은 줄"],
     ["weimaraner", "숲 가장자리"],
     ["german-short-haired-pointing-dog", "얕은 습지"],
     ["australian-cattle-dog", "소 무리"],
