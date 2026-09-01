@@ -1,12 +1,10 @@
 import type { Breed } from "@/content/breeds/schema";
-import type { BreedContentAuditStatus } from "@/content/breed-content-audit";
 import type { DogAtlasSizeClass } from "@/content/breed-sizes/schema";
 import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
 
 type DiscoverTendency = Pick<Breed["tendencies"]["activity"], "label">;
 
 export type DiscoverBreed = Pick<Breed, "slug" | "nameKo" | "nameEn" | "tagline"> & {
-  contentAuditStatus: BreedContentAuditStatus | null;
   identity: Pick<Breed["identity"], "origin">;
   sizeClasses: DogAtlasSizeClass[];
   sizeDisplay?: string;
@@ -20,14 +18,13 @@ export type DiscoverBreed = Pick<Breed, "slug" | "nameKo" | "nameEn" | "tagline"
   };
 };
 
-export function toDiscoverBreed(breed: Breed, contentAuditStatus: BreedContentAuditStatus | null = null): DiscoverBreed {
+export function toDiscoverBreed(breed: Breed): DiscoverBreed {
   const size = getBreedSizePresentation(breed.slug);
   return {
     slug: breed.slug,
     nameKo: breed.nameKo,
     nameEn: breed.nameEn,
     tagline: breed.tagline,
-    contentAuditStatus,
     sizeClasses: size.filterClasses,
     sizeDisplay: size.displayLabel,
     identity: {
@@ -42,11 +39,4 @@ export function toDiscoverBreed(breed: Breed, contentAuditStatus: BreedContentAu
       grooming: { label: breed.tendencies.grooming.label },
     },
   };
-}
-
-export function filterBreedsByContentAuditStatus<T extends Pick<DiscoverBreed, "contentAuditStatus">>(
-  breeds: readonly T[],
-  status: BreedContentAuditStatus | null,
-): T[] {
-  return status ? breeds.filter((breed) => breed.contentAuditStatus === status) : [...breeds];
 }

@@ -557,3 +557,15 @@ Use the existing explicit service-override registry so the editorial choice stay
 Supersede the earlier large service exception for Black Russian Terrier. Its 68–76cm height, 45–60kg weight, and substantial working-dog build fit the giant discovery group, so keep the source profile unchanged and set its explicit service override to `giant`.
 
 Greyhound and Polish Greyhound remain the two tall, light-framed breeds separated into `large`. The actual filter counts become extra-small 4, small 48, medium 114, large 126, and giant 27.
+
+# 2026-09-01 — Remove the public breed-content re-review workflow
+
+Remove the `needs-review`, `awaiting-owner-review`, and `approved` registry, discovery filter, card badge, and audit URL handling. The owner will review breed copy and imagery directly, so maintaining a parallel public workflow adds interface and state complexity without supporting the new process.
+
+Keep `production-draft` and `editorial-reviewed` only as internal content-production gates. They must not appear as discovery filters or card labels, and ordinary search, size, and tendency filtering remain unchanged.
+
+# 2026-09-01 — Preserve one visual grammar while drawing giant breeds individually
+
+Keep the approved warm-ivory paper, pale-sage watercolor field, full-body adult, three-quarter stance, and viewer-facing gaze for shared discovery/detail hero assets. Express giant scale without people or props, using each breed's actual height-to-length ratio, leg length, bone, head type, coat structure, and recognized color instead of reusing one enlarged mastiff body.
+
+Retain the twelve giant-breed images approved in the preceding review and replace only the remaining fifteen. Discovery cards and the first detail hero share the same asset; historical and everyday story images remain outside this pass.
