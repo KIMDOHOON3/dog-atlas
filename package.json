@@ -10,7 +10,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "audit:images": "node scripts/audit-image-assets.mjs"
   },
   "dependencies": {
     "next": "16.2.12",

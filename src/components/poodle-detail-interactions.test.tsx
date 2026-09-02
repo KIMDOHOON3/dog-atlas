@@ -1,7 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeAll, describe, expect, it } from "vitest";
-import { PoodleReadinessChecklist, PoodleRealityCards, PoodleSizePicker, PoodleStorySteps } from "./poodle-detail-interactions";
+import { PoodleRealityCards, PoodleSizePicker } from "./poodle-detail-interactions";
+
+import { poodleDetail } from "@/content/poodle-detail/data";
+import { StandardStorySteps, StandardReadinessChecklist } from "./breed-detail-standard-interactions";
+const detail = { ...poodleDetail, slug: "poodle", nameKo: "푸들" };
 
 describe("Poodle detail interactions", () => {
   beforeAll(() => {
@@ -13,7 +17,7 @@ describe("Poodle detail interactions", () => {
 
   it("connects the three story steps with accessible tabs and arrow keys", async () => {
     const user = userEvent.setup();
-    render(<PoodleStorySteps />);
+    render(<StandardStorySteps detail={detail} />);
 
     const past = screen.getByRole("tab", { name: /과거의 역할/ });
     const present = screen.getByRole("tab", { name: /현재의 경향/ });
@@ -37,7 +41,7 @@ describe("Poodle detail interactions", () => {
 
   it("changes the selected size button without adding a separate range box", async () => {
     const user = userEvent.setup();
-    render(<PoodleSizePicker />);
+    render(<PoodleSizePicker sizes={poodleDetail.sizes} />);
 
     await user.click(screen.getByRole("button", { name: "스탠다드" }));
     expect(screen.getByRole("button", { name: "스탠다드" })).toHaveAttribute("aria-pressed", "true");
@@ -47,7 +51,7 @@ describe("Poodle detail interactions", () => {
 
   it("changes the focused size image and exposes the mobile reality controls", async () => {
     const user = userEvent.setup();
-    render(<PoodleRealityCards />);
+    render(<PoodleRealityCards sizes={poodleDetail.sizes} realities={poodleDetail.realities} />);
 
     expect(screen.getByRole("img", { name: /작은 체구의 토이 푸들 한 마리/ })).toHaveAttribute("src", expect.stringContaining("poodle-size-toy.webp"));
     await user.click(screen.getByRole("button", { name: "스탠다드" }));
@@ -58,7 +62,7 @@ describe("Poodle detail interactions", () => {
 
   it("reveals the detailed readiness action only after all three checks", async () => {
     const user = userEvent.setup();
-    render(<PoodleReadinessChecklist />);
+    render(<StandardReadinessChecklist detail={detail} />);
 
     expect(screen.queryByRole("link", { name: /더 자세한 맞이 준비 보기/ })).not.toBeInTheDocument();
     expect(screen.getByText("세 가지 중 0가지를 확인했어요.")).toBeVisible();

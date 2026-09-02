@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
 import { StandardBreedDetailExperience } from "@/components/breed-detail-standard";
 import { StandardRealityCards } from "@/components/breed-detail-standard-interactions";
+import { toRealityClientData } from "@/lib/breed-detail-client-data";
 import { BeginnerGuideLink } from "@/components/beginner-guide-link";
 import { LegalCareNotice } from "@/components/legal-care-notice";
 import { LifestyleProductIcon } from "@/components/lifestyle-product-icon";
@@ -22,6 +23,8 @@ import { getBreedLifespanDisplay } from "@/lib/breed-fact-presentation";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
 import { getBreedRoleFacts } from "@/lib/breed-role-presentation";
 import { getBreedSizePresentation, type BreedSizePresentation } from "@/lib/breed-size-presentation";
+import { createPageMetadata } from "@/lib/site-metadata";
+import { getBreedCardImage } from "@/lib/breed-image-assets";
 import { withObjectParticle } from "@/lib/korean-particles";
 import styles from "./page.module.css";
 
@@ -40,15 +43,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (legacyBreedRedirects[slug]) return {};
   const breed = getBreed(slug);
   if (!breed) return {};
-  if (slug === "poodle") return { title: breed.nameKo, description: poodleDetail.metadataDescription };
   const standardDetail = getStandardBreedDetail(slug);
-  if (standardDetail) return { title: breed.nameKo, description: standardDetail.metadataDescription };
   const descriptionTopics = getBreedGrowthGuide(slug)
     ? "크기와 수명, 성장 단계별 돌봄, 행동 경향과 함께 사는 현실"
     : breed.historyVisibility === "hidden"
       ? "크기와 수명, 행동 경향과 함께 사는 현실"
       : "크기와 수명, 역사, 행동 경향과 함께 사는 현실";
-  return { title: breed.nameKo, description: `${breed.tagline} ${descriptionTopics}을 살펴봅니다.` };
+  return createPageMetadata({
+    title: breed.nameKo,
+    description: slug === "poodle" ? poodleDetail.metadataDescription : standardDetail?.metadataDescription ?? `${breed.tagline} ${descriptionTopics}을 살펴봅니다.`,
+    path: `/breeds/${breed.slug}`,
+    image: getBreedCardImage(breed.slug),
+    imageAlt: `${breed.nameKo}의 대표적인 체형과 피모가 보이는 전신 일러스트`,
+  });
 }
 
 const tendencyNames = {
@@ -294,7 +301,7 @@ export default async function BreedDetail({ params }: PageProps) {
             <StandardBreedDetailExperience
               detail={standardDetail}
               related={related}
-              realityCards={<StandardRealityCards detail={standardDetail} normalizedSizeVarieties={sizePresentation.varieties} />}
+              realityCards={<StandardRealityCards detail={toRealityClientData(standardDetail)} normalizedSizeVarieties={sizePresentation.varieties} />}
             />
           ) : (
             <BreedDetailExperience breed={breed} />

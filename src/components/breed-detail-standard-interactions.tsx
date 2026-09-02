@@ -5,36 +5,11 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import type { StandardBreedDetail } from "@/content/standard-breed-detail/schema";
 import { withAndParticle } from "@/lib/korean-particles";
+import { useSnapCarousel } from "@/lib/use-snap-carousel";
 import styles from "./poodle-detail.module.css";
 
-type StoryDetail = Pick<StandardBreedDetail, "slug" | "nameKo" | "story">;
+type StoryDetail = Pick<StandardBreedDetail, "slug" | "nameKo"> & { story: Pick<StandardBreedDetail["story"], "steps"> };
 type ReadinessDetail = Pick<StandardBreedDetail, "slug" | "nameKo" | "readinessQuestions">;
-
-function useSnapCarousel(itemCount: number) {
-  const [current, setCurrent] = useState(0);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-
-  function handleScroll() {
-    const track = trackRef.current;
-    const firstCard = track?.firstElementChild as HTMLElement | null;
-    if (!track || !firstCard) return;
-    const gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 0;
-    const index = Math.round(track.scrollLeft / (firstCard.offsetWidth + gap));
-    setCurrent(Math.max(0, Math.min(index, itemCount - 1)));
-  }
-
-  function scrollTo(index: number) {
-    const card = trackRef.current?.children[index] as HTMLElement | undefined;
-    if (!card) return;
-    card.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-      block: "nearest",
-      inline: "start",
-    });
-  }
-
-  return { current, handleScroll, scrollTo, trackRef };
-}
 
 export function StandardStorySteps({ detail }: { detail: StoryDetail }) {
   const [activeStep, setActiveStep] = useState(0);
@@ -180,7 +155,7 @@ type NormalizedSizeVariety = {
 };
 
 export function StandardRealityCards({ detail, normalizedSizeVarieties }: {
-  detail: StandardBreedDetail;
+  detail: Pick<StandardBreedDetail, "nameKo" | "realities" | "sizeVarieties">;
   normalizedSizeVarieties?: NormalizedSizeVariety[];
 }) {
   const [activeSize, setActiveSize] = useState(0);

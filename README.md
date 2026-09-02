@@ -22,6 +22,14 @@ npm test
 npm run build
 ```
 
+## 배포 대표 주소와 공유 미리보기
+
+- 배포 환경에 `NEXT_PUBLIC_SITE_URL`을 실제 대표 도메인의 origin으로 설정합니다(예시: `https://your-domain.example`). 경로·쿼리·인증 정보는 넣지 않습니다.
+- 이 값은 canonical, Open Graph/Twitter 공유 URL·이미지, sitemap, robots에서 함께 사용합니다. 변경한 뒤에는 다시 빌드·배포해야 합니다.
+- 미설정 시 Vercel의 `VERCEL_PROJECT_PRODUCTION_URL`을 사용하고, 둘 다 없으면 로컬 개발용 `http://localhost:3000`을 사용합니다. 다른 호스팅에 배포할 때에는 반드시 대표 주소를 지정하세요.
+- 견종별 대표 이미지를 공유 이미지로 재사용합니다. 실제 SNS의 캐시 갱신·미리보기와 검색엔진 수집 여부는 배포 후 별도 확인이 필요합니다.
+- Next 이미지 최적화는 의도적으로 꺼져 있습니다(`images.unoptimized: true`).
+
 ## 기술 구성
 
 - Next.js App Router, React, strict TypeScript

@@ -4,7 +4,10 @@ import { notFound, redirect } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { breeds } from "@/content/breeds/data";
 import { getHomeCuriosityBreeds, getHomeCuriosityTheme, homeCuriosityThemes } from "@/content/home-curiosity";
+import { toCuriosityBreedCard } from "@/lib/curiosity-breed-data";
 import { CuriosityBreedGrid } from "./curiosity-breed-grid";
+import { createPageMetadata } from "@/lib/site-metadata";
+import { getBreedCardImage } from "@/lib/breed-image-assets";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ key: string }> };
@@ -17,10 +20,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const theme = getHomeCuriosityTheme((await params).key);
   if (!theme) return {};
 
-  return {
+  const example = getHomeCuriosityBreeds(theme, breeds)[0]?.breed;
+  return createPageMetadata({
     title: `${theme.label} 견종 이야기`,
     description: theme.collectionDescription,
-  };
+    path: `/curiosity/${theme.key}`,
+    image: example ? getBreedCardImage(example.slug) : undefined,
+    imageAlt: example ? `${theme.label} 견종 이야기를 소개하는 ${example.nameKo} 일러스트` : undefined,
+  });
 }
 
 export default async function CuriosityThemePage({ params }: PageProps) {
@@ -57,7 +64,7 @@ export default async function CuriosityThemePage({ params }: PageProps) {
             {selectionDetails.length > 0 && <p>{selectionDetails.join(" ")}</p>}
           </header>
 
-          <CuriosityBreedGrid breeds={themeBreeds} />
+          <CuriosityBreedGrid breeds={themeBreeds.map(toCuriosityBreedCard)} />
         </section>
 
         <aside className={styles.guide} aria-labelledby="curiosity-guide-title">

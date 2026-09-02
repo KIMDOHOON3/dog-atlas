@@ -10,6 +10,12 @@ export function PageScrollControl() {
   const pathname = usePathname();
   const [direction, setDirection] = useState<ScrollDirection | null>(null);
   const lastScrollYRef = useRef(0);
+  const followTimerRef = useRef<number | null>(null);
+
+  function stopFollowing() {
+    if (followTimerRef.current !== null) window.clearInterval(followTimerRef.current);
+    followTimerRef.current = null;
+  }
 
   useEffect(() => {
     lastScrollYRef.current = window.scrollY;
@@ -42,28 +48,30 @@ export function PageScrollControl() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
+      stopFollowing();
       cancelAnimationFrame(initialFrame);
       cancelAnimationFrame(animationFrame);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [pathname]);
 
   if (!direction) return null;
 
   function move() {
+    stopFollowing();
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (direction === "bottom") {
       window.scrollTo({ top: document.documentElement.scrollHeight, behavior: reducedMotion ? "auto" : "smooth" });
       let attempts = 0;
       let stableChecks = 0;
       let previousHeight = document.documentElement.scrollHeight;
-      const followGrowingPage = window.setInterval(() => {
+      followTimerRef.current = window.setInterval(() => {
         attempts += 1;
         const nextHeight = document.documentElement.scrollHeight;
         stableChecks = nextHeight === previousHeight ? stableChecks + 1 : 0;
         previousHeight = nextHeight;
         window.scrollTo({ top: nextHeight, behavior: "auto" });
-        if (stableChecks >= 3 || attempts >= 12) window.clearInterval(followGrowingPage);
+        if (stableChecks >= 3 || attempts >= 12) stopFollowing();
       }, 240);
       return;
     }

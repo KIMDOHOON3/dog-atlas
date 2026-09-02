@@ -3,13 +3,10 @@
 import Image from "next/image";
 import { FormEvent, KeyboardEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { createBreedSearchIndex, findExactBreed, normalizeBreedQuery as normalize, searchBreedIndex, type BreedSearchOption } from "@/lib/breed-search-index";
 import styles from "./search-box.module.css";
 
-export type BreedOption = { slug: string; nameKo: string; nameEn: string; imageSrc: string; aliases?: string[] };
-
-function normalize(value: string) {
-  return value.trim().toLocaleLowerCase().replace(/[\s-]/g, "");
-}
+export type BreedOption = BreedSearchOption;
 
 export function SearchBox({ breeds, id = "breed-search" }: { breeds: BreedOption[]; id?: string }) {
   const router = useRouter();
@@ -19,21 +16,8 @@ export function SearchBox({ breeds, id = "breed-search" }: { breeds: BreedOption
   const [activeIndex, setActiveIndex] = useState(0);
   const listId = `${id}-suggestions`;
   const normalizedQuery = normalize(query);
-  const suggestions = useMemo(() => {
-    if (!normalizedQuery) return [];
-
-    return breeds
-      .map((breed) => {
-        const terms = [breed.nameKo, breed.nameEn, ...(breed.aliases ?? [])];
-        const matchingAlias = breed.aliases?.find((alias) => normalize(alias).includes(normalizedQuery));
-        const exact = terms.some((term) => normalize(term) === normalizedQuery);
-        const startsWith = terms.some((term) => normalize(term).startsWith(normalizedQuery));
-        return { ...breed, matchingAlias, exact, startsWith, matches: terms.some((term) => normalize(term).includes(normalizedQuery)) };
-      })
-      .filter((breed) => breed.matches)
-      .sort((a, b) => Number(b.exact) - Number(a.exact) || Number(b.startsWith) - Number(a.startsWith) || a.nameKo.localeCompare(b.nameKo, "ko"))
-      .slice(0, 6);
-  }, [breeds, normalizedQuery]);
+  const searchIndex = useMemo(() => createBreedSearchIndex(breeds), [breeds]);
+  const suggestions = useMemo(() => searchBreedIndex(searchIndex, normalizedQuery), [searchIndex, normalizedQuery]);
 
   function openBreed(breed: BreedOption) {
     setQuery(breed.nameKo);
@@ -45,11 +29,7 @@ export function SearchBox({ breeds, id = "breed-search" }: { breeds: BreedOption
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const normalized = normalize(query);
-    const match = breeds.find((breed) =>
-      normalize(breed.nameKo) === normalized
-      || normalize(breed.nameEn) === normalized
-      || breed.aliases?.some((alias) => normalize(alias) === normalized),
-    );
+    const match = findExactBreed(searchIndex, normalized);
     if (!match) { setError(`현재 도감에는 ${breeds.length}종의 강아지가 있어요. 목록에서 이름을 선택해 주세요.`); return; }
     openBreed(match);
   }

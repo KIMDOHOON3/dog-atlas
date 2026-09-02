@@ -8,12 +8,22 @@ import { JapaneseSpitzReadiness } from "@/components/japanese-spitz-readiness";
 import { getBreed } from "@/content/breeds/data";
 import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
 import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
+import { createPageMetadata } from "@/lib/site-metadata";
+import { getBreedCardImage } from "@/lib/breed-image-assets";
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "처음 함께 살기 가이드",
-  description: "강아지를 데려오기 전부터 첫 생활과 보호자의 마음가짐까지 꼭 필요한 준비를 차례로 확인합니다.",
-};
+export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+  const breedParam = (await searchParams).breed;
+  const breed = typeof breedParam === "string" ? getBreed(breedParam) : undefined;
+  if (!breed) return {};
+  return createPageMetadata({
+    title: `${breed.nameKo} 맞이 준비 가이드`,
+    description: "강아지를 데려오기 전부터 첫 생활과 보호자의 마음가짐까지 꼭 필요한 준비를 차례로 확인합니다.",
+    path: `/beginner-guide?breed=${encodeURIComponent(breed.slug)}`,
+    image: getBreedCardImage(breed.slug),
+    imageAlt: `${breed.nameKo} 맞이 준비 가이드의 견종 일러스트`,
+  });
+}
 
 type PageProps = { searchParams: Promise<{ breed?: string | string[] }> };
 

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { BreedVisual } from "@/components/breed-visual";
 import type { Breed } from "@/content/breeds/schema";
 import type { StandardBreedDetail } from "@/content/standard-breed-detail/schema";
+import { toReadinessClientData, toStoryClientData } from "@/lib/breed-detail-client-data";
 import { StandardReadinessChecklist, StandardStorySteps } from "./breed-detail-standard-interactions";
 import styles from "./poodle-detail.module.css";
 
@@ -40,7 +41,7 @@ export function StandardBreedDetailExperience({
           <h2 id={`${detail.slug}-story-title`}>{detail.story.title}</h2>
           <span>{detail.story.description}</span>
         </header>
-        <div className={styles.storyLayout}><StandardStorySteps detail={detail} /></div>
+        <div className={styles.storyLayout}><StandardStorySteps detail={toStoryClientData(detail)} /></div>
         <p className={styles.caution}><span aria-hidden="true">*</span>{detail.story.caution}</p>
       </section>
 
@@ -57,7 +58,7 @@ export function StandardBreedDetailExperience({
           <p><b aria-hidden="true">03</b> 함께 살기 전에</p>
           <h2 id={`${detail.slug}-readiness-title`}>{detail.readinessTitle}</h2>
         </header>
-        <StandardReadinessChecklist detail={detail} />
+        <StandardReadinessChecklist detail={toReadinessClientData(detail)} />
       </section>
 
       {relatedBreeds.length > 0 && (

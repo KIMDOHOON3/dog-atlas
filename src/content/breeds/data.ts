@@ -349,8 +349,10 @@ export const breeds = breedCollectionSchema.parse(draftBreeds.map((breed) => {
   return override ? { ...breed, ...override } : breed;
 }));
 
+const breedsBySlug = new Map(breeds.map((breed) => [breed.slug, breed]));
+
 export function getBreed(slug: string) {
-  return breeds.find((breed) => breed.slug === slug);
+  return breedsBySlug.get(slug);
 }
 
 const catalogGroupLabels: Record<Breed["catalog"]["group"], string> = {

@@ -1,5 +1,29 @@
 # Decision log
 
+## 2026-09-02 — Make navigation and page metadata identify their actual destination
+
+- Link the home all-breeds count to `/discover`, with the count derived from published breeds.
+- Share a site-origin resolver and metadata factory across page canonical, Open Graph/Twitter, sitemap and robots. Use existing breed/card illustrations; do not enable image optimization or create new image assets.
+- Canonicalize discover filter combinations to `/discover`; preserve the meaningful breed query in guide canonicals. Give breed, name-story and curiosity detail pages their own titles and images. Include discovery in the sitemap (390 unique URLs).
+- Prefer an explicitly configured `NEXT_PUBLIC_SITE_URL`, then Vercel's production project hostname, then localhost for development. Document that a custom deployment requires its actual origin and rebuild; do not invent a production domain or claim real social-crawler verification from a local build.
+- Verification: lint/typecheck, 53 test files/1,639 tests, production build (399 static paths), 390 generated metadata pages and three dynamic guide HTTP checks passed. Browser visual and deployed crawler checks remain separate.
+
+## 2026-09-02 — Keep full editorial records and validation out of client cards
+
+- Project curiosity cards to slug, Korean/English name, origin and the theme fact on the server. Never serialize the entire Breed solely for a card.
+- Poodle client interactions accept only sizes and realities as props; Zod parsing stays in server content modules. Delete obsolete Poodle-only story/readiness implementations and test the shared implementations used in production.
+- Isolate the discovery result grid behind stable memoized props. Share infinite batch/carousel hooks. Preserve the documented mobile WebView safety checks even when IntersectionObserver exists, but throttle scroll/resize layout reads to 150 ms.
+- Own and cancel the page-follow interval on repeated clicks, route changes, and unmount. Preserve original appearance, copy, link behavior and image files.
+- Do not generate optional thumbnails in this pass. Next image optimization remains disabled. Record build-byte savings separately from browser speed and visual verification in [the performance audit](performance-asset-audit.md).
+
+## 2026-09-02 — Optimize computation and payloads without enabling Next image optimization
+
+- Preserve `images.unoptimized: true` at the user's request; no visual redesign, copy rewrite, size reclassification, or live image recompression.
+- Precompute breed search terms, project explicit minimal client interaction props, render the static home category section on the server, and index slug lookups.
+- Disable automatic prefetch only on bulk discovery/curiosity breed cards. This avoids unsolicited detail downloads, with the explicit tradeoff that first-click navigation may fetch on demand.
+- Delete only tracked public images absent from literal references, evaluated authored content (including paused drafts), dynamic card paths, and the baseline build. Preserve user attachments; retain a Git-recoverable deletion manifest.
+- Keep measurements honest: search CPU time, generated RSC/JS bytes, and storage savings are separate from end-user page-load speed. See [the audit](performance-asset-audit.md) for evidence and verification limits.
+
 ## 2026-09-01 — Let breed history determine the giant-dog living reality
 
 - Do not finish every giant-breed story with the same leash, turn, doorway, and muzzle checklist. Size changes the weight of a responsibility, but it is not a substitute for breed-specific causality.

@@ -20,7 +20,7 @@ export function PoodleDetailExperience({ related }: { related: RelatedBreed[] })
         relatedDifferences: poodleDetail.relatedDifferences,
       }}
       related={related}
-      realityCards={<PoodleRealityCards />}
+      realityCards={<PoodleRealityCards sizes={poodleDetail.sizes} realities={poodleDetail.realities} />}
     />
   );
 }

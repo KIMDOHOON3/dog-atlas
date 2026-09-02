@@ -5,9 +5,11 @@ import { SearchBox } from "@/components/search-box";
 import { SiteHeader } from "@/components/site-header";
 import { breeds, getBreed } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
+import { createPageMetadata, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site-metadata";
 import styles from "./page.module.css";
 
 export const revalidate = 86400;
+export const metadata = createPageMetadata({ title: SITE_NAME, description: SITE_DESCRIPTION, path: "/" });
 
 const familiarBreedSlugs = [
   "poodle",
@@ -61,7 +63,7 @@ export default function Home() {
             <div>
               <h2 id="familiar-title"><em>익숙한 이름</em>에서 시작해보세요.</h2>
             </div>
-            <Link href="/curiosity/regulated-care">전체 376종 <span aria-hidden="true">→</span></Link>
+            <Link href="/discover">전체 {breeds.length}종 <span aria-hidden="true">→</span></Link>
           </header>
           <nav className={styles.breedRail} aria-label="먼저 살펴볼 익숙한 견종">
             {familiarBreeds.map((breed) => (

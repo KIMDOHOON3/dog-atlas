@@ -1,17 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { BreedVisual } from "@/components/breed-visual";
+import { DiscoverResultGrid } from "@/components/discover-result-grid";
+import { useInfiniteBatch } from "@/lib/use-infinite-batch";
 import {
   applyBreedFilterPreset,
   breedFilterPresets,
   emptyBreedFilters,
   filterBreeds,
   filtersToSearchParams,
-  getBreedFilterValue,
-  getBreedSizeClasses,
   parseBreedFilters,
   type BreedFilters,
   type BreedSize,
@@ -19,8 +17,6 @@ import {
   type TendencyLevel,
 } from "@/lib/breed-filters";
 import { useHistoryEntryState } from "@/lib/history-entry-state";
-import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
-import { presentBreedOrigin } from "@/lib/breed-origin-presentation";
 import type { DiscoverBreed } from "@/lib/discover-breeds";
 import styles from "./discover-explorer.module.css";
 
@@ -67,6 +63,13 @@ function cloneFilters(filters: BreedFilters): BreedFilters {
   };
 }
 
+function selectedLabel(key: "size" | TendencyFilterKey, value: string) {
+  if (key === "size") return `체구 · ${sizeOptions.find((option) => option.value === value)?.label ?? value}`;
+  const field = tendencyFields.find((option) => option.key === key);
+  const level = tendencyOptions.find((option) => option.value === value)?.label ?? value;
+  return `${field?.queryLabel ?? field?.label ?? key} · ${level}`;
+}
+
 export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -75,7 +78,6 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
   const filterTriggerRef = useRef<HTMLButtonElement>(null);
   const filterPanelRef = useRef<HTMLElement>(null);
   const closeFilterRef = useRef<HTMLButtonElement>(null);
-  const infiniteScrollRef = useRef<HTMLDivElement>(null);
   const pendingQueryRef = useRef<string | null>(null);
   const queryString = searchParams.toString();
   const syncedQueryRef = useRef(queryString);
@@ -89,6 +91,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
   const filtersRef = useRef(filters);
   const results = useMemo(() => filterBreeds(breeds, filters), [breeds, filters]);
   const visibleResults = useMemo(() => results.slice(0, visibleCount), [results, visibleCount]);
+  const infiniteScrollRef = useInfiniteBatch(visibleResults.length, results.length, RESULT_BATCH_SIZE, setVisibleCount);
   const activeCount = Object.values(filters).reduce((count, values) => count + values.length, 0);
 
   useEffect(() => {
@@ -149,48 +152,6 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
     };
   }, [filterOpen]);
 
-  useEffect(() => {
-    const sentinel = infiniteScrollRef.current;
-    if (!sentinel || visibleResults.length >= results.length) return;
-    const sentinelElement = sentinel;
-    let animationFrame = 0;
-    let loaded = false;
-    let observer: IntersectionObserver | undefined;
-
-    function loadNextBatch() {
-      if (loaded) return;
-      loaded = true;
-      observer?.disconnect();
-      window.removeEventListener("scroll", checkSentinelPosition);
-      window.removeEventListener("resize", checkSentinelPosition);
-      setVisibleCount((count) => Math.min(count + RESULT_BATCH_SIZE, results.length));
-    }
-
-    function checkSentinelPosition() {
-      cancelAnimationFrame(animationFrame);
-      animationFrame = requestAnimationFrame(() => {
-        if (sentinelElement.getBoundingClientRect().top <= window.innerHeight + 600) loadNextBatch();
-      });
-    }
-
-    if ("IntersectionObserver" in window) {
-      observer = new IntersectionObserver(([entry]) => {
-        if (entry?.isIntersecting) loadNextBatch();
-      }, { rootMargin: "600px 0px" });
-      observer.observe(sentinelElement);
-    }
-
-    window.addEventListener("scroll", checkSentinelPosition, { passive: true });
-    window.addEventListener("resize", checkSentinelPosition);
-    checkSentinelPosition();
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      observer?.disconnect();
-      window.removeEventListener("scroll", checkSentinelPosition);
-      window.removeEventListener("resize", checkSentinelPosition);
-    };
-  }, [results.length, setVisibleCount, visibleResults.length]);
 
   function closeMobileFilters() {
     setFilterOpen(false);
@@ -230,14 +191,9 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
     commitFilters(active ? emptyBreedFilters() : presetFilters);
   }
 
-  function selectedLabel(key: "size" | TendencyFilterKey, value: string) {
-    if (key === "size") return `체구 · ${sizeOptions.find((option) => option.value === value)?.label ?? value}`;
-    const field = tendencyFields.find((option) => option.key === key);
-    const level = tendencyOptions.find((option) => option.value === value)?.label ?? value;
-    return `${field?.queryLabel ?? field?.label ?? key} · ${level}`;
-  }
 
-  const selectedEntries = (Object.entries(filters) as Array<["size" | TendencyFilterKey, string[]]>).flatMap(([key, values]) => values.map((value) => ({ key, value })));
+
+  const selectedEntries = useMemo(() => (Object.entries(filters) as Array<["size" | TendencyFilterKey, string[]]>).flatMap(([key, values]) => values.map((value) => ({ key, value, label: selectedLabel(key, value) }))), [filters]);
 
   return (
     <div className={styles.explorer}>
@@ -321,39 +277,7 @@ export function DiscoverExplorer({ breeds }: { breeds: readonly DiscoverBreed[] 
         </aside>
 
         <section className={styles.resultsPanel} aria-live="polite" aria-labelledby="discover-results-title">
-          <div className={styles.resultGrid}>
-            {visibleResults.map((breed) => {
-              const sizes = getBreedSizeClasses(breed);
-              const showSizeHighlight = sizes.length > 0 || breed.sizeDisplay?.startsWith("유형별");
-              const defaultHighlights: Array<{ key: "size" | TendencyFilterKey; label: string }> = [
-                ...(showSizeHighlight && breed.sizeDisplay ? [{ key: "size" as const, label: `체구 · ${breed.sizeDisplay}` }] : []),
-                { key: "activity" as const, label: `활동량 · ${breed.tendencies.activity.label}` },
-              ];
-              const highlights: Array<{ key: "size" | TendencyFilterKey; label: string }> = selectedEntries.length > 0
-                ? selectedEntries
-                  .map(({ key, value }) => {
-                    const matches = key === "size"
-                      ? sizes.includes(value as BreedSize)
-                      : getBreedFilterValue(breed, key) === value;
-                    return matches ? { key, label: selectedLabel(key, value) } : undefined;
-                  })
-                  .filter((highlight): highlight is { key: "size" | TendencyFilterKey; label: string } => Boolean(highlight))
-                : defaultHighlights;
-              return (
-                <Link className={styles.resultCard} href={`/breeds/${breed.slug}`} key={breed.slug} aria-label={`${breed.nameKo} 상세 이야기 보기`}>
-                  <BreedVisual breed={breed} variant="tile" />
-                  <div className={styles.resultCopy}>
-                    <div className={styles.resultMeta}><span>{breed.nameEn}</span><span>{presentBreedOrigin(breed.identity.origin)}</span></div>
-                    {isKoreanManagedBreed(breed.slug) && <span className={styles.legalBadge}>대한민국 법령상 맹견</span>}
-                    <h2>{breed.nameKo}</h2>
-                    <div className={styles.resultHighlights}>{highlights.map((highlight) => <span className={styles[`resultHighlight_${highlight.key}`]} key={`${highlight.key}-${highlight.label}`}>{highlight.label}</span>)}</div>
-                    <p>{breed.tagline}</p>
-                    <span className={styles.resultDetail}>상세 이야기 보기 →</span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <DiscoverResultGrid breeds={visibleResults} selectedEntries={selectedEntries} />
           {visibleResults.length < results.length && (
             <div className={styles.infiniteScroll} ref={infiniteScrollRef} role="status" aria-live="polite">
               <span className={styles.loadingMark} aria-hidden="true" />

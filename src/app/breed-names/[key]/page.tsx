@@ -6,6 +6,8 @@ import { SiteHeader } from "@/components/site-header";
 import { breedNameStories, getBreedNameStory, getBreedNameStoryBreeds } from "@/content/breed-name-stories";
 import { breeds, getBreed } from "@/content/breeds/data";
 import { presentBreedOrigin } from "@/lib/breed-origin-presentation";
+import { createPageMetadata } from "@/lib/site-metadata";
+import { getBreedCardImage } from "@/lib/breed-image-assets";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ key: string }> };
@@ -27,10 +29,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const story = getBreedNameStory((await params).key);
   if (!story) return {};
 
-  return {
+  const example = story.examples.map((item) => getBreed(item.slug)).find(Boolean);
+  return createPageMetadata({
     title: `${story.term} 이름의 유래와 관련 견종`,
     description: `${story.term}가 뜻하는 ${story.meaning}의 역사와 현재 도감에 수록된 관련 견종을 살펴봅니다.`,
-  };
+    path: `/breed-names/${story.key}`,
+    image: example ? getBreedCardImage(example.slug) : undefined,
+    imageAlt: example ? `${story.term} 이름의 유래를 소개하는 ${example.nameKo} 일러스트` : undefined,
+  });
 }
 
 export default async function BreedNameStoryPage({ params }: PageProps) {

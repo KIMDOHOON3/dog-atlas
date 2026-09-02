@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
 import { PageScrollControl } from "@/components/page-scroll-control";
+import { resolveSiteUrl, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site-metadata";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: resolveSiteUrl(),
   title: {
-    default: "살아 있는 견종도감",
-    template: "%s | 살아 있는 견종도감",
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "익숙한 외모 너머의 역사와 행동 경향, 오늘의 양육 현실을 함께 살펴보는 예비 보호자를 위한 견종도감입니다.",
+  description: SITE_DESCRIPTION,
   openGraph: {
     title: "살아 있는 견종도감",
     description: "호기심으로 들어와, 함께 살 현실까지 이해하는 견종 탐험",

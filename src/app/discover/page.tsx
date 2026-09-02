@@ -7,12 +7,14 @@ import { SiteHeader } from "@/components/site-header";
 import { breeds } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
 import { toDiscoverBreed } from "@/lib/discover-breeds";
+import { createPageMetadata } from "@/lib/site-metadata";
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "견종 발견",
   description: "익숙한 견종 이름부터 생활 조건까지, 376종의 이야기를 천천히 탐색해보세요.",
-};
+  path: "/discover",
+});
 
 export default function DiscoverPage() {
   const breedOptions = breeds.map(({ slug, nameKo, nameEn, illustration }) => {
