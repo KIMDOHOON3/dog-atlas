@@ -1,0 +1,215 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "key": "irish-wolfhound-front",
+      "slug": "irish-wolfhound",
+      "side": "front",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/irish-wolfhound-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-alpine-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished square high quality watercolor artwork for a premium dog encyclopedia front card. Image 1 is DOG APPEARANCE REFERENCE: Irish Wolfhound, very tall long-legged lean grey rough wiry coat sighthound, long narrow bearded muzzle and small folded rose ears, faithfully matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: misty Irish green moorland, low dry stone walls and an old distant Irish stone tower, soft overcast sage light. Full-bleed rich environment visible behind a large full-body dog standing calmly three-quarter view. The dog fills about 80% of image height with breathing room around head, all paws and full tail in frame. Paint the historical environment as a believable background, not blank paper, not a pasted cutout. No people needed in this front. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-bfa3596d-b08b-4f80-bc8c-e992501fac75.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-bfa3596d-b08b-4f80-bc8c-e992501fac75.png",
+      "dest": "public/illustrations/card-studies/irish-wolfhound-landscape-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1254,
+        "height": 1254,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 509808
+      }
+    },
+    {
+      "key": "irish-wolfhound-back",
+      "slug": "irish-wolfhound",
+      "side": "back",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/irish-wolfhound-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-human-back-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished portrait 5:7 high quality watercolor artwork for a premium dog encyclopedia back card. Image 1 is DOG APPEARANCE REFERENCE: Irish Wolfhound, very tall long-legged lean grey rough wiry coat sighthound, long narrow bearded muzzle and small folded rose ears, faithfully matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: misty Irish green moorland, low dry stone walls and an old distant Irish stone tower, soft overcast sage light. Full-length adult in neutral practical outdoor clothing beside the SAME dog appearance as reference, both standing on the same ground plane. Use reference 2's layout: adult and dog grouped on RIGHT half, adult head about 20% down, their feet about 77% down. Adult about 175cm and dog shoulder about 82cm for plausible scale. Both full bodies visible. Keep LEFT 36%, TOP 17%, BOTTOM 19% quiet pale ivory watercolor negative space for later HTML copy. Background stays richly detailed behind subjects and fades softly to paper in text zones. Do not put scenery with heavy contrast in left text column. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-66001f66-fc2d-4866-a8f4-5d3769ea6c05.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-66001f66-fc2d-4866-a8f4-5d3769ea6c05.png",
+      "dest": "public/illustrations/card-studies/irish-wolfhound-human-back-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1060,
+        "height": 1484,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 353622
+      }
+    },
+    {
+      "key": "tibetan-mastiff-front",
+      "slug": "tibetan-mastiff",
+      "side": "front",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/tibetan-mastiff-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-alpine-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished square high quality watercolor artwork for a premium dog encyclopedia front card. Image 1 is DOG APPEARANCE REFERENCE: Tibetan Mastiff, black and tan with enormous but natural dense neck ruff, tan eyebrows muzzle and lower legs, bushy tail curled over back, small pendant ears, matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: Tibetan high plateau, stony mountain path with a modest traditional monastery and nomad tents far behind, distant Himalayan ridges, cool dusty gold light. Full-bleed rich environment visible behind a large full-body dog standing calmly three-quarter view. The dog fills about 80% of image height with breathing room around head, all paws and full tail in frame. Paint the historical environment as a believable background, not blank paper, not a pasted cutout. No people needed in this front. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-66af6040-c085-4955-a8ec-fabec7e3595a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-66af6040-c085-4955-a8ec-fabec7e3595a.png",
+      "dest": "public/illustrations/card-studies/tibetan-mastiff-landscape-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1254,
+        "height": 1254,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 600002
+      }
+    },
+    {
+      "key": "tibetan-mastiff-back",
+      "slug": "tibetan-mastiff",
+      "side": "back",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/tibetan-mastiff-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-human-back-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished portrait 5:7 high quality watercolor artwork for a premium dog encyclopedia back card. Image 1 is DOG APPEARANCE REFERENCE: Tibetan Mastiff, black and tan with enormous but natural dense neck ruff, tan eyebrows muzzle and lower legs, bushy tail curled over back, small pendant ears, matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: Tibetan high plateau, stony mountain path with a modest traditional monastery and nomad tents far behind, distant Himalayan ridges, cool dusty gold light. Full-length adult in neutral practical outdoor clothing beside the SAME dog appearance as reference, both standing on the same ground plane. Use reference 2's layout: adult and dog grouped on RIGHT half, adult head about 20% down, their feet about 77% down. Adult about 175cm and dog shoulder about 68cm for plausible scale. Both full bodies visible. Keep LEFT 36%, TOP 17%, BOTTOM 19% quiet pale ivory watercolor negative space for later HTML copy. Background stays richly detailed behind subjects and fades softly to paper in text zones. Do not put scenery with heavy contrast in left text column. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-a9faf2a7-0c7f-4379-9c88-0f6723a14f60.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-a9faf2a7-0c7f-4379-9c88-0f6723a14f60.png",
+      "dest": "public/illustrations/card-studies/tibetan-mastiff-human-back-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1060,
+        "height": 1484,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 367042
+      }
+    },
+    {
+      "key": "kangal-shepherd-dog-front",
+      "slug": "kangal-shepherd-dog",
+      "side": "front",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/kangal-shepherd-dog-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-alpine-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished square high quality watercolor artwork for a premium dog encyclopedia front card. Image 1 is DOG APPEARANCE REFERENCE: Kangal Shepherd Dog, tall athletic powerful fawn short coat, distinct black mask and dark pendant ears, curled tail, long legs, matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: Anatolian highland pasture in Türkiye, warm dry grasses, low stone shepherd shelter, small distant flock of sheep, hazy ochre hills. Full-bleed rich environment visible behind a large full-body dog standing calmly three-quarter view. The dog fills about 80% of image height with breathing room around head, all paws and full tail in frame. Paint the historical environment as a believable background, not blank paper, not a pasted cutout. No people needed in this front. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-cbb1ab97-a6d3-48a4-8d71-d8335af7a8d2.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-cbb1ab97-a6d3-48a4-8d71-d8335af7a8d2.png",
+      "dest": "public/illustrations/card-studies/kangal-shepherd-dog-landscape-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1254,
+        "height": 1254,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 504964
+      }
+    },
+    {
+      "key": "kangal-shepherd-dog-back",
+      "slug": "kangal-shepherd-dog",
+      "side": "back",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/kangal-shepherd-dog-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-human-back-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished portrait 5:7 high quality watercolor artwork for a premium dog encyclopedia back card. Image 1 is DOG APPEARANCE REFERENCE: Kangal Shepherd Dog, tall athletic powerful fawn short coat, distinct black mask and dark pendant ears, curled tail, long legs, matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: Anatolian highland pasture in Türkiye, warm dry grasses, low stone shepherd shelter, small distant flock of sheep, hazy ochre hills. Full-length adult in neutral practical outdoor clothing beside the SAME dog appearance as reference, both standing on the same ground plane. Use reference 2's layout: adult and dog grouped on RIGHT half, adult head about 20% down, their feet about 77% down. Adult about 175cm and dog shoulder about 78cm for plausible scale. Both full bodies visible. Keep LEFT 36%, TOP 17%, BOTTOM 19% quiet pale ivory watercolor negative space for later HTML copy. Background stays richly detailed behind subjects and fades softly to paper in text zones. Do not put scenery with heavy contrast in left text column. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-3779b3a4-ca8c-44b1-bb2f-72b177b41149.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-3779b3a4-ca8c-44b1-bb2f-72b177b41149.png",
+      "dest": "public/illustrations/card-studies/kangal-shepherd-dog-human-back-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1060,
+        "height": 1484,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 360400
+      }
+    },
+    {
+      "key": "caucasian-shepherd-dog-front",
+      "slug": "caucasian-shepherd-dog",
+      "side": "front",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/caucasian-shepherd-dog-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-alpine-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished square high quality watercolor artwork for a premium dog encyclopedia front card. Image 1 is DOG APPEARANCE REFERENCE: Caucasian Shepherd Dog, massive natural grey sable tan long double coat, heavy broad head with black mask, thick neck ruff and bushy tail, natural pendant ears, matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: Caucasus mountain pasture, rugged ridges, old stone watchtower and tiny distant flock of sheep, cool silver mist and subdued green valley. Full-bleed rich environment visible behind a large full-body dog standing calmly three-quarter view. The dog fills about 80% of image height with breathing room around head, all paws and full tail in frame. Paint the historical environment as a believable background, not blank paper, not a pasted cutout. No people needed in this front. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-0d585371-79b3-4d0e-922d-ad35588acf70.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-0d585371-79b3-4d0e-922d-ad35588acf70.png",
+      "dest": "public/illustrations/card-studies/caucasian-shepherd-dog-landscape-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1254,
+        "height": 1254,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 548076
+      }
+    },
+    {
+      "key": "caucasian-shepherd-dog-back",
+      "slug": "caucasian-shepherd-dog",
+      "side": "back",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/caucasian-shepherd-dog-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-human-back-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished portrait 5:7 high quality watercolor artwork for a premium dog encyclopedia back card. Image 1 is DOG APPEARANCE REFERENCE: Caucasian Shepherd Dog, massive natural grey sable tan long double coat, heavy broad head with black mask, thick neck ruff and bushy tail, natural pendant ears, matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: Caucasus mountain pasture, rugged ridges, old stone watchtower and tiny distant flock of sheep, cool silver mist and subdued green valley. Full-length adult in neutral practical outdoor clothing beside the SAME dog appearance as reference, both standing on the same ground plane. Use reference 2's layout: adult and dog grouped on RIGHT half, adult head about 20% down, their feet about 77% down. Adult about 175cm and dog shoulder about 73cm for plausible scale. Both full bodies visible. Keep LEFT 36%, TOP 17%, BOTTOM 19% quiet pale ivory watercolor negative space for later HTML copy. Background stays richly detailed behind subjects and fades softly to paper in text zones. Do not put scenery with heavy contrast in left text column. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-d119f724-6ee1-43e5-9ab6-880cef3f55f0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-d119f724-6ee1-43e5-9ab6-880cef3f55f0.png",
+      "dest": "public/illustrations/card-studies/caucasian-shepherd-dog-human-back-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1060,
+        "height": 1484,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 369524
+      }
+    },
+    {
+      "key": "mongolian-bankhar-front",
+      "slug": "mongolian-bankhar",
+      "side": "front",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/mongolian-bankhar-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-alpine-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished square high quality watercolor artwork for a premium dog encyclopedia front card. Image 1 is DOG APPEARANCE REFERENCE: Mongolian Bankhar dog, sturdy athletic livestock guardian with black medium-long double coat, tan eyebrow spots muzzle and legs, pendant ears and bushy tail, NOT exaggerated Tibetan lion mane, matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: wide Mongolian grass steppe, a white round ger with felt roof in the distance, scattered small sheep and goats, broad pale sky and blue distant hills, warm muted autumn ochre grass. Full-bleed rich environment visible behind a large full-body dog standing calmly three-quarter view. The dog fills about 80% of image height with breathing room around head, all paws and full tail in frame. Paint the historical environment as a believable background, not blank paper, not a pasted cutout. No people needed in this front. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-175178d6-49da-4662-8144-1a5b2d16b96f.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-175178d6-49da-4662-8144-1a5b2d16b96f.png",
+      "dest": "public/illustrations/card-studies/mongolian-bankhar-landscape-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1254,
+        "height": 1254,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 556318
+      }
+    },
+    {
+      "key": "mongolian-bankhar-back",
+      "slug": "mongolian-bankhar",
+      "side": "back",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/mongolian-bankhar-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-pyrenees-human-back-v1.webp"
+      ],
+      "prompt": "Use case: illustration-story. Produce ONE finished portrait 5:7 high quality watercolor artwork for a premium dog encyclopedia back card. Image 1 is DOG APPEARANCE REFERENCE: Mongolian Bankhar dog, sturdy athletic livestock guardian with black medium-long double coat, tan eyebrow spots muzzle and legs, pendant ears and bushy tail, NOT exaggerated Tibetan lion mane, matching image 1. Image 2 is QUALITY AND COMPOSITION REFERENCE ONLY: match its fine detailed natural-history watercolor, subtle grain, natural anatomy and softly layered environment. Replace its dog and environment entirely with the requested breed and setting. SCENE: wide Mongolian grass steppe, a white round ger with felt roof in the distance, scattered small sheep and goats, broad pale sky and blue distant hills, warm muted autumn ochre grass. Full-length adult in neutral practical outdoor clothing beside the SAME dog appearance as reference, both standing on the same ground plane. Use reference 2's layout: adult and dog grouped on RIGHT half, adult head about 20% down, their feet about 77% down. Adult about 175cm and dog shoulder about 68cm for plausible scale. Both full bodies visible. Keep LEFT 36%, TOP 17%, BOTTOM 19% quiet pale ivory watercolor negative space for later HTML copy. Background stays richly detailed behind subjects and fades softly to paper in text zones. Do not put scenery with heavy contrast in left text column. Restrained sage/ivory/ochre palette appropriate to setting, fine coat detail, clear breed silhouette, sophisticated painterly finish matching the Pyrenees reference. NO text, NO logo, NO numbers, NO flags, NO borders or card mockup, NO collage. Image only.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-6bd5b997-10e1-475e-b51a-989606534db8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-6bd5b997-10e1-475e-b51a-989606534db8.png",
+      "dest": "public/illustrations/card-studies/mongolian-bankhar-human-back-v1.webp",
+      "metadata": {
+        "format": "webp",
+        "width": 1060,
+        "height": 1484,
+        "channels": 3,
+        "premultiplied": false,
+        "size": 300094
+      }
+    }
+  ]
+}

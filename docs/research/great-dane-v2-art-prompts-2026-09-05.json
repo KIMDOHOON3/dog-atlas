@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "key": "dane-front-v2",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-dane-woodland-v1.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/great-dane-card.webp"
+      ],
+      "prompt": "Use case: compositing / identity-preserve. Create a finished square watercolor illustration asset for a premium dog encyclopedia card, no card frame and no text. Image 1 is the EDIT TARGET: retain its richly painted atmospheric German woodland and distant manor-house background, its full-bleed detailed watercolor environment, muted sage, ochre and ivory palette, subtle paper grain and high illustration quality. Image 2 is DOG APPEARANCE REFERENCE ONLY: replace the dog in image 1 with this elegant tall slender black Great Dane, faithfully preserving the very long legs, narrow long face, elongated graceful neck, upright pointed ears, lean athletic silhouette and small white chest patch. Do NOT use image 2's blank paper background. Paint dog naturally integrated into image 1's woodland light and ground, detailed sleek black fur, anatomically correct four legs, full tail and all paws visible, ears with clear breathing room to top edge. Large full-body dog facing slightly toward the viewer, occupying roughly 80 percent of image height. Keep manor and trees visible around dog. Richly detailed fine art watercolor, premium natural-history illustration, no cartoon, no typography, no logos, no border. Output one square image.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-76ebfa2b-2bc3-4573-9d75-54a4047b0a32.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "key": "dane-back-v2",
+      "refs": [
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-dane-human-back-v1.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/v2/great-dane-card.webp",
+        "C:/Users/김도훈/Desktop/강아지/public/illustrations/card-studies/great-dane-woodland-v1.webp"
+      ],
+      "prompt": "Use case: compositing / identity-preserve. Create a finished portrait 5:7 watercolor illustration for the BACK of a premium dog encyclopedia card. Image 1 is EDIT TARGET: preserve its composition of full-length adult and dog on the SAME ground plane, woodland path, distant German manor, muted sage/ochre/ivory color, pale paper text-safe areas. Image 2 is DOG APPEARANCE REFERENCE ONLY: replace image 1's floppy-eared dog with this same elegant tall slender black Great Dane with upright pointed ears, narrow long face, graceful elongated neck, very long legs, lean athletic silhouette, small white chest patch. Match this dog's appearance precisely; no heavy jowls or broad mastiff body. Image 3 is environment and watercolor quality reference: retain richly illustrated woodland and manor, not empty cutout artwork. Person and dog stand on right half, person head around 22 percent down, both full bodies and all feet end around 78 percent down, dog shoulder around adult hip height and head higher, natural plausible scale. Keep leftmost 36 percent, top 18 percent, and bottom 19 percent PALE and quiet for later HTML text; subdued woodland washes can fill these areas. No text baked into art, no flags, no diagrams, no labels, no card borders. High quality painterly watercolor with detailed coat and nuanced paper grain matching front. Output one portrait image.",
+      "output": "Generated images are saved to C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2 as C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-c7176a63-a5a9-4657-8a7b-26982bc2fe5d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    }
+  ]
+}

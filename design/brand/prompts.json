@@ -1,0 +1,26 @@
+[
+  {
+    "id": "D10",
+    "name": "자세히 읽기",
+    "prompt": "Original Dog Atlas identity exploration. Flat illustrated graphic, confident consistent dark ink contours, gently hand-drawn character with precise clean silhouettes, restricted palette of warm off-white paper #e6e5d8, muted sage #aab8a2 and charcoal #293532. NO gold, NO metallic edges, NO bevel, NO gradients, NO photorealism, NO 3D, NO elaborate fur, NO scenery, NO sparkles, NO mascot big eyes. Subtle personality through shape, not decoration. Must harmonize with a dark forest-green #1c2624 website and sophisticated watercolor breed portraits. Real transparent background, no colored backdrop. Original design not copying another brand. Create ONE reusable UI action icon. Main object plus at most one small secondary cue; generic dog cue is allowed as explicitly requested by the user. Icon design: ONE ivory document with two simple lines, one small sage-handled magnifier overlapping its lower-right corner; the lens contains a small paw impression, no other graphics. Consistent thick-enough silhouette readable at 32 and 40 pixels. Square 1024x1024 canvas, 12–16% clear padding all around, evenly weighted, no words or labels.",
+    "method": "built-in ImageGen",
+    "original": "design/brand/detail-d10.png",
+    "webAsset": "public/images/card-controls/detail-d10.webp"
+  },
+  {
+    "id": "F08",
+    "name": "대각선 회전",
+    "prompt": "Original Dog Atlas identity exploration. Flat illustrated graphic, confident consistent dark ink contours, gently hand-drawn character with precise clean silhouettes, restricted palette of warm off-white paper #e6e5d8, muted sage #aab8a2 and charcoal #293532. NO gold, NO metallic edges, NO bevel, NO gradients, NO photorealism, NO 3D, NO elaborate fur, NO scenery, NO sparkles, NO mascot big eyes. Subtle personality through shape, not decoration. Must harmonize with a dark forest-green #1c2624 website and sophisticated watercolor breed portraits. Real transparent background, no colored backdrop. Original design not copying another brand. Create ONE reusable UI action icon. Main object plus at most one small secondary cue; generic dog cue is allowed as explicitly requested by the user. Icon design: ONE diagonally oriented ivory dog-profile card, one small curved arrow underneath describing a half-turn. Strong flat cut-paper silhouette. Consistent thick-enough silhouette readable at 32 and 40 pixels. Square 1024x1024 canvas, 12–16% clear padding all around, evenly weighted, no words or labels.",
+    "method": "built-in ImageGen",
+    "original": "design/brand/flip-f08.png",
+    "webAsset": "public/images/card-controls/flip-f08.webp"
+  },
+  {
+    "id": "L01",
+    "name": "책등의 리듬",
+    "prompt": "Original Dog Atlas identity exploration. Flat illustrated graphic, confident consistent dark ink contours, gently hand-drawn character with precise clean silhouettes, restricted palette of warm off-white paper #e6e5d8, muted sage #aab8a2 and charcoal #293532. NO gold, NO metallic edges, NO bevel, NO gradients, NO photorealism, NO 3D, NO elaborate fur, NO scenery, NO sparkles, NO mascot big eyes. Subtle personality through shape, not decoration. Must harmonize with a dark forest-green #1c2624 website and sophisticated watercolor breed portraits. Real transparent background, no colored backdrop. Original design not copying another brand. Create ONE polished Korean typographic logo candidate. Exact readable Korean text '견종도감', all four syllables correctly formed. No English or other wording. Ivory lettering is dominant for contrast on the dark website. Logo design: Confident contemporary Korean serif wordmark; the vertical strokes subtly evoke four aligned book spines. One tiny paper fold in the final syllable. Wide horizontal. Canvas landscape 3:1 except a stacked design may be centered square. Keep 12% clear padding.",
+    "method": "built-in ImageGen",
+    "original": "design/brand/wordmark-l01.png",
+    "webAsset": "public/images/brand/wordmark-l01.webp"
+  }
+]

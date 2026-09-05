@@ -33,14 +33,28 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
 
   return (
     <>
-      <header className={`${styles.header} ${wide ? styles.wide : ""} ${discoverTone ? styles.discoverTone : ""}`}>
-        <Link className={styles.brand} href="/" aria-label="살아 있는 견종도감 홈">
-          <span className={styles.mark} aria-hidden="true">犬</span>
+      <header
+        className={`${styles.header} ${wide ? styles.wide : ""} ${discoverTone ? styles.discoverTone : ""}`}
+      >
+        <Link
+          className={styles.brand}
+          href="/"
+          aria-label="살아 있는 견종도감 홈"
+        >
+          <span className={styles.mark} aria-hidden="true">
+            犬
+          </span>
           <span>강아지 도감</span>
         </Link>
         <div className={styles.headerActions}>
           <nav aria-label="주요 탐색">
-            <Link className={pathname === "/discover" ? styles.headerActive : ""} href="/discover" aria-current={pathname === "/discover" ? "page" : undefined}>견종 발견</Link>
+            <Link
+              className={pathname === "/discover" ? styles.headerActive : ""}
+              href="/discover"
+              aria-current={pathname === "/discover" ? "page" : undefined}
+            >
+              견종 발견
+            </Link>
           </nav>
           <div className={styles.menu} ref={menuRef}>
             <button
@@ -51,29 +65,43 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
               onClick={() => setMenuOpen((current) => !current)}
             >
               <span>메뉴</span>
-              <i aria-hidden="true"><b /><b /></i>
+              <i aria-hidden="true">
+                <b />
+                <b />
+              </i>
             </button>
             {menuOpen && (
-              <nav className={styles.menuPanel} id="site-more-menu" aria-label="더 둘러보기">
-                <Link href="/breed-names/pointer" onClick={() => setMenuOpen(false)}>
-                  <strong>이름 속 견종</strong>
-                  <span>이름에 남은 과거의 역할을 읽어요.</span>
-                </Link>
-                <Link href="/curiosity/regulated-care" onClick={() => setMenuOpen(false)}>
-                  <strong>견종 모아보기</strong>
-                  <span>견종을 여러 주제로 천천히 살펴봐요.</span>
+              <nav
+                className={styles.menuPanel}
+                id="site-more-menu"
+                aria-label="더 둘러보기"
+              >
+                <Link href="/" onClick={() => setMenuOpen(false)}>
+                  <strong>견종 카드</strong>
+                  <span>초대형견 8종을 수채화 카드로 만나요.</span>
                 </Link>
               </nav>
             )}
           </div>
         </div>
       </header>
-      <nav className={`${styles.mobileBottomNav} ${discoverTone ? styles.discoverTone : ""}`} aria-label="모바일 주요 탐색">
-        <Link className={pathname === "/" ? styles.mobileNavActive : ""} href="/" aria-current={pathname === "/" ? "page" : undefined}>
+      <nav
+        className={`${styles.mobileBottomNav} ${discoverTone ? styles.discoverTone : ""}`}
+        aria-label="모바일 주요 탐색"
+      >
+        <Link
+          className={pathname === "/" ? styles.mobileNavActive : ""}
+          href="/"
+          aria-current={pathname === "/" ? "page" : undefined}
+        >
           <NavigationIcon name="home" />
           <span>홈</span>
         </Link>
-        <Link className={pathname === "/discover" ? styles.mobileNavActive : ""} href="/discover" aria-current={pathname === "/discover" ? "page" : undefined}>
+        <Link
+          className={pathname === "/discover" ? styles.mobileNavActive : ""}
+          href="/discover"
+          aria-current={pathname === "/discover" ? "page" : undefined}
+        >
           <NavigationIcon name="discovery" />
           <span>견종 발견</span>
         </Link>

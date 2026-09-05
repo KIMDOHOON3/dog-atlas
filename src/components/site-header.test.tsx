@@ -9,7 +9,9 @@ vi.mock("next/navigation", () => ({
 describe("SiteHeader", () => {
   it("keeps only home and discovery in the mobile primary navigation", () => {
     render(<SiteHeader />);
-    const navigation = screen.getByRole("navigation", { name: "모바일 주요 탐색" });
+    const navigation = screen.getByRole("navigation", {
+      name: "모바일 주요 탐색",
+    });
     const links = within(navigation).getAllByRole("link");
 
     expect(links).toHaveLength(2);
@@ -21,7 +23,9 @@ describe("SiteHeader", () => {
     fireEvent.click(screen.getByRole("button", { name: "메뉴" }));
 
     const navigation = screen.getByRole("navigation", { name: "더 둘러보기" });
-    expect(within(navigation).getByRole("link", { name: /이름 속 견종/ })).toHaveAttribute("href", "/breed-names/pointer");
-    expect(within(navigation).getByRole("link", { name: /견종 모아보기/ })).toHaveAttribute("href", "/curiosity/regulated-care");
+    expect(within(navigation).getAllByRole("link")).toHaveLength(1);
+    expect(
+      within(navigation).getByRole("link", { name: /견종 카드/ }),
+    ).toHaveAttribute("href", "/");
   });
 });

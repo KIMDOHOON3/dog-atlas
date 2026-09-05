@@ -1,5 +1,64 @@
 # Decision log
 
+## 2026-09-06 — Apply approved L01 / F08 / D10 and remove the review workspace
+
+After comparing ten candidates per category, the user explicitly approved logo L01, flip F08 and detail D10, requested removal of the review page and all rejected images, and authorized committing today's work and pushing main. Preserve the chosen palette and 32px icon size without grayscale filters. Keep only approved originals/prompts and production WebP assets. Stop the preview server and delete its page, contact sheets, discarded images and recorded generated originals. See [approved assets](brand-mark.md).
+
+## 2026-09-06 — Reduce branding contrast after the user's rejection
+
+The user rejected the gold embossed wordmark and prominent illustrated controls as inconsistent with the quiet site. Replace the header image with live muted Korean typography and one fine underline. Restore thin rounded button outlines; retain the dog-related icons at 24–25px with grayscale, reduced brightness and opacity. No new assets or renderer changes; detail navigation remains.
+
+## 2026-09-06 — Korean typographic identity and illustrated card actions
+
+The user replaced the initial separate dog-book symbol and DOG ATLAS text with a Korean `견종도감` wordmark whose letters incorporate an ear and page curl. Generate matching dog-card and atlas/magnifier raster icons for flip and detail actions. Keep readable labels, current-breed detail URLs, reduced-motion icon behavior and 46px mobile targets. Disable automatic detail prefetch; static WebP assets add no renderer work. See [asset provenance](brand-mark.md).
+
+## 2026-09-06 — Bend the entire card with a WebGL mesh
+
+The user explicitly rejected CSS as the primary card movement and approved actual bending while preserving performance. Capture the current styled HTML card into a cached texture before motion; animate two 20×28 meshes in a separate, reusable WebGL context and freeze the existing foil context. Keep texture uploads out of the loop, four GPU textures, a 1.1M-pixel buffer cap and 60Hz submission bound. Previous returns from the left and unfolds over the current card. CSS is only a failure fallback. Preserve HTML access, reduced motion and interruption completion. See [implementation and measured limits](card-transition.md).
+
+## 2026-09-06 — Return the previous card from the left and simplify slide composition
+
+After further lag feedback, replace JS slide transform updates with CSS transform/opacity animations. Next discards left; previous brings the earlier card back from the left above the current card while the current card settles into the deck. Render only plain paper edges behind the active card, remove their brightness filters, and defer neighboring image decoding until landing. Preserve high-resolution active artwork, one renderer, reduced motion and interruption completion. Browser verification covers actual direction/layering and desktop/mobile completion; it is not a measured FPS claim.
+
+## 2026-09-06 — Keep the atlas and remove discontinued experiments
+
+The user explicitly preserved the current main, discovery and ALL breed details, correcting the earlier eight-detail-only proposal. Remove old-home-only code/assets, games, postcards, places/public API/Kakao and video-analysis records. Keep the detail preparation guide, common dependencies and breed provenance. No environment key changes.
+
+## 2026-09-06 — Use a physical card deck transition
+
+Next cards sit behind the current card. A departing card lifts and moves sideways while the selected front approaches the center (650ms); a restrained light sweep finishes by 960ms. One renderer, frozen coating during movement, reduced-motion instant change, hidden-tab completion and idle stopping remain.
+
+## 2026-09-05 — Give card controls one continuous response
+
+The user still found pagination and flip controls unnatural. Start visual selection at accepted input instead of the covered card midpoint. Use one persistent underline moving between number positions; retain aria-current for the actually visible card. Replace the reset-on-finish 360-degree icon keyframe with a retained, reversible half-turn and a balanced two-arrow glyph. Start the destination label at flip intent, fade the old copy out before the new copy enters, and keep width fixed. Reduced motion removes all new transitions. The renderer, artwork and card gesture remain unchanged.
+
+
+## 2026-09-05 — Expand the giant collection to eight
+
+The user subsequently requested Irish Wolfhound, Tibetan Mastiff, Kangal Shepherd Dog, Caucasian Shepherd and Mongolian Bankhar. The current homepage collection now covers eight giant dogs with ten additional reference-guided paintings. Preserve short history, one shared renderer, nearby-image preloading and a horizontally scrollable mobile number strip. Bankhar lifespan remains unknown; geographic origins without a single country flag use a mountain mark. Details and other size groups remain outside this change.
+
+Use existing v2 dog references and the approved Pyrenees finish for ten new watercolor assets. Sources distinguish standard minimums from typical size ranges; retain sex labels where needed. Bankhar is described as a landrace and its project's longevity anecdote is not a population lifespan estimate. Keep source provenance in the research document, with no restored source UI.
+
+## 2026-09-05 — Curate familiar breeds and begin with three giants
+
+The user approved the proposed 25-candidate/15-priority direction and scoped this implementation to Great Pyrenees, Saint Bernard and Great Dane. Preserve the approved Pyrenees art and create four new reference-guided watercolor assets. Use a shared Zod-backed card record, readable HTML facts/history and accurate country flags. Manual navigation resets to the new front and cancels a running flip without remounting the WebGL canvas; preserve controls and performance limits. Use an alpine foil for the mountain dogs and a woodland color/grain variant for the Dane. Record sources and illustration limits in the research document rather than restoring the removed source accordion.
+
+## 2026-09-05 — Promote the approved card to the homepage
+
+The user explicitly chose the current card as the main page. Render the shared `FoilCard` at `/` ; align home metadata/share art and navigation. Remove side captions, visible gesture instructions and the normal foil-status caption. Preserve the flip button and all texture controls, screen-reader keyboard instructions, conditional unsupported/reduced-motion explanations and the established renderer/motion limits. Discovery and breed details remain available without extending this change to every breed.
+
+## 2026-09-05 — Share foil across faces and give the turn a lifted gesture
+
+The user requested the same effect on the reverse, reported flip lag and rejected plain rotation. Replace simultaneous two-face 3D compositing with one visible plane and an edge-time face swap. Share one canvas/context/texture set; apply a back-side text mask. Combine lift, slight roll, directional half-turns and landing in the existing bounded animation loop. Freeze foil while turning, predecode both images, preserve starting tilt, reduced-motion behavior, input discrimination and cleanup. This supersedes the earlier decision to keep the reverse static. Measurements and device limits are recorded separately.
+
+## 2026-09-05 — Match the reverse with full-bleed watercolor
+
+The user rejected the icon-and-diagram back as lower quality than the front, and explicitly chose a large background painting of a human beside the dog. Use built-in ImageGen for one matching alpine watercolor and retain its full-body composition; place flag, numbers and history copy in its negative space. Remove the diagram, sheep icon and synthetic dot/contour overlays. Do not label generated proportions as an exact 170/75cm measurement. Preserve shader limits and stopping behavior, interaction semantics, source facts and the front artwork.
+
+## 2026-09-05 — Add a concise, reversible breed-note side
+
+The user approved keeping the optimized alpine front and adding a paper back with a French flag, origin, adult size, a labeled person/dog scale illustration, typical lifespan and one short historical-role sentence. Source FCI height/origin/role and Hill’s weight/lifespan; document unit conversion and avoid implying a measured average or individual guarantee. Keep sources in a disclosure outside the card. Separate drag from tap, support keyboard and reduced motion, hide the inactive face from assistive reading, and stop foil work on the back. This remains a one-breed prototype; detail pages and other breeds are unchanged.
+
 ## 2026-09-02 — Make navigation and page metadata identify their actual destination
 
 - Link the home all-breeds count to `/discover`, with the count derived from published breeds.
@@ -418,14 +477,6 @@ Supersede the earlier comparison decisions for the current product. Remove `/com
 
 Related-breed cards may remain only when they navigate directly to another breed detail and explain a different living condition without ranking, matching, or opening a comparison flow. Treat `shortlist-design-spec.md` and earlier comparison entries as historical records. Reintroducing comparison requires a new explicit product decision and scope.
 
-# 2026-08-24 — Start the new product direction from home
-
-Use the home page as the first bounded redesign before extending the new visual language to discovery or breed details. Lead with the idea that choosing a dog means understanding the life it needs, not selecting an appearance, while preserving direct name search and non-scored condition filtering.
-
-Keep the base surface white and build warmth from cocoa text, oatmeal secondary surfaces, restrained caramel actions, and one original matte 3D daily-life diorama. Do not imitate the colors of familiar Korean services or fill the interface with generic 3D emoji cards. Keep mobile headings at or below 24px and desktop headings at or below 28px, using whitespace and imagery rather than oversized type or colored borders for hierarchy.
-
-Move `이름 속 견종` and `견종 모아보기` into a top-right menu. Keep only `홈` and `견종 발견` in the mobile bottom navigation. Retain all 376 catalog entries and search coverage, but let home start with six familiar editorial examples without calling them a popularity ranking, definitive recommendation, or match result.
-
 # 2026-08-24 — Give discovery a Korea-familiar starting set
 
 Keep all 376 entries searchable and filterable, but do not make the full catalog or seven filter groups compete for attention at the start of `/discover`. Lead with a Zod-validated editorial set of 32 names that are familiar to Korean users: show 12 image cards immediately and place 20 more names behind a native disclosure.
@@ -599,3 +650,19 @@ Keep `production-draft` and `editorial-reviewed` only as internal content-produc
 Keep the approved warm-ivory paper, pale-sage watercolor field, full-body adult, three-quarter stance, and viewer-facing gaze for shared discovery/detail hero assets. Express giant scale without people or props, using each breed's actual height-to-length ratio, leg length, bone, head type, coat structure, and recognized color instead of reusing one enlarged mastiff body.
 
 Retain the twelve giant-breed images approved in the preceding review and replace only the remaining fifteen. Discovery cards and the first detail hero share the same asset; historical and everyday story images remain outside this pass.
+
+# 2026-09-04 — Keep DogPack as the user's first design-reference candidate
+
+The user selected DogPack as candidate 1 and requested more references while retaining it. Use this preference when comparing the planned dog information service with other products. Sniffspot, Mapstr, AllTrails, and Wanderlog are additional reference proposals, not replacements for the user's choice. The user wants substantial interaction; exact motion, screen composition, and feature additions remain to be designed. See [the reference shortlist](design-reference-shortlist.md).
+
+# 2026-09-05 — Return to the atlas and test one real shader card
+
+The user rejected the postcard direction, discussed holographic trading-card textures and explicitly chose the original atlas with detail design deferred. Implement `/card-lab` using the existing Great Pyrenees illustration. Use a small native WebGL renderer rather than adding a 3D engine for a single procedural surface; CSS perspective supplies physical tilt, GLSL supplies angle-sensitive foil color, embossed lines and flecks. The image and type remain semantic HTML. Remove place/postcard menu entries and link the card study; preserve all earlier routes. The effect is an illustrative material approximation, not a fluid or physically exact optical simulation. See [verification and limits](research/foil-card-study-2026-09-05.md).
+
+# 2026-09-05 — Give the Great Pyrenees card an alpine material identity
+
+The user approved snow-crystal and mountain-ridge ideas for the Great Pyrenees first and allowed new artwork. Generate a new square alpine watercolor with built-in ImageGen, store a card-specific WebP, and preserve the atlas's existing asset. Add procedural snow-crystal and contour engravings to the native shader, revealed by the moving light rather than baked into the image. Keep the portrait readable by reducing the coating across the dog, and retain existing interaction/accessibility controls. This does not approve a new detail-page design or additional breeds.
+
+# 2026-09-05 — Reduce foil rendering cost after a lag report
+
+Precompute static surface geometry into a build-time RGB data map and use a compact shader for moving light. Cap physical tilt near 60Hz and foil draws near 30Hz, reduce only the coating canvas, remove per-frame CSS gradient repaint and coalesce pointer input. Preserve the separate high-resolution artwork, semantic text and interactive reveals. Stop work when off, idle, hidden or offscreen. Retain an opt-in DOM-only `?profile=1` diagnostic for repeatable local comparisons; no analytics or product debug panel. See [measurements and limits](research/foil-card-performance-2026-09-05.md).

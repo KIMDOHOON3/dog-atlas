@@ -1,5 +1,13 @@
 # Dog Atlas 문서 안내
 
+- [승인된 로고와 행동 아이콘](brand-mark.md) — L01/F08/D10 자산·프롬프트·적용 규칙과 시안 정리.
+
+- [현재 WebGL 카드 전환](card-transition.md) — 실제 면 변형·텍스처 준비·성능 예산과 검증 한계.
+
+- [초대형견 8종 확장](research/giant-expansion-2026-09-05.md) — 추가 5종의 사실 근거·그림 10장·탐색/로딩 변경.
+
+- [초대형견 카드 3종](research/giant-cards-2026-09-05.md) — 새 앞뒷면 자산·정보 근거·단일 렌더러 탐색 및 검증.
+
 이 디렉터리의 문서는 작성 시점과 목적이 서로 다르다. 현재 상태를 파악할 때는 파일 이름순으로 읽지 말고 아래 순서를 따른다.
 
 ## 모든 작업자가 먼저 읽을 문서
@@ -18,6 +26,18 @@
 
 ### 콘텐츠와 데이터
 
+- [`research/foil-card-two-sided-motion-2026-09-05.md`](research/foil-card-two-sided-motion-2026-09-05.md) — 양면 공유 셰이더, 들어 올려 넘기는 모션, 프레임 확인과 한계
+
+- [`research/great-pyrenees-human-back-art-2026-09-05.md`](research/great-pyrenees-human-back-art-2026-09-05.md) — 아이콘 뒷면을 대체한 사람·피레니즈 수채화, 제작 프롬프트와 검증
+
+- [`research/foil-card-back-2026-09-05.md`](research/foil-card-back-2026-09-05.md) — 한 장 카드의 국기·수치·역할 뒷면, 출처와 뒤집기 조작
+
+- [`research/foil-card-performance-2026-09-05.md`](research/foil-card-performance-2026-09-05.md) — 사용자 렉 피드백 후 카드 셰이더 계산·렌더링 빈도 최적화와 측정 한계
+
+- [`research/foil-card-study-2026-09-05.md`](research/foil-card-study-2026-09-05.md) — 도감 복귀 후 그레이트 피레니즈 한 장의 WebGL 홀로그램 질감·기울기 실험
+
+
+
 - [`content-copy-guide.md`](content-copy-guide.md) — 단정적 추천을 피하는 카피 규칙과 검수 기준
 - [`breed-detail-production-gate.md`](breed-detail-production-gate.md) — 새 견종 상세를 추가할 때 이름·수치·고유 원고·이미지 싱크·화면·자동 검사를 한 제작 과정에서 통과시키는 필수 완료 조건
 - [`korea-familiar-breed-set.md`](korea-familiar-breed-set.md) — `/discover`의 국내 익숙한 32종 시작 목록, 선정 근거와 노출 원칙
@@ -32,10 +52,9 @@
 
 ### UI와 디자인
 
+- [`design-reference-shortlist.md`](design-reference-shortlist.md) — 사용자 지정 후보 1 DogPack과 추가 서비스 디자인·인터랙션 참고 대상, 확인 범위와 화면별 적용 제안
+- [`research/icon-navigation-references-2026-09-04.md`](research/icon-navigation-references-2026-09-04.md) — 자체 아이콘·레이아웃·검색·GNB를 함께 보는 공식 서비스/디자인 시스템 6개 비교와 적용 제안
 - [`breed-detail-standard.md`](breed-detail-standard.md) — 푸들 상세에서 확정한 견종 상세의 정보 구조, 디자인, 인터랙션, 적용 체크리스트
-- [`redesign-v2.md`](redesign-v2.md) — 현재 화면 방향의 기반이 된 홈·상세 재설계안
-- [`shortlist-design-spec.md`](shortlist-design-spec.md) — 현재는 중단된 관심 견종 보관함·2~3종 비교의 역사적 설계 기록
-- [`design-redesign-spec.md`](design-redesign-spec.md) — 타이포, 캐러셀, 생활조건 탐색을 포함한 초기 개선 명세
 - [`product-icon-guide.md`](product-icon-guide.md) — 재사용 가능한 생활 정보 제품 아이콘의 시각 규격, AI 프롬프트와 검수 기준
 
 ### 검증과 출시 준비
@@ -44,8 +63,6 @@
 
 ### 이미지 제작 기록
 
-- [`image-prompt-home-life-diorama-2026-08-24.md`](image-prompt-home-life-diorama-2026-08-24.md) — 새 홈의 무광 3D 생활 디오라마 자산·프롬프트·화면 검수 기록
-- [`image-prompt-home-care-ui-spitz-2026-08-24.md`](image-prompt-home-care-ui-spitz-2026-08-24.md) — 홈 대표 스피츠와 네 돌봄 모듈로 구성한 3D UI 디오라마 프롬프트
 - [`breed-visual-audit.md`](breed-visual-audit.md) — 368종 카드 1차 외형 점검과 고위험 묶음별 교체·유지·재확인 상태
 - [`image-prompts-sapsaree.md`](image-prompts-sapsaree.md) — 삽살개 카드·역사 이미지 재제작 근거와 전체 프롬프트
 - [`image-prompts-breed-visual-replacements-2026-08-11.md`](image-prompts-breed-visual-replacements-2026-08-11.md) — 공식 외형 자료와 대조해 교체한 10종·20개 자산의 생성 방식, 프롬프트와 파일 매핑

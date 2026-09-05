@@ -1,20 +1,28 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type SetStateAction } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type SetStateAction,
+} from "react";
 
 type HistoryEntryState = {
-  homeCarouselSlug?: string;
-  homeCuriosityTheme?: string;
   discoverVisibleCount?: number;
 };
 
 export type HistoryEntryStateKey = keyof HistoryEntryState;
 
 const VIEW_STATE_KEY = "__dogAtlasView";
-const useBrowserLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+const useBrowserLayoutEffect =
+  typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 function asRecord(value: unknown): Record<string, unknown> {
-  return typeof value === "object" && value !== null ? value as Record<string, unknown> : {};
+  return typeof value === "object" && value !== null
+    ? (value as Record<string, unknown>)
+    : {};
 }
 
 export function readHistoryEntryValue(key: HistoryEntryStateKey): unknown {
@@ -29,13 +37,16 @@ export function writeHistoryEntryValue<T>(key: HistoryEntryStateKey, value: T) {
   const viewState = asRecord(historyState[VIEW_STATE_KEY]);
 
   try {
-    window.history.replaceState({
-      ...historyState,
-      [VIEW_STATE_KEY]: {
-        ...viewState,
-        [key]: value,
+    window.history.replaceState(
+      {
+        ...historyState,
+        [VIEW_STATE_KEY]: {
+          ...viewState,
+          [key]: value,
+        },
       },
-    }, "");
+      "",
+    );
   } catch {
     // History state is a progressive enhancement. Navigation still works if a
     // browser blocks replaceState in an embedded or restricted environment.
@@ -71,15 +82,19 @@ export function useHistoryEntryState<T>(
     return () => window.removeEventListener("popstate", restore);
   }, [restore]);
 
-  const setValue = useCallback((nextValue: SetStateAction<T>) => {
-    const resolvedValue = typeof nextValue === "function"
-      ? (nextValue as (previousValue: T) => T)(valueRef.current)
-      : nextValue;
+  const setValue = useCallback(
+    (nextValue: SetStateAction<T>) => {
+      const resolvedValue =
+        typeof nextValue === "function"
+          ? (nextValue as (previousValue: T) => T)(valueRef.current)
+          : nextValue;
 
-    valueRef.current = resolvedValue;
-    writeHistoryEntryValue(key, resolvedValue);
-    setLocalValue(resolvedValue);
-  }, [key]);
+      valueRef.current = resolvedValue;
+      writeHistoryEntryValue(key, resolvedValue);
+      setLocalValue(resolvedValue);
+    },
+    [key],
+  );
 
   return [value, setValue] as const;
 }

@@ -1,5 +1,9 @@
 # Product brief
 
+## Current product — 2026-09-06
+
+The homepage presents eight giant breeds as reversible watercolor cards, with short history, origin, size and lifespan. Physical deck navigation replaces the shader wash. Discovery and ALL breed detail pages remain, including their shared assets and preparation guide. Discontinued games, postcards, places/public APIs, Kakao maps and old-home-only features have been removed by user approval.
+
 ## Product
 
 Dog Atlas is a living breed atlas for people considering life with a dog.

@@ -35,6 +35,11 @@ dev-design-audit*.log
 # env files (can opt-in for committing if needed)
 .env*
 
+# Temporary research, local attachments and interrupted data snapshots
+/tmp/
+/.codex-remote-attachments/
+*.json.pending
+
 # vercel
 .vercel
 

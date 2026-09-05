@@ -1,5 +1,11 @@
 # MVP scope
 
+## Current scope — 2026-09-06
+
+Keep the eight-breed card homepage, all discovery/search/filter behavior, every breed detail and its content/assets. Preserve the preparation guide linked from details. Detail redesign and additional card size groups need a separate design decision.
+
+Remove discontinued games, postcards, place/API/Kakao functionality, old-home-only sections and their analysis records. Preserve shared dependencies and editorial provenance for retained breeds. API environment files are unchanged. No database, login, CMS, community or collection economy.
+
 ## Detailed collection: 101 breeds and gated expansion
 
 The original 100-breed milestone remains the reviewed baseline. Further breeds may be added one at a time only after passing [`breed-detail-production-gate.md`](breed-detail-production-gate.md). The first post-milestone addition is American Cocker Spaniel.
@@ -133,11 +139,11 @@ The original 100-breed milestone remains the reviewed baseline. Further breeds m
 
 ## First complete journey
 
-Edited discovery home → breed story detail → readiness guide.
+Card homepage → discovery/search → breed story detail → readiness guide.
 
 ## Include
 
-- Mobile-first editorial discovery home
+- Mobile-first card homepage and breed discovery
 - Search as a secondary path
 - Breed history, lineage, original role, behavioral tendencies, and present-day care reality
 - A short, clearly framed owner-experience snapshot
