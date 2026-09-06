@@ -452,6 +452,52 @@ describe("single breed foil study", () => {
     expect(screen.getByRole("button", { name: "움직임 멈추기" })).toBeEnabled();
   });
 
+  it("changes breeds only on deliberate single-touch horizontal swipes", async () => {
+    class TouchPointerEvent extends MouseEvent {
+      pointerType = "touch";
+      pointerId: number;
+      constructor(
+        type: string,
+        init: MouseEventInit & { pointerId?: number } = {},
+      ) {
+        super(type, init);
+        this.pointerId = init.pointerId ?? 1;
+      }
+    }
+    vi.stubGlobal("PointerEvent", TouchPointerEvent);
+    reduced = true;
+    render(<FoilCard />);
+    firstFrame();
+    const card = screen.getByRole("group", { name: /홀로그램 카드/ });
+    card.hasPointerCapture = () => false;
+    async function swipe(x: number, y: number, extraTouch = false) {
+      await act(async () => {
+        fireEvent.pointerDown(card, { button: 0, clientX: 200, clientY: 300 });
+        if (extraTouch)
+          fireEvent.pointerDown(card, { button: 0, pointerId: 2 });
+        fireEvent.pointerMove(card, { clientX: x, clientY: y });
+        fireEvent.pointerUp(card, { clientX: x, clientY: y });
+        fireEvent.click(card, { detail: 1 });
+      });
+    }
+    await swipe(300, 300); // First-card boundary.
+    await swipe(175, 300); // Too short.
+    await swipe(100, 180); // Primarily vertical.
+    await swipe(100, 300, true); // Pinch/multi-touch.
+    expect(
+      screen.getByRole("heading", { name: "그레이트 피레니즈" }),
+    ).toBeVisible();
+    await swipe(100, 305);
+    expect(
+      screen.getByRole("heading", { name: "세인트 버나드" }),
+    ).toBeVisible();
+    expect(card).toHaveAttribute("data-side", "front");
+    await swipe(300, 305);
+    expect(
+      screen.getByRole("heading", { name: "그레이트 피레니즈" }),
+    ).toBeVisible();
+  });
+
   it("shares one renderer across faces, bounds flip draws, and enables back tilt and controls", () => {
     const { container } = render(<FoilCard />);
     const start = performance.now() + 100;

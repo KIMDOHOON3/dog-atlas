@@ -71,6 +71,7 @@ export function FoilCard() {
     x: number;
     y: number;
     moved: boolean;
+    axis: "pending" | "horizontal" | "vertical" | "blocked";
   } | null>(null);
   const suppressClick = useRef(false);
   const [contextVersion, setContextVersion] = useState(0);
@@ -684,6 +685,11 @@ export function FoilCard() {
       Math.hypot(event.clientX - start.x, event.clientY - start.y) > 8
     ) {
       start.moved = true;
+      if (event.pointerType === "touch" && start.axis === "pending") {
+        const dx = Math.abs(event.clientX - start.x);
+        const dy = Math.abs(event.clientY - start.y);
+        start.axis = dx > dy * 1.4 ? "horizontal" : "vertical";
+      }
     }
     if (event.pointerType === "touch") return;
     if (
@@ -839,6 +845,7 @@ export function FoilCard() {
                 if (e.button !== 0) return;
                 if (gesture.current) {
                   gesture.current.moved = true;
+                  gesture.current.axis = "blocked";
                   suppressClick.current = true;
                   return;
                 }
@@ -848,6 +855,7 @@ export function FoilCard() {
                   x: e.clientX,
                   y: e.clientY,
                   moved: false,
+                  axis: "pending",
                 };
                 if (e.pointerType !== "touch")
                   e.currentTarget.setPointerCapture(e.pointerId);
@@ -862,6 +870,17 @@ export function FoilCard() {
                 gesture.current = null;
                 if (e.currentTarget.hasPointerCapture(e.pointerId))
                   e.currentTarget.releasePointerCapture(e.pointerId);
+                const dx = e.clientX - start.x;
+                const dy = e.clientY - start.y;
+                if (
+                  e.pointerType === "touch" &&
+                  start.axis === "horizontal" &&
+                  Math.abs(dx) >= 48 &&
+                  Math.abs(dx) > Math.abs(dy) * 1.4
+                ) {
+                  suppressClick.current = true;
+                  void selectBreed(active + (dx < 0 ? 1 : -1));
+                }
               }}
               onPointerCancel={(e) => {
                 gesture.current = null;
