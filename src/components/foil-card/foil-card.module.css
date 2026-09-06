@@ -918,6 +918,26 @@
   height: 6cqw;
   color: #617b6d;
 }
+.flag[data-country="italy"] i:first-child {
+  background: #368862;
+}
+.flag[data-country="belgium"] i:first-child {
+  background: #30312e;
+}
+.flag[data-country="belgium"] i:nth-child(2) {
+  background: #dfbd62;
+}
+.variableSize {
+  margin: 0;
+  white-space: pre-line;
+  font-size: 4.5cqw;
+  line-height: 1.65;
+  color: #2c4b3e;
+}
+.backPaper[data-breed="maltese"] .backArtwork {
+  top: -8%;
+  mask-image: linear-gradient(to bottom, #000 85%, transparent 100%);
+}
 .originLabel {
   display: block;
   font-size: 1.9cqw;

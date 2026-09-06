@@ -24,6 +24,7 @@ export function CardBack({ breed }: { breed: GiantCard }) {
       )}
       <div className={styles.origin}>
         <BreedFlag country={breed.flag} />
+        {breed.secondaryFlag && <BreedFlag country={breed.secondaryFlag} />}
         <div>
           <span className={styles.originLabel}>{breed.originEn}</span>
           <p>{breed.origin}</p>
@@ -33,30 +34,34 @@ export function CardBack({ breed }: { breed: GiantCard }) {
       <h2 className={styles.backTitle}>{breed.name}</h2>
       <div className={styles.backFacts}>
         <section className={styles.sizeSection} aria-label="성견 크기">
-          <div className={styles.sizeNumbers}>
-            <div>
-              <span className={styles.factLabel}>
-                {breed.heightLabel ?? "어깨까지 높이"}
-              </span>
-              <p>
-                <strong data-compact={breed.height.includes("/")}>
-                  {breed.height}
-                </strong>{" "}
-                cm
-              </p>
+          {breed.sizeNote ? (
+            <p className={styles.variableSize}>{breed.sizeNote}</p>
+          ) : (
+            <div className={styles.sizeNumbers}>
+              <div>
+                <span className={styles.factLabel}>
+                  {breed.heightLabel ?? "어깨까지 높이"}
+                </span>
+                <p>
+                  <strong data-compact={breed.height.includes("/")}>
+                    {breed.height}
+                  </strong>{" "}
+                  cm
+                </p>
+              </div>
+              <div>
+                <span className={styles.factLabel}>
+                  {breed.weightLabel ?? "몸무게 · 약"}
+                </span>
+                <p>
+                  <strong data-compact={breed.weight.includes("/")}>
+                    {breed.weight}
+                  </strong>{" "}
+                  kg
+                </p>
+              </div>
             </div>
-            <div>
-              <span className={styles.factLabel}>
-                {breed.weightLabel ?? "몸무게 · 약"}
-              </span>
-              <p>
-                <strong data-compact={breed.weight.includes("/")}>
-                  {breed.weight}
-                </strong>{" "}
-                kg
-              </p>
-            </div>
-          </div>
+          )}
         </section>
         <div className={styles.lifespan}>
           <span className={styles.factLabel}>

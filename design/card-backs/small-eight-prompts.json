@@ -1,0 +1,162 @@
+[
+  {
+    "id": "maltese",
+    "side": "front",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-b6577531-5969-4e61-858f-319f65085b84.png",
+    "prompt": "Premium fine natural-history watercolor, detailed fur, ivory handmade paper grain, muted sage and warm limestone palette, quiet sophisticated Dog Atlas illustration. Reference1 morphology only; apply description explicitly: adult Maltese, pure white straight silky medium-long coat, black nose eyes, drop ears, compact body four visible paws. Reference2 watercolor QUALITY and density only. Setting Mediterranean Italian limestone harbor courtyard, distant quiet blue sea and boats, clay olive pot. No text, logo, frame, costume, dog clothing, cartoon proportions. Square. One entire adult dog 3/4 stance looking toward viewer filling about70% frame, all paws and tail visible, low camera, beautifully rendered atmospheric setting, no human.",
+    "asset": "public/illustrations/card-studies/maltese-front-v1.webp",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 266836
+  },
+  {
+    "id": "maltese",
+    "side": "back",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-4a01eb7c-6354-4c8f-9253-425873977f57.png",
+    "prompt": "Premium fine natural-history watercolor, detailed fur, ivory handmade paper grain, muted sage and warm limestone palette, quiet sophisticated Dog Atlas illustration. Reference1 morphology only; apply description explicitly: adult Maltese, pure white straight silky medium-long coat, black nose eyes, drop ears, compact body four visible paws. Reference2 watercolor QUALITY and density only. Setting Mediterranean Italian limestone harbor courtyard, distant quiet blue sea and boats, clay olive pot. No text, logo, frame, costume, dog clothing, cartoon proportions. Portrait5:7. Italian adult woman in simple cream linen and muted blue trousers, brown shoes, seated on right edge, upper head/shoulder cropped naturally. Entire dog standing beside adult shoe ON SAME GROUND, 23cm shoulder vs25cm adultshoe, credible size. Dog occupies x48-84%, y42-68%, PAWS ABOVE72% image. LEFT 0-37% pale uncluttered wall for stats, top18% pale quiet for title; BOTTOM25% empty pale smooth paper/paving for history. Person not a stereotype. No objects in left text zone. Close low camera shows dog clearly with seated legs for scale.",
+    "asset": "public/illustrations/card-studies/maltese-back-v1.webp",
+    "width": 1060,
+    "height": 1484,
+    "bytes": 150988
+  },
+  {
+    "id": "poodle",
+    "side": "front",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-30a88431-294c-4068-a090-2a5671455527.png",
+    "prompt": "Premium fine natural-history watercolor, detailed fur, ivory handmade paper grain, muted sage and warm limestone palette, quiet sophisticated Dog Atlas illustration. Reference1 morphology only; apply description explicitly: adult SILVER GREY toy poodle, natural curly coat, long refined muzzle, drop ears, square balanced body, moderate everyday trim not exaggerated round teddy head. Reference2 watercolor QUALITY and density only. Setting French old limestone garden courtyard with a subtle distant river and willow, muted sage shutters. No text, logo, frame, costume, dog clothing, cartoon proportions. Square. One entire adult dog 3/4 stance looking toward viewer filling about70% frame, all paws and tail visible, low camera, beautifully rendered atmospheric setting, no human.",
+    "asset": "public/illustrations/card-studies/toy-poodle-silver-front-v1.webp",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 343152
+  },
+  {
+    "id": "poodle",
+    "side": "back",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-0a46c93f-549e-46c7-b115-03ee489eba00.png",
+    "prompt": "Create a portrait 5:7 premium watercolor back illustration. Use reference1 EXACT COMPOSITION and tiny dog-to-human scale, but replace Chihuahua with SILVER GREY TOY POODLE from reference2 (curly coat, fine longer muzzle). Toy poodle shoulder only 25cm, about the length of adult shoe, well below seated person's knee. Dog must remain SMALL in scene, entire dog in right half x45-80%, feet at 73% height. Seated French adult at far right in everyday beige knitwear and olive trousers and brown shoes; French limestone courtyard and sage shutter. LEFT 40% quiet pale wall for readable stats, TOP18% quiet pale wall, BOTTOM24% pale blank paving. Same delicate detailed fur and handmade paper watercolor. No text. Do not enlarge dog to fill frame. Natural anatomy adult toy not standard poodle.",
+    "asset": "public/illustrations/card-studies/toy-poodle-silver-back-v1.webp",
+    "width": 1060,
+    "height": 1484,
+    "bytes": 168416
+  },
+  {
+    "id": "bichon-frise",
+    "side": "front",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-dc55ee62-d399-446a-87c1-ff27b551217c.png",
+    "prompt": "Premium fine natural-history watercolor, detailed fur, ivory handmade paper grain, muted sage and warm limestone palette, quiet sophisticated Dog Atlas illustration. Reference1 morphology only; apply description explicitly: adult Bichon Frise, pure white soft loose curls, black nose and eyes, sturdy small body, natural rounded coat not giant spherical show haircut. Reference2 watercolor QUALITY and density only. Setting French coastal courtyard, pale stone, maritime blue shutters, subtle distant sailboats. No text, logo, frame, costume, dog clothing, cartoon proportions. Square. One entire adult dog 3/4 stance looking toward viewer filling about70% frame, all paws and tail visible, low camera, beautifully rendered atmospheric setting, no human.",
+    "asset": "public/illustrations/card-studies/bichon-frise-front-v1.webp",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 297432
+  },
+  {
+    "id": "bichon-frise",
+    "side": "back",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-093e59d3-3507-44e2-8fb7-803f8c3d2ea8.png",
+    "prompt": "Repaint the first reference maintaining its EXACT LAYOUT and relative subject scale. Portrait 5:7. Replace its poodle with adult Bichon Frise, pure white soft loose curls, black nose and eyes, sturdy small body, natural rounded coat not giant spherical show haircut matching reference2. Replace setting with French coastal courtyard, pale stone, maritime blue shutters, subtle distant sailboats. Person: French adult woman wearing everyday cream blouse and muted blue skirt, flat brown shoes. COMPOSITION ABSOLUTE: LEFT 40% of canvas is ONLY blank pale ivory wall and ground, no dog tail or trees there. Entire dog is SMALL and fits in right half x45%-80%, paws at 74% image height, head around50%. Same ground as adult shoes. 28cm adult dog shoulder; human adult shoe25cm so believable physical size. Whole dog visible including tail, no cropping. Person seated at far right, top of head cropped is fine. Upper left title and left stats need blank pale area. Bottom24% empty pale paper paving for caption. Detailed subtle watercolor paper and natural fur, muted sage/ivory. No text, no symbols. Reference2 only for DOG APPEARANCE, DO NOT USE ITS LARGE SUBJECT LAYOUT.",
+    "asset": "public/illustrations/card-studies/bichon-frise-back-v1.webp",
+    "width": 1060,
+    "height": 1484,
+    "bytes": 188278
+  },
+  {
+    "id": "shih-tzu",
+    "side": "front",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-7a8b4898-eb27-4149-9e7a-fd53651425e2.png",
+    "prompt": "Premium fine natural-history watercolor, detailed fur, ivory handmade paper grain, muted sage and warm limestone palette, quiet sophisticated Dog Atlas illustration. Reference1 morphology only; apply description explicitly: adult Shih Tzu, gold and white silky coat, broad short muzzle not flattened grotesquely, dark eyes not protruding, drop ears, sturdy elongated small body, tail over back, four feet visible. Reference2 watercolor QUALITY and density only. Setting quiet Chinese historic courtyard, soft grey stone, aged wooden lattice window and subtle potted bamboo. No text, logo, frame, costume, dog clothing, cartoon proportions. Square. One entire adult dog 3/4 stance looking toward viewer filling about70% frame, all paws and tail visible, low camera, beautifully rendered atmospheric setting, no human.",
+    "asset": "public/illustrations/card-studies/shih-tzu-front-v1.webp",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 272712
+  },
+  {
+    "id": "shih-tzu",
+    "side": "back",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-be5ce80a-8184-44bc-b393-0db9cf4a5d8d.png",
+    "prompt": "Repaint the first reference maintaining its EXACT LAYOUT and relative subject scale. Portrait 5:7. Replace its poodle with adult Shih Tzu, gold and white silky coat, broad short muzzle not flattened grotesquely, dark eyes not protruding, drop ears, sturdy elongated small body, tail over back, four feet visible matching reference2. Replace setting with quiet Chinese historic courtyard, soft grey stone, aged wooden lattice window and subtle potted bamboo. Person: Chinese adult in understated modern cotton blouse and dark sage trousers, flat simple shoes, no imperial costume. COMPOSITION ABSOLUTE: LEFT 40% of canvas is ONLY blank pale ivory wall and ground, no dog tail or trees there. Entire dog is SMALL and fits in right half x45%-80%, paws at 74% image height, head around50%. Same ground as adult shoes. 25cm adult dog shoulder; human adult shoe25cm so believable physical size. Whole dog visible including tail, no cropping. Person seated at far right, top of head cropped is fine. Upper left title and left stats need blank pale area. Bottom24% empty pale paper paving for caption. Detailed subtle watercolor paper and natural fur, muted sage/ivory. No text, no symbols. Reference2 only for DOG APPEARANCE, DO NOT USE ITS LARGE SUBJECT LAYOUT.",
+    "asset": "public/illustrations/card-studies/shih-tzu-back-v1.webp",
+    "width": 1060,
+    "height": 1484,
+    "bytes": 175756
+  },
+  {
+    "id": "dachshund",
+    "side": "front",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-560ba32a-8643-4d85-8407-27baf9573982.png",
+    "prompt": "Premium fine natural-history watercolor, detailed fur, ivory handmade paper grain, muted sage and warm limestone palette, quiet sophisticated Dog Atlas illustration. Reference1 morphology only; apply description explicitly: adult miniature smooth-haired red Dachshund, very short sturdy legs, elongated low body, long muzzle, long drop ears, level topline, natural long tail, four paws. Reference2 watercolor QUALITY and density only. Setting German woodland cottage path, mossy stones and quiet earthy woodland, subtle burrow in distant bank. No text, logo, frame, costume, dog clothing, cartoon proportions. Square. One entire adult dog 3/4 stance looking toward viewer filling about70% frame, all paws and tail visible, low camera, beautifully rendered atmospheric setting, no human.",
+    "asset": "public/illustrations/card-studies/miniature-dachshund-front-v1.webp",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 324888
+  },
+  {
+    "id": "dachshund",
+    "side": "back",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-01c65594-7076-4888-b914-21b5552fd7a9.png",
+    "prompt": "Repaint the first reference maintaining its EXACT LAYOUT and relative subject scale. Portrait 5:7. Replace its poodle with adult miniature smooth-haired red Dachshund, very short sturdy legs, elongated low body, long muzzle, long drop ears, level topline, natural long tail, four paws matching reference2. Replace setting with German woodland cottage path, mossy stones and quiet earthy woodland, subtle burrow in distant bank. Person: German adult in plain linen shirt and earth-brown trousers, walking shoes. COMPOSITION ABSOLUTE: LEFT 40% of canvas is ONLY blank pale ivory wall and ground, no dog tail or trees there. Entire dog is SMALL and fits in right half x45%-80%, paws at 74% image height, head around50%. Same ground as adult shoes. 15cm adult dog shoulder; human adult shoe25cm so believable physical size. Whole dog visible including tail, no cropping. Person seated at far right, top of head cropped is fine. Upper left title and left stats need blank pale area. Bottom24% empty pale paper paving for caption. Detailed subtle watercolor paper and natural fur, muted sage/ivory. No text, no symbols. Reference2 only for DOG APPEARANCE, DO NOT USE ITS LARGE SUBJECT LAYOUT.",
+    "asset": "public/illustrations/card-studies/miniature-dachshund-back-v1.webp",
+    "width": 1060,
+    "height": 1484,
+    "bytes": 234824
+  },
+  {
+    "id": "miniature-schnauzer",
+    "side": "front",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-f64362ee-c372-4410-8cb8-f45cdb687523.png",
+    "prompt": "Premium fine natural-history watercolor, detailed fur, ivory handmade paper grain, muted sage and warm limestone palette, quiet sophisticated Dog Atlas illustration. Reference1 morphology only; apply description explicitly: adult salt-and-pepper miniature Schnauzer, square sturdy body, wiry coat, distinct beard eyebrows, natural folded ears and uncut tail, correct four feet. Reference2 watercolor QUALITY and density only. Setting southern German farm courtyard, pale plaster, timber barn door, a little straw at edge. No text, logo, frame, costume, dog clothing, cartoon proportions. Square. One entire adult dog 3/4 stance looking toward viewer filling about70% frame, all paws and tail visible, low camera, beautifully rendered atmospheric setting, no human.",
+    "asset": "public/illustrations/card-studies/miniature-schnauzer-front-v1.webp",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 353312
+  },
+  {
+    "id": "miniature-schnauzer",
+    "side": "back",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-5c5ddafd-ba4c-4ce3-8852-3cdb5ae17f2c.png",
+    "prompt": "Repaint the first reference maintaining its EXACT LAYOUT and relative subject scale. Portrait 5:7. Replace its poodle with adult salt-and-pepper miniature Schnauzer, square sturdy body, wiry coat, distinct beard eyebrows, natural folded ears and uncut tail, correct four feet matching reference2. Replace setting with southern German farm courtyard, pale plaster, timber barn door, a little straw at edge. Person: German adult in plain cream workshirt and muted green trousers, simple leather shoes. COMPOSITION ABSOLUTE: LEFT 40% of canvas is ONLY blank pale ivory wall and ground, no dog tail or trees there. Entire dog is SMALL and fits in right half x45%-80%, paws at 74% image height, head around50%. Same ground as adult shoes. 33cm adult dog shoulder; human adult shoe25cm so believable physical size. Whole dog visible including tail, no cropping. Person seated at far right, top of head cropped is fine. Upper left title and left stats need blank pale area. Bottom24% empty pale paper paving for caption. Detailed subtle watercolor paper and natural fur, muted sage/ivory. No text, no symbols. Reference2 only for DOG APPEARANCE, DO NOT USE ITS LARGE SUBJECT LAYOUT.",
+    "asset": "public/illustrations/card-studies/miniature-schnauzer-back-v1.webp",
+    "width": 1060,
+    "height": 1484,
+    "bytes": 192048
+  },
+  {
+    "id": "continental-toy-spaniel",
+    "side": "front",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-5b3f3b2e-1f6b-461c-9d27-e2710fe5a008.png",
+    "prompt": "Premium fine natural-history watercolor, detailed fur, ivory handmade paper grain, muted sage and warm limestone palette, quiet sophisticated Dog Atlas illustration. Reference1 morphology only; apply description explicitly: adult Papillon, white body with chestnut patches, enormous upright butterfly ears with flowing fringes, fine bones elegant muzzle, plumed tail over back, four visible feet. Reference2 watercolor QUALITY and density only. Setting Franco-Belgian old country house garden, pale stone steps, soft roses, quiet tall windows. No text, logo, frame, costume, dog clothing, cartoon proportions. Square. One entire adult dog 3/4 stance looking toward viewer filling about70% frame, all paws and tail visible, low camera, beautifully rendered atmospheric setting, no human.",
+    "asset": "public/illustrations/card-studies/continental-toy-spaniel-front-v1.webp",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 302712
+  },
+  {
+    "id": "continental-toy-spaniel",
+    "side": "back",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-d52f08d4-e130-4547-a9b2-dca28d336b35.png",
+    "prompt": "Repaint the first reference maintaining its EXACT LAYOUT and relative subject scale. Portrait 5:7. Replace its poodle with adult Papillon, white body with chestnut patches, enormous upright butterfly ears with flowing fringes, fine bones elegant muzzle, plumed tail over back, four visible feet matching reference2. Replace setting with Franco-Belgian old country house garden, pale stone steps, soft roses, quiet tall windows. Person: Belgian adult in simple cream cardigan and muted blue trousers, flat shoes. COMPOSITION ABSOLUTE: LEFT 40% of canvas is ONLY blank pale ivory wall and ground, no dog tail or trees there. Entire dog is SMALL and fits in right half x45%-80%, paws at 74% image height, head around50%. Same ground as adult shoes. 27cm adult dog shoulder; human adult shoe25cm so believable physical size. Whole dog visible including tail, no cropping. Person seated at far right, top of head cropped is fine. Upper left title and left stats need blank pale area. Bottom24% empty pale paper paving for caption. Detailed subtle watercolor paper and natural fur, muted sage/ivory. No text, no symbols. Reference2 only for DOG APPEARANCE, DO NOT USE ITS LARGE SUBJECT LAYOUT.",
+    "asset": "public/illustrations/card-studies/continental-toy-spaniel-back-v1.webp",
+    "width": 1060,
+    "height": 1484,
+    "bytes": 185962
+  },
+  {
+    "id": "maltipoo",
+    "side": "front",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-881a562f-0705-45ef-855c-0fe45f4509c7.png",
+    "prompt": "Premium fine natural-history watercolor, detailed fur, ivory handmade paper grain, muted sage and warm limestone palette, quiet sophisticated Dog Atlas illustration. Reference1 morphology only; apply description explicitly: adult Maltese-poodle cross illustrative individual, cream apricot softly wavy curly coat, moderate muzzle, drop ears, balanced small body, no exaggerated teddy face. Reference2 watercolor QUALITY and density only. Setting quiet contemporary home garden terrace, ivory plaster wall and simple potted herbs, no national symbols. No text, logo, frame, costume, dog clothing, cartoon proportions. Square. One entire adult dog 3/4 stance looking toward viewer filling about70% frame, all paws and tail visible, low camera, beautifully rendered atmospheric setting, no human.",
+    "asset": "public/illustrations/card-studies/maltipoo-front-v1.webp",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 278596
+  },
+  {
+    "id": "maltipoo",
+    "side": "back",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-c5c91d5a-3a6b-4ae2-9037-87dc486ed7c4.png",
+    "prompt": "Repaint the first reference maintaining its EXACT LAYOUT and relative subject scale. Portrait 5:7. Replace its poodle with adult Maltese-poodle cross illustrative individual, cream apricot softly wavy curly coat, moderate muzzle, drop ears, balanced small body, no exaggerated teddy face matching reference2. Replace setting with quiet contemporary home garden terrace, ivory plaster wall and simple potted herbs, no national symbols. Person: adult Korean person in simple everyday oatmeal shirt and sage trousers, neutral flat shoes. COMPOSITION ABSOLUTE: LEFT 40% of canvas is ONLY blank pale ivory wall and ground, no dog tail or trees there. Entire dog is SMALL and fits in right half x45%-80%, paws at 74% image height, head around50%. Same ground as adult shoes. 28cm adult dog shoulder; human adult shoe25cm so believable physical size. Whole dog visible including tail, no cropping. Person seated at far right, top of head cropped is fine. Upper left title and left stats need blank pale area. Bottom24% empty pale paper paving for caption. Detailed subtle watercolor paper and natural fur, muted sage/ivory. No text, no symbols. Reference2 only for DOG APPEARANCE, DO NOT USE ITS LARGE SUBJECT LAYOUT.",
+    "asset": "public/illustrations/card-studies/maltipoo-back-v1.webp",
+    "width": 1060,
+    "height": 1484,
+    "bytes": 158406
+  }
+]
