@@ -17,7 +17,9 @@ export function CardBack({ breed }: { breed: GiantCard }) {
         decoding="async"
         draggable={false}
       />
-      {Number(breed.number) >= 4 && (
+      {(Number(breed.number) >= 4 ||
+        breed.slug === "german-spitz" ||
+        breed.slug === "yorkshire-terrier") && (
         <div className={styles.backScrim} aria-hidden="true" />
       )}
       <div className={styles.origin}>

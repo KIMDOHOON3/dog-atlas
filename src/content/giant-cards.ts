@@ -24,6 +24,7 @@ export const cardSchema = z.object({
       "turkey",
       "mongolia",
       "mexico",
+      "uk",
     ])
     .nullable(),
   role: z.string(),

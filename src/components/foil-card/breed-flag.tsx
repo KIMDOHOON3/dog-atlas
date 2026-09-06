@@ -2,6 +2,21 @@ import type { GiantCard } from "@/content/giant-cards";
 import styles from "./foil-card.module.css";
 
 export function BreedFlag({ country }: { country: GiantCard["flag"] }) {
+  if (country === "uk") {
+    return (
+      <svg className={styles.flag} viewBox="0 0 60 40" aria-hidden="true">
+        <path fill="#354e6d" d="M0 0h60v40H0z" />
+        <path stroke="#f9f7ed" strokeWidth="8" d="m0 0 60 40M60 0 0 40" />
+        <path
+          stroke="#b64e45"
+          strokeWidth="3"
+          d="m0 0 30 20m30-20L30 20m0 0 30 20M30 20 0 40"
+        />
+        <path stroke="#f9f7ed" strokeWidth="13" d="M30 0v40M0 20h60" />
+        <path stroke="#b64e45" strokeWidth="7" d="M30 0v40M0 20h60" />
+      </svg>
+    );
+  }
   if (country === "mexico") {
     return (
       <svg className={styles.flag} viewBox="0 0 36 24" aria-hidden="true">
