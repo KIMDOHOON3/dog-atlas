@@ -75,26 +75,33 @@ function renderGiant() {
   return result;
 }
 describe("single breed foil study", () => {
-  it("starts small and opens a spread selection in the single view", () => {
+  it("flips spread cards independently without leaving the grid", () => {
     render(<FoilCard />);
     firstFrame();
-    expect(screen.getByRole("heading", { name: "치와와" })).toBeVisible();
     fireEvent.click(screen.getByRole("button", { name: "펼쳐보기" }));
     expect(renderer.dispose).toHaveBeenCalled();
-    expect(
-      screen.queryByRole("button", { name: "뒤집어서 알아보기" }),
-    ).not.toBeInTheDocument();
     fireEvent.click(
-      screen.getByRole("button", { name: "말티즈 한 장씩 보기" }),
+      screen.getByRole("button", { name: "말티즈 뒤집어서 알아보기" }),
     );
-    expect(screen.getByRole("heading", { name: "말티즈" })).toBeVisible();
-    expect(screen.getByRole("button", { name: "소형견" })).toHaveAttribute(
+    expect(
+      screen.getByRole("button", { name: "말티즈 그림으로 돌아가기" }),
+    ).toHaveAttribute("aria-pressed", "true");
+    expect(
+      screen.getByRole("button", { name: "치와와 뒤집어서 알아보기" }),
+    ).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByRole("button", { name: "펼쳐보기" })).toHaveAttribute(
       "aria-pressed",
       "true",
     );
     expect(
-      screen.getByRole("button", { name: "한 장씩 보기" }),
-    ).toHaveAttribute("aria-pressed", "true");
+      screen.getByRole("link", { name: "말티즈 자세히 보기" }),
+    ).toHaveAttribute("href", "/breeds/maltese");
+    fireEvent.click(
+      screen.getByRole("button", { name: "말티즈 그림으로 돌아가기 버튼" }),
+    );
+    expect(
+      screen.getByRole("button", { name: "말티즈 뒤집어서 알아보기" }),
+    ).toHaveAttribute("aria-pressed", "false");
   });
   it("switches size collections without showing giant cards under another size", () => {
     renderGiant();

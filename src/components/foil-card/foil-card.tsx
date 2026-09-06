@@ -20,6 +20,7 @@ import { giantCards } from "@/content/giant-cards";
 import { extraSmallCards } from "@/content/extra-small-cards";
 import { mediumCards } from "@/content/medium-cards";
 import { largeCards } from "@/content/large-cards";
+import { SpreadCard } from "./spread-card";
 import { CardFront } from "./card-front";
 import { CardBack } from "./card-back";
 import { SizeSelector, type CardSize } from "./size-selector";
@@ -823,40 +824,9 @@ export function FoilCard() {
         />
         {view === "spread" && (
           <div className={styles.spreadGrid} aria-label={`${size} 펼쳐보기`}>
-            {cards.map((entry, index) => (
-              <button
-                type="button"
-                key={entry.slug}
-                className={styles.spreadCard}
-                aria-label={`${entry.name} 한 장씩 보기`}
-                onClick={() => {
-                  setActive(index);
-                  setSelected(index);
-                  setTextureTarget(index);
-                  setOutgoing(null);
-                  setFlipped(false);
-                  setFlipTarget(false);
-                  settings.current.flipped = false;
-                  settings.current.woodland = entry.theme === "woodland";
-                  settings.current.variant = foilVariant(entry.slug);
-                  setView("single");
-                  document
-                    .getElementById("main")
-                    ?.scrollIntoView?.({ behavior: "instant", block: "start" });
-                }}
-              >
-                <Image
-                  src={entry.front.src}
-                  alt=""
-                  width={entry.front.width}
-                  height={entry.front.height}
-                  unoptimized
-                  loading="lazy"
-                />
-                <span className={styles.spreadName}>{entry.name}</span>
-                <span className={styles.spreadTagline}>{entry.tagline}</span>
-              </button>
-            ))}
+            {cards.map((entry) => (
+              <SpreadCard key={entry.slug} breed={entry} />
+            ))}{" "}
           </div>
         )}
         <div className={styles.collectionContent} hidden={view === "spread"}>
