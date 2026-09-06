@@ -204,7 +204,7 @@
   container-type: inline-size;
   width: 100%;
   aspect-ratio: 5 / 7;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
   cursor: grab;
   position: relative;
   border-radius: 19px;

@@ -419,15 +419,46 @@ describe("single breed foil study", () => {
     expect(card).toHaveAttribute("data-side", "back");
   });
 
+  it("leaves touch scrolling to the browser without tilting or stopping button motion", () => {
+    class TouchPointerEvent extends MouseEvent {
+      pointerType = "touch";
+      pointerId = 1;
+    }
+    vi.stubGlobal("PointerEvent", TouchPointerEvent);
+    const { container } = render(<FoilCard />);
+    firstFrame();
+    const card = screen.getByRole("group", { name: /홀로그램 카드/ });
+    const surface = container.querySelector("[data-foil]") as HTMLElement;
+    card.setPointerCapture = vi.fn();
+    card.hasPointerCapture = () => false;
+    const pose = surface.style.transform;
+    renderer.draw.mockClear();
+    fireEvent.pointerDown(card, { button: 0, clientX: 100, clientY: 200 });
+    fireEvent.pointerMove(card, { clientX: 100, clientY: 100 });
+    fireEvent.pointerCancel(card);
+    fireEvent.pointerLeave(card);
+    completeTurn();
+    expect(card.setPointerCapture).not.toHaveBeenCalled();
+    expect(surface.style.transform).toBe(pose);
+    expect(renderer.draw).not.toHaveBeenCalled();
+    fireEvent.click(card, { detail: 1 });
+    expect(card).toHaveAttribute("data-side", "front");
+    fireEvent.click(screen.getByRole("button", { name: "카드 움직여 보기" }));
+    completeTurn();
+    expect(surface.style.transform).not.toBe(pose);
+    fireEvent.pointerDown(card, { button: 0, clientX: 100, clientY: 200 });
+    fireEvent.pointerMove(card, { clientX: 100, clientY: 100 });
+    fireEvent.pointerCancel(card);
+    expect(screen.getByRole("button", { name: "움직임 멈추기" })).toBeEnabled();
+  });
+
   it("shares one renderer across faces, bounds flip draws, and enables back tilt and controls", () => {
     const { container } = render(<FoilCard />);
     const start = performance.now() + 100;
     firstFrame(start);
     fireEvent.click(screen.getByRole("button", { name: /카드 움직여 보기/ }));
     firstFrame(start + 20);
-    expect(
-      screen.getByRole("button", { name: "움직임 멈추기" }),
-    ).toBeEnabled();
+    expect(screen.getByRole("button", { name: "움직임 멈추기" })).toBeEnabled();
     fireEvent.click(screen.getByRole("button", { name: /뒤집어서 알아보기/ }));
     renderer.draw.mockClear();
     for (let time = 40; time < 1000; time += 20) firstFrame(start + time);

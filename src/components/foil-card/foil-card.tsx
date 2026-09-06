@@ -685,6 +685,7 @@ export function FoilCard() {
     ) {
       start.moved = true;
     }
+    if (event.pointerType === "touch") return;
     if (
       event.pointerType !== "mouse" &&
       !event.currentTarget.hasPointerCapture(event.pointerId)
@@ -848,7 +849,8 @@ export function FoilCard() {
                   y: e.clientY,
                   moved: false,
                 };
-                e.currentTarget.setPointerCapture(e.pointerId);
+                if (e.pointerType !== "touch")
+                  e.currentTarget.setPointerCapture(e.pointerId);
                 point(e);
               }}
               onPointerUp={(e) => {
@@ -861,10 +863,10 @@ export function FoilCard() {
                 if (e.currentTarget.hasPointerCapture(e.pointerId))
                   e.currentTarget.releasePointerCapture(e.pointerId);
               }}
-              onPointerCancel={() => {
+              onPointerCancel={(e) => {
                 gesture.current = null;
                 suppressClick.current = true;
-                motion.current?.aim(0.18, -0.16);
+                if (e.pointerType !== "touch") motion.current?.aim(0.18, -0.16);
               }}
               onLostPointerCapture={() => {
                 if (gesture.current) {
@@ -873,6 +875,7 @@ export function FoilCard() {
                 }
               }}
               onPointerLeave={(e) => {
+                if (e.pointerType === "touch") return;
                 if (!e.currentTarget.hasPointerCapture(e.pointerId))
                   motion.current?.aim(0.18, -0.16);
               }}
