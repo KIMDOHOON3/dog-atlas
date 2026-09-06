@@ -3,8 +3,10 @@ import { breedSizeServiceOverrideBySlug } from "@/content/breed-sizes/service-ov
 import type { DogAtlasSizeClass, Measurement } from "@/content/breed-sizes/schema";
 import { DOG_ATLAS_SIZE_ORDER, resolveBreedSize } from "@/lib/breed-size";
 
+const serviceSize = (size: DogAtlasSizeClass): DogAtlasSizeClass => size === "extra-small" ? "small" : size;
+
 export const dogAtlasSizeLabels: Record<DogAtlasSizeClass, string> = {
-  "extra-small": "초소형",
+  "extra-small": "소형",
   small: "소형",
   medium: "중형",
   large: "대형",
@@ -50,7 +52,7 @@ export function getBreedSizePresentation(slug: string): BreedSizePresentation {
 
   if (resolved.status === "varieties") {
     const filterClasses = [...new Set(resolved.varieties.flatMap((variety) => (
-      variety.result.status === "confirmed" && variety.result.finalClass ? [variety.result.finalClass] : []
+      variety.result.status === "confirmed" && variety.result.finalClass ? [serviceSize(variety.result.finalClass)] : []
     )))].sort((a, b) => DOG_ATLAS_SIZE_ORDER.indexOf(a) - DOG_ATLAS_SIZE_ORDER.indexOf(b));
     const first = filterClasses[0];
     const last = filterClasses.at(-1);
@@ -63,7 +65,8 @@ export function getBreedSizePresentation(slug: string): BreedSizePresentation {
       filterClasses,
       displayLabel: classLabel ? `유형별 · ${classLabel}` : "유형별 크기",
       varieties: resolved.varieties.map((variety) => {
-        const sizeClass = variety.result.status === "confirmed" ? variety.result.finalClass : undefined;
+        const rawClass = variety.result.status === "confirmed" ? variety.result.finalClass : undefined;
+        const sizeClass = rawClass ? serviceSize(rawClass) : undefined;
         return {
           id: variety.id,
           label: variety.label,
@@ -88,7 +91,7 @@ export function getBreedSizePresentation(slug: string): BreedSizePresentation {
 
   return {
     status: resolved.status,
-    filterClasses: finalClass ? [finalClass] : [],
+    filterClasses: finalClass ? [serviceSize(finalClass)] : [],
     displayLabel: finalClass
       ? dogAtlasSizeLabels[finalClass]
       : "크기 정보 보완 중",

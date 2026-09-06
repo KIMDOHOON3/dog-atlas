@@ -666,3 +666,8 @@ The user approved snow-crystal and mountain-ridge ideas for the Great Pyrenees f
 # 2026-09-05 — Reduce foil rendering cost after a lag report
 
 Precompute static surface geometry into a build-time RGB data map and use a compact shader for moving light. Cap physical tilt near 60Hz and foil draws near 30Hz, reduce only the coating canvas, remove per-frame CSS gradient repaint and coalesce pointer input. Preserve the separate high-resolution artwork, semantic text and interactive reveals. Stop work when off, idle, hidden or offscreen. Retain an opt-in DOM-only `?profile=1` diagnostic for repeatable local comparisons; no analytics or product debug panel. See [measurements and limits](research/foil-card-performance-2026-09-05.md).
+
+
+# 2026-09-06 — Merge extra-small into small in public navigation
+
+The user approved four public size groups: small, medium, large and giant. Merge extra-small at the service presentation layer, including variety labels, discovery filtering and legacy URL parsing. Preserve source measurements and internal calculation classes. The three existing extra-small cards now belong to small.

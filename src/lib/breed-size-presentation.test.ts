@@ -64,7 +64,7 @@ describe("breed size service presentation", () => {
   it("matches complete varieties in every applicable filter without duplicating a breed", () => {
     expect(getBreedSizePresentation("portuguese-podengo").filterClasses).toEqual(["small", "medium", "large"]);
     expect(getBreedSizePresentation("peruvian-hairless-dog").filterClasses).toEqual(["small", "medium", "large"]);
-    expect(getBreedSizePresentation("german-spitz").filterClasses).toEqual(["extra-small"]);
+    expect(getBreedSizePresentation("german-spitz").filterClasses).toEqual(["small"]);
 
     const filters = emptyBreedFilters();
     filters.size = ["small", "medium", "large"];
@@ -79,7 +79,7 @@ describe("breed size service presentation", () => {
       filters.size = [size as (typeof filters.size)[number]];
       return [size, filterBreeds(discoverBreeds, filters).length];
     }));
-    expect(counts).toEqual({ "extra-small": 4, small: 48, medium: 114, large: 126, giant: 27 });
+    expect(counts).toEqual({ "extra-small": 0, small: 52, medium: 114, large: 126, giant: 27 });
   });
 
   it("presents source ranges rather than internal midpoint values", () => {

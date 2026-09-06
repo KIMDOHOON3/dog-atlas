@@ -65,13 +65,13 @@ describe("single breed foil study", () => {
     render(<FoilCard />);
     firstFrame();
     fireEvent.click(
-      screen.getByRole("button", { name: "소형견" }),
+      screen.getByRole("button", { name: "중형견" }),
     );
     expect(
-      screen.getByRole("button", { name: "소형견" }),
+      screen.getByRole("button", { name: "중형견" }),
     ).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByRole("status")).toHaveTextContent(
-      "소형견 카드는 아직 없어요.",
+      "중형견 카드는 아직 없어요.",
     );
     expect(
       screen.queryByRole("button", { name: "뒤집어서 알아보기" }),

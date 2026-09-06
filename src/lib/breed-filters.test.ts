@@ -62,7 +62,7 @@ describe("breed filters", () => {
   });
 
   it("supports the extra-small URL value without changing existing values", () => {
-    expect(parseBreedFilters(new URLSearchParams("size=extra-small,small"))).toMatchObject({ size: ["extra-small", "small"] });
+    expect(parseBreedFilters(new URLSearchParams("size=extra-small,small"))).toMatchObject({ size: ["small"] });
     expect(parseBreedFilters(new URLSearchParams("size=small"))).toMatchObject({ size: ["small"] });
   });
 });

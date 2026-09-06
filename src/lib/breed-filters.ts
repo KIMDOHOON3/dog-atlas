@@ -88,7 +88,7 @@ export function parseBreedFilters(searchParams: URLSearchParams | Readonly<Recor
     const raw = read(query);
     const values = Array.isArray(raw) ? raw : raw?.split(",");
     if (!values) continue;
-    if (key === "size") filters.size = [...new Set(values.filter((value): value is BreedSize => validSizes.has(value as BreedSize)))];
+    if (key === "size") filters.size = [...new Set(values.map((value) => value === "extra-small" ? "small" : value).filter((value): value is BreedSize => validSizes.has(value as BreedSize)))];
     else filters[key] = [...new Set(values.filter((value): value is TendencyLevel => validLevels.has(value as TendencyLevel)))];
   }
   return filters;

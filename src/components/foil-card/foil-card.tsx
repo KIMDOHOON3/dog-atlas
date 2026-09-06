@@ -36,8 +36,8 @@ const limit = (value: number) => Math.min(1, Math.max(-1, value));
 
 export function FoilCard() {
   const [size, setSize] = useState<CardSize>("초대형견");
-  const cards = size === "초소형견" ? extraSmallCards : giantCards;
-  const hasCards = size === "초대형견" || size === "초소형견";
+  const cards = size === "소형견" ? extraSmallCards : giantCards;
+  const hasCards = size === "초대형견" || size === "소형견";
   const [active, setActive] = useState(0);
   const [selected, setSelected] = useState(0);
   const [flipTarget, setFlipTarget] = useState(false);
@@ -770,7 +770,7 @@ export function FoilCard() {
             setFlipped(false);
             setFlipTarget(false);
             settings.current.flipped = false;
-            settings.current.woodland = next === "초소형견";
+            settings.current.woodland = next === "소형견";
             setSize(next);
           }}
         />

@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import styles from "./foil-card.module.css";
 
 export const cardSizes = [
-  "초소형견",
   "소형견",
   "중형견",
   "대형견",

@@ -21,7 +21,6 @@ import type { DiscoverBreed } from "@/lib/discover-breeds";
 import styles from "./discover-explorer.module.css";
 
 const sizeOptions: Array<{ value: BreedSize; label: string }> = [
-  { value: "extra-small", label: "초소형" },
   { value: "small", label: "소형" },
   { value: "medium", label: "중형" },
   { value: "large", label: "대형" },
