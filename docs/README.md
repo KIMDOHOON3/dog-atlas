@@ -1,5 +1,7 @@
 # Dog Atlas 문서 안내
 
+- [카드 뒷면 지역별 인물](regional-card-backs.md) — 5종 인물 교체·3종 유지, 복장 참고와 최종 프롬프트.
+
 - [승인된 로고와 행동 아이콘](brand-mark.md) — L01/F08/D10 자산·프롬프트·적용 규칙과 시안 정리.
 
 - [현재 WebGL 카드 전환](card-transition.md) — 실제 면 변형·텍스처 준비·성능 예산과 검증 한계.

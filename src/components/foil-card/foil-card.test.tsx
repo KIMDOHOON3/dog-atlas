@@ -386,7 +386,9 @@ describe("single breed foil study", () => {
     fireEvent.keyDown(card, { key: "Escape" });
     completeTurn();
     expect(card).toHaveAttribute("data-side", "front");
-    expect(screen.getByRole("img", { name: /전신 수채화/ })).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", { name: /전신 수채화/ }),
+    ).toBeInTheDocument();
     expect(
       screen.queryByRole("region", { name: "성견 크기" }),
     ).not.toBeInTheDocument();
@@ -421,8 +423,11 @@ describe("single breed foil study", () => {
     const { container } = render(<FoilCard />);
     const start = performance.now() + 100;
     firstFrame(start);
-    fireEvent.click(screen.getByRole("button", { name: /빛 움직여 보기/ }));
+    fireEvent.click(screen.getByRole("button", { name: /카드 움직임 재생/ }));
     firstFrame(start + 20);
+    expect(
+      screen.getByRole("button", { name: "카드 움직임 일시정지" }),
+    ).toBeEnabled();
     fireEvent.click(screen.getByRole("button", { name: /뒤집어서 알아보기/ }));
     renderer.draw.mockClear();
     for (let time = 40; time < 1000; time += 20) firstFrame(start + time);
@@ -436,7 +441,7 @@ describe("single breed foil study", () => {
     );
     expect(frames.size).toBe(0);
     expect(
-      screen.getByRole("button", { name: /빛 움직여 보기/ }),
+      screen.getByRole("button", { name: /카드 움직임 재생/ }),
     ).toBeEnabled();
     expect(container.querySelectorAll("canvas")).toHaveLength(2);
     expect(createFoilRenderer).toHaveBeenCalledOnce();
@@ -474,6 +479,24 @@ describe("single breed foil study", () => {
     );
   });
 
+  it("hides strength from keyboard and accessibility navigation while preserving its value", () => {
+    render(<FoilCard />);
+    firstFrame();
+    const slider = screen.getByRole("slider");
+    fireEvent.change(slider, { target: { value: "42" } });
+    fireEvent.click(screen.getByRole("button", { name: /홀로그램 켜짐/ }));
+    expect(screen.queryByRole("slider")).not.toBeInTheDocument();
+    expect(slider).toBeDisabled();
+    expect(slider.closest("[inert]")).not.toBeNull();
+    expect(
+      screen.getByRole("button", { name: /카드 움직임 재생/ }),
+    ).toBeEnabled();
+    fireEvent.click(screen.getByRole("button", { name: /홀로그램 꺼짐/ }));
+    expect(screen.getByRole("slider")).toHaveValue("42");
+    expect(slider).toBeEnabled();
+    expect(slider.closest("[inert]")).toBeNull();
+  });
+
   it("keeps the breed readable and disables unavailable coating controls without WebGL", () => {
     vi.mocked(createFoilRenderer).mockReturnValue(null);
     render(<FoilCard />);
@@ -485,7 +508,7 @@ describe("single breed foil study", () => {
     expect(screen.getByText(/기본 그림을 보여드려요/)).toBeVisible();
     expect(screen.getByRole("button", { name: /홀로그램/ })).toBeDisabled();
     expect(
-      screen.getByRole("button", { name: /빛 움직여 보기/ }),
+      screen.getByRole("button", { name: /카드 움직임 재생/ }),
     ).toBeDisabled();
   });
 
@@ -494,7 +517,7 @@ describe("single breed foil study", () => {
     const { container, unmount } = render(<FoilCard />);
     firstFrame();
     expect(
-      screen.getByRole("button", { name: /빛 움직여 보기/ }),
+      screen.getByRole("button", { name: /카드 움직임 재생/ }),
     ).toBeDisabled();
     const card = container.querySelector("[data-foil]") as HTMLElement;
     const transform = card.style.transform;
@@ -506,7 +529,7 @@ describe("single breed foil study", () => {
     expect(transform).toContain("rotateY(0deg)");
     const drawsBeforeOff = renderer.draw.mock.calls.length;
     fireEvent.click(screen.getByRole("button", { name: /홀로그램 켜짐/ }));
-    expect(screen.getByRole("slider")).toBeDisabled();
+    expect(screen.queryByRole("slider")).not.toBeInTheDocument();
     expect(renderer.draw).toHaveBeenCalledTimes(drawsBeforeOff);
     expect(card).toHaveAttribute("data-foil", "false");
     fireEvent.click(screen.getByRole("button", { name: /뒤집어서 알아보기/ }));

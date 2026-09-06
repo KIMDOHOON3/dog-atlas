@@ -422,13 +422,57 @@
     background-color 220ms ease,
     box-shadow 220ms ease;
 }
+.playButton {
+  justify-content: center;
+  min-width: 132px;
+}
+.playIcon {
+  display: block;
+  width: 11px;
+  height: 12px;
+  background: #d3dfbf;
+  clip-path: polygon(10% 0, 100% 50%, 10% 100%);
+}
+.playIcon[data-playing="true"] {
+  clip-path: polygon(
+    0 0,
+    35% 0,
+    35% 100%,
+    0 100%,
+    0 0,
+    65% 0,
+    100% 0,
+    100% 100%,
+    65% 100%,
+    65% 0
+  );
+}
 .controls button[aria-pressed="true"]:not(:disabled) .indicator {
   background: #ff776c;
   box-shadow:
     0 0 0 2px #ff776c18,
     0 0 10px #ff625c88;
 }
+.strengthPanel {
+  width: 230px;
+  opacity: 1;
+  overflow: hidden;
+  transition:
+    width 280ms ease,
+    opacity 200ms ease;
+}
+.strengthPanel[data-open="false"] {
+  width: 0;
+  opacity: 0;
+}
+.strengthClip {
+  min-height: 0;
+  overflow: hidden;
+}
 .strength {
+  width: 230px;
+  box-sizing: border-box;
+  white-space: nowrap;
   border-left: 1px solid #81938735;
   border-right: 1px solid #81938735;
   padding: 0 17px;
@@ -552,9 +596,24 @@
     font-size: 10px;
     min-height: 40px;
   }
-  .strength {
+  .strengthPanel {
     grid-row: 2;
     grid-column: 1/-1;
+    display: grid;
+    grid-template-rows: 1fr;
+    transition:
+      grid-template-rows 280ms ease,
+      opacity 200ms ease;
+  }
+  .strengthPanel,
+  .strengthPanel[data-open="false"] {
+    width: auto;
+  }
+  .strengthPanel[data-open="false"] {
+    grid-template-rows: 0fr;
+  }
+  .strength {
+    width: auto;
     border: 0;
     border-top: 1px solid #81938725;
     justify-content: center;
@@ -580,7 +639,8 @@
   .card {
     will-change: auto;
   }
-  .controls button {
+  .controls button,
+  .strengthPanel {
     transition: none;
   }
   .turner {

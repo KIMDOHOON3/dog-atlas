@@ -1016,26 +1016,41 @@ export function FoilCard() {
             <i className={styles.indicator} aria-hidden="true" />
             홀로그램 <span>{foil ? "켜짐" : "꺼짐"}</span>
           </button>
-          <label className={styles.strength}>
-            빛의 강도
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={strength}
-              disabled={!foil || available === false}
-              onChange={(event) => setStrength(Number(event.target.value))}
-            />
-            <output>{strength}%</output>
-          </label>
+          <div
+            className={styles.strengthPanel}
+            data-open={foil}
+            aria-hidden={!foil}
+            inert={!foil}
+          >
+            <div className={styles.strengthClip}>
+              <label className={styles.strength}>
+                빛의 강도
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={strength}
+                  disabled={!foil || available === false}
+                  onChange={(event) => setStrength(Number(event.target.value))}
+                />
+                <output>{strength}%</output>
+              </label>
+            </div>
+          </div>
           <button
+            className={styles.playButton}
+            aria-label={demo ? "카드 움직임 일시정지" : "카드 움직임 재생"}
             onClick={() =>
               demo ? motion.current?.stop() : motion.current?.demo()
             }
             disabled={reduced || available === false}
           >
-            {demo ? "움직임 멈추기" : "빛 움직여 보기"}
-            <span aria-hidden="true">{demo ? "Ⅱ" : "↗"}</span>
+            <span
+              className={styles.playIcon}
+              data-playing={demo}
+              aria-hidden="true"
+            />
+            {demo ? "일시정지" : "재생"}
           </button>
         </div>
         {(available === false || reduced) && (

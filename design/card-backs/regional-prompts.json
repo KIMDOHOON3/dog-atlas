@@ -1,0 +1,32 @@
+[
+  {
+    "id": "saint-bernard",
+    "asset": "public/illustrations/card-studies/saint-bernard-human-regional-v2.webp",
+    "method": "built-in image_gen edit",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: a finished watercolor dog atlas card BACK illustration. Edit ONLY the human figure. Preserve the dog exactly: same breed anatomy, coat color, pose, silhouette and size. Preserve the person's exact height, feet position and stance, dog-to-adult scale, landscape, portrait framing, pale empty LEFT area and bottom margins for UI text, lighting, muted watercolor palette, detailed handmade paper grain. Keep the person behind/beside the dog on the same ground plane. No text, labels, flags, border, new animals or additional people. High quality restrained natural-history watercolor, not cartoon. Replace the generic modern hiking man with an adult Swiss Alpine hospice canon in a simple dark charcoal full-length wool cassock and weathered dark wool shoulder cloak, practical winter boots. A quiet caring middle aged person with naturally individual features, looking down at the dog. No ornate religious regalia or props."
+  },
+  {
+    "id": "tibetan-mastiff",
+    "asset": "public/illustrations/card-studies/tibetan-mastiff-human-regional-v2.webp",
+    "method": "built-in image_gen edit",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: a finished watercolor dog atlas card BACK illustration. Edit ONLY the human figure. Preserve the dog exactly: same breed anatomy, coat color, pose, silhouette and size. Preserve the person's exact height, feet position and stance, dog-to-adult scale, landscape, portrait framing, pale empty LEFT area and bottom margins for UI text, lighting, muted watercolor palette, detailed handmade paper grain. Keep the person behind/beside the dog on the same ground plane. No text, labels, flags, border, new animals or additional people. High quality restrained natural-history watercolor, not cartoon. Replace the generic modern hiking man with an adult Tibetan plateau herder, with naturally individual Tibetan facial features and straight dark hair, wearing a simple dark brown wool chuba wrap robe secured with a muted sash, plain trousers and sturdy boots. Understated everyday pastoral clothing, not silk court dress or a festival costume. Calmly looking down at the dog."
+  },
+  {
+    "id": "kangal-shepherd-dog",
+    "asset": "public/illustrations/card-studies/kangal-shepherd-dog-human-regional-v2.webp",
+    "method": "built-in image_gen edit",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: a finished watercolor dog atlas card BACK illustration. Edit ONLY the human figure. Preserve the dog exactly: same breed anatomy, coat color, pose, silhouette and size. Preserve the person's exact height, feet position and stance, dog-to-adult scale, landscape, portrait framing, pale empty LEFT area and bottom margins for UI text, lighting, muted watercolor palette, detailed handmade paper grain. Keep the person behind/beside the dog on the same ground plane. No text, labels, flags, border, new animals or additional people. High quality restrained natural-history watercolor, not cartoon. Replace the generic modern hiking man with a middle-aged Anatolian Turkish shepherd with an individual natural face, short dark hair and a modest mustache, wearing a simple undyed oatmeal felt kepenek shepherd cloak over muted dark country work clothes and boots. Restrained functional wool/felt silhouette, no ornament, no fez or theatrical costume. Keep head uncovered and hands visible in the same resting position. Calmly looking at the dog."
+  },
+  {
+    "id": "caucasian-shepherd-dog",
+    "asset": "public/illustrations/card-studies/caucasian-shepherd-dog-human-regional-v2.webp",
+    "method": "built-in image_gen edit",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: a finished watercolor dog atlas card BACK illustration. Edit ONLY the human figure. Preserve the dog exactly: same breed anatomy, coat color, pose, silhouette and size. Preserve the person's exact height, feet position and stance, dog-to-adult scale, landscape, portrait framing, pale empty LEFT area and bottom margins for UI text, lighting, muted watercolor palette, detailed handmade paper grain. Keep the person behind/beside the dog on the same ground plane. No text, labels, flags, border, new animals or additional people. High quality restrained natural-history watercolor, not cartoon. Replace the generic modern hiking man with an adult Caucasus mountain shepherd with an individual natural face, dark hair and a short beard, wearing a plain dark wool felt shoulder cloak over muted gray rural work clothes and sturdy boots. Restrained practical mountain pastoral clothing, no weapons, no cartridge decorations, no national flag, not a ceremonial costume. Calmly looking down at the dog."
+  },
+  {
+    "id": "mongolian-bankhar",
+    "asset": "public/illustrations/card-studies/mongolian-bankhar-human-regional-v2.webp",
+    "method": "built-in image_gen edit",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: a finished watercolor dog atlas card BACK illustration. Edit ONLY the human figure. Preserve the dog exactly: same breed anatomy, coat color, pose, silhouette and size. Preserve the person's exact height, feet position and stance, dog-to-adult scale, landscape, portrait framing, pale empty LEFT area and bottom margins for UI text, lighting, muted watercolor palette, detailed handmade paper grain. Keep the person behind/beside the dog on the same ground plane. No text, labels, flags, border, new animals or additional people. High quality restrained natural-history watercolor, not cartoon. Replace the generic modern hiking man with an adult Mongolian nomadic herder with naturally individual Mongolian facial features and straight dark hair, wearing a simple muted blue-gray everyday deel robe wrapped and fastened at the side, a subdued ochre cloth sash, plain leather boots. No imperial or festival regalia, no ornate hat, no caricature. Calmly looking down at the dog."
+  }
+]
