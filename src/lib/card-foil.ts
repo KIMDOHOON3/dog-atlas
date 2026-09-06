@@ -11,11 +11,13 @@ uniform vec2 u_light;
 uniform float u_strength;
 uniform float u_back;
 uniform float u_woodland;
+uniform float u_variant;
 uniform sampler2D u_material;
 uniform sampler2D u_spectrum;
 void main() {
   vec2 uv = vec2(v_uv.x, 1. - v_uv.y);
-  vec3 material = texture2D(u_material, uv).rgb;
+  vec2 mapUV = vec2((clamp(uv.x, .0013, .9987) + u_variant) * .25, uv.y);
+  vec3 material = texture2D(u_material, mapUV).rgb;
   float diagonal = uv.x * .83 + uv.y * .59;
   float sweep = diagonal - .60 - dot(u_light, vec2(.48, .30));
   float band = exp2(-sweep * sweep * 21.64);
@@ -31,8 +33,6 @@ void main() {
   float alpha = ((.10 + .29 * band + .10 * specular) * material.g + .16 * edge * artwork);
   alpha += sparkle * (.12 + band * .60) * artwork;
   float engraving = material.r * (.025 + reveal * .95);
-  float grain = smoothstep(.90, 1., sin(uv.x * 170. + uv.y * 22. + material.b * 5.)) * .22;
-  engraving = mix(engraving, grain * reveal, u_woodland);
   vec3 rainbow = texture2D(u_spectrum, vec2(fract(diagonal * 1.65 + dot(u_light, vec2(.62,-.42))), .5)).rgb;
   vec3 ice = mix(vec3(.59,.80,.92), vec3(.97,.88,.68), band);
   ice = mix(ice, mix(vec3(.53,.68,.46), vec3(.99,.85,.53), band), u_woodland);
@@ -48,6 +48,14 @@ void main() {
 
 }`;
 
+// Stable shuffle: no per-frame random work or pattern changes on revisit.
+export function foilVariant(slug: string): number {
+  let hash = 2166136261;
+  for (const character of slug)
+    hash = Math.imul(hash ^ character.charCodeAt(0), 16777619);
+  return (hash >>> 0) % 4;
+}
+
 export type FoilRenderer = {
   draw: (
     x: number,
@@ -55,6 +63,7 @@ export type FoilRenderer = {
     strength: number,
     back?: boolean,
     woodland?: boolean,
+    variant?: number,
   ) => void;
   resize: (width: number, height: number) => void;
   dispose: () => void;
@@ -124,7 +133,8 @@ export function createFoilRenderer(
     const light = gl.getUniformLocation(program, "u_light"),
       strength = gl.getUniformLocation(program, "u_strength"),
       back = gl.getUniformLocation(program, "u_back"),
-      woodland = gl.getUniformLocation(program, "u_woodland");
+      woodland = gl.getUniformLocation(program, "u_woodland"),
+      variant = gl.getUniformLocation(program, "u_variant");
     const loadTexture = (url: string, uniform: string, unit: number) => {
       const texture = gl.createTexture();
       if (!texture) throw new Error("Texture allocation failed");
@@ -171,7 +181,7 @@ export function createFoilRenderer(
       image.src = url;
     };
     loadTexture(
-      "/illustrations/card-studies/alpine-foil-material-v1.png",
+      "/illustrations/card-studies/dog-gear-foil-material-v1.png",
       "u_material",
       0,
     );
@@ -192,12 +202,13 @@ export function createFoilRenderer(
           gl.viewport(0, 0, w, h);
         }
       },
-      draw(x, y, amount, reverse = false, forest = false) {
+      draw(x, y, amount, reverse = false, forest = false, pattern = 0) {
         if (disposed || loaded !== 2) return;
         gl.uniform2f(light, x, y);
         gl.uniform1f(strength, amount);
         gl.uniform1f(back, reverse ? 1 : 0);
         gl.uniform1f(woodland, forest ? 1 : 0);
+        gl.uniform1f(variant, pattern);
         gl.drawArrays(gl.TRIANGLES, 0, 6);
       },
       dispose,

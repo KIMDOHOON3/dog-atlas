@@ -7,7 +7,10 @@ import { FoilCard } from "./foil-card";
 vi.mock("@/lib/card-transition", () => ({
   createCardTransitionRenderer: vi.fn(() => null),
 }));
-vi.mock("@/lib/card-foil", () => ({ createFoilRenderer: vi.fn() }));
+vi.mock("@/lib/card-foil", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@/lib/card-foil")>()),
+  createFoilRenderer: vi.fn(),
+}));
 const frames = new Map<number, FrameRequestCallback>();
 let id = 0;
 let reduced = false;
@@ -64,12 +67,11 @@ describe("single breed foil study", () => {
   it("switches size collections without showing giant cards under another size", () => {
     render(<FoilCard />);
     firstFrame();
-    fireEvent.click(
-      screen.getByRole("button", { name: "중형견" }),
+    fireEvent.click(screen.getByRole("button", { name: "중형견" }));
+    expect(screen.getByRole("button", { name: "중형견" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
     );
-    expect(
-      screen.getByRole("button", { name: "중형견" }),
-    ).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByRole("status")).toHaveTextContent(
       "중형견 카드는 아직 없어요.",
     );
@@ -79,9 +81,7 @@ describe("single breed foil study", () => {
     expect(
       screen.queryByRole("heading", { name: "그레이트 피레니즈" }),
     ).not.toBeInTheDocument();
-    fireEvent.click(
-      screen.getByRole("button", { name: "초대형견" }),
-    );
+    fireEvent.click(screen.getByRole("button", { name: "초대형견" }));
     expect(
       screen.getByRole("heading", { name: "그레이트 피레니즈" }),
     ).toBeVisible();
@@ -356,6 +356,7 @@ describe("single breed foil study", () => {
       0.4,
       false,
       true,
+      expect.any(Number),
     );
     expect(container.querySelectorAll("canvas")).toHaveLength(2);
     expect(createFoilRenderer).toHaveBeenCalledOnce();
@@ -374,6 +375,7 @@ describe("single breed foil study", () => {
       0.4,
       false,
       false,
+      expect.any(Number),
     );
   });
 
@@ -545,6 +547,7 @@ describe("single breed foil study", () => {
       0.7,
       true,
       false,
+      expect.any(Number),
     );
     expect(frames.size).toBe(0);
     expect(
@@ -566,6 +569,7 @@ describe("single breed foil study", () => {
       0.7,
       true,
       false,
+      expect.any(Number),
     );
     fireEvent.click(screen.getByRole("button", { name: /홀로그램 켜짐/ }));
     renderer.draw.mockClear();
@@ -583,6 +587,7 @@ describe("single breed foil study", () => {
       0.7,
       false,
       false,
+      expect.any(Number),
     );
   });
 

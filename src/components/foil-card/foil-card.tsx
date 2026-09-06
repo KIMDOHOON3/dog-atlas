@@ -15,7 +15,7 @@ import {
   createCardTransitionRenderer,
   type CardTransitionRenderer,
 } from "@/lib/card-transition";
-import { createFoilRenderer } from "@/lib/card-foil";
+import { createFoilRenderer, foilVariant } from "@/lib/card-foil";
 import { giantCards } from "@/content/giant-cards";
 import { extraSmallCards } from "@/content/extra-small-cards";
 import { CardFront } from "./card-front";
@@ -85,6 +85,7 @@ export function FoilCard() {
     strength: 70,
     flipped: false,
     woodland: false,
+    variant: foilVariant(giantCards[0].slug),
   });
 
   function prepareImage(src: string) {
@@ -154,6 +155,7 @@ export function FoilCard() {
       setFlipped(false);
       setFlipTarget(false);
       settings.current.woodland = cards[index].theme === "woodland";
+      settings.current.variant = foilVariant(cards[index].slug);
       setActive(index);
     });
   }
@@ -358,6 +360,7 @@ export function FoilCard() {
           settings.current.strength / 100,
           settings.current.flipped,
           settings.current.woodland,
+          settings.current.variant,
         );
         lastFoilTime = time;
         shaderDraws++;
@@ -771,6 +774,9 @@ export function FoilCard() {
             setFlipTarget(false);
             settings.current.flipped = false;
             settings.current.woodland = next === "소형견";
+            settings.current.variant = foilVariant(
+              (next === "소형견" ? extraSmallCards : giantCards)[0].slug,
+            );
             setSize(next);
           }}
         />
