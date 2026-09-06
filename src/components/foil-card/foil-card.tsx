@@ -45,7 +45,8 @@ const cardsForSize = (size: CardSize) =>
         : giantCards;
 
 export function FoilCard() {
-  const [size, setSize] = useState<CardSize>("초대형견");
+  const [size, setSize] = useState<CardSize>("소형견");
+  const [view, setView] = useState<"single" | "spread">("single");
   const cards = cardsForSize(size);
   const [active, setActive] = useState(0);
   const [selected, setSelected] = useState(0);
@@ -93,8 +94,8 @@ export function FoilCard() {
     foil: true,
     strength: 70,
     flipped: false,
-    woodland: false,
-    variant: foilVariant(giantCards[0].slug),
+    woodland: extraSmallCards[0].theme === "woodland",
+    variant: foilVariant(extraSmallCards[0].slug),
   });
 
   function prepareImage(src: string) {
@@ -172,15 +173,15 @@ export function FoilCard() {
   useEffect(() => {
     // Defer image decoding until the card has landed. Only warm nearby fronts
     // and the current reverse, rather than every neighboring reverse.
-    if (sliding) return;
+    if (sliding || view === "spread") return;
     void prepareImage(cards[active].back.src);
     cards.slice(Math.max(0, active - 1), active + 2).forEach((entry) => {
       void prepareImage(entry.front.src);
     });
-  }, [active, sliding, cards]);
+  }, [active, sliding, cards, view]);
 
   useEffect(() => {
-    if (sliding || reduced) return;
+    if (sliding || reduced || view === "spread") return;
     let cancelled = false;
     const timer = window.setTimeout(async () => {
       for (const [index, back] of [
@@ -198,7 +199,7 @@ export function FoilCard() {
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [active, sliding, reduced, prepareTexture, cards]);
+  }, [active, sliding, reduced, prepareTexture, cards, view]);
 
   useEffect(() => {
     const nav = pagination.current;
@@ -226,7 +227,7 @@ export function FoilCard() {
   useEffect(() => {
     const element = canvas.current;
     const surface = card.current;
-    if (!element || !surface) return;
+    if (!element || !surface || view === "spread") return;
     surface.querySelectorAll<HTMLImageElement>("img").forEach((img) => {
       void img.decode?.().catch(() => {});
     });
@@ -692,7 +693,7 @@ export function FoilCard() {
       renderer?.dispose();
       motion.current = null;
     };
-  }, [contextVersion, cards]);
+  }, [contextVersion, cards, view]);
 
   function point(event: PointerEvent<HTMLDivElement>) {
     const start = gesture.current;
@@ -770,6 +771,38 @@ export function FoilCard() {
       </header>
       <main id="main" className={styles.main} aria-label={`${size} 카드 도감`}>
         <h1 className={styles.srOnly}>살아 있는 견종도감</h1>
+        <div
+          className={styles.viewSwitch}
+          role="group"
+          aria-label="카드 보기 방식"
+        >
+          {(["single", "spread"] as const).map((mode) => (
+            <button
+              key={mode}
+              type="button"
+              aria-pressed={view === mode}
+              disabled={sliding || turning}
+              onClick={() => {
+                if (mode === view) return;
+                motion.current?.stop();
+                setView(mode);
+              }}
+            >
+              <span
+                className={
+                  mode === "single" ? styles.stackGlyph : styles.gridGlyph
+                }
+                aria-hidden="true"
+              >
+                <i />
+                <i />
+                <i />
+                <i />
+              </span>
+              <span>{mode === "single" ? "한 장씩 보기" : "펼쳐보기"}</span>
+            </button>
+          ))}
+        </div>
         <SizeSelector
           value={size}
           onChange={(next) => {
@@ -788,7 +821,45 @@ export function FoilCard() {
             setSize(next);
           }}
         />
-        <div className={styles.collectionContent}>
+        {view === "spread" && (
+          <div className={styles.spreadGrid} aria-label={`${size} 펼쳐보기`}>
+            {cards.map((entry, index) => (
+              <button
+                type="button"
+                key={entry.slug}
+                className={styles.spreadCard}
+                aria-label={`${entry.name} 한 장씩 보기`}
+                onClick={() => {
+                  setActive(index);
+                  setSelected(index);
+                  setTextureTarget(index);
+                  setOutgoing(null);
+                  setFlipped(false);
+                  setFlipTarget(false);
+                  settings.current.flipped = false;
+                  settings.current.woodland = entry.theme === "woodland";
+                  settings.current.variant = foilVariant(entry.slug);
+                  setView("single");
+                  document
+                    .getElementById("main")
+                    ?.scrollIntoView?.({ behavior: "instant", block: "start" });
+                }}
+              >
+                <Image
+                  src={entry.front.src}
+                  alt=""
+                  width={entry.front.width}
+                  height={entry.front.height}
+                  unoptimized
+                  loading="lazy"
+                />
+                <span className={styles.spreadName}>{entry.name}</span>
+                <span className={styles.spreadTagline}>{entry.tagline}</span>
+              </button>
+            ))}
+          </div>
+        )}
+        <div className={styles.collectionContent} hidden={view === "spread"}>
           <div className={styles.exhibit}>
             <button
               className={styles.previousCard}

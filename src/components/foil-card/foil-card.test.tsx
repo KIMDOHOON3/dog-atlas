@@ -63,9 +63,41 @@ beforeEach(() => {
 });
 afterEach(() => vi.unstubAllGlobals());
 
+function renderGiant() {
+  const result = render(<FoilCard />);
+  vi.mocked(createFoilRenderer).mockClear();
+  fireEvent.click(screen.getByRole("button", { name: "초대형견" }));
+  renderer.dispose.mockClear();
+  const mesh = vi
+    .mocked(createCardTransitionRenderer)
+    .mock.results.at(-1)?.value;
+  if (mesh) vi.mocked(mesh.dispose).mockClear();
+  return result;
+}
 describe("single breed foil study", () => {
-  it("switches size collections without showing giant cards under another size", () => {
+  it("starts small and opens a spread selection in the single view", () => {
     render(<FoilCard />);
+    firstFrame();
+    expect(screen.getByRole("heading", { name: "치와와" })).toBeVisible();
+    fireEvent.click(screen.getByRole("button", { name: "펼쳐보기" }));
+    expect(renderer.dispose).toHaveBeenCalled();
+    expect(
+      screen.queryByRole("button", { name: "뒤집어서 알아보기" }),
+    ).not.toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole("button", { name: "말티즈 한 장씩 보기" }),
+    );
+    expect(screen.getByRole("heading", { name: "말티즈" })).toBeVisible();
+    expect(screen.getByRole("button", { name: "소형견" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+    expect(
+      screen.getByRole("button", { name: "한 장씩 보기" }),
+    ).toHaveAttribute("aria-pressed", "true");
+  });
+  it("switches size collections without showing giant cards under another size", () => {
+    renderGiant();
     firstFrame();
     fireEvent.click(screen.getByRole("button", { name: "대형견" }));
     expect(screen.getByRole("button", { name: "대형견" })).toHaveAttribute(
@@ -106,7 +138,7 @@ describe("single breed foil study", () => {
   });
 
   it("responds in the controls at card selection and retains the icon pose after landing", async () => {
-    render(<FoilCard />);
+    renderGiant();
     firstFrame();
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: "그레이트 데인" }));
@@ -136,7 +168,7 @@ describe("single breed foil study", () => {
 
   it("reaches the eighth breed and shows missing lifespan without inventing a number", async () => {
     reduced = true;
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     firstFrame();
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: "몽골 방카르" }));
@@ -159,7 +191,7 @@ describe("single breed foil study", () => {
   });
 
   it("moves the old card over the incoming card, locks repeated input, and uses only one idle-stopping renderer", async () => {
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     firstFrame();
     renderer.draw.mockClear();
     await act(async () =>
@@ -202,7 +234,7 @@ describe("single breed foil study", () => {
   });
 
   it("returns the previous card from the left over the current card, then clears motion state", async () => {
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     firstFrame();
     await act(async () =>
       fireEvent.click(screen.getByRole("button", { name: "다음 견종" })),
@@ -238,7 +270,7 @@ describe("single breed foil study", () => {
       dispose: vi.fn(),
     };
     vi.mocked(createCardTransitionRenderer).mockReturnValue(mesh);
-    const { container, unmount } = render(<FoilCard />);
+    const { container, unmount } = renderGiant();
     firstFrame();
     renderer.draw.mockClear();
     await act(async () =>
@@ -276,7 +308,7 @@ describe("single breed foil study", () => {
       dispose: vi.fn(),
     };
     vi.mocked(createCardTransitionRenderer).mockReturnValue(mesh);
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     firstFrame();
     await act(async () =>
       fireEvent.click(screen.getByRole("button", { name: "다음 견종" })),
@@ -297,7 +329,7 @@ describe("single breed foil study", () => {
 
   it("changes breeds immediately with reduced motion and preserves foil-off state", async () => {
     reduced = true;
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     firstFrame();
     fireEvent.click(screen.getByRole("button", { name: /홀로그램 켜짐/ }));
     renderer.draw.mockClear();
@@ -317,7 +349,7 @@ describe("single breed foil study", () => {
   });
 
   it("finishes an interrupted slide on tab hiding instead of leaving a blank or locked card", async () => {
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     firstFrame();
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: "그레이트 데인" }));
@@ -337,7 +369,7 @@ describe("single breed foil study", () => {
   });
 
   it("switches breeds during a flip without accumulating renderers or losing foil preferences", async () => {
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     firstFrame();
     expect(screen.getByRole("button", { name: "이전 견종" })).toBeDisabled();
     fireEvent.change(screen.getByRole("slider"), { target: { value: "40" } });
@@ -394,7 +426,7 @@ describe("single breed foil study", () => {
   });
 
   it("preserves the starting tilt and ignores repeated flips until landing", () => {
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     firstFrame(performance.now());
     const card = screen.getByRole("group", { name: /홀로그램 카드/ });
     const surface = container.querySelector<HTMLElement>("[data-foil]")!;
@@ -411,7 +443,7 @@ describe("single breed foil study", () => {
 
   it("flips without WebGL, exposes only the active face, and returns with Escape", () => {
     vi.mocked(createFoilRenderer).mockReturnValue(null);
-    render(<FoilCard />);
+    renderGiant();
     firstFrame();
     const card = screen.getByRole("group", { name: /홀로그램 카드/ });
     fireEvent.keyDown(card, { key: "Enter" });
@@ -442,7 +474,7 @@ describe("single breed foil study", () => {
 
   it("keeps drags and cancelled gestures from flipping but accepts the next tap", () => {
     vi.stubGlobal("PointerEvent", MouseEvent);
-    render(<FoilCard />);
+    renderGiant();
     firstFrame();
     const card = screen.getByRole("group", { name: /홀로그램 카드/ });
     card.setPointerCapture = vi.fn();
@@ -471,7 +503,7 @@ describe("single breed foil study", () => {
       pointerId = 1;
     }
     vi.stubGlobal("PointerEvent", TouchPointerEvent);
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     firstFrame();
     const card = screen.getByRole("group", { name: /홀로그램 카드/ });
     const surface = container.querySelector("[data-foil]") as HTMLElement;
@@ -512,7 +544,7 @@ describe("single breed foil study", () => {
     }
     vi.stubGlobal("PointerEvent", TouchPointerEvent);
     reduced = true;
-    render(<FoilCard />);
+    renderGiant();
     firstFrame();
     const card = screen.getByRole("group", { name: /홀로그램 카드/ });
     card.hasPointerCapture = () => false;
@@ -545,7 +577,7 @@ describe("single breed foil study", () => {
   });
 
   it("shares one renderer across faces, bounds flip draws, and enables back tilt and controls", () => {
-    const { container } = render(<FoilCard />);
+    const { container } = renderGiant();
     const start = performance.now() + 100;
     firstFrame(start);
     fireEvent.click(screen.getByRole("button", { name: /카드 움직여 보기/ }));
@@ -606,7 +638,7 @@ describe("single breed foil study", () => {
   });
 
   it("hides strength from keyboard and accessibility navigation while preserving its value", () => {
-    render(<FoilCard />);
+    renderGiant();
     firstFrame();
     const slider = screen.getByRole("slider");
     fireEvent.change(slider, { target: { value: "42" } });
@@ -625,7 +657,7 @@ describe("single breed foil study", () => {
 
   it("keeps the breed readable and disables unavailable coating controls without WebGL", () => {
     vi.mocked(createFoilRenderer).mockReturnValue(null);
-    render(<FoilCard />);
+    renderGiant();
     firstFrame();
     expect(
       screen.getByRole("heading", { name: "그레이트 피레니즈" }),
@@ -640,7 +672,7 @@ describe("single breed foil study", () => {
 
   it("honors reduced motion while allowing a static foil comparison and frees GPU resources", () => {
     reduced = true;
-    const { container, unmount } = render(<FoilCard />);
+    const { container, unmount } = renderGiant();
     firstFrame();
     expect(
       screen.getByRole("button", { name: /카드 움직여 보기/ }),
@@ -669,7 +701,7 @@ describe("single breed foil study", () => {
   });
 
   it("bounds GPU submissions on a 240Hz input stream and stops when settled or off", () => {
-    render(<FoilCard />);
+    renderGiant();
     const start = performance.now() + 100;
     firstFrame(start);
     renderer.draw.mockClear();
