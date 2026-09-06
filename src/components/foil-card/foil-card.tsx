@@ -18,6 +18,7 @@ import {
 import { createFoilRenderer, foilVariant } from "@/lib/card-foil";
 import { giantCards } from "@/content/giant-cards";
 import { extraSmallCards } from "@/content/extra-small-cards";
+import { mediumCards } from "@/content/medium-cards";
 import { CardFront } from "./card-front";
 import { CardBack } from "./card-back";
 import { SizeSelector, type CardSize } from "./size-selector";
@@ -33,11 +34,17 @@ type Motion = {
   slide: (direction: number, commit: (animate: boolean) => void) => void;
 };
 const limit = (value: number) => Math.min(1, Math.max(-1, value));
+const cardsForSize = (size: CardSize) =>
+  size === "소형견"
+    ? extraSmallCards
+    : size === "중형견"
+      ? mediumCards
+      : giantCards;
 
 export function FoilCard() {
   const [size, setSize] = useState<CardSize>("초대형견");
-  const cards = size === "소형견" ? extraSmallCards : giantCards;
-  const hasCards = size === "초대형견" || size === "소형견";
+  const cards = cardsForSize(size);
+  const hasCards = size !== "대형견";
   const [active, setActive] = useState(0);
   const [selected, setSelected] = useState(0);
   const [flipTarget, setFlipTarget] = useState(false);
@@ -773,10 +780,9 @@ export function FoilCard() {
             setFlipped(false);
             setFlipTarget(false);
             settings.current.flipped = false;
-            settings.current.woodland = next === "소형견";
-            settings.current.variant = foilVariant(
-              (next === "소형견" ? extraSmallCards : giantCards)[0].slug,
-            );
+            settings.current.woodland =
+              cardsForSize(next)[0].theme === "woodland";
+            settings.current.variant = foilVariant(cardsForSize(next)[0].slug);
             setSize(next);
           }}
         />

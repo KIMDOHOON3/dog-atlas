@@ -67,13 +67,13 @@ describe("single breed foil study", () => {
   it("switches size collections without showing giant cards under another size", () => {
     render(<FoilCard />);
     firstFrame();
-    fireEvent.click(screen.getByRole("button", { name: "중형견" }));
-    expect(screen.getByRole("button", { name: "중형견" })).toHaveAttribute(
+    fireEvent.click(screen.getByRole("button", { name: "대형견" }));
+    expect(screen.getByRole("button", { name: "대형견" })).toHaveAttribute(
       "aria-pressed",
       "true",
     );
     expect(screen.getByRole("status")).toHaveTextContent(
-      "중형견 카드는 아직 없어요.",
+      "대형견 카드는 아직 없어요.",
     );
     expect(
       screen.queryByRole("button", { name: "뒤집어서 알아보기" }),
@@ -81,6 +81,16 @@ describe("single breed foil study", () => {
     expect(
       screen.queryByRole("heading", { name: "그레이트 피레니즈" }),
     ).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "중형견" }));
+    expect(screen.getByRole("heading", { name: "진돗개" })).toBeVisible();
+    expect(
+      screen.getByRole("link", { name: "진돗개 자세히 보기" }),
+    ).toHaveAttribute("href", "/breeds/korea-jindo-dog");
+    expect(
+      screen.getByRole("button", {
+        name: "잉글리시 코커 스패니얼",
+      }),
+    ).toBeEnabled();
     fireEvent.click(screen.getByRole("button", { name: "초대형견" }));
     expect(
       screen.getByRole("heading", { name: "그레이트 피레니즈" }),

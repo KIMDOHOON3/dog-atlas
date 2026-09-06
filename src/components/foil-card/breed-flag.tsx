@@ -3,6 +3,51 @@ import styles from "./foil-card.module.css";
 
 export function BreedFlag({ country }: { country: GiantCard["flag"] }) {
   if (country === "none") return null;
+  if (country === "japan")
+    return (
+      <svg className={styles.flag} viewBox="0 0 60 40" aria-hidden="true">
+        <path fill="#f9f7ed" d="M0 0h60v40H0z" />
+        <circle cx="30" cy="20" r="12" fill="#b64e45" />
+      </svg>
+    );
+  if (country === "korea")
+    return (
+      <svg className={styles.flag} viewBox="0 0 60 40" aria-hidden="true">
+        <path fill="#f9f7ed" d="M0 0h60v40H0z" />
+        <g transform="rotate(33.69 30 20)">
+          <circle cx="30" cy="20" r="10" fill="#355b83" />
+          <path
+            d="M20 20a10 10 0 0 1 20 0a5 5 0 0 1-10 0a5 5 0 0 0-10 0"
+            fill="#b64e45"
+          />
+        </g>
+        {[
+          { x: 12, y: 9, angle: -56.31, broken: [false, false, false] },
+          { x: 48, y: 9, angle: 56.31, broken: [true, false, true] },
+          { x: 12, y: 31, angle: 56.31, broken: [false, true, false] },
+          { x: 48, y: 31, angle: -56.31, broken: [true, true, true] },
+        ].map(({ x, y, angle, broken }) => (
+          <g
+            key={x + "-" + y}
+            transform={`translate(${x} ${y}) rotate(${angle})`}
+            fill="#303a38"
+          >
+            {broken.map((split, index) => (
+              <g key={index} transform={`translate(0 ${(index - 1) * 3})`}>
+                {split ? (
+                  <>
+                    <rect x="-5" y="-1" width="4" height="2" />
+                    <rect x="1" y="-1" width="4" height="2" />
+                  </>
+                ) : (
+                  <rect x="-5" y="-1" width="10" height="2" />
+                )}
+              </g>
+            ))}
+          </g>
+        ))}
+      </svg>
+    );
   if (country === "china")
     return (
       <svg className={styles.flag} viewBox="0 0 30 20" aria-hidden="true">
