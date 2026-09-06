@@ -6,7 +6,7 @@ const art = z.object({
   width: z.number(),
   height: z.number(),
 });
-const cardSchema = z.object({
+export const cardSchema = z.object({
   slug: z.string(),
   name: z.string(),
   nameEn: z.string(),
@@ -16,7 +16,15 @@ const cardSchema = z.object({
   originEn: z.string(),
   region: z.string(),
   flag: z
-    .enum(["france", "switzerland", "germany", "ireland", "turkey", "mongolia"])
+    .enum([
+      "france",
+      "switzerland",
+      "germany",
+      "ireland",
+      "turkey",
+      "mongolia",
+      "mexico",
+    ])
     .nullable(),
   role: z.string(),
   tagline: z.string(),

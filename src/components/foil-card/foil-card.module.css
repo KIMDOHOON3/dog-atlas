@@ -846,6 +846,10 @@
   z-index: -1;
   -webkit-user-drag: none;
 }
+.backPaper[data-breed="chihuahua"] .backArtwork {
+  top: -8%;
+  mask-image: linear-gradient(to bottom, #000 85%, transparent 100%);
+}
 .origin {
   position: absolute;
   top: 5cqw;

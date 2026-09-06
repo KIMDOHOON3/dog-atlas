@@ -17,6 +17,7 @@ import {
 } from "@/lib/card-transition";
 import { createFoilRenderer } from "@/lib/card-foil";
 import { giantCards } from "@/content/giant-cards";
+import { extraSmallCards } from "@/content/extra-small-cards";
 import { CardFront } from "./card-front";
 import { CardBack } from "./card-back";
 import { SizeSelector, type CardSize } from "./size-selector";
@@ -35,6 +36,8 @@ const limit = (value: number) => Math.min(1, Math.max(-1, value));
 
 export function FoilCard() {
   const [size, setSize] = useState<CardSize>("초대형견");
+  const cards = size === "초소형견" ? extraSmallCards : giantCards;
+  const hasCards = size === "초대형견" || size === "초소형견";
   const [active, setActive] = useState(0);
   const [selected, setSelected] = useState(0);
   const [flipTarget, setFlipTarget] = useState(false);
@@ -54,7 +57,7 @@ export function FoilCard() {
   const selecting = useRef(false);
   const pagination = useRef<HTMLElement>(null);
   const imageReady = useRef(new Map<string, Promise<unknown>>());
-  const breed = giantCards[active];
+  const breed = cards[active];
   const canvas = useRef<HTMLCanvasElement>(null);
   const card = useRef<HTMLDivElement>(null);
   const frontFace = useRef<HTMLDivElement>(null);
@@ -112,13 +115,13 @@ export function FoilCard() {
   );
 
   async function selectBreed(index: number) {
-    if (index === active || selecting.current || !giantCards[index]) return;
+    if (index === active || selecting.current || !cards[index]) return;
     const preparationStart = performance.now();
     selecting.current = true;
     setSliding(true);
     setSelected(index);
     flushSync(() => setTextureTarget(index));
-    await prepareImage(giantCards[index].front.src);
+    await prepareImage(cards[index].front.src);
     if (!motion.current) return;
     transitionKeys.current = null;
     if (
@@ -150,7 +153,7 @@ export function FoilCard() {
       settings.current.flipped = false;
       setFlipped(false);
       setFlipTarget(false);
-      settings.current.woodland = giantCards[index].theme === "woodland";
+      settings.current.woodland = cards[index].theme === "woodland";
       setActive(index);
     });
   }
@@ -159,11 +162,11 @@ export function FoilCard() {
     // Defer image decoding until the card has landed. Only warm nearby fronts
     // and the current reverse, rather than every neighboring reverse.
     if (sliding) return;
-    void prepareImage(giantCards[active].back.src);
-    giantCards.slice(Math.max(0, active - 1), active + 2).forEach((entry) => {
+    void prepareImage(cards[active].back.src);
+    cards.slice(Math.max(0, active - 1), active + 2).forEach((entry) => {
       void prepareImage(entry.front.src);
     });
-  }, [active, sliding]);
+  }, [active, sliding, cards]);
 
   useEffect(() => {
     if (sliding || reduced) return;
@@ -176,7 +179,7 @@ export function FoilCard() {
         [active - 1, false],
       ] as const) {
         if (cancelled || selecting.current) break;
-        if (!giantCards[index]) continue;
+        if (!cards[index]) continue;
         await prepareTexture(index, back);
       }
     }, 180);
@@ -184,7 +187,7 @@ export function FoilCard() {
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [active, sliding, reduced, prepareTexture]);
+  }, [active, sliding, reduced, prepareTexture, cards]);
 
   useEffect(() => {
     const nav = pagination.current;
@@ -194,14 +197,14 @@ export function FoilCard() {
       left: selected.offsetLeft - (nav.clientWidth - selected.offsetWidth) / 2,
       behavior: reduced ? "instant" : "smooth",
     });
-  }, [selected, reduced]);
+  }, [selected, reduced, cards]);
 
   useEffect(() => {
     if (sliding) return;
     card.current?.querySelectorAll<HTMLImageElement>("img").forEach((img) => {
       void img.decode?.().catch(() => {});
     });
-  }, [active, sliding]);
+  }, [active, sliding, cards]);
 
   useEffect(() => {
     settings.current.foil = foil;
@@ -677,7 +680,7 @@ export function FoilCard() {
       renderer?.dispose();
       motion.current = null;
     };
-  }, [contextVersion]);
+  }, [contextVersion, cards]);
 
   function point(event: PointerEvent<HTMLDivElement>) {
     const start = gesture.current;
@@ -758,11 +761,20 @@ export function FoilCard() {
         <SizeSelector
           value={size}
           onChange={(next) => {
-            if (next !== size) motion.current?.stop();
+            if (next === size || selecting.current || turning) return;
+            motion.current?.stop();
+            setActive(0);
+            setSelected(0);
+            setTextureTarget(0);
+            setOutgoing(null);
+            setFlipped(false);
+            setFlipTarget(false);
+            settings.current.flipped = false;
+            settings.current.woodland = next === "초소형견";
             setSize(next);
           }}
         />
-        {size !== "초대형견" && (
+        {!hasCards && (
           <div className={styles.emptyCollection} role="status">
             <p>{size} 카드는 아직 없어요.</p>
             <Link href="/discover">
@@ -770,7 +782,7 @@ export function FoilCard() {
             </Link>
           </div>
         )}
-        <div className={styles.collectionContent} hidden={size !== "초대형견"}>
+        <div className={styles.collectionContent} hidden={!hasCards}>
           <div className={styles.exhibit}>
             <button
               className={styles.previousCard}
@@ -796,15 +808,15 @@ export function FoilCard() {
               >
                 {meshAvailable &&
                   [...new Set([active, active - 1, active + 1, textureTarget])]
-                    .filter((index) => giantCards[index])
+                    .filter((index) => cards[index])
                     .map((index) => (
                       <div
                         className={styles.face}
                         key={index}
                         data-snapshot={`${index}-front`}
-                        data-theme={giantCards[index].theme}
+                        data-theme={cards[index].theme}
                       >
-                        <CardFront breed={giantCards[index]} />
+                        <CardFront breed={cards[index]} />
                       </div>
                     ))}
                 {meshAvailable && (
@@ -819,7 +831,7 @@ export function FoilCard() {
               </div>
               <div className={styles.deckPreview} aria-hidden="true">
                 {[2, 1].map((depth) =>
-                  giantCards[active + depth] ? (
+                  cards[active + depth] ? (
                     <div
                       key={depth}
                       className={styles.deckCard}
@@ -835,13 +847,13 @@ export function FoilCard() {
                   data-slide-direction={outgoing.direction}
                   ref={departingCard}
                   aria-hidden="true"
-                  data-theme={giantCards[outgoing.index].theme}
+                  data-theme={cards[outgoing.index].theme}
                 >
                   <div className={styles.face}>
                     {outgoing.back ? (
-                      <CardBack breed={giantCards[outgoing.index]} />
+                      <CardBack breed={cards[outgoing.index]} />
                     ) : (
-                      <CardFront breed={giantCards[outgoing.index]} />
+                      <CardFront breed={cards[outgoing.index]} />
                     )}
                   </div>
                 </div>
@@ -963,8 +975,8 @@ export function FoilCard() {
             <button
               className={styles.nextCard}
               onClick={() => selectBreed(active + 1)}
-              disabled={active === giantCards.length - 1}
-              aria-disabled={sliding || active === giantCards.length - 1}
+              disabled={active === cards.length - 1}
+              aria-disabled={sliding || active === cards.length - 1}
               aria-label="다음 견종"
             >
               →
@@ -973,7 +985,7 @@ export function FoilCard() {
           <nav
             ref={pagination}
             className={styles.cardPagination}
-            aria-label="초대형견 선택"
+            aria-label={`${size} 선택`}
           >
             <div className={styles.paginationTrack}>
               <span
@@ -981,7 +993,7 @@ export function FoilCard() {
                 aria-hidden="true"
                 style={{ transform: `translateX(${selected * 48}px)` }}
               />
-              {giantCards.map((entry, index) => (
+              {cards.map((entry, index) => (
                 <button
                   key={entry.slug}
                   aria-label={entry.name}
@@ -997,7 +1009,7 @@ export function FoilCard() {
             </div>
           </nav>
           <span className={styles.srOnly} aria-live="polite">
-            {breed.name}, {active + 1} / {giantCards.length}
+            {breed.name}, {active + 1} / {cards.length}
           </span>
           <div className={styles.cardActions}>
             <button

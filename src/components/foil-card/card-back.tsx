@@ -5,7 +5,7 @@ import { BreedFlag } from "./breed-flag";
 
 export function CardBack({ breed }: { breed: GiantCard }) {
   return (
-    <div className={styles.backPaper}>
+    <div className={styles.backPaper} data-breed={breed.slug}>
       <Image
         className={styles.backArtwork}
         src={breed.back.src}
