@@ -1,12 +1,13 @@
 .page {
   min-height: 100svh;
-  color: #e4e6dc;
-  background: radial-gradient(
-    ellipse at 50% 42%,
-    #303d3b 0%,
-    #202a29 37%,
-    #171d1d 76%
-  );
+  --paper: #fff;
+  --paper-deep: #f6f0e8;
+  --ink: #302a26;
+  --ink-soft: #716861;
+  --line: #e9e3dc;
+  --clay: #a76035;
+  color: var(--ink);
+  background: var(--paper);
   overflow: hidden;
 }
 .header {
@@ -1381,4 +1382,82 @@
   .spreadDialog[open] {
     animation: none;
   }
+}
+
+/* Match the white paper and warm ink used by discovery and breed details. */
+.header,
+.footer,
+.controls,
+.strength {
+  border-color: var(--line);
+}
+.back,
+.viewSwitch button,
+.sizeSelector button,
+.footer,
+.status,
+.controls button > span,
+.strength {
+  color: var(--ink-soft);
+}
+.viewSwitch button[aria-pressed="true"],
+.sizeSelector button[aria-pressed="true"] {
+  color: var(--clay);
+}
+.viewSwitch button[aria-pressed="true"] {
+  background: var(--paper-deep);
+  border-color: var(--line);
+}
+.stackGlyph i {
+  background: var(--paper);
+}
+.previousCard,
+.nextCard,
+.flipButton,
+.detailLink,
+.spreadActions button,
+.spreadActions a {
+  color: var(--ink);
+  background: var(--paper);
+  border-color: var(--line);
+}
+.controls {
+  background: var(--paper);
+}
+.controls button {
+  color: var(--ink);
+}
+.controls button:hover,
+.flipButton:hover,
+.detailLink:hover {
+  background: var(--paper-deep);
+}
+.playIcon {
+  background: var(--clay);
+}
+.strength input {
+  accent-color: var(--clay);
+}
+.brandWordmark {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(12%) saturate(625%)
+    hue-rotate(342deg) brightness(94%) contrast(91%);
+}
+.spreadDialog::backdrop {
+  background: rgb(48 42 38 / 55%);
+}
+.viewSwitch button:focus-visible,
+.sizeSelector button:focus-visible,
+.spreadSurface:focus-visible,
+.spreadActions button:focus-visible,
+.spreadActions a:focus-visible {
+  outline-color: var(--clay);
+}
+.cardPagination button {
+  color: var(--ink-soft);
+}
+.cardPagination button[data-selected="true"] {
+  color: var(--clay);
+}
+.paginationLine {
+  background: var(--clay);
 }
