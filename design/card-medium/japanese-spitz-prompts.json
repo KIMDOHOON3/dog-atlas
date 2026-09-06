@@ -1,0 +1,24 @@
+{
+  "front": {
+    "prompt": "Create premium square watercolor breed atlas front artwork. Reference dog appearance only: adult Japanese Spitz, pure white straight abundant double coat with neck ruff, wedge shaped muzzle, black nose almond dark eyes, small erect triangular ears, plumed tail over back, lean compact adult body NOT Samoyed or Pomeranian. Full body three quarter standing centered dog occupies65% of height, all paws ears tail visible. Beautiful Japanese early20th-century residential garden with wooden veranda, modest tiled eaves, stepping stone path, hydrangea and maple foliage, soft morning light. Fully painted detailed background, fine natural history watercolor ivory paper warm sage muted blue green palette. No people, no text, numbers, frame, symbols. Match refined atlas style, no cartoon or photograph.",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-caaf0df4-217f-4c52-a127-209acbed9aac.png",
+    "asset": "public/illustrations/card-studies/japanese-spitz-medium-front-v1.webp",
+    "format": "webp",
+    "width": 1254,
+    "height": 1254,
+    "channels": 3,
+    "premultiplied": false,
+    "size": 260320
+  },
+  "back": {
+    "prompt": "Paint portrait 5:7 watercolor breed atlas BACK illustration matching reference white adult Japanese Spitz and Japanese residential garden. Japanese woman age40 with short black bob, sage cardigan cream blouse charcoal trousers flat shoes stands entirely on RIGHT side from x68% to88%, head y14%, feet y73%. Small adult Japanese Spitz stands next to her legs x48%-75%, shoulder height34cm compared with165cm woman, feet same ground y73%. Dog full body all paws and plumed tail visible. Wooden veranda hydrangeas maple and stone path, refined natural history watercolor on ivory paper muted sage. LEFT45% is very pale unobstructed ivory wash for overlay information; bottom22% also quiet pale ivory for text. Human natural everyday Japanese appearance, no costume. No lettering numbers card frame labels. Preserve dog adult compact white double coat wedge muzzle and pointed ears; NOT giant Samoyed. Elegant detailed painting.",
+    "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-8151731c-0b66-412e-81eb-a767737a303f.png",
+    "asset": "public/illustrations/card-studies/japanese-spitz-medium-back-v1.webp",
+    "format": "webp",
+    "width": 1060,
+    "height": 1477,
+    "channels": 3,
+    "premultiplied": false,
+    "size": 130514
+  }
+}
