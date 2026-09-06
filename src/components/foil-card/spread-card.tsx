@@ -9,6 +9,16 @@ import { CardBack } from "./card-back";
 import styles from "./foil-card.module.css";
 
 export function SpreadCard({ breed }: { breed: GiantCard }) {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 600px)");
+    const update = () => setMobile(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+  const [expanded, setExpanded] = useState(false);
+  const item = useRef<HTMLElement>(null);
   const [back, setBack] = useState(false);
   const [opened, setOpened] = useState(false);
   const [scale, setScale] = useState(1);
@@ -23,12 +33,35 @@ export function SpreadCard({ breed }: { breed: GiantCard }) {
     return () => observer.disconnect();
   }, []);
   function flip() {
+    if (window.matchMedia("(max-width: 600px)").matches && !expanded) {
+      setExpanded(true);
+      requestAnimationFrame(() =>
+        item.current?.scrollIntoView({
+          block: "start",
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
+            ? "instant"
+            : "smooth",
+        }),
+      );
+      return;
+    }
     setOpened(true);
     setBack((value) => !value);
   }
-  const label = back ? "그림으로 돌아가기" : "뒤집어서 알아보기";
+  const label =
+    mobile && !expanded
+      ? "크게 보기"
+      : back
+        ? "그림으로 돌아가기"
+        : "뒤집어서 알아보기";
   return (
-    <article className={styles.spreadItem} aria-label={breed.name}>
+    <article
+      ref={item}
+      className={styles.spreadItem}
+      data-expanded={expanded}
+      aria-label={breed.name}
+    >
       <div
         ref={area}
         className={styles.spreadSurface}
@@ -66,6 +99,17 @@ export function SpreadCard({ breed }: { breed: GiantCard }) {
           </div>
         </div>
       </div>
+      <button
+        className={styles.spreadCollapse}
+        type="button"
+        onClick={() => {
+          setExpanded(false);
+          setBack(false);
+        }}
+        aria-label={`${breed.name} 접기`}
+      >
+        접기 ×
+      </button>
       <div className={styles.spreadActions}>
         <button
           type="button"

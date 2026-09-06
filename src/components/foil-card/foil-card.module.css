@@ -1321,3 +1321,33 @@
   pointer-events: none;
   contain: layout style paint;
 }
+
+.spreadCollapse {
+  display: none;
+}
+@media (max-width: 600px) {
+  .spreadItem {
+    scroll-margin-top: 16px;
+  }
+  .spreadItem[data-expanded="true"] {
+    grid-column: 1 / -1;
+  }
+  .spreadItem[data-expanded="true"] .spreadCollapse {
+    display: block;
+    margin: 14px auto 0;
+    padding: 8px 18px;
+    color: #dde3d2;
+    background: transparent;
+    border: 1px solid #c9d4bf33;
+    border-radius: 24px;
+    min-height: 44px;
+    cursor: pointer;
+  }
+  .spreadItem[data-expanded="true"] .spreadActions {
+    flex-direction: row;
+  }
+  .spreadItem[data-expanded="true"] .spreadActions > * {
+    flex: 1;
+    font-size: 12px;
+  }
+}
