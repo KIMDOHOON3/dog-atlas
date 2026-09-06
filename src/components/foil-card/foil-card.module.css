@@ -54,11 +54,73 @@
   justify-content: center;
   margin: 0 auto 12px;
 }
-.collectionLabel {
-  margin-bottom: 24px;
-  color: #c6cfbc;
+.sizeSelector {
+  display: flex;
+  width: min(100%, 520px);
+  margin: 0 auto 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+.sizeSelector::-webkit-scrollbar {
+  display: none;
+}
+.sizeSelector::before,
+.sizeSelector::after {
+  content: "";
+  flex: 0 0 calc(50% - 46px);
+}
+.sizeSelector button {
+  flex: 0 0 92px;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #7f9186;
   font-size: 12px;
   letter-spacing: 1px;
+  cursor: pointer;
+  transition:
+    color 240ms ease,
+    transform 240ms ease;
+}
+.sizeSelector button[aria-pressed="true"] {
+  color: #e4e6d5;
+  transform: scale(1.08);
+}
+.sizeSelector button:focus-visible {
+  outline: 1px solid #c6cfbc;
+  outline-offset: -5px;
+}
+.collectionContent[hidden] {
+  display: none;
+}
+.emptyCollection {
+  min-height: min(60svh, 480px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #b9c1b8;
+  font-size: 14px;
+}
+.emptyCollection a {
+  color: #d3dfbf;
+  font-size: 12px;
+  text-underline-offset: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sizeSelector button {
+    transition: none;
+  }
 }
 .previousCard,
 .nextCard {

@@ -19,6 +19,7 @@ import { createFoilRenderer } from "@/lib/card-foil";
 import { giantCards } from "@/content/giant-cards";
 import { CardFront } from "./card-front";
 import { CardBack } from "./card-back";
+import { SizeSelector, type CardSize } from "./size-selector";
 import styles from "./foil-card.module.css";
 
 type Motion = {
@@ -33,6 +34,7 @@ type Motion = {
 const limit = (value: number) => Math.min(1, Math.max(-1, value));
 
 export function FoilCard() {
+  const [size, setSize] = useState<CardSize>("초대형견");
   const [active, setActive] = useState(0);
   const [selected, setSelected] = useState(0);
   const [flipTarget, setFlipTarget] = useState(false);
@@ -751,337 +753,356 @@ export function FoilCard() {
           견종 둘러보기 <span>↗</span>
         </Link>
       </header>
-      <main id="main" className={styles.main} aria-label="초대형견 카드 도감">
+      <main id="main" className={styles.main} aria-label={`${size} 카드 도감`}>
         <h1 className={styles.srOnly}>살아 있는 견종도감</h1>
-        <div className={styles.collectionLabel}>초대형견</div>
-        <div className={styles.exhibit}>
-          <button
-            className={styles.previousCard}
-            onClick={() => selectBreed(active - 1)}
-            disabled={active === 0}
-            aria-disabled={sliding || active === 0}
-            aria-label="이전 견종"
-          >
-            ←
-          </button>
-          <div className={styles.stage} aria-busy={sliding}>
-            <div className={styles.shadow} />
-            <canvas
-              ref={transitionCanvas}
-              className={styles.meshCanvas}
-              aria-hidden="true"
-              data-transition-canvas="true"
-            />
-            <div
-              ref={textureSources}
-              className={styles.textureSources}
-              aria-hidden="true"
+        <SizeSelector
+          value={size}
+          onChange={(next) => {
+            if (next !== size) motion.current?.stop();
+            setSize(next);
+          }}
+        />
+        {size !== "초대형견" && (
+          <div className={styles.emptyCollection} role="status">
+            <p>{size} 카드는 아직 없어요.</p>
+            <Link href="/discover">
+              견종 둘러보기 <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+        )}
+        <div className={styles.collectionContent} hidden={size !== "초대형견"}>
+          <div className={styles.exhibit}>
+            <button
+              className={styles.previousCard}
+              onClick={() => selectBreed(active - 1)}
+              disabled={active === 0}
+              aria-disabled={sliding || active === 0}
+              aria-label="이전 견종"
             >
-              {meshAvailable &&
-                [...new Set([active, active - 1, active + 1, textureTarget])]
-                  .filter((index) => giantCards[index])
-                  .map((index) => (
-                    <div
-                      className={styles.face}
-                      key={index}
-                      data-snapshot={`${index}-front`}
-                      data-theme={giantCards[index].theme}
-                    >
-                      <CardFront breed={giantCards[index]} />
-                    </div>
-                  ))}
-              {meshAvailable && (
-                <div
-                  className={styles.face}
-                  data-snapshot={`${active}-back`}
-                  data-theme={breed.theme}
-                >
-                  <CardBack breed={breed} />
-                </div>
-              )}
-            </div>
-            <div className={styles.deckPreview} aria-hidden="true">
-              {[2, 1].map((depth) =>
-                giantCards[active + depth] ? (
-                  <div
-                    key={depth}
-                    className={styles.deckCard}
-                    data-depth={depth}
-                  />
-                ) : null,
-              )}
-            </div>
-            {outgoing && (
-              <div
-                className={styles.departingCard}
-                data-departing="true"
-                data-slide-direction={outgoing.direction}
-                ref={departingCard}
+              ←
+            </button>
+            <div className={styles.stage} aria-busy={sliding}>
+              <div className={styles.shadow} />
+              <canvas
+                ref={transitionCanvas}
+                className={styles.meshCanvas}
                 aria-hidden="true"
-                data-theme={giantCards[outgoing.index].theme}
-              >
-                <div className={styles.face}>
-                  {outgoing.back ? (
-                    <CardBack breed={giantCards[outgoing.index]} />
-                  ) : (
-                    <CardFront breed={giantCards[outgoing.index]} />
-                  )}
-                </div>
-              </div>
-            )}
-            <div
-              className={styles.interaction}
-              tabIndex={0}
-              role="group"
-              aria-label={`${breed.name} 홀로그램 카드`}
-              aria-describedby="card-instructions"
-              data-side={flipped ? "back" : "front"}
-              onPointerMove={point}
-              onClick={(e) => {
-                if (e.detail === 0 || !suppressClick.current) flip();
-                suppressClick.current = false;
-              }}
-              onPointerDown={(e) => {
-                if (e.button !== 0) return;
-                if (gesture.current) {
-                  gesture.current.moved = true;
-                  gesture.current.axis = "blocked";
-                  suppressClick.current = true;
-                  return;
-                }
-                suppressClick.current = false;
-                gesture.current = {
-                  id: e.pointerId,
-                  x: e.clientX,
-                  y: e.clientY,
-                  moved: false,
-                  axis: "pending",
-                };
-                if (e.pointerType !== "touch")
-                  e.currentTarget.setPointerCapture(e.pointerId);
-                point(e);
-              }}
-              onPointerUp={(e) => {
-                const start = gesture.current;
-                if (!start || start.id !== e.pointerId) return;
-                suppressClick.current =
-                  start.moved ||
-                  Math.hypot(e.clientX - start.x, e.clientY - start.y) > 8;
-                gesture.current = null;
-                if (e.currentTarget.hasPointerCapture(e.pointerId))
-                  e.currentTarget.releasePointerCapture(e.pointerId);
-                const dx = e.clientX - start.x;
-                const dy = e.clientY - start.y;
-                if (
-                  e.pointerType === "touch" &&
-                  start.axis === "horizontal" &&
-                  Math.abs(dx) >= 48 &&
-                  Math.abs(dx) > Math.abs(dy) * 1.4
-                ) {
-                  suppressClick.current = true;
-                  void selectBreed(active + (dx < 0 ? 1 : -1));
-                }
-              }}
-              onPointerCancel={(e) => {
-                gesture.current = null;
-                suppressClick.current = true;
-                if (e.pointerType !== "touch") motion.current?.aim(0.18, -0.16);
-              }}
-              onLostPointerCapture={() => {
-                if (gesture.current) {
-                  gesture.current = null;
-                  suppressClick.current = true;
-                }
-              }}
-              onPointerLeave={(e) => {
-                if (e.pointerType === "touch") return;
-                if (!e.currentTarget.hasPointerCapture(e.pointerId))
-                  motion.current?.aim(0.18, -0.16);
-              }}
-              onKeyDown={keys}
-            >
+                data-transition-canvas="true"
+              />
               <div
-                className={styles.card}
-                ref={card}
-                data-foil={foil && strength > 0 && available === true}
+                ref={textureSources}
+                className={styles.textureSources}
+                aria-hidden="true"
               >
-                <div className={styles.turner} data-flipped={flipped}>
+                {meshAvailable &&
+                  [...new Set([active, active - 1, active + 1, textureTarget])]
+                    .filter((index) => giantCards[index])
+                    .map((index) => (
+                      <div
+                        className={styles.face}
+                        key={index}
+                        data-snapshot={`${index}-front`}
+                        data-theme={giantCards[index].theme}
+                      >
+                        <CardFront breed={giantCards[index]} />
+                      </div>
+                    ))}
+                {meshAvailable && (
                   <div
                     className={styles.face}
+                    data-snapshot={`${active}-back`}
                     data-theme={breed.theme}
-                    ref={frontFace}
-                    hidden={flipped}
-                    aria-hidden={flipped}
-                  >
-                    <CardFront breed={breed} priority />
-                  </div>
-                  <div
-                    className={styles.face}
-                    data-theme={breed.theme}
-                    ref={backFace}
-                    hidden={!flipped}
-                    aria-hidden={!flipped}
                   >
                     <CardBack breed={breed} />
                   </div>
-                  <div className={styles.coating} aria-hidden="true">
-                    <canvas
-                      ref={canvas}
-                      className={styles.foil}
-                      data-renderer={
-                        available === null
-                          ? "loading"
-                          : available
-                            ? "webgl"
-                            : "unavailable"
-                      }
+                )}
+              </div>
+              <div className={styles.deckPreview} aria-hidden="true">
+                {[2, 1].map((depth) =>
+                  giantCards[active + depth] ? (
+                    <div
+                      key={depth}
+                      className={styles.deckCard}
+                      data-depth={depth}
                     />
-                    <div className={styles.flipGlint} ref={glint} />
+                  ) : null,
+                )}
+              </div>
+              {outgoing && (
+                <div
+                  className={styles.departingCard}
+                  data-departing="true"
+                  data-slide-direction={outgoing.direction}
+                  ref={departingCard}
+                  aria-hidden="true"
+                  data-theme={giantCards[outgoing.index].theme}
+                >
+                  <div className={styles.face}>
+                    {outgoing.back ? (
+                      <CardBack breed={giantCards[outgoing.index]} />
+                    ) : (
+                      <CardFront breed={giantCards[outgoing.index]} />
+                    )}
+                  </div>
+                </div>
+              )}
+              <div
+                className={styles.interaction}
+                tabIndex={0}
+                role="group"
+                aria-label={`${breed.name} 홀로그램 카드`}
+                aria-describedby="card-instructions"
+                data-side={flipped ? "back" : "front"}
+                onPointerMove={point}
+                onClick={(e) => {
+                  if (e.detail === 0 || !suppressClick.current) flip();
+                  suppressClick.current = false;
+                }}
+                onPointerDown={(e) => {
+                  if (e.button !== 0) return;
+                  if (gesture.current) {
+                    gesture.current.moved = true;
+                    gesture.current.axis = "blocked";
+                    suppressClick.current = true;
+                    return;
+                  }
+                  suppressClick.current = false;
+                  gesture.current = {
+                    id: e.pointerId,
+                    x: e.clientX,
+                    y: e.clientY,
+                    moved: false,
+                    axis: "pending",
+                  };
+                  if (e.pointerType !== "touch")
+                    e.currentTarget.setPointerCapture(e.pointerId);
+                  point(e);
+                }}
+                onPointerUp={(e) => {
+                  const start = gesture.current;
+                  if (!start || start.id !== e.pointerId) return;
+                  suppressClick.current =
+                    start.moved ||
+                    Math.hypot(e.clientX - start.x, e.clientY - start.y) > 8;
+                  gesture.current = null;
+                  if (e.currentTarget.hasPointerCapture(e.pointerId))
+                    e.currentTarget.releasePointerCapture(e.pointerId);
+                  const dx = e.clientX - start.x;
+                  const dy = e.clientY - start.y;
+                  if (
+                    e.pointerType === "touch" &&
+                    start.axis === "horizontal" &&
+                    Math.abs(dx) >= 48 &&
+                    Math.abs(dx) > Math.abs(dy) * 1.4
+                  ) {
+                    suppressClick.current = true;
+                    void selectBreed(active + (dx < 0 ? 1 : -1));
+                  }
+                }}
+                onPointerCancel={(e) => {
+                  gesture.current = null;
+                  suppressClick.current = true;
+                  if (e.pointerType !== "touch")
+                    motion.current?.aim(0.18, -0.16);
+                }}
+                onLostPointerCapture={() => {
+                  if (gesture.current) {
+                    gesture.current = null;
+                    suppressClick.current = true;
+                  }
+                }}
+                onPointerLeave={(e) => {
+                  if (e.pointerType === "touch") return;
+                  if (!e.currentTarget.hasPointerCapture(e.pointerId))
+                    motion.current?.aim(0.18, -0.16);
+                }}
+                onKeyDown={keys}
+              >
+                <div
+                  className={styles.card}
+                  ref={card}
+                  data-foil={foil && strength > 0 && available === true}
+                >
+                  <div className={styles.turner} data-flipped={flipped}>
+                    <div
+                      className={styles.face}
+                      data-theme={breed.theme}
+                      ref={frontFace}
+                      hidden={flipped}
+                      aria-hidden={flipped}
+                    >
+                      <CardFront breed={breed} priority />
+                    </div>
+                    <div
+                      className={styles.face}
+                      data-theme={breed.theme}
+                      ref={backFace}
+                      hidden={!flipped}
+                      aria-hidden={!flipped}
+                    >
+                      <CardBack breed={breed} />
+                    </div>
+                    <div className={styles.coating} aria-hidden="true">
+                      <canvas
+                        ref={canvas}
+                        className={styles.foil}
+                        data-renderer={
+                          available === null
+                            ? "loading"
+                            : available
+                              ? "webgl"
+                              : "unavailable"
+                        }
+                      />
+                      <div className={styles.flipGlint} ref={glint} />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <button
+              className={styles.nextCard}
+              onClick={() => selectBreed(active + 1)}
+              disabled={active === giantCards.length - 1}
+              aria-disabled={sliding || active === giantCards.length - 1}
+              aria-label="다음 견종"
+            >
+              →
+            </button>
           </div>
-          <button
-            className={styles.nextCard}
-            onClick={() => selectBreed(active + 1)}
-            disabled={active === giantCards.length - 1}
-            aria-disabled={sliding || active === giantCards.length - 1}
-            aria-label="다음 견종"
+          <nav
+            ref={pagination}
+            className={styles.cardPagination}
+            aria-label="초대형견 선택"
           >
-            →
-          </button>
-        </div>
-        <nav
-          ref={pagination}
-          className={styles.cardPagination}
-          aria-label="초대형견 선택"
-        >
-          <div className={styles.paginationTrack}>
-            <span
-              className={styles.paginationLine}
-              aria-hidden="true"
-              style={{ transform: `translateX(${selected * 48}px)` }}
-            />
-            {giantCards.map((entry, index) => (
-              <button
-                key={entry.slug}
-                aria-label={entry.name}
-                aria-current={active === index ? "true" : undefined}
-                data-selected={selected === index}
-                aria-disabled={sliding}
-                onClick={() => selectBreed(index)}
-              >
-                <span>{entry.number}</span>
-                <span className={styles.srOnly}>{entry.name}</span>
-              </button>
-            ))}
-          </div>
-        </nav>
-        <span className={styles.srOnly} aria-live="polite">
-          {breed.name}, {active + 1} / {giantCards.length}
-        </span>
-        <div className={styles.cardActions}>
-          <button
-            className={styles.flipButton}
-            onClick={flip}
-            aria-pressed={flipped}
-            aria-label={flipped ? "그림으로 돌아가기" : "뒤집어서 알아보기"}
-            data-turning={turning}
-            data-back={flipTarget}
-            disabled={sliding}
-          >
-            <Image
-              className={styles.flipIcon}
-              src="/images/card-controls/flip-f08.webp"
-              alt=""
-              aria-hidden="true"
-              width={192}
-              height={192}
-              unoptimized
-              loading="eager"
-              draggable={false}
-            />
-            <span className={styles.flipLabels} aria-hidden="true">
-              <span data-visible={!flipTarget}>뒤집어서 알아보기</span>
-              <span data-visible={flipTarget}>그림으로 돌아가기</span>
-            </span>
-          </button>
-          <Link
-            className={styles.detailLink}
-            href={`/breeds/${breed.slug}`}
-            aria-label={`${breed.name} 자세히 보기`}
-            prefetch={false}
-          >
-            <Image
-              className={styles.detailIcon}
-              src="/images/card-controls/detail-d10.webp"
-              alt=""
-              width={192}
-              height={192}
-              unoptimized
-              loading="eager"
-              draggable={false}
-            />
-            견종 자세히 보기
-          </Link>
-        </div>
-        <p className={styles.srOnly} id="card-instructions">
-          방향키로 기울이기 · Enter 또는 Space로 뒤집기
-        </p>
-        <div className={styles.controls} aria-label="카드 질감 조절">
-          <button
-            aria-pressed={foil}
-            onClick={() => setFoil((value) => !value)}
-            disabled={available === false}
-          >
-            <i className={styles.indicator} aria-hidden="true" />
-            홀로그램 <span>{foil ? "켜짐" : "꺼짐"}</span>
-          </button>
-          <div
-            className={styles.strengthPanel}
-            data-open={foil}
-            aria-hidden={!foil}
-            inert={!foil}
-          >
-            <div className={styles.strengthClip}>
-              <label className={styles.strength}>
-                빛의 강도
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={strength}
-                  disabled={!foil || available === false}
-                  onChange={(event) => setStrength(Number(event.target.value))}
-                />
-                <output>{strength}%</output>
-              </label>
+            <div className={styles.paginationTrack}>
+              <span
+                className={styles.paginationLine}
+                aria-hidden="true"
+                style={{ transform: `translateX(${selected * 48}px)` }}
+              />
+              {giantCards.map((entry, index) => (
+                <button
+                  key={entry.slug}
+                  aria-label={entry.name}
+                  aria-current={active === index ? "true" : undefined}
+                  data-selected={selected === index}
+                  aria-disabled={sliding}
+                  onClick={() => selectBreed(index)}
+                >
+                  <span>{entry.number}</span>
+                  <span className={styles.srOnly}>{entry.name}</span>
+                </button>
+              ))}
             </div>
+          </nav>
+          <span className={styles.srOnly} aria-live="polite">
+            {breed.name}, {active + 1} / {giantCards.length}
+          </span>
+          <div className={styles.cardActions}>
+            <button
+              className={styles.flipButton}
+              onClick={flip}
+              aria-pressed={flipped}
+              aria-label={flipped ? "그림으로 돌아가기" : "뒤집어서 알아보기"}
+              data-turning={turning}
+              data-back={flipTarget}
+              disabled={sliding}
+            >
+              <Image
+                className={styles.flipIcon}
+                src="/images/card-controls/flip-f08.webp"
+                alt=""
+                aria-hidden="true"
+                width={192}
+                height={192}
+                unoptimized
+                loading="eager"
+                draggable={false}
+              />
+              <span className={styles.flipLabels} aria-hidden="true">
+                <span data-visible={!flipTarget}>뒤집어서 알아보기</span>
+                <span data-visible={flipTarget}>그림으로 돌아가기</span>
+              </span>
+            </button>
+            <Link
+              className={styles.detailLink}
+              href={`/breeds/${breed.slug}`}
+              aria-label={`${breed.name} 자세히 보기`}
+              prefetch={false}
+            >
+              <Image
+                className={styles.detailIcon}
+                src="/images/card-controls/detail-d10.webp"
+                alt=""
+                width={192}
+                height={192}
+                unoptimized
+                loading="eager"
+                draggable={false}
+              />
+              견종 자세히 보기
+            </Link>
           </div>
-          <button
-            className={styles.playButton}
-            aria-label={demo ? "움직임 멈추기" : "카드 움직여 보기"}
-            onClick={() =>
-              demo ? motion.current?.stop() : motion.current?.demo()
-            }
-            disabled={reduced || available === false}
-          >
-            <span
-              className={styles.playIcon}
-              data-playing={demo}
-              aria-hidden="true"
-            />
-            {demo ? "움직임 멈추기" : "카드 움직여 보기"}
-          </button>
-        </div>
-        {(available === false || reduced) && (
-          <p className={styles.status} role="status">
-            {available === false
-              ? "이 환경에서는 홀로그램을 사용할 수 없어 기본 그림을 보여드려요."
-              : "기기의 움직임 줄이기 설정에 따라 카드를 고정했어요."}
+          <p className={styles.srOnly} id="card-instructions">
+            방향키로 기울이기 · Enter 또는 Space로 뒤집기
           </p>
-        )}
+          <div className={styles.controls} aria-label="카드 질감 조절">
+            <button
+              aria-pressed={foil}
+              onClick={() => setFoil((value) => !value)}
+              disabled={available === false}
+            >
+              <i className={styles.indicator} aria-hidden="true" />
+              홀로그램 <span>{foil ? "켜짐" : "꺼짐"}</span>
+            </button>
+            <div
+              className={styles.strengthPanel}
+              data-open={foil}
+              aria-hidden={!foil}
+              inert={!foil}
+            >
+              <div className={styles.strengthClip}>
+                <label className={styles.strength}>
+                  빛의 강도
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={strength}
+                    disabled={!foil || available === false}
+                    onChange={(event) =>
+                      setStrength(Number(event.target.value))
+                    }
+                  />
+                  <output>{strength}%</output>
+                </label>
+              </div>
+            </div>
+            <button
+              className={styles.playButton}
+              aria-label={demo ? "움직임 멈추기" : "카드 움직여 보기"}
+              onClick={() =>
+                demo ? motion.current?.stop() : motion.current?.demo()
+              }
+              disabled={reduced || available === false}
+            >
+              <span
+                className={styles.playIcon}
+                data-playing={demo}
+                aria-hidden="true"
+              />
+              {demo ? "움직임 멈추기" : "카드 움직여 보기"}
+            </button>
+          </div>
+          {(available === false || reduced) && (
+            <p className={styles.status} role="status">
+              {available === false
+                ? "이 환경에서는 홀로그램을 사용할 수 없어 기본 그림을 보여드려요."
+                : "기기의 움직임 줄이기 설정에 따라 카드를 고정했어요."}
+            </p>
+          )}
+        </div>
       </main>
       <footer className={styles.footer}>
         <span>살아 있는 견종도감</span>

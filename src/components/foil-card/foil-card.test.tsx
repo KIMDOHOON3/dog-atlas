@@ -61,6 +61,36 @@ beforeEach(() => {
 afterEach(() => vi.unstubAllGlobals());
 
 describe("single breed foil study", () => {
+  it("switches size collections without showing giant cards under another size", () => {
+    render(<FoilCard />);
+    firstFrame();
+    fireEvent.click(
+      screen.getByRole("button", { name: "소형견" }),
+    );
+    expect(
+      screen.getByRole("button", { name: "소형견" }),
+    ).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("status")).toHaveTextContent(
+      "소형견 카드는 아직 없어요.",
+    );
+    expect(
+      screen.queryByRole("button", { name: "뒤집어서 알아보기" }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "그레이트 피레니즈" }),
+    ).not.toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole("button", { name: "초대형견" }),
+    );
+    expect(
+      screen.getByRole("heading", { name: "그레이트 피레니즈" }),
+    ).toBeVisible();
+    expect(
+      screen.getByRole("button", { name: "뒤집어서 알아보기" }),
+    ).toBeEnabled();
+    expect(screen.queryByText(/BREED PORTRAIT/)).not.toBeInTheDocument();
+  });
+
   it("responds in the controls at card selection and retains the icon pose after landing", async () => {
     render(<FoilCard />);
     firstFrame();

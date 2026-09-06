@@ -32,7 +32,7 @@ export function CardFront({
         <div className={styles.cardFoot}>
           <span>{breed.region}</span>
           <span>
-            BREED PORTRAIT <b>✧</b>
+            DOG ATLAS <b>✧</b>
           </span>
         </div>
       </div>
