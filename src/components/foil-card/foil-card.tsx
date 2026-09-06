@@ -1039,7 +1039,7 @@ export function FoilCard() {
           </div>
           <button
             className={styles.playButton}
-            aria-label={demo ? "카드 움직임 일시정지" : "카드 움직임 재생"}
+            aria-label={demo ? "움직임 멈추기" : "카드 움직여 보기"}
             onClick={() =>
               demo ? motion.current?.stop() : motion.current?.demo()
             }
@@ -1050,7 +1050,7 @@ export function FoilCard() {
               data-playing={demo}
               aria-hidden="true"
             />
-            {demo ? "일시정지" : "재생"}
+            {demo ? "움직임 멈추기" : "카드 움직여 보기"}
           </button>
         </div>
         {(available === false || reduced) && (

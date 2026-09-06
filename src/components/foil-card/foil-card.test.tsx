@@ -423,10 +423,10 @@ describe("single breed foil study", () => {
     const { container } = render(<FoilCard />);
     const start = performance.now() + 100;
     firstFrame(start);
-    fireEvent.click(screen.getByRole("button", { name: /카드 움직임 재생/ }));
+    fireEvent.click(screen.getByRole("button", { name: /카드 움직여 보기/ }));
     firstFrame(start + 20);
     expect(
-      screen.getByRole("button", { name: "카드 움직임 일시정지" }),
+      screen.getByRole("button", { name: "움직임 멈추기" }),
     ).toBeEnabled();
     fireEvent.click(screen.getByRole("button", { name: /뒤집어서 알아보기/ }));
     renderer.draw.mockClear();
@@ -441,7 +441,7 @@ describe("single breed foil study", () => {
     );
     expect(frames.size).toBe(0);
     expect(
-      screen.getByRole("button", { name: /카드 움직임 재생/ }),
+      screen.getByRole("button", { name: /카드 움직여 보기/ }),
     ).toBeEnabled();
     expect(container.querySelectorAll("canvas")).toHaveLength(2);
     expect(createFoilRenderer).toHaveBeenCalledOnce();
@@ -489,7 +489,7 @@ describe("single breed foil study", () => {
     expect(slider).toBeDisabled();
     expect(slider.closest("[inert]")).not.toBeNull();
     expect(
-      screen.getByRole("button", { name: /카드 움직임 재생/ }),
+      screen.getByRole("button", { name: /카드 움직여 보기/ }),
     ).toBeEnabled();
     fireEvent.click(screen.getByRole("button", { name: /홀로그램 꺼짐/ }));
     expect(screen.getByRole("slider")).toHaveValue("42");
@@ -508,7 +508,7 @@ describe("single breed foil study", () => {
     expect(screen.getByText(/기본 그림을 보여드려요/)).toBeVisible();
     expect(screen.getByRole("button", { name: /홀로그램/ })).toBeDisabled();
     expect(
-      screen.getByRole("button", { name: /카드 움직임 재생/ }),
+      screen.getByRole("button", { name: /카드 움직여 보기/ }),
     ).toBeDisabled();
   });
 
@@ -517,7 +517,7 @@ describe("single breed foil study", () => {
     const { container, unmount } = render(<FoilCard />);
     firstFrame();
     expect(
-      screen.getByRole("button", { name: /카드 움직임 재생/ }),
+      screen.getByRole("button", { name: /카드 움직여 보기/ }),
     ).toBeDisabled();
     const card = container.querySelector("[data-foil]") as HTMLElement;
     const transform = card.style.transform;
