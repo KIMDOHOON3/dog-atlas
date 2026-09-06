@@ -30,6 +30,9 @@ export const cardSchema = z.object({
       "china",
       "korea",
       "japan",
+      "russia",
+      "usa",
+      "croatia",
       "none",
     ])
     .nullable(),

@@ -72,12 +72,16 @@ describe("single breed foil study", () => {
       "aria-pressed",
       "true",
     );
-    expect(screen.getByRole("status")).toHaveTextContent(
-      "대형견 카드는 아직 없어요.",
-    );
     expect(
-      screen.queryByRole("button", { name: "뒤집어서 알아보기" }),
-    ).not.toBeInTheDocument();
+      screen.getByRole("heading", { name: "골든 리트리버" }),
+    ).toBeVisible();
+    expect(
+      screen.getByRole("link", { name: "골든 리트리버 자세히 보기" }),
+    ).toHaveAttribute("href", "/breeds/golden-retriever");
+    expect(screen.getByRole("button", { name: "달마시안" })).toBeEnabled();
+    expect(
+      screen.getByRole("button", { name: "뒤집어서 알아보기" }),
+    ).toBeEnabled();
     expect(
       screen.queryByRole("heading", { name: "그레이트 피레니즈" }),
     ).not.toBeInTheDocument();

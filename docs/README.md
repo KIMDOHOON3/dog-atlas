@@ -1,5 +1,7 @@
 # Dog Atlas 문서 안내
 
+- [대형견 첫 8종](large-cards-eight.md) — 역사 배경·지역 인물 양면 16장과 정보 근거.
+
 - [중형견 첫 6종](medium-cards-six.md) — 양면 12장·출처·국가별 인물·기존 상세 연결.
 
 - [카드 인물 재제작](card-people-redo.md) — 19종 지역별 인물·토이푸들 앞면·뒷면 번호 제거.

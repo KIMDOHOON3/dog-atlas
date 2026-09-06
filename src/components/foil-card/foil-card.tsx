@@ -19,6 +19,7 @@ import { createFoilRenderer, foilVariant } from "@/lib/card-foil";
 import { giantCards } from "@/content/giant-cards";
 import { extraSmallCards } from "@/content/extra-small-cards";
 import { mediumCards } from "@/content/medium-cards";
+import { largeCards } from "@/content/large-cards";
 import { CardFront } from "./card-front";
 import { CardBack } from "./card-back";
 import { SizeSelector, type CardSize } from "./size-selector";
@@ -39,12 +40,13 @@ const cardsForSize = (size: CardSize) =>
     ? extraSmallCards
     : size === "중형견"
       ? mediumCards
-      : giantCards;
+      : size === "대형견"
+        ? largeCards
+        : giantCards;
 
 export function FoilCard() {
   const [size, setSize] = useState<CardSize>("초대형견");
   const cards = cardsForSize(size);
-  const hasCards = size !== "대형견";
   const [active, setActive] = useState(0);
   const [selected, setSelected] = useState(0);
   const [flipTarget, setFlipTarget] = useState(false);
@@ -786,15 +788,7 @@ export function FoilCard() {
             setSize(next);
           }}
         />
-        {!hasCards && (
-          <div className={styles.emptyCollection} role="status">
-            <p>{size} 카드는 아직 없어요.</p>
-            <Link href="/discover">
-              견종 둘러보기 <span aria-hidden="true">↗</span>
-            </Link>
-          </div>
-        )}
-        <div className={styles.collectionContent} hidden={!hasCards}>
+        <div className={styles.collectionContent}>
           <div className={styles.exhibit}>
             <button
               className={styles.previousCard}

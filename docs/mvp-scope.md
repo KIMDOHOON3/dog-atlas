@@ -2,7 +2,7 @@
 
 ## Current scope — 2026-09-06
 
-Keep the card homepage (eleven small, seven medium and eight giant cards), all discovery/search/filter behavior, every breed detail and its content/assets. Preserve the preparation guide linked from details. The large group still shows an empty state; its cards and detail redesign are future work.
+Keep the card homepage (eleven small, seven medium, eight large and eight giant cards), all discovery/search/filter behavior, every breed detail and its content/assets. Preserve the preparation guide linked from details. All four size groups now have cards; detail redesign remains future work.
 
 Remove discontinued games, postcards, place/API/Kakao functionality, old-home-only sections and their analysis records. Preserve shared dependencies and editorial provenance for retained breeds. API environment files are unchanged. No database, login, CMS, community or collection economy.
 

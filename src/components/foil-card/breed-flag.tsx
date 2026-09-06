@@ -3,6 +3,80 @@ import styles from "./foil-card.module.css";
 
 export function BreedFlag({ country }: { country: GiantCard["flag"] }) {
   if (country === "none") return null;
+  if (country === "russia")
+    return (
+      <svg className={styles.flag} viewBox="0 0 60 40" aria-hidden="true">
+        <path fill="#f9f7ed" d="M0 0h60v40H0z" />
+        <path fill="#395c91" d="M0 13.33h60v13.34H0z" />
+        <path fill="#b64e45" d="M0 26.67h60V40H0z" />
+      </svg>
+    );
+  if (country === "usa")
+    return (
+      <svg className={styles.flag} viewBox="0 0 76 40" aria-hidden="true">
+        <path fill="#f9f7ed" d="M0 0h76v40H0z" />
+        {Array.from({ length: 7 }, (_, row) => (
+          <rect
+            key={row}
+            x="0"
+            y={(row * 80) / 13}
+            width="76"
+            height={40 / 13}
+            fill="#b64e45"
+          />
+        ))}
+        <path fill="#395576" d="M0 0h30.4v21.54H0z" />
+        {Array.from({ length: 9 }, (_, row) =>
+          Array.from({ length: row % 2 ? 5 : 6 }, (_, col) => (
+            <path
+              key={`${row}-${col}`}
+              transform={`translate(${(col + (row % 2 ? 1 : 0.5)) * 5.06} ${(row + 1) * 2.15}) scale(.8)`}
+              fill="#f9f7ed"
+              d="M0-1.2.28-.37H1.14L.46.14.71.97 0 .46-.71.97-.46.14-1.14-.37H-.28Z"
+            />
+          )),
+        )}
+      </svg>
+    );
+  if (country === "croatia")
+    return (
+      <svg className={styles.flag} viewBox="0 0 60 30" aria-hidden="true">
+        <path fill="#b64e45" d="M0 0h60v10H0z" />
+        <path fill="#f9f7ed" d="M0 10h60v10H0z" />
+        <path fill="#395c91" d="M0 20h60v10H0z" />
+        <path
+          fill="#f9f7ed"
+          stroke="#b64e45"
+          strokeWidth=".5"
+          d="M23 8h14v11a7 7 0 0 1-14 0z"
+        />
+        {Array.from({ length: 5 }, (_, row) =>
+          Array.from(
+            { length: 5 },
+            (_, col) =>
+              (row + col) % 2 === 0 && (
+                <rect
+                  key={`${row}-${col}`}
+                  x={23 + col * 2.8}
+                  y={8 + row * 2.8}
+                  width="2.8"
+                  height="2.8"
+                  fill="#b64e45"
+                />
+              ),
+          ),
+        )}
+        {[0, 1, 2, 3, 4].map((i) => (
+          <path
+            key={i}
+            fill={i % 2 ? "#395c91" : "#648fa9"}
+            stroke="#f9f7ed"
+            strokeWidth=".3"
+            d={`M${22 + i * 3.2} 5l1.6-2 1.6 2v3.5h-3.2z`}
+          />
+        ))}
+      </svg>
+    );
   if (country === "japan")
     return (
       <svg className={styles.flag} viewBox="0 0 60 40" aria-hidden="true">

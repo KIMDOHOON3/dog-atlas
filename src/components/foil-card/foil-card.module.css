@@ -99,24 +99,6 @@
   outline: 1px solid #c6cfbc;
   outline-offset: -5px;
 }
-.collectionContent[hidden] {
-  display: none;
-}
-.emptyCollection {
-  min-height: min(60svh, 480px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  color: #b9c1b8;
-  font-size: 14px;
-}
-.emptyCollection a {
-  color: #d3dfbf;
-  font-size: 12px;
-  text-underline-offset: 6px;
-}
 @media (prefers-reduced-motion: reduce) {
   .sizeSelector button {
     transition: none;
