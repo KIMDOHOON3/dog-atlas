@@ -8,7 +8,15 @@ import { CardFront } from "./card-front";
 import { CardBack } from "./card-back";
 import styles from "./foil-card.module.css";
 
-export function SpreadCard({ breed }: { breed: GiantCard }) {
+export function SpreadCard({
+  breed,
+  modal = false,
+  onClose,
+}: {
+  breed: GiantCard;
+  modal?: boolean;
+  onClose?: () => void;
+}) {
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
     const query = window.matchMedia("(max-width: 600px)");
@@ -18,7 +26,16 @@ export function SpreadCard({ breed }: { breed: GiantCard }) {
     return () => query.removeEventListener("change", update);
   }, []);
   const [expanded, setExpanded] = useState(false);
-  const item = useRef<HTMLElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    if (!expanded) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    dialog.current?.showModal();
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [expanded]);
   const [back, setBack] = useState(false);
   const [opened, setOpened] = useState(false);
   const [scale, setScale] = useState(1);
@@ -33,33 +50,23 @@ export function SpreadCard({ breed }: { breed: GiantCard }) {
     return () => observer.disconnect();
   }, []);
   function flip() {
-    if (window.matchMedia("(max-width: 600px)").matches && !expanded) {
+    if (mobile && !modal) {
       setExpanded(true);
-      requestAnimationFrame(() =>
-        item.current?.scrollIntoView({
-          block: "start",
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
-            .matches
-            ? "instant"
-            : "smooth",
-        }),
-      );
       return;
     }
     setOpened(true);
     setBack((value) => !value);
   }
   const label =
-    mobile && !expanded
+    mobile && !modal
       ? "크게 보기"
       : back
         ? "그림으로 돌아가기"
         : "뒤집어서 알아보기";
   return (
     <article
-      ref={item}
       className={styles.spreadItem}
-      data-expanded={expanded}
+      data-modal={modal}
       aria-label={breed.name}
     >
       <div
@@ -99,17 +106,6 @@ export function SpreadCard({ breed }: { breed: GiantCard }) {
           </div>
         </div>
       </div>
-      <button
-        className={styles.spreadCollapse}
-        type="button"
-        onClick={() => {
-          setExpanded(false);
-          setBack(false);
-        }}
-        aria-label={`${breed.name} 접기`}
-      >
-        접기 ×
-      </button>
       <div className={styles.spreadActions}>
         <button
           type="button"
@@ -124,7 +120,7 @@ export function SpreadCard({ breed }: { breed: GiantCard }) {
             height={32}
             unoptimized
           />
-          {label}
+          {modal ? (back ? "앞면 보기" : "뒤집기") : label}
         </button>
         <Link
           href={`/breeds/${breed.slug}`}
@@ -138,9 +134,39 @@ export function SpreadCard({ breed }: { breed: GiantCard }) {
             height={32}
             unoptimized
           />
-          견종 자세히 보기
+          {modal ? "자세히 보기" : "견종 자세히 보기"}
         </Link>
+        {modal && (
+          <button type="button" onClick={onClose}>
+            닫기 ×
+          </button>
+        )}
       </div>
+      {!modal && (
+        <dialog
+          ref={dialog}
+          className={styles.spreadDialog}
+          aria-label={`${breed.name} 크게 보기`}
+          onCancel={() => setExpanded(false)}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              dialog.current?.close();
+              setExpanded(false);
+            }
+          }}
+        >
+          {expanded && (
+            <SpreadCard
+              breed={breed}
+              modal
+              onClose={() => {
+                dialog.current?.close();
+                setExpanded(false);
+              }}
+            />
+          )}
+        </dialog>
+      )}
     </article>
   );
 }
