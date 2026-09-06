@@ -949,12 +949,6 @@
   font-size: 3cqw;
   font-weight: 550;
 }
-.backNumber {
-  margin-left: auto;
-  font-size: 5.5cqw;
-  font-family: var(--font-serif);
-  color: #728378;
-}
 .backTitle {
   position: absolute;
   top: 14cqw;

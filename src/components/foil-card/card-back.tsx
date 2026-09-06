@@ -29,7 +29,6 @@ export function CardBack({ breed }: { breed: GiantCard }) {
           <span className={styles.originLabel}>{breed.originEn}</span>
           <p>{breed.origin}</p>
         </div>
-        <span className={styles.backNumber}>{breed.number}</span>
       </div>
       <h2 className={styles.backTitle}>{breed.name}</h2>
       <div className={styles.backFacts}>

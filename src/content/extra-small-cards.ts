@@ -28,7 +28,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/chihuahua-back-v1.webp",
+      src: "/illustrations/card-studies/chihuahua-back-people-v3.webp",
       alt: "멕시코 마당에 앉은 여성의 신발 옆에 서 있는 작은 치와와. 같은 바닥에서 체구를 비교하는 수채화",
       width: 1060,
       height: 1477,
@@ -59,7 +59,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/german-spitz-back-v1.webp",
+      src: "/illustrations/card-studies/german-spitz-back-people-v3.webp",
       alt: "독일 정원 벤치에 앉은 성인의 신발 옆에 선 포메라니안 크기 비교 수채화",
       width: 1060,
       height: 1484,
@@ -91,7 +91,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/yorkshire-terrier-back-v1.webp",
+      src: "/illustrations/card-studies/yorkshire-terrier-back-people-v3.webp",
       alt: "영국 돌집 앞 의자에 앉은 성인의 신발 옆에 선 요크셔 테리어 크기 비교 수채화",
       width: 1060,
       height: 1484,
@@ -122,7 +122,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/maltese-back-v1.webp",
+      src: "/illustrations/card-studies/maltese-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 말티즈. 체구를 비교하는 수채화 예시",
       width: 1060,
       height: 1484,
@@ -147,13 +147,13 @@ export const extraSmallCards = z.array(cardSchema).parse([
     lifespan: "10–18",
     theme: "woodland",
     front: {
-      src: "/illustrations/card-studies/toy-poodle-silver-front-v1.webp",
-      alt: "프랑스 · 실버색 배경에 선 토이푸들 성견 전신 수채화",
+      src: "/illustrations/card-studies/toy-poodle-silver-front-petite-v2.webp",
+      alt: "프랑스 돌마당에 작고 아담한 체구로 서 있는 실버 토이푸들 성견 전신 수채화",
       width: 1254,
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/toy-poodle-silver-back-v1.webp",
+      src: "/illustrations/card-studies/toy-poodle-silver-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 토이푸들. 체구를 비교하는 수채화 예시",
       width: 1060,
       height: 1484,
@@ -185,7 +185,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/bichon-frise-back-v1.webp",
+      src: "/illustrations/card-studies/bichon-frise-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 비숑 프리제. 체구를 비교하는 수채화 예시",
       width: 1060,
       height: 1484,
@@ -216,7 +216,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/shih-tzu-back-v1.webp",
+      src: "/illustrations/card-studies/shih-tzu-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 시츄. 체구를 비교하는 수채화 예시",
       width: 1060,
       height: 1484,
@@ -247,7 +247,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/miniature-dachshund-back-v1.webp",
+      src: "/illustrations/card-studies/miniature-dachshund-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 미니어처 닥스훈트. 체구를 비교하는 수채화 예시",
       width: 1060,
       height: 1484,
@@ -278,7 +278,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/miniature-schnauzer-back-v1.webp",
+      src: "/illustrations/card-studies/miniature-schnauzer-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 미니어처 슈나우저. 체구를 비교하는 수채화 예시",
       width: 1060,
       height: 1484,
@@ -310,7 +310,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/continental-toy-spaniel-back-v1.webp",
+      src: "/illustrations/card-studies/continental-toy-spaniel-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 파피용. 체구를 비교하는 수채화 예시",
       width: 1060,
       height: 1484,
@@ -343,7 +343,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
       height: 1254,
     },
     back: {
-      src: "/illustrations/card-studies/maltipoo-back-v1.webp",
+      src: "/illustrations/card-studies/maltipoo-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 말티푸. 체구를 비교하는 수채화 예시",
       width: 1060,
       height: 1484,
