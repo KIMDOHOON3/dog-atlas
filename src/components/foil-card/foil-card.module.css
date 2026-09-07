@@ -137,7 +137,7 @@
 }
 .spreadGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   padding: 4px 0 30px;
 }
@@ -157,6 +157,8 @@
   border-radius: 16px;
 }
 .spreadScale {
+  container-type: inline-size;
+  text-align: left;
   position: absolute;
   top: 0;
   left: 0;
@@ -235,7 +237,7 @@
 }
 @media (max-width: 1000px) {
   .spreadGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
   }
 }
@@ -1341,7 +1343,7 @@
 }
 .spreadItem[data-modal="true"] .spreadActions {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4px;
   margin-top: 12px;
 }
