@@ -1630,3 +1630,20 @@
     transition: none;
   }
 }
+
+@media (max-width: 600px) {
+  .cardActions img,
+  .spreadActions img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    object-fit: contain;
+  }
+  .cardActions > *,
+  .spreadActions > *,
+  .spreadItem[data-modal="true"] .cardActions > * {
+    gap: 6px;
+    padding-inline: 8px;
+  }
+}
