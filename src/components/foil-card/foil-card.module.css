@@ -1611,19 +1611,20 @@
   border-radius: 1px;
 }
 .fullscreenGlyph i:first-child {
-  right: 2px;
-  top: 2px;
+  transform: scale(0.8);
+  right: 1px;
+  top: 1px;
 }
 .fullscreenGlyph i:last-child {
-  left: 2px;
-  bottom: 2px;
-  transform: rotate(180deg);
+  left: 1px;
+  bottom: 1px;
+  transform: rotate(180deg) scale(0.8);
 }
 .fullscreenGlyph[data-expanded="true"] i:first-child {
-  transform: rotate(180deg);
+  transform: rotate(180deg) scale(0.8);
 }
 .fullscreenGlyph[data-expanded="true"] i:last-child {
-  transform: rotate(360deg);
+  transform: rotate(360deg) scale(0.8);
 }
 @media (prefers-reduced-motion: reduce) {
   .fullscreenGlyph i {
