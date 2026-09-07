@@ -1,7 +1,8 @@
 "use client";
+import { CardActionIcon } from "./card-action-icon";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import Image from "next/image";
+
 import Link from "next/link";
 import type { GiantCard } from "@/content/giant-cards";
 import { CardFront } from "./card-front";
@@ -114,11 +115,7 @@ export function SpreadCard({
           aria-expanded={modal}
           onClick={modal ? onClose : () => setExpanded(true)}
         >
-          <span
-            className={styles.expandGlyph}
-            data-expanded={modal}
-            aria-hidden="true"
-          />
+          <CardActionIcon kind="expand" expanded={modal} />
         </button>
       )}
       <div className={modal ? styles.cardActions : styles.spreadActions}>
@@ -131,14 +128,7 @@ export function SpreadCard({
             aria-label={`${breed.name} ${label} 버튼`}
             aria-pressed={back}
           >
-            <Image
-              className={styles.flipIcon}
-              src="/images/card-controls/flip-f08.webp"
-              alt=""
-              width={32}
-              height={32}
-              unoptimized
-            />
+            <CardActionIcon kind="flip" />
             {label}
           </button>
         )}
@@ -148,14 +138,7 @@ export function SpreadCard({
           prefetch={false}
           aria-label={`${breed.name} 자세히 보기`}
         >
-          <Image
-            className={styles.detailIcon}
-            src="/images/card-controls/detail-d10.webp"
-            alt=""
-            width={32}
-            height={32}
-            unoptimized
-          />
+          <CardActionIcon kind="detail" />
           견종 자세히 보기
         </Link>
       </div>

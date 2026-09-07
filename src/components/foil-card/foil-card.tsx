@@ -1,7 +1,7 @@
 "use client";
+import { CardActionIcon } from "./card-action-icon";
 import { SiteHeader } from "@/components/site-header";
 
-import Image from "next/image";
 import Link from "next/link";
 import { flushSync } from "react-dom";
 import {
@@ -1050,17 +1050,7 @@ export function FoilCard() {
               data-back={flipTarget}
               disabled={sliding}
             >
-              <Image
-                className={styles.flipIcon}
-                src="/images/card-controls/flip-f08.webp"
-                alt=""
-                aria-hidden="true"
-                width={192}
-                height={192}
-                unoptimized
-                loading="eager"
-                draggable={false}
-              />
+              <CardActionIcon kind="flip" />
               <span className={styles.flipLabels} aria-hidden="true">
                 <span data-visible={!flipTarget}>뒤집어서 알아보기</span>
                 <span data-visible={flipTarget}>그림으로 돌아가기</span>
@@ -1072,16 +1062,7 @@ export function FoilCard() {
               aria-label={`${breed.name} 자세히 보기`}
               prefetch={false}
             >
-              <Image
-                className={styles.detailIcon}
-                src="/images/card-controls/detail-d10.webp"
-                alt=""
-                width={192}
-                height={192}
-                unoptimized
-                loading="eager"
-                draggable={false}
-              />
+              <CardActionIcon kind="detail" />
               견종 자세히 보기
             </Link>
           </div>
