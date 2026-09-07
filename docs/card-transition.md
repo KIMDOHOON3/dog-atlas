@@ -21,3 +21,10 @@
 카드 문구·이미지를 변경하면 새 페이지 로드에서 현재 DOM을 다시 캡처하므로 별도 이미지 재생성이 필요 없다. 캡처 코드는 `src/lib/card-texture.ts`, 변형/캐시는 `src/lib/card-transition.ts`, 조작/수명 관리는 `src/components/foil-card/foil-card.tsx`에 있다.
 
 [MDN WebGL best practices](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_best_practices)의 버텍스 계산·버퍼 예산·텍스처 업로드 분리·자원 해제 지침을 참고했다.
+
+## 2026-09-07 분류 전환과 잘림 보완
+
+- 분류 변경에는 GPU 렌더러를 재생성하지 않는다. 캐시 키에 분류를 포함해 다른 분류의 같은 번호가 섞이지 않게 한다.
+- 분류 변경 직후 예약하던 여러 면의 DOM 캡처를 제거했다. 슬라이드 요청 시 필요한 면만 준비하므로 첫 캐시 미스에는 준비 시간이 있으며, 호버 도중 배경 캡처는 하지 않는다.
+- 전환 캔버스 가로 영역과 셰이더 투영을 카드 폭의 4.4배로 맞췄다. 왼쪽으로 휘는 면의 여유를 늘리고 최대 110만 픽셀 예산은 유지한다.
+- 로컬 production Chrome 1440px에서 소형→중형 반복 후 컨텍스트 수 2개 유지, 이어진 마우스 이동 검사 중 50ms 이상 long task가 관측되지 않았다. 모든 기기의 프레임률 보장은 아니다.

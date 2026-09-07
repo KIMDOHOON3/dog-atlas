@@ -67,7 +67,6 @@ afterEach(() => vi.unstubAllGlobals());
 
 function renderGiant() {
   const result = render(<FoilCard />);
-  vi.mocked(createFoilRenderer).mockClear();
   fireEvent.click(screen.getByRole("button", { name: "초대형견" }));
   renderer.dispose.mockClear();
   const mesh = vi
@@ -77,6 +76,35 @@ function renderGiant() {
   return result;
 }
 describe("single breed foil study", () => {
+  it("reuses GPU renderers across rapid size changes and isolates snapshot keys", async () => {
+    const mesh = {
+      prepare: vi.fn<(key: string, face: HTMLElement) => Promise<boolean>>(async () => true),
+      settle: vi.fn(async () => {}),
+      start: vi.fn(() => true),
+      draw: vi.fn(),
+      stop: vi.fn(),
+      dispose: vi.fn(),
+    };
+    vi.mocked(createCardTransitionRenderer).mockReturnValue(mesh);
+    render(<FoilCard />);
+    firstFrame();
+    for (const name of ["중형견", "소형견", "중형견"]) {
+      fireEvent.click(screen.getByRole("button", { name }));
+      firstFrame();
+    }
+    expect(createFoilRenderer).toHaveBeenCalledTimes(1);
+    expect(createCardTransitionRenderer).toHaveBeenCalledTimes(1);
+    expect(mesh.prepare).not.toHaveBeenCalled();
+    expect(mesh.dispose).not.toHaveBeenCalled();
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole("button", { name: "시바견" }),
+      );
+    });
+    expect(mesh.prepare.mock.calls.length).toBeGreaterThan(0);
+    for (const call of vi.mocked(mesh.prepare).mock.calls)
+      expect(call[0]).toMatch(/^중형견-/);
+  });
   it("opens spread cards in a dialog and flips only the enlarged card", () => {
     HTMLDialogElement.prototype.showModal = function () {
       this.setAttribute("open", "");

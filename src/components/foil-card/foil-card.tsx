@@ -113,10 +113,13 @@ export function FoilCard() {
     return ready;
   }
 
-  const textureKey = useCallback((index: number, back = false) => {
-    const source = textureSources.current;
-    return `${index}-${back ? "back" : "front"}-${source?.offsetWidth}-${source?.offsetHeight}-${window.innerWidth}`;
-  }, []);
+  const textureKey = useCallback(
+    (index: number, back = false) => {
+      const source = textureSources.current;
+      return `${size}-${index}-${back ? "back" : "front"}-${source?.offsetWidth}-${source?.offsetHeight}-${window.innerWidth}`;
+    },
+    [size],
+  );
 
   const prepareTexture = useCallback(
     async (index: number, back = false) => {
@@ -222,26 +225,8 @@ export function FoilCard() {
     });
   }, [active, sliding, cards, view]);
 
-  useEffect(() => {
-    if (sliding || reduced || view === "spread") return;
-    let cancelled = false;
-    const timer = window.setTimeout(async () => {
-      for (const [index, back] of [
-        [active, false],
-        [active, true],
-        [active + 1, false],
-        [active - 1, false],
-      ] as const) {
-        if (cancelled || selecting.current) break;
-        if (!cards[index]) continue;
-        await prepareTexture(index, back);
-      }
-    }, 180);
-    return () => {
-      cancelled = true;
-      clearTimeout(timer);
-    };
-  }, [active, sliding, reduced, prepareTexture, cards, view]);
+  // Capture only on navigation. Speculative DOM snapshots were competing with
+  // pointer movement immediately after a size change.
 
   useEffect(() => {
     const nav = pagination.current;
@@ -735,7 +720,7 @@ export function FoilCard() {
       renderer?.dispose();
       motion.current = null;
     };
-  }, [contextVersion, cards, view]);
+  }, [contextVersion, view]);
 
   function point(event: PointerEvent<HTMLDivElement>) {
     const start = gesture.current;
@@ -832,7 +817,7 @@ export function FoilCard() {
               viewLock.current
             )
               return;
-            motion.current?.stop();
+            motion.current?.reset();
             if (view === "spread") {
               viewLock.current = true;
               setViewChanging(true);
@@ -927,6 +912,14 @@ export function FoilCard() {
                       key={depth}
                       className={styles.deckCard}
                       data-depth={depth}
+                      style={{
+                        backgroundColor: [
+                          "#e9d9c5",
+                          "#cbb296",
+                          "#eadfce",
+                          "#bda58e",
+                        ][(active + depth) % 4],
+                      }}
                     />
                   ) : null,
                 )}

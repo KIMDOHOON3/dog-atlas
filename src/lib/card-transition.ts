@@ -34,7 +34,7 @@ void main() {
   vec3 q = vec3(x*cos(ty) + z*sin(ty), y, -x*sin(ty) + z*cos(ty));
   q = vec3(q.x, q.y*cos(tx) - q.z*sin(tx), q.y*sin(tx) + q.z*cos(tx));
   float perspective = u_camera / (u_camera - q.z);
-  gl_Position = vec4(q.x * perspective / 1.7, q.y * perspective / 1.12, 0., 1.);
+  gl_Position = vec4(q.x * perspective / 2.2, q.y * perspective / 1.12, 0., 1.);
   v_bend = angle;
 }`;
 const fragment = `
@@ -240,7 +240,7 @@ export function createCardTransitionRenderer(
           return false;
         pair = [textures.get(from)!, textures.get(to)!];
         direction = nextDirection;
-        const cssWidth = width * 3.4,
+        const cssWidth = width * 4.4,
           cssHeight = height * 1.6;
         const ratio = Math.min(
           window.devicePixelRatio || 1,
