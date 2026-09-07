@@ -1687,3 +1687,51 @@
     max-width: calc(100% - 88px);
   }
 }
+.fullscreenGlyph i {
+  width: 6px;
+  height: 6px;
+}
+.fullscreenGlyph i::after {
+  width: 8px;
+  top: 2.2px;
+  left: -1px;
+}
+.fullscreenGlyph i:first-child {
+  right: 1px;
+  top: 1px;
+  transform: none;
+}
+.fullscreenGlyph i:nth-child(2) {
+  right: 1px;
+  bottom: 1px;
+  transform: rotate(90deg);
+}
+.fullscreenGlyph i:nth-child(3) {
+  left: 1px;
+  bottom: 1px;
+  transform: rotate(180deg);
+}
+.fullscreenGlyph i:last-child {
+  left: 1px;
+  top: 1px;
+  bottom: auto;
+  transform: rotate(270deg);
+}
+.fullscreenGlyph[data-expanded="true"] i {
+  display: none;
+}
+.fullscreenGlyph[data-expanded="true"]::before,
+.fullscreenGlyph[data-expanded="true"]::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 10px;
+  width: 18px;
+  height: 1.6px;
+  border-radius: 1px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+.fullscreenGlyph[data-expanded="true"]::after {
+  transform: rotate(-45deg);
+}

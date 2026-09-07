@@ -111,7 +111,7 @@ export function SpreadCard({
         <button
           type="button"
           className={styles.expandCorner}
-          aria-label={modal ? "축소하기" : breed.name + " 확대하기"}
+          aria-label={modal ? "닫기" : breed.name + " 확대하기"}
           aria-expanded={modal}
           onClick={modal ? onClose : () => setExpanded(true)}
         >
@@ -120,6 +120,8 @@ export function SpreadCard({
             data-expanded={modal}
             aria-hidden="true"
           >
+            <i />
+            <i />
             <i />
             <i />
           </span>
