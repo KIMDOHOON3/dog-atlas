@@ -115,3 +115,12 @@
     transition: none;
   }
 }
+
+.artwork {
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  object-fit: contain;
+  filter: none !important;
+}
