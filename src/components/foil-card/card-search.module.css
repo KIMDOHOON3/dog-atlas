@@ -246,29 +246,35 @@
   }
   .bar {
     gap: 0;
-    padding: 2px;
-    min-height: 44px;
+    padding: 3px 8px;
+    min-height: 50px;
+    border-color: #eee8e1;
+    border-radius: 16px;
+    background: #faf8f5;
+    box-shadow: none;
   }
   .bar input {
-    padding: 10px 3px 10px 8px;
-    font-size: 12px;
+    padding: 10px 8px 10px 4px;
+    font-size: 14px;
   }
   .category {
-    gap: 6px;
-    padding: 0 7px;
-    min-height: 38px;
-    font-size: 11px;
+    gap: 10px;
+    padding: 0 10px 0 14px;
+    min-height: 28px;
+    border-left-color: #e9e1d8;
+    font-size: 13px;
   }
   .submit {
-    width: 32px;
-    height: 38px;
-    flex-basis: 32px;
+    order: -1;
+    width: 36px;
+    height: 44px;
+    flex-basis: 36px;
     background: transparent;
-    color: #a75d32;
+    color: #887365;
   }
   .glass {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
   }
   .panel {
     top: calc(100% + 6px);
