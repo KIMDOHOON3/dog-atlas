@@ -184,3 +184,21 @@
 .panel > button > span {
   flex: 1;
 }
+@media (min-width: 901px) {
+  .categoryPanel {
+    left: auto;
+    right: 46px;
+    width: 180px;
+    padding: 8px;
+  }
+  .categoryPanel nav {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .categoryPanel nav button {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 13px;
+    transform: none;
+  }
+}

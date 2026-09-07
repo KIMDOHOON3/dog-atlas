@@ -132,7 +132,10 @@ export function CardSearch({
         </button>
       </form>
       {category && (
-        <div id="card-categories" className={styles.panel}>
+        <div
+          id="card-categories"
+          className={`${styles.panel} ${styles.categoryPanel}`}
+        >
           <SizeSelector
             value={size}
             onChange={(next) => {
