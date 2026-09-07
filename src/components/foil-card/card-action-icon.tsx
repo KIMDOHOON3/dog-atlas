@@ -7,28 +7,16 @@ export function CardActionIcon({
   kind: "flip" | "detail" | "expand";
   expanded?: boolean;
 }) {
-  if (kind !== "expand")
-    return (
-      <Image
-        className={styles.artwork}
-        src={`/images/card-controls/${kind}-paper-v2.webp`}
-        alt=""
-        aria-hidden="true"
-        width={32}
-        height={32}
-        unoptimized
-      />
-    );
+  const asset = kind === "expand" ? (expanded ? "collapse" : "expand") : kind;
   return (
-    <span
-      className={`${styles.icon} ${styles[kind]}`}
-      data-expanded={expanded}
+    <Image
+      className={kind === "expand" ? styles.zoomArtwork : styles.artwork}
+      src={`/images/card-controls/${asset}-paper-v2.webp`}
+      alt=""
       aria-hidden="true"
-    >
-      <i />
-      <i />
-      <i />
-      <i />
-    </span>
+      width={32}
+      height={32}
+      unoptimized
+    />
   );
 }

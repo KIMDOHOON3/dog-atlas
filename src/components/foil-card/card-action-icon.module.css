@@ -1,121 +1,3 @@
-.icon {
-  display: inline-block;
-  position: relative;
-  width: 24px;
-  height: 24px;
-  flex: 0 0 24px;
-  color: currentColor;
-}
-.icon i {
-  position: absolute;
-  display: block;
-  box-sizing: border-box;
-}
-.flip i:nth-child(1),
-.flip i:nth-child(2) {
-  width: 13px;
-  height: 18px;
-  border: 1.3px solid currentColor;
-  border-radius: 2px;
-  top: 3px;
-}
-.flip i:nth-child(1) {
-  left: 3px;
-  transform: rotate(-12deg);
-  opacity: 0.45;
-}
-.flip i:nth-child(2) {
-  left: 9px;
-  transform: rotate(8deg);
-  background: var(--paper, #fff);
-}
-.flip i:nth-child(3) {
-  width: 6px;
-  height: 6px;
-  left: 12px;
-  top: 9px;
-  border-top: 1.3px solid currentColor;
-  border-right: 1.3px solid currentColor;
-  transform: rotate(45deg);
-}
-.detail i:nth-child(1) {
-  width: 14px;
-  height: 18px;
-  left: 2px;
-  top: 2px;
-  border: 1.3px solid currentColor;
-  border-radius: 2px;
-}
-.detail i:nth-child(2) {
-  left: 6px;
-  top: 7px;
-  width: 6px;
-  height: 4px;
-  border-top: 1.3px solid currentColor;
-  border-bottom: 1.3px solid currentColor;
-}
-.detail i:nth-child(3) {
-  width: 9px;
-  height: 9px;
-  left: 12px;
-  top: 12px;
-  border: 1.3px solid currentColor;
-  border-radius: 50%;
-  background: var(--paper, #fff);
-}
-.detail i:nth-child(4) {
-  width: 5px;
-  height: 1.3px;
-  left: 19px;
-  top: 20px;
-  background: currentColor;
-  transform: rotate(45deg);
-  transform-origin: left center;
-}
-.expand i {
-  width: 6px;
-  height: 6px;
-  border: solid currentColor;
-  border-width: 1.3px 0 0 1.3px;
-  transition: transform 220ms ease;
-}
-.expand i:nth-child(1) {
-  left: 4px;
-  top: 4px;
-}
-.expand i:nth-child(2) {
-  right: 4px;
-  top: 4px;
-  transform: rotate(90deg);
-}
-.expand i:nth-child(3) {
-  right: 4px;
-  bottom: 4px;
-  transform: rotate(180deg);
-}
-.expand i:nth-child(4) {
-  left: 4px;
-  bottom: 4px;
-  transform: rotate(270deg);
-}
-.expand[data-expanded="true"] i:nth-child(1) {
-  transform: rotate(180deg);
-}
-.expand[data-expanded="true"] i:nth-child(2) {
-  transform: rotate(270deg);
-}
-.expand[data-expanded="true"] i:nth-child(3) {
-  transform: rotate(360deg);
-}
-.expand[data-expanded="true"] i:nth-child(4) {
-  transform: rotate(450deg);
-}
-@media (prefers-reduced-motion: reduce) {
-  .expand i {
-    transition: none;
-  }
-}
-
 .artwork {
   display: block;
   width: 32px;
@@ -123,4 +5,11 @@
   flex: 0 0 32px;
   object-fit: contain;
   filter: none !important;
+}
+.zoomArtwork {
+  display: block;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: none;
 }
