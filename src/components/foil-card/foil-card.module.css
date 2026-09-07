@@ -1441,8 +1441,13 @@
   accent-color: var(--clay);
 }
 .brandWordmark {
-  filter: brightness(0) saturate(100%) invert(17%) sepia(12%) saturate(625%)
-    hue-rotate(342deg) brightness(94%) contrast(91%);
+  filter: brightness(0) saturate(100%) invert(40%) sepia(36%) saturate(895%)
+    hue-rotate(341deg) brightness(93%) contrast(88%);
+}
+.flipIcon,
+.detailIcon,
+.spreadActions img {
+  filter: sepia(1) saturate(1.25) hue-rotate(342deg) brightness(0.78);
 }
 .spreadDialog::backdrop {
   background: rgb(48 42 38 / 55%);
