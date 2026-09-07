@@ -3,6 +3,14 @@ import styles from "./foil-card.module.css";
 
 export function BreedFlag({ country }: { country: GiantCard["flag"] }) {
   if (country === "none") return null;
+  if (country === "madagascar")
+    return (
+      <svg className={styles.flag} viewBox="0 0 60 40" aria-hidden="true">
+        <path fill="#f9f7ed" d="M0 0h60v40H0z" />
+        <path fill="#b64e45" d="M20 0h40v20H20z" />
+        <path fill="#477958" d="M20 20h40v20H20z" />
+      </svg>
+    );
   if (country === "russia")
     return (
       <svg className={styles.flag} viewBox="0 0 60 40" aria-hidden="true">
