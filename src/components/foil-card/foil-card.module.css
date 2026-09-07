@@ -8,7 +8,7 @@
   --clay: #a76035;
   color: var(--ink);
   background: var(--paper);
-  overflow: hidden;
+  overflow: clip;
 }
 .header {
   max-width: 1500px;

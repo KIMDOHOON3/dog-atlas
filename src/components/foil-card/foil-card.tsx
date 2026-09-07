@@ -1,4 +1,5 @@
 "use client";
+import { SiteHeader } from "@/components/site-header";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -750,26 +751,7 @@ export function FoilCard() {
       <a className="skip-link" href="#main">
         본문으로 바로가기
       </a>
-      <header className={styles.header}>
-        <Link
-          href="/"
-          className={styles.brand}
-          aria-label="살아 있는 견종도감 홈"
-        >
-          <Image
-            className={styles.brandWordmark}
-            src="/images/brand/wordmark-l01.webp"
-            alt="견종도감"
-            width={624}
-            height={208}
-            unoptimized
-            loading="eager"
-          />
-        </Link>
-        <Link href="/discover" className={styles.back}>
-          견종 둘러보기 <span>↗</span>
-        </Link>
-      </header>
+      <SiteHeader />
       <main id="main" className={styles.main} aria-label={`${size} 카드 도감`}>
         <h1 className={styles.srOnly}>살아 있는 견종도감</h1>
         <div

@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { NavigationIcon } from "./navigation-icon";
+import Image from "next/image";
 import styles from "./site-header.module.css";
 
 export function SiteHeader({ wide = false }: { wide?: boolean }) {
   const pathname = usePathname();
-  const discoverTone = pathname === "/discover";
+  const discoverTone = true;
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -41,10 +41,15 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
           href="/"
           aria-label="살아 있는 견종도감 홈"
         >
-          <span className={styles.mark} aria-hidden="true">
-            犬
-          </span>
-          <span>강아지 도감</span>
+          <Image
+            className={styles.wordmark}
+            src="/images/brand/wordmark-l01.webp"
+            alt="견종도감"
+            width={156}
+            height={52}
+            unoptimized
+            priority
+          />
         </Link>
         <div className={styles.headerActions}>
           <nav aria-label="주요 탐색">
@@ -78,34 +83,17 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
               >
                 <Link href="/" onClick={() => setMenuOpen(false)}>
                   <strong>견종 카드</strong>
-                  <span>초대형견 8종을 수채화 카드로 만나요.</span>
+                  <span>다양한 견종을 수채화 카드로 만나요.</span>
+                </Link>
+                <Link href="/discover" onClick={() => setMenuOpen(false)}>
+                  <strong>견종 발견</strong>
+                  <span>견종을 검색하고 비교해 보세요.</span>
                 </Link>
               </nav>
             )}
           </div>
         </div>
       </header>
-      <nav
-        className={`${styles.mobileBottomNav} ${discoverTone ? styles.discoverTone : ""}`}
-        aria-label="모바일 주요 탐색"
-      >
-        <Link
-          className={pathname === "/" ? styles.mobileNavActive : ""}
-          href="/"
-          aria-current={pathname === "/" ? "page" : undefined}
-        >
-          <NavigationIcon name="home" />
-          <span>홈</span>
-        </Link>
-        <Link
-          className={pathname === "/discover" ? styles.mobileNavActive : ""}
-          href="/discover"
-          aria-current={pathname === "/discover" ? "page" : undefined}
-        >
-          <NavigationIcon name="discovery" />
-          <span>견종 발견</span>
-        </Link>
-      </nav>
     </>
   );
 }
