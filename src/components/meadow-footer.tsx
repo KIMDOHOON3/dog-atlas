@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import styles from "./meadow-footer.module.css";
 
@@ -41,10 +40,10 @@ export function MeadowFooter() {
     <footer className={styles.footer}>
       <div className={styles.garden}>
         <div className={styles.copy}>
-          <span>함께 걷는 내일을 위해</span>
           <p>
-            알아갈수록,
-            <br className={styles.mobileBreak} /> 더 가까워지는 사이.
+            함께하기 전에 알아보고,
+            <br />
+            함께한 뒤에는 끝까지 책임져 주세요.
           </p>
         </div>
         <div ref={field} className={styles.field} aria-label="잔디 운동장">
@@ -52,13 +51,10 @@ export function MeadowFooter() {
         </div>
       </div>
       <div className={styles.bottom}>
-        <Link href="/" className={styles.brand}>
-          견종도감
-        </Link>
-        <span>한 마리의 이야기에서, 함께하는 일상으로.</span>
-        <Link href="/discover">
-          견종 발견 <span aria-hidden="true">↗</span>
-        </Link>
+        <span className={styles.copyright}>
+          © {new Date().getFullYear()} 견종도감.
+        </span>
+        <p>견종 정보는 일반적인 경향이며, 개체마다 다를 수 있습니다.</p>
       </div>
     </footer>
   );

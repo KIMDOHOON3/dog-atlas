@@ -15,21 +15,13 @@
   padding: 28px 20px 0;
   pointer-events: none;
 }
-.copy > span {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  color: #a08b76;
-}
 .copy p {
   margin: 15px 0 0;
   font-family: var(--font-serif);
-  font-size: clamp(24px, 2.5vw, 34px);
+  font-size: clamp(19px, 2.5vw, 34px);
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1.5;
-}
-.mobileBreak {
-  display: none;
 }
 .field {
   position: absolute;
@@ -61,23 +53,14 @@
   border-top: 1px solid #eee8df;
   font-size: 11px;
 }
-.bottom a {
-  color: inherit;
-  text-decoration: none;
-  padding: 12px 0;
+.bottom p {
+  margin: 0;
+  line-height: 1.7;
+  color: #806f60;
+  word-break: keep-all;
 }
-.bottom a:focus-visible {
-  outline: 2px solid #a75d32;
-  outline-offset: 4px;
-}
-.bottom > span {
-  color: #a18e7c;
-}
-.bottom .brand {
-  color: #9b5d35;
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 700;
+.copyright {
+  flex-shrink: 0;
 }
 @media (max-width: 767px) {
   .garden {
@@ -89,18 +72,11 @@
   .copy {
     padding-top: 22px;
   }
-  .mobileBreak {
-    display: block;
-  }
   .bottom {
-    flex-wrap: wrap;
-    gap: 0 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
     padding: 14px 0 24px;
-  }
-  .bottom > span {
-    order: 3;
-    width: 100%;
-    font-size: 10px;
   }
 }
 .field [data-ball] {
