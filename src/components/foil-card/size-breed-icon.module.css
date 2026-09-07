@@ -1,0 +1,18 @@
+.frame {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 56px;
+  height: 50px;
+  flex: 0 0 auto;
+  mix-blend-mode: multiply;
+}
+.crop {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.crop img {
+  position: absolute;
+  max-width: none;
+}

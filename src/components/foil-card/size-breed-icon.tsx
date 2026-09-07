@@ -1,27 +1,42 @@
+import Image from "next/image";
 import type { CardSize } from "./size-selector";
+import styles from "./size-breed-icon.module.css";
 
-// Shared 64 × 48 drawing field; all four dogs stand on y=43.
-const silhouettes: Record<CardSize, string> = {
-  소형견:
-    "M19 29 Q16 27 16 23 L13 14 Q17 14 20 21 L23 12 Q27 15 27 22 Q31 23 33 27 L37 28 Q38 31 34 32 L30 32 L29 35 L29 41 L32 42 L32 43 L26 43 L25 35 L22 35 L20 41 L22 42 L22 43 L17 43 L18 34 Q12 35 9 32 Q6 29 7 25 Q9 29 13 29 Z",
-  중형견:
-    "M15 26 Q18 22 29 24 L35 24 Q35 20 39 16 L39 8 L44 13 L48 10 L48 17 L54 21 L59 22 L58 26 L51 28 L47 30 L46 40 L49 41 L49 43 L42 43 L41 31 L38 32 L36 40 L39 41 L39 43 L32 43 L32 32 L23 32 L19 37 L17 41 L20 42 L20 43 L13 43 L14 35 L12 32 Q5 32 4 27 Q3 21 9 19 Q15 17 18 22 L15 24 Q12 21 9 23 Q7 26 11 27 Z",
-  대형견:
-    "M13 23 Q20 19 32 21 L38 21 L40 15 Q42 10 48 11 L52 14 L54 17 L62 19 L61 23 L54 25 L50 29 L48 39 L52 41 L52 43 L44 43 L43 30 L40 32 L38 40 L41 41 L41 43 L34 43 L33 32 L23 31 L19 35 L16 40 L20 41 L20 43 L12 43 L13 34 L11 29 Q6 32 1 30 L0 27 Q7 27 13 23 Z M43 16 Q39 18 42 25 Q44 27 46 22 L47 17 Z",
-  초대형견:
-    "M12 19 Q20 16 32 18 L39 18 L43 7 L45 3 L50 4 L51 7 L55 9 L62 10 L62 16 L55 17 L52 20 L50 29 L49 40 L53 41 L53 43 L46 43 L44 26 L41 28 L40 40 L43 41 L43 43 L36 43 L36 28 L23 27 L20 31 L18 39 L21 41 L21 43 L14 43 L14 31 L12 26 L9 35 L8 40 L11 41 L11 43 L5 43 L6 33 L9 24 Q5 23 2 17 L1 11 Q4 18 12 19 Z",
+// Crop windows on the approved sheet; preserve the approved outlines exactly.
+const crops: Record<
+  CardSize,
+  { x: number; y: number; width: number; height: number; display: number }
+> = {
+  소형견: { x: 72, y: 355, width: 183, height: 203, display: 30 },
+  중형견: { x: 320, y: 286, width: 286, height: 274, display: 39 },
+  대형견: { x: 625, y: 247, width: 426, height: 312, display: 49 },
+  초대형견: { x: 1051, y: 125, width: 458, height: 435, display: 52 },
 };
 export function SizeBreedIcon({ size }: { size: CardSize }) {
+  const crop = crops[size];
+  const scale = crop.display / crop.width;
   return (
-    <svg
-      viewBox="0 0 64 48"
-      width="48"
-      height="36"
-      aria-hidden="true"
-      focusable="false"
-      fill="currentColor"
-    >
-      <path d={silhouettes[size]} />
-    </svg>
+    <span className={styles.frame} aria-hidden="true">
+      <span
+        className={styles.crop}
+        style={{ width: crop.display, height: crop.height * scale }}
+      >
+        <Image
+          src="/images/size-icons/approved-silhouettes.webp"
+          alt=""
+          width={1536}
+          height={1024}
+          sizes="512px"
+          quality={90}
+          draggable={false}
+          style={{
+            width: 1536 * scale,
+            height: 1024 * scale,
+            left: -crop.x * scale,
+            top: -crop.y * scale,
+          }}
+        />
+      </span>
+    </span>
   );
 }
