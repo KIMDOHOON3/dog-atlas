@@ -46,7 +46,11 @@ export function MeadowFooter() {
             함께한 뒤에는 끝까지 책임져 주세요.
           </p>
         </div>
-        <div ref={field} className={styles.field} aria-label="잔디 운동장">
+        <div
+          ref={field}
+          className={styles.field}
+          aria-label="재패니즈 스피츠가 노는 잔디 운동장"
+        >
           <span className={styles.hint}>공을 잡아, 가볍게 던져보세요.</span>
         </div>
       </div>
