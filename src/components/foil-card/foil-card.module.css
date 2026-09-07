@@ -1564,4 +1564,67 @@
     margin-top: 12px;
   }
 }
-@media(max-width:600px) { .cardActions > * { justify-content:center; text-align:center; } }
+@media (max-width: 600px) {
+  .cardActions > * {
+    justify-content: center;
+    text-align: center;
+  }
+}
+.expandCorner {
+  width: 36px;
+  min-width: 36px;
+  padding: 0;
+  border-radius: 50%;
+}
+.fullscreenGlyph {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+.fullscreenGlyph i {
+  position: absolute;
+  display: block;
+  width: 9px;
+  height: 9px;
+  transition: transform 180ms ease;
+}
+.fullscreenGlyph i::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1.6px solid currentColor;
+  border-right: 1.6px solid currentColor;
+  border-radius: 1px;
+}
+.fullscreenGlyph i::after {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 1.6px;
+  top: 3.7px;
+  left: -1px;
+  background: currentColor;
+  transform: rotate(-45deg);
+  border-radius: 1px;
+}
+.fullscreenGlyph i:first-child {
+  right: 2px;
+  top: 2px;
+}
+.fullscreenGlyph i:last-child {
+  left: 2px;
+  bottom: 2px;
+  transform: rotate(180deg);
+}
+.fullscreenGlyph[data-expanded="true"] i:first-child {
+  transform: rotate(180deg);
+}
+.fullscreenGlyph[data-expanded="true"] i:last-child {
+  transform: rotate(360deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fullscreenGlyph i {
+    transition: none;
+  }
+}

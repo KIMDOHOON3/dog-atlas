@@ -115,7 +115,14 @@ export function SpreadCard({
           aria-expanded={modal}
           onClick={modal ? onClose : () => setExpanded(true)}
         >
-          <span>{modal ? "닫기 ×" : "확대 ↗"}</span>
+          <span
+            className={styles.fullscreenGlyph}
+            data-expanded={modal}
+            aria-hidden="true"
+          >
+            <i />
+            <i />
+          </span>
         </button>
       )}
       <div className={modal ? styles.cardActions : styles.spreadActions}>
