@@ -138,3 +138,42 @@ body:has(main[data-breed-theme="standard"])
   border-color: transparent;
   background: #fff;
 }
+/* One shared card connects the two layouts; all other content fades behind it. */
+html[data-card-view-transition]::view-transition-group(atlas-card) {
+  animation-duration: 480ms;
+  animation-timing-function: cubic-bezier(0.22, 0.75, 0.2, 1);
+}
+html[data-card-view-transition]::view-transition-image-pair(atlas-card) {
+  isolation: isolate;
+}
+html[data-card-view-transition]::view-transition-old(atlas-card),
+html[data-card-view-transition]::view-transition-new(atlas-card) {
+  height: 100%;
+  object-fit: fill;
+  animation-duration: 480ms;
+  mix-blend-mode: normal;
+}
+html[data-card-view-transition]::view-transition-old(root) {
+  animation: atlas-layout-out 140ms ease both;
+}
+html[data-card-view-transition]::view-transition-new(root) {
+  animation: atlas-layout-in 340ms 100ms ease both;
+}
+@keyframes atlas-layout-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes atlas-layout-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-card-view-transition]::view-transition-group(*) {
+    animation-duration: 0s;
+  }
+}

@@ -49,6 +49,8 @@ const cardsForSize = (size: CardSize) =>
 export function FoilCard() {
   const [size, setSize] = useState<CardSize>("소형견");
   const [view, setView] = useState<"single" | "spread">("single");
+  const [viewChanging, setViewChanging] = useState(false);
+  const viewLock = useRef(false);
   const cards = cardsForSize(size);
   const [active, setActive] = useState(0);
   const [selected, setSelected] = useState(0);
@@ -126,6 +128,44 @@ export function FoilCard() {
     },
     [textureKey],
   );
+
+  async function changeView(mode: "single" | "spread") {
+    if (mode === view || viewLock.current || sliding || turning) return;
+    motion.current?.stop();
+    let committed = false;
+    const update = () => {
+      flushSync(() => setView(mode));
+      committed = true;
+      const target = document.querySelector<HTMLElement>(
+        '[data-view-card="active"]',
+      );
+      if (target) {
+        const rect = target.getBoundingClientRect();
+        if (
+          rect.height > 0 &&
+          (rect.top < 80 || rect.bottom > window.innerHeight)
+        )
+          target.scrollIntoView({ block: "center", behavior: "instant" });
+      }
+    };
+    if (reduced || !document.startViewTransition) {
+      update();
+      return;
+    }
+    viewLock.current = true;
+    setViewChanging(true);
+    document.documentElement.setAttribute("data-card-view-transition", mode);
+    try {
+      const transition = document.startViewTransition(update);
+      await transition.finished;
+    } catch {
+      if (!committed) update();
+    } finally {
+      document.documentElement.removeAttribute("data-card-view-transition");
+      viewLock.current = false;
+      setViewChanging(false);
+    }
+  }
 
   async function selectBreed(index: number) {
     if (index === active || selecting.current || !cards[index]) return;
@@ -764,12 +804,8 @@ export function FoilCard() {
               key={mode}
               type="button"
               aria-pressed={view === mode}
-              disabled={sliding || turning}
-              onClick={() => {
-                if (mode === view) return;
-                motion.current?.stop();
-                setView(mode);
-              }}
+              disabled={sliding || turning || viewChanging}
+              onClick={() => void changeView(mode)}
             >
               <span
                 className={
@@ -789,7 +825,13 @@ export function FoilCard() {
         <SizeSelector
           value={size}
           onChange={(next) => {
-            if (next === size || selecting.current || turning) return;
+            if (
+              next === size ||
+              selecting.current ||
+              turning ||
+              viewLock.current
+            )
+              return;
             motion.current?.stop();
             setActive(0);
             setSelected(0);
@@ -807,13 +849,24 @@ export function FoilCard() {
         {view === "spread" && (
           <div className={styles.spreadGrid} aria-label={`${size} 펼쳐보기`}>
             {cards.map((entry) => (
-              <SpreadCard key={entry.slug} breed={entry} />
+              <SpreadCard
+                key={entry.slug}
+                breed={entry}
+                shared={entry.slug === cards[active].slug}
+              />
             ))}{" "}
           </div>
         )}
         <div className={styles.collectionContent} hidden={view === "spread"}>
           <div className={styles.exhibit}>
-            <div className={styles.stage} aria-busy={sliding}>
+            <div
+              className={styles.stage}
+              aria-busy={sliding}
+              data-view-card={view === "single" ? "active" : undefined}
+              style={{
+                viewTransitionName: view === "single" ? "atlas-card" : "none",
+              }}
+            >
               <div className={styles.shadow} />
               <canvas
                 ref={transitionCanvas}

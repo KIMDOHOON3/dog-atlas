@@ -12,10 +12,12 @@ import styles from "./foil-card.module.css";
 export function SpreadCard({
   breed,
   modal = false,
+  shared = false,
   onClose,
 }: {
   breed: GiantCard;
   modal?: boolean;
+  shared?: boolean;
   onClose?: () => void;
 }) {
   const [mobile, setMobile] = useState(false);
@@ -71,6 +73,8 @@ export function SpreadCard({
       aria-label={breed.name}
     >
       <div
+        data-view-card={shared && !modal ? "active" : undefined}
+        style={{ viewTransitionName: shared && !modal ? "atlas-card" : "none" }}
         ref={area}
         className={styles.spreadSurface}
         role="button"
