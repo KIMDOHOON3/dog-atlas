@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { addMiniatureYard } from "./miniature-yard";
-import { createPlayBall, BALL_RADIUS } from "./play-ball";
+import { createPlayBall } from "./play-ball";
+import { createTennisBall } from "./tennis-ball";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobile = matchMedia("(max-width: 767px)").matches;
@@ -10,6 +11,8 @@ export function createMeadow(host: HTMLDivElement) {
     antialias: true,
     powerPreference: "low-power",
   });
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.shadowMap.autoUpdate = false;
@@ -23,42 +26,25 @@ export function createMeadow(host: HTMLDivElement) {
   camera.position.set(0, 10, 11);
   camera.lookAt(0, 0, 0);
   const disposeYard = addMiniatureYard(scene);
-  scene.add(new THREE.HemisphereLight(0xfff7df, 0x8b825b, 2.2));
-  const sun = new THREE.DirectionalLight(0xffead0, 2);
+  scene.add(new THREE.HemisphereLight(0xfff7df, 0xa5957a, 1.35));
+  const sun = new THREE.DirectionalLight(0xffead0, 3.2);
   sun.position.set(-4, 8, 6);
   sun.castShadow = true;
-  sun.shadow.mapSize.set(512, 512);
+  sun.shadow.mapSize.set(mobile ? 1024 : 2048, mobile ? 1024 : 2048);
   sun.shadow.camera.left = -7;
   sun.shadow.camera.right = 7;
   sun.shadow.camera.top = 5;
   sun.shadow.camera.bottom = -5;
-  sun.shadow.bias = -0.001;
+  sun.shadow.bias = -0.00015;
+  sun.shadow.normalBias = 0.018;
+  sun.shadow.radius = 3;
   scene.add(sun);
-  const ballGeometry = new THREE.SphereGeometry(BALL_RADIUS, 32, 20);
-  const ballMaterial = new THREE.MeshStandardMaterial({
-    color: 0xb87042,
-    roughness: 1,
-  });
-  const ball = new THREE.Mesh(ballGeometry, ballMaterial);
+  const tennis = createTennisBall();
+  const ball = tennis.ball;
   const physics = createPlayBall();
   ball.position.copy(physics.body.position);
-  ball.rotation.z = 0.45;
+  physics.body.quaternion.setFromEuler(0.45, 0.2, -0.35);
   scene.add(ball);
-  const seamGeometry = new THREE.TorusGeometry(
-    BALL_RADIUS + 0.002,
-    0.012,
-    6,
-    64,
-  );
-  const seamMaterial = new THREE.MeshStandardMaterial({
-    color: 0xeee0c6,
-    roughness: 1,
-  });
-  const seam = new THREE.Mesh(seamGeometry, seamMaterial);
-  ball.add(seam);
-  const seam2 = seam.clone();
-  seam2.rotation.y = Math.PI / 2;
-  ball.add(seam2);
   const shadowGeometry = new THREE.CircleGeometry(0.32, 24);
   const shadowMaterial = new THREE.MeshBasicMaterial({
     color: 0x605d42,
@@ -246,15 +232,9 @@ export function createMeadow(host: HTMLDivElement) {
       document.removeEventListener("visibilitychange", sync);
       reduced.removeEventListener("change", sync);
       renderer.domElement.removeEventListener("webglcontextlost", lost);
-      for (const resource of [
-        ballGeometry,
-        ballMaterial,
-        seamGeometry,
-        seamMaterial,
-        shadowGeometry,
-        shadowMaterial,
-      ])
+      for (const resource of [shadowGeometry, shadowMaterial])
         resource.dispose();
+      tennis.dispose();
       ballTarget.remove();
       disposeYard();
       renderer.dispose();
