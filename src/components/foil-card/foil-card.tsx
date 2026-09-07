@@ -24,8 +24,9 @@ import { largeCards } from "@/content/large-cards";
 import { SpreadCard } from "./spread-card";
 import { CardFront } from "./card-front";
 import { CardBack } from "./card-back";
-import { SizeSelector, type CardSize } from "./size-selector";
+import { cardSizes, type CardSize } from "./size-selector";
 import styles from "./foil-card.module.css";
+import { CardSearch, type CardSearchEntry } from "./card-search";
 
 type Motion = {
   aim: (x: number, y: number) => void;
@@ -46,7 +47,21 @@ const cardsForSize = (size: CardSize) =>
         ? largeCards
         : giantCards;
 
+const searchEntries = cardSizes.flatMap((size) =>
+  cardsForSize(size).map((card, index) => ({
+    name: card.name,
+    nameEn: card.nameEn,
+    slug: card.slug,
+    size,
+    index,
+  })),
+);
+
 export function FoilCard() {
+  const [searchOpen, setSearchOpen] = useState<{
+    slug: string;
+    id: number;
+  } | null>(null);
   const [size, setSize] = useState<CardSize>("소형견");
   const [view, setView] = useState<"single" | "spread">("single");
   const [viewChanging, setViewChanging] = useState(false);
@@ -771,12 +786,63 @@ export function FoilCard() {
     }
   }
 
+  async function changeCollection(next: CardSize, index?: number) {
+    if (
+      (next === size && index === undefined) ||
+      selecting.current ||
+      turning ||
+      viewLock.current
+    )
+      return;
+    motion.current?.reset();
+    if (view === "spread") {
+      viewLock.current = true;
+      setViewChanging(true);
+      let timeout: ReturnType<typeof setTimeout> | undefined;
+      await Promise.race([
+        Promise.all(
+          cardsForSize(next).map((entry) => prepareImage(entry.front.src)),
+        ),
+        new Promise<void>((resolve) => {
+          timeout = setTimeout(resolve, 4000);
+        }),
+      ]);
+      clearTimeout(timeout);
+      viewLock.current = false;
+      setViewChanging(false);
+    }
+    setActive(index ?? 0);
+    setSelected(index ?? 0);
+    setTextureTarget(index ?? 0);
+    setOutgoing(null);
+    setFlipped(false);
+    setFlipTarget(false);
+    settings.current.flipped = false;
+    settings.current.woodland =
+      cardsForSize(next)[index ?? 0].theme === "woodland";
+    settings.current.variant = foilVariant(cardsForSize(next)[index ?? 0].slug);
+    setSize(next);
+
+    if (index !== undefined && view === "spread")
+      setSearchOpen({ slug: cardsForSize(next)[index].slug, id: Date.now() });
+  }
+
   return (
     <div className={styles.page} data-theme={breed.theme}>
       <a className="skip-link" href="#main">
         본문으로 바로가기
       </a>
-      <SiteHeader />
+      <SiteHeader>
+        <CardSearch
+          size={size}
+          entries={searchEntries}
+          disabled={sliding || turning || viewChanging}
+          onSize={(next) => void changeCollection(next)}
+          onSelect={(entry: CardSearchEntry) =>
+            void changeCollection(entry.size, entry.index)
+          }
+        />
+      </SiteHeader>
       <main id="main" className={styles.main} aria-label={`${size} 카드 도감`}>
         <h1 className={styles.srOnly}>살아 있는 견종도감</h1>
         <div
@@ -807,48 +873,7 @@ export function FoilCard() {
             </button>
           ))}
         </div>
-        <SizeSelector
-          value={size}
-          onChange={async (next) => {
-            if (
-              next === size ||
-              selecting.current ||
-              turning ||
-              viewLock.current
-            )
-              return;
-            motion.current?.reset();
-            if (view === "spread") {
-              viewLock.current = true;
-              setViewChanging(true);
-              let timeout: ReturnType<typeof setTimeout> | undefined;
-              await Promise.race([
-                Promise.all(
-                  cardsForSize(next).map((entry) =>
-                    prepareImage(entry.front.src),
-                  ),
-                ),
-                new Promise<void>((resolve) => {
-                  timeout = setTimeout(resolve, 4000);
-                }),
-              ]);
-              clearTimeout(timeout);
-              viewLock.current = false;
-              setViewChanging(false);
-            }
-            setActive(0);
-            setSelected(0);
-            setTextureTarget(0);
-            setOutgoing(null);
-            setFlipped(false);
-            setFlipTarget(false);
-            settings.current.flipped = false;
-            settings.current.woodland =
-              cardsForSize(next)[0].theme === "woodland";
-            settings.current.variant = foilVariant(cardsForSize(next)[0].slug);
-            setSize(next);
-          }}
-        />
+
         {view === "spread" && (
           <div className={styles.spreadGrid} aria-label={`${size} 펼쳐보기`}>
             {cards.map((entry) => (
@@ -856,6 +881,9 @@ export function FoilCard() {
                 key={entry.slug}
                 breed={entry}
                 shared={entry.slug === cards[active].slug}
+                openRequest={
+                  searchOpen?.slug === entry.slug ? searchOpen.id : undefined
+                }
               />
             ))}{" "}
           </div>

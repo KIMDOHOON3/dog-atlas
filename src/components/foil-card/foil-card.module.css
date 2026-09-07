@@ -1752,3 +1752,23 @@
     transition: none;
   }
 }
+@media (min-width: 901px) {
+  .collectionContent {
+    display: flex;
+    flex-direction: column;
+  }
+  .collectionContent > .exhibit {
+    order: 0;
+  }
+  .collectionContent > .cardActions {
+    order: 1;
+  }
+  .collectionContent > .paginationRow {
+    order: 2;
+    width: min(100%, 300px);
+    margin-top: 30px;
+  }
+  .collectionContent > .controls {
+    display: none;
+  }
+}

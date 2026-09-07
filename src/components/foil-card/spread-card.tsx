@@ -20,13 +20,23 @@ export function SpreadCard({
   modal = false,
   shared = false,
   onClose,
+  openRequest,
 }: {
   breed: GiantCard;
   modal?: boolean;
   shared?: boolean;
   onClose?: () => void;
+  openRequest?: number;
 }) {
-  const [expanded, setExpanded] = useState(false);
+  const [localExpanded, setLocalExpanded] = useState(false);
+  const [dismissedRequest, setDismissedRequest] = useState<number>();
+  const expanded =
+    localExpanded ||
+    (openRequest !== undefined && openRequest !== dismissedRequest);
+  function setExpanded(value: boolean) {
+    setLocalExpanded(value);
+    if (!value) setDismissedRequest(openRequest);
+  }
   const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     if (!expanded) return;

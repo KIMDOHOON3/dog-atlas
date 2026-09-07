@@ -17,6 +17,11 @@ const frames = new Map<number, FrameRequestCallback>();
 let id = 0;
 let reduced = false;
 const renderer = { draw: vi.fn(), resize: vi.fn(), dispose: vi.fn() };
+function categoryButton(name: string) {
+  if (!screen.queryByRole("button", { name }))
+    fireEvent.click(screen.getByRole("button", { name: "견종 분류" }));
+  return screen.getByRole("button", { name });
+}
 function firstFrame(time = 20) {
   act(() => {
     const pending = [...frames.entries()];
@@ -67,7 +72,7 @@ afterEach(() => vi.unstubAllGlobals());
 
 function renderGiant() {
   const result = render(<FoilCard />);
-  fireEvent.click(screen.getByRole("button", { name: "초대형견" }));
+  fireEvent.click(categoryButton("초대형견"));
   renderer.dispose.mockClear();
   const mesh = vi
     .mocked(createCardTransitionRenderer)
@@ -76,9 +81,43 @@ function renderGiant() {
   return result;
 }
 describe("single breed foil study", () => {
+  it("searches across sizes and opens the selected card in spread view", async () => {
+    HTMLDialogElement.prototype.showModal = function () {
+      this.setAttribute("open", "");
+    };
+    HTMLDialogElement.prototype.close = function () {
+      this.removeAttribute("open");
+    };
+    render(<FoilCard />);
+    firstFrame();
+    const input = screen.getByRole("textbox", { name: "견종 이름 검색" });
+    fireEvent.change(input, { target: { value: "사모예드" } });
+    fireEvent.click(
+      within(screen.getByLabelText("검색 결과")).getByRole("button", {
+        name: /사모예드/,
+      }),
+    );
+    expect(screen.getByRole("heading", { name: "사모예드" })).toBeVisible();
+    fireEvent.click(screen.getByRole("button", { name: "펼쳐보기" }));
+    fireEvent.change(input, { target: { value: "말티즈" } });
+    await act(async () => {
+      fireEvent.click(
+        within(screen.getByLabelText("검색 결과")).getByRole("button", {
+          name: /말티즈/,
+        }),
+      );
+    });
+    const dialog = screen.getByRole("dialog", { name: "말티즈 크게 보기" });
+    expect(dialog).toBeVisible();
+    fireEvent.click(within(dialog).getByRole("button", { name: "닫기" }));
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
   it("reuses GPU renderers across rapid size changes and isolates snapshot keys", async () => {
     const mesh = {
-      prepare: vi.fn<(key: string, face: HTMLElement) => Promise<boolean>>(async () => true),
+      prepare: vi.fn<(key: string, face: HTMLElement) => Promise<boolean>>(
+        async () => true,
+      ),
       settle: vi.fn(async () => {}),
       start: vi.fn(() => true),
       draw: vi.fn(),
@@ -89,7 +128,7 @@ describe("single breed foil study", () => {
     render(<FoilCard />);
     firstFrame();
     for (const name of ["중형견", "소형견", "중형견"]) {
-      fireEvent.click(screen.getByRole("button", { name }));
+      fireEvent.click(categoryButton(name));
       firstFrame();
     }
     expect(createFoilRenderer).toHaveBeenCalledTimes(1);
@@ -97,9 +136,7 @@ describe("single breed foil study", () => {
     expect(mesh.prepare).not.toHaveBeenCalled();
     expect(mesh.dispose).not.toHaveBeenCalled();
     await act(async () => {
-      fireEvent.click(
-        screen.getByRole("button", { name: "시바견" }),
-      );
+      fireEvent.click(screen.getByRole("button", { name: "시바견" }));
     });
     expect(mesh.prepare.mock.calls.length).toBeGreaterThan(0);
     for (const call of vi.mocked(mesh.prepare).mock.calls)
@@ -140,11 +177,8 @@ describe("single breed foil study", () => {
   it("switches size collections without showing giant cards under another size", () => {
     renderGiant();
     firstFrame();
-    fireEvent.click(screen.getByRole("button", { name: "대형견" }));
-    expect(screen.getByRole("button", { name: "대형견" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
+    fireEvent.click(categoryButton("대형견"));
+    expect(categoryButton("대형견")).toHaveAttribute("aria-pressed", "true");
     expect(
       screen.getByRole("heading", { name: "골든 리트리버" }),
     ).toBeVisible();
@@ -158,7 +192,7 @@ describe("single breed foil study", () => {
     expect(
       screen.queryByRole("heading", { name: "그레이트 피레니즈" }),
     ).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "중형견" }));
+    fireEvent.click(categoryButton("중형견"));
     expect(screen.getByRole("heading", { name: "진돗개" })).toBeVisible();
     expect(
       screen.getByRole("link", { name: "진돗개 자세히 보기" }),
@@ -168,7 +202,7 @@ describe("single breed foil study", () => {
         name: "잉글리시 코커 스패니얼",
       }),
     ).toBeEnabled();
-    fireEvent.click(screen.getByRole("button", { name: "초대형견" }));
+    fireEvent.click(categoryButton("초대형견"));
     expect(
       screen.getByRole("heading", { name: "그레이트 피레니즈" }),
     ).toBeVisible();

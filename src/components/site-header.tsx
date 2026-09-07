@@ -2,11 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import styles from "./site-header.module.css";
 
-export function SiteHeader({ wide = false }: { wide?: boolean }) {
+export function SiteHeader({
+  wide = false,
+  children,
+}: {
+  wide?: boolean;
+  children?: ReactNode;
+}) {
   const pathname = usePathname();
   const discoverTone = true;
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,7 +40,7 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
   return (
     <>
       <header
-        className={`${styles.header} ${wide ? styles.wide : ""} ${discoverTone ? styles.discoverTone : ""}`}
+        className={`${styles.header} ${children ? styles.withSearch : ""} ${wide ? styles.wide : ""} ${discoverTone ? styles.discoverTone : ""}`}
       >
         <Link
           className={styles.brand}
@@ -51,6 +57,7 @@ export function SiteHeader({ wide = false }: { wide?: boolean }) {
             priority
           />
         </Link>
+        {children && <div className={styles.searchSlot}>{children}</div>}
         <div className={styles.headerActions}>
           <nav aria-label="주요 탐색">
             <Link
