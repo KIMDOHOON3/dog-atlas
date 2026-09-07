@@ -1472,6 +1472,9 @@
   position: relative;
 }
 .expandCorner {
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1;
   position: absolute;
   right: 6px;
   top: 6px;
