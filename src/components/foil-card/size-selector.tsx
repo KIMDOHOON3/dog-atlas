@@ -2,13 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import styles from "./foil-card.module.css";
+import { SizeBreedIcon } from "./size-breed-icon";
 
-export const cardSizes = [
-  "소형견",
-  "중형견",
-  "대형견",
-  "초대형견",
-] as const;
+export const cardSizes = ["소형견", "중형견", "대형견", "초대형견"] as const;
 export type CardSize = (typeof cardSizes)[number];
 
 export function SizeSelector({
@@ -63,7 +59,8 @@ export function SizeSelector({
           aria-pressed={value === size}
           onClick={() => onChange(size)}
         >
-          {size}
+          <SizeBreedIcon size={size} />
+          <span>{size}</span>
         </button>
       ))}
     </nav>
