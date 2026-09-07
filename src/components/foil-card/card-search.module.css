@@ -158,3 +158,29 @@
     gap: 7px;
   }
 }
+.chevron {
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  flex-shrink: 0;
+}
+.panel nav {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.panel nav button {
+  padding: 12px 2px;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.thumbnail {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex: 0 0 44px;
+}
+.panel > button > span {
+  flex: 1;
+}

@@ -303,3 +303,6 @@
     justify-self: center;
   }
 }
+.header {
+  z-index: 200;
+}

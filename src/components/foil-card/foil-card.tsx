@@ -51,6 +51,7 @@ const searchEntries = cardSizes.flatMap((size) =>
   cardsForSize(size).map((card, index) => ({
     name: card.name,
     nameEn: card.nameEn,
+    image: card.front.src,
     slug: card.slug,
     size,
     index,
@@ -87,6 +88,7 @@ export function FoilCard() {
   const pagination = useRef<HTMLElement>(null);
   const imageReady = useRef(new Map<string, Promise<unknown>>());
   const breed = cards[active];
+  const pageStart = Math.max(0, Math.min(selected - 2, cards.length - 5));
   const canvas = useRef<HTMLCanvasElement>(null);
   const card = useRef<HTMLDivElement>(null);
   const frontFace = useRef<HTMLDivElement>(null);
@@ -1101,14 +1103,20 @@ export function FoilCard() {
               aria-label={`${size} 선택`}
             >
               <div className={styles.paginationTrack}>
-                <span
-                  className={styles.paginationLine}
-                  aria-hidden="true"
-                  style={{ transform: `translateX(${selected * 48}px)` }}
-                />
+                {pageStart > 0 && (
+                  <button
+                    type="button"
+                    className={styles.ellipsis}
+                    aria-label="이전 번호 더 보기"
+                    onClick={() => selectBreed(Math.max(0, pageStart - 3))}
+                  >
+                    …
+                  </button>
+                )}
                 {cards.map((entry, index) => (
                   <button
                     key={entry.slug}
+                    data-window={index >= pageStart && index < pageStart + 5}
                     aria-label={entry.name}
                     aria-current={active === index ? "true" : undefined}
                     data-selected={selected === index}
@@ -1119,6 +1127,18 @@ export function FoilCard() {
                     <span className={styles.srOnly}>{entry.name}</span>
                   </button>
                 ))}
+                {pageStart + 5 < cards.length && (
+                  <button
+                    type="button"
+                    className={styles.ellipsis}
+                    aria-label="다음 번호 더 보기"
+                    onClick={() =>
+                      selectBreed(Math.min(cards.length - 1, pageStart + 5))
+                    }
+                  >
+                    …
+                  </button>
+                )}
               </div>
             </nav>
             <button

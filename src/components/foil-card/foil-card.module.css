@@ -1772,3 +1772,117 @@
     display: none;
   }
 }
+/* Card-sized navigation with at most five numbered entries. */
+.paginationRow,
+.collectionContent > .paginationRow {
+  width: min(100%, 390px);
+}
+.paginationRow .cardPagination {
+  flex: 1;
+  max-width: none;
+  overflow: visible;
+}
+.paginationTrack {
+  width: 100%;
+  gap: 0;
+  justify-content: center;
+}
+.cardPagination button {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  position: relative;
+}
+.cardPagination button[data-window="false"] {
+  display: none;
+}
+.cardPagination button[data-window]::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  left: calc(50% - 8px);
+  width: 16px;
+  height: 1px;
+  background: var(--clay);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms ease;
+}
+.cardPagination button[data-selected="true"]::after {
+  transform: scaleX(1);
+}
+.cardPagination .ellipsis {
+  flex: 0 0 20px;
+  color: var(--ink-soft);
+}
+.expandCorner {
+  background: rgb(255 253 248 / 66%);
+  border-color: rgb(255 255 255 / 40%);
+  backdrop-filter: blur(3px);
+}
+.spreadItem[data-modal="false"] {
+  border-radius: 22px;
+  background: #f8f4ed;
+  box-shadow: 0 4px 18px #49301b12;
+}
+.spreadItem[data-modal="false"] > .spreadActions {
+  margin: 0;
+  padding: 4px 12px 8px;
+}
+.spreadItem[data-modal="false"] > .spreadActions a {
+  border: 0;
+  border-radius: 0;
+  border-top: 1px solid #e3d8cc;
+  background: transparent;
+  min-height: 38px;
+}
+@media (min-width: 1001px) {
+  .main:has(.spreadGrid) {
+    max-width: 1440px;
+    padding-inline: 32px;
+  }
+  .spreadGrid {
+    gap: 28px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cardPagination button[data-window]::after {
+    transition: none;
+  }
+}
+.spreadItem[data-modal="false"] {
+  background: transparent;
+  box-shadow: none;
+}
+.spreadItem[data-modal="false"] .cardFoot {
+  visibility: hidden;
+}
+.spreadItem[data-modal="false"] > .spreadActions {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 2%;
+  padding: 0;
+  z-index: 2;
+}
+.spreadItem[data-modal="false"] > .spreadActions a {
+  min-height: 30px;
+  padding: 2px;
+  border-top: 1px solid #aa947536;
+  font-size: 11px;
+}
+.spreadItem[data-modal="false"] > .spreadActions img {
+  width: 20px;
+  height: 20px;
+}
+@media (max-width: 600px) {
+  .spreadItem[data-modal="false"] > .spreadActions a {
+    min-height: 24px;
+    font-size: 10px;
+    gap: 4px;
+  }
+  .spreadItem[data-modal="false"] > .spreadActions img {
+    width: 16px;
+    height: 16px;
+  }
+}

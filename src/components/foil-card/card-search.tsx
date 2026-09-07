@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { SizeSelector, type CardSize } from "./size-selector";
 import styles from "./card-search.module.css";
@@ -10,9 +11,19 @@ export type CardSearchEntry = {
   slug: string;
   size: CardSize;
   index: number;
+  image: string;
 };
 const normalize = (text: string) =>
   text.toLocaleLowerCase().replace(/[\s-]/g, "");
+const aliases: Record<string, string[]> = {
+  "miniature-pinscher": ["미니핀"],
+  "miniature-schnauzer": ["슈나우저"],
+  "pembroke-welsh-corgi": ["웰시코기", "코기"],
+  pomeranian: ["포메"],
+  "labrador-retriever": ["래브라도", "라브라도"],
+  "yorkshire-terrier": ["요키"],
+  "german-shepherd-dog": ["저먼셰퍼드", "독일셰퍼드"],
+};
 export function CardSearch({
   size,
   entries,
@@ -32,7 +43,11 @@ export function CardSearch({
   const input = useRef<HTMLInputElement>(null);
   const matches = query.trim()
     ? entries
-        .filter((e) => normalize(e.name + e.nameEn).includes(normalize(query)))
+        .filter((e) =>
+          normalize(
+            [e.name, e.nameEn, ...(aliases[e.slug] ?? [])].join(" "),
+          ).includes(normalize(query)),
+        )
         .slice(0, 8)
     : [];
   const choose = (entry: CardSearchEntry) => {
@@ -105,7 +120,7 @@ export function CardSearch({
           }}
         >
           {size}
-          <span aria-hidden="true">⌄</span>
+          <span className={styles.chevron} aria-hidden="true" />
         </button>
         <button
           className={styles.submit}
@@ -118,7 +133,6 @@ export function CardSearch({
       </form>
       {category && (
         <div id="card-categories" className={styles.panel}>
-          <p>크기로 둘러보기</p>
           <SizeSelector
             value={size}
             onChange={(next) => {
@@ -141,6 +155,14 @@ export function CardSearch({
               disabled={disabled}
               onClick={() => choose(entry)}
             >
+              <Image
+                src={entry.image}
+                alt=""
+                width={44}
+                height={44}
+                unoptimized
+                className={styles.thumbnail}
+              />
               <span>{entry.name}</span>
               <small>{entry.size}</small>
             </button>
