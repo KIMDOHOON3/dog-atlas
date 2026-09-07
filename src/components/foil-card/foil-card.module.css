@@ -1577,6 +1577,8 @@
   border-radius: 50%;
 }
 .fullscreenGlyph {
+  transform: scale(0.75);
+  transform-origin: center;
   position: relative;
   display: block;
   width: 22px;
