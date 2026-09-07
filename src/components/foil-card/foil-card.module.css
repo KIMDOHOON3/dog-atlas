@@ -1533,3 +1533,35 @@
     grid-template-columns: 1fr;
   }
 }
+
+.expandCorner {
+  width: auto;
+  height: 36px;
+  min-width: 64px;
+  padding: 0 10px;
+  border-radius: 18px;
+  font-size: 12px;
+  font-weight: 550;
+  box-shadow: none;
+  color: var(--ink);
+}
+@media (max-width: 600px) {
+  .cardActions img,
+  .spreadActions img {
+    display: none;
+  }
+  .cardActions > *,
+  .spreadActions > *,
+  .spreadItem[data-modal="true"] .cardActions > * {
+    min-height: 44px;
+    font-size: 12px;
+    padding: 8px 10px;
+    border-color: var(--line);
+    box-shadow: none;
+  }
+  .spreadItem[data-modal="true"] .cardActions {
+    gap: 8px;
+    margin-top: 12px;
+  }
+}
+@media(max-width:600px) { .cardActions > * { justify-content:center; text-align:center; } }

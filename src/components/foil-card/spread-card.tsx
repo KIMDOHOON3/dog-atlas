@@ -115,7 +115,7 @@ export function SpreadCard({
           aria-expanded={modal}
           onClick={modal ? onClose : () => setExpanded(true)}
         >
-          <CardActionIcon kind="expand" expanded={modal} />
+          <span>{modal ? "닫기 ×" : "확대 ↗"}</span>
         </button>
       )}
       <div className={modal ? styles.cardActions : styles.spreadActions}>
@@ -129,7 +129,7 @@ export function SpreadCard({
             aria-pressed={back}
           >
             <CardActionIcon kind="flip" />
-            {label}
+            {modal ? (back ? "앞면 보기" : "뒤집어 보기") : label}
           </button>
         )}
         <Link
