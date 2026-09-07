@@ -334,7 +334,7 @@
 }
 .cardPagination {
   position: relative;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .paginationTrack {
   position: relative;
@@ -411,21 +411,21 @@
   container-type: inline-size;
   border-radius: 19px;
   pointer-events: none;
-  box-shadow: 0 12px 28px #0005;
+  box-shadow: 0 8px 22px rgb(82 64 45 / 10%);
 }
 .deckCard[data-depth="1"] {
   transform: translate(25px, 10px) rotateY(-6deg) scale(0.94);
-  background: #b9aa99;
+  background: #eee7dd;
 }
 .deckCard[data-depth="2"] {
   transform: translate(46px, 17px) rotateY(-10deg) scale(0.88);
-  background: #877768;
+  background: #e2d8cb;
 }
 .deckCard {
   border: 1px solid #e9e3dc66;
   box-shadow:
     inset 0 0 0 6px #e9e3dc33,
-    0 6px 12px #0003;
+    0 4px 10px rgb(82 64 45 / 8%);
 }
 .departingCard {
   z-index: 4;
@@ -433,13 +433,13 @@
 }
 .shadow {
   position: absolute;
-  bottom: -19px;
+  bottom: -10px;
   left: 10%;
   width: 80%;
-  height: 35px;
-  background: #0009;
+  height: 22px;
+  background: rgb(104 83 60 / 12%);
   border-radius: 50%;
-  filter: blur(19px);
+  filter: blur(14px);
 }
 .interaction {
   z-index: 2;
@@ -467,8 +467,8 @@
   border-radius: 19px;
   box-shadow:
     0 0 0 1px #f1efd661,
-    0 2px 3px #0008,
-    0 20px 50px #0007;
+    0 2px 4px rgb(82 64 45 / 8%),
+    0 12px 28px rgb(82 64 45 / 12%);
   will-change: transform;
 }
 .turner {
