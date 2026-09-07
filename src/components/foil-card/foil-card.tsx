@@ -1,6 +1,7 @@
 "use client";
 import { CardActionIcon } from "./card-action-icon";
 import { SiteHeader } from "@/components/site-header";
+import { MeadowFooter } from "@/components/meadow-footer";
 
 import Link from "next/link";
 import { flushSync } from "react-dom";
@@ -1240,10 +1241,7 @@ export function FoilCard() {
           )}
         </div>
       </main>
-      <footer className={styles.footer}>
-        <span>살아 있는 견종도감</span>
-        <span>ONE BREED. A CLOSER LOOK.</span>
-      </footer>
+      <MeadowFooter />
     </div>
   );
 }

@@ -671,3 +671,9 @@ Precompute static surface geometry into a build-time RGB data map and use a comp
 # 2026-09-06 — Merge extra-small into small in public navigation
 
 The user approved four public size groups: small, medium, large and giant. Merge extra-small at the service presentation layer, including variety labels, discovery filtering and legacy URL parsing. Preserve source measurements and internal calculation classes. The three existing extra-small cards now belong to small.
+
+## 2026-09-07 — A quiet Three.js meadow at the end of the atlas
+
+The user approved a small walking yard with grass and a ball. The footer uses a lazily imported Three.js scene and instanced grass with vertex wind/bending, a warm trail and a small ball. Keep copy and navigation in HTML. Render only while visible, at most 30Hz, and cap the drawing buffer at 650,000 pixels. Mobile has fewer blades and no touch interception. Reduced motion renders a still scene; unavailable WebGL retains the CSS background and all content. Dispose GPU resources on unmount. No runtime CSS-in-JS or React Three Fiber is added.
+
+Reference: https://threejs.org/docs/pages/InstancedMesh.html and https://threejs.org/docs/pages/WebGLRenderer.html. Browser checks cover startup, offscreen stopping, reduced motion and shader errors; this is not a real-device FPS guarantee.
