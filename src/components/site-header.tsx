@@ -72,6 +72,7 @@ export function SiteHeader({
             <button
               className={styles.menuButton}
               type="button"
+              aria-label="메뉴"
               aria-expanded={menuOpen}
               aria-controls="site-more-menu"
               onClick={() => setMenuOpen((current) => !current)}

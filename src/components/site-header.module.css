@@ -306,3 +306,38 @@
 .header {
   z-index: 200;
 }
+
+@media (max-width: 767px) {
+  .wordmark {
+    width: 84px;
+    height: 28px;
+  }
+  .menuButton {
+    width: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+  }
+  .menuButton > span {
+    display: none;
+  }
+  .withSearch {
+    height: 72px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 8px;
+    padding-bottom: 0;
+  }
+  .withSearch .searchSlot {
+    grid-row: 1;
+    grid-column: 2;
+    width: 100%;
+  }
+}
+@media (max-width: 374px) {
+  .withSearch .wordmark {
+    width: 64px;
+  }
+  .withSearch {
+    gap: 5px;
+  }
+}

@@ -86,7 +86,7 @@ export function CardSearch({
         <input
           ref={input}
           aria-label="견종 이름 검색"
-          placeholder="어떤 견종이 궁금하세요?"
+          placeholder="견종 검색"
           value={query}
           maxLength={80}
           onFocus={() => {
