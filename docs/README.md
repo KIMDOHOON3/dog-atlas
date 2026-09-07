@@ -1,5 +1,7 @@
 # Dog Atlas 문서 안내
 
+- [중형견 5종 추가](medium-cards-five.md) — 중형 12종·지역별 양면 그림과 출처.
+
 - [대형견 첫 8종](large-cards-eight.md) — 역사 배경·지역 인물 양면 16장과 정보 근거.
 
 - [중형견 첫 6종](medium-cards-six.md) — 양면 12장·출처·국가별 인물·기존 상세 연결.

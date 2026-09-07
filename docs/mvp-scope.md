@@ -1,8 +1,8 @@
 # MVP scope
 
-## Current scope — 2026-09-06
+## Current scope — 2026-09-07
 
-Keep the card homepage (sixteen small, seven medium, eight large and eight giant cards), all discovery/search/filter behavior, every breed detail and its content/assets. Preserve the preparation guide linked from details. All four size groups now have cards; detail redesign remains future work.
+Keep the card homepage (sixteen small, twelve medium, eight large and eight giant cards), all discovery/search/filter behavior, every breed detail and its content/assets. Preserve the preparation guide linked from details. All four size groups now have cards; detail redesign remains future work.
 
 Remove discontinued games, postcards, place/API/Kakao functionality, old-home-only sections and their analysis records. Preserve shared dependencies and editorial provenance for retained breeds. API environment files are unchanged. No database, login, CMS, community or collection economy.
 

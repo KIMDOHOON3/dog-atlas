@@ -1,0 +1,106 @@
+{
+  "generator": "Built-in image_gen",
+  "created": "2026-09-07",
+  "images": [
+    {
+      "slug": "french-bulldog",
+      "side": "front",
+      "prompt": "Use case illustration-story. ONE square full bleed premium Dog Atlas card FRONT illustration. Reference image is STYLE ONLY. Subject: adult fawn French Bulldog with black mask, broad upright rounded bat ears, compact muscular square body, short natural tail, not a pug. Accurate adult anatomy, full body all feet and tail, standing three-quarter view centered filling 65-75% of image height. Scene: quiet old Paris cobblestone lane and cream limestone artisan workshop, subtle lace in window, terracotta plants. Delicate highly detailed natural history watercolor and colored pencil on warm ivory textured paper, muted earthy palette, soft daylight and tangible painted detail matching reference. Attractive evocative detailed background. No human, no text or numbers, no border/UI/watermark. Do not exaggerate flat faces or wrinkles.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-1c1cd5fb-aab9-4acb-b749-542a49cdbd48.png",
+      "asset": "public/illustrations/card-studies/french-bulldog-medium-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 410864
+    },
+    {
+      "slug": "french-bulldog",
+      "side": "back",
+      "prompt": "Create ONE portrait 5:7 Dog Atlas BACK illustration, premium delicate natural history watercolor and colored pencil on warm ivory paper. Match reference 1 dog identity, colors and setting exactly; reference 2 layout only. adult fawn French Bulldog with black mask, broad upright rounded bat ears, compact muscular square body, short natural tail, not a pug in quiet old Paris cobblestone lane and cream limestone artisan workshop, subtle lace in window, terracotta plants, together with French adult woman wearing cream blouse, muted blue skirt and simple brown leather shoes, seated naturally on a low bench, wearing understated regional everyday clothing. Adult dog with realistic 30-40cm shoulder height below person's knee on SAME ground plane, not giant nor miniature puppy. Person and dog on RIGHT half, full body all feet visible. Leave LEFT 48 percent mostly pale ivory atmospheric wash for text overlay and bottom 15 percent softly faded. Beautiful convincing regional setting softly recedes. No text, numbers, frame, UI or watermark. Quiet affectionate companionship, detailed natural faces and hands.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-e8ed082d-267e-43b3-87c1-ab5ad294e678.png",
+      "asset": "public/illustrations/card-studies/french-bulldog-medium-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 219218
+    },
+    {
+      "slug": "boston-terrier",
+      "side": "front",
+      "prompt": "Use case illustration-story. ONE square full bleed premium Dog Atlas card FRONT illustration. Reference image is STYLE ONLY. Subject: adult black and white Boston Terrier, white facial blaze and muzzle, tuxedo white chest, erect pointed ears, trim athletic compact body, not French Bulldog. Accurate adult anatomy, full body all feet and tail, standing three-quarter view centered filling 65-75% of image height. Scene: Boston Beacon Hill brick townhouse courtyard with black iron railings, pale autumn foliage. Delicate highly detailed natural history watercolor and colored pencil on warm ivory textured paper, muted earthy palette, soft daylight and tangible painted detail matching reference. Attractive evocative detailed background. No human, no text or numbers, no border/UI/watermark. Do not exaggerate flat faces or wrinkles.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-2aae1adc-711d-4035-bdd5-e3bccc038064.png",
+      "asset": "public/illustrations/card-studies/boston-terrier-medium-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 399492
+    },
+    {
+      "slug": "boston-terrier",
+      "side": "back",
+      "prompt": "Create ONE portrait 5:7 Dog Atlas BACK illustration, premium delicate natural history watercolor and colored pencil on warm ivory paper. Match reference 1 dog identity, colors and setting exactly; reference 2 layout only. adult black and white Boston Terrier, white facial blaze and muzzle, tuxedo white chest, erect pointed ears, trim athletic compact body, not French Bulldog in Boston Beacon Hill brick townhouse courtyard with black iron railings, pale autumn foliage, together with Black American adult man in simple blue cotton shirt and dark trousers with brown leather shoes, seated naturally on a low bench, wearing understated regional everyday clothing. Adult dog with realistic 30-40cm shoulder height below person's knee on SAME ground plane, not giant nor miniature puppy. Person and dog on RIGHT half, full body all feet visible. Leave LEFT 48 percent mostly pale ivory atmospheric wash for text overlay and bottom 15 percent softly faded. Beautiful convincing regional setting softly recedes. No text, numbers, frame, UI or watermark. Quiet affectionate companionship, detailed natural faces and hands.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-7ddde808-a1f3-4611-aeaf-89c2cc412425.png",
+      "asset": "public/illustrations/card-studies/boston-terrier-medium-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 236384
+    },
+    {
+      "slug": "bulldog",
+      "side": "front",
+      "prompt": "Use case illustration-story. ONE square full bleed premium Dog Atlas card FRONT illustration. Reference image is STYLE ONLY. Subject: adult red and white English Bulldog, broad low sturdy muscular body, broad head, rose ears, white face with red patch, short legs and natural short tail, moderate healthy anatomy not exaggerated. Accurate adult anatomy, full body all feet and tail, standing three-quarter view centered filling 65-75% of image height. Scene: English red brick cottage courtyard with low stone wall and softly flowering garden. Delicate highly detailed natural history watercolor and colored pencil on warm ivory textured paper, muted earthy palette, soft daylight and tangible painted detail matching reference. Attractive evocative detailed background. No human, no text or numbers, no border/UI/watermark. Do not exaggerate flat faces or wrinkles.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-261ee6ca-9e29-4b99-8170-986e3468e1b1.png",
+      "asset": "public/illustrations/card-studies/bulldog-medium-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 391646
+    },
+    {
+      "slug": "bulldog",
+      "side": "back",
+      "prompt": "Create ONE portrait 5:7 Dog Atlas BACK illustration, premium delicate natural history watercolor and colored pencil on warm ivory paper. Match reference 1 dog identity, colors and setting exactly; reference 2 layout only. adult red and white English Bulldog, broad low sturdy muscular body, broad head, rose ears, white face with red patch, short legs and natural short tail, moderate healthy anatomy not exaggerated in English red brick cottage courtyard with low stone wall and softly flowering garden, together with English adult man in muted tweed waistcoat, linen shirt and brown trousers with worn leather shoes, seated naturally on a low bench, wearing understated regional everyday clothing. Adult dog with realistic 30-40cm shoulder height below person's knee on SAME ground plane, not giant nor miniature puppy. Person and dog on RIGHT half, full body all feet visible. Leave LEFT 48 percent mostly pale ivory atmospheric wash for text overlay and bottom 15 percent softly faded. Beautiful convincing regional setting softly recedes. No text, numbers, frame, UI or watermark. Quiet affectionate companionship, detailed natural faces and hands.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-c572345d-094c-4b29-8a9c-e341b001c9f5.png",
+      "asset": "public/illustrations/card-studies/bulldog-medium-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 196890
+    },
+    {
+      "slug": "shetland-sheepdog",
+      "side": "front",
+      "prompt": "Use case illustration-story. ONE square full bleed premium Dog Atlas card FRONT illustration. Reference image is STYLE ONLY. Subject: adult sable and white Shetland Sheepdog, delicate pointed muzzle, tipped semi-erect ears, flowing sable coat with full white ruff and white feet, small herding dog not a large rough collie. Accurate adult anatomy, full body all feet and tail, standing three-quarter view centered filling 65-75% of image height. Scene: Shetland Islands croft, dry stone wall, coastal grass and distant sheep, overcast luminous sky. Delicate highly detailed natural history watercolor and colored pencil on warm ivory textured paper, muted earthy palette, soft daylight and tangible painted detail matching reference. Attractive evocative detailed background. No human, no text or numbers, no border/UI/watermark. Do not exaggerate flat faces or wrinkles.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-f3f6fa31-8b93-4b6d-a139-7cb5e5857c1b.png",
+      "asset": "public/illustrations/card-studies/shetland-sheepdog-medium-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 322918
+    },
+    {
+      "slug": "shetland-sheepdog",
+      "side": "back",
+      "prompt": "Create ONE portrait 5:7 Dog Atlas BACK illustration, premium delicate natural history watercolor and colored pencil on warm ivory paper. Match reference 1 dog identity, colors and setting exactly; reference 2 layout only. adult sable and white Shetland Sheepdog, delicate pointed muzzle, tipped semi-erect ears, flowing sable coat with full white ruff and white feet, small herding dog not a large rough collie in Shetland Islands croft, dry stone wall, coastal grass and distant sheep, overcast luminous sky, together with Scottish adult woman wearing muted Fair Isle wool sweater, charcoal trousers and brown boots, seated naturally on a low bench, wearing understated regional everyday clothing. Adult dog with realistic 30-40cm shoulder height below person's knee on SAME ground plane, not giant nor miniature puppy. Person and dog on RIGHT half, full body all feet visible. Leave LEFT 48 percent mostly pale ivory atmospheric wash for text overlay and bottom 15 percent softly faded. Beautiful convincing regional setting softly recedes. No text, numbers, frame, UI or watermark. Quiet affectionate companionship, detailed natural faces and hands.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-2fddb2d8-972d-4e7b-a08e-edcd6f0d5877.png",
+      "asset": "public/illustrations/card-studies/shetland-sheepdog-medium-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 206114
+    },
+    {
+      "slug": "american-cocker-spaniel",
+      "side": "front",
+      "prompt": "Use case illustration-story. ONE square full bleed premium Dog Atlas card FRONT illustration. Reference image is STYLE ONLY. Subject: adult golden buff American Cocker Spaniel, domed head, shorter broad muzzle, long low-set silky floppy ears, compact body, softly feathered legs in practical natural coat not floor-length show cut. Accurate adult anatomy, full body all feet and tail, standing three-quarter view centered filling 65-75% of image height. Scene: American woodland edge with meadow and weathered timber cabin, soft autumn light. Delicate highly detailed natural history watercolor and colored pencil on warm ivory textured paper, muted earthy palette, soft daylight and tangible painted detail matching reference. Attractive evocative detailed background. No human, no text or numbers, no border/UI/watermark. Do not exaggerate flat faces or wrinkles.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-d7f6aaf3-2fb8-4052-9233-fbfdb8fa12ad.png",
+      "asset": "public/illustrations/card-studies/american-cocker-spaniel-medium-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 384426
+    },
+    {
+      "slug": "american-cocker-spaniel",
+      "side": "back",
+      "prompt": "Create ONE portrait 5:7 Dog Atlas BACK illustration, premium delicate natural history watercolor and colored pencil on warm ivory paper. Match reference 1 dog identity, colors and setting exactly; reference 2 layout only. adult golden buff American Cocker Spaniel, domed head, shorter broad muzzle, long low-set silky floppy ears, compact body, softly feathered legs in practical natural coat not floor-length show cut in American woodland edge with meadow and weathered timber cabin, soft autumn light, together with American adult woman in cream shirt, muted olive field jacket, brown trousers and walking shoes, seated naturally on a low bench, wearing understated regional everyday clothing. Adult dog with realistic 30-40cm shoulder height below person's knee on SAME ground plane, not giant nor miniature puppy. Person and dog on RIGHT half, full body all feet visible. Leave LEFT 48 percent mostly pale ivory atmospheric wash for text overlay and bottom 15 percent softly faded. Beautiful convincing regional setting softly recedes. No text, numbers, frame, UI or watermark. Quiet affectionate companionship, detailed natural faces and hands.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-0debc3e7-8797-4b3b-aeaa-5bc309eadf86.png",
+      "asset": "public/illustrations/card-studies/american-cocker-spaniel-medium-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 223548
+    }
+  ]
+}

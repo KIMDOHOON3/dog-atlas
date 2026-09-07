@@ -1,8 +1,8 @@
 # Product brief
 
-## Current product — 2026-09-06
+## Current product — 2026-09-07
 
-The homepage presents sixteen small, seven medium, eight large and eight giant breeds as reversible watercolor cards, with short history, origin, size and lifespan. Small includes the approved Maltipoo cross, with variable-size copy rather than a fixed breed standard. Physical deck navigation replaces the shader wash. Discovery and ALL breed detail pages remain, including their shared assets and preparation guide. Discontinued games, postcards, places/public APIs, Kakao maps and old-home-only features have been removed by user approval.
+The homepage presents sixteen small, twelve medium, eight large and eight giant breeds as reversible watercolor cards, with short history, origin, size and lifespan. Small includes the approved Maltipoo cross, with variable-size copy rather than a fixed breed standard. Physical deck navigation replaces the shader wash. Discovery and ALL breed detail pages remain, including their shared assets and preparation guide. Discontinued games, postcards, places/public APIs, Kakao maps and old-home-only features have been removed by user approval.
 
 ## Product
 
