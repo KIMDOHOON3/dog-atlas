@@ -824,7 +824,7 @@ export function FoilCard() {
         </div>
         <SizeSelector
           value={size}
-          onChange={(next) => {
+          onChange={async (next) => {
             if (
               next === size ||
               selecting.current ||
@@ -833,6 +833,24 @@ export function FoilCard() {
             )
               return;
             motion.current?.stop();
+            if (view === "spread") {
+              viewLock.current = true;
+              setViewChanging(true);
+              let timeout: ReturnType<typeof setTimeout> | undefined;
+              await Promise.race([
+                Promise.all(
+                  cardsForSize(next).map((entry) =>
+                    prepareImage(entry.front.src),
+                  ),
+                ),
+                new Promise<void>((resolve) => {
+                  timeout = setTimeout(resolve, 4000);
+                }),
+              ]);
+              clearTimeout(timeout);
+              viewLock.current = false;
+              setViewChanging(false);
+            }
             setActive(0);
             setSelected(0);
             setTextureTarget(0);

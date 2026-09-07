@@ -1,7 +1,13 @@
 "use client";
 import { CardActionIcon } from "./card-action-icon";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 
 import Link from "next/link";
 import type { GiantCard } from "@/content/giant-cards";
@@ -21,7 +27,7 @@ export function SpreadCard({
   onClose?: () => void;
 }) {
   const [mobile, setMobile] = useState(false);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const query = window.matchMedia("(max-width: 600px)");
     const update = () => setMobile(query.matches);
     update();
@@ -43,7 +49,7 @@ export function SpreadCard({
   const [opened, setOpened] = useState(false);
   const [scale, setScale] = useState(1);
   const area = useRef<HTMLDivElement>(null);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = area.current;
     if (!element) return;
     const resize = () => setScale(element.clientWidth / 360);
