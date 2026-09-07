@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { createPlayBall, BALL_RADIUS } from "./play-ball";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobile = matchMedia("(max-width: 767px)").matches;
@@ -10,6 +11,7 @@ export function createMeadow(host: HTMLDivElement) {
   });
   renderer.setClearColor(0xffffff, 0);
   host.appendChild(renderer.domElement);
+  renderer.domElement.setAttribute("aria-hidden", "true");
   host.dataset.renderer = "three";
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 60);
@@ -20,8 +22,8 @@ export function createMeadow(host: HTMLDivElement) {
     pressure: { value: 0 },
     pointer: { value: new THREE.Vector2(100, 100) },
   };
-  const geometry = new THREE.PlaneGeometry(0.11, 0.6, 1, 3);
-  geometry.translate(0, 0.3, 0);
+  const geometry = new THREE.PlaneGeometry(0.045, 0.12, 1, 1);
+  geometry.translate(0, 0.06, 0);
   const material = new THREE.ShaderMaterial({
     uniforms,
     side: THREE.DoubleSide,
@@ -36,9 +38,9 @@ export function createMeadow(host: HTMLDivElement) {
         float wave = sin(time * 1.1 + root.x * .65 + root.y * .5);
         vec2 away = root - pointer;
         float press = exp(-dot(away, away) * .8) * pressure;
-        world.x += (wave * .12 + .06 + press * away.x * .65) * tip * tip;
-        world.z += (.04 * sin(time + root.x) + press * away.y * .65) * tip * tip;
-        world.y -= press * .22 * tip;
+        world.x += (wave * .018 + press * away.x * .08) * tip * tip;
+        world.z += (.01 * sin(time + root.x) + press * away.y * .08) * tip * tip;
+        world.y -= press * .025 * tip;
         variation = fract(sin(dot(root, vec2(12.9898,78.233))) * 43758.5453);
         gl_Position = projectionMatrix * modelViewMatrix * world;
       }`,
@@ -60,17 +62,15 @@ export function createMeadow(host: HTMLDivElement) {
     return seed / 4294967296;
   };
   const dummy = new THREE.Object3D();
-  const path = (z: number) => 1.1 + Math.sin(z * 0.52) * 1.8;
+
   for (let i = 0; i < count; i++) {
     let x = 0,
       z = 0;
-    do {
-      x = (rand() - 0.5) * (mobile ? 12 : 42);
-      z = rand() * 14 - 3.5;
-    } while (Math.abs(x - path(z)) < 0.65);
+    x = (rand() - 0.5) * (mobile ? 12 : 42);
+    z = rand() * 14 - 3.5;
     dummy.position.set(x, 0, z);
     dummy.rotation.y = rand() * Math.PI;
-    dummy.scale.setScalar(0.65 + rand() * 0.7);
+    dummy.scale.setScalar(0.8 + rand() * 0.25);
     dummy.updateMatrix();
     grass.setMatrixAt(i, dummy.matrix);
   }
@@ -82,10 +82,14 @@ export function createMeadow(host: HTMLDivElement) {
     vertexShader: `varying vec2 v; void main(){ v=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
     fragmentShader: `varying vec2 v; void main(){
       float x=(v.x-.5)*100.; float z=(.5-v.y)*16.+4.;
-      float path=1.1+sin(z*.52)*1.8;
-      float trail=1.-smoothstep(.42,.95,abs(x-path));
+      float stripe=step(.5,fract((x+30.)/3.));
       float noise=fract(sin(dot(v,vec2(1383.,497.)))*43758.54);
-      vec3 color=mix(vec3(.77,.79,.60),vec3(.88,.83,.70),trail)+noise*.025;
+      vec3 color=mix(vec3(.42,.51,.28),vec3(.48,.56,.33),stripe)+noise*.018;
+      float sideline=1.-smoothstep(.035,.07,abs(abs(z-.2)-2.7));
+      float middle=1.-smoothstep(.035,.07,abs(x));
+      float ring=1.-smoothstep(.035,.07,abs(length(vec2(x,z-.2))-1.2));
+      float marking=max(sideline,max(middle,ring));
+      color=mix(color,vec3(.92,.91,.81),marking*.8);
       float fade=smoothstep(0.,.10,1.-v.y);
       gl_FragColor=vec4(color,fade);
       #include <colorspace_fragment>
@@ -99,22 +103,31 @@ export function createMeadow(host: HTMLDivElement) {
   const sun = new THREE.DirectionalLight(0xffead0, 2);
   sun.position.set(-4, 8, 6);
   scene.add(sun);
-  const ballGeometry = new THREE.SphereGeometry(0.23, 24, 16);
+  const ballGeometry = new THREE.SphereGeometry(BALL_RADIUS, 32, 20);
   const ballMaterial = new THREE.MeshStandardMaterial({
-    color: 0xb98456,
+    color: 0xc79656,
     roughness: 1,
   });
   const ball = new THREE.Mesh(ballGeometry, ballMaterial);
-  ball.position.set(path(1.2), 0.23, 1.2);
+  const physics = createPlayBall();
+  ball.position.copy(physics.body.position);
   ball.rotation.z = 0.45;
   scene.add(ball);
-  const seamGeometry = new THREE.TorusGeometry(0.232, 0.009, 5, 48);
+  const seamGeometry = new THREE.TorusGeometry(
+    BALL_RADIUS + 0.002,
+    0.012,
+    6,
+    64,
+  );
   const seamMaterial = new THREE.MeshStandardMaterial({
     color: 0xeee0c6,
     roughness: 1,
   });
   const seam = new THREE.Mesh(seamGeometry, seamMaterial);
   ball.add(seam);
+  const seam2 = seam.clone();
+  seam2.rotation.y = Math.PI / 2;
+  ball.add(seam2);
   const shadowGeometry = new THREE.CircleGeometry(0.32, 24);
   const shadowMaterial = new THREE.MeshBasicMaterial({
     color: 0x605d42,
@@ -132,14 +145,36 @@ export function createMeadow(host: HTMLDivElement) {
     frame = 0,
     last = 0;
   let hovering = false;
+  const ballTarget = document.createElement("button");
+  ballTarget.type = "button";
+  ballTarget.setAttribute("aria-label", "공 던지기");
+  ballTarget.title = "공을 끌었다 놓아보세요";
+  ballTarget.dataset.ball = "true";
+  host.appendChild(ballTarget);
+  const projected = new THREE.Vector3();
   const draw = () => {
+    ball.position.copy(physics.body.position);
+    ball.quaternion.copy(physics.body.quaternion);
+    shadow.position.set(ball.position.x + 0.06, 0.008, ball.position.z);
+    shadowMaterial.opacity = 0.2 / (1 + ball.position.y);
+    shadow.scale.setScalar(1 + ball.position.y * 0.3);
+    projected.copy(ball.position).project(camera);
+    ballTarget.style.left = `${(projected.x + 1) * 0.5 * host.clientWidth}px`;
+    ballTarget.style.top = `${(1 - projected.y) * 0.5 * host.clientHeight}px`;
+    ballTarget.disabled = reduced.matches;
     renderer.render(scene, camera);
   };
   const tick = (now: number) => {
     frame = 0;
-    if (disposed || !visible || document.hidden || reduced.matches) return;
+    if (disposed || !visible || document.hidden) return;
+    if (reduced.matches) {
+      sync();
+      return;
+    }
     if (now - last >= 1000 / 30) {
-      uniforms.time.value += Math.min((now - last) / 1000, 0.05);
+      const dt = Math.min((now - last) / 1000, 0.05);
+      physics.step(dt);
+      uniforms.time.value += dt;
       last = now;
       uniforms.pressure.value +=
         ((hovering ? 1 : 0) - uniforms.pressure.value) * 0.15;
@@ -150,6 +185,15 @@ export function createMeadow(host: HTMLDivElement) {
   const sync = () => {
     cancelAnimationFrame(frame);
     frame = 0;
+    ballTarget.disabled = reduced.matches;
+    if ((!visible || document.hidden || reduced.matches) && held !== null) {
+      const pointerId = held;
+      held = null;
+      physics.cancel();
+      ballTarget.dataset.held = "false";
+      if (ballTarget.hasPointerCapture(pointerId))
+        ballTarget.releasePointerCapture(pointerId);
+    }
     host.dataset.motion =
       visible && !document.hidden && !reduced.matches ? "running" : "paused";
     if (visible && !document.hidden) {
@@ -176,6 +220,7 @@ export function createMeadow(host: HTMLDivElement) {
     camera.right = (half * w) / h;
     camera.top = half;
     camera.bottom = -half;
+    physics.setWidth(Math.min(10, camera.right - 0.65));
     camera.updateProjectionMatrix();
     if (visible) draw();
   };
@@ -202,6 +247,70 @@ export function createMeadow(host: HTMLDivElement) {
   const leave = () => {
     hovering = false;
   };
+  let held: number | null = null;
+  const lastPoint = new THREE.Vector2(),
+    velocity = new THREE.Vector2();
+  let lastMove = 0,
+    moved = false;
+  const hitGround = (e: PointerEvent) => {
+    const rect = host.getBoundingClientRect();
+    ray.setFromCamera(
+      new THREE.Vector2(
+        ((e.clientX - rect.left) / rect.width) * 2 - 1,
+        1 - ((e.clientY - rect.top) / rect.height) * 2,
+      ),
+      camera,
+    );
+    return ray.ray.intersectPlane(plane, point);
+  };
+  const down = (e: PointerEvent) => {
+    if (reduced.matches || held !== null || e.button !== 0) return;
+    held = e.pointerId;
+    moved = false;
+    velocity.set(0, 0);
+    ballTarget.setPointerCapture(e.pointerId);
+    if (hitGround(e)) {
+      lastPoint.set(point.x, point.z);
+      physics.hold(point.x, point.z);
+    }
+    lastMove = performance.now();
+    ballTarget.dataset.held = "true";
+    draw();
+  };
+  const drag = (e: PointerEvent) => {
+    if (e.pointerId !== held || !hitGround(e)) return;
+    const now = performance.now(),
+      dt = Math.max(0.016, (now - lastMove) / 1000);
+    velocity.set((point.x - lastPoint.x) / dt, (point.z - lastPoint.y) / dt);
+    moved ||= lastPoint.distanceTo(new THREE.Vector2(point.x, point.z)) > 0.04;
+    physics.hold(point.x, point.z);
+    lastPoint.set(point.x, point.z);
+    lastMove = now;
+    draw();
+  };
+  const release = (e: PointerEvent) => {
+    if (e.pointerId !== held) return;
+    held = null;
+    ballTarget.dataset.held = "false";
+    if (e.type !== "pointerup") physics.cancel();
+    else if (!moved) physics.launch(1, -2.5);
+    else
+      physics.launch(
+        performance.now() - lastMove < 120 ? velocity.x : 0,
+        performance.now() - lastMove < 120 ? velocity.y : 0,
+      );
+    if (ballTarget.hasPointerCapture(e.pointerId))
+      ballTarget.releasePointerCapture(e.pointerId);
+  };
+  const keyboard = (e: MouseEvent) => {
+    if (e.detail === 0 && !reduced.matches) physics.launch(1, -2.5);
+  };
+  ballTarget.addEventListener("pointerdown", down);
+  ballTarget.addEventListener("pointermove", drag);
+  ballTarget.addEventListener("pointerup", release);
+  ballTarget.addEventListener("pointercancel", release);
+  ballTarget.addEventListener("lostpointercapture", release);
+  ballTarget.addEventListener("click", keyboard);
   const lost = (event: Event) => {
     event.preventDefault();
     visible = false;
@@ -240,6 +349,7 @@ export function createMeadow(host: HTMLDivElement) {
         shadowMaterial,
       ])
         resource.dispose();
+      ballTarget.remove();
       grass.dispose();
       renderer.dispose();
       renderer.forceContextLoss();

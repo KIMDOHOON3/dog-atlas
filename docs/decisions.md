@@ -677,3 +677,7 @@ The user approved four public size groups: small, medium, large and giant. Merge
 The user approved a small walking yard with grass and a ball. The footer uses a lazily imported Three.js scene and instanced grass with vertex wind/bending, a warm trail and a small ball. Keep copy and navigation in HTML. Render only while visible, at most 30Hz, and cap the drawing buffer at 650,000 pixels. Mobile has fewer blades and no touch interception. Reduced motion renders a still scene; unavailable WebGL retains the CSS background and all content. Dispose GPU resources on unmount. No runtime CSS-in-JS or React Three Fiber is added.
 
 Reference: https://threejs.org/docs/pages/InstancedMesh.html and https://threejs.org/docs/pages/WebGLRenderer.html. Browser checks cover startup, offscreen stopping, reduced motion and shader errors; this is not a real-device FPS guarantee.
+
+## 2026-09-08 — Mown playground and a throwable ball
+
+The user found the meadow weedy and requested a playground with ball physics. Replace the trail and long grass with short uniform blades, mown stripes and white field lines. Add cannon-es for a single sphere and ground with restitution, damping and sleep. Pointer capture/touch-action:none applies only to the 48px ball target, never the field. Support click/keyboard throws, pointer cancellation, bounds and offscreen pauses; reduced motion disables throwing. Keep the renderer lazy and capped. Reference: https://pmndrs.github.io/cannon-es/docs/ .

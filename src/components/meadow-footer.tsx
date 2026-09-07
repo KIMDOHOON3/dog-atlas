@@ -47,7 +47,9 @@ export function MeadowFooter() {
             <br className={styles.mobileBreak} /> 더 가까워지는 사이.
           </p>
         </div>
-        <div ref={field} className={styles.field} aria-hidden="true" />
+        <div ref={field} className={styles.field} aria-label="잔디 운동장">
+          <span className={styles.hint}>공을 잡아, 가볍게 던져보세요.</span>
+        </div>
       </div>
       <div className={styles.bottom}>
         <Link href="/" className={styles.brand}>
