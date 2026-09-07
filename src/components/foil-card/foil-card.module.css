@@ -1648,3 +1648,42 @@
     padding-inline: 8px;
   }
 }
+.paginationRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 40px auto 0;
+  width: min(100%, 620px);
+}
+.paginationRow .cardPagination {
+  margin: 0;
+  min-width: 0;
+  width: auto;
+  max-width: calc(100% - 92px);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.paginationRow .previousCard,
+.paginationRow .nextCard {
+  position: relative;
+  inset: auto;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+}
+.paginationRow .previousCard::after,
+.paginationRow .nextCard::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+}
+@media (max-width: 600px) {
+  .paginationRow {
+    gap: 8px;
+  }
+  .paginationRow .cardPagination {
+    max-width: calc(100% - 88px);
+  }
+}

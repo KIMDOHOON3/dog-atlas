@@ -813,15 +813,6 @@ export function FoilCard() {
         )}
         <div className={styles.collectionContent} hidden={view === "spread"}>
           <div className={styles.exhibit}>
-            <button
-              className={styles.previousCard}
-              onClick={() => selectBreed(active - 1)}
-              disabled={active === 0}
-              aria-disabled={sliding || active === 0}
-              aria-label="이전 견종"
-            >
-              ←
-            </button>
             <div className={styles.stage} aria-busy={sliding}>
               <div className={styles.shadow} />
               <canvas
@@ -1001,6 +992,43 @@ export function FoilCard() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className={styles.paginationRow}>
+            <button
+              className={styles.previousCard}
+              onClick={() => selectBreed(active - 1)}
+              disabled={active === 0}
+              aria-disabled={sliding || active === 0}
+              aria-label="이전 견종"
+            >
+              ←
+            </button>
+            <nav
+              ref={pagination}
+              className={styles.cardPagination}
+              aria-label={`${size} 선택`}
+            >
+              <div className={styles.paginationTrack}>
+                <span
+                  className={styles.paginationLine}
+                  aria-hidden="true"
+                  style={{ transform: `translateX(${selected * 48}px)` }}
+                />
+                {cards.map((entry, index) => (
+                  <button
+                    key={entry.slug}
+                    aria-label={entry.name}
+                    aria-current={active === index ? "true" : undefined}
+                    data-selected={selected === index}
+                    aria-disabled={sliding}
+                    onClick={() => selectBreed(index)}
+                  >
+                    <span>{entry.number}</span>
+                    <span className={styles.srOnly}>{entry.name}</span>
+                  </button>
+                ))}
+              </div>
+            </nav>
             <button
               className={styles.nextCard}
               onClick={() => selectBreed(active + 1)}
@@ -1011,32 +1039,6 @@ export function FoilCard() {
               →
             </button>
           </div>
-          <nav
-            ref={pagination}
-            className={styles.cardPagination}
-            aria-label={`${size} 선택`}
-          >
-            <div className={styles.paginationTrack}>
-              <span
-                className={styles.paginationLine}
-                aria-hidden="true"
-                style={{ transform: `translateX(${selected * 48}px)` }}
-              />
-              {cards.map((entry, index) => (
-                <button
-                  key={entry.slug}
-                  aria-label={entry.name}
-                  aria-current={active === index ? "true" : undefined}
-                  data-selected={selected === index}
-                  aria-disabled={sliding}
-                  onClick={() => selectBreed(index)}
-                >
-                  <span>{entry.number}</span>
-                  <span className={styles.srOnly}>{entry.name}</span>
-                </button>
-              ))}
-            </div>
-          </nav>
           <span className={styles.srOnly} aria-live="polite">
             {breed.name}, {active + 1} / {cards.length}
           </span>
