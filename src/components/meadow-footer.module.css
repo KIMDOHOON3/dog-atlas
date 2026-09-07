@@ -145,3 +145,25 @@
     display: none;
   }
 }
+.garden {
+  height: 480px;
+}
+.field {
+  height: 350px;
+  width: min(100%, 1100px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+}
+.hint {
+  bottom: 6px;
+  color: #99836e;
+}
+@media (max-width: 767px) {
+  .garden {
+    height: 370px;
+  }
+  .field {
+    height: 225px;
+  }
+}

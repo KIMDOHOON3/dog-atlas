@@ -13,6 +13,7 @@ describe("playground ball", () => {
       if (before < -0.5) falling = true;
       if (falling && p.body.velocity.y > 0.5) bounced = true;
       expect(Math.abs(p.body.position.x)).toBeLessThanOrEqual(2);
+      expect(Math.hypot(p.body.position.x / 2, p.body.position.z / 2.65)).toBeLessThanOrEqual(1.000001);
     }
     expect(bounced).toBe(true);
     expect(p.body.position.y).toBeCloseTo(BALL_RADIUS, 2);

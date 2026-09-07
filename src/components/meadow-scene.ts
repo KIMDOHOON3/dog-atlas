@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { addMiniatureYard } from "./miniature-yard";
 import { createPlayBall, BALL_RADIUS } from "./play-ball";
 
 export function createMeadow(host: HTMLDivElement) {
@@ -9,103 +10,33 @@ export function createMeadow(host: HTMLDivElement) {
     antialias: true,
     powerPreference: "low-power",
   });
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.autoUpdate = false;
+  renderer.shadowMap.needsUpdate = true;
   renderer.setClearColor(0xffffff, 0);
   host.appendChild(renderer.domElement);
   renderer.domElement.setAttribute("aria-hidden", "true");
   host.dataset.renderer = "three";
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 60);
-  camera.position.set(0, 7, 11);
+  camera.position.set(0, 10, 11);
   camera.lookAt(0, 0, 0);
-  const uniforms = {
-    time: { value: 0 },
-    pressure: { value: 0 },
-    pointer: { value: new THREE.Vector2(100, 100) },
-  };
-  const geometry = new THREE.PlaneGeometry(0.045, 0.12, 1, 1);
-  geometry.translate(0, 0.06, 0);
-  const material = new THREE.ShaderMaterial({
-    uniforms,
-    side: THREE.DoubleSide,
-    vertexShader: `
-      uniform float time; uniform float pressure; uniform vec2 pointer;
-      varying float tip; varying float variation;
-      void main() {
-        vec3 p = position; tip = uv.y;
-        p.x *= 1.0 - uv.y * .96;
-        vec4 world = instanceMatrix * vec4(p, 1.0);
-        vec2 root = vec2(instanceMatrix[3].x, instanceMatrix[3].z);
-        float wave = sin(time * 1.1 + root.x * .65 + root.y * .5);
-        vec2 away = root - pointer;
-        float press = exp(-dot(away, away) * .8) * pressure;
-        world.x += (wave * .018 + press * away.x * .08) * tip * tip;
-        world.z += (.01 * sin(time + root.x) + press * away.y * .08) * tip * tip;
-        world.y -= press * .025 * tip;
-        variation = fract(sin(dot(root, vec2(12.9898,78.233))) * 43758.5453);
-        gl_Position = projectionMatrix * modelViewMatrix * world;
-      }`,
-    fragmentShader: `
-      varying float tip; varying float variation;
-      void main() {
-        vec3 base = mix(vec3(.25,.30,.13),vec3(.48,.49,.25),variation);
-        vec3 col = mix(base,vec3(.65,.68,.42),tip*.65);
-        gl_FragColor = vec4(col,1.0);
-        #include <colorspace_fragment>
-      }`,
-  });
-  const count = mobile ? 4500 : 12000;
-  const grass = new THREE.InstancedMesh(geometry, material, count);
-  grass.frustumCulled = false;
-  let seed = 27;
-  const rand = () => {
-    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
-    return seed / 4294967296;
-  };
-  const dummy = new THREE.Object3D();
-
-  for (let i = 0; i < count; i++) {
-    let x = 0,
-      z = 0;
-    x = (rand() - 0.5) * (mobile ? 12 : 42);
-    z = rand() * 14 - 3.5;
-    dummy.position.set(x, 0, z);
-    dummy.rotation.y = rand() * Math.PI;
-    dummy.scale.setScalar(0.8 + rand() * 0.25);
-    dummy.updateMatrix();
-    grass.setMatrixAt(i, dummy.matrix);
-  }
-  scene.add(grass);
-  const groundGeometry = new THREE.PlaneGeometry(100, 16);
-  const groundMaterial = new THREE.ShaderMaterial({
-    transparent: true,
-    depthWrite: false,
-    vertexShader: `varying vec2 v; void main(){ v=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
-    fragmentShader: `varying vec2 v; void main(){
-      float x=(v.x-.5)*100.; float z=(.5-v.y)*16.+4.;
-      float stripe=step(.5,fract((x+30.)/3.));
-      float noise=fract(sin(dot(v,vec2(1383.,497.)))*43758.54);
-      vec3 color=mix(vec3(.42,.51,.28),vec3(.48,.56,.33),stripe)+noise*.018;
-      float sideline=1.-smoothstep(.035,.07,abs(abs(z-.2)-2.7));
-      float middle=1.-smoothstep(.035,.07,abs(x));
-      float ring=1.-smoothstep(.035,.07,abs(length(vec2(x,z-.2))-1.2));
-      float marking=max(sideline,max(middle,ring));
-      color=mix(color,vec3(.92,.91,.81),marking*.8);
-      float fade=smoothstep(0.,.10,1.-v.y);
-      gl_FragColor=vec4(color,fade);
-      #include <colorspace_fragment>
-    }`,
-  });
-  const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-  ground.rotation.x = -Math.PI / 2;
-  ground.position.set(0, -0.015, 4);
-  scene.add(ground);
+  const disposeYard = addMiniatureYard(scene);
   scene.add(new THREE.HemisphereLight(0xfff7df, 0x8b825b, 2.2));
   const sun = new THREE.DirectionalLight(0xffead0, 2);
   sun.position.set(-4, 8, 6);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(512, 512);
+  sun.shadow.camera.left = -7;
+  sun.shadow.camera.right = 7;
+  sun.shadow.camera.top = 5;
+  sun.shadow.camera.bottom = -5;
+  sun.shadow.bias = -0.001;
   scene.add(sun);
   const ballGeometry = new THREE.SphereGeometry(BALL_RADIUS, 32, 20);
   const ballMaterial = new THREE.MeshStandardMaterial({
-    color: 0xc79656,
+    color: 0xb87042,
     roughness: 1,
   });
   const ball = new THREE.Mesh(ballGeometry, ballMaterial);
@@ -144,7 +75,7 @@ export function createMeadow(host: HTMLDivElement) {
     disposed = false,
     frame = 0,
     last = 0;
-  let hovering = false;
+
   const ballTarget = document.createElement("button");
   ballTarget.type = "button";
   ballTarget.setAttribute("aria-label", "공 던지기");
@@ -174,10 +105,8 @@ export function createMeadow(host: HTMLDivElement) {
     if (now - last >= 1000 / 30) {
       const dt = Math.min((now - last) / 1000, 0.05);
       physics.step(dt);
-      uniforms.time.value += dt;
+
       last = now;
-      uniforms.pressure.value +=
-        ((hovering ? 1 : 0) - uniforms.pressure.value) * 0.15;
       draw();
     }
     frame = requestAnimationFrame(tick);
@@ -215,12 +144,12 @@ export function createMeadow(host: HTMLDivElement) {
       ),
     );
     renderer.setSize(w, h);
-    const half = 3;
+    const half = Math.max(3.1, (6.8 * h) / w);
     camera.left = (-half * w) / h;
     camera.right = (half * w) / h;
     camera.top = half;
     camera.bottom = -half;
-    physics.setWidth(Math.min(10, camera.right - 0.65));
+    physics.setWidth(5.65);
     camera.updateProjectionMatrix();
     if (visible) draw();
   };
@@ -230,23 +159,6 @@ export function createMeadow(host: HTMLDivElement) {
   const ray = new THREE.Raycaster(),
     point = new THREE.Vector3();
   const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
-  const move = (event: PointerEvent) => {
-    if (event.pointerType !== "mouse" || reduced.matches) return;
-    hovering = true;
-    const rect = host.getBoundingClientRect();
-    ray.setFromCamera(
-      new THREE.Vector2(
-        ((event.clientX - rect.left) / rect.width) * 2 - 1,
-        1 - ((event.clientY - rect.top) / rect.height) * 2,
-      ),
-      camera,
-    );
-    if (ray.ray.intersectPlane(plane, point))
-      uniforms.pointer.value.set(point.x, point.z);
-  };
-  const leave = () => {
-    hovering = false;
-  };
   let held: number | null = null;
   const lastPoint = new THREE.Vector2(),
     velocity = new THREE.Vector2();
@@ -317,8 +229,7 @@ export function createMeadow(host: HTMLDivElement) {
     sync();
     host.dataset.renderer = "fallback";
   };
-  host.addEventListener("pointermove", move);
-  host.addEventListener("pointerleave", leave);
+
   renderer.domElement.addEventListener("webglcontextlost", lost);
   document.addEventListener("visibilitychange", sync);
   reduced.addEventListener("change", sync);
@@ -331,16 +242,11 @@ export function createMeadow(host: HTMLDivElement) {
       disposed = true;
       cancelAnimationFrame(frame);
       observer.disconnect();
-      host.removeEventListener("pointermove", move);
-      host.removeEventListener("pointerleave", leave);
+
       document.removeEventListener("visibilitychange", sync);
       reduced.removeEventListener("change", sync);
       renderer.domElement.removeEventListener("webglcontextlost", lost);
       for (const resource of [
-        geometry,
-        material,
-        groundGeometry,
-        groundMaterial,
         ballGeometry,
         ballMaterial,
         seamGeometry,
@@ -350,7 +256,7 @@ export function createMeadow(host: HTMLDivElement) {
       ])
         resource.dispose();
       ballTarget.remove();
-      grass.dispose();
+      disposeYard();
       renderer.dispose();
       renderer.forceContextLoss();
       renderer.domElement.remove();

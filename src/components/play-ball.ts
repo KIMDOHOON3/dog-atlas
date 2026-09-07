@@ -1,5 +1,6 @@
 import {
   Body,
+  Box,
   ContactMaterial,
   Material,
   Plane,
@@ -31,25 +32,47 @@ export function createPlayBall() {
   body.position.set(0.7, BALL_RADIUS, 1);
   world.addBody(body);
   body.sleep();
-  let halfWidth = 5;
+  const bench = new Body({
+    mass: 0,
+    shape: new Box(new Vec3(1.25, 0.5, 0.48)),
+    material: turf,
+  });
+  bench.position.set(-2.5, 0.5, -1.5);
+  world.addBody(bench);
+  let halfWidth = 5.65;
+  const depth = 2.65;
+  const contain = (bounce: boolean) => {
+    const x = body.position.x,
+      z = body.position.z;
+    const length = Math.hypot(x / halfWidth, z / depth);
+    if (length <= 1) return;
+    body.position.x = x / length;
+    body.position.z = z / length;
+    if (bounce) {
+      const nx = body.position.x / (halfWidth * halfWidth),
+        nz = body.position.z / (depth * depth);
+      const n = Math.hypot(nx, nz),
+        ux = nx / n,
+        uz = nz / n;
+      const outward = body.velocity.x * ux + body.velocity.z * uz;
+      if (outward > 0) {
+        body.velocity.x -= 1.55 * outward * ux;
+        body.velocity.z -= 1.55 * outward * uz;
+      }
+    }
+  };
   return {
     body,
     setWidth(width: number) {
       halfWidth = Math.max(1, width);
-      body.position.x = Math.max(
-        -halfWidth,
-        Math.min(halfWidth, body.position.x),
-      );
+      contain(false);
     },
     hold(x: number, z: number) {
       body.type = Body.KINEMATIC;
       body.velocity.setZero();
       body.angularVelocity.setZero();
-      body.position.set(
-        Math.max(-halfWidth, Math.min(halfWidth, x)),
-        0.65,
-        Math.max(-2, Math.min(3, z)),
-      );
+      body.position.set(x, 0.65, z);
+      contain(false);
       body.wakeUp();
     },
     launch(x: number, z: number) {
@@ -74,14 +97,7 @@ export function createPlayBall() {
     step(dt: number) {
       world.step(1 / 60, Math.min(dt, 0.05), 3);
       if (body.type !== Body.DYNAMIC) return;
-      if (Math.abs(body.position.x) > halfWidth) {
-        body.position.x = Math.sign(body.position.x) * halfWidth;
-        body.velocity.x *= -0.55;
-      }
-      if (body.position.z < -2 || body.position.z > 3) {
-        body.position.z = Math.max(-2, Math.min(3, body.position.z));
-        body.velocity.z *= -0.55;
-      }
+      contain(true);
     },
   };
 }
