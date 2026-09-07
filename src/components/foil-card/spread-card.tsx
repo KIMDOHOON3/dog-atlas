@@ -106,41 +106,58 @@ export function SpreadCard({
           </div>
         </div>
       </div>
-      <div className={styles.spreadActions}>
+      {(mobile || modal) && (
         <button
           type="button"
-          onClick={flip}
-          aria-label={`${breed.name} ${label} 버튼`}
-          aria-pressed={back}
+          className={styles.expandCorner}
+          aria-label={modal ? "축소하기" : breed.name + " 확대하기"}
+          aria-expanded={modal}
+          onClick={modal ? onClose : () => setExpanded(true)}
         >
-          <Image
-            src="/images/card-controls/flip-f08.webp"
-            alt=""
-            width={32}
-            height={32}
-            unoptimized
+          <span
+            className={styles.expandGlyph}
+            data-expanded={modal}
+            aria-hidden="true"
           />
-          {modal ? (back ? "앞면 보기" : "뒤집기") : label}
         </button>
+      )}
+      <div className={modal ? styles.cardActions : styles.spreadActions}>
+        {(!mobile || modal) && (
+          <button
+            className={modal ? styles.flipButton : undefined}
+            data-back={back}
+            type="button"
+            onClick={flip}
+            aria-label={`${breed.name} ${label} 버튼`}
+            aria-pressed={back}
+          >
+            <Image
+              className={styles.flipIcon}
+              src="/images/card-controls/flip-f08.webp"
+              alt=""
+              width={32}
+              height={32}
+              unoptimized
+            />
+            {label}
+          </button>
+        )}
         <Link
+          className={modal ? styles.detailLink : undefined}
           href={`/breeds/${breed.slug}`}
           prefetch={false}
           aria-label={`${breed.name} 자세히 보기`}
         >
           <Image
+            className={styles.detailIcon}
             src="/images/card-controls/detail-d10.webp"
             alt=""
             width={32}
             height={32}
             unoptimized
           />
-          {modal ? "자세히 보기" : "견종 자세히 보기"}
+          견종 자세히 보기
         </Link>
-        {modal && (
-          <button type="button" onClick={onClose}>
-            닫기 ×
-          </button>
-        )}
       </div>
       {!modal && (
         <dialog

@@ -1468,3 +1468,65 @@
 .paginationLine {
   background: var(--clay);
 }
+.spreadItem {
+  position: relative;
+}
+.expandCorner {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgb(255 253 248 / 95%);
+  color: var(--clay);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.expandCorner::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+}
+.expandGlyph {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  position: relative;
+}
+.expandGlyph::before,
+.expandGlyph::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+  left: 3px;
+  right: 3px;
+  top: 5px;
+  height: 1.5px;
+}
+.expandGlyph::after {
+  transform: rotate(90deg);
+}
+.expandGlyph[data-expanded="true"]::after {
+  transform: rotate(0deg);
+}
+.spreadItem[data-modal="true"] .cardActions {
+  margin-top: 12px;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.spreadItem[data-modal="true"] .cardActions > * {
+  flex: 1;
+  padding: 4px 8px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .spreadActions {
+    grid-template-columns: 1fr;
+  }
+}
