@@ -26,14 +26,6 @@ export function SpreadCard({
   shared?: boolean;
   onClose?: () => void;
 }) {
-  const [mobile, setMobile] = useState(false);
-  useLayoutEffect(() => {
-    const query = window.matchMedia("(max-width: 600px)");
-    const update = () => setMobile(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
   const [expanded, setExpanded] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
@@ -59,19 +51,18 @@ export function SpreadCard({
     return () => observer.disconnect();
   }, []);
   function flip() {
-    if (mobile && !modal) {
+    if (!modal) {
       setExpanded(true);
       return;
     }
     setOpened(true);
     setBack((value) => !value);
   }
-  const label =
-    mobile && !modal
-      ? "크게 보기"
-      : back
-        ? "그림으로 돌아가기"
-        : "뒤집어서 알아보기";
+  const label = !modal
+    ? "크게 보기"
+    : back
+      ? "그림으로 돌아가기"
+      : "뒤집어서 알아보기";
   return (
     <article
       className={styles.spreadItem}
@@ -117,7 +108,7 @@ export function SpreadCard({
           </div>
         </div>
       </div>
-      {(mobile || modal) && (
+      {
         <button
           type="button"
           className={styles.expandCorner}
@@ -136,9 +127,9 @@ export function SpreadCard({
             <i />
           </span>
         </button>
-      )}
+      }
       <div className={modal ? styles.cardActions : styles.spreadActions}>
-        {(!mobile || modal) && (
+        {modal && (
           <button
             className={modal ? styles.flipButton : undefined}
             data-back={back}

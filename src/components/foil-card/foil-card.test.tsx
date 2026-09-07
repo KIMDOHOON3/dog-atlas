@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { createCardTransitionRenderer } from "@/lib/card-transition";
 import { createFoilRenderer } from "@/lib/card-foil";
@@ -77,32 +77,36 @@ function renderGiant() {
   return result;
 }
 describe("single breed foil study", () => {
-  it("flips spread cards independently without leaving the grid", () => {
+  it("opens spread cards in a dialog and flips only the enlarged card", () => {
+    HTMLDialogElement.prototype.showModal = function () {
+      this.setAttribute("open", "");
+    };
+    HTMLDialogElement.prototype.close = function () {
+      this.removeAttribute("open");
+    };
     render(<FoilCard />);
     firstFrame();
     fireEvent.click(screen.getByRole("button", { name: "펼쳐보기" }));
     expect(renderer.dispose).toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: "말티즈 크게 보기" }));
+    const dialog = within(
+      screen.getByRole("dialog", { name: "말티즈 크게 보기" }),
+    );
+    expect(document.body.style.overflow).toBe("hidden");
     fireEvent.click(
-      screen.getByRole("button", { name: "말티즈 뒤집어서 알아보기" }),
+      dialog.getByRole("button", { name: "말티즈 뒤집어서 알아보기 버튼" }),
     );
     expect(
-      screen.getByRole("button", { name: "말티즈 그림으로 돌아가기" }),
+      dialog.getByRole("button", { name: "말티즈 그림으로 돌아가기" }),
     ).toHaveAttribute("aria-pressed", "true");
     expect(
-      screen.getByRole("button", { name: "치와와 뒤집어서 알아보기" }),
-    ).toHaveAttribute("aria-pressed", "false");
-    expect(screen.getByRole("button", { name: "펼쳐보기" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
-    expect(
-      screen.getByRole("link", { name: "말티즈 자세히 보기" }),
+      dialog.getByRole("link", { name: "말티즈 자세히 보기" }),
     ).toHaveAttribute("href", "/breeds/maltese");
-    fireEvent.click(
-      screen.getByRole("button", { name: "말티즈 그림으로 돌아가기 버튼" }),
-    );
+    fireEvent.click(dialog.getByRole("button", { name: "닫기" }));
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    expect(document.body.style.overflow).not.toBe("hidden");
     expect(
-      screen.getByRole("button", { name: "말티즈 뒤집어서 알아보기" }),
+      screen.getByRole("button", { name: "말티즈 크게 보기" }),
     ).toHaveAttribute("aria-pressed", "false");
   });
   it("switches size collections without showing giant cards under another size", () => {

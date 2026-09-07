@@ -1735,3 +1735,13 @@
 .fullscreenGlyph[data-expanded="true"]::after {
   transform: rotate(-45deg);
 }
+
+@media (min-width: 601px) {
+  .spreadDialog {
+    width: min(94vw, 560px);
+  }
+  .spreadItem[data-modal="true"] .cardActions > * {
+    min-height: 44px;
+    font-size: 14px;
+  }
+}
