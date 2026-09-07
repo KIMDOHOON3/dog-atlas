@@ -1886,3 +1886,7 @@
     height: 16px;
   }
 }
+/* Keep the card presentation free of texture controls on every screen size. */
+.collectionContent > .controls {
+  display: none;
+}
