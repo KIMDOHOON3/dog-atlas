@@ -202,3 +202,9 @@
     transform: none;
   }
 }
+.panel nav {
+  mask-image: none;
+}
+.categoryPanel nav button[aria-pressed] {
+  transform: none;
+}
