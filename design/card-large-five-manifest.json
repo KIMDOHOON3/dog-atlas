@@ -1,0 +1,107 @@
+{
+  "generator": "Built-in image_gen",
+  "created": "2026-09-07",
+  "images": [
+    {
+      "slug": "alaskan-malamute",
+      "side": "front",
+      "prompt": "Use case illustration-story. One square full-bleed premium Dog Atlas FRONT illustration. Reference is style only. Subject adult Alaskan Malamute, powerful broad heavy freight-sled build, gray and white thick coat, broad head and small erect ears, brown eyes, plumed tail over back, not a slender blue-eyed Siberian Husky. Accurate anatomy, full body all paws tail visible, centered standing three-quarter view filling 68-75% image height. Scene Alaskan coastal snowy village with a wooden freight sled and distant frozen inlet. Exquisite natural history watercolor and fine colored pencil on warm ivory paper, detailed fur and subtle pigment grain, softly illuminated muted earthy palette, evocative detailed background matching reference quality. No person, no text, numbers, UI, border, watermark. Adult dog not puppy.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-2c450039-89a9-4834-896d-2f7ae2e5958a.png",
+      "asset": "public/illustrations/card-studies/alaskan-malamute-large-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 336592
+    },
+    {
+      "slug": "alaskan-malamute",
+      "side": "back",
+      "prompt": "Use case illustration-story. ONE portrait 5:7 Dog Atlas BACK watercolor illustration. Reference1 dog identity/colors/setting; Reference2 composition/style. adult Alaskan Malamute, powerful broad heavy freight-sled build, gray and white thick coat, broad head and small erect ears, brown eyes, plumed tail over back, not a slender blue-eyed Siberian Husky together with Alaska Native adult man in practical muted winter parka and fur lined boots, standing upright, in Alaskan coastal snowy village with a wooden freight sled and distant frozen inlet. Full body adult and dog on RIGHT half, same ground plane and realistic scale: adult height 170cm, dog shoulder approximately 58–64cm. Dog shoulder near person's knee or just above, never waist. Person stands calmly with relaxed hands. Entire heads feet and tails inside image. Leave LEFT 48% softly painted pale ivory wash for text, BOTTOM 28% mostly empty ivory wash fading beneath feet for history text. Figure group occupies upper-right through 72% image height. Detailed delicate natural history watercolor and colored pencil, warm paper texture, muted colors, refined faces and fur. Regional everyday clothing not costumes. No text, numbers, UI, borders or watermark.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-253775a8-9051-433c-8d29-02c4a7352098.png",
+      "asset": "public/illustrations/card-studies/alaskan-malamute-large-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 182516
+    },
+    {
+      "slug": "bernese-mountain-dog",
+      "side": "front",
+      "prompt": "Use case illustration-story. One square full-bleed premium Dog Atlas FRONT illustration. Reference is style only. Subject adult Bernese Mountain Dog, long black tricolor coat, symmetric white blaze and chest, rich rust cheeks eyebrows and legs, floppy ears, heavy large farm dog, natural long tail. Accurate anatomy, full body all paws tail visible, centered standing three-quarter view filling 68-75% image height. Scene Swiss Bernese alpine dairy farm, timber chalet and small wooden milk cart, green mountain meadow. Exquisite natural history watercolor and fine colored pencil on warm ivory paper, detailed fur and subtle pigment grain, softly illuminated muted earthy palette, evocative detailed background matching reference quality. No person, no text, numbers, UI, border, watermark. Adult dog not puppy.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-6bcf7fb1-e126-4490-8a7a-fd49a852cb8b.png",
+      "asset": "public/illustrations/card-studies/bernese-mountain-dog-large-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 341678
+    },
+    {
+      "slug": "bernese-mountain-dog",
+      "side": "back",
+      "prompt": "Use case illustration-story. ONE portrait 5:7 Dog Atlas BACK watercolor illustration. Reference1 dog identity/colors/setting; Reference2 composition/style. adult Bernese Mountain Dog, long black tricolor coat, symmetric white blaze and chest, rich rust cheeks eyebrows and legs, floppy ears, heavy large farm dog, natural long tail together with Swiss adult woman in cream blouse, muted brown wool vest and dark skirt and boots, standing upright, in Swiss Bernese alpine dairy farm, timber chalet and small wooden milk cart, green mountain meadow. Full body adult and dog on RIGHT half, same ground plane and realistic scale: adult height 170cm, dog shoulder approximately 58–70cm. Dog shoulder near person's knee or just above, never waist. Person stands calmly with relaxed hands. Entire heads feet and tails inside image. Leave LEFT 48% softly painted pale ivory wash for text, BOTTOM 28% mostly empty ivory wash fading beneath feet for history text. Figure group occupies upper-right through 72% image height. Detailed delicate natural history watercolor and colored pencil, warm paper texture, muted colors, refined faces and fur. Regional everyday clothing not costumes. No text, numbers, UI, borders or watermark.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-27dc89c4-c2e8-4eb7-aa01-7453b15b9f18.png",
+      "asset": "public/illustrations/card-studies/bernese-mountain-dog-large-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 161346
+    },
+    {
+      "slug": "akita",
+      "side": "front",
+      "prompt": "Use case illustration-story. One square full-bleed premium Dog Atlas FRONT illustration. Reference is style only. Subject adult Japanese Akita Inu, red fawn thick coat with clear cream urajiro cheeks chest belly legs, erect small triangular ears, broad dignified spitz head, curled tail, long legged large sturdy dog not small Shiba and not black-mask American Akita. Accurate anatomy, full body all paws tail visible, centered standing three-quarter view filling 68-75% image height. Scene northern Japanese Akita countryside with timber house, rice field edge and distant wooded hills. Exquisite natural history watercolor and fine colored pencil on warm ivory paper, detailed fur and subtle pigment grain, softly illuminated muted earthy palette, evocative detailed background matching reference quality. No person, no text, numbers, UI, border, watermark. Adult dog not puppy.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-722a8836-2fd5-46f8-9ca6-a14d18cc462b.png",
+      "asset": "public/illustrations/card-studies/akita-large-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 361442
+    },
+    {
+      "slug": "akita",
+      "side": "back",
+      "prompt": "Edit only the person in this Dog Atlas watercolor. Replace the entire male figure with a distinct Japanese woman farmer about 55, short straight dark bob with slight gray, no hat, wearing indigo cotton work jacket, muted gray work trousers and simple brown practical boots. Natural understated portrait, calm standing pose, hands relaxed. Same overall person scale position and full body. Preserve the Japanese Akita dog EXACTLY, same anatomy color size pose and placement. Preserve the Japanese countryside rice fields buildings, warm watercolor technique, pale LEFT text space and BOTTOM 28% text space exactly. Do not copy the previous man's face, hair, beard or facial structure. No text or numbers. Refine the face at original illustration fidelity.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-9bac3118-b7b3-403f-be7f-3d2f4f98cbbb.png",
+      "asset": "public/illustrations/card-studies/akita-large-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 161706,
+      "previousPrompt": "Use case illustration-story. ONE portrait 5:7 Dog Atlas BACK watercolor illustration. Reference1 dog identity/colors/setting; Reference2 composition/style. adult Japanese Akita Inu, red fawn thick coat with clear cream urajiro cheeks chest belly legs, erect small triangular ears, broad dignified spitz head, curled tail, long legged large sturdy dog not small Shiba and not black-mask American Akita together with Japanese adult man in indigo work jacket and muted trousers and practical boots, standing upright, in northern Japanese Akita countryside with timber house, rice field edge and distant wooded hills. Full body adult and dog on RIGHT half, same ground plane and realistic scale: adult height 170cm, dog shoulder approximately 57–70cm. Dog shoulder near person's knee or just above, never waist. Person stands calmly with relaxed hands. Entire heads feet and tails inside image. Leave LEFT 48% softly painted pale ivory wash for text, BOTTOM 28% mostly empty ivory wash fading beneath feet for history text. Figure group occupies upper-right through 72% image height. Detailed delicate natural history watercolor and colored pencil, warm paper texture, muted colors, refined faces and fur. Regional everyday clothing not costumes. No text, numbers, UI, borders or watermark."
+    },
+    {
+      "slug": "chow-chow",
+      "side": "front",
+      "prompt": "Use case illustration-story. One square full-bleed premium Dog Atlas FRONT illustration. Reference is style only. Subject adult red Chow Chow, lion-like full ruff, broad head, small upright triangular ears, deep set eyes, sturdy square body, blue-black tongue slightly visible, curled fluffy tail. Accurate anatomy, full body all paws tail visible, centered standing three-quarter view filling 68-75% image height. Scene old northern Chinese courtyard with clay tiled roof, wood gate and muted mountain landscape. Exquisite natural history watercolor and fine colored pencil on warm ivory paper, detailed fur and subtle pigment grain, softly illuminated muted earthy palette, evocative detailed background matching reference quality. No person, no text, numbers, UI, border, watermark. Adult dog not puppy.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-f0afd84b-a0f0-468b-9ffe-23b8a49c9afa.png",
+      "asset": "public/illustrations/card-studies/chow-chow-large-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 385492
+    },
+    {
+      "slug": "chow-chow",
+      "side": "back",
+      "prompt": "Use case illustration-story. ONE portrait 5:7 Dog Atlas BACK watercolor illustration. Reference1 dog identity/colors/setting; Reference2 composition/style. adult red Chow Chow, lion-like full ruff, broad head, small upright triangular ears, deep set eyes, sturdy square body, blue-black tongue slightly visible, curled fluffy tail together with Chinese adult woman in understated indigo cotton jacket, muted brown trousers and cloth shoes, standing upright, in old northern Chinese courtyard with clay tiled roof, wood gate and muted mountain landscape. Full body adult and dog on RIGHT half, same ground plane and realistic scale: adult height 170cm, dog shoulder approximately 43–51cm. Dog shoulder near person's knee or just above, never waist. Person stands calmly with relaxed hands. Entire heads feet and tails inside image. Leave LEFT 48% softly painted pale ivory wash for text, BOTTOM 28% mostly empty ivory wash fading beneath feet for history text. Figure group occupies upper-right through 72% image height. Detailed delicate natural history watercolor and colored pencil, warm paper texture, muted colors, refined faces and fur. Regional everyday clothing not costumes. No text, numbers, UI, borders or watermark.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-0725ea2f-a96c-4deb-aa42-3ccf28e21211.png",
+      "asset": "public/illustrations/card-studies/chow-chow-large-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 187500
+    },
+    {
+      "slug": "collie-rough",
+      "side": "front",
+      "prompt": "Use case illustration-story. One square full-bleed premium Dog Atlas FRONT illustration. Reference is style only. Subject adult sable and white Rough Collie, elegant tall long legged herding dog, long narrow wedge shaped muzzle, tipped semi erect ears, flowing sable long coat with white ruff and white feet, natural hanging feathered tail, notably larger and longer muzzle than Shetland Sheepdog. Accurate anatomy, full body all paws tail visible, centered standing three-quarter view filling 68-75% image height. Scene Scottish Highland pasture with distant sheep, dry stone walls and old stone farmhouse. Exquisite natural history watercolor and fine colored pencil on warm ivory paper, detailed fur and subtle pigment grain, softly illuminated muted earthy palette, evocative detailed background matching reference quality. No person, no text, numbers, UI, border, watermark. Adult dog not puppy.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-239e07c0-7256-4b36-8ec1-4d07df8a13d6.png",
+      "asset": "public/illustrations/card-studies/collie-rough-large-front-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 333024
+    },
+    {
+      "slug": "collie-rough",
+      "side": "back",
+      "prompt": "Use case illustration-story. ONE portrait 5:7 Dog Atlas BACK watercolor illustration. Reference1 dog identity/colors/setting; Reference2 composition/style. adult sable and white Rough Collie, elegant tall long legged herding dog, long narrow wedge shaped muzzle, tipped semi erect ears, flowing sable long coat with white ruff and white feet, natural hanging feathered tail, notably larger and longer muzzle than Shetland Sheepdog together with Scottish adult man in muted tweed jacket, wool trousers and brown boots, standing upright, in Scottish Highland pasture with distant sheep, dry stone walls and old stone farmhouse. Full body adult and dog on RIGHT half, same ground plane and realistic scale: adult height 170cm, dog shoulder approximately 56–66cm. Dog shoulder near person's knee or just above, never waist. Person stands calmly with relaxed hands. Entire heads feet and tails inside image. Leave LEFT 48% softly painted pale ivory wash for text, BOTTOM 28% mostly empty ivory wash fading beneath feet for history text. Figure group occupies upper-right through 72% image height. Detailed delicate natural history watercolor and colored pencil, warm paper texture, muted colors, refined faces and fur. Regional everyday clothing not costumes. No text, numbers, UI, borders or watermark.",
+      "source": "C:\\Users\\김도훈\\.codex\\generated_images\\01a06273-9700-7613-9dfe-8994daf03ce2\\exec-bac1331b-a33f-4822-87ea-9880246829b8.png",
+      "asset": "public/illustrations/card-studies/collie-rough-large-back-v1.webp",
+      "width": 1060,
+      "height": 1484,
+      "bytes": 163044
+    }
+  ]
+}
