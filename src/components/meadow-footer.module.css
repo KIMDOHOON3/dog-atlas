@@ -143,3 +143,12 @@
     height: 225px;
   }
 }
+
+@media (min-width: 901px) {
+  .bottom {
+    font-size: 14px;
+  }
+  .hint {
+    font-size: 13px;
+  }
+}

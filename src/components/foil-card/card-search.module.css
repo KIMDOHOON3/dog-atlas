@@ -282,3 +282,18 @@
     width: 100%;
   }
 }
+
+@media (min-width: 901px) {
+  .bar input,
+  .category,
+  .categoryPanel nav button {
+    font-size: 16px;
+  }
+  .panel > button {
+    font-size: 16px;
+  }
+  .panel p,
+  .panel > a {
+    font-size: 14px;
+  }
+}

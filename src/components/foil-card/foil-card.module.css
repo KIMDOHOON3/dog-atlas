@@ -1890,3 +1890,91 @@
 .collectionContent > .controls {
   display: none;
 }
+
+/* Desktop reading sizes: controls and card copy should read at normal distance. */
+@media (min-width: 901px) {
+  .stage {
+    width: 420px;
+    flex-basis: 420px;
+  }
+  .viewSwitch button {
+    font-size: 14px;
+    min-width: 120px;
+  }
+  .copy {
+    padding: 30px 20px 16px;
+  }
+  .copy h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+  .copy p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .cardLabel,
+  .cardLabel > span:last-child {
+    font-size: 10px;
+  }
+  .cardFoot {
+    font-size: 11px;
+  }
+  .cardFoot > span:last-child {
+    font-size: 9px;
+  }
+  .flipButton,
+  .detailLink,
+  .spreadItem[data-modal="true"] .cardActions > * {
+    font-size: 15px;
+    min-height: 48px;
+    padding: 8px 16px;
+  }
+  .cardPagination button {
+    font-size: 14px;
+  }
+  .paginationRow,
+  .collectionContent > .paginationRow {
+    width: min(100%, 420px);
+  }
+  .originLabel {
+    font-size: 2.6cqw;
+  }
+  .origin p {
+    font-size: 3.6cqw;
+  }
+  .backTitle {
+    font-size: 6.8cqw;
+  }
+  .factLabel,
+  .sizeNumbers .factLabel {
+    font-size: 3.2cqw;
+  }
+  .sizeNumbers p,
+  .lifespan p {
+    font-size: 3cqw;
+  }
+  .roleSection .factLabel {
+    font-size: 3.8cqw;
+  }
+  .roleSection p {
+    font-size: 3.6cqw;
+    line-height: 1.6;
+  }
+  .backNote {
+    font-size: 2.8cqw;
+  }
+  .backFoot {
+    font-size: 2.4cqw;
+  }
+  .spreadItem[data-modal="false"] .copy h2 {
+    font-size: 28px;
+  }
+  .spreadItem[data-modal="false"] .copy p {
+    font-size: 16px;
+  }
+  .spreadItem[data-modal="false"] > .spreadActions a {
+    font-size: 14px;
+    min-height: 36px;
+  }
+}

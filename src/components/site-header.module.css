@@ -339,3 +339,11 @@
     width: 100%;
   }
 }
+
+@media (min-width: 901px) {
+  .menuButton,
+  .headerActions > nav,
+  .menuPanel a {
+    font-size: 15px;
+  }
+}
