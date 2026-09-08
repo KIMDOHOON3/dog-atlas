@@ -49,7 +49,7 @@ export function MeadowFooter() {
         <div
           ref={field}
           className={styles.field}
-          aria-label="재패니즈 스피츠가 노는 잔디 운동장"
+          aria-label="공을 던지며 놀 수 있는 잔디 운동장"
         >
           <span className={styles.hint}>공을 잡아, 가볍게 던져보세요.</span>
         </div>

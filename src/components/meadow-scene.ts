@@ -2,7 +2,6 @@ import * as THREE from "three";
 import { addMiniatureYard } from "./miniature-yard";
 import { createPlayBall } from "./play-ball";
 import { createTennisBall } from "./tennis-ball";
-import { createYardSpitz } from "./yard-spitz";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobile = matchMedia("(max-width: 767px)").matches;
@@ -27,8 +26,6 @@ export function createMeadow(host: HTMLDivElement) {
   camera.position.set(0, 10, 11);
   camera.lookAt(0, 0, 0);
   const disposeYard = addMiniatureYard(scene);
-  const spitz = createYardSpitz();
-  scene.add(spitz.root);
   scene.add(new THREE.HemisphereLight(0xfff7df, 0xa5957a, 1.35));
   const sun = new THREE.DirectionalLight(0xffead0, 3.2);
   sun.position.set(-4, 8, 6);
@@ -94,7 +91,6 @@ export function createMeadow(host: HTMLDivElement) {
     if (now - last >= 1000 / 30) {
       const dt = Math.min((now - last) / 1000, 0.05);
       physics.step(dt);
-      spitz.update(dt, physics.body.position);
 
       last = now;
       draw();
@@ -203,12 +199,10 @@ export function createMeadow(host: HTMLDivElement) {
       );
     if (ballTarget.hasPointerCapture(e.pointerId))
       ballTarget.releasePointerCapture(e.pointerId);
-    if (e.type === "pointerup") spitz.chaseBall();
   };
   const keyboard = (e: MouseEvent) => {
     if (e.detail === 0 && !reduced.matches) {
       physics.launch(1, -2.5);
-      spitz.chaseBall();
     }
   };
   ballTarget.addEventListener("pointerdown", down);
@@ -243,7 +237,6 @@ export function createMeadow(host: HTMLDivElement) {
       for (const resource of [shadowGeometry, shadowMaterial])
         resource.dispose();
       tennis.dispose();
-      spitz.dispose();
       ballTarget.remove();
       disposeYard();
       renderer.dispose();
