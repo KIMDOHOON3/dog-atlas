@@ -51,7 +51,9 @@ export function MeadowFooter() {
           className={styles.field}
           aria-label="공을 던지며 놀 수 있는 잔디 운동장"
         >
-          <span className={styles.hint}>공을 잡아, 가볍게 던져보세요.</span>
+          <span className={styles.hint}>
+            살살 굴리고, 위로 던지고, 다시 잡아보세요.
+          </span>
         </div>
       </div>
       <div className={styles.bottom}>
