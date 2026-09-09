@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { addMiniatureYard } from "./miniature-yard";
 import { BALL_RADIUS, createPlayBall, throwVelocity } from "./play-ball";
 import { createTennisBall } from "./tennis-ball";
+import { addYardSpitz } from "./yard-spitz";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobileQuery = matchMedia("(max-width: 767px)");
@@ -86,6 +87,11 @@ export function createMeadow(host: HTMLDivElement) {
     disposed = false,
     frame = 0,
     last = 0;
+  const disposeSpitz = addYardSpitz(scene, () => {
+    renderer.shadowMap.needsUpdate = true;
+    host.dataset.dog = "blender";
+    if (visible && !document.hidden) draw();
+  });
 
   const ballTarget = document.createElement("button");
   ballTarget.type = "button";
@@ -354,6 +360,7 @@ export function createMeadow(host: HTMLDivElement) {
       tennis.dispose();
       ballTarget.remove();
       disposeYard();
+      disposeSpitz();
       renderer.dispose();
       renderer.forceContextLoss();
       renderer.domElement.remove();
