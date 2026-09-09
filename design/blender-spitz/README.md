@@ -1,5 +1,7 @@
 # Blender Spitz preview
 
+Current animated version: `rig-web.py` imports the clean sculpt, removes the hidden default Cube, creates a 16-joint skeleton with up to four normalized weights per vertex, and exports `yard-spitz-rigged.glb` (1,111,836 bytes). `rigged-spitz.blend` preserves the editable rig and 0.8-second Run action. The web uses AnimationMixer with speed-based playback and rest-pose blending; the old vertex gait is no longer used. This is a stylized run, not motion capture or muscle simulation.
+
 Current web variant: `yard-spitz-clean.glb` (710,960 bytes). The user rejected the dusty appearance of the narrow coat ribbons at mobile size, so `export-web.py` now excludes those ribbons from export. The original Blender hair remains intact. The runtime uses a smooth light coat and a more pronounced fore/hind leg cycle, low body bounce and tail sway driven by follow speed. This remains a lightweight vertex animation, not a skeletal rig.
 
 Original Blender model created through the local Blender MCP connection. `create.py` builds a separate study scene; `japanese-spitz.blend` contains the editable model and studio setup. No marketplace model or textures are included.
