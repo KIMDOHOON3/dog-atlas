@@ -1,8 +1,12 @@
 import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 
-/** Static miniature: all textures are generated once, with no external asset requests. */
-export function addMiniatureYard(scene: THREE.Scene) {
+/** Static turf plus locally authored Blender furniture, loaded only with the yard. */
+export function addMiniatureYard(
+  scene: THREE.Scene,
+  onReady: () => void = () => {},
+) {
   const resources: Array<{ dispose(): void }> = [];
   const keep = <T extends { dispose(): void }>(resource: T) => {
     resources.push(resource);
@@ -17,13 +21,13 @@ export function addMiniatureYard(scene: THREE.Scene) {
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 512;
     const ctx = canvas.getContext("2d")!;
-    ctx.fillStyle = wood ? "#a87647" : "#858359";
+    ctx.fillStyle = wood ? "#a87647" : "#7d895f";
     ctx.fillRect(0, 0, 512, 512);
     for (let i = 0; i < 42000; i++) {
-      const shade = Math.floor(random() * 50);
+      const shade = Math.floor(random() * 20);
       ctx.fillStyle = wood
         ? `rgba(65,35,15,${random() * 0.12})`
-        : `rgba(${100 + shade},${106 + shade},${57 + shade},.5)`;
+        : `rgba(${75 + shade},${91 + shade},${49 + shade},.5)`;
       ctx.fillRect(
         random() * 512,
         random() * 512,
@@ -43,9 +47,9 @@ export function addMiniatureYard(scene: THREE.Scene) {
     new THREE.MeshStandardMaterial({
       map: turfMap,
       bumpMap: turfMap,
-      bumpScale: 0.04,
+      bumpScale: 0.012,
       roughness: 1,
-      color: 0xdfd8bb,
+      color: 0xd4d6bf,
     }),
   );
   const rim = keep(
@@ -92,9 +96,9 @@ export function addMiniatureYard(scene: THREE.Scene) {
   bladeGeo.setIndex([0, 1, 2, 0, 2, 3]);
   bladeGeo.computeVertexNormals();
   const bladeMat = keep(
-    new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide }),
+    new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide }),
   );
-  const bladeCount = matchMedia("(max-width:767px)").matches ? 26000 : 62000;
+  const bladeCount = matchMedia("(max-width:767px)").matches ? 16000 : 34000;
   const fibres = new THREE.InstancedMesh(bladeGeo, bladeMat, bladeCount);
   resources.push(fibres);
   const fibre = new THREE.Object3D(),
@@ -112,11 +116,11 @@ export function addMiniatureYard(scene: THREE.Scene) {
     }
     fibre.position.set(x, 0, z);
     fibre.rotation.y = random() * Math.PI * 2;
-    fibre.scale.set(print ? 0 : 1, 0.45 + random() * 0.65, 1);
+    fibre.scale.set(print ? 0 : 1, 0.38 + random() * 0.42, 1);
     fibre.updateMatrix();
     fibres.setMatrixAt(i, fibre.matrix);
     const variation = random();
-    color.setHSL(0.145 + variation * 0.004, 0.27, 0.28 + variation * 0.045);
+    color.set(0x85916b).multiplyScalar(0.88 + variation * 0.2);
     fibres.setColorAt(i, color);
   }
   fibres.receiveShadow = true;
@@ -211,5 +215,57 @@ export function addMiniatureYard(scene: THREE.Scene) {
     }
   }
   scene.add(paws);
-  return () => resources.forEach((resource) => resource.dispose());
+  let disposed = false;
+  let furniture: THREE.Group | null = null;
+  const releaseModel = (model: THREE.Group) => {
+    model.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      object.geometry.dispose();
+      const materials = Array.isArray(object.material)
+        ? object.material
+        : [object.material];
+      materials.forEach((material) => material.dispose());
+    });
+  };
+  new GLTFLoader().load(
+    "/models/yard-furniture.glb",
+    (gltf) => {
+      if (disposed) {
+        releaseModel(gltf.scene);
+        return;
+      }
+      furniture = gltf.scene;
+      furniture.name = "Blender playground furniture";
+      furniture.traverse((object) => {
+        if (!(object instanceof THREE.Mesh)) return;
+        object.castShadow = true;
+        object.receiveShadow = true;
+        if (
+          object.material instanceof THREE.MeshStandardMaterial &&
+          object.material.name === "Yard oak"
+        ) {
+          object.material.color.set(0xf7e5c5);
+          object.material.map = wood.map;
+          object.material.bumpMap = wood.map;
+          object.material.bumpScale = 0.006;
+          object.material.needsUpdate = true;
+        }
+      });
+      bench.visible = false;
+      scene.add(furniture);
+      onReady();
+    },
+    undefined,
+    () => {
+      /* The lightweight procedural bench remains usable offline. */
+    },
+  );
+  return () => {
+    disposed = true;
+    if (furniture) {
+      scene.remove(furniture);
+      releaseModel(furniture);
+    }
+    resources.forEach((resource) => resource.dispose());
+  };
 }

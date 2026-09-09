@@ -25,7 +25,11 @@ export function createMeadow(host: HTMLDivElement) {
   const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 60);
   camera.position.set(0, 10, 11);
   camera.lookAt(0, 0, 0);
-  const disposeYard = addMiniatureYard(scene);
+  const disposeYard = addMiniatureYard(scene, () => {
+    renderer.shadowMap.needsUpdate = true;
+    host.dataset.furniture = "blender";
+    if (visible && !document.hidden) draw();
+  });
   scene.add(new THREE.HemisphereLight(0xfff7df, 0xa5957a, 1.35));
   const sun = new THREE.DirectionalLight(0xffead0, 3.2);
   sun.position.set(-4, 8, 6);
