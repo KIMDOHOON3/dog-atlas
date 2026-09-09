@@ -93,18 +93,6 @@ export function createMeadow(host: HTMLDivElement) {
   ballTarget.title = "천천히 밀면 굴러가고, 위로 쓸면 높이 날아가요";
   ballTarget.dataset.ball = "true";
   host.appendChild(ballTarget);
-  let idleSeconds = 0;
-  let nudgeDirection = 1;
-  const mobileNudge = (direction: number, hop: boolean) => {
-    if (physics.body.position.y > BALL_RADIUS + 0.15) return;
-    const x = physics.body.position.x;
-    physics.launch(
-      Math.abs(x) > 2.8 ? -Math.sign(x) * 1.7 : direction * 1.7,
-      (0.8 - physics.body.position.z) * 0.45,
-      hop ? 1.8 : 0,
-    );
-    idleSeconds = 0;
-  };
   const projected = new THREE.Vector3();
   const draw = () => {
     ball.position.copy(physics.body.position);
@@ -128,13 +116,6 @@ export function createMeadow(host: HTMLDivElement) {
     if (now - last >= 1000 / 30) {
       const dt = Math.min((now - last) / 1000, 0.05);
       physics.step(dt);
-      if (mobile) {
-        idleSeconds += dt;
-        if (idleSeconds > 6 && physics.body.velocity.length() < 0.15) {
-          mobileNudge(nudgeDirection, false);
-          nudgeDirection *= -1;
-        }
-      }
       preview();
       last = now;
       draw();
@@ -144,7 +125,6 @@ export function createMeadow(host: HTMLDivElement) {
   const sync = () => {
     cancelAnimationFrame(frame);
     frame = 0;
-    idleSeconds = 0;
     ballTarget.disabled = reduced.matches;
     if ((!visible || document.hidden || reduced.matches) && held !== null) {
       const pointerId = held;
@@ -252,7 +232,7 @@ export function createMeadow(host: HTMLDivElement) {
     return ray.ray.intersectPlane(plane, point);
   };
   const down = (e: PointerEvent) => {
-    if (mobile || reduced.matches || held !== null || e.button !== 0) return;
+    if (reduced.matches || held !== null || e.button !== 0) return;
     held = e.pointerId;
     moved = false;
     velocity.set(0, 0);
@@ -313,20 +293,9 @@ export function createMeadow(host: HTMLDivElement) {
   };
   const keyboard = (e: MouseEvent) => {
     if (reduced.matches) return;
-    if (mobile) {
-      const rect = ballTarget.getBoundingClientRect();
-      mobileNudge(
-        e.detail === 0
-          ? nudgeDirection
-          : e.clientX < rect.left + rect.width / 2
-            ? 1
-            : -1,
-        true,
-      );
-    } else if (e.detail === 0) {
-      physics.launch(1, -2.5);
-    }
+    if (e.detail === 0) physics.launch(1, -2.5);
   };
+
   const changeMode = () => {
     mobile = mobileQuery.matches;
     if (held !== null) {
@@ -336,16 +305,11 @@ export function createMeadow(host: HTMLDivElement) {
         ballTarget.releasePointerCapture(id);
       ballTarget.dataset.held = "false";
     }
-    if (mobile) physics.cancel();
+    physics.cancel();
     trajectory.visible = false;
-    host.dataset.interaction = mobile ? "tap" : "drag";
-    ballTarget.setAttribute(
-      "aria-label",
-      mobile ? "공 톡 건드리기" : "공 던지기",
-    );
-    ballTarget.title = mobile
-      ? "공을 톡 건드려보세요"
-      : "천천히 밀면 굴러가고, 위로 쓸면 높이 날아가요";
+    host.dataset.interaction = "drag";
+    ballTarget.setAttribute("aria-label", "공 던지기");
+    ballTarget.title = "공을 잡고 끌어 던져보세요";
     sync();
   };
   changeMode();

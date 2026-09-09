@@ -177,8 +177,8 @@
     height: 245px;
   }
   .field [data-ball] {
-    touch-action: pan-y;
-    cursor: pointer;
+    touch-action: none;
+    cursor: grab;
   }
   .desktopHint {
     display: none;

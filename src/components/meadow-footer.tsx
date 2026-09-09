@@ -55,7 +55,9 @@ export function MeadowFooter() {
             <span className={styles.desktopHint}>
               살살 굴리고, 위로 던지고, 다시 잡아보세요.
             </span>
-            <span className={styles.mobileHint}>공을 톡 건드려보세요.</span>
+            <span className={styles.mobileHint}>
+              공을 잡고 끌어 던져보세요.
+            </span>
           </span>
         </div>
       </div>
