@@ -38,7 +38,7 @@ mesh=bpy.data.meshes.new('Baked coat ribbons');mesh.from_pydata(verts,[],faces);
 fur=bpy.data.objects.new('Baked coat',mesh);scene.collection.objects.link(fur)
 mat=bpy.data.materials.get('Warm white coat').copy();mat.name='Web coat';mat.use_backface_culling=False;mesh.materials.append(mat)
 for p in mesh.polygons:p.use_smooth=True
-fur.select_set(True)
+fur.select_set(False)  # Omit subpixel ribbons: they shimmer like dust in the small yard view.
 (root/'public/models').mkdir(exist_ok=True)
-bpy.ops.export_scene.gltf(filepath=str(root/'public/models/yard-spitz.glb'),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False)
-print('FUR',len(verts),len(faces),'GLB', (root/'public/models/yard-spitz.glb').stat().st_size)
+bpy.ops.export_scene.gltf(filepath=str(root/'public/models/yard-spitz-clean.glb'),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False)
+print('FUR',len(verts),len(faces),'GLB', (root/'public/models/yard-spitz-clean.glb').stat().st_size)

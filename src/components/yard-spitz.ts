@@ -32,7 +32,7 @@ export function addYardSpitz(scene: THREE.Scene, ready: () => void) {
     materials.forEach((material) => material.dispose());
   };
   new GLTFLoader().load(
-    "/models/yard-spitz.glb",
+    "/models/yard-spitz-clean.glb",
     (gltf) => {
       if (disposed) {
         release(gltf.scene);
@@ -57,6 +57,10 @@ export function addYardSpitz(scene: THREE.Scene, ready: () => void) {
           : [mesh.material];
         for (const material of materials) {
           if (!(material instanceof THREE.MeshStandardMaterial)) continue;
+          if (material.name === "Warm white coat") {
+            material.color.set(0xf1eee6);
+            material.roughness = 0.95;
+          }
           material.onBeforeCompile = (shader) => {
             shader.uniforms.dogPhase = phase;
             shader.uniforms.dogStride = stride;
@@ -67,15 +71,17 @@ export function addYardSpitz(scene: THREE.Scene, ready: () => void) {
               "#include <begin_vertex>",
               `
               #include <begin_vertex>
-              float leg = (1.0 - smoothstep(0.3, 0.72, position.y)) * dogStride;
-              float diagonal = (position.x * position.z > 0.0) ? 0.0 : 3.14159265;
-              float stepWave = sin(dogPhase + diagonal);
-              transformed.z += stepWave * 0.13 * leg;
-              transformed.y += max(0.0, cos(dogPhase + diagonal)) * 0.055 * leg;
+              float leg = (1.0 - smoothstep(0.35, 0.78, position.y)) * dogStride;
+              float pair = position.z > 0.0 ? 0.0 : 2.35;
+              float stepWave = sin(dogPhase + pair + sign(position.x) * 0.25);
+              transformed.z += stepWave * 0.23 * leg;
+              transformed.y += max(0.0, cos(dogPhase + pair)) * 0.13 * leg;
+              float tail = smoothstep(0.2, 0.7, -position.z) * smoothstep(0.95, 1.3, position.y);
+              transformed.x += sin(dogPhase * 0.5) * 0.045 * tail * dogStride;
             `,
             );
           };
-          material.customProgramCacheKey = () => "spitz-ground-gait-v1";
+          material.customProgramCacheKey = () => "spitz-bound-gait-v2";
         }
       }
       model.name = "Blender Spitz appearance test";
@@ -107,12 +113,14 @@ export function addYardSpitz(scene: THREE.Scene, ready: () => void) {
       stride.value = Math.min(1, s.speed / 0.7);
       model.position.set(
         s.x,
-        0.03 + Math.sin(s.phase * 2) * 0.012 * stride.value,
+        0.03 + (0.5 + 0.5 * Math.sin(s.phase * 2)) * 0.09 * stride.value,
         s.z,
       );
       model.rotation.y = s.yaw;
+      model.rotation.x = Math.sin(s.phase) * 0.035 * stride.value;
       shadow.position.set(s.x, 0.012, s.z);
       shadow.rotation.z = -s.yaw;
+      shadowMaterial.opacity = 0.12 - 0.025 * stride.value;
       return s.speed > 0.005 || Math.abs(previousYaw - s.yaw) > 0.0001;
     },
     dispose() {

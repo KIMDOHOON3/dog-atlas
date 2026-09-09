@@ -1,5 +1,7 @@
 # Blender Spitz preview
 
+Current web variant: `yard-spitz-clean.glb` (710,960 bytes). The user rejected the dusty appearance of the narrow coat ribbons at mobile size, so `export-web.py` now excludes those ribbons from export. The original Blender hair remains intact. The runtime uses a smooth light coat and a more pronounced fore/hind leg cycle, low body bounce and tail sway driven by follow speed. This remains a lightweight vertex animation, not a skeletal rig.
+
 Original Blender model created through the local Blender MCP connection. `create.py` builds a separate study scene; `japanese-spitz.blend` contains the editable model and studio setup. No marketplace model or textures are included.
 
 On 2026-09-09 the user requested testing the last model in the playground. `export-web.py` reads the saved sculpt, reduces dense surfaces and converts parent hairs to tapered mesh ribbons; it exports `public/models/yard-spitz.glb` (3,455,964 bytes). The website loads it only upon footer entry. A subsequent user request adds ground-based ball pursuit, eased movement, stopping distance and a lightweight vertex gait shared by the body and coat. This is not a skeletal running rig. Web ribbon fur differs from the Cycles particle-hair render. PC/mobile rendering, loading/disposal integration and offscreen pause were checked; real-device FPS has not been measured. Earlier preview images are not shipped.
