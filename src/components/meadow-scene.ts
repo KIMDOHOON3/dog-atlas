@@ -87,7 +87,7 @@ export function createMeadow(host: HTMLDivElement) {
     disposed = false,
     frame = 0,
     last = 0;
-  const disposeSpitz = addYardSpitz(scene, () => {
+  const spitz = addYardSpitz(scene, () => {
     renderer.shadowMap.needsUpdate = true;
     host.dataset.dog = "blender";
     if (visible && !document.hidden) draw();
@@ -122,6 +122,7 @@ export function createMeadow(host: HTMLDivElement) {
     if (now - last >= 1000 / 30) {
       const dt = Math.min((now - last) / 1000, 0.05);
       physics.step(dt);
+      spitz.update(dt, physics.body.position);
       preview();
       last = now;
       draw();
@@ -360,7 +361,7 @@ export function createMeadow(host: HTMLDivElement) {
       tennis.dispose();
       ballTarget.remove();
       disposeYard();
-      disposeSpitz();
+      spitz.dispose();
       renderer.dispose();
       renderer.forceContextLoss();
       renderer.domElement.remove();
