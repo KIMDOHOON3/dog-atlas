@@ -100,7 +100,8 @@ export function addYardSpitz(scene: THREE.Scene, ready: () => void) {
   );
   return {
     update(dt: number, ball: { x: number; z: number }) {
-      if (!model) return;
+      if (!model) return false;
+      const previousYaw = model.rotation.y;
       const s = follow.step(dt, ball);
       phase.value = s.phase;
       stride.value = Math.min(1, s.speed / 0.7);
@@ -112,6 +113,7 @@ export function addYardSpitz(scene: THREE.Scene, ready: () => void) {
       model.rotation.y = s.yaw;
       shadow.position.set(s.x, 0.012, s.z);
       shadow.rotation.z = -s.yaw;
+      return s.speed > 0.005 || Math.abs(previousYaw - s.yaw) > 0.0001;
     },
     dispose() {
       disposed = true;

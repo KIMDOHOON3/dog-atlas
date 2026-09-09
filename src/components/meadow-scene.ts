@@ -86,7 +86,11 @@ export function createMeadow(host: HTMLDivElement) {
   let visible = false,
     disposed = false,
     frame = 0,
-    last = 0;
+    last = 0,
+    nextRender = 0;
+  let width = host.clientWidth,
+    height = host.clientHeight,
+    dirty = true;
   const spitz = addYardSpitz(scene, () => {
     renderer.shadowMap.needsUpdate = true;
     host.dataset.dog = "blender";
@@ -98,19 +102,21 @@ export function createMeadow(host: HTMLDivElement) {
   ballTarget.setAttribute("aria-label", "공 던지기");
   ballTarget.title = "천천히 밀면 굴러가고, 위로 쓸면 높이 날아가요";
   ballTarget.dataset.ball = "true";
+  ballTarget.style.left = "0";
+  ballTarget.style.top = "0";
   host.appendChild(ballTarget);
   const projected = new THREE.Vector3();
   const draw = () => {
-    ball.position.copy(physics.body.position);
-    ball.quaternion.copy(physics.body.quaternion);
+    ball.position.copy(physics.body.interpolatedPosition);
+    ball.quaternion.copy(physics.body.interpolatedQuaternion);
     shadow.position.set(ball.position.x + 0.06, 0.008, ball.position.z);
     shadowMaterial.opacity = 0.2 / (1 + ball.position.y);
     shadow.scale.setScalar(1 + ball.position.y * 0.3);
     projected.copy(ball.position).project(camera);
-    ballTarget.style.left = `${(projected.x + 1) * 0.5 * host.clientWidth}px`;
-    ballTarget.style.top = `${(1 - projected.y) * 0.5 * host.clientHeight}px`;
+    ballTarget.style.transform = `translate3d(${(projected.x + 1) * 0.5 * width}px, ${(1 - projected.y) * 0.5 * height}px, 0) translate(-50%, -50%)`;
     ballTarget.disabled = reduced.matches;
     renderer.render(scene, camera);
+    dirty = false;
   };
   const tick = (now: number) => {
     frame = 0;
@@ -119,14 +125,21 @@ export function createMeadow(host: HTMLDivElement) {
       sync();
       return;
     }
-    if (now - last >= 1000 / 30) {
-      const dt = Math.min((now - last) / 1000, 0.05);
-      physics.step(dt);
-      spitz.update(dt, physics.body.position);
-      preview();
-      last = now;
-      draw();
+    // Keep a stable 60Hz budget even on 120/240Hz displays, without dropping
+    // an entire refresh when a browser callback lands slightly early.
+    if (now + 0.5 < nextRender) {
+      frame = requestAnimationFrame(tick);
+      return;
     }
+    const interval = 1000 / 60;
+    nextRender = now + interval - (Math.max(0, now - nextRender) % interval);
+    const dt = Math.min((now - last) / 1000, 0.05);
+    const ballMoving = physics.body.sleepState !== 2;
+    physics.step(dt);
+    const dogMoving = spitz.update(dt, physics.body.interpolatedPosition);
+    if (held !== null) preview();
+    last = now;
+    if (dirty || ballMoving || dogMoving || held !== null) draw();
     frame = requestAnimationFrame(tick);
   };
   const sync = () => {
@@ -148,6 +161,7 @@ export function createMeadow(host: HTMLDivElement) {
       draw();
       if (!reduced.matches) {
         last = performance.now();
+        nextRender = last;
         frame = requestAnimationFrame(tick);
       }
     }
@@ -155,6 +169,8 @@ export function createMeadow(host: HTMLDivElement) {
   const resize = () => {
     const w = host.clientWidth,
       h = host.clientHeight;
+    width = w;
+    height = h;
     renderer.setPixelRatio(
       Math.min(
         devicePixelRatio,
@@ -262,7 +278,7 @@ export function createMeadow(host: HTMLDivElement) {
     }
     lastMove = performance.now();
     ballTarget.dataset.held = "true";
-    draw();
+    dirty = true;
   };
   const drag = (e: PointerEvent) => {
     if (e.pointerId !== held || !hitGround(e)) return;
@@ -281,13 +297,13 @@ export function createMeadow(host: HTMLDivElement) {
     physics.hold(point.x + offset.x, point.z + offset.y, catchHeight + lift);
     lastPoint.set(point.x, point.z);
     lastMove = now;
-    preview();
-    draw();
+    dirty = true;
   };
   const release = (e: PointerEvent) => {
     if (e.pointerId !== held) return;
     held = null;
     trajectory.visible = false;
+    dirty = true;
     ballTarget.dataset.held = "false";
     if (e.type !== "pointerup") physics.cancel();
     else if (!moved) physics.launch(1, -2.5);

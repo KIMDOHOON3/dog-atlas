@@ -39,6 +39,13 @@ export function createPlayBall() {
     sleepTimeLimit: 0.7,
   });
   body.position.set(0.7, BALL_RADIUS, 1);
+  const syncPose = () => {
+    body.previousPosition.copy(body.position);
+    body.interpolatedPosition.copy(body.position);
+    body.previousQuaternion.copy(body.quaternion);
+    body.interpolatedQuaternion.copy(body.quaternion);
+  };
+  syncPose();
   world.addBody(body);
   body.sleep();
   const bench = new Body({
@@ -75,6 +82,7 @@ export function createPlayBall() {
     setWidth(width: number) {
       halfWidth = Math.max(1, width);
       contain(false);
+      syncPose();
     },
     hold(x: number, z: number, y = body.position.y) {
       body.type = Body.KINEMATIC;
@@ -88,6 +96,7 @@ export function createPlayBall() {
         z,
       );
       contain(false);
+      syncPose();
       body.wakeUp();
     },
     launch(x: number, z: number, y = 3.5) {
@@ -108,11 +117,20 @@ export function createPlayBall() {
       body.velocity.setZero();
       body.angularVelocity.setZero();
       body.sleep();
+      syncPose();
     },
     step(dt: number) {
       world.step(1 / 60, Math.min(dt, 0.05), 3);
       if (body.type !== Body.DYNAMIC) return;
       contain(true);
+      const edge = Math.hypot(
+        body.interpolatedPosition.x / halfWidth,
+        body.interpolatedPosition.z / depth,
+      );
+      if (edge > 1) {
+        body.interpolatedPosition.x /= edge;
+        body.interpolatedPosition.z /= edge;
+      }
     },
   };
 }

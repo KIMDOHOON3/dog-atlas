@@ -1,6 +1,20 @@
 import { describe, it, expect } from "vitest";
 import { createPlayBall, BALL_RADIUS, throwVelocity } from "./play-ball";
 describe("playground ball", () => {
+  it("interpolates between physics steps and resets the display pose on grab", () => {
+    const p = createPlayBall();
+    p.launch(3, 0, 3);
+    p.step(1 / 60);
+    const before = p.body.interpolatedPosition.x;
+    const physical = p.body.position.x;
+    p.step(1 / 120);
+    expect(p.body.position.x).toBe(physical);
+    expect(p.body.interpolatedPosition.x).toBeGreaterThan(before);
+    p.hold(1, 1, 1.2);
+    expect(p.body.interpolatedPosition.y).toBe(1.2);
+    p.cancel();
+    expect(p.body.interpolatedPosition.y).toBe(BALL_RADIUS);
+  });
   it("rolls a slow gesture and gives a fast or lifted throw more height", () => {
     const slow = throwVelocity(0.8, 0, 0);
     const fast = throwVelocity(6, 0, 0);
