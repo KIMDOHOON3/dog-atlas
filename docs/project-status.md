@@ -12,6 +12,7 @@
 
 ## 현재 카드 디자인과 성능
 
+- 사진을 닮는 완성본 요청에 대한 스피츠 재작업은 **시각 검수 불합격**이다. 머리/눈 위치·코·입·얼굴 털을 재구성했으나 얼굴 유사도·눈 테두리·입 재질 경계·털 흐름이 기준에 못 미쳤다. 완성본으로 전달하지 않고 실험을 로컬 `tmp/spitz-reference-rebuild-rejected`에 보관했다. 기존 07/원본은 수정하지 않았고 Blender도 07로 복원했다. 요청한 완성 수준은 미달이며 사이트 변경은 없다. [불합격 기록](../design/japanese-spitz/reports/likeness-review-20260913.json).
 - 스피츠 `07-face-integration.blend`: 눈 포켓·면 방향/돌출 보정·눈꺼풀 연결, 얇은 턱/연속 아랫입술, 평평한 귀를 대신한 굽은 폐곡면 귀를 추가했다. 06 원본/승인 체형 좌표 유지, 재열기 7개 구조 메시 비매니폴드·퇴화면 0, 털 뿌리 표본 최대 약 0.025mm, 4방향 Cycles 렌더·lint/typecheck/1,667테스트/build 통과. 눈 테두리/주둥이 조형·털 흐름과 리깅은 미완료이며 푸터 적용은 없다. [얼굴 연결 수정](../design/japanese-spitz/face-integration/README.md).
 - “사나워 보인다” 피드백을 반영한 스피츠 `06-soft-expression.blend`를 별도 저장했다. 세로로 열린 눈/큰 동공·치아 노출/입 벌림 축소·코트와 합쳐 평활화한 입꼬리·귀 끝/얼굴 털을 수정했다. 원본 03/05와 승인 체형 좌표 서명 유지, 재열기 메시/털/텍스처 검사·Cycles 4방향·lint/typecheck/1,667테스트/build 통과. 눈 반사/입술·턱/귀 측면 조형은 미완료이고 리깅·사이트 적용은 없다. [표정 수정과 검수](../design/japanese-spitz/soft-expression/README.md).
 - 얼굴·털 수정본 저장 후 ESLint·TypeScript·Vitest 54파일/1,667개 테스트·Next.js 빌드를 통과했다. 모델은 디자인 작업 폴더에만 추가했다.
