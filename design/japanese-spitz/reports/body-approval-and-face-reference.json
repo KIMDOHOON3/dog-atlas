@@ -30,5 +30,5 @@
     ],
     "role": "Face expression and regional groom reference; does not replace approved body proportions"
   },
-  "implementationStatus": "Reference recorded; face and groom edits not yet applied"
+  "implementationStatus": "Face and static Hair Curves applied in face-groom/exports/05-face-groom.blend; original approved body file preserved"
 }

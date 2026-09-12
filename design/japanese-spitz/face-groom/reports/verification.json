@@ -1,0 +1,98 @@
+{
+  "protectedGeometryUnchanged": true,
+  "protectedGeometry": {
+    "Continuous base skin": {
+      "vertices": 101750,
+      "sha256": "d007858c2ada50874929a5d31aaf76fb9dffe3e779bec79a985dbc930dc05205"
+    },
+    "Coat silhouette": {
+      "vertices": 93808,
+      "sha256": "9d49e4ee2e7ed700bfd1d299fd0a2c78bb48a43fa3515fedbca7ed2ace561a42"
+    },
+    "Tail plume silhouette": {
+      "vertices": 1960,
+      "sha256": "b467a5a40301bafbc0fe80560fecf1a3265f69529d5da45b825a2743c451a350"
+    },
+    "Curled tail core": {
+      "vertices": 1036,
+      "sha256": "6fafdf9d8f2f6c96c46ff9172b8a8e71cc91b9e56edec4fdb80953662555c918"
+    }
+  },
+  "hair": [
+    {
+      "name": "Spitz | Fur Spitz | Tail plume silhouette",
+      "points": 252000,
+      "finite": true,
+      "positiveRadii": true,
+      "sampledRootMaxDistanceM": 8.028985575947445e-06
+    },
+    {
+      "name": "Spitz | Fur Spitz | Ear shell -1",
+      "points": 39000,
+      "finite": true,
+      "positiveRadii": true,
+      "sampledRootMaxDistanceM": 8.118141522572841e-06
+    },
+    {
+      "name": "Spitz | Fur Spitz | Ear shell 1",
+      "points": 39000,
+      "finite": true,
+      "positiveRadii": true,
+      "sampledRootMaxDistanceM": 8.173079550033435e-06
+    },
+    {
+      "name": "Spitz | Fur Spitz | Coat silhouette",
+      "points": 1326462,
+      "finite": true,
+      "positiveRadii": true,
+      "sampledRootMaxDistanceM": 8.026945579331368e-06
+    },
+    {
+      "name": "Spitz | Fur Spitz | Lower jaw",
+      "points": 14310,
+      "finite": true,
+      "positiveRadii": true,
+      "sampledRootMaxDistanceM": 8.037654879444744e-06
+    },
+    {
+      "name": "Spitz | Fur Spitz | Ear inset -1",
+      "points": 15600,
+      "finite": true,
+      "positiveRadii": true,
+      "sampledRootMaxDistanceM": 8.059229912760202e-06
+    },
+    {
+      "name": "Spitz | Fur Spitz | Ear inset 1",
+      "points": 15600,
+      "finite": true,
+      "positiveRadii": true,
+      "sampledRootMaxDistanceM": 9.342772500531282e-06
+    },
+    {
+      "name": "Spitz | Muzzle whiskers",
+      "points": 96,
+      "finite": true,
+      "positiveRadii": true,
+      "sampledRootMaxDistanceM": 3.637624467955902e-05
+    }
+  ],
+  "scope": "Body coordinate signatures and finite hair data; no animation or full collision validation",
+  "structuralMeshes": [
+    {
+      "name": "Coat silhouette",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Lower jaw",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Nose",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    }
+  ],
+  "missingFileTextures": []
+}

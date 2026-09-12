@@ -1,0 +1,18 @@
+{
+  "Continuous base skin": {
+    "vertices": 101750,
+    "sha256": "d007858c2ada50874929a5d31aaf76fb9dffe3e779bec79a985dbc930dc05205"
+  },
+  "Coat silhouette": {
+    "vertices": 93808,
+    "sha256": "9d49e4ee2e7ed700bfd1d299fd0a2c78bb48a43fa3515fedbca7ed2ace561a42"
+  },
+  "Tail plume silhouette": {
+    "vertices": 1960,
+    "sha256": "b467a5a40301bafbc0fe80560fecf1a3265f69529d5da45b825a2743c451a350"
+  },
+  "Curled tail core": {
+    "vertices": 1036,
+    "sha256": "6fafdf9d8f2f6c96c46ff9172b8a8e71cc91b9e56edec4fdb80953662555c918"
+  }
+}
