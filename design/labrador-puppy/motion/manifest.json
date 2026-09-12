@@ -1,12 +1,14 @@
 {
   "frames": 48,
   "fps": 60,
+  "revision": "smile-wag",
   "gait": "가벼운 달리기 · 대각선 지지",
   "views": [
     "side",
     "three-quarter"
   ],
-  "coat": "v3의 1/4 밀도 검토용 털",
+  "coat": "v3의 약 1/4 밀도 검토용 털",
+  "expression": "밝게 열린 눈 · 살짝 벌린 입 · 좌우 꼬리 흔들기",
   "poses": [
     {
       "frame": 1,

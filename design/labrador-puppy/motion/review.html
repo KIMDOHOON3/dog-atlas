@@ -7,15 +7,15 @@
 </style>
 <main>
 <a href="../review.html">← 정적 모델 비교</a>
-<div class="eyebrow">V3 · BLENDER 실제 프레임 렌더</div>
+<div class="eyebrow">V3 · 모션 수정 2 · 꼬리와 표정</div>
 <h1>달리기, 한 프레임씩 보기</h1>
-<p>제자리에서 반복하는 가벼운 달리기 시안입니다. 다리를 접을 때와 땅을 짚을 때의 연결을 살펴보세요.</p>
-<div class="bar"><label>방향 <select id="view"><option value="side">측면</option><option value="three-quarter">3/4</option></select></label><label>속도 <select id="speed"><option value="1">정상</option><option value="0.5">½ 속도</option><option value="0.25" selected>¼ 속도</option></select></label></div>
-<figure><img id="frame" src="frames/side/001.png" alt="래브라도 달리기 측면 1프레임"><figcaption id="caption">측면 · 1 / 48</figcaption></figure>
+<p>좌우로 흔드는 꼬리와 조금 더 밝아진 표정을 더했어요. 꼬리 끝이 따라오는 움직임과 달리는 자세를 한 장씩 살펴보세요.</p>
+<div class="bar"><label>방향 <select id="view"><option value="side">측면</option><option value="three-quarter" selected>3/4</option></select></label><label>속도 <select id="speed"><option value="1">정상</option><option value="0.5">½ 속도</option><option value="0.25" selected>¼ 속도</option></select></label></div>
+<figure><img id="frame" src="frames/three-quarter/001.png" alt="래브라도 달리기 3/4 1프레임"><figcaption id="caption">3/4 · 1 / 48</figcaption></figure>
 <div class="counter"><label for="scrub">한 프레임씩 살펴보기</label><strong id="counter">1 / 48</strong></div>
 <input id="scrub" type="range" min="1" max="48" step="1" value="1" aria-label="달리기 프레임">
 <div class="bar"><button id="play" type="button" disabled>재생</button><button id="prev" type="button" disabled>← 이전</button><button id="next" type="button" disabled>다음 →</button><button id="first" type="button" disabled>처음</button></div>
-<div id="load" role="status">측면 프레임을 준비하고 있습니다.</div>
+<div id="load" role="status">3/4 프레임을 준비하고 있습니다.</div>
 <div class="limbs">
 <div class="limb" id="fore_1"><span>가까운 앞다리</span><b>—</b></div><div class="limb" id="hind_1"><span>가까운 뒷다리</span><b>—</b></div>
 <div class="limb" id="fore_-1"><span>반대쪽 앞다리</span><b>—</b></div><div class="limb" id="hind_-1"><span>반대쪽 뒷다리</span><b>—</b></div>
@@ -23,6 +23,7 @@
 <div class="bar" aria-label="주요 자세로 이동"><button data-frame="1">A 착지 · 1</button><button data-frame="11">A 지지 · 11</button><button data-frame="22">공중 전환 · 22</button><button data-frame="25">B 착지 · 25</button><button data-frame="35">B 지지 · 35</button><button data-frame="46">공중 전환 · 46</button></div>
 <p class="notice">방향키 ← →로 한 프레임씩, Space로 재생·정지합니다. 최초에는 정지 상태이며 화면을 벗어나면 재생을 멈춥니다.</p>
 <div class="bar"><a class="download" href="exports/puppy-run-study.blend" download>모션 포함 Blender 원본</a><a href="README.md">제작·검수 기록</a></div>
+<details><summary>웃는 표정 가까이 보기</summary><figure><img src="face-closeup.png" loading="lazy" alt="윗눈꺼풀과 입꼬리를 올리고 입을 살짝 벌린 래브라도 얼굴"><figcaption>같은 Blender 모델의 얼굴 확대 렌더</figcaption></figure></details>
 <details><summary>이 시안의 범위</summary><p>48프레임 · 기준 60fps · 한 주기 0.8초. v3의 털 밀도를 ¼로 줄여 동작을 검토합니다. 정적 삼각형 메시를 시험적으로 변형한 것으로, 완성된 캐릭터 리그나 실제 달리기를 검증한 모션은 아닙니다. 접힌 관절의 부피와 몸통 연결에는 추가 보정이 필요합니다.</p><p>바닥 선은 접지 높이를 보는 기준입니다. 제자리 보행 검토이므로 발은 지지 구간에서 화면 뒤쪽으로 움직입니다. 운동장을 돌아다니거나 공을 따라가는 기능은 연결하지 않았습니다.</p></details>
 </main>
 <script src="manifest.js"></script><script src="player.js"></script>
