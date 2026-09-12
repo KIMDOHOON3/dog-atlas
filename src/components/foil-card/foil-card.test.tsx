@@ -81,6 +81,33 @@ function renderGiant() {
   return result;
 }
 describe("single breed foil study", () => {
+  it("uses the HTML transition when raster preparation rejects a broken browser capture", async () => {
+    const mesh = {
+      prepare: vi.fn(async () => false),
+      settle: vi.fn(async () => {}),
+      start: vi.fn(() => true),
+      draw: vi.fn(),
+      stop: vi.fn(),
+      dispose: vi.fn(),
+    };
+    vi.mocked(createCardTransitionRenderer).mockReturnValue(mesh);
+    const { container } = renderGiant();
+    firstFrame();
+    await act(async () =>
+      fireEvent.click(screen.getByRole("button", { name: "다음 견종" })),
+    );
+    expect(mesh.start).not.toHaveBeenCalled();
+    expect(container.querySelector('[data-departing="true"]')).not.toBeNull();
+    completeTurn();
+    expect(
+      screen.getByRole("heading", { name: "세인트 버나드" }),
+    ).toBeVisible();
+    expect(screen.getByRole("button", { name: "다음 견종" })).toHaveAttribute(
+      "aria-disabled",
+      "false",
+    );
+  });
+
   it("searches across sizes and opens the selected card in spread view", async () => {
     HTMLDialogElement.prototype.showModal = function () {
       this.setAttribute("open", "");

@@ -50,11 +50,12 @@ export function CardSearch({
         )
         .slice(0, 8)
     : [];
-  const choose = (entry: CardSearchEntry) => {
+  const choose = (entry: CardSearchEntry, restoreFocus = true) => {
     setOpen(false);
     setQuery("");
+    if (!restoreFocus) input.current?.blur();
     onSelect(entry);
-    input.current?.focus();
+    if (restoreFocus) input.current?.focus({ preventScroll: true });
   };
   return (
     <div
@@ -156,7 +157,7 @@ export function CardSearch({
               data-search-result
               key={entry.slug}
               disabled={disabled}
-              onClick={() => choose(entry)}
+              onClick={(event) => choose(entry, event.detail === 0)}
             >
               <Image
                 src={entry.image}

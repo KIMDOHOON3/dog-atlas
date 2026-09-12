@@ -25,7 +25,7 @@
   background: transparent;
   padding: 10px 12px 10px 18px;
   font: inherit;
-  font-size: 13px;
+  font-size: 16px;
   color: inherit;
 }
 .bar input::placeholder {
@@ -151,7 +151,6 @@
 @media (max-width: 400px) {
   .bar input {
     padding-left: 10px;
-    font-size: 12px;
   }
   .category {
     padding: 0 9px;
@@ -255,7 +254,6 @@
   }
   .bar input {
     padding: 10px 8px 10px 4px;
-    font-size: 14px;
   }
   .category {
     gap: 10px;

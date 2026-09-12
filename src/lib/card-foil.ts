@@ -44,7 +44,8 @@ void main() {
   float leftCopy = (1. - smoothstep(.28, .40, uv.x)) * smoothstep(.22,.28,uv.y) * (1. - smoothstep(.61,.66,uv.y));
   float backCopy = max(leftCopy, max(1. - smoothstep(.12,.20,uv.y), smoothstep(.78,.84,uv.y)));
   float copyMask = mix(1. - smoothstep(.74,.83,uv.y), 1. - backCopy * .94, u_back);
-  gl_FragColor = vec4(color, clamp((alpha + engraving * .78) * u_strength * copyMask, 0., .90));
+  float opacity = clamp((alpha + engraving * .78) * u_strength * copyMask, 0., .90);
+  gl_FragColor = vec4(color * opacity, opacity);
 
 }`;
 
@@ -77,7 +78,8 @@ export function createFoilRenderer(
   const gl = canvas.getContext("webgl", {
     alpha: true,
     antialias: false,
-    premultipliedAlpha: false,
+    // Match the browser compositor, including iOS IOSurface alpha handling.
+    premultipliedAlpha: true,
   });
   if (!gl) return null;
   const shaders: WebGLShader[] = [],

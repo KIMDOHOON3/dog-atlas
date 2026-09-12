@@ -1,4 +1,4 @@
-import { captureCardTexture } from "./card-texture";
+import { captureCardTexture, CardRasterLayoutError } from "./card-texture";
 
 const vertex = `
 precision mediump float;
@@ -55,7 +55,8 @@ void main() {
   float fade = u_curl > .5 ? 1. - smoothstep(.78, 1., u_phase) : 1.;
   float edge = min(min(v_uv.x, 1. - v_uv.x), min(v_uv.y, 1. - v_uv.y) * 1.4);
   float coverage = smoothstep(0., .0025, edge);
-  gl_FragColor = vec4(color, ink.a * fade * coverage);
+  float alpha = ink.a * fade * coverage;
+  gl_FragColor = vec4(clamp(color, 0., 1.) * alpha, alpha);
 }`;
 
 export type CardTransitionRenderer = {
@@ -81,7 +82,7 @@ export function createCardTransitionRenderer(
   const gl = canvas.getContext("webgl", {
     alpha: true,
     antialias: false,
-    premultipliedAlpha: false,
+    premultipliedAlpha: true,
     depth: false,
     stencil: false,
   });
@@ -93,6 +94,7 @@ export function createCardTransitionRenderer(
   const pending = new Map<string, Promise<boolean>>();
   const shaders: WebGLShader[] = [];
   let disposed = false;
+  let captureUnsupported = false;
   let pair: [WebGLTexture, WebGLTexture] | null = null;
   let direction = 1;
   const program = gl.createProgram();
@@ -162,7 +164,7 @@ export function createCardTransitionRenderer(
       gl.STATIC_DRAW,
     );
     gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     const phase = gl.getUniformLocation(program, "u_phase"),
       curl = gl.getUniformLocation(program, "u_curl"),
       foil = gl.getUniformLocation(program, "u_foil"),
@@ -172,6 +174,7 @@ export function createCardTransitionRenderer(
     gl.clearColor(0, 0, 0, 0);
     return {
       prepare(key, face) {
+        if (captureUnsupported) return Promise.resolve(false);
         if (textures.has(key)) {
           const value = textures.get(key)!;
           textures.delete(key);
@@ -217,6 +220,10 @@ export function createCardTransitionRenderer(
             return true;
           })
           .catch((error: unknown) => {
+            // A broken rasterizer is not repaired by capturing another breed.
+            // Let the existing DOM transition handle this browser session.
+            if (error instanceof CardRasterLayoutError)
+              captureUnsupported = true;
             canvas.dataset.textureError =
               error instanceof Error
                 ? error.message

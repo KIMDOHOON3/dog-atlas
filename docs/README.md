@@ -1,5 +1,7 @@
 # Dog Atlas 문서 안내
 
+- [iOS 카드 렌더링 보완](ios-card-rendering.md) — 투명 합성·캡처 크기·검색 확대 수정과 실기기 검증 한계.
+
 - [대형견 5종 추가](large-cards-five.md) — 대형 13종·지역 인물 양면과 정보 근거.
 
 - [중형견 5종 추가](medium-cards-five.md) — 중형 12종·지역별 양면 그림과 출처.
