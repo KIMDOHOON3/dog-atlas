@@ -14,7 +14,7 @@
 - `textures/`: 기존 4K 맵 4장. 원본과 함께 폴더 구조를 유지한다.
 - `frames/side`, `frames/three-quarter`: Cycles·AgX·960×720·24 samples 각 48장.
 - `preview-*.webp`: 정상 0.8초/¼ 속도 3.2초 주기의 실제 렌더 미리보기 4종.
-- `../puppy-refined-run.zip`: 원본·텍스처·새 프레임·플레이어·검수 기록과 비교용 이전 96프레임. 압축을 풀고 `motion-refined/review.html`을 연다. 정적 모델로 돌아가는 상위 링크는 전체 프로젝트에서만 유효하다.
+- `../puppy-refined-run.zip`: 필요할 때 `package_motion.py`로 생성하는 전달용 묶음. 중복 용량 정리를 위해 2026-09-13 로컬 ZIP은 제거했으며 원본과 미리보기는 유지한다.
 
 `.blend` 열기와 키프레임 재생에는 제작 스크립트가 필요 없다. 재생성은 전체 프로젝트와 기존 `motion-run` 원본을 요구한다. Blender의 `--python build_refined.py -- build`로 생성하고 `-- render side`, `-- render three-quarter`로 각 방향을 렌더한다. `package_motion.py`는 Pillow가 있는 Python으로 실행한다.
 

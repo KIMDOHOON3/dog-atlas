@@ -23,7 +23,7 @@
 - `textures/`: 상대 경로로 연결한 기존 4K 맵 4장. `.blend`를 옮길 때 상위 폴더 구조를 함께 유지한다.
 - `frames/side`, `frames/three-quarter`: 실제 Cycles 960×720, 24 samples, AgX 렌더 각 48장.
 - `preview-normal.webp`, `preview-quarter.webp`, `preview-three-quarter.webp`, `preview-three-quarter-normal.webp`: 같은 렌더로 인코딩한 움직이는 미리보기.
-- `../puppy-whole-body-run.zip`: 새 시안 배포 묶음. 이전 모션과 비교하는 링크는 프로젝트 안에서 사용할 수 있다.
+- `../puppy-whole-body-run.zip`: 필요할 때 `package_motion.py`로 생성하는 전달용 묶음. 중복 용량 정리를 위해 2026-09-13 로컬 ZIP은 제거했으며 원본과 미리보기는 유지한다.
 - `build_run.py`: 원 프로젝트의 `../motion/build_motion.py`, 정적 제작 도우미와 이전 Blender를 재사용한다. ZIP의 `.blend` 열기에는 Python 도우미가 필요 없다. 재생성에는 원 프로젝트가 필요하다.
 
 ## 검증과 남은 부분

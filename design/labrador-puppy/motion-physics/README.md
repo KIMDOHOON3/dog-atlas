@@ -24,7 +24,7 @@
 - `textures/`: 상대 경로로 연결한 기존 4K 맵 4장. Blender 파일만 이동하지 말고 상위 폴더 구조를 유지한다.
 - `frames/side`, `frames/three-quarter`: 실제 Cycles·AgX·960×720·24 samples 각 48장.
 - `preview-*.webp`: 정상 480ms·¼ 속도 1,920ms 미리보기 4개.
-- `../puppy-physics-run.zip`: 원본·텍스처·새 렌더·플레이어·보고서와 비교용 이전 96장. 압축을 풀고 `motion-physics/review.html`을 연다. 정적 모델 상위 링크는 전체 프로젝트에서만 유효하다.
+- `../puppy-physics-run.zip`: 필요할 때 `package_motion.py`로 생성하는 전달용 묶음. 중복 용량 정리를 위해 2026-09-13 로컬 ZIP은 제거했으며 원본과 미리보기는 유지한다.
 
 재생성은 전체 프로젝트와 기존 `motion-refined` 원본을 요구한다. Blender `--python build_physics.py -- build`로 만들고 `-- render side`/`-- render three-quarter`로 렌더한다. PNG가 모두 나온 뒤 Pillow가 있는 Python으로 `package_motion.py`를 실행한다. `.blend` 재생에는 제작 스크립트가 필요 없다.
 

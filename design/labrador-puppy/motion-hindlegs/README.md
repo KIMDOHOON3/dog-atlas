@@ -16,7 +16,7 @@
 - `textures/`: 기존 4K 맵 4장. Blender 파일과 상위 디렉터리 구조를 함께 유지한다.
 - `frames/side`, `frames/three-quarter`: 실제 Cycles·AgX·960×720·24 samples 각 48장.
 - `preview-*.webp`: 정상 480ms와 ¼ 속도 1,920ms의 렌더 미리보기 4개.
-- `../puppy-hindlegs-run.zip`: 원본·텍스처·새 프레임·검사·플레이어와 비교용 이전 96장. 압축 해제 후 `motion-hindlegs/review.html`을 연다. 상위 정적 모델 링크는 전체 프로젝트에서만 유효하다.
+- `../puppy-hindlegs-run.zip`: 필요할 때 `package_motion.py`로 생성하는 전달용 묶음. 중복 용량 정리를 위해 2026-09-13 로컬 ZIP은 제거했으며 원본과 미리보기는 유지한다.
 
 재생성에는 전체 프로젝트와 이전 `motion-anatomy` 원본이 필요하다. Blender `--python build_hindlegs.py -- build`로 만들고 `-- render-both`로 양쪽 방향을 프레임마다 렌더한다. `-- render side`/`-- render three-quarter`도 지원한다. `.blend` 재생에는 제작 스크립트가 필요 없다. Pillow가 있는 Python으로 `package_motion.py`를 실행해 미리보기/ZIP을 만든다.
 
