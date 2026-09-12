@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { addMiniatureYard } from "./miniature-yard";
 import { BALL_RADIUS, createPlayBall, throwVelocity } from "./play-ball";
 import { createTennisBall } from "./tennis-ball";
-import { addYardGolden } from "./yard-golden";
+import { addYardSpitz } from "./yard-spitz";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobileQuery = matchMedia("(max-width: 767px)");
@@ -91,9 +91,9 @@ export function createMeadow(host: HTMLDivElement) {
   let width = host.clientWidth,
     height = host.clientHeight,
     dirty = true;
-  const dog = addYardGolden(scene, () => {
+  const dog = addYardSpitz(scene, () => {
     renderer.shadowMap.needsUpdate = true;
-    host.dataset.dog = "golden-retriever";
+    host.dataset.dog = "original-spitz";
     if (visible && !document.hidden) draw();
   });
 
@@ -136,9 +136,10 @@ export function createMeadow(host: HTMLDivElement) {
     const dt = Math.min((now - last) / 1000, 0.05);
     const ballMoving = physics.body.sleepState !== 2;
     physics.step(dt);
+    const dogMoving = dog.update(dt, physics.body.interpolatedPosition);
     if (held !== null) preview();
     last = now;
-    if (dirty || ballMoving || held !== null) draw();
+    if (dirty || ballMoving || dogMoving || held !== null) draw();
     frame = requestAnimationFrame(tick);
   };
   const sync = () => {

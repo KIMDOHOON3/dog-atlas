@@ -62,14 +62,6 @@
 .copyright {
   flex-shrink: 0;
 }
-.bottom .credit {
-  margin-top: 5px;
-  font-size: 11px;
-}
-.credit a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
 @media (max-width: 767px) {
   .garden {
     height: 360px;
