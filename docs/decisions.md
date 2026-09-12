@@ -694,3 +694,7 @@ The user approved pet-object decoration and asked for a larger lawn. Increase th
 ## 2026-09-12 — Small butterflies around the bench
 
 The user requested tiny butterflies moving automatically around the bench. Add two lightweight, locally defined Three.js butterflies with separate wing hinges, gentle flight paths and intermittent perching. They share the existing scene and render loop, using a 30Hz cap while the ball sleeps and no GPU draws when both are resting. Keep offscreen/tab-visibility pauses and show perched butterflies for reduced motion. Provide a small accessible pause/resume control. This ambient decoration introduces no downloaded model, texture or separate renderer.
+
+## 2026-09-12 — Cotton-round puppy appearance study
+
+The user reopened the idea of a puppy after ending the previous dog animation work, selected a round cotton-candy appearance and supplied a small white fluffy puppy image. Create an original seated Blender appearance study with tiny ears, short muzzle and a soft coat. Store the blend, GLB and actual rendered preview under `design/cotton-puppy`; this is a design artifact and does not add an animal to the live footer. Appearance approval and runtime optimization remain separate from the earlier rejected locomotion work.
