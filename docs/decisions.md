@@ -681,3 +681,8 @@ Reference: https://threejs.org/docs/pages/InstancedMesh.html and https://threejs
 ## 2026-09-08 — Mown playground and a throwable ball
 
 The user found the meadow weedy and requested a playground with ball physics. Replace the trail and long grass with short uniform blades, mown stripes and white field lines. Add cannon-es for a single sphere and ground with restitution, damping and sleep. Pointer capture/touch-action:none applies only to the 48px ball target, never the field. Support click/keyboard throws, pointer cancellation, bounds and offscreen pauses; reduced motion disables throwing. Keep the renderer lazy and capped. Reference: https://pmndrs.github.io/cannon-es/docs/ .
+
+## 2026-09-12 — Remove 3D dogs; focus on pet objects
+
+The user ended the dog-modeling experiments and requested deletion of all project dog 3D assets, rigs, animation/following code, and previews. Keep breed editorial content and the existing yard, bench, rope toy and interactive ball. Future decorative work should use Blender-made pet objects; no replacement animal is planned. Download archives outside the project and Git history are outside this cleanup.
+
