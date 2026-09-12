@@ -74,14 +74,20 @@ export function addYardSpitz(scene: THREE.Scene, ready: () => void) {
     update(dt: number, ball: { x: number; z: number }) {
       if (!model) return false;
       const previousYaw = model.rotation.y;
+      const previousX = follow.state.x;
+      const previousZ = follow.state.z;
       const s = follow.step(dt, ball);
+      const distance = Math.hypot(s.x - previousX, s.z - previousZ);
+      const speed = dt > 0 ? distance / dt : 0;
       runWeight +=
-        (Math.min(1, s.speed / 0.8) - runWeight) * (1 - Math.exp(-dt * 10));
+        (Math.min(1, speed / 0.25) - runWeight) * (1 - Math.exp(-dt * 10));
       if (runWeight < 0.001) runWeight = 0;
       if (run && mixer) {
         run.setEffectiveWeight(runWeight);
         run.setEffectiveTimeScale(
-          Math.max(0.45, Math.min(2.4, s.speed / 0.95)),
+          // Authored stride 1.2, model scale .88, clip duration .8 seconds.
+          // No minimum rate: stopped paws must not keep cycling.
+          speed / (1.32 * Math.max(0.2, runWeight)),
         );
         mixer.update(dt);
       }

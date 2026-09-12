@@ -1,8 +1,8 @@
 """Independent procedural Japanese Spitz. No imported meshes, textures or motion.
 Run Blender --background --python design/original-spitz/create.py.
 """
-import bpy, math, random
-from mathutils import Vector
+import bpy, math, random, json
+from mathutils import Vector, Matrix, Quaternion
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -129,26 +129,13 @@ for sign in [-1,1]:
 sphere('Rounded triangle nose',(0,-1.175,1.485),(.072,.049,.043),nosemat,bone='head')
 for sign in [-1,1]:sphere('Nostril',(sign*.039,-1.212,1.485),(.014,.009,.009),rim,bone='head',segments=16,rings=10)
 
-# Quiet solid tufts: silhouette and overlapping locks, never floating hair ribbons.
-for i in range(100):
-    theta=random.uniform(0,math.tau);z=random.uniform(.94,1.45)
-    radius=.30*(1-.25*max(0,z-1.2))
-    x=math.cos(theta)*radius;y=-.43+math.sin(theta)*radius*.79
-    root=Vector((x,y,z));direction=Vector((math.cos(theta)*.12,math.sin(theta)*.10+.06,-.17))
-    tube('Ruff lock',[root-direction*.3,root,root+direction*.6,root+direction],[.055,.065,.040,.002])
-for i in range(50):
-    sign=random.choice([-1,1]);y=random.uniform(-.15,.65);z=random.uniform(.91,1.20)
-    x=sign*(.245+random.uniform(-.025,.02));p=Vector((x,y,z))
-    tube('Coat lock',[p,p+Vector((sign*.035,.075,-.025)),p+Vector((sign*.065,.15,-.10))],[.07,.053,.003])
+# Continuous ruff volume, without the former overlapping scale-like locks.
+sphere('Ruff volume',(0,-.43,1.17),(.342,.305,.37))
 tail_points=[(0,.63,1.13),(0,.73,1.32),(.025,.65,1.49),(.04,.44,1.52),(.05,.26,1.42),(.06,.20,1.33)]
 tube('Plume tail core',tail_points,[.09,.12,.13,.125,.085,.02],bone='tail',sides=16)
-for i in range(40):
-    t=random.uniform(.1,.85)*(len(tail_points)-1);j=int(t);p=Vector(tail_points[j]).lerp(Vector(tail_points[j+1]),t-j)
-    theta=random.uniform(0,math.tau);v=Vector((math.cos(theta),math.sin(theta)*.45,-.45))
-    tube('Tail feather',[p,p+v*.10,p+v*.18],[.06,.045,.003],bone='tail')
 
-# Integrate tufts into two continuous soft masses instead of separate spikes.
-for names,result_name,fixed in [(['Original continuous skin','Ruff lock','Coat lock'],'Continuous coat',None),(['Plume tail core','Tail feather'],'Soft plume','tail')]:
+# Smooth the silhouette before adding rooted, fine tapered strands.
+for names,result_name,fixed in [(['Original continuous skin','Ruff volume'],'Continuous coat',None),(['Plume tail core'],'Soft plume','tail')]:
     parts=[o for o in all_meshes if any(o.name.startswith(n) for n in names)]
     bpy.ops.object.select_all(action='DESELECT')
     for o in parts:o.select_set(True)
@@ -161,6 +148,39 @@ for names,result_name,fixed in [(['Original continuous skin','Ruff lock','Coat l
     all_meshes=[o for o in bpy.context.scene.objects if o.type=='MESH']
     if fixed:rigid[joined.name]=fixed
     else:skin=joined
+
+def groom(surface,count,fixed=None):
+    surface.data.calc_loop_triangles()
+    triangles=[];areas=[]
+    for tri in surface.data.loop_triangles:
+        points=[surface.data.vertices[i].co.copy() for i in tri.vertices]
+        center=sum(points,Vector())/3
+        if fixed is None and (center.z<.79 or (center.y<-.69 and center.z>1.27)):continue
+        triangles.append((points,tri.normal.copy()));areas.append(tri.area)
+    verts=[];faces=[]
+    for points,n in random.choices(triangles,weights=areas,k=count):
+        u=math.sqrt(random.random());v=random.random()
+        p=points[0]*(1-u)+points[1]*(u*(1-v))+points[2]*(u*v)
+        length=random.uniform(.027,.057) if fixed is None else random.uniform(.045,.075)
+        flow=Vector((0,.25,-1));flow-=n*flow.dot(n)
+        if flow.length<.01:flow=Vector((0,1,0))
+        flow.normalize();direction=(n*.45+flow*.8).normalized()
+        tangent=direction.cross(Vector((1,0,0)))
+        if tangent.length<.01:tangent=direction.cross(Vector((0,1,0)))
+        tangent.normalize();cross=direction.cross(tangent)
+        start=len(verts);width=random.uniform(.00065,.0011)
+        for t,r in [(0,width),(.55,width*.65),(1,.00005)]:
+            center=p+n*.0008+n*(length*t*.36)+flow*(length*t*t*.78)
+            for j in range(3):verts.append(center+(tangent*math.cos(j*math.tau/3)+cross*math.sin(j*math.tau/3))*r)
+        for k in range(2):
+            for j in range(3):faces.append((start+k*3+j,start+k*3+(j+1)%3,start+(k+1)*3+(j+1)%3,start+(k+1)*3+j))
+    mesh=bpy.data.meshes.new('Rooted fine coat');mesh.from_pydata(verts,[],faces);mesh.update()
+    o=bpy.data.objects.new('Rooted fine coat',mesh);bpy.context.collection.objects.link(o);o.data.materials.append(coat)
+    for poly in mesh.polygons:poly.use_smooth=True
+    all_meshes.append(o)
+    if fixed:rigid[o.name]=fixed
+groom(skin,4200)
+groom(bpy.data.objects['Soft plume'],1100,'tail')
 
 # Skeleton with real upper/lower limbs and separate paws.
 arm=bpy.data.armatures.new('Original Spitz anatomy');rig=bpy.data.objects.new('Original Spitz rig',arm);bpy.context.collection.objects.link(rig)
@@ -203,41 +223,75 @@ for o in all_meshes:
         for n,w in weights:groups[n].add([v.index],w,'REPLACE')
     mod=o.modifiers.new('Anatomical skin','ARMATURE');mod.object=rig;o.parent=rig
 
-# IK targets trace a planted support phase and lifted recovery phase.
-targets={}
-for key,(a,b,c,d) in legs.items():
-    target=bpy.data.objects.new(key+' ankle target',None);bpy.context.collection.objects.link(target);target.location=c;targets[key]=target
-    ik=rig.pose.bones[key+'.lower'].constraints.new('IK');ik.target=target;ik.chain_count=2
-    pole=bpy.data.objects.new(key+' bend direction',None);bpy.context.collection.objects.link(pole)
-    pole.location=(a[0], a[1]+(1.8 if key.startswith('front') else -1.8),.5)
-    # Rest joints establish the intended bend plane; no pole twist is necessary.
-    rig.pose.bones[key+'.lower'].ik_stretch=0
-    rig.pose.bones[key+'.upper'].ik_stretch=0
-
-scene=bpy.context.scene;scene.render.fps=30;scene.frame_start=1;scene.frame_end=25
-for f in range(1,26):
-    phase=(f-1)/24;angle=phase*math.tau
-    rig.pose.bones['root'].location.z=.025+.035*math.sin(angle*2)
-    rig.pose.bones['root'].keyframe_insert('location',frame=f)
-    for n,amount,shift in [('pelvis',.085,0),('spine',-.11,.5),('neck',.05,.3),('head',-.035,.3)]:
-        pb=rig.pose.bones[n];pb.rotation_mode='XYZ';pb.rotation_euler.x=amount*math.sin(angle+shift);pb.keyframe_insert('rotation_euler',frame=f)
-    pb=rig.pose.bones['tail'];pb.rotation_mode='XYZ';pb.rotation_euler.z=.08*math.sin(angle);pb.keyframe_insert('rotation_euler',frame=f)
+# 48 authored samples per cycle. World-space paw contact is solved before joints.
+# A cycle advances 1.2 Blender units: support feet counter-travel at that rate.
+STRIDE=1.2; STANCE=.34; FRAMES=48
+scene=bpy.context.scene;scene.render.fps=60;scene.frame_start=1;scene.frame_end=FRAMES+1
+report=[]
+def place(name,head,tail):
+    pb=rig.pose.bones[name];rest=arm.bones[name]
+    rotation=(rest.tail_local-rest.head_local).rotation_difference(Vector(tail)-Vector(head)) @ rest.matrix_local.to_quaternion()
+    pb.matrix=Matrix.LocRotScale(Vector(head),rotation,Vector((1,1,1)))
+    bpy.context.view_layer.update()
+    pb.rotation_mode='QUATERNION'
+    pb.keyframe_insert('location',frame=f);pb.keyframe_insert('rotation_quaternion',frame=f);pb.keyframe_insert('scale',frame=f)
+def solve_joint(a,c,l1,l2,front):
+    delta=c-a;distance=delta.length
+    if distance>l1+l2-.0001:raise ValueError('Unreachable planted ankle')
+    along=delta/distance;projection=(l1*l1-l2*l2+distance*distance)/(2*distance)
+    height=math.sqrt(max(0,l1*l1-projection*projection))
+    bend=Vector((0,-along.z,along.y))
+    if (bend.y>0)!=front:bend=-bend
+    return a+along*projection+bend*height
+for f in range(1,FRAMES+2):
+    phase=(f-1)/FRAMES;angle=phase*math.tau
+    bob=.018*math.cos(angle*2)-.032
+    root_a=Vector((0,0,.1+bob));root_b=root_a+Vector((0,0,.25))
+    place('root',root_a,root_b)
+    for name,amount,shift in [('pelvis',.055,0),('spine',-.055,.3),('neck',.025,.5),('head',-.018,.5),('tail',.07,.8)]:
+        rest=arm.bones[name];parent=rig.pose.bones[rest.parent.name]
+        transform=parent.matrix @ rest.parent.matrix_local.inverted()
+        head=transform @ rest.head_local
+        vector=transform.to_quaternion() @ (rest.tail_local-rest.head_local)
+        vector=Quaternion(Vector((1,0,0)),amount*math.sin(angle+shift)) @ vector
+        place(name,head,head+vector)
     for key,(a,b,c,d) in legs.items():
-        shift=(0 if key.startswith('hind') else .48)+(0 if key.endswith('L') else .10)
-        t=(phase+shift)%1;stance=.48
-        if t<stance:
-            progress=t/stance;y=c[1]-.20+.40*progress;z=c[2]
+        front=key.startswith('front');offset=(.04 if front else .54)+(0 if key.endswith('L') else .10)
+        t=(phase-offset)%1;support=t<STANCE
+        contact_y=d[1]-STRIDE*STANCE/2
+        if support:
+            y=contact_y+STRIDE*t;z=d[2];pitch=0
         else:
-            progress=(t-stance)/(1-stance);y=c[1]+.20-.40*progress;z=c[2]+.24*math.sin(math.pi*progress)
-        targets[key].location=(c[0],y,z);targets[key].keyframe_insert('location',frame=f)
-        pb=rig.pose.bones[key+'.paw'];pb.rotation_mode='XYZ';pb.rotation_euler.x=-.24*math.sin(t*math.tau);pb.keyframe_insert('rotation_euler',frame=f)
-
-# Bake constraints to portable bone animation, and remove control empties.
-bpy.ops.object.select_all(action='DESELECT');rig.select_set(True);bpy.context.view_layer.objects.active=rig
-bpy.ops.nla.bake(frame_start=1,frame_end=25,step=1,only_selected=False,visual_keying=True,clear_constraints=True,use_current_action=True,bake_types={'POSE'})
+            u=(t-STANCE)/(1-STANCE)
+            # Hermite recovery: derivative matches support at toe-off and landing.
+            h=3*u*u-2*u*u*u
+            y=contact_y+STRIDE*STANCE*(1-h)+STRIDE*(1-STANCE)*(u-3*u*u+2*u*u*u)
+            z=d[2]+(.19 if front else .23)*math.sin(math.pi*u)**2
+            pitch=(.42 if front else -.35)*math.sin(math.pi*u)**2
+        paw=Vector((d[0],y,z));foot_vector=Quaternion(Vector((1,0,0)),pitch) @ (Vector(d)-Vector(c))
+        ankle=paw-foot_vector
+        rest=arm.bones[key+'.upper'];parent=rig.pose.bones[rest.parent.name]
+        hip=parent.matrix @ rest.parent.matrix_local.inverted() @ Vector(a)
+        knee=solve_joint(hip,ankle,(Vector(b)-Vector(a)).length,(Vector(c)-Vector(b)).length,front)
+        place(key+'.upper',hip,knee);place(key+'.lower',knee,ankle);place(key+'.paw',ankle,paw)
+        measured=rig.pose.bones[key+'.paw'].tail.copy()
+        report.append({'frame':f,'leg':key,'contact':support,'phase':t,'paw':list(measured),'worldY':measured.y-STRIDE*phase,'targetError':(measured-paw).length})
 rig.animation_data.action.name='Run'
-for o in list(bpy.data.objects):
-    if o.type=='EMPTY':bpy.data.objects.remove(o,do_unlink=True)
+# Linear samples preserve the contact trajectories without Bezier overshoot.
+for layer in rig.animation_data.action.layers:
+    for strip in layer.strips:
+        for bag in strip.channelbags:
+            for curve in bag.fcurves:
+                for point in curve.keyframe_points:point.interpolation='LINEAR'
+max_error=max(r['targetError'] for r in report)
+assert max_error<.0001, max_error
+slips=[]
+for leg in legs:
+    rows=[r for r in report if r['leg']==leg]
+    for a,b in zip(rows,rows[1:]):
+        if a['contact'] and b['contact'] and b['phase']>a['phase']:slips.append(abs(a['worldY']-b['worldY']))
+assert max(slips)<.0001,max(slips)
+(OUT/'gait-contact-report.json').write_text(json.dumps({'stride':STRIDE,'duration':.8,'frames':FRAMES,'maxPawTargetError':max_error,'maxStraightContactSlipPerFrame':max(slips),'samples':report},indent=2))
 scene.frame_set(1)
 
 # Export authored rest shape + baked animation. Stage objects added afterwards.
