@@ -1,13 +1,14 @@
-# Cotton puppy — appearance study v2
+# Cotton puppy — cloud-volume study v3
 
-2026-09-12. The user rejected the smooth first study as unlike cotton candy. The new study shortens the trunk by 27%, buries the small ears, merges the muzzle into the coat, reduces eye/nose size and shine, and uses dense fine curved strands for a softer outline. It remains a stylized seated mascot study.
+2026-09-12. The user's newly attached character image clarified the intended cotton-candy treatment: large connected pillowy clumps surrounding a small face. Replace the v2 fine-strand coat with an original modeled cloud coat, a broad scalloped collar, compact body, small upright canine ears and tiny visible paws. All shapes are authored in Blender; the reference screenshot is not used as a texture or imported model.
 
-The supplied [image reference](https://share.google/N6mkCtk620WWIQc3c) ([original post](https://www.instagram.com/p/C3nEXM0rX3k/)) was viewed for proportions only and is not bundled or used as a texture. All geometry is authored in Blender through primitives, remeshing, curves and seeded coat fibres in `create.py`. No downloaded animal mesh is used.
+- `preview-v3.png`: current 800×900 Cycles render of the actual model.
+- `preview.png`, `preview-v2.png`: earlier appearance studies retained for comparison.
+- `cotton-puppy.blend`: current editable Blender 4.5 model, 1,235,018 bytes.
+- `cotton-puppy.glb`: current cloud-model export, 1,225,648 bytes; four mesh objects / four materials, no animation.
+- Current builder: `blender --background --python design/cotton-puppy/create-cloud.py`.
+- `create.py` is the earlier v2 strand-coat experiment and overwrites the same model filenames if run.
 
-- `preview-v2.png`: current 800×900 Cycles render of the actual model.
-- `preview.png`: rejected first render, retained for comparison.
-- `cotton-puppy.blend`: current editable Blender 4.5 model, 22,310,025 bytes.
-- `cotton-puppy.glb`: high-detail study export, 43,305,816 bytes, four mesh objects / three materials; **not suitable for direct footer loading**. Coat geometry needs a separate web optimization pass if this appearance is selected.
-- Rebuild: `blender --background --python design/cotton-puppy/create.py`.
+The earlier [puppy photo](https://share.google/N6mkCtk620WWIQc3c) informed the small white puppy direction. The latest user-supplied character screenshot informed the broad cloud-volume treatment. Neither image is bundled as a runtime asset. This remains a stylized mascot, not a breed-anatomy illustration.
 
-Status: appearance preview only. The existing live yard/butterflies are unchanged. No walking rig, animation, ball-follow behavior or runtime loader is included. Verified actual Blender render and GLB structure; lint, TypeScript, 1,661 tests and 385-page build passed after the asset revision.
+Status: appearance preview only. The existing live yard/butterflies are unchanged. No walking rig, ball-follow behavior or runtime loader is included. Verified the Blender render and GLB structure; lint, TypeScript, 1,661 tests and 385-page build passed after the asset revision. Actual footer appearance/performance has not yet been tested for this model.
