@@ -1,0 +1,11 @@
+{
+  "scope": "Static native Blender shape study requested for live viewing; not a completed img2threejs TypeScript pipeline",
+  "primary": {"path":"../references/primary.png","size":[351,354],"role":"breed silhouette, face width, ear scale, ruff and upright stance","confidence":"moderate for silhouette; low for microdetail"},
+  "support": {"path":"../references/side-support.png","size":[609,454],"role":"neck/back connection, limb articulation and returned tail arc only","limitation":"different appearance and viewpoint; do not treat as calibrated second view or copy its greater apparent coat mass"},
+  "observed": ["upright triangular paired ears","small dark eyes and black nose","tapered muzzle","white high-roughness coat","full chest ruff","four weight-bearing feet","tail returns over the back"],
+  "inferred": ["under-coat ribcage width","hip and knee centres hidden by fur","rear symmetry","absolute size in metres"],
+  "geometryStrategy": "Continuous remeshed skin from authored ribcage/neck/limb profiles; separate inset eyes, ears, nose; swept return arc for tail; coat volume separate from lean skin",
+  "qualityContract": {"thisStage":"reviewable standing body and head with front/side/rear previews, native .blend and reproducible script","mustHave":["four grounded paws","rising neck separated from chest coat","tapered abdomen","paired upright ears","tail curve that actually returns","separate thin legs below coat"],"blockers":["detached limbs","missing rear view","straight tail substituted for return arc","claiming inferred skeleton is measured anatomy"]},
+  "projection": "Not used: shape study, monochrome fur, low-resolution screenshots; source pixels are reference only",
+  "notCompleted": ["photo-real fur","production quad retopology","animation rig","Three.js factory and its runtime gates"]
+}

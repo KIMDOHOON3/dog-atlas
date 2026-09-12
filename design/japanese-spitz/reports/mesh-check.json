@@ -1,0 +1,176 @@
+{
+  "renderer": "Cycles",
+  "view_transform": "AgX",
+  "stage": "static shape study",
+  "meshes": [
+    {
+      "name": "Spitz | Continuous base skin",
+      "vertices": 101750,
+      "faces": 101748,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": true
+    },
+    {
+      "name": "Spitz | Ear shell -1",
+      "vertices": 10,
+      "faces": 7,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Ear inset -1",
+      "vertices": 10,
+      "faces": 7,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Eye -1",
+      "vertices": 922,
+      "faces": 960,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Upper eyelid -1",
+      "vertices": 110,
+      "faces": 102,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Mouth corner -1",
+      "vertices": 150,
+      "faces": 142,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Ear shell 1",
+      "vertices": 10,
+      "faces": 7,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Ear inset 1",
+      "vertices": 10,
+      "faces": 7,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Eye 1",
+      "vertices": 922,
+      "faces": 960,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Upper eyelid 1",
+      "vertices": 110,
+      "faces": 102,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Mouth corner 1",
+      "vertices": 150,
+      "faces": 142,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Nose",
+      "vertices": 922,
+      "faces": 960,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Nostril -1",
+      "vertices": 922,
+      "faces": 960,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Nostril 1",
+      "vertices": 922,
+      "faces": 960,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Philtrum",
+      "vertices": 56,
+      "faces": 50,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Curled tail core",
+      "vertices": 1036,
+      "faces": 1010,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": true
+    },
+    {
+      "name": "Spitz | Coat silhouette",
+      "vertices": 99672,
+      "faces": 99670,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    },
+    {
+      "name": "Spitz | Tail plume silhouette",
+      "vertices": 1960,
+      "faces": 1922,
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0,
+      "finite": true,
+      "hiddenRender": false
+    }
+  ],
+  "limits": [
+    "No photo-fidelity pass",
+    "No animation or deformation validation",
+    "No full inter-object intersection test",
+    "Native Blender route; Three.js runtime gates not run"
+  ],
+  "missingFileTextures": []
+}
