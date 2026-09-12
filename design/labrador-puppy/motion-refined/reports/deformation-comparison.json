@@ -1,0 +1,239 @@
+{
+  "frames": [
+    {
+      "frame": 1,
+      "numpy_max_error_m": 4.6778444839912225e-08,
+      "blended_quaternion_min_norm": 0.9231142352476308,
+      "regions": {
+        "elbow_-1": {
+          "before_area_vs_rest": 0.9631285828460079,
+          "after_area_vs_rest": 1.0111498658179898
+        },
+        "wrist_-1": {
+          "before_area_vs_rest": 1.0415682774714008,
+          "after_area_vs_rest": 0.9532078641651578
+        },
+        "knee_-1": {
+          "before_area_vs_rest": 0.8984992299035109,
+          "after_area_vs_rest": 0.8495393935148479
+        },
+        "hock_-1": {
+          "before_area_vs_rest": 0.913577626831987,
+          "after_area_vs_rest": 0.9275819892837944
+        },
+        "elbow_1": {
+          "before_area_vs_rest": 1.0037699202783767,
+          "after_area_vs_rest": 1.0137409756253686
+        },
+        "wrist_1": {
+          "before_area_vs_rest": 1.098237176575785,
+          "after_area_vs_rest": 0.9949499714563736
+        },
+        "knee_1": {
+          "before_area_vs_rest": 0.9131983367270426,
+          "after_area_vs_rest": 0.8470597505401497
+        },
+        "hock_1": {
+          "before_area_vs_rest": 0.8854322527960159,
+          "after_area_vs_rest": 0.907828587956234
+        }
+      }
+    },
+    {
+      "frame": 10,
+      "numpy_max_error_m": 3.233299383786914e-08,
+      "blended_quaternion_min_norm": 0.8978254936325314,
+      "regions": {
+        "elbow_-1": {
+          "before_area_vs_rest": 0.8430370095231079,
+          "after_area_vs_rest": 0.9896546184087247
+        },
+        "wrist_-1": {
+          "before_area_vs_rest": 1.3929548898027506,
+          "after_area_vs_rest": 1.031256523085597
+        },
+        "knee_-1": {
+          "before_area_vs_rest": 0.884991102748192,
+          "after_area_vs_rest": 0.8987424290056458
+        },
+        "hock_-1": {
+          "before_area_vs_rest": 1.0393337519395518,
+          "after_area_vs_rest": 1.045441109546114
+        },
+        "elbow_1": {
+          "before_area_vs_rest": 0.9744889248796595,
+          "after_area_vs_rest": 1.0711560397299147
+        },
+        "wrist_1": {
+          "before_area_vs_rest": 1.2059973007113645,
+          "after_area_vs_rest": 0.9278274740846919
+        },
+        "knee_1": {
+          "before_area_vs_rest": 0.8577046854686844,
+          "after_area_vs_rest": 0.8532438671327061
+        },
+        "hock_1": {
+          "before_area_vs_rest": 1.000872720258284,
+          "after_area_vs_rest": 1.0008784638126444
+        }
+      }
+    },
+    {
+      "frame": 20,
+      "numpy_max_error_m": 4.190593944075616e-08,
+      "blended_quaternion_min_norm": 0.9397546442354813,
+      "regions": {
+        "elbow_-1": {
+          "before_area_vs_rest": 0.951605936318647,
+          "after_area_vs_rest": 0.9685291327327112
+        },
+        "wrist_-1": {
+          "before_area_vs_rest": 1.3675108712486057,
+          "after_area_vs_rest": 1.034828721887824
+        },
+        "knee_-1": {
+          "before_area_vs_rest": 1.0463077898066813,
+          "after_area_vs_rest": 1.045830264714577
+        },
+        "hock_-1": {
+          "before_area_vs_rest": 1.073772813439688,
+          "after_area_vs_rest": 1.1117792745731832
+        },
+        "elbow_1": {
+          "before_area_vs_rest": 0.8748779831409128,
+          "after_area_vs_rest": 0.9398008869903703
+        },
+        "wrist_1": {
+          "before_area_vs_rest": 1.3369727902804882,
+          "after_area_vs_rest": 0.9559398127223225
+        },
+        "knee_1": {
+          "before_area_vs_rest": 1.0828843900276701,
+          "after_area_vs_rest": 1.072849086641602
+        },
+        "hock_1": {
+          "before_area_vs_rest": 1.051832838911533,
+          "after_area_vs_rest": 1.0643485719132595
+        }
+      }
+    },
+    {
+      "frame": 27,
+      "numpy_max_error_m": 2.847257227212019e-08,
+      "blended_quaternion_min_norm": 0.9330036204665468,
+      "regions": {
+        "elbow_-1": {
+          "before_area_vs_rest": 0.8825457256403768,
+          "after_area_vs_rest": 0.944094535238426
+        },
+        "wrist_-1": {
+          "before_area_vs_rest": 0.912211010725474,
+          "after_area_vs_rest": 1.027068974567626
+        },
+        "knee_-1": {
+          "before_area_vs_rest": 0.8192262793578996,
+          "after_area_vs_rest": 0.8584725592046664
+        },
+        "hock_-1": {
+          "before_area_vs_rest": 1.0769509775801662,
+          "after_area_vs_rest": 1.19942647499432
+        },
+        "elbow_1": {
+          "before_area_vs_rest": 0.8881295229236758,
+          "after_area_vs_rest": 0.9466506031620588
+        },
+        "wrist_1": {
+          "before_area_vs_rest": 1.1271785145787063,
+          "after_area_vs_rest": 0.9478899200425469
+        },
+        "knee_1": {
+          "before_area_vs_rest": 0.9085233781728194,
+          "after_area_vs_rest": 0.9430414529440126
+        },
+        "hock_1": {
+          "before_area_vs_rest": 1.0783726949536054,
+          "after_area_vs_rest": 1.184755352829233
+        }
+      }
+    },
+    {
+      "frame": 35,
+      "numpy_max_error_m": 2.5519794125128392e-08,
+      "blended_quaternion_min_norm": 0.9399452040220092,
+      "regions": {
+        "elbow_-1": {
+          "before_area_vs_rest": 0.9774843106171927,
+          "after_area_vs_rest": 0.9974318356884255
+        },
+        "wrist_-1": {
+          "before_area_vs_rest": 0.8256213898909993,
+          "after_area_vs_rest": 0.9879674780683093
+        },
+        "knee_-1": {
+          "before_area_vs_rest": 0.856979768486725,
+          "after_area_vs_rest": 0.836732098450571
+        },
+        "hock_-1": {
+          "before_area_vs_rest": 1.0587407996844749,
+          "after_area_vs_rest": 1.0761867793590583
+        },
+        "elbow_1": {
+          "before_area_vs_rest": 0.9449508836866664,
+          "after_area_vs_rest": 0.9894251929086538
+        },
+        "wrist_1": {
+          "before_area_vs_rest": 0.5855385078631781,
+          "after_area_vs_rest": 0.9430946783611962
+        },
+        "knee_1": {
+          "before_area_vs_rest": 0.8073260230062136,
+          "after_area_vs_rest": 0.8253100352319256
+        },
+        "hock_1": {
+          "before_area_vs_rest": 1.0801260453238644,
+          "after_area_vs_rest": 1.158719104900899
+        }
+      }
+    },
+    {
+      "frame": 44,
+      "numpy_max_error_m": 4.265220462928987e-08,
+      "blended_quaternion_min_norm": 0.9399452419865201,
+      "regions": {
+        "elbow_-1": {
+          "before_area_vs_rest": 1.0018055952122942,
+          "after_area_vs_rest": 1.0124044409186912
+        },
+        "wrist_-1": {
+          "before_area_vs_rest": 1.0769036143100168,
+          "after_area_vs_rest": 0.9724162468792884
+        },
+        "knee_-1": {
+          "before_area_vs_rest": 0.9196721023483743,
+          "after_area_vs_rest": 0.8531150188277458
+        },
+        "hock_-1": {
+          "before_area_vs_rest": 0.896716705552427,
+          "after_area_vs_rest": 0.9155143558803709
+        },
+        "elbow_1": {
+          "before_area_vs_rest": 1.062540205505764,
+          "after_area_vs_rest": 1.0513805554536126
+        },
+        "wrist_1": {
+          "before_area_vs_rest": 1.306324130587222,
+          "after_area_vs_rest": 1.0333132360156763
+        },
+        "knee_1": {
+          "before_area_vs_rest": 0.9000025222220568,
+          "after_area_vs_rest": 0.8324551269052534
+        },
+        "hock_1": {
+          "before_area_vs_rest": 0.9568640118501204,
+          "after_area_vs_rest": 0.9610255428443764
+        }
+      }
+    }
+  ],
+  "scope": "Same authored pose and rest-region triangles. Surface area retention is a collapse diagnostic, not an anatomical volume measurement."
+}
