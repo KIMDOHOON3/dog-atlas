@@ -1,0 +1,19 @@
+{
+  "input": "v2/exports/labrador-puppy-fur.blend",
+  "reference": "User-downloaded golden-retriever-dog-3d-model-free.zip, visually inspected in Blender; no reference mesh or textures transferred.",
+  "changes": [
+    "Lower head into neck",
+    "Shape a continuous occiput-withers-back profile",
+    "Raise pendulous brisket",
+    "Lift central rear belly",
+    "Extend shoulder-to-pelvis span",
+    "Advance stifle and move hock/pastern rearward"
+  ],
+  "method": "Continuous coordinate field applied to own meshes and all hair points; dorsal profile interpolation and local neck surface relaxation; nearby hair strands moved by surface displacement. Original v2 UVs and 4K maps retained.",
+  "limits": [
+    "Static triangle mesh; not deformation-ready quad topology",
+    "No animation",
+    "Visual proportions are a study, not measured animal anatomy",
+    "Photoreal quality remains unfulfilled"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "high_poly_faces": 1063832,
+  "render_faces": 340426,
+  "render_quads": 0,
+  "method": "v2 triangle topology retained, positions reshaped and neck surface relaxed. No new retopology.",
+  "deformation_status": "Static appearance study; not hand-retopologized, rigged or skinning-approved."
+}
