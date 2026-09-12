@@ -690,3 +690,7 @@ The user ended the dog-modeling experiments and requested deletion of all projec
 ## 2026-09-12 — Expand the playground and add Blender pet objects
 
 The user approved pet-object decoration and asked for a larger lawn. Increase the ellipse area by about 91% and enlarge its desktop presentation; preserve full framing on mobile. Move the bench toward the rear, add a paired feeding station, flying disc and bone chew, and retain an open middle for the interactive tennis ball. All new geometry is authored in Blender without downloaded assets. Keep one lazy GLB, static shadows, existing render budgets and reduced-motion behavior. Share lawn dimensions and approximate obstacle bounds between ball physics and trajectory prediction.
+
+## 2026-09-12 — Small butterflies around the bench
+
+The user requested tiny butterflies moving automatically around the bench. Add two lightweight, locally defined Three.js butterflies with separate wing hinges, gentle flight paths and intermittent perching. They share the existing scene and render loop, using a 30Hz cap while the ball sleeps and no GPU draws when both are resting. Keep offscreen/tab-visibility pauses and show perched butterflies for reduced motion. Provide a small accessible pause/resume control. This ambient decoration introduces no downloaded model, texture or separate renderer.

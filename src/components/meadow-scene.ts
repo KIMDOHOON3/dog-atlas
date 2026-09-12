@@ -3,6 +3,7 @@ import { YARD, hitsYardObject } from "./yard-layout";
 import { addMiniatureYard } from "./miniature-yard";
 import { BALL_RADIUS, createPlayBall, throwVelocity } from "./play-ball";
 import { createTennisBall } from "./tennis-ball";
+import { addYardButterflies } from "./yard-butterflies";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobileQuery = matchMedia("(max-width: 767px)");
@@ -45,6 +46,23 @@ export function createMeadow(host: HTMLDivElement) {
   sun.shadow.normalBias = 0.018;
   sun.shadow.radius = 3;
   scene.add(sun);
+  const butterflies = addYardButterflies(scene, mobile);
+  let butterfliesEnabled = true;
+  const butterflyToggle = document.createElement("button");
+  butterflyToggle.type = "button";
+  butterflyToggle.dataset.butterfliesToggle = "true";
+  const updateButterflyControl = () => {
+    butterflyToggle.textContent = butterfliesEnabled
+      ? "나비 멈춤"
+      : "나비 재생";
+    butterflyToggle.setAttribute(
+      "aria-label",
+      butterfliesEnabled ? "나비 움직임 멈추기" : "나비 움직임 재생하기",
+    );
+    butterflyToggle.hidden = reduced.matches;
+  };
+  updateButterflyControl();
+  host.appendChild(butterflyToggle);
   const tennis = createTennisBall();
   const ball = tennis.ball;
   const physics = createPlayBall();
@@ -120,26 +138,29 @@ export function createMeadow(host: HTMLDivElement) {
       sync();
       return;
     }
-    // Keep a stable 60Hz budget even on 120/240Hz displays, without dropping
-    // an entire refresh when a browser callback lands slightly early.
+    // Keep ball interaction at 60Hz; quiet ambient flight only needs 30Hz.
     if (now + 0.5 < nextRender) {
       frame = requestAnimationFrame(tick);
       return;
     }
-    const interval = 1000 / 60;
+    const interval =
+      1000 / (physics.body.sleepState !== 2 || held !== null ? 60 : 30);
     nextRender = now + interval - (Math.max(0, now - nextRender) % interval);
     const dt = Math.min((now - last) / 1000, 0.05);
     const ballMoving = physics.body.sleepState !== 2;
     physics.step(dt);
+    const fluttering = butterfliesEnabled && butterflies.update(dt);
     if (held !== null) preview();
     last = now;
-    if (dirty || ballMoving || held !== null) draw();
+    if (dirty || ballMoving || fluttering || held !== null) draw();
     frame = requestAnimationFrame(tick);
   };
   const sync = () => {
     cancelAnimationFrame(frame);
     frame = 0;
     ballTarget.disabled = reduced.matches;
+    updateButterflyControl();
+    if (reduced.matches) butterflies.rest();
     if ((!visible || document.hidden || reduced.matches) && held !== null) {
       const pointerId = held;
       held = null;
@@ -160,6 +181,14 @@ export function createMeadow(host: HTMLDivElement) {
       }
     }
   };
+  const toggleButterflies = () => {
+    butterfliesEnabled = !butterfliesEnabled;
+    updateButterflyControl();
+    if (!butterfliesEnabled) butterflies.rest();
+    dirty = true;
+    if (visible && !document.hidden) draw();
+  };
+  butterflyToggle.addEventListener("click", toggleButterflies);
   const resize = () => {
     const w = host.clientWidth,
       h = host.clientHeight;
@@ -315,6 +344,7 @@ export function createMeadow(host: HTMLDivElement) {
 
   const changeMode = () => {
     mobile = mobileQuery.matches;
+    butterflies.resize(mobile);
     if (held !== null) {
       const id = held;
       held = null;
@@ -369,6 +399,9 @@ export function createMeadow(host: HTMLDivElement) {
       ])
         resource.dispose();
       tennis.dispose();
+      butterflies.dispose();
+      butterflyToggle.removeEventListener("click", toggleButterflies);
+      butterflyToggle.remove();
       ballTarget.remove();
       disposeYard();
       renderer.dispose();
