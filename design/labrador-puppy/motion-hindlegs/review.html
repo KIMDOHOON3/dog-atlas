@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>래브라도 · 달리기 48프레임</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f1e9;color:#283b32;font:16px/1.55 system-ui,sans-serif}main{max-width:1080px;margin:auto;padding:28px 20px 60px}h1{font-size:clamp(24px,4vw,34px);margin:6px 0 10px;letter-spacing:-.04em}p{margin:8px 0 16px}.eyebrow{font-size:13px;color:#6d786c}a{color:#365c42}figure{margin:20px 0 14px;overflow:hidden;background:#596163;border-radius:12px}img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain}figcaption{padding:10px 14px;background:#e7e9de;font-size:14px}.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0}.bar>label{display:flex;gap:8px;align-items:center}button,select,.download{font:inherit;color:inherit;border:1px solid #bdc7b5;border-radius:9px;background:#fffef8;padding:11px 16px;min-height:46px}button{cursor:pointer}button:disabled{opacity:.45;cursor:wait}#play{background:#375d46;color:white;min-width:104px;border-color:#375d46}input[type=range]{width:100%;accent-color:#426d4b;min-height:36px;cursor:pointer}.counter{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}.limbs{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:16px 0}.limb{background:#e9ece1;padding:11px 13px;border-radius:8px;display:flex;justify-content:space-between;gap:12px;font-size:14px}.limb b{font-weight:600}.limb[data-state="stance"]{background:#dce7d7}.limb[data-state="swing"]{background:#eee3cf}.limb[data-state="landing"]{background:#dee8ea}.notice{font-size:14px;color:#67715f}.download{display:inline-block;text-decoration:none}button:focus-visible,select:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #6a9265;outline-offset:3px}details{margin-top:22px;padding:14px;background:#e9ece1;border-radius:8px}summary{cursor:pointer}#load{font-size:13px;min-height:20px;color:#64725d}@media(max-width:600px){main{padding:20px 14px 40px}.limbs{grid-template-columns:1fr}.bar{gap:8px}button,select{padding:10px 12px}.bar>label{flex:1}select{max-width:100%}figure{margin-top:14px}}
+</style>
+<main>
+<a href="../review.html">← 정적 모델 비교</a>
+<div class="eyebrow">V3 · 모션 수정 7 · 뒷다리 접힘</div>
+<h1>달리기, 한 프레임씩 보기</h1>
+<p>뒷무릎이 골반 가까이 들리던 자세를 낮추고, 허벅지가 아래로 이어지도록 수정했어요. 앞다리와 목 움직임은 유지했습니다.</p>
+<div class="bar"><label>비교 <select id="variant"><option value="new">뒷다리 수정 후</option><option value="old">이전 모습</option></select></label></div>
+<div class="bar"><label>방향 <select id="view"><option value="side" selected>측면</option><option value="three-quarter">3/4</option></select></label><label>속도 <select id="speed"><option value="1">정상</option><option value="0.5">½ 속도</option><option value="0.25" selected>¼ 속도</option></select></label></div>
+<figure><img id="frame" src="frames/side/001.png" alt="래브라도 달리기 측면 1프레임"><figcaption id="caption">측면 · 1 / 48</figcaption></figure>
+<div class="counter"><label for="scrub">한 프레임씩 살펴보기</label><strong id="counter">1 / 48</strong></div>
+<input id="scrub" type="range" min="1" max="48" step="1" value="1" aria-label="달리기 프레임">
+<div class="bar"><button id="play" type="button" disabled>재생</button><button id="prev" type="button" disabled>← 이전</button><button id="next" type="button" disabled>다음 →</button><button id="first" type="button" disabled>처음</button></div>
+<div id="load" role="status">측면 프레임을 준비하고 있습니다.</div>
+<p id="body-phase" aria-live="off">뒷발로 밀어내기</p>
+<p id="physics-readout" class="notice">착지와 도약을 계산하고 있습니다.</p>
+<div class="limbs">
+<div class="limb" id="fore_1"><span>가까운 앞다리</span><b>—</b></div><div class="limb" id="hind_1"><span>가까운 뒷다리</span><b>—</b></div>
+<div class="limb" id="fore_-1"><span>반대쪽 앞다리</span><b>—</b></div><div class="limb" id="hind_-1"><span>반대쪽 뒷다리</span><b>—</b></div>
+</div>
+<div class="bar" aria-label="주요 자세로 이동"><button data-frame="5">무릎 높이 · 5</button><button data-frame="10">자세 10</button><button data-frame="20">뒤로 밀기 · 20</button><button data-frame="27">자세 27</button><button data-frame="35">자세 35</button><button data-frame="39">접어 회수 · 39</button></div>
+<p class="notice">방향키 ← →로 한 프레임씩, Space로 재생·정지합니다. 최초에는 정지 상태이며 화면을 벗어나면 재생을 멈춥니다.</p>
+<div class="bar"><a class="download" href="exports/puppy-run-study.blend" download>모션 포함 Blender 원본</a><a href="README.md">제작·검수 기록</a></div>
+<details><summary>비교하는 방법</summary><p>앞다리가 자연스러워졌던 이전 수정본과 같은 방향·프레임·속도로 비교해요. 5·39프레임에서 골반과 무릎 사이 높이, 20프레임에서 다리가 뒤로 펴지는 모습을 살펴보세요.</p></details>
+<details><summary>이 시안의 범위</summary><p>뒷발 경로를 조금 뒤로 옮기고 같은 길이의 다리로 자세를 다시 계산했어요. 발의 높이와 접지 시간, 앞다리·목·몸통 동작은 유지했습니다. 관절 표면과 털 보정도 그대로 사용해요.</p><p>전신 뼈·근육의 물리 시뮬레이션이나 완성된 제작용 리그는 아닙니다. 깊은 접힘의 부피와 얼굴·털의 완성도는 보정이 필요해요. 운동장 이동이나 공 추적은 연결하지 않았습니다.</p></details>
+</main>
+<script src="manifest.js"></script><script src="previous-manifest.js"></script><script src="player.js"></script>
+</html>
