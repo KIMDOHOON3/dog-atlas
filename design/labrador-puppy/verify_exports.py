@@ -1,7 +1,8 @@
 """Reopen both native files and import OBJ in clean scenes; do not resave them."""
-import bpy,json
+import bpy,json,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
+if '--' in sys.argv:ROOT=ROOT/sys.argv[sys.argv.index('--')+1]
 report={}
 for name in ['labrador-puppy-fur.blend','labrador-puppy-base.blend']:
     bpy.ops.wm.open_mainfile(filepath=str(ROOT/'exports'/name))

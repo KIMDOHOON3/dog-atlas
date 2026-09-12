@@ -47,7 +47,7 @@ def audit(root):
         path=Path(bpy.path.abspath(img.filepath));result['textures'].append({'name':img.name,'path':str(path),'exists':path.is_file(),'dimensions':list(img.size),'color_space':img.colorspace_settings.name})
     result['totals']={key:sum(m[key] for m in result['mesh_checks']) for key in ['boundary_edges','nonmanifold_edges','inconsistent_winding_edges','degenerate_faces','duplicate_faces','negative_volume_components','nonadjacent_triangle_intersections']}
     result['totals']['missing_textures']=sum(not t['exists'] for t in result['textures'])
-    result['quality_limitations']=['Facial and joint edge flow is an automatic quad cage plus separate lid loops, not hand-retopologized or deformation-approved.','No claim of matching the commercial photoreal reference.','Inter-object overlap and skinning deformation require further production review.']
+    result['quality_limitations']=['Facial and joint edge flow is not hand-retopologized or deformation-approved. See the revision topology report.','No claim of matching the commercial photoreal reference.','Inter-object overlap and skinning deformation require further production review.']
     for mod,level in old_levels:mod.levels=level
     (root/'reports'/'06-audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8')
     print('AUDIT_TOTALS',json.dumps(result['totals']),flush=True)

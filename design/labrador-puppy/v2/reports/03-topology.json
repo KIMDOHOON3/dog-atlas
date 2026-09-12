@@ -1,0 +1,8 @@
+{
+  "high_poly_faces": 1063832,
+  "render_faces": 340426,
+  "render_quads": 0,
+  "method": "Reduced continuous sculpt for static rendering; NOT production quad retopology.",
+  "rejected_method": "Projection onto the previous cage caused 551 triangle intersections and was discarded.",
+  "deformation_status": "Unfulfilled: manual face/joint retopology, rigging and deformation validation remain required."
+}

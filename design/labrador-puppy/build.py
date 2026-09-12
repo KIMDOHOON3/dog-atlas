@@ -268,6 +268,7 @@ def stage3():
     print('QUADRIFLOW_START',len(base.data.polygons),flush=True)
     bpy.ops.object.quadriflow_remesh(target_faces=20000,use_mesh_symmetry=False,use_preserve_sharp=False,use_preserve_boundary=True,smooth_normals=True,seed=73)
     print('QUADRIFLOW_END',len(base.data.polygons),flush=True)
+    if len(base.data.polygons)>50000:raise RuntimeError('QuadriFlow did not produce the requested cage; repair the input before continuing.')
     # Replace the thin tail end with explicit longitudinal quad rings. Automated
     # remeshing can pinch a tail whose diameter is below the target edge length.
     bm=bmesh.new();bm.from_mesh(base.data)
@@ -484,14 +485,19 @@ def stage5():
         o=bpy.data.objects.get(name)
         if o:counts[name]=groom_surface(o,count,hair,71+len(counts));print('GROOM_READY',name,counts[name],flush=True)
     whisker_mat=hair_material('Whisker ivory',(.33,.28,.20),(.73,.69,.57));points=[];radii=[]
+    surface=bpy.data.objects['Puppy_RenderMesh'];ev=surface.evaluated_get(bpy.context.evaluated_depsgraph_get());me=ev.to_mesh();bm=bmesh.new();bm.from_mesh(me);root_bvh=BVHTree.FromBMesh(bm);bm.free();ev.to_mesh_clear()
+    def attach_root(root):
+        hit=root_bvh.ray_cast(Vector((root.x,-2.7,root.z))*S,Vector((0,1,0)))
+        if hit[0] is not None:root.y=hit[0].y/S-.00025
+        return root
     for side in [-1,1]:
         for j in range(9):
-            root=Vector((side*(.18+.012*(j%3)),-2.08+.047*(j//3),2.56+.035*(j%3)))
+            root=attach_root(Vector((side*(.18+.012*(j%3)),-2.08+.047*(j//3),2.56+.035*(j%3))))
             vec=Vector((side*(.26+.025*j),-.09+.018*j,.02-.017*(j%3)))
             points.append([(root+vec*t+Vector((0,0,-.065*t*t)))*S for t in np.linspace(0,1,8)])
             radii.append([.000035*(1-.96*t) for t in np.linspace(0,1,8)])
         for j in range(4):
-            root=Vector((side*(.31+j*.023),-1.76,2.956));vec=Vector((side*.09,-.10,.09+j*.012))
+            root=attach_root(Vector((side*(.31+j*.023),-1.76,2.956)));vec=Vector((side*.09,-.10,.09+j*.012))
             points.append([(root+vec*t)*S for t in np.linspace(0,1,8)]);radii.append([.000022*(1-.96*t) for t in np.linspace(0,1,8)])
     curves_object('Separate whisker and brow guides',np.array(points),np.array(radii),whisker_mat)
     (ROOT/'reports'/'05-groom.json').write_text(json.dumps({'strands':counts,'whisker_brow_guides':len(points),'method':'Blender native Hair Curves, region-dependent flow and length, two coat populations, tapered radii'},indent=2),encoding='utf8')
@@ -520,9 +526,5 @@ def stage6():
     bpy.ops.wm.obj_export(filepath=str(ROOT/'exports'/'labrador-puppy.obj'),export_selected_objects=True,apply_modifiers=True,export_eval_mode='DAG_EVAL_VIEWPORT',export_uv=True,export_normals=True,export_materials=True,export_pbr_extensions=True,path_mode='RELATIVE')
     print('DELIVERABLES_EXPORTED',flush=True)
 
-if STAGE==1:stage1()
-elif STAGE==2:stage2()
-elif STAGE==3:stage3()
-elif STAGE==4:stage4()
-elif STAGE==5:stage5()
-elif STAGE==6:stage6()
+if __name__=='__main__':
+    {1:stage1,2:stage2,3:stage3,4:stage4,5:stage5,6:stage6}[STAGE]()

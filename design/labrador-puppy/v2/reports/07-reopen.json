@@ -1,0 +1,18 @@
+{
+  "labrador-puppy-fur.blend": {
+    "meshes": 58,
+    "hair_objects": 4,
+    "missing_textures": []
+  },
+  "labrador-puppy-base.blend": {
+    "meshes": 58,
+    "hair_objects": 0,
+    "missing_textures": []
+  },
+  "OBJ_roundtrip": {
+    "meshes": 57,
+    "vertices": 342155,
+    "faces": 513446,
+    "missing_textures": []
+  }
+}

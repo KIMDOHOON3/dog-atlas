@@ -1,0 +1,5 @@
+{
+  "facial_skin_faces": 1063832,
+  "change": "Body and both eyelid skins joined into one closed sculpt; local smoothing outside eyelid aperture; recessed ear concha; mild ear curvature variation",
+  "method": "Voxel union then local vertex relaxation; not production retopology"
+}
