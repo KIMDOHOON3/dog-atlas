@@ -1,0 +1,20 @@
+{
+  "mass_kg": 3.0,
+  "gravity_m_s2": 9.81,
+  "inertia_kg_m2": 0.025,
+  "leg_stiffness_n_m": 800.0,
+  "leg_damping_ns_m": 40.0,
+  "timestep_s": 0.0003125,
+  "period_s": 0.48,
+  "z_range_m": [
+    -0.052910489291245096,
+    -0.01151880438868727
+  ],
+  "pitch_range_rad": [
+    -0.0564643718072062,
+    0.08287808996521875
+  ],
+  "loop_state_error": 0.0,
+  "mean_support_n": 29.430000000000067,
+  "max_support_n": 86.17585364898997
+}

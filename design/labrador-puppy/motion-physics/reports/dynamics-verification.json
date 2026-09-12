@@ -1,0 +1,12 @@
+{
+  "half_step_max_height_difference_m": 3.1382699735328645e-05,
+  "half_step_max_pitch_difference_rad": 8.782508805897649e-05,
+  "all_appendage_loop_error": 0.0,
+  "gravity_only_steps": 216,
+  "total_steps": 1537,
+  "mean_support_minus_weight_n": 7.105427357601002e-15,
+  "stiffness_20pct_reduction_max_height_difference_m": 0.010716549043107499,
+  "unilateral_contact_and_newton_balance": "passed",
+  "no_contact_gravity_and_zero_gravity": "passed",
+  "scope": "Reduced vertical/pitch solver only; not full multibody collision or biological validation."
+}
