@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-13",
+  "bodyApproval": {
+    "userWords": "웅웅 좋아 체형은 만족스러워",
+    "baseline": "exports/03-coat-shape-study.blend",
+    "sha256": "3b8b35ad465f2989e77bb2668646ed09e8e77b676e5589d29cd38f38f32e34eb",
+    "preserve": [
+      "neck length",
+      "torso width",
+      "leg proportions",
+      "overall approved stance"
+    ]
+  },
+  "faceReference": {
+    "path": "references/face-primary.png",
+    "source": "User supplied screenshot",
+    "sha256": "fd2955a7babdc425735a20c7194ba897f8c23f42229e219e18da632822cdab6e",
+    "observed": [
+      "dark almond-shaped eyelid outline with brown iris",
+      "black rounded triangular nose and visible nostrils",
+      "tapered muzzle with short hair",
+      "relaxed open mouth with tongue and visible teeth",
+      "upright triangular ears with pinkish inner skin and short fringe",
+      "fine facial fur flowing outward into longer cheek and neck coat"
+    ],
+    "limits": [
+      "single oblique view",
+      "lighting shadows are not base colour",
+      "far-side eye and mouth partly occluded"
+    ],
+    "role": "Face expression and regional groom reference; does not replace approved body proportions"
+  },
+  "implementationStatus": "Reference recorded; face and groom edits not yet applied"
+}
