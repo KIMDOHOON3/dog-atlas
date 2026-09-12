@@ -49,7 +49,7 @@ export function MeadowFooter() {
         <div
           ref={field}
           className={styles.field}
-          aria-label="공을 던지며 놀 수 있는 잔디 운동장"
+          aria-label="골든 리트리버가 있는, 공을 던지며 놀 수 있는 잔디 운동장"
         >
           <span className={styles.hint}>
             <span className={styles.desktopHint}>
@@ -65,7 +65,18 @@ export function MeadowFooter() {
         <span className={styles.copyright}>
           © {new Date().getFullYear()} 견종도감.
         </span>
-        <p>견종 정보는 일반적인 경향이며, 개체마다 다를 수 있습니다.</p>
+        <div>
+          <p>견종 정보는 일반적인 경향이며, 개체마다 다를 수 있습니다.</p>
+          <p className={styles.credit}>
+            3D 강아지:{" "}
+            <a href="https://sketchfab.com/3d-models/golden-retriever-dog-3d-model-free-4d32f856099c4baca05da2da485c24c1">
+              iRahulRajput
+            </a>
+            {" · "}
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            {" · 모델·텍스처 최적화"}
+          </p>
+        </div>
       </div>
     </footer>
   );
