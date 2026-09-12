@@ -1,0 +1,11 @@
+{
+  "strands": {
+    "Puppy_RenderMesh": 439071,
+    "Ear_L": 28000,
+    "Ear_R": 28000,
+    "Eye_-1_quad_lids": 3500,
+    "Eye_1_quad_lids": 3500
+  },
+  "whisker_brow_guides": 26,
+  "method": "Blender native Hair Curves, region-dependent flow and length, two coat populations, tapered radii"
+}

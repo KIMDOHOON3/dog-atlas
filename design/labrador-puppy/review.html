@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>래브라도 강아지 · 제작 검토</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f2eb;color:#24332e;font:16px/1.65 system-ui,sans-serif}main{max-width:1160px;margin:auto;padding:32px 20px 64px}h1{font-size:clamp(24px,4vw,36px);letter-spacing:-.04em;margin:4px 0 12px}p{max-width:760px;margin:10px 0}.eyebrow{font-size:13px;letter-spacing:.08em;color:#6a756e}.notice{padding:15px 18px;background:#ece4d5;border-radius:10px;margin:20px 0;color:#604d36}.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}label{display:flex;align-items:center;gap:9px}select,a.button{font:inherit;border:1px solid #bbc3b8;padding:10px 12px;border-radius:8px;background:#fffef9;color:inherit}figure{margin:0;background:#343e41;border-radius:12px;overflow:hidden}img{display:block;width:100%;max-height:76vh;object-fit:contain}figcaption{color:#e2e8e1;padding:12px 16px;font-size:14px}.links{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}a{color:#335d48}a.button{text-decoration:none}details{margin:24px 0;padding:16px;background:#eceee6;border-radius:10px}summary{cursor:pointer;font-weight:650}table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}td,th{text-align:left;padding:12px 8px;border-bottom:1px solid #ccd3c8;vertical-align:top}th{width:24%}a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #54816a;outline-offset:4px}@media(max-width:600px){main{padding:24px 14px}img{max-height:66vh}.controls label{width:100%}select{flex:1}}
+</style>
+<main>
+<div class="eyebrow">BLENDER · 실제 모델 렌더</div>
+<h1>흰색 래브라도 강아지 제작 시안</h1>
+<p>체형부터 털까지 만든 모델의 각 방향과 단계별 정면·측면을 살펴볼 수 있습니다.</p>
+<div class="notice"><strong>미완성 시안입니다.</strong> 참고 제품 수준의 포토리얼 외형과 변형용 프로덕션 토폴로지는 충족하지 못했습니다. 특히 눈꺼풀·볼의 연결과 얼굴 비례에 추가 조형이 필요합니다.</div>
+<div class="controls"><label>제작 단계 <select id="stage"><option value="6">6 · 조명과 렌더</option><option value="5">5 · 털 그루밍</option><option value="4">4 · 재질</option><option value="3">3 · 쿼드 메시</option><option value="2">2 · 얼굴 세부</option><option value="1">1 · 기본 체형</option></select></label><label>방향 <select id="view"><option value="three-quarter">3/4</option><option value="front">정면</option><option value="side">측면</option><option value="rear">후면</option><option value="face">얼굴 확대</option></select></label></div>
+<figure><img id="render" src="previews/three-quarter.png" alt="Blender에서 렌더한 래브라도 강아지의 3/4 모습"><figcaption id="caption">6 · 조명과 렌더 / 3/4</figcaption></figure>
+<div class="links"><a class="button" href="exports/labrador-puppy-fur.blend" download>털 포함 Blender</a><a class="button" href="exports/labrador-puppy-base.blend" download>기본 메시 Blender</a><a class="button" href="exports/labrador-puppy.obj" download>OBJ</a><a class="button" href="README.md">제작·검수 기록</a></div>
+<details><summary>구현한 항목과 남은 작업</summary><table><tbody>
+<tr><th>형상</th><td>조형 원본과 쿼드 기본 메시. 눈·각막·눈꺼풀·코·콧구멍·입술·귀 내부·발톱·발바닥·잇몸·혀를 구성했습니다. 해부학 전문가의 검수는 받지 않았습니다.</td></tr>
+<tr><th>털</th><td>Blender Hair Curves. 주둥이·발·머리·몸통·가슴의 길이와 흐름을 구분하고 수염·눈썹 가이드를 분리했습니다.</td></tr>
+<tr><th>재질</th><td>공유 UV 아틀라스의 4K Base Color·Roughness·Normal·Displacement 파일을 제공합니다.</td></tr>
+<tr><th>미충족</th><td>상업용 포토리얼 외형, 얼굴·관절의 수작업 엣지 흐름 및 자연스러운 변형 검증. 정적 외형 시안이며 애니메이션은 없습니다.</td></tr>
+<tr><th>검사 범위</th><td>개별 메시의 경계·비매니폴드·면 방향·중복 면·면 교차와 텍스처 경로를 검사했습니다. 서로 다른 해부학 오브젝트 사이의 모든 교차를 없앴다는 의미는 아닙니다. 수치는 검수 기록을 참고하세요.</td></tr>
+</tbody></table></details>
+<p>기준: <a href="https://www.turbosquid.com/ko/3d-models/white-labrador-retriever-puppy-fur-for-maya-3d-model-2434583">사용자가 지정한 참고 에셋</a>. 모델과 텍스처는 이 작업에서 제작했습니다. 현재 웹사이트 운동장에 적용된 모델은 아닙니다.</p>
+</main>
+<script>
+const stage=document.querySelector('#stage'),view=document.querySelector('#view'),render=document.querySelector('#render'),caption=document.querySelector('#caption');
+function update(){const final=stage.value==='6';for(const option of view.options){option.disabled=!final&&!['front','side'].includes(option.value)}if(view.selectedOptions[0].disabled)view.value='front';render.src='previews/'+(final?'':stage.value.padStart(2,'0')+'-')+view.value+'.png';const label=stage.selectedOptions[0].text+' / '+view.selectedOptions[0].text;caption.textContent=label;render.alt='Blender 래브라도 강아지 렌더: '+label;}stage.addEventListener('change',update);view.addEventListener('change',update);
+</script>
+</html>

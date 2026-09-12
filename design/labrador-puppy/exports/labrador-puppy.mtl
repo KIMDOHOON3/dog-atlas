@@ -1,0 +1,210 @@
+# Blender 4.5.9 LTS MTL File: 'labrador-puppy-base.blend'
+# www.blender.org
+
+newmtl Claw_keratin
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Cornea
+Kd 0.980000 0.980000 0.980000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.376000
+d 1.000000
+illum 2
+Pr 0.065000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+Tf 1.000000 1.000000 1.000000
+
+newmtl Gums
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Inner_ear_skin
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Iris_amber_brown
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Lip_pigment
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Nose_leather
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Paw_pads
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Pupil
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Puppy_skin
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Sclera
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Tear_line
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png
+
+newmtl Tongue
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd ../textures/Puppy_BaseColor_4K.png
+map_Pr ../textures/Puppy_Roughness_4K.png
+map_Bump -bm 1.000000 ../textures/Puppy_Normal_4K.png

@@ -1,0 +1,7 @@
+{
+  "high_poly_faces": 321090,
+  "render_cage_faces": 17146,
+  "render_cage_quads": 17128,
+  "facial_loops": "Separate concentric quad eyelid strips",
+  "deformation_status": "Unverified. Automated cage is not equivalent to hand-directed facial and joint retopology."
+}
