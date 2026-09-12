@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { createPlayBall, BALL_RADIUS, throwVelocity } from "./play-ball";
+import { YARD } from "./yard-layout";
 describe("playground ball", () => {
   it("interpolates between physics steps and resets the display pose on grab", () => {
     const p = createPlayBall();
@@ -60,7 +61,7 @@ describe("playground ball", () => {
       if (falling && p.body.velocity.y > 0.5) bounced = true;
       expect(Math.abs(p.body.position.x)).toBeLessThanOrEqual(2);
       expect(
-        Math.hypot(p.body.position.x / 2, p.body.position.z / 2.65),
+        Math.hypot(p.body.position.x / 2, p.body.position.z / YARD.ballZ),
       ).toBeLessThanOrEqual(1.000001);
     }
     expect(bounced).toBe(true);
@@ -74,5 +75,32 @@ describe("playground ball", () => {
     p.step(1 / 30);
     expect(p.body.position.y).toBeCloseTo(BALL_RADIUS);
     expect(p.body.velocity.length()).toBe(0);
+  });
+  it("allows play beyond the former lawn while containing throws at the new edge", () => {
+    const p = createPlayBall();
+    p.hold(6.3, 0);
+    expect(p.body.position.x).toBe(6.3);
+    p.launch(8, 0, 0);
+    for (let i = 0; i < 120; i++) {
+      p.step(1 / 60);
+      expect(
+        Math.hypot(
+          p.body.position.x / YARD.ballX,
+          p.body.position.z / YARD.ballZ,
+        ),
+      ).toBeLessThanOrEqual(1.000001);
+    }
+  });
+  it("rebounds from the feeding station instead of rolling through the bowls", () => {
+    const p = createPlayBall();
+    p.hold(4.05, -0.6, BALL_RADIUS);
+    p.launch(0, -4, 0);
+    let rebounded = false;
+    for (let i = 0; i < 30; i++) {
+      p.step(1 / 60);
+      if (p.body.velocity.z > 0.1) rebounded = true;
+      expect(p.body.position.z).toBeGreaterThan(-1.12);
+    }
+    expect(rebounded).toBe(true);
   });
 });

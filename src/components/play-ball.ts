@@ -8,6 +8,7 @@ import {
   Vec3,
   World,
 } from "cannon-es";
+import { YARD, YARD_OBSTACLES } from "./yard-layout";
 export const BALL_RADIUS = 0.32;
 export function throwVelocity(x: number, z: number, lift: number) {
   const speed = Math.hypot(x, z);
@@ -48,15 +49,19 @@ export function createPlayBall() {
   syncPose();
   world.addBody(body);
   body.sleep();
-  const bench = new Body({
-    mass: 0,
-    shape: new Box(new Vec3(1.25, 0.5, 0.48)),
-    material: turf,
-  });
-  bench.position.set(-2.5, 0.5, -1.5);
-  world.addBody(bench);
-  let halfWidth = 5.65;
-  const depth = 2.65;
+  for (const object of YARD_OBSTACLES) {
+    const obstacle = new Body({
+      mass: 0,
+      shape: new Box(
+        new Vec3(object.width / 2, object.height / 2, object.depth / 2),
+      ),
+      material: turf,
+    });
+    obstacle.position.set(object.x, object.height / 2, object.z);
+    world.addBody(obstacle);
+  }
+  let halfWidth = YARD.ballX;
+  const depth = YARD.ballZ;
   const contain = (bounce: boolean) => {
     const x = body.position.x,
       z = body.position.z;

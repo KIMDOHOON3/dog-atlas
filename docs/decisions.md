@@ -686,3 +686,7 @@ The user found the meadow weedy and requested a playground with ball physics. Re
 
 The user ended the dog-modeling experiments and requested deletion of all project dog 3D assets, rigs, animation/following code, and previews. Keep breed editorial content and the existing yard, bench, rope toy and interactive ball. Future decorative work should use Blender-made pet objects; no replacement animal is planned. Download archives outside the project and Git history are outside this cleanup.
 
+
+## 2026-09-12 — Expand the playground and add Blender pet objects
+
+The user approved pet-object decoration and asked for a larger lawn. Increase the ellipse area by about 91% and enlarge its desktop presentation; preserve full framing on mobile. Move the bench toward the rear, add a paired feeding station, flying disc and bone chew, and retain an open middle for the interactive tennis ball. All new geometry is authored in Blender without downloaded assets. Keep one lazy GLB, static shadows, existing render budgets and reduced-motion behavior. Share lawn dimensions and approximate obstacle bounds between ball physics and trajectory prediction.

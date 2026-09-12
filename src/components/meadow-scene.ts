@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { YARD, hitsYardObject } from "./yard-layout";
 import { addMiniatureYard } from "./miniature-yard";
 import { BALL_RADIUS, createPlayBall, throwVelocity } from "./play-ball";
 import { createTennisBall } from "./tennis-ball";
@@ -36,10 +37,10 @@ export function createMeadow(host: HTMLDivElement) {
   sun.position.set(-4, 8, 6);
   sun.castShadow = true;
   sun.shadow.mapSize.set(mobile ? 1024 : 2048, mobile ? 1024 : 2048);
-  sun.shadow.camera.left = -7;
-  sun.shadow.camera.right = 7;
-  sun.shadow.camera.top = 5;
-  sun.shadow.camera.bottom = -5;
+  sun.shadow.camera.left = -10;
+  sun.shadow.camera.right = 10;
+  sun.shadow.camera.top = 7;
+  sun.shadow.camera.bottom = -7;
   sun.shadow.bias = -0.00015;
   sun.shadow.normalBias = 0.018;
   sun.shadow.radius = 3;
@@ -172,12 +173,12 @@ export function createMeadow(host: HTMLDivElement) {
       ),
     );
     renderer.setSize(w, h);
-    const half = Math.max(3.1, (6.8 * h) / w);
+    const half = Math.max(3.95, (8.65 * h) / w);
     camera.left = (-half * w) / h;
     camera.right = (half * w) / h;
     camera.top = half;
     camera.bottom = -half;
-    physics.setWidth(5.65);
+    physics.setWidth(YARD.ballX);
     camera.updateProjectionMatrix();
     if (visible) draw();
   };
@@ -221,8 +222,8 @@ export function createMeadow(host: HTMLDivElement) {
       z += v.z * dt;
       if (
         y < BALL_RADIUS ||
-        Math.hypot(x / 5.65, z / 2.65) > 1 ||
-        (x > -4.07 && x < -0.93 && z > -2.3 && z < -0.7 && y < 1.32)
+        Math.hypot(x / YARD.ballX, z / YARD.ballZ) > 1 ||
+        hitsYardObject(x, y, z, BALL_RADIUS)
       )
         break;
       if (i % 2 === 0) {

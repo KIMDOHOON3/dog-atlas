@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+import { YARD, YARD_OBSTACLES } from "./yard-layout";
 
 /** Static turf plus locally authored Blender furniture, loaded only with the yard. */
 export function addMiniatureYard(
@@ -75,12 +76,12 @@ export function addMiniatureYard(
   }
   baseGeometry.computeVertexNormals();
   const base = new THREE.Mesh(baseGeometry, rim);
-  base.scale.set(6.12, 1.7, 3.12);
+  base.scale.set(YARD.radiusX + 0.12, 1.7, YARD.radiusZ + 0.12);
   base.position.y = -0.09;
   scene.add(base);
   const topGeometry = keep(new THREE.CylinderGeometry(1, 1, 0.045, 128));
   const top = new THREE.Mesh(topGeometry, turf);
-  top.scale.set(6, 1, 3);
+  top.scale.set(YARD.radiusX, 1, YARD.radiusZ);
   top.position.y = -0.0225;
   top.receiveShadow = true;
   scene.add(top);
@@ -106,8 +107,8 @@ export function addMiniatureYard(
   for (let i = 0; i < bladeCount; i++) {
     const angle = random() * Math.PI * 2,
       r = Math.sqrt(random()) * 0.996;
-    const x = Math.cos(angle) * r * 6,
-      z = Math.sin(angle) * r * 3;
+    const x = Math.cos(angle) * r * YARD.radiusX,
+      z = Math.sin(angle) * r * YARD.radiusZ;
     let print = false;
     for (let j = 0; j < 6; j++) {
       const px = -3.6 + j * 0.22 + (j % 2) * 0.23,
@@ -145,7 +146,7 @@ export function addMiniatureYard(
   const shadowGeo = keep(new THREE.PlaneGeometry(1, 1));
   const shadow = new THREE.Mesh(shadowGeo, shadowMat);
   shadow.rotation.x = -Math.PI / 2;
-  shadow.scale.set(14, 8, 1);
+  shadow.scale.set(18, 10.5, 1);
   shadow.position.set(0.15, -0.3, 0.2);
   scene.add(shadow);
   const wood = keep(
@@ -160,7 +161,7 @@ export function addMiniatureYard(
   );
   const box = keep(new RoundedBoxGeometry(1, 1, 1, 2, 0.055));
   const bench = new THREE.Group();
-  bench.position.set(-2.5, 0, -1.5);
+  bench.position.set(YARD_OBSTACLES[0].x, 0, YARD_OBSTACLES[0].z);
   bench.rotation.y = -0.22;
   function slat(
     x: number,
@@ -186,7 +187,11 @@ export function addMiniatureYard(
   scene.add(bench);
   const benchShadow = new THREE.Mesh(shadowGeo, shadowMat);
   benchShadow.rotation.x = -Math.PI / 2;
-  benchShadow.position.set(-2.4, 0.003, -1.4);
+  benchShadow.position.set(
+    YARD_OBSTACLES[0].x + 0.1,
+    0.003,
+    YARD_OBSTACLES[0].z + 0.1,
+  );
   benchShadow.scale.set(3.2, 1.65, 1);
   scene.add(benchShadow);
   const pawMat = keep(
@@ -228,7 +233,7 @@ export function addMiniatureYard(
     });
   };
   new GLTFLoader().load(
-    "/models/yard-furniture.glb",
+    "/models/yard-furniture.glb?v=pet-objects-1",
     (gltf) => {
       if (disposed) {
         releaseModel(gltf.scene);
