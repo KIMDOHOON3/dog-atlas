@@ -19,9 +19,9 @@ def material(name, color, roughness=.8):
     return m
 
 fur = material('Warm cotton coat', (.89, .87, .82), .94)
-face = material('Soft white muzzle', (.97, .94, .88), .88)
+face = material('Soft white muzzle', (.89, .87, .82), .95)
 pink = material('Warm ear velvet', (.70, .51, .45), .94)
-ink = material('Deep cocoa eyes and nose', (.019, .015, .012), .21)
+ink = material('Deep cocoa eyes and nose', (.012, .010, .009), .42)
 mouth = material('Soft mouth line', (.13, .095, .075), .8)
 glint = material('Eye catchlight', (1, .97, .9), .1)
 
@@ -90,7 +90,7 @@ def ear(side):
     for z, rx, ry, shift in [(1.96,.18,.13,0),(2.07,.14,.10,.025),(2.19,.075,.055,.055),(2.26,.022,.02,.068),(2.265,.002,.002,.068)]:
         for j in range(24):
             a=j*2*math.pi/24
-            verts.append((side*(.40+shift)+rx*math.cos(a), .025+ry*math.sin(a), z))
+            verts.append((side*(.40+shift)+rx*math.cos(a), .025+ry*math.sin(a), z-.10))
     for k in range(4):
         for j in range(24):
             a=k*24+j; b=k*24+(j+1)%24
@@ -105,22 +105,19 @@ def ear(side):
 
 for side in [-1,1]:
     ear(side)
-    o=sphere('Inner ear', (side*.452,-.071,2.16), (.035,.013,.035),pink)
-    o.rotation_euler.y=side*-.20
 
 # Short muzzle, small charcoal nose and fine closed smile. No human-like teeth.
-unify('Puffy muzzle', [sphere('Muzzle left',(-.075,-.60,1.43),(.16,.115,.13),face),
-                      sphere('Muzzle right',(.075,-.60,1.43),(.16,.115,.13),face),
-                      sphere('Muzzle bridge',(0,-.58,1.52),(.14,.12,.13),face)],.018)
-o=sphere('Tiny velvet nose',(0,-.73,1.51),(.075,.045,.055),ink)
+unify('Puffy muzzle', [sphere('Muzzle left',(-.055,-.585,1.46),(.125,.11,.11),fur),
+                      sphere('Muzzle right',(.055,-.585,1.46),(.125,.11,.11),fur),
+                      sphere('Muzzle bridge',(0,-.59,1.54),(.14,.115,.15),fur)],.018)
+o=sphere('Tiny velvet nose',(0,-.72,1.51),(.058,.039,.046),ink)
 for v in o.data.vertices:
-    v.co.x *= .75+.35*(v.co.z/.055+.5)
-tube('Philtrum',[(0,-.739,1.48),(0,-.733,1.425)],.006,mouth)
+    v.co.x *= .75+.35*(v.co.z/.046+.5)
+tube('Philtrum',[(0,-.735,1.48),(0,-.730,1.438)],.004,mouth)
 for side in [-1,1]:
-    tube('Closed puppy smile',[(0,-.733,1.425),(side*.045,-.727,1.40),(side*.085,-.710,1.41)],.006,mouth)
-    eye=sphere('Glossy puppy eye',(side*.235,-.616,1.70),(.061,.034,.065),ink)
+    tube('Closed puppy smile',[(0,-.730,1.438),(side*.033,-.724,1.416),(side*.066,-.710,1.422)],.004,mouth)
+    eye=sphere('Glossy puppy eye',(side*.195,-.638,1.72),(.049,.030,.047),ink)
     eye.rotation_euler.z=side*-.12
-    sphere('Tiny eye highlight',(side*.235-.014,-.648,1.722),(.013,.007,.014),glint,16,10)
 
 # A broad curled tail rests beside the seated body.
 tail_parts=[]
@@ -130,8 +127,16 @@ for j in range(17):
     tail_parts.append(sphere('Tail puff',(.52+radius*math.cos(a),.29,.42+radius*math.sin(a)),(.19,.23,.19),fur,20,12))
 unify('Curled cotton tail',tail_parts,.032)
 
-# Bake a gentle three-quarter pose; keep every part authored locally.
+# Compact seated proportions: shorten the trunk, leaving a low fluffy silhouette.
 meshes=[o for o in scene.objects if o.type=='MESH']
+for o in meshes:
+    for vertex in o.data.vertices:
+        p=o.matrix_world@vertex.co
+        if p.z<1.1:
+            p.x*=1.10
+            p.z*=.73
+        else:p.z-=.297
+        vertex.co=o.matrix_world.inverted()@p
 for o in meshes:
     o.select_set(False)
 for mat in [fur,face,pink,ink,mouth,glint]:
@@ -144,55 +149,67 @@ for mat in [fur,face,pink,ink,mouth,glint]:
     bpy.context.object.name=mat.name
 
 # Short tapered coat fibres soften the silhouette; exported as static geometry.
-coat=bpy.data.objects.get('Warm cotton coat')
+coat=unify('Warm cotton coat',[bpy.data.objects.get('Warm cotton coat')],.022)
 coat.data.calc_loop_triangles()
 triangles=list(coat.data.loop_triangles); cumulative=[]; total=0
 for tri in triangles:
     total+=tri.area;cumulative.append(total)
 rng=random.Random(32);verts=[];faces=[]
-for j in range(16000):
+for j in range(65000):
     tri=triangles[bisect.bisect_left(cumulative,rng.random()*total)]
     a,b,c=[coat.data.vertices[i] for i in tri.vertices]
     u=math.sqrt(rng.random());v=rng.random();weights=(1-u,u*(1-v),u*v)
     p=sum((q.co*w for q,w in zip([a,b,c],weights)),Vector())
     n=sum((q.normal*w for q,w in zip([a,b,c],weights)),Vector()).normalized()
     p=coat.matrix_world@p;n=(coat.matrix_world.to_3x3()@n).normalized()
-    # Keep muzzle/eyes readable and avoid fibres under the ground.
-    if p.z<.08 or (p.y<-.45 and abs(p.x)<.36 and 1.28<p.z<1.88):continue
+    # Groom around the tiny eyes; cheek fur reaches into the muzzle naturally.
+    if p.z<.045:continue
+    face_zone=p.y<-.42 and p.z>1.00
+    if p.y<-.51 and any(((p.x-side*.195)/.064)**2+((p.z-1.423)/.062)**2<1 for side in [-1,1]):continue
+    if p.y<-.65 and abs(p.x)<.09 and 1.11<p.z<1.28:continue
     tangent=n.cross(Vector((0,0,1)))
     if tangent.length<.01:tangent=Vector((1,0,0))
     tangent.normalize();cross=n.cross(tangent).normalized()
-    length=.014+rng.random()*.024; width=.0008+rng.random()*.0007
-    tip=p+n*length+Vector((0,0,-length*.18))
+    length=(.045+rng.random()*.085) * (.42 if face_zone else 1)
+    width=.00065+rng.random()*.0006
+    phase=rng.random()*math.tau
     k=len(verts)
-    verts.extend([p-tangent*width,p+tangent*width,tip,p-cross*width,p+cross*width,tip])
-    faces.extend([(k,k+1,k+2),(k+3,k+4,k+5)])
+    # Fine curved, tapering strands rather than straight triangular spikes.
+    for step in range(4):
+        t=step/3
+        curl=(tangent*math.sin(t*4+phase)+cross*math.cos(t*4+phase))*length*.12*t
+        center=p+n*(length*t)+curl+Vector((0,0,-length*t*t*.23))
+        r=width*(1-t*.96)
+        verts.extend([center-tangent*r,center+tangent*r,center-cross*r,center+cross*r])
+        if step:
+            a=k+(step-1)*4;b=k+step*4
+            faces.extend([(a,a+1,b+1,b),(a+2,a+3,b+3,b+2)])
 mesh=bpy.data.meshes.new('Short cotton fibres');mesh.from_pydata(verts,[],faces);mesh.update()
 o=bpy.data.objects.new('Cotton silhouette fibres',mesh);scene.collection.objects.link(o);mesh.materials.append(fur)
 
 bpy.context.preferences.filepaths.save_version=0
-bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'cotton-puppy.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'cotton-puppy.blend'),compress=True)
 bpy.ops.export_scene.gltf(filepath=str(OUT/'cotton-puppy.glb'),export_format='GLB',export_apply=True)
 
 # A true Blender render for checking the face before placing the small model in the yard.
-ground=material('Studio sand',(.71,.67,.57),1)
+ground=material('Studio sand',(.32,.36,.37),1)
 bpy.ops.mesh.primitive_plane_add(size=200)
 bpy.context.object.data.materials.append(ground)
 scene.world=bpy.data.worlds.new('Warm studio world')
-scene.world.color=(.75,.75,.75)
+scene.world.color=(.18,.18,.18)
 def area(name,xyz,power,size):
     d=bpy.data.lights.new(name,'AREA');d.energy=power;d.shape='DISK';d.size=size
     o=bpy.data.objects.new(name,d);scene.collection.objects.link(o);o.location=xyz
     o.rotation_euler=(Vector((0,0,1.2))-o.location).to_track_quat('-Z','Y').to_euler()
 area('Large softbox',(-3,-4,6),450,4)
-area('Face fill',(3,-4,3),200,3)
+area('Face fill',(3,-4,3),80,3)
 area('Soft rim',(2,3,4),500,3)
 cam=bpy.data.cameras.new('Portrait camera');o=bpy.data.objects.new('Portrait camera',cam);scene.collection.objects.link(o)
-o.location=(3,-7,3.2);o.rotation_euler=(Vector((.08,0,1.22))-o.location).to_track_quat('-Z','Y').to_euler()
-cam.type='ORTHO';cam.ortho_scale=3.15;scene.camera=o
-scene.render.engine='CYCLES';scene.cycles.samples=32;scene.cycles.use_denoising=True
+o.location=(3,-7,2.7);o.rotation_euler=(Vector((.08,0,1.04))-o.location).to_track_quat('-Z','Y').to_euler()
+cam.type='ORTHO';cam.ortho_scale=2.85;scene.camera=o
+scene.render.engine='CYCLES';scene.cycles.samples=64;scene.cycles.use_denoising=True
 scene.render.resolution_x=800;scene.render.resolution_y=900;scene.render.resolution_percentage=100
 scene.view_settings.view_transform='AgX'
-scene.render.filepath=str(OUT/'preview.png')
+scene.render.filepath=str(OUT/'preview-v2.png')
 bpy.ops.render.render(write_still=True)
 print('COTTON_PUPPY_EXPORTED')
