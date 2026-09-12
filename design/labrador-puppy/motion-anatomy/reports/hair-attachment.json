@@ -1,0 +1,60 @@
+{
+  "scope": "About 1500 body-groom roots per selected frame; not every strand or ear/whisker collision.",
+  "frames": [
+    {
+      "frame": 1,
+      "sampled_roots": 1501,
+      "root_distance_p95_m": 5.355938628781587e-05,
+      "root_distance_max_m": 0.00042952451622113585
+    },
+    {
+      "frame": 7,
+      "sampled_roots": 1501,
+      "root_distance_p95_m": 5.5415628594346344e-05,
+      "root_distance_max_m": 0.00032574249780736864
+    },
+    {
+      "frame": 10,
+      "sampled_roots": 1501,
+      "root_distance_p95_m": 5.625217090710066e-05,
+      "root_distance_max_m": 0.00024386814038734883
+    },
+    {
+      "frame": 20,
+      "sampled_roots": 1501,
+      "root_distance_p95_m": 4.682278085965663e-05,
+      "root_distance_max_m": 0.00024323828984051943
+    },
+    {
+      "frame": 27,
+      "sampled_roots": 1501,
+      "root_distance_p95_m": 4.823786730412394e-05,
+      "root_distance_max_m": 0.000239740198594518
+    },
+    {
+      "frame": 35,
+      "sampled_roots": 1501,
+      "root_distance_p95_m": 5.1612274546641856e-05,
+      "root_distance_max_m": 0.00027144738123752177
+    },
+    {
+      "frame": 44,
+      "sampled_roots": 1501,
+      "root_distance_p95_m": 5.104049341753125e-05,
+      "root_distance_max_m": 0.000368058419553563
+    },
+    {
+      "frame": 48,
+      "sampled_roots": 1501,
+      "root_distance_p95_m": 5.3222160204313695e-05,
+      "root_distance_max_m": 0.0004255544627085328
+    },
+    {
+      "frame": 49,
+      "sampled_roots": 1501,
+      "root_distance_p95_m": 5.355938628781587e-05,
+      "root_distance_max_m": 0.00042952451622113585
+    }
+  ],
+  "body_groom_loop_max_delta_m": 0.0
+}

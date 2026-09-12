@@ -1,0 +1,38 @@
+{
+  "scope": "Local surface neighbor deviation, not bone exposure detection or anatomical validation.",
+  "poses": [
+    {
+      "frame": 10,
+      "joint_neighbor_deviation_p95_before_m": 0.0015625582990186455,
+      "joint_neighbor_deviation_p95_after_m": 0.00018286533257571422,
+      "max_surface_correction_m": 0.020744452101355518,
+      "unpainted_surface_max_change_m": 0.0
+    },
+    {
+      "frame": 27,
+      "joint_neighbor_deviation_p95_before_m": 0.001379720469822046,
+      "joint_neighbor_deviation_p95_after_m": 9.386256733989348e-05,
+      "max_surface_correction_m": 0.009936413796270369,
+      "unpainted_surface_max_change_m": 0.0
+    },
+    {
+      "frame": 35,
+      "joint_neighbor_deviation_p95_before_m": 0.0014413887739340642,
+      "joint_neighbor_deviation_p95_after_m": 0.00011485074355941804,
+      "max_surface_correction_m": 0.013136818617974085,
+      "unpainted_surface_max_change_m": 0.0
+    },
+    {
+      "frame": 44,
+      "joint_neighbor_deviation_p95_before_m": 0.0014531123312908113,
+      "joint_neighbor_deviation_p95_after_m": 9.271941066422211e-05,
+      "max_surface_correction_m": 0.01042037457584332,
+      "unpainted_surface_max_change_m": 0.0
+    }
+  ],
+  "neck_control_rotation_range_rad": {
+    "neck_base": 0.20037049800157547,
+    "neck_tip": 0.3000584840774536
+  },
+  "normalized_weight_error": 4.470348358154297e-08
+}
