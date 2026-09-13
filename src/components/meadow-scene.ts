@@ -27,8 +27,8 @@ export function createMeadow(host: HTMLDivElement) {
   host.dataset.renderer = "three";
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 120);
-  camera.position.set(0, 12, 13);
-  camera.lookAt(0, 0, 0);
+  camera.position.set(0, 6.5, 13);
+  camera.lookAt(0, 0.25, 0);
   // Lower the fill so wood, grass and equipment retain their colour and depth.
   scene.add(new THREE.HemisphereLight(0xfffcf4, 0x819073, 1.05));
   const sun = new THREE.DirectionalLight(0xfff6e6, 2.2);
@@ -162,9 +162,10 @@ export function createMeadow(host: HTMLDivElement) {
     renderer.setSize(w, h);
     const captionHeight = caption?.offsetHeight ?? 0;
     const playHeight = Math.max(140, h - captionHeight - 24);
-    camera.position.set(0, mobile ? 16 : 11, 13);
-    camera.lookAt(0, 0, 0);
-    const half = Math.max((4.85 * h) / playHeight, (9.7 * h) / w);
+    // A low front view exposes the equipment faces while retaining the lawn top.
+    camera.position.set(0, mobile ? 7.2 : 6.5, 13);
+    camera.lookAt(0, 0.25, 0);
+    const half = Math.max((3.8 * h) / playHeight, (9.7 * h) / w);
     camera.left = (-half * w) / h;
     camera.right = (half * w) / h;
     camera.top = half;
