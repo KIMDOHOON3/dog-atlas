@@ -22,13 +22,13 @@ export function addMiniatureYard(
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 512;
     const ctx = canvas.getContext("2d")!;
-    ctx.fillStyle = wood ? "#a87647" : "#879c70";
+    ctx.fillStyle = wood ? "#a87647" : "#518744";
     ctx.fillRect(0, 0, 512, 512);
     for (let i = 0; i < (wood ? 10000 : 12000); i++) {
       const shade = Math.floor(random() * 20);
       ctx.fillStyle = wood
         ? `rgba(65,35,15,${random() * 0.055})`
-        : `rgba(${113 + shade},${133 + shade},${91 + shade},.06)`;
+        : `rgba(${62 + shade},${116 + shade},${48 + shade},.09)`;
       ctx.fillRect(
         random() * 512,
         random() * 512,
@@ -113,7 +113,7 @@ export function addMiniatureYard(
     fibre.updateMatrix();
     fibres.setMatrixAt(i, fibre.matrix);
     const variation = random();
-    color.set(0x8b9e77).multiplyScalar(0.97 + variation * 0.06);
+    color.set(0x60944d).multiplyScalar(0.94 + variation * 0.12);
     fibres.setColorAt(i, color);
   }
   fibres.receiveShadow = true;

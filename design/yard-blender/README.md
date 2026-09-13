@@ -18,6 +18,7 @@ The oval lawn has a deeper rounded ivory foundation and three pieces of dog-agil
 - A reset button returns all items to their initial positions. Touch outside an item retains normal page scrolling.
 - Full oval framing, footer text clearance, offscreen/hidden-tab pauses, reduced motion, lazy loading and disposal are retained. The web drawing buffer now follows device pixel ratio up to 2, capped at 1.4 million pixels on mobile and 3 million on desktop; the former 650,000-pixel limit undersampled wide desktop views.
 - Web exposure is 0.95 with hemisphere fill 1.05 and directional light 2.2, retaining colour and shaded volume instead of the previous washed-out fill. This is a runtime lighting adjustment; the Blender geometry/source render is unchanged.
+- The web lawn texture uses green `#518744` with matching green grain and `#60944d` fibres. This replaces the desaturated olive palette; runtime material overrides apply to the loaded Blender lawn and the loading fallback alike.
 - Static load failure retains the fallback bench, lawn and playable ball; additional toy controls become available once their Blender models load.
 - Playground-directory navigation has no specified destination yet; this change adds the scene and interaction only.
 
