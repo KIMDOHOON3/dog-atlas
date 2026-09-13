@@ -53,25 +53,11 @@ export function addMiniatureYard(
       color: 0xffffff,
     }),
   );
-  const rim = keep(
-    new THREE.MeshStandardMaterial({ color: 0xb5bba0, roughness: 1 }),
+  const topGeometry = keep(
+    new THREE.PlaneGeometry(YARD.halfWidth * 2, YARD.halfDepth * 2),
   );
-  const profile = [
-    new THREE.Vector2(0.998, -0.08),
-    new THREE.Vector2(1.007, -0.08),
-    new THREE.Vector2(1.01, -0.05),
-    new THREE.Vector2(1.008, -0.014),
-    new THREE.Vector2(1.003, -0.008),
-    new THREE.Vector2(0.998, -0.015),
-  ];
-  const baseGeometry = keep(new THREE.LatheGeometry(profile, 160));
-  const base = new THREE.Mesh(baseGeometry, rim);
-  base.scale.set(YARD.radiusX, 1, YARD.radiusZ);
-  scene.add(base);
-  const topGeometry = keep(new THREE.CylinderGeometry(1, 1, 0.045, 128));
   const top = new THREE.Mesh(topGeometry, turf);
-  top.scale.set(YARD.radiusX, 1, YARD.radiusZ);
-  top.position.y = -0.0225;
+  top.rotation.x = -Math.PI / 2;
   top.receiveShadow = true;
   scene.add(top);
   // Short tapered fibres give the lawn a real silhouette and grazing-light texture.
@@ -94,10 +80,8 @@ export function addMiniatureYard(
   const fibre = new THREE.Object3D(),
     color = new THREE.Color();
   for (let i = 0; i < bladeCount; i++) {
-    const angle = random() * Math.PI * 2,
-      r = Math.sqrt(random()) * 0.996;
-    const x = Math.cos(angle) * r * YARD.radiusX,
-      z = Math.sin(angle) * r * YARD.radiusZ;
+    const x = (random() * 2 - 1) * 20,
+      z = (random() * 2 - 1) * 20;
     fibre.position.set(x, 0, z);
     fibre.rotation.y = random() * Math.PI * 2;
     const underObject = YARD_OBSTACLES.some(
@@ -135,11 +119,6 @@ export function addMiniatureYard(
     }),
   );
   const shadowGeo = keep(new THREE.PlaneGeometry(1, 1));
-  const shadow = new THREE.Mesh(shadowGeo, shadowMat);
-  shadow.rotation.x = -Math.PI / 2;
-  shadow.scale.set(20, 14, 1);
-  shadow.position.set(0.1, -0.095, 0.1);
-  scene.add(shadow);
   const wood = keep(
     new THREE.MeshStandardMaterial({
       map: texture(true),
@@ -198,7 +177,7 @@ export function addMiniatureYard(
     });
   };
   new GLTFLoader().load(
-    "/models/yard-furniture.glb?v=open-lawn-2",
+    "/models/yard-furniture.glb?v=full-lawn-3",
     (gltf) => {
       if (disposed) {
         releaseModel(gltf.scene);
@@ -210,15 +189,14 @@ export function addMiniatureYard(
         if (!(object instanceof THREE.Mesh)) return;
         const lawn =
           object.name === "Lawn_surface" || object.name === "Lawn surface";
-        const edge = object.name === "Lawn_edge" || object.name === "Lawn edge";
-        object.castShadow = !lawn && !edge;
+        object.castShadow = !lawn;
         object.receiveShadow = true;
-        if (lawn || edge) {
+        if (lawn) {
           const original = Array.isArray(object.material)
             ? object.material
             : [object.material];
           original.forEach((material) => material.dispose());
-          object.material = (lawn ? turf : rim).clone();
+          object.material = turf.clone();
         }
         if (
           object.material instanceof THREE.MeshStandardMaterial &&
@@ -232,7 +210,6 @@ export function addMiniatureYard(
         }
       });
       bench.visible = false;
-      base.visible = false;
       top.visible = false;
       scene.add(furniture);
       onReady();

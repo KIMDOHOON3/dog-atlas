@@ -706,3 +706,7 @@ The user decided not to add a dog. End the puppy appearance work and retain the 
 ## 2026-09-13 — A broader, quieter Blender playground
 
 The user found the yard small and visually untidy and approved a visible Blender revision. Expand lawn area by 63.14%, replace the raised cream pedestal with a thin edge, soften turf variation and light, remove paw stamps, and group furniture/pet objects at the rear left. Keep the center open for the throwable ball. Export Blender terrain with furniture as one lazy GLB, keep lightweight loading fallbacks, and share revised bounds with physics. Preserve butterflies, reduced motion and rendering budgets. No animal model is added.
+
+## 2026-09-13 — Fill the footer with lawn and use perspective
+
+The user approved the quieter lawn and requested more three-dimensional framing, no ball trajectory and a scene filling the screen instead of a circle. Replace the oval/rim with continuous Blender terrain cropped to the footer canvas and use a lower diagonal perspective camera. Remove all trajectory drawing/computation. Keep throws catchable by clipping ball movement against inset camera boundaries at its current height and synchronize poses after resize. Retain pet furniture, butterflies, semantic copy, reduced motion and render budgets.

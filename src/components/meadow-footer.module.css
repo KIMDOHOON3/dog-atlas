@@ -26,9 +26,11 @@
 }
 .field {
   position: relative;
-  width: min(100%, 1520px);
+  width: 100%;
   height: clamp(420px, 47vw, 650px);
-  margin: 20px auto 0;
+  margin: 32px auto 0;
+  overflow: hidden;
+  background: #a4b786;
   touch-action: pan-y;
 }
 .field canvas {
@@ -87,7 +89,7 @@
   width: 100%;
   text-align: center;
   font-size: 10px;
-  color: #99836e;
+  color: #46523a;
   pointer-events: none;
   z-index: 1;
 }
@@ -106,7 +108,7 @@
   padding: 8px;
   border: 0;
   background: transparent;
-  color: #716356;
+  color: #46523a;
   font-size: 11px;
   cursor: pointer;
   z-index: 2;
@@ -130,7 +132,7 @@
   }
   .field {
     margin-top: 12px;
-    height: clamp(280px, 78vw, 420px);
+    height: clamp(340px, 95vw, 460px);
   }
   .bottom {
     flex-direction: column;

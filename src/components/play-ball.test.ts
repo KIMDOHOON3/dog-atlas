@@ -61,7 +61,10 @@ describe("playground ball", () => {
       if (falling && p.body.velocity.y > 0.5) bounced = true;
       expect(Math.abs(p.body.position.x)).toBeLessThanOrEqual(2);
       expect(
-        Math.hypot(p.body.position.x / 2, p.body.position.z / YARD.ballZ),
+        Math.max(
+          Math.abs(p.body.position.x / 2),
+          Math.abs(p.body.position.z / YARD.ballZ),
+        ),
       ).toBeLessThanOrEqual(1.000001);
     }
     expect(bounced).toBe(true);
@@ -84,9 +87,9 @@ describe("playground ball", () => {
     for (let i = 0; i < 120; i++) {
       p.step(1 / 60);
       expect(
-        Math.hypot(
-          p.body.position.x / YARD.ballX,
-          p.body.position.z / YARD.ballZ,
+        Math.max(
+          Math.abs(p.body.position.x / YARD.ballX),
+          Math.abs(p.body.position.z / YARD.ballZ),
         ),
       ).toBeLessThanOrEqual(1.000001);
     }
@@ -103,5 +106,39 @@ describe("playground ball", () => {
       expect(p.body.position.z).toBeGreaterThan(station.z + station.depth / 2);
     }
     expect(rebounded).toBe(true);
+  });
+});
+
+// A tilted camera has sloping screen edges, including at airborne heights.
+describe("camera-cropped playground", () => {
+  it("keeps held, thrown and interpolated poses within the visible crop", () => {
+    const p = createPlayBall();
+    const bounds = [
+      { x: 1, y: 0, z: -0.25, constant: 3 },
+      { x: -1, y: 0, z: 0.25, constant: 3 },
+      { x: 0, y: -1, z: 1, constant: 5 },
+      { x: 0, y: 0, z: -1, constant: 4 },
+    ];
+    p.setViewBounds(bounds);
+    p.hold(100, -100, 2);
+    p.launch(8, -8, 5.5);
+    for (let i = 0; i < 300; i++) {
+      p.step(1 / 120);
+      for (const pos of [p.body.position, p.body.interpolatedPosition]) {
+        for (const b of bounds) {
+          expect(
+            b.x * pos.x + b.y * pos.y + b.z * pos.z + b.constant,
+          ).toBeGreaterThanOrEqual(-0.0001);
+        }
+      }
+    }
+  });
+  it("repositions a sleeping ball immediately when the viewport narrows", () => {
+    const p = createPlayBall();
+    p.hold(6, 0);
+    p.cancel();
+    p.setViewBounds([{ x: -1, y: 0, z: 0, constant: 2 }]);
+    expect(p.body.position.x).toBe(2);
+    expect(p.body.interpolatedPosition.x).toBe(2);
   });
 });

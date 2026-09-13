@@ -1,17 +1,18 @@
-# Open playground — Blender source
+# Full-width playground — Blender source
 
-The editable `playground.blend` contains a broad lawn with a thin softened edge, a slatted wood bench with metal supports/bolts, braided cotton tug, ceramic feeding bowls and kibble, water, a rolled-rim flying disc and a rounded chew toy. Objects share one rear corner, leaving the center open. No downloaded models or textures.
+`playground.blend` contains the existing slatted bench, feeding bowls, braided tug, disc and chew toy on continuous rectangular turf. The oval outline and rim are removed. A lower diagonal perspective camera makes the bench side, legs and object depth visible; the web camera fits desktop and mobile separately. `preview.png` is an actual Cycles render.
 
-Run `create.py` in this dedicated Blender workspace to rebuild it. It clears current scene objects/materials and is not an import tool for unrelated open projects. It exports `public/models/yard-furniture.glb` before adding studio lights and an orthographic camera. `preview.png` is an actual Cycles render. Blender procedural grain is for close inspection; the browser supplies low-contrast turf/wood maps and short grass instances.
+Run `create.py` only in this dedicated Blender workspace: it clears current objects/materials before rebuilding. The exported `public/models/yard-furniture.glb` excludes studio lights and camera. No downloaded models or textures.
 
-## Dimensions and runtime
+## Runtime and interaction
 
-- Lawn radii: 9.2 × 6.1, up 63.14% in area from 8 × 4.3. Edge depth is about 0.08 world units.
-- Export: 1,004,476 bytes, 12 mesh/material groups, 34,476 triangles; no external textures. Reimported with finite vertices verified in `verification.json`.
-- Furniture positions agree with `src/components/yard-layout.ts`, used by ball collisions and trajectory previews. Collisions approximate footprints, not detailed mesh surfaces.
-- Desktop canvas maximum 1,520px × 650px; mobile uses a higher camera angle. Ball retains its 48px interaction target. Reduced-motion and visibility handling are preserved.
-- One lazy GLB; procedural lawn/bench remain on loading failure. Grass uses 22,000 desktop / 10,000 mobile instances, excludes furniture footprints and retains the 650,000-pixel budget. Shadows update on load. Paw stamps were removed.
+- Ground: 80 × 80 world units, cropped to the full width and height of the footer canvas. It extends beyond the camera view rather than showing a floating model edge.
+- GLB: 983,924 bytes, 11 mesh/material groups, 32,104 triangles. Reimport and finite-vertex checks are recorded in `verification.json`.
+- The browser supplies low-contrast grass and wood maps, 22,000/10,000 grass instances, one lazy GLB and loading fallbacks. The existing 650,000-pixel cap, static shadows, visibility pauses and reduced motion remain.
+- Ball trajectory drawing, simulation and resource allocation have been removed. Drag, lift, throw, catch and keyboard activation remain.
+- Camera frustum boundaries are inset to keep the ball/touch target visible. Physics clips/reflections use the current ball height; resize synchronizes both physics and interpolated display poses. Outer rectangular safety bounds stay inside the terrain.
+- Furniture collision boxes retain their shared world coordinates in `src/components/yard-layout.ts`.
 
 ## Verification
 
-Blender export reimport, actual Cycles preview, desktop 1440px and mobile 390/320px visual checks, no horizontal overflow or browser errors, ball dragging and butterfly pause checked. ESLint and TypeScript pass. Full Vitest run: 1,666 passed and one unrelated readiness UI timeout; that file's five tests passed on isolated rerun. All eight ball tests pass, including the relocated feeding station. Production build passes. Viewport checks are not physical iPhone performance measurements.
+Blender reimport and render, desktop1440/mobile390/320px layout, ball drag/release with no trail, viewport clipping and no horizontal overflow/browser errors. ESLint, TypeScript, 54 test files/1,669 tests and production build pass. Ten ball tests include elevated camera bounds and viewport narrowing. These are browser viewport checks, not physical-device performance measurements.

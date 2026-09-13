@@ -114,9 +114,8 @@ for ob in s.objects:
     elif ob.name.startswith('Soft bone chew'):
         ob.location.x-=5.95;ob.location.y+=4.15
 
-# Original thin lawn edge: a low, softened lip instead of a raised tray.
+# A continuous lawn extends beyond the camera crop.
 turf=mat('Lawn surface',(.32,.41,.245),1)
-border=mat('Lawn edge',(.48,.50,.35),.95)
 # Subtle close-view surface grain for the editable Cycles scene.
 for material,scale,strength,distance in [(turf,150,.18,.012),(oak,7,.12,.008)]:
     nodes=material.node_tree.nodes;links=material.node_tree.links
@@ -125,12 +124,7 @@ for material,scale,strength,distance in [(turf,150,.18,.012),(oak,7,.12,.008)]:
     bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=strength;bump.inputs['Distance'].default_value=distance
     links.new(noise.outputs['Fac'],bump.inputs['Height'])
     links.new(bump.outputs['Normal'],next(n for n in nodes if n.type=='BSDF_PRINCIPLED').inputs['Normal'])
-def oval(name,profile,material):
-    ob=lathe(name,profile,(0,0,0),material,160)
-    ob.scale.x=9.2;ob.scale.y=6.1
-    return ob
-oval('Lawn surface',[(0,-.05),(1,-.05),(1,0),(0,0)],turf)
-oval('Lawn edge',[(.998,-.08),(1.007,-.08),(1.010,-.05),(1.008,-.014),(1.003,-.008),(.998,-.015)],border)
+block('Lawn surface',(0,0,-.05),(80,80,.10),turf,.01)
 
 # Merge by material to keep static draw calls low.
 for material in [oak,edge,iron,bolt,cream,rust,sage,ceramic,clay,water]:
@@ -155,8 +149,9 @@ s.world=bpy.data.worlds.new('Soft daylight');s.world.use_nodes=True
 next(n for n in s.world.node_tree.nodes if n.type=='BACKGROUND').inputs[0].default_value=(.82,.86,.91,1)
 next(n for n in s.world.node_tree.nodes if n.type=='BACKGROUND').inputs[1].default_value=.45
 cam=bpy.data.objects.new('Playground camera',bpy.data.cameras.new('Playground camera'));s.collection.objects.link(cam)
-cam.location=(0,-13,12);cam.rotation_euler=(Vector((0,0,0))-cam.location).to_track_quat('-Z','Y').to_euler()
-cam.data.type='ORTHO';cam.data.ortho_scale=20;s.camera=cam
+target=Vector((-.8,1,0));cam.location=target+Vector((-7,-15,9)).normalized()*17
+cam.rotation_euler=(target-cam.location).to_track_quat('-Z','Y').to_euler()
+cam.data.type='PERSP';cam.data.lens=32;s.camera=cam
 s.render.engine='CYCLES';s.cycles.samples=32;s.cycles.use_denoising=True
 s.render.resolution_x=1400;s.render.resolution_y=900;s.render.resolution_percentage=100
 s.render.film_transparent=True;s.view_settings.view_transform='AgX'

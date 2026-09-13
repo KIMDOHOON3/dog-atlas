@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { YARD, hitsYardObject } from "./yard-layout";
 import { addMiniatureYard } from "./miniature-yard";
 import { BALL_RADIUS, createPlayBall, throwVelocity } from "./play-ball";
 import { createTennisBall } from "./tennis-ball";
@@ -25,7 +24,7 @@ export function createMeadow(host: HTMLDivElement) {
   renderer.domElement.setAttribute("aria-hidden", "true");
   host.dataset.renderer = "three";
   const scene = new THREE.Scene();
-  const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 60);
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 120);
   camera.position.set(0, 12, 13);
   camera.lookAt(0, 0, 0);
   const disposeYard = addMiniatureYard(scene, () => {
@@ -69,26 +68,6 @@ export function createMeadow(host: HTMLDivElement) {
   ball.position.copy(physics.body.position);
   physics.body.quaternion.setFromEuler(0.45, 0.2, -0.35);
   scene.add(ball);
-  const pathPositions = new Float32Array(48 * 3);
-  const pathGeometry = new THREE.BufferGeometry();
-  pathGeometry.setAttribute(
-    "position",
-    new THREE.BufferAttribute(pathPositions, 3).setUsage(
-      THREE.DynamicDrawUsage,
-    ),
-  );
-  const pathMaterial = new THREE.PointsMaterial({
-    color: 0x936b43,
-    size: 3,
-    sizeAttenuation: false,
-    transparent: true,
-    opacity: 0.65,
-    depthWrite: false,
-  });
-  const trajectory = new THREE.Points(pathGeometry, pathMaterial);
-  trajectory.visible = false;
-  trajectory.frustumCulled = false;
-  scene.add(trajectory);
   const shadowGeometry = new THREE.CircleGeometry(0.32, 24);
   const shadowMaterial = new THREE.MeshBasicMaterial({
     color: 0x605d42,
@@ -150,7 +129,6 @@ export function createMeadow(host: HTMLDivElement) {
     const ballMoving = physics.body.sleepState !== 2;
     physics.step(dt);
     const fluttering = butterfliesEnabled && butterflies.update(dt);
-    if (held !== null) preview();
     last = now;
     if (dirty || ballMoving || fluttering || held !== null) draw();
     frame = requestAnimationFrame(tick);
@@ -164,7 +142,6 @@ export function createMeadow(host: HTMLDivElement) {
     if ((!visible || document.hidden || reduced.matches) && held !== null) {
       const pointerId = held;
       held = null;
-      trajectory.visible = false;
       physics.cancel();
       ballTarget.dataset.held = "false";
       if (ballTarget.hasPointerCapture(pointerId))
@@ -202,15 +179,34 @@ export function createMeadow(host: HTMLDivElement) {
       ),
     );
     renderer.setSize(w, h);
-    camera.position.set(0, mobile ? 22 : 12, 13);
-    camera.lookAt(0, 0, 0);
-    const half = Math.max(4.85, (9.7 * h) / w);
-    camera.left = (-half * w) / h;
-    camera.right = (half * w) / h;
-    camera.top = half;
-    camera.bottom = -half;
-    physics.setWidth(YARD.ballX);
+    camera.aspect = w / h;
+    const focus = new THREE.Vector3(mobile ? -1.8 : -0.8, 0, -1.0);
+    const tangent = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+    const distance = Math.max(
+      15.5,
+      (mobile ? 6.2 : 10.0) / (tangent * camera.aspect),
+    );
+    camera.position
+      .copy(focus)
+      .addScaledVector(new THREE.Vector3(-7, 9, 15).normalize(), distance);
+    camera.lookAt(focus);
     camera.updateProjectionMatrix();
+    camera.updateMatrixWorld();
+    // Keep the whole ball and its touch target inside this cropped camera view.
+    const safeProjection = camera.projectionMatrix.clone();
+    safeProjection.elements[0] /= 1 - Math.max(0.06, 56 / w);
+    safeProjection.elements[5] /= 1 - Math.max(0.1, 84 / h);
+    const frustum = new THREE.Frustum().setFromProjectionMatrix(
+      safeProjection.multiply(camera.matrixWorldInverse),
+    );
+    physics.setViewBounds(
+      frustum.planes.slice(0, 4).map(({ normal, constant }) => ({
+        x: normal.x,
+        y: normal.y,
+        z: normal.z,
+        constant,
+      })),
+    );
     if (visible) draw();
   };
   const observer = new ResizeObserver(resize);
@@ -232,41 +228,6 @@ export function createMeadow(host: HTMLDivElement) {
   const launchIntent = () => {
     const fresh = performance.now() - lastMove < 160;
     return throwVelocity(fresh ? velocity.x : 0, fresh ? velocity.y : 0, lift);
-  };
-  const preview = () => {
-    if (held === null || !moved) {
-      trajectory.visible = false;
-      return;
-    }
-    const v = launchIntent();
-    let { x, y, z } = physics.body.position;
-    let count = 0;
-    // Short free-flight estimate; stop at turf, edge or bench, before any bounce.
-    for (let i = 0; i < 96 && count < 48; i++) {
-      const dt = 1 / 60,
-        damping = Math.pow(0.52, dt);
-      v.x *= damping;
-      v.z *= damping;
-      v.y = (v.y - 9.82 * dt) * damping;
-      x += v.x * dt;
-      y += v.y * dt;
-      z += v.z * dt;
-      if (
-        y < BALL_RADIUS ||
-        Math.hypot(x / YARD.ballX, z / YARD.ballZ) > 1 ||
-        hitsYardObject(x, y, z, BALL_RADIUS)
-      )
-        break;
-      if (i % 2 === 0) {
-        pathPositions[count * 3] = x;
-        pathPositions[count * 3 + 1] = y;
-        pathPositions[count * 3 + 2] = z;
-        count++;
-      }
-    }
-    pathGeometry.setDrawRange(0, count);
-    pathGeometry.attributes.position.needsUpdate = true;
-    trajectory.visible = count > 1;
   };
   const hitGround = (e: PointerEvent) => {
     const rect = host.getBoundingClientRect();
@@ -316,7 +277,9 @@ export function createMeadow(host: HTMLDivElement) {
     lift = Math.min(
       1.4,
       (Math.max(0, startY - e.clientY) / host.clientHeight) *
-        (camera.top - camera.bottom) *
+        (2 *
+          camera.position.length() *
+          Math.tan(THREE.MathUtils.degToRad(camera.fov / 2))) *
         0.7,
     );
     physics.hold(point.x + offset.x, point.z + offset.y, catchHeight + lift);
@@ -327,7 +290,6 @@ export function createMeadow(host: HTMLDivElement) {
   const release = (e: PointerEvent) => {
     if (e.pointerId !== held) return;
     held = null;
-    trajectory.visible = false;
     dirty = true;
     ballTarget.dataset.held = "false";
     if (e.type !== "pointerup") physics.cancel();
@@ -355,7 +317,7 @@ export function createMeadow(host: HTMLDivElement) {
       ballTarget.dataset.held = "false";
     }
     physics.cancel();
-    trajectory.visible = false;
+    resize();
     host.dataset.interaction = "drag";
     ballTarget.setAttribute("aria-label", "공 던지기");
     ballTarget.title = "공을 잡고 끌어 던져보세요";
@@ -393,12 +355,7 @@ export function createMeadow(host: HTMLDivElement) {
       reduced.removeEventListener("change", sync);
       mobileQuery.removeEventListener("change", changeMode);
       renderer.domElement.removeEventListener("webglcontextlost", lost);
-      for (const resource of [
-        shadowGeometry,
-        shadowMaterial,
-        pathGeometry,
-        pathMaterial,
-      ])
+      for (const resource of [shadowGeometry, shadowMaterial])
         resource.dispose();
       tennis.dispose();
       butterflies.dispose();

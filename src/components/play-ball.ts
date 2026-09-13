@@ -10,6 +10,12 @@ import {
 } from "cannon-es";
 import { YARD, YARD_OBSTACLES } from "./yard-layout";
 export const BALL_RADIUS = 0.32;
+export type ViewBoundary = {
+  x: number;
+  y: number;
+  z: number;
+  constant: number;
+};
 export function throwVelocity(x: number, z: number, lift: number) {
   const speed = Math.hypot(x, z);
   const scale = speed > 8 ? 8 / speed : 1;
@@ -62,30 +68,44 @@ export function createPlayBall() {
   }
   let halfWidth = YARD.ballX;
   const depth = YARD.ballZ;
-  const contain = (bounce: boolean) => {
-    const x = body.position.x,
-      z = body.position.z;
-    const length = Math.hypot(x / halfWidth, z / depth);
-    if (length <= 1) return;
-    body.position.x = x / length;
-    body.position.z = z / length;
-    if (bounce) {
-      const nx = body.position.x / (halfWidth * halfWidth),
-        nz = body.position.z / (depth * depth);
-      const n = Math.hypot(nx, nz),
-        ux = nx / n,
-        uz = nz / n;
-      const outward = body.velocity.x * ux + body.velocity.z * uz;
-      if (outward > 0) {
-        body.velocity.x -= 1.55 * outward * ux;
-        body.velocity.z -= 1.55 * outward * uz;
+  const worldBounds = [
+    { x: 1, y: 0, z: 0, constant: halfWidth },
+    { x: -1, y: 0, z: 0, constant: halfWidth },
+    { x: 0, y: 0, z: 1, constant: depth },
+    { x: 0, y: 0, z: -1, constant: depth },
+  ];
+  let bounds: ViewBoundary[] = worldBounds;
+  const contain = (bounce: boolean, position = body.position) => {
+    // Clip horizontally at the current height; airborne balls remain catchable.
+    for (let pass = 0; pass < 8; pass++) {
+      for (const plane of bounds) {
+        const d =
+          plane.x * position.x +
+          plane.y * position.y +
+          plane.z * position.z +
+          plane.constant;
+        const lengthSquared = plane.x ** 2 + plane.z ** 2;
+        if (d >= 0 || lengthSquared < 1e-8) continue;
+        position.x -= (d * plane.x) / lengthSquared;
+        position.z -= (d * plane.z) / lengthSquared;
+        const outward = body.velocity.x * plane.x + body.velocity.z * plane.z;
+        if (bounce && outward < 0) {
+          body.velocity.x -= (1.55 * outward * plane.x) / lengthSquared;
+          body.velocity.z -= (1.55 * outward * plane.z) / lengthSquared;
+        }
       }
     }
   };
   return {
     body,
+    setViewBounds(viewBounds: ViewBoundary[]) {
+      bounds = [...worldBounds, ...viewBounds];
+      contain(false);
+      syncPose();
+    },
     setWidth(width: number) {
       halfWidth = Math.max(1, width);
+      worldBounds[0].constant = worldBounds[1].constant = halfWidth;
       contain(false);
       syncPose();
     },
@@ -128,14 +148,7 @@ export function createPlayBall() {
       world.step(1 / 60, Math.min(dt, 0.05), 3);
       if (body.type !== Body.DYNAMIC) return;
       contain(true);
-      const edge = Math.hypot(
-        body.interpolatedPosition.x / halfWidth,
-        body.interpolatedPosition.z / depth,
-      );
-      if (edge > 1) {
-        body.interpolatedPosition.x /= edge;
-        body.interpolatedPosition.z /= edge;
-      }
+      contain(false, body.interpolatedPosition);
     },
   };
 }
