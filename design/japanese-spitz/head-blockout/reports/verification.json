@@ -1,0 +1,41 @@
+{
+  "meshes": [
+    {
+      "name": "Head study | Cranium and muzzle",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Head study | Mandible",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Head study | Nose landmark",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Head study | Eye volume -1",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Head study | Eye volume 1",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Head study | Pinna -1",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Head study | Pinna 1",
+      "nonManifoldEdges": 0,
+      "zeroAreaFaces": 0
+    }
+  ],
+  "scope": "Fresh untextured head blockout only; no final likeness or animation claim",
+  "preserved07Sha256": "c5f00abf5b8bbdb61bd3e4ca02ce8a0f071fcbf7ce85a16578194aefa60d10c1"
+}
