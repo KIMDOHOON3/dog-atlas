@@ -68,7 +68,7 @@
 .copyright {
   flex-shrink: 0;
 }
-.field [data-ball] {
+.field [data-play-item] {
   position: absolute;
   width: 48px;
   height: 48px;
@@ -81,14 +81,14 @@
   cursor: grab;
   z-index: 2;
 }
-.field [data-ball][data-held="true"] {
+.field [data-play-item][data-held="true"] {
   cursor: grabbing;
 }
-.field [data-ball]:focus-visible {
+.field [data-play-item]:focus-visible {
   outline: 2px solid #a75d32;
   outline-offset: 3px;
 }
-.field [data-ball]:disabled {
+.field [data-play-item]:disabled {
   pointer-events: none;
 }
 .hint {
@@ -139,4 +139,23 @@
   .hint {
     display: none;
   }
+}
+
+.reset {
+  display: block;
+  margin: -8px auto 8px;
+  padding: 8px 12px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: #806f60;
+  font-size: 11px;
+  cursor: pointer;
+}
+.reset:focus-visible {
+  outline: 2px solid #a75d32;
+  outline-offset: 2px;
+}
+.field:not([data-renderer="three"]) .reset {
+  display: none;
 }

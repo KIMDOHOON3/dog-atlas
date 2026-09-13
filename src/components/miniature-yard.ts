@@ -6,7 +6,7 @@ import { YARD, YARD_OBSTACLES } from "./yard-layout";
 /** Static turf plus locally authored Blender furniture, loaded only with the yard. */
 export function addMiniatureYard(
   scene: THREE.Scene,
-  onReady: () => void = () => {},
+  onReady: (models: Map<string, THREE.Object3D>) => void = () => {},
 ) {
   const resources: Array<{ dispose(): void }> = [];
   const keep = <T extends { dispose(): void }>(resource: T) => {
@@ -54,15 +54,16 @@ export function addMiniatureYard(
     }),
   );
   const rim = keep(
-    new THREE.MeshStandardMaterial({ color: 0xb5bba0, roughness: 1 }),
+    new THREE.MeshStandardMaterial({ color: 0xf1e2c6, roughness: 1 }),
   );
   const profile = [
-    new THREE.Vector2(0.998, -0.08),
-    new THREE.Vector2(1.007, -0.08),
-    new THREE.Vector2(1.01, -0.05),
-    new THREE.Vector2(1.008, -0.014),
-    new THREE.Vector2(1.003, -0.008),
-    new THREE.Vector2(0.998, -0.015),
+    new THREE.Vector2(0, -0.5),
+    new THREE.Vector2(0.97, -0.5),
+    new THREE.Vector2(1.015, -0.43),
+    new THREE.Vector2(1.025, -0.22),
+    new THREE.Vector2(1.02, -0.07),
+    new THREE.Vector2(1.003, -0.01),
+    new THREE.Vector2(0.99, -0.02),
   ];
   const baseGeometry = keep(new THREE.LatheGeometry(profile, 160));
   const base = new THREE.Mesh(baseGeometry, rim);
@@ -138,7 +139,7 @@ export function addMiniatureYard(
   const shadow = new THREE.Mesh(shadowGeo, shadowMat);
   shadow.rotation.x = -Math.PI / 2;
   shadow.scale.set(20, 14, 1);
-  shadow.position.set(0.1, -0.095, 0.1);
+  shadow.position.set(0.1, -0.52, 0.1);
   scene.add(shadow);
   const wood = keep(
     new THREE.MeshStandardMaterial({
@@ -198,7 +199,7 @@ export function addMiniatureYard(
     });
   };
   new GLTFLoader().load(
-    "/models/yard-furniture.glb?v=restored-oval-6",
+    "/models/yard-furniture.glb?v=agility-play-7",
     (gltf) => {
       if (disposed) {
         releaseModel(gltf.scene);
@@ -235,7 +236,12 @@ export function addMiniatureYard(
       base.visible = false;
       top.visible = false;
       scene.add(furniture);
-      onReady();
+      const models = new Map<string, THREE.Object3D>();
+      for (const id of ["bone", "disc", "tug"]) {
+        const model = furniture.getObjectByName(`Throw_${id}`);
+        if (model) models.set(id, model);
+      }
+      onReady(models);
     },
     undefined,
     () => {

@@ -5,6 +5,9 @@ OUT=Path('C:/Users/김도훈/Desktop/강아지')
 # Rebuild the active playground from this source; run in its dedicated Blender file.
 for ob in list(bpy.data.objects):bpy.data.objects.remove(ob,do_unlink=True)
 for material in list(bpy.data.materials):bpy.data.materials.remove(material)
+for blocks in [bpy.data.meshes,bpy.data.curves]:
+    for data in list(blocks):
+        if data.users==0:blocks.remove(data)
 s=bpy.data.scenes.new('Atlas open lawn');bpy.context.window.scene=s
 def mat(name,color,rough=.8,metal=0):
     m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True
@@ -114,9 +117,66 @@ for ob in s.objects:
     elif ob.name.startswith('Soft bone chew'):
         ob.location.x-=5.95;ob.location.y+=4.15
 
-# Original thin lawn edge: a low, softened lip instead of a raised tray.
+# Independent pickup roots preserve complete geometry and local pivots in glTF.
+bpy.context.view_layer.update()
+for key,prefixes,old,target in [
+    ('tug',('Braided cotton tug','Tug fringe'),(-6.1,2.5,.09),(-5.6,-1.5,.09)),
+    ('disc',('Flying disc','Disc grip ring'),(-4.7,1.9,.08),(-2,-3,.08)),
+    ('bone',('Soft bone chew',),(-2.8,2.65,.145),(2,-2.5,.145))]:
+    root=bpy.data.objects.new('Throw_'+key,None);s.collection.objects.link(root);root.location=target
+    bpy.context.view_layer.update()
+    for ob in list(s.objects):
+        if ob.type=='MESH' and ob.name.startswith(prefixes):
+            matrix=ob.matrix_world.copy();matrix.translation+=Vector(target)-Vector(old)
+            ob.parent=root;ob.matrix_world=matrix
+
+# Merge each pickup by material without merging it into static furniture.
+for root in [o for o in s.objects if o.name.startswith('Throw_')]:
+    materials=set(o.data.materials[0] for o in root.children if o.type=='MESH')
+    for material in materials:
+        obs=[o for o in root.children if o.type=='MESH' and o.data.materials[0]==material]
+        if len(obs)<2:continue
+        bpy.ops.object.select_all(action='DESELECT')
+        for o in obs:o.select_set(True)
+        bpy.context.view_layer.objects.active=obs[0];bpy.ops.object.join()
+
+# Muted dog-agility equipment along the rear/right edge.
+blue=mat('Agility blue',(.22,.39,.44),.78)
+yellow=mat('Agility ochre',(.60,.40,.14),.8)
+white=mat('Agility cream',(.84,.78,.65),.9)
+# Open-ended tunnel with a solid shell and evenly spaced reinforcement ribs.
+verts=[];faces=[]
+for j in range(13):
+    for i in range(49):
+        a=math.pi*i/48;verts.append((3+1.1*math.cos(a),2+j*.2,.12+1.5*math.sin(a)))
+for j in range(12):
+    for i in range(48):
+        k=j*49+i;faces.append((k,k+1,k+50,k+49))
+mesh=bpy.data.meshes.new('Open tunnel shell');mesh.from_pydata(verts,[],faces);mesh.update()
+o=bpy.data.objects.new('Agility tunnel',mesh);s.collection.objects.link(o);mesh.materials.append(blue)
+for face in mesh.polygons:face.use_smooth=True
+bpy.context.view_layer.objects.active=o
+mod=o.modifiers.new('Fabric shell','SOLIDIFY');mod.thickness=.055;bpy.ops.object.modifier_apply(modifier=mod.name)
+for j in range(9):
+    tube('Tunnel rib',[(3+1.13*math.cos(math.pi*i/48),2+j*.3,.12+1.53*math.sin(math.pi*i/48)) for i in range(49)],.032,white if j in [0,8] else blue)
+for x in [1.94,4.06]:block('Tunnel foot',(x,3.2,.08),(.30,2.6,.16),blue,.07)
+# A low jump with broad feet and a striped removable rail.
+for x in [-1.7,.7]:
+    block('Jump foot',(x,1.2,.07),(.42,.65,.14),white,.06)
+    block('Jump upright',(x,1.2,.75),(.14,.14,1.4),blue,.05)
+    for h in [.5,.9,1.25]:block('Jump height marker',(x,1.11,h),(.20,.06,.045),white,.012)
+for i in range(6):tube('Jump rail',[(-1.7+i*.4,1.2,.9),(-1.7+(i+1)*.4,1.2,.9)],.07,yellow if i%2 else white)
+# Three small weave poles.
+for i in range(3):
+    x=5.5+i*.3;y=2.6-i*1.1
+    block('Weave foot',(x,y,.055),(.46,.46,.11),blue,.08)
+    tube('Weave pole',[(x,y,.08),(x,y,1.25)],.065,white)
+    tube('Weave sleeve',[(x,y,.65),(x,y,1.0)],.067,yellow)
+
+# Deep rounded ivory foundation under the lawn.
+
 turf=mat('Lawn surface',(.32,.41,.245),1)
-border=mat('Lawn edge',(.48,.50,.35),.95)
+border=mat('Lawn edge',(.78,.69,.52),.95)
 # Subtle close-view surface grain for the editable Cycles scene.
 for material,scale,strength,distance in [(turf,150,.18,.012),(oak,7,.12,.008)]:
     nodes=material.node_tree.nodes;links=material.node_tree.links
@@ -130,18 +190,19 @@ def oval(name,profile,material):
     ob.scale.x=9.2;ob.scale.y=6.1
     return ob
 oval('Lawn surface',[(0,-.05),(1,-.05),(1,0),(0,0)],turf)
-oval('Lawn edge',[(.998,-.08),(1.007,-.08),(1.010,-.05),(1.008,-.014),(1.003,-.008),(.998,-.015)],border)
+oval('Lawn edge',[(0,-.5),(.97,-.5),(1.015,-.43),(1.025,-.22),(1.02,-.07),(1.003,-.01),(.99,-.02)],border)
 
 # Merge by material to keep static draw calls low.
-for material in [oak,edge,iron,bolt,cream,rust,sage,ceramic,clay,water]:
-    obs=[o for o in s.objects if o.type=='MESH' and o.data.materials and o.data.materials[0]==material]
+for material in [oak,edge,iron,bolt,cream,rust,sage,ceramic,clay,water,blue,yellow,white]:
+    obs=[o for o in s.objects if o.type=='MESH' and o.parent is None and o.data.materials and o.data.materials[0]==material]
     if not obs:continue
+    if len(obs)==1:obs[0].name=material.name;continue
     bpy.ops.object.select_all(action='DESELECT')
     for o in obs:o.select_set(True)
     bpy.context.view_layer.objects.active=obs[0];bpy.ops.object.join();bpy.context.object.name=material.name
 bpy.ops.object.select_all(action='DESELECT')
 for ob in s.objects:
-    if ob.type=='MESH':ob.select_set(True)
+    if ob.type=='MESH' or ob.name.startswith('Throw_'):ob.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(OUT/'public/models/yard-furniture.glb'),export_format='GLB',use_selection=True,export_apply=True)
 
 # Studio setup is retained in Blender, excluded from the web asset.

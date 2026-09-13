@@ -1,25 +1,21 @@
 {
-  "meshCount": 12,
-  "triangles": 34476,
+  "meshCount": 17,
+  "triangles": 47264,
   "finiteVertices": true,
-  "materials": [
-    "Aged bronze.001",
-    "Clay cotton.001",
-    "Lawn edge.001",
-    "Lawn surface.001",
-    "Natural cotton.001",
-    "Oak end grain.001",
-    "Sage silicone.001",
-    "Still blue water.001",
-    "Terracotta rubber.001",
-    "Warm graphite.001",
-    "Warm ivory ceramic.001",
-    "Yard oak.001"
-  ],
-  "glbBytes": 1004476,
+  "glbBytes": 1358240,
   "lawnRadii": [
     9.2,
     6.1
   ],
-  "areaIncreasePercent": 63.14
+  "baseDepth": 0.5,
+  "pickups": [
+    "Throw_tug",
+    "Throw_disc",
+    "Throw_bone"
+  ],
+  "equipment": [
+    "tunnel",
+    "hurdle",
+    "weave poles"
+  ]
 }

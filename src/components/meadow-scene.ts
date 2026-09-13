@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { addMiniatureYard } from "./miniature-yard";
-import { BALL_RADIUS, createPlayBall, throwVelocity } from "./play-ball";
+import { createPlayBall, createPlaygroundWorld } from "./play-ball";
+import { createYardItem } from "./yard-item-interaction";
+import { YARD_TOYS } from "./yard-layout";
 import { createTennisBall } from "./tennis-ball";
 import { addYardButterflies } from "./yard-butterflies";
 
@@ -27,11 +29,6 @@ export function createMeadow(host: HTMLDivElement) {
   const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 120);
   camera.position.set(0, 12, 13);
   camera.lookAt(0, 0, 0);
-  const disposeYard = addMiniatureYard(scene, () => {
-    renderer.shadowMap.needsUpdate = true;
-    host.dataset.furniture = "blender";
-    if (visible && !document.hidden) draw();
-  });
   scene.add(new THREE.HemisphereLight(0xfffcf4, 0xb6b9a2, 2.0));
   const sun = new THREE.DirectionalLight(0xfff6e6, 2.0);
   sun.position.set(-4, 8, 6);
@@ -47,23 +44,35 @@ export function createMeadow(host: HTMLDivElement) {
   scene.add(sun);
   const butterflies = addYardButterflies(scene, mobile);
   const tennis = createTennisBall();
-  const ball = tennis.ball;
-  const physics = createPlayBall();
-  ball.position.copy(physics.body.position);
-  physics.body.quaternion.setFromEuler(0.45, 0.2, -0.35);
-  scene.add(ball);
-  const shadowGeometry = new THREE.CircleGeometry(0.32, 24);
-  const shadowMaterial = new THREE.MeshBasicMaterial({
-    color: 0x605d42,
-    transparent: true,
-    opacity: 0.16,
-    depthWrite: false,
-  });
-  const shadow = new THREE.Mesh(shadowGeometry, shadowMaterial);
-  shadow.rotation.x = -Math.PI / 2;
-  shadow.position.set(ball.position.x + 0.05, 0.008, 1.2);
-  shadow.scale.y = 0.8;
-  scene.add(shadow);
+  const environment = createPlaygroundWorld();
+  const items = [
+    createYardItem(
+      host,
+      scene,
+      camera,
+      createPlayBall({ x: 5.3, z: 0.9 }, environment),
+      "ball",
+      "공",
+      reduced,
+      () => {
+        dirty = true;
+      },
+    ),
+    ...YARD_TOYS.map((toy) =>
+      createYardItem(
+        host,
+        scene,
+        camera,
+        createPlayBall({ kind: toy.id, x: toy.x, z: toy.z }, environment),
+        toy.id,
+        toy.label,
+        reduced,
+        () => {
+          dirty = true;
+        },
+      ),
+    ),
+  ];
   let visible = false,
     disposed = false,
     frame = 0,
@@ -73,27 +82,21 @@ export function createMeadow(host: HTMLDivElement) {
     height = host.clientHeight,
     dirty = true;
 
-  const ballTarget = document.createElement("button");
-  ballTarget.type = "button";
-  ballTarget.setAttribute("aria-label", "공 던지기");
-  ballTarget.title = "천천히 밀면 굴러가고, 위로 쓸면 높이 날아가요";
-  ballTarget.dataset.ball = "true";
-  ballTarget.style.left = "0";
-  ballTarget.style.top = "0";
-  host.appendChild(ballTarget);
-  const projected = new THREE.Vector3();
+  items[0].setModel(tennis.ball);
   const draw = () => {
-    ball.position.copy(physics.body.interpolatedPosition);
-    ball.quaternion.copy(physics.body.interpolatedQuaternion);
-    shadow.position.set(ball.position.x + 0.06, 0.008, ball.position.z);
-    shadowMaterial.opacity = 0.2 / (1 + ball.position.y);
-    shadow.scale.setScalar(1 + ball.position.y * 0.3);
-    projected.copy(ball.position).project(camera);
-    ballTarget.style.transform = `translate3d(${(projected.x + 1) * 0.5 * width}px, ${(1 - projected.y) * 0.5 * height}px, 0) translate(-50%, -50%)`;
-    ballTarget.disabled = reduced.matches;
+    for (const item of items) item.draw(width, height);
     renderer.render(scene, camera);
     dirty = false;
   };
+  const disposeYard = addMiniatureYard(scene, (models) => {
+    YARD_TOYS.forEach((toy, i) => {
+      const model = models.get(toy.id);
+      if (model) items[i + 1].setModel(model);
+    });
+    renderer.shadowMap.needsUpdate = true;
+    host.dataset.furniture = "blender";
+    if (visible && !document.hidden) draw();
+  });
   const tick = (now: number) => {
     frame = 0;
     if (disposed || !visible || document.hidden) return;
@@ -107,29 +110,27 @@ export function createMeadow(host: HTMLDivElement) {
       return;
     }
     const interval =
-      1000 / (physics.body.sleepState !== 2 || held !== null ? 60 : 30);
+      1000 /
+      (items.some((item) => item.physics.body.sleepState !== 2 || item.held)
+        ? 60
+        : 30);
     nextRender = now + interval - (Math.max(0, now - nextRender) % interval);
     const dt = Math.min((now - last) / 1000, 0.05);
-    const ballMoving = physics.body.sleepState !== 2;
-    physics.step(dt);
+    const ballMoving = items.some((item) => item.physics.body.sleepState !== 2);
+    environment.world.step(1 / 60, dt, 3);
+    for (const item of items) item.physics.step(dt, false);
     const fluttering = butterflies.update(dt);
     last = now;
-    if (dirty || ballMoving || fluttering || held !== null) draw();
+    if (dirty || ballMoving || fluttering || items.some((item) => item.held))
+      draw();
     frame = requestAnimationFrame(tick);
   };
   const sync = () => {
     cancelAnimationFrame(frame);
     frame = 0;
-    ballTarget.disabled = reduced.matches;
     if (reduced.matches) butterflies.rest();
-    if ((!visible || document.hidden || reduced.matches) && held !== null) {
-      const pointerId = held;
-      held = null;
-      physics.cancel();
-      ballTarget.dataset.held = "false";
-      if (ballTarget.hasPointerCapture(pointerId))
-        ballTarget.releasePointerCapture(pointerId);
-    }
+    if (!visible || document.hidden || reduced.matches)
+      for (const item of items) item.cancel();
     host.dataset.motion =
       visible && !document.hidden && !reduced.matches ? "running" : "paused";
     if (visible && !document.hidden) {
@@ -157,7 +158,7 @@ export function createMeadow(host: HTMLDivElement) {
     renderer.setSize(w, h);
     const captionHeight = caption?.offsetHeight ?? 0;
     const playHeight = Math.max(140, h - captionHeight - 24);
-    camera.position.set(0, mobile ? 22 : 12, 13);
+    camera.position.set(0, mobile ? 16 : 11, 13);
     camera.lookAt(0, 0, 0);
     const half = Math.max((4.85 * h) / playHeight, (9.7 * h) / w);
     camera.left = (-half * w) / h;
@@ -183,137 +184,34 @@ export function createMeadow(host: HTMLDivElement) {
     const frustum = new THREE.Frustum().setFromProjectionMatrix(
       safeProjection.multiply(camera.matrixWorldInverse),
     );
-    physics.setViewBounds(
-      frustum.planes.slice(0, 4).map(({ normal, constant }) => ({
-        x: normal.x,
-        y: normal.y,
-        z: normal.z,
-        constant,
-      })),
-    );
+    const bounds = frustum.planes.slice(0, 4).map(({ normal, constant }) => ({
+      x: normal.x,
+      y: normal.y,
+      z: normal.z,
+      constant,
+    }));
+    for (const item of items) item.physics.setViewBounds(bounds);
     if (visible) draw();
   };
   const observer = new ResizeObserver(resize);
   observer.observe(host);
   if (caption) observer.observe(caption);
   resize();
-  const ray = new THREE.Raycaster(),
-    point = new THREE.Vector3();
-  const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
-  let held: number | null = null;
-  const lastPoint = new THREE.Vector2(),
-    offset = new THREE.Vector2(),
-    pointer = new THREE.Vector2(),
-    velocity = new THREE.Vector2();
-  let lastMove = 0,
-    moved = false,
-    startY = 0,
-    catchHeight = BALL_RADIUS,
-    lift = 0;
-  const launchIntent = () => {
-    const fresh = performance.now() - lastMove < 160;
-    return throwVelocity(fresh ? velocity.x : 0, fresh ? velocity.y : 0, lift);
-  };
-  const hitGround = (e: PointerEvent) => {
-    const rect = host.getBoundingClientRect();
-    ray.setFromCamera(
-      pointer.set(
-        ((e.clientX - rect.left) / rect.width) * 2 - 1,
-        1 - ((e.clientY - rect.top) / rect.height) * 2,
-      ),
-      camera,
-    );
-    return ray.ray.intersectPlane(plane, point);
-  };
-  const down = (e: PointerEvent) => {
-    if (reduced.matches || held !== null || e.button !== 0) return;
-    held = e.pointerId;
-    moved = false;
-    velocity.set(0, 0);
-    startY = e.clientY;
-    lift = 0;
-    catchHeight = physics.body.position.y;
-    plane.constant = -catchHeight;
-    ballTarget.setPointerCapture(e.pointerId);
-    if (hitGround(e)) {
-      lastPoint.set(point.x, point.z);
-      offset.set(
-        physics.body.position.x - point.x,
-        physics.body.position.z - point.z,
-      );
-      physics.hold(
-        physics.body.position.x,
-        physics.body.position.z,
-        catchHeight,
-      );
-    }
-    lastMove = performance.now();
-    ballTarget.dataset.held = "true";
-    dirty = true;
-  };
-  const drag = (e: PointerEvent) => {
-    if (e.pointerId !== held || !hitGround(e)) return;
-    const now = performance.now(),
-      dt = Math.max(0.016, (now - lastMove) / 1000);
-    const smoothing = 1 - Math.exp(-dt / 0.045);
-    velocity.x += ((point.x - lastPoint.x) / dt - velocity.x) * smoothing;
-    velocity.y += ((point.z - lastPoint.y) / dt - velocity.y) * smoothing;
-    moved ||= Math.hypot(point.x - lastPoint.x, point.z - lastPoint.y) > 0.025;
-    lift = Math.min(
-      1.4,
-      (Math.max(0, startY - e.clientY) / host.clientHeight) *
-        (camera.top - camera.bottom) *
-        0.7,
-    );
-    physics.hold(point.x + offset.x, point.z + offset.y, catchHeight + lift);
-    lastPoint.set(point.x, point.z);
-    lastMove = now;
-    dirty = true;
-  };
-  const release = (e: PointerEvent) => {
-    if (e.pointerId !== held) return;
-    held = null;
-    dirty = true;
-    ballTarget.dataset.held = "false";
-    if (e.type !== "pointerup") physics.cancel();
-    else if (!moved) physics.launch(1, -2.5);
-    else {
-      const v = launchIntent();
-      physics.launch(v.x, v.z, v.y);
-    }
-    if (ballTarget.hasPointerCapture(e.pointerId))
-      ballTarget.releasePointerCapture(e.pointerId);
-  };
-  const keyboard = (e: MouseEvent) => {
-    if (reduced.matches) return;
-    if (e.detail === 0) physics.launch(1, -2.5);
-  };
-
   const changeMode = () => {
     mobile = mobileQuery.matches;
     butterflies.resize(mobile);
-    if (held !== null) {
-      const id = held;
-      held = null;
-      if (ballTarget.hasPointerCapture(id))
-        ballTarget.releasePointerCapture(id);
-      ballTarget.dataset.held = "false";
-    }
-    physics.cancel();
+    for (const item of items) item.cancel();
     resize();
     host.dataset.interaction = "drag";
-    ballTarget.setAttribute("aria-label", "공 던지기");
-    ballTarget.title = "공을 잡고 끌어 던져보세요";
     sync();
   };
   changeMode();
   mobileQuery.addEventListener("change", changeMode);
-  ballTarget.addEventListener("pointerdown", down);
-  ballTarget.addEventListener("pointermove", drag);
-  ballTarget.addEventListener("pointerup", release);
-  ballTarget.addEventListener("pointercancel", release);
-  ballTarget.addEventListener("lostpointercapture", release);
-  ballTarget.addEventListener("click", keyboard);
+  const reset = () => {
+    for (const item of items) item.reset();
+    if (visible) draw();
+  };
+  host.addEventListener("yard-reset", reset);
   const lost = (event: Event) => {
     event.preventDefault();
     visible = false;
@@ -338,11 +236,10 @@ export function createMeadow(host: HTMLDivElement) {
       reduced.removeEventListener("change", sync);
       mobileQuery.removeEventListener("change", changeMode);
       renderer.domElement.removeEventListener("webglcontextlost", lost);
-      for (const resource of [shadowGeometry, shadowMaterial])
-        resource.dispose();
+      host.removeEventListener("yard-reset", reset);
+      for (const item of items) item.dispose();
       tennis.dispose();
       butterflies.dispose();
-      ballTarget.remove();
       disposeYard();
       renderer.dispose();
       renderer.forceContextLoss();

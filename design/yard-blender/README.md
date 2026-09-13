@@ -1,19 +1,25 @@
-# Restored oval playground — Blender source
+# Interactive dog playground — Blender source
 
-The user preferred the earlier oval lawn to the rectangular diorama. `playground.blend`, `create.py`, `preview.png`, the GLB and geometry verification are restored from a6556e5. The bench, feeding bowls, braided tug, disc and chew toy retain their earlier arrangement. Blender is open on the restored file.
+The oval lawn has a deeper rounded ivory foundation and three pieces of dog-agility equipment: an open-ended tunnel, a low striped hurdle and three weave poles. The bench and feeding station remain at the back, with a clear central play area.
 
-Run `create.py` only in this dedicated workspace: it clears scene objects and materials before rebuilding. No downloaded models or textures.
+`playground.blend` is the editable source; `create.py` rebuilds this dedicated workspace, clearing existing objects/materials. `preview.png` is a Cycles render. No downloaded models or textures are used.
 
-## Runtime
+## Asset and layout
 
-- Lawn radii: 9.2 × 6.1, with a low thin rim. GLB: 1,004,476 bytes, 12 mesh groups, 34,476 triangles.
-- Original orthographic viewing angles restored for desktop/mobile; framing reserves the current footer caption height.
-- Low-contrast grass texture and 22,000/10,000 short grass instances restored.
-- Ball stays within an inset ellipse as well as the visible camera bounds. Diagonal throws are covered by the updated boundary test.
-- Recent ball trajectory removal and butterfly button removal remain. Butterflies continue automatically, with reduced motion and visibility pauses.
-- Footer copyright and breed-variation text remain below the oval within the footer scene container.
-- Lazy loading, fallback furniture, static shadows and the 650,000-pixel cap remain.
+- Lawn radii 9.2 × 6.1; base depth 0.5. GLB 1,358,240 bytes, 17 mesh objects, 47,264 triangles.
+- `Throw_tug`, `Throw_disc`, `Throw_bone` are independent roots with local pivots. Each pickup is consolidated by material without being merged into static furniture.
+- Shared world coordinates and static collision boxes are in `yard-layout.ts`. Toys sit along the near edge with separate 48px touch targets.
+- Static furniture casts cached shadows; moving items use lightweight contact shadows so their starting positions do not leave baked shadows behind.
+
+## Interaction
+
+- Ball, bone, disc and tug share a single Cannon world. Shape proxies are a sphere, compound bone, shallow cylinder and compound rope loop respectively. Collisions are rigid-body approximations; cloth deformation and aerodynamic lift are not simulated.
+- Per-item controls support drag/lift/throw, airborne catches, keyboard activation and pointer cancellation. The disc spins around its face. Each item uses its own resting height and edge inset.
+- A reset button returns all items to their initial positions. Touch outside an item retains normal page scrolling.
+- Full oval framing, footer text clearance, offscreen/hidden-tab pauses, reduced motion, lazy loading, 650,000-pixel cap and disposal are retained.
+- Static load failure retains the fallback bench, lawn and playable ball; additional toy controls become available once their Blender models load.
+- Playground-directory navigation has no specified destination yet; this change adds the scene and interaction only.
 
 ## Verification
 
-Original asset verification is preserved in `verification.json`. Restored visuals checked at desktop1440/mobile320px and default viewport; ball drag/release and no browser errors. ESLint, TypeScript, 54 test files/1,669 tests and production build pass.
+Finite vertices, independent pickup roots and triangle/file counts are in `verification.json`. Blender render inspected. Desktop1440/mobile320px: separate bone/disc/tug drags and releases, reset, readable controls, no horizontal overflow/browser errors. ESLint, TypeScript, 55 test files/1,675 tests and production build pass. Added tests cover toy-specific settling/cancellation, spinning disc, inter-item collision, keyboard/reset/disposal and reduced motion. These are browser viewport checks, not physical-device performance measurements.

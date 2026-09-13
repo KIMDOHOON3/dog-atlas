@@ -49,17 +49,26 @@ export function MeadowFooter() {
         <div
           ref={field}
           className={styles.field}
-          aria-label="벤치, 밥그릇과 물그릇, 원반과 장난감이 놓인 타원형 잔디 운동장"
+          aria-label="터널, 허들, 지그재그 봉과 던질 수 있는 장난감이 놓인 타원형 강아지 운동장"
         >
           <div className={styles.caption} data-yard-caption>
             <span className={styles.hint}>
               <span className={styles.desktopHint}>
-                살살 굴리고, 위로 던지고, 다시 잡아보세요.
+                공·뼈다귀·원반·터그를 잡고 던져보세요.
               </span>
               <span className={styles.mobileHint}>
-                공을 잡고 끌어 던져보세요.
+                공과 장난감을 잡고 던져보세요.
               </span>
             </span>
+            <button
+              type="button"
+              className={styles.reset}
+              onClick={() =>
+                field.current?.dispatchEvent(new Event("yard-reset"))
+              }
+            >
+              장난감 제자리로
+            </button>
             <div className={styles.bottom}>
               <span className={styles.copyright}>
                 © {new Date().getFullYear()} 견종도감.

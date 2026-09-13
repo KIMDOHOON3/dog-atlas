@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { createPlayBall, BALL_RADIUS, throwVelocity } from "./play-ball";
+import {
+  createPlayBall,
+  createPlaygroundWorld,
+  BALL_RADIUS,
+  throwVelocity,
+} from "./play-ball";
 import { YARD, YARD_OBSTACLES } from "./yard-layout";
 describe("playground ball", () => {
   it("interpolates between physics steps and resets the display pose on grab", () => {
@@ -140,5 +145,56 @@ describe("camera-cropped playground", () => {
     p.setViewBounds([{ x: -1, y: 0, z: 0, constant: 2 }]);
     expect(p.body.position.x).toBe(2);
     expect(p.body.interpolatedPosition.x).toBe(2);
+  });
+});
+
+describe("throwable playground toys", () => {
+  it.each(["bone", "disc", "tug"] as const)(
+    "throws, settles and cancels the %s at its own resting height",
+    (kind) => {
+      const p = createPlayBall({ kind, x: 0, z: 3 });
+      p.launch(4, 2, 3);
+      let highest = 0;
+      for (let i = 0; i < 900; i++) {
+        p.step(1 / 60);
+        highest = Math.max(highest, p.body.position.y);
+        expect(Number.isFinite(p.body.position.y)).toBe(true);
+        expect(
+          Math.hypot(
+            p.body.position.x / YARD.ballX,
+            p.body.position.z / YARD.ballZ,
+          ),
+        ).toBeLessThanOrEqual(1.0001);
+      }
+      expect(highest).toBeGreaterThan(0.3);
+      expect(p.body.velocity.length()).toBeLessThan(0.15);
+      p.hold(1, 2, 2);
+      p.cancel();
+      expect(p.body.position.y).toBe(p.restHeight);
+      expect(p.body.interpolatedPosition.y).toBe(p.restHeight);
+      expect(p.body.quaternion.w).toBe(1);
+    },
+  );
+  it("spins the disc around its face and collides with another item in the shared world", () => {
+    const environment = createPlaygroundWorld();
+    const disc = createPlayBall({ kind: "disc", x: 0, z: 3 }, environment);
+    disc.launch(0, 0, 1);
+    expect(disc.body.angularVelocity.y).toBe(12);
+    disc.cancel();
+    const ball = createPlayBall({ x: -2, z: 3 }, environment);
+    ball.launch(5, 0, 0);
+    let collided = false;
+    for (let i = 0; i < 90; i++) {
+      environment.world.step(1 / 60);
+      collided ||= environment.world.contacts.some(
+        (c) =>
+          (c.bi === ball.body && c.bj === disc.body) ||
+          (c.bi === disc.body && c.bj === ball.body),
+      );
+      ball.step(1 / 60, false);
+      disc.step(1 / 60, false);
+    }
+    expect(collided).toBe(true);
+    expect(disc.body.position.x).toBeGreaterThan(0.01);
   });
 });

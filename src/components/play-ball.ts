@@ -2,6 +2,7 @@ import {
   Body,
   Box,
   ContactMaterial,
+  Cylinder,
   Material,
   Plane,
   Sphere,
@@ -25,27 +26,72 @@ export function throwVelocity(x: number, z: number, lift: number) {
     y: Math.min(5.5, Math.max(0, speed - 1.5) * 0.38 + Math.max(0, lift) * 2.8),
   };
 }
-export function createPlayBall() {
+export type PlayItemKind = "ball" | "bone" | "disc" | "tug";
+export function createPlaygroundWorld() {
   const world = new World({ gravity: new Vec3(0, -9.82, 0), allowSleep: true });
-  const turf = new Material("turf"),
-    rubber = new Material("rubber");
-  world.addContactMaterial(
-    new ContactMaterial(turf, rubber, { friction: 0.5, restitution: 0.62 }),
-  );
+  const turf = new Material("ground");
   const floor = new Body({ mass: 0, shape: new Plane(), material: turf });
   floor.quaternion.setFromEuler(-Math.PI / 2, 0, 0);
   world.addBody(floor);
+  for (const object of YARD_OBSTACLES) {
+    const obstacle = new Body({
+      mass: 0,
+      shape: new Box(
+        new Vec3(object.width / 2, object.height / 2, object.depth / 2),
+      ),
+      material: turf,
+    });
+    obstacle.position.set(object.x, object.y ?? object.height / 2, object.z);
+    world.addBody(obstacle);
+  }
+  return { world, turf };
+}
+export function createPlayBall(
+  options: { kind?: PlayItemKind; x?: number; z?: number } = {},
+  environment = createPlaygroundWorld(),
+) {
+  const { world, turf } = environment;
+  const kind = options.kind ?? "ball";
+  const restHeight =
+    kind === "ball"
+      ? BALL_RADIUS
+      : kind === "bone"
+        ? 0.145
+        : kind === "disc"
+          ? 0.08
+          : 0.09;
+  const rubber = new Material(kind);
+  world.addContactMaterial(
+    new ContactMaterial(turf, rubber, {
+      friction: kind === "ball" ? 0.5 : kind === "disc" ? 0.36 : 0.65,
+      restitution: kind === "ball" ? 0.62 : kind === "bone" ? 0.35 : 0.18,
+    }),
+  );
   const body = new Body({
-    mass: 0.35,
-    shape: new Sphere(BALL_RADIUS),
+    mass: kind === "tug" ? 0.55 : kind === "disc" ? 0.18 : 0.35,
     material: rubber,
-    linearDamping: 0.48,
-    angularDamping: 0.55,
+    linearDamping: kind === "disc" ? 0.28 : 0.48,
+    angularDamping: kind === "disc" ? 0.28 : 0.6,
     allowSleep: true,
     sleepSpeedLimit: 0.15,
     sleepTimeLimit: 0.7,
   });
-  body.position.set(0.7, BALL_RADIUS, 1);
+  if (kind === "ball") body.addShape(new Sphere(BALL_RADIUS));
+  else if (kind === "disc") body.addShape(new Cylinder(0.55, 0.55, 0.13, 24));
+  else if (kind === "bone") {
+    body.addShape(new Box(new Vec3(0.45, 0.12, 0.12)));
+    for (const x of [-0.46, 0.46])
+      body.addShape(new Sphere(0.145), new Vec3(x, 0, 0));
+  } else {
+    for (let i = 0; i < 12; i++) {
+      const angle = (i * Math.PI) / 6;
+      body.addShape(
+        new Sphere(0.065),
+        new Vec3(0.4 * Math.cos(angle), 0, 0.22 * Math.sin(angle)),
+      );
+    }
+  }
+  body.position.set(options.x ?? 0.7, restHeight, options.z ?? 1);
   const syncPose = () => {
     body.previousPosition.copy(body.position);
     body.interpolatedPosition.copy(body.position);
@@ -55,19 +101,9 @@ export function createPlayBall() {
   syncPose();
   world.addBody(body);
   body.sleep();
-  for (const object of YARD_OBSTACLES) {
-    const obstacle = new Body({
-      mass: 0,
-      shape: new Box(
-        new Vec3(object.width / 2, object.height / 2, object.depth / 2),
-      ),
-      material: turf,
-    });
-    obstacle.position.set(object.x, object.height / 2, object.z);
-    world.addBody(obstacle);
-  }
-  let halfWidth = YARD.ballX;
-  const depth = YARD.ballZ;
+  const edgePadding = kind === "ball" ? 0 : kind === "bone" ? 0.4 : 0.25;
+  let halfWidth = YARD.ballX - edgePadding;
+  const depth = YARD.ballZ - edgePadding;
   const worldBounds = [
     { x: 1, y: 0, z: 0, constant: halfWidth },
     { x: -1, y: 0, z: 0, constant: halfWidth },
@@ -113,6 +149,8 @@ export function createPlayBall() {
   };
   return {
     body,
+    restHeight,
+    kind,
     setViewBounds(viewBounds: ViewBoundary[]) {
       bounds = [...worldBounds, ...viewBounds];
       contain(false);
@@ -132,7 +170,7 @@ export function createPlayBall() {
       // Keep an airborne catch at its current height, even above the drag limit.
       body.position.set(
         x,
-        Math.max(BALL_RADIUS, Math.min(Math.max(3, body.position.y), y)),
+        Math.max(restHeight, Math.min(Math.max(3, body.position.y), y)),
         z,
       );
       contain(false);
@@ -147,20 +185,27 @@ export function createPlayBall() {
         Math.max(0, Math.min(5.5, y)),
         Math.max(-8, Math.min(8, z)),
       );
-      body.angularVelocity.set(z / BALL_RADIUS, 0.3, -x / BALL_RADIUS);
+      if (kind === "disc") body.angularVelocity.set(0.25, 12, -0.4);
+      else
+        body.angularVelocity.set(
+          z / (kind === "ball" ? BALL_RADIUS : 0.65),
+          0.3,
+          -x / (kind === "ball" ? BALL_RADIUS : 0.65),
+        );
       body.wakeUp();
     },
     cancel() {
       body.type = Body.DYNAMIC;
       body.updateMassProperties();
-      body.position.y = BALL_RADIUS;
+      body.position.y = restHeight;
+      if (kind !== "ball") body.quaternion.set(0, 0, 0, 1);
       body.velocity.setZero();
       body.angularVelocity.setZero();
       body.sleep();
       syncPose();
     },
-    step(dt: number) {
-      world.step(1 / 60, Math.min(dt, 0.05), 3);
+    step(dt: number, advanceWorld = true) {
+      if (advanceWorld) world.step(1 / 60, Math.min(dt, 0.05), 3);
       if (body.type !== Body.DYNAMIC) return;
       contain(true);
       contain(false, body.interpolatedPosition);
