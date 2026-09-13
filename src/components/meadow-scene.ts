@@ -3,6 +3,7 @@ import { addMiniatureYard } from "./miniature-yard";
 import { BALL_RADIUS, createPlayBall, throwVelocity } from "./play-ball";
 import { createTennisBall } from "./tennis-ball";
 import { addYardButterflies } from "./yard-butterflies";
+import { YARD } from "./yard-layout";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobileQuery = matchMedia("(max-width: 767px)");
@@ -156,17 +157,36 @@ export function createMeadow(host: HTMLDivElement) {
     );
     renderer.setSize(w, h);
     camera.aspect = w / h;
-    const focus = new THREE.Vector3(mobile ? -1.8 : -0.8, 0, -1.0);
+    const focus = new THREE.Vector3(YARD.centerX, 0.6, YARD.centerZ);
     const tangent = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-    const distance = Math.max(
-      15.5,
-      (mobile ? 6.2 : 10.0) / (tangent * camera.aspect),
-    );
-    camera.position
-      .copy(focus)
-      .addScaledVector(new THREE.Vector3(-7, 9, 15).normalize(), distance);
+    const direction = new THREE.Vector3(-5, 9, 14).normalize();
+    const right = new THREE.Vector3()
+      .crossVectors(new THREE.Vector3(0, 1, 0), direction)
+      .normalize();
+    const up = new THREE.Vector3().crossVectors(direction, right);
+    const captionHeight = caption?.offsetHeight ?? 0;
+    const verticalRoom = Math.max(0.25, 1 - (captionHeight + 44) / h);
+    let distance = 16;
+    // Fit the complete base and furniture above the caption at every breakpoint.
+    for (const x of [-YARD.halfWidth, YARD.halfWidth]) {
+      for (const z of [-YARD.halfDepth, YARD.halfDepth]) {
+        for (const y of [-1.1, 2]) {
+          const corner = new THREE.Vector3(x, y, z);
+          const depth = corner.dot(direction);
+          distance = Math.max(
+            distance,
+            depth +
+              Math.abs(corner.dot(right)) / (tangent * camera.aspect * 0.9),
+            depth + Math.abs(corner.dot(up)) / (tangent * verticalRoom),
+          );
+        }
+      }
+    }
+    camera.position.copy(focus).addScaledVector(direction, distance);
     camera.lookAt(focus);
     camera.updateProjectionMatrix();
+    camera.projectionMatrix.elements[9] = -captionHeight / h;
+    camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
     camera.updateMatrixWorld();
     // Keep the whole ball and its touch target inside this cropped camera view.
     const safeProjection = camera.projectionMatrix.clone();

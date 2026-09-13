@@ -3,7 +3,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 import { YARD, YARD_OBSTACLES } from "./yard-layout";
 
-/** Transparent shadow floor with locally authored Blender furniture. */
+/** Rounded miniature platform and furniture with shadows on the white page. */
 export function addMiniatureYard(
   scene: THREE.Scene,
   onReady: () => void = () => {},
@@ -43,13 +43,27 @@ export function addMiniatureYard(
       depthWrite: false,
     }),
   );
-  const topGeometry = keep(
-    new THREE.PlaneGeometry(YARD.halfWidth * 2, YARD.halfDepth * 2),
-  );
+  const topGeometry = keep(new THREE.PlaneGeometry(80, 80));
   const top = new THREE.Mesh(topGeometry, floorMaterial);
   top.rotation.x = -Math.PI / 2;
+  top.position.y = -0.48;
   top.receiveShadow = true;
   scene.add(top);
+  const platform = new THREE.Mesh(
+    keep(
+      new RoundedBoxGeometry(
+        YARD.halfWidth * 2,
+        0.44,
+        YARD.halfDepth * 2,
+        4,
+        0.2,
+      ),
+    ),
+    keep(new THREE.MeshStandardMaterial({ color: 0xede4d2, roughness: 0.9 })),
+  );
+  platform.position.set(YARD.centerX, -0.22, YARD.centerZ);
+  platform.castShadow = platform.receiveShadow = true;
+  scene.add(platform);
   const shadowCanvas = document.createElement("canvas");
   shadowCanvas.width = shadowCanvas.height = 128;
   const ctx = shadowCanvas.getContext("2d")!;
@@ -126,7 +140,7 @@ export function addMiniatureYard(
     });
   };
   new GLTFLoader().load(
-    "/models/yard-furniture.glb?v=seamless-floor-4",
+    "/models/yard-furniture.glb?v=diorama-5",
     (gltf) => {
       if (disposed) {
         releaseModel(gltf.scene);
@@ -136,17 +150,8 @@ export function addMiniatureYard(
       furniture.name = "Blender playground furniture";
       furniture.traverse((object) => {
         if (!(object instanceof THREE.Mesh)) return;
-        const floor =
-          object.name === "Floor_surface" || object.name === "Floor surface";
-        object.castShadow = !floor;
+        object.castShadow = true;
         object.receiveShadow = true;
-        if (floor) {
-          const original = Array.isArray(object.material)
-            ? object.material
-            : [object.material];
-          original.forEach((material) => material.dispose());
-          object.material = floorMaterial.clone();
-        }
         if (
           object.material instanceof THREE.MeshStandardMaterial &&
           object.material.name === "Yard oak"
@@ -159,7 +164,7 @@ export function addMiniatureYard(
         }
       });
       bench.visible = false;
-      top.visible = false;
+      platform.visible = false;
       scene.add(furniture);
       onReady();
     },

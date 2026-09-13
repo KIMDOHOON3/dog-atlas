@@ -1,14 +1,15 @@
 {
   "meshCount": 11,
-  "triangles": 32104,
+  "triangles": 32328,
   "finiteVertices": true,
-  "glbBytes": 983820,
-  "groundSize": [
-    80,
-    80
+  "glbBytes": 995056,
+  "platformSize": [
+    14,
+    10,
+    0.44
   ],
-  "camera": "Perspective, diagonal view; runtime responsive fit",
+  "camera": "Perspective full diorama fit above caption",
   "trajectoryRemoved": true,
-  "surface": "Neutral white in Blender; transparent shadow floor on web",
+  "surface": "Rounded ivory plinth with sand colored sides",
   "grassInstances": 0
 }
