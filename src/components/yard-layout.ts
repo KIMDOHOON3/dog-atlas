@@ -23,7 +23,7 @@ export const YARD_OBSTACLES: ReadonlyArray<{
     depth: 0.65,
     height: 1.08,
   })),
-  { x: -6.6, z: -2.6, width: 1.72, depth: 0.15, height: 1.68 },
+  { x: -6.6, z: -2.6, width: 2.65, depth: 0.4, height: 2.06 },
   { x: -4.4, z: -3.4, width: 2.7, depth: 1.15, height: 1.3 },
   { x: -1.7, z: -4.0, width: 2.05, depth: 1.05, height: 0.4 },
   // Hurdle posts and crossbar, leaving room underneath.

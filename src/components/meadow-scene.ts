@@ -5,6 +5,7 @@ import { createYardItem } from "./yard-item-interaction";
 import { YARD_TOYS } from "./yard-layout";
 import { createTennisBall } from "./tennis-ball";
 import { addYardButterflies } from "./yard-butterflies";
+import { addYardSign } from "./yard-sign";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobileQuery = matchMedia("(max-width: 767px)");
@@ -84,18 +85,15 @@ export function createMeadow(host: HTMLDivElement) {
     dirty = true;
 
   items[0].setModel(tennis.ball);
-  const sign = host.querySelector<HTMLElement>("[data-yard-sign]");
-  const signPosition = new THREE.Vector3();
   const draw = () => {
-    if (sign) {
-      signPosition.set(-6.6, 1.35, -2.5).project(camera);
-      sign.style.left = `${((signPosition.x + 1) * width) / 2}px`;
-      sign.style.top = `${((1 - signPosition.y) * height) / 2}px`;
-    }
     for (const item of items) item.draw(width, height);
     renderer.render(scene, camera);
     dirty = false;
   };
+  const sign = addYardSign(scene, host, camera, () => {
+    dirty = true;
+    if (visible && !document.hidden) draw();
+  });
   const yard = addMiniatureYard(scene, (models) => {
     YARD_TOYS.forEach((toy, i) => {
       const model = models.get(toy.id);
@@ -292,6 +290,7 @@ export function createMeadow(host: HTMLDivElement) {
       for (const item of items) item.dispose();
       tennis.dispose();
       butterflies.dispose();
+      sign.dispose();
       yard.dispose();
       renderer.dispose();
       renderer.forceContextLoss();

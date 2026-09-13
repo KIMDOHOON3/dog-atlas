@@ -187,9 +187,7 @@ for panel in range(8):
     ob=bpy.data.objects.new('Canopy panel',mesh);s.collection.objects.link(ob);mesh.materials.append(white if panel%2 else ceramic)
     m=ob.modifiers.new('Cotton thickness','SOLIDIFY');m.thickness=.015;bpy.context.view_layer.objects.active=ob;ob.select_set(True);bpy.ops.object.modifier_apply(modifier=m.name);ob.select_set(False)
     a=panel*math.pi/4;tube('Parasol seam',[(cx,cy,2.83),(cx+.75*math.cos(a),cy+.75*math.sin(a),2.65),(cx+1.6*math.cos(a),cy+1.6*math.sin(a),2.24)],.009,cream)
-# A timber sign at the open front-left entrance. Its accessible label is HTML.
-for x in [-7.05,-6.15]:block('Sign leg',(x,2.6,.70),(.09,.11,1.4),edge,.02)
-block('Place sign board',(-6.6,2.6,1.35),(1.72,.13,.65),oak,.07)
+# The interactive timber sign and its painted lettering are built in Three.js.
 
 # Deep rounded ivory foundation under the lawn.
 

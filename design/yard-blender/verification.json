@@ -1,8 +1,8 @@
 {
   "meshCount": 18,
-  "triangles": 41648,
+  "triangles": 41084,
   "finiteVertices": true,
-  "glbBytes": 1359480,
+  "glbBytes": 1330920,
   "lawnRadii": [
     9.2,
     6.1
@@ -17,7 +17,9 @@
     "hurdle",
     "weave poles",
     "rear fence",
-    "parasol table and two chairs",
-    "place sign"
+    "parasol table and two chairs"
+  ],
+  "runtimeEquipment": [
+    "Three.js timber sign with painted text"
   ]
 }
