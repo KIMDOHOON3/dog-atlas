@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { createPlayBall, BALL_RADIUS, throwVelocity } from "./play-ball";
-import { YARD } from "./yard-layout";
+import { YARD, YARD_OBSTACLES } from "./yard-layout";
 describe("playground ball", () => {
   it("interpolates between physics steps and resets the display pose on grab", () => {
     const p = createPlayBall();
@@ -93,13 +93,14 @@ describe("playground ball", () => {
   });
   it("rebounds from the feeding station instead of rolling through the bowls", () => {
     const p = createPlayBall();
-    p.hold(4.05, -0.6, BALL_RADIUS);
+    const station = YARD_OBSTACLES[1];
+    p.hold(station.x, station.z + 1.2, BALL_RADIUS);
     p.launch(0, -4, 0);
     let rebounded = false;
     for (let i = 0; i < 30; i++) {
       p.step(1 / 60);
       if (p.body.velocity.z > 0.1) rebounded = true;
-      expect(p.body.position.z).toBeGreaterThan(-1.12);
+      expect(p.body.position.z).toBeGreaterThan(station.z + station.depth / 2);
     }
     expect(rebounded).toBe(true);
   });

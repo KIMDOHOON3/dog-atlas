@@ -22,13 +22,13 @@ export function addMiniatureYard(
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 512;
     const ctx = canvas.getContext("2d")!;
-    ctx.fillStyle = wood ? "#a87647" : "#7d895f";
+    ctx.fillStyle = wood ? "#a87647" : "#879c70";
     ctx.fillRect(0, 0, 512, 512);
-    for (let i = 0; i < 42000; i++) {
+    for (let i = 0; i < (wood ? 10000 : 12000); i++) {
       const shade = Math.floor(random() * 20);
       ctx.fillStyle = wood
-        ? `rgba(65,35,15,${random() * 0.12})`
-        : `rgba(${75 + shade},${91 + shade},${49 + shade},.5)`;
+        ? `rgba(65,35,15,${random() * 0.055})`
+        : `rgba(${113 + shade},${133 + shade},${91 + shade},.06)`;
       ctx.fillRect(
         random() * 512,
         random() * 512,
@@ -39,7 +39,7 @@ export function addMiniatureYard(
     const map = keep(new THREE.CanvasTexture(canvas));
     map.colorSpace = THREE.SRGBColorSpace;
     map.wrapS = map.wrapT = THREE.RepeatWrapping;
-    map.repeat.set(wood ? 1 : 4, wood ? 1 : 2);
+    map.repeat.set(wood ? 1 : 2, wood ? 1 : 2);
     map.anisotropy = 4;
     return map;
   };
@@ -48,36 +48,25 @@ export function addMiniatureYard(
     new THREE.MeshStandardMaterial({
       map: turfMap,
       bumpMap: turfMap,
-      bumpScale: 0.012,
+      bumpScale: 0.002,
       roughness: 1,
-      color: 0xd4d6bf,
+      color: 0xffffff,
     }),
   );
   const rim = keep(
-    new THREE.MeshStandardMaterial({ color: 0xf1e2c6, roughness: 1 }),
+    new THREE.MeshStandardMaterial({ color: 0xb5bba0, roughness: 1 }),
   );
   const profile = [
-    new THREE.Vector2(0, -0.17),
-    new THREE.Vector2(0.95, -0.17),
-    new THREE.Vector2(0.995, -0.135),
-    new THREE.Vector2(1.006, -0.07),
-    new THREE.Vector2(1.004, 0.01),
-    new THREE.Vector2(0.99, 0.055),
-    new THREE.Vector2(0.975, 0.065),
+    new THREE.Vector2(0.998, -0.08),
+    new THREE.Vector2(1.007, -0.08),
+    new THREE.Vector2(1.01, -0.05),
+    new THREE.Vector2(1.008, -0.014),
+    new THREE.Vector2(1.003, -0.008),
+    new THREE.Vector2(0.998, -0.015),
   ];
   const baseGeometry = keep(new THREE.LatheGeometry(profile, 160));
-  const positions = baseGeometry.attributes.position;
-  for (let i = 0; i < positions.count; i++) {
-    const x = positions.getX(i),
-      z = positions.getZ(i),
-      y = positions.getY(i);
-    const n = Math.sin(x * 83 + z * 59) * Math.sin(z * 107 - y * 31) * 0.0015;
-    positions.setXYZ(i, x + n, y + n * 2, z + n);
-  }
-  baseGeometry.computeVertexNormals();
   const base = new THREE.Mesh(baseGeometry, rim);
-  base.scale.set(YARD.radiusX + 0.12, 1.7, YARD.radiusZ + 0.12);
-  base.position.y = -0.09;
+  base.scale.set(YARD.radiusX, 1, YARD.radiusZ);
   scene.add(base);
   const topGeometry = keep(new THREE.CylinderGeometry(1, 1, 0.045, 128));
   const top = new THREE.Mesh(topGeometry, turf);
@@ -99,7 +88,7 @@ export function addMiniatureYard(
   const bladeMat = keep(
     new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide }),
   );
-  const bladeCount = matchMedia("(max-width:767px)").matches ? 16000 : 34000;
+  const bladeCount = matchMedia("(max-width:767px)").matches ? 10000 : 22000;
   const fibres = new THREE.InstancedMesh(bladeGeo, bladeMat, bladeCount);
   resources.push(fibres);
   const fibre = new THREE.Object3D(),
@@ -109,19 +98,21 @@ export function addMiniatureYard(
       r = Math.sqrt(random()) * 0.996;
     const x = Math.cos(angle) * r * YARD.radiusX,
       z = Math.sin(angle) * r * YARD.radiusZ;
-    let print = false;
-    for (let j = 0; j < 6; j++) {
-      const px = -3.6 + j * 0.22 + (j % 2) * 0.23,
-        pz = 0.15 + j * 0.32;
-      if (Math.hypot((x - px) / 0.16, (z - pz + 0.04) / 0.18) < 1) print = true;
-    }
     fibre.position.set(x, 0, z);
     fibre.rotation.y = random() * Math.PI * 2;
-    fibre.scale.set(print ? 0 : 1, 0.38 + random() * 0.42, 1);
+    const underObject = YARD_OBSTACLES.some(
+      (o) => Math.abs(x - o.x) < o.width / 2 && Math.abs(z - o.z) < o.depth / 2,
+    );
+    const height = 0.25 + random() * 0.24;
+    fibre.scale.set(
+      underObject ? 0 : 1,
+      underObject ? 0 : height,
+      underObject ? 0 : 1,
+    );
     fibre.updateMatrix();
     fibres.setMatrixAt(i, fibre.matrix);
     const variation = random();
-    color.set(0x85916b).multiplyScalar(0.88 + variation * 0.2);
+    color.set(0x8b9e77).multiplyScalar(0.97 + variation * 0.06);
     fibres.setColorAt(i, color);
   }
   fibres.receiveShadow = true;
@@ -130,8 +121,8 @@ export function addMiniatureYard(
   shadowCanvas.width = shadowCanvas.height = 128;
   const ctx = shadowCanvas.getContext("2d")!;
   const gradient = ctx.createRadialGradient(64, 64, 15, 64, 64, 64);
-  gradient.addColorStop(0, "rgba(70,49,26,.3)");
-  gradient.addColorStop(0.7, "rgba(70,49,26,.13)");
+  gradient.addColorStop(0, "rgba(70,65,45,.10)");
+  gradient.addColorStop(0.7, "rgba(70,65,45,.04)");
   gradient.addColorStop(1, "rgba(70,49,26,0)");
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, 128, 128);
@@ -146,8 +137,8 @@ export function addMiniatureYard(
   const shadowGeo = keep(new THREE.PlaneGeometry(1, 1));
   const shadow = new THREE.Mesh(shadowGeo, shadowMat);
   shadow.rotation.x = -Math.PI / 2;
-  shadow.scale.set(18, 10.5, 1);
-  shadow.position.set(0.15, -0.3, 0.2);
+  shadow.scale.set(20, 14, 1);
+  shadow.position.set(0.1, -0.095, 0.1);
   scene.add(shadow);
   const wood = keep(
     new THREE.MeshStandardMaterial({
@@ -194,32 +185,6 @@ export function addMiniatureYard(
   );
   benchShadow.scale.set(3.2, 1.65, 1);
   scene.add(benchShadow);
-  const pawMat = keep(
-    new THREE.MeshStandardMaterial({ color: 0x666a42, roughness: 1 }),
-  );
-  const pawGeo = keep(new THREE.SphereGeometry(1, 10, 6));
-  const paws = new THREE.InstancedMesh(pawGeo, pawMat, 30);
-  resources.push(paws);
-  const stamp = new THREE.Object3D();
-  let index = 0;
-  for (let i = 0; i < 6; i++) {
-    const x = -3.6 + i * 0.22 + (i % 2) * 0.23,
-      z = 0.15 + i * 0.32;
-    const parts = [
-      [0, 0, 0.09, 0.07],
-      [-0.09, -0.1, 0.038, 0.045],
-      [-0.035, -0.14, 0.038, 0.045],
-      [0.035, -0.14, 0.038, 0.045],
-      [0.09, -0.1, 0.038, 0.045],
-    ];
-    for (const [dx, dz, sx, sz] of parts) {
-      stamp.position.set(x + dx, 0.014, z + dz);
-      stamp.scale.set(sx, 0.012, sz);
-      stamp.updateMatrix();
-      paws.setMatrixAt(index++, stamp.matrix);
-    }
-  }
-  scene.add(paws);
   let disposed = false;
   let furniture: THREE.Group | null = null;
   const releaseModel = (model: THREE.Group) => {
@@ -233,7 +198,7 @@ export function addMiniatureYard(
     });
   };
   new GLTFLoader().load(
-    "/models/yard-furniture.glb?v=pet-objects-1",
+    "/models/yard-furniture.glb?v=open-lawn-2",
     (gltf) => {
       if (disposed) {
         releaseModel(gltf.scene);
@@ -243,8 +208,18 @@ export function addMiniatureYard(
       furniture.name = "Blender playground furniture";
       furniture.traverse((object) => {
         if (!(object instanceof THREE.Mesh)) return;
-        object.castShadow = true;
+        const lawn =
+          object.name === "Lawn_surface" || object.name === "Lawn surface";
+        const edge = object.name === "Lawn_edge" || object.name === "Lawn edge";
+        object.castShadow = !lawn && !edge;
         object.receiveShadow = true;
+        if (lawn || edge) {
+          const original = Array.isArray(object.material)
+            ? object.material
+            : [object.material];
+          original.forEach((material) => material.dispose());
+          object.material = (lawn ? turf : rim).clone();
+        }
         if (
           object.material instanceof THREE.MeshStandardMaterial &&
           object.material.name === "Yard oak"
@@ -257,6 +232,8 @@ export function addMiniatureYard(
         }
       });
       bench.visible = false;
+      base.visible = false;
+      top.visible = false;
       scene.add(furniture);
       onReady();
     },

@@ -702,3 +702,7 @@ The user reopened the idea of a puppy after ending the previous dog animation wo
 ## 2026-09-12 — Stop the puppy addition
 
 The user decided not to add a dog. End the puppy appearance work and retain the existing yard, pet objects, ball and butterflies. The puppy models were design-only and never added to the live footer. Keep the studies as archived files; do not resume modeling, animation or runtime integration without a new explicit user request. This supersedes the recent puppy appearance direction.
+
+## 2026-09-13 — A broader, quieter Blender playground
+
+The user found the yard small and visually untidy and approved a visible Blender revision. Expand lawn area by 63.14%, replace the raised cream pedestal with a thin edge, soften turf variation and light, remove paw stamps, and group furniture/pet objects at the rear left. Keep the center open for the throwable ball. Export Blender terrain with furniture as one lazy GLB, keep lightweight loading fallbacks, and share revised bounds with physics. Preserve butterflies, reduced motion and rendering budgets. No animal model is added.

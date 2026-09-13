@@ -17,7 +17,7 @@ export function createMeadow(host: HTMLDivElement) {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.15;
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
   renderer.shadowMap.autoUpdate = false;
   renderer.shadowMap.needsUpdate = true;
   renderer.setClearColor(0xffffff, 0);
@@ -26,22 +26,22 @@ export function createMeadow(host: HTMLDivElement) {
   host.dataset.renderer = "three";
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 60);
-  camera.position.set(0, 10, 11);
+  camera.position.set(0, 12, 13);
   camera.lookAt(0, 0, 0);
   const disposeYard = addMiniatureYard(scene, () => {
     renderer.shadowMap.needsUpdate = true;
     host.dataset.furniture = "blender";
     if (visible && !document.hidden) draw();
   });
-  scene.add(new THREE.HemisphereLight(0xfff7df, 0xa5957a, 1.35));
-  const sun = new THREE.DirectionalLight(0xffead0, 3.2);
+  scene.add(new THREE.HemisphereLight(0xfffcf4, 0xb6b9a2, 2.0));
+  const sun = new THREE.DirectionalLight(0xfff6e6, 2.0);
   sun.position.set(-4, 8, 6);
   sun.castShadow = true;
   sun.shadow.mapSize.set(mobile ? 1024 : 2048, mobile ? 1024 : 2048);
-  sun.shadow.camera.left = -10;
-  sun.shadow.camera.right = 10;
-  sun.shadow.camera.top = 7;
-  sun.shadow.camera.bottom = -7;
+  sun.shadow.camera.left = -12;
+  sun.shadow.camera.right = 12;
+  sun.shadow.camera.top = 10;
+  sun.shadow.camera.bottom = -10;
   sun.shadow.bias = -0.00015;
   sun.shadow.normalBias = 0.018;
   sun.shadow.radius = 3;
@@ -202,7 +202,9 @@ export function createMeadow(host: HTMLDivElement) {
       ),
     );
     renderer.setSize(w, h);
-    const half = Math.max(3.95, (8.65 * h) / w);
+    camera.position.set(0, mobile ? 22 : 12, 13);
+    camera.lookAt(0, 0, 0);
+    const half = Math.max(4.85, (9.7 * h) / w);
     camera.left = (-half * w) / h;
     camera.right = (half * w) / h;
     camera.top = half;

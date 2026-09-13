@@ -2,10 +2,13 @@ import bpy, math
 from mathutils import Vector
 from pathlib import Path
 OUT=Path('C:/Users/김도훈/Desktop/강아지')
-s=bpy.data.scenes.new('Atlas playground furniture');bpy.context.window.scene=s
+# Rebuild the active playground from this source; run in its dedicated Blender file.
+for ob in list(bpy.data.objects):bpy.data.objects.remove(ob,do_unlink=True)
+for material in list(bpy.data.materials):bpy.data.materials.remove(material)
+s=bpy.data.scenes.new('Atlas open lawn');bpy.context.window.scene=s
 def mat(name,color,rough=.8,metal=0):
     m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True
-    p=m.node_tree.nodes.get('Principled BSDF');p.inputs['Base Color'].default_value=(*color,1);p.inputs['Roughness'].default_value=rough;p.inputs['Metallic'].default_value=metal
+    p=next(n for n in m.node_tree.nodes if n.type=='BSDF_PRINCIPLED');p.inputs['Base Color'].default_value=(*color,1);p.inputs['Roughness'].default_value=rough;p.inputs['Metallic'].default_value=metal
     return m
 oak=mat('Yard oak',(.49,.29,.135));edge=mat('Oak end grain',(.36,.20,.10));iron=mat('Warm graphite',(.075,.082,.072),.6,.25);bolt=mat('Aged bronze',(.30,.23,.13),.42,.55)
 cream=mat('Natural cotton',(.62,.52,.36));rust=mat('Clay cotton',(.30,.13,.075))
@@ -28,7 +31,7 @@ for x in [-.91,.91]:
     for z in [.87,1.05,1.23]:
         bpy.ops.mesh.primitive_uv_sphere_add(segments=10,ring_count=6,location=(x,.305+(z-.87)*.2,z));o=bpy.context.object;o.scale=(.016,.008,.016);o.data.materials.append(bolt);bench.append(o)
 for o in bench:
-    x,y,z=o.location;angle=.22;o.location=(-3.9+x*math.cos(angle)-y*math.sin(angle),2.25+x*math.sin(angle)+y*math.cos(angle),z);o.rotation_euler.z+=angle
+    x,y,z=o.location;angle=.22;o.location=(-4.4+x*math.cos(angle)-y*math.sin(angle),3.4+x*math.sin(angle)+y*math.cos(angle),z);o.rotation_euler.z+=angle
 
 def tube(name,pts,r,material):
     c=bpy.data.curves.new(name,'CURVE');c.dimensions='3D';c.resolution_u=1;c.bevel_depth=r;c.bevel_resolution=2
@@ -41,13 +44,13 @@ for strand in range(3):
     pts=[]
     for i in range(161):
         t=i/160;a=t*2*math.pi
-        center=Vector((-2.65+.40*math.cos(a),.8+.22*math.sin(a),.09))
+        center=Vector((-6.1+.40*math.cos(a),2.5+.22*math.sin(a),.09))
         phase=a*16+strand*2*math.pi/3
         center+=Vector((math.cos(a)*math.cos(phase),math.sin(a)*math.cos(phase),math.sin(phase)))*.027
         pts.append(center)
     tube('Braided cotton tug',pts,.022,cream if strand!=1 else rust)
 for j in range(9):
-    pts=[(-2.25+j*.006,.8,.07),(-2.17+j*.006,.76+j*.008,.055),(-2.06+j*.008,.73+j*.012,.04)]
+    pts=[(-5.70+j*.006,2.5,.07),(-5.62+j*.006,2.46+j*.008,.055),(-5.51+j*.008,2.43+j*.012,.04)]
     tube('Tug fringe',pts,.008,cream if j%3 else rust)
 # Original pet objects. Blender Z-up becomes Three.js Y-up (Blender Y = -Z).
 sage=mat('Sage silicone',(.22,.34,.27),.68)
@@ -101,6 +104,34 @@ m=o.modifiers.new('Unified silicone','REMESH');m.mode='VOXEL';m.voxel_size=.023;
 m=o.modifiers.new('Soft finish','SMOOTH');m.factor=1.2;m.iterations=4;bpy.ops.object.modifier_apply(modifier=m.name)
 for p in o.data.polygons:p.use_smooth=True
 
+# Consolidate the feeding and play objects into one quiet rear corner.
+for ob in s.objects:
+    if ob.type!='MESH' or ob in bench: continue
+    if ob.name.startswith(('Feeding mat','Ceramic pet bowl','Bowl foot','Water surface','Kibble')):
+        ob.location.x-=5.75;ob.location.y+=2.2
+    elif ob.name.startswith(('Flying disc','Disc grip ring')):
+        ob.location.x-=1.2;ob.location.y+=3.5
+    elif ob.name.startswith('Soft bone chew'):
+        ob.location.x-=5.95;ob.location.y+=4.15
+
+# Original thin lawn edge: a low, softened lip instead of a raised tray.
+turf=mat('Lawn surface',(.32,.41,.245),1)
+border=mat('Lawn edge',(.48,.50,.35),.95)
+# Subtle close-view surface grain for the editable Cycles scene.
+for material,scale,strength,distance in [(turf,150,.18,.012),(oak,7,.12,.008)]:
+    nodes=material.node_tree.nodes;links=material.node_tree.links
+    noise=nodes.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=scale
+    noise.inputs['Detail'].default_value=2
+    bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=strength;bump.inputs['Distance'].default_value=distance
+    links.new(noise.outputs['Fac'],bump.inputs['Height'])
+    links.new(bump.outputs['Normal'],next(n for n in nodes if n.type=='BSDF_PRINCIPLED').inputs['Normal'])
+def oval(name,profile,material):
+    ob=lathe(name,profile,(0,0,0),material,160)
+    ob.scale.x=9.2;ob.scale.y=6.1
+    return ob
+oval('Lawn surface',[(0,-.05),(1,-.05),(1,0),(0,0)],turf)
+oval('Lawn edge',[(.998,-.08),(1.007,-.08),(1.010,-.05),(1.008,-.014),(1.003,-.008),(.998,-.015)],border)
+
 # Merge by material to keep static draw calls low.
 for material in [oak,edge,iron,bolt,cream,rust,sage,ceramic,clay,water]:
     obs=[o for o in s.objects if o.type=='MESH' and o.data.materials and o.data.materials[0]==material]
@@ -108,7 +139,31 @@ for material in [oak,edge,iron,bolt,cream,rust,sage,ceramic,clay,water]:
     bpy.ops.object.select_all(action='DESELECT')
     for o in obs:o.select_set(True)
     bpy.context.view_layer.objects.active=obs[0];bpy.ops.object.join();bpy.context.object.name=material.name
+bpy.ops.object.select_all(action='DESELECT')
+for ob in s.objects:
+    if ob.type=='MESH':ob.select_set(True)
+bpy.ops.export_scene.gltf(filepath=str(OUT/'public/models/yard-furniture.glb'),export_format='GLB',use_selection=True,export_apply=True)
+
+# Studio setup is retained in Blender, excluded from the web asset.
+def area(name,location,power,size):
+    data=bpy.data.lights.new(name,'AREA');data.energy=power;data.shape='DISK';data.size=size
+    ob=bpy.data.objects.new(name,data);s.collection.objects.link(ob);ob.location=location
+    ob.rotation_euler=(Vector((0,0,0))-ob.location).to_track_quat('-Z','Y').to_euler()
+area('Large softbox',(-4,-3,12),1800,9)
+area('Sky fill',(4,5,8),1000,8)
+s.world=bpy.data.worlds.new('Soft daylight');s.world.use_nodes=True
+next(n for n in s.world.node_tree.nodes if n.type=='BACKGROUND').inputs[0].default_value=(.82,.86,.91,1)
+next(n for n in s.world.node_tree.nodes if n.type=='BACKGROUND').inputs[1].default_value=.45
+cam=bpy.data.objects.new('Playground camera',bpy.data.cameras.new('Playground camera'));s.collection.objects.link(cam)
+cam.location=(0,-13,12);cam.rotation_euler=(Vector((0,0,0))-cam.location).to_track_quat('-Z','Y').to_euler()
+cam.data.type='ORTHO';cam.data.ortho_scale=20;s.camera=cam
+s.render.engine='CYCLES';s.cycles.samples=32;s.cycles.use_denoising=True
+s.render.resolution_x=1400;s.render.resolution_y=900;s.render.resolution_percentage=100
+s.render.film_transparent=True;s.view_settings.view_transform='AgX'
+s.render.image_settings.file_format='PNG';s.render.filepath=str(OUT/'design/yard-blender/preview.png')
+bpy.ops.object.select_all(action='DESELECT')
+for old in list(bpy.data.scenes):
+    if old!=s:bpy.data.scenes.remove(old)
 bpy.context.preferences.filepaths.save_version=0
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'design/yard-blender/playground.blend'))
-bpy.ops.export_scene.gltf(filepath=str(OUT/'public/models/yard-furniture.glb'),export_format='GLB',use_active_scene=True,export_apply=True)
 print('YARD_FURNITURE_EXPORTED')

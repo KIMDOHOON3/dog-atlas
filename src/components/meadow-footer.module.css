@@ -26,9 +26,9 @@
 }
 .field {
   position: relative;
-  width: min(100%, 1360px);
-  height: clamp(350px, 39vw, 510px);
-  margin: 8px auto 0;
+  width: min(100%, 1520px);
+  height: clamp(420px, 47vw, 650px);
+  margin: 20px auto 0;
   touch-action: pan-y;
 }
 .field canvas {
@@ -130,7 +130,7 @@
   }
   .field {
     margin-top: 12px;
-    height: clamp(230px, 62vw, 350px);
+    height: clamp(280px, 78vw, 420px);
   }
   .bottom {
     flex-direction: column;

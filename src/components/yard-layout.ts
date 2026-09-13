@@ -1,10 +1,10 @@
 /** Shared world-space dimensions for the lawn, ball bounds and furniture. */
-export const YARD = { radiusX: 8, radiusZ: 4.3, ballX: 7.65, ballZ: 3.95 };
+export const YARD = { radiusX: 9.2, radiusZ: 6.1, ballX: 8.85, ballZ: 5.75 };
 export const YARD_OBSTACLES = [
-  { x: -3.9, z: -2.25, width: 2.7, depth: 1.15, height: 1.3 },
-  { x: 4.05, z: -1.8, width: 2.05, depth: 1.05, height: 0.4 },
-  { x: -3.5, z: 1.6, width: 1.12, depth: 1.12, height: 0.12 },
-  { x: 3.15, z: 1.5, width: 1.35, depth: 0.6, height: 0.24 },
+  { x: -4.4, z: -3.4, width: 2.7, depth: 1.15, height: 1.3 },
+  { x: -1.7, z: -4.0, width: 2.05, depth: 1.05, height: 0.4 },
+  { x: -4.7, z: -1.9, width: 1.12, depth: 1.12, height: 0.14 },
+  { x: -2.8, z: -2.65, width: 1.35, depth: 0.6, height: 0.28 },
 ] as const;
 
 export function hitsYardObject(

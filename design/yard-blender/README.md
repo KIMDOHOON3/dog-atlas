@@ -1,11 +1,17 @@
-# Blender playground furniture
+# Open playground — Blender source
 
-Original bench, braided cotton tug, paired ceramic bowls on a silicone mat, terracotta flying disc, and sage bone-shaped chew toy. Built in Blender 4.5 with `create.py`; editable source: `playground.blend`. No third-party models or textures.
+The editable `playground.blend` contains a broad lawn with a thin softened edge, a slatted wood bench with metal supports/bolts, braided cotton tug, ceramic feeding bowls and kibble, water, a rolled-rim flying disc and a rounded chew toy. Objects share one rear corner, leaving the center open. No downloaded models or textures.
 
-Export: `public/models/yard-furniture.glb` — 949,424 bytes, ten material groups. The browser applies procedural wood grain and lazily loads the single GLB with the footer. Static shadows refresh once after loading. The procedural bench remains as the loading/error fallback. Resources are disposed on unmount; props add no animation loop.
+Run `create.py` in this dedicated Blender workspace to rebuild it. It clears current scene objects/materials and is not an import tool for unrelated open projects. It exports `public/models/yard-furniture.glb` before adding studio lights and an orthographic camera. `preview.png` is an actual Cycles render. Blender procedural grain is for close inspection; the browser supplies low-contrast turf/wood maps and short grass instances.
 
-The lawn radii are now 8 × 4.3 world units (previously 6 × 3), approximately 1.91 times the area. The desktop canvas grows from a 1,100px maximum width / 350px height to 1,360px / up to 510px. Responsive camera framing keeps the oval within 320px and wider screens. The bench sits toward the rear and the center stays open for the ball.
+## Dimensions and runtime
 
-`src/components/yard-layout.ts` shares lawn bounds and simple static box colliders between ball physics and trajectory previews. Props are decorative; the tennis ball remains draggable and throwable. Colliders approximate each prop's footprint rather than its detailed surface. Grass instance counts, pixel budget, offscreen pause and reduced-motion behavior are retained.
+- Lawn radii: 9.2 × 6.1, up 63.14% in area from 8 × 4.3. Edge depth is about 0.08 world units.
+- Export: 1,004,476 bytes, 12 mesh/material groups, 34,476 triangles; no external textures. Reimported with finite vertices verified in `verification.json`.
+- Furniture positions agree with `src/components/yard-layout.ts`, used by ball collisions and trajectory previews. Collisions approximate footprints, not detailed mesh surfaces.
+- Desktop canvas maximum 1,520px × 650px; mobile uses a higher camera angle. Ball retains its 48px interaction target. Reduced-motion and visibility handling are preserved.
+- One lazy GLB; procedural lawn/bench remain on loading failure. Grass uses 22,000 desktop / 10,000 mobile instances, excludes furniture footprints and retains the 650,000-pixel budget. Shadows update on load. Paw stamps were removed.
 
-Verified: lint, TypeScript, 1,661 tests, 385-page production build; local desktop and 390/320px framing, ball dragging and no browser errors. Automated physics checks cover the enlarged edge and rebound from the feeding station. Mobile viewport checks are browser emulation, not physical-device performance measurements.
+## Verification
+
+Blender export reimport, actual Cycles preview, desktop 1440px and mobile 390/320px visual checks, no horizontal overflow or browser errors, ball dragging and butterfly pause checked. ESLint and TypeScript pass. Full Vitest run: 1,666 passed and one unrelated readiness UI timeout; that file's five tests passed on isolated rerun. All eight ball tests pass, including the relocated feeding station. Production build passes. Viewport checks are not physical iPhone performance measurements.
