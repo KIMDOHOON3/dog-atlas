@@ -79,15 +79,15 @@ describe("playground ball", () => {
     expect(p.body.position.y).toBeCloseTo(BALL_RADIUS);
     expect(p.body.velocity.length()).toBe(0);
   });
-  it("keeps throws safely inset from the rounded diorama platform", () => {
+  it("keeps diagonal throws inside the oval lawn", () => {
     const p = createPlayBall();
     p.hold(YARD.ballX - 0.1, 0);
     expect(p.body.position.x).toBe(YARD.ballX - 0.1);
-    p.launch(8, 0, 0);
+    p.launch(8, 6, 0);
     for (let i = 0; i < 120; i++) {
       p.step(1 / 60);
       expect(
-        Math.max(
+        Math.hypot(
           Math.abs(p.body.position.x / YARD.ballX),
           Math.abs(p.body.position.z / YARD.ballZ),
         ),

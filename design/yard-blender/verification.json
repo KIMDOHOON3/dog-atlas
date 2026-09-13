@@ -1,15 +1,25 @@
 {
-  "meshCount": 11,
-  "triangles": 32328,
+  "meshCount": 12,
+  "triangles": 34476,
   "finiteVertices": true,
-  "glbBytes": 995056,
-  "platformSize": [
-    14,
-    10,
-    0.44
+  "materials": [
+    "Aged bronze.001",
+    "Clay cotton.001",
+    "Lawn edge.001",
+    "Lawn surface.001",
+    "Natural cotton.001",
+    "Oak end grain.001",
+    "Sage silicone.001",
+    "Still blue water.001",
+    "Terracotta rubber.001",
+    "Warm graphite.001",
+    "Warm ivory ceramic.001",
+    "Yard oak.001"
   ],
-  "camera": "Perspective full diorama fit above caption",
-  "trajectoryRemoved": true,
-  "surface": "Rounded ivory plinth with sand colored sides",
-  "grassInstances": 0
+  "glbBytes": 1004476,
+  "lawnRadii": [
+    9.2,
+    6.1
+  ],
+  "areaIncreasePercent": 63.14
 }

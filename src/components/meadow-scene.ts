@@ -3,7 +3,6 @@ import { addMiniatureYard } from "./miniature-yard";
 import { BALL_RADIUS, createPlayBall, throwVelocity } from "./play-ball";
 import { createTennisBall } from "./tennis-ball";
 import { addYardButterflies } from "./yard-butterflies";
-import { YARD } from "./yard-layout";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobileQuery = matchMedia("(max-width: 767px)");
@@ -25,7 +24,7 @@ export function createMeadow(host: HTMLDivElement) {
   renderer.domElement.setAttribute("aria-hidden", "true");
   host.dataset.renderer = "three";
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 120);
+  const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 120);
   camera.position.set(0, 12, 13);
   camera.lookAt(0, 0, 0);
   const disposeYard = addMiniatureYard(scene, () => {
@@ -156,36 +155,18 @@ export function createMeadow(host: HTMLDivElement) {
       ),
     );
     renderer.setSize(w, h);
-    camera.aspect = w / h;
-    const focus = new THREE.Vector3(YARD.centerX, 0.6, YARD.centerZ);
-    const tangent = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-    const direction = new THREE.Vector3(-5, 9, 14).normalize();
-    const right = new THREE.Vector3()
-      .crossVectors(new THREE.Vector3(0, 1, 0), direction)
-      .normalize();
-    const up = new THREE.Vector3().crossVectors(direction, right);
     const captionHeight = caption?.offsetHeight ?? 0;
-    const verticalRoom = Math.max(0.25, 1 - (captionHeight + 44) / h);
-    let distance = 16;
-    // Fit the complete base and furniture above the caption at every breakpoint.
-    for (const x of [-YARD.halfWidth, YARD.halfWidth]) {
-      for (const z of [-YARD.halfDepth, YARD.halfDepth]) {
-        for (const y of [-1.1, 2]) {
-          const corner = new THREE.Vector3(x, y, z);
-          const depth = corner.dot(direction);
-          distance = Math.max(
-            distance,
-            depth +
-              Math.abs(corner.dot(right)) / (tangent * camera.aspect * 0.9),
-            depth + Math.abs(corner.dot(up)) / (tangent * verticalRoom),
-          );
-        }
-      }
-    }
-    camera.position.copy(focus).addScaledVector(direction, distance);
-    camera.lookAt(focus);
+    const playHeight = Math.max(140, h - captionHeight - 24);
+    camera.position.set(0, mobile ? 22 : 12, 13);
+    camera.lookAt(0, 0, 0);
+    const half = Math.max((4.85 * h) / playHeight, (9.7 * h) / w);
+    camera.left = (-half * w) / h;
+    camera.right = (half * w) / h;
+    camera.top = half;
+    camera.bottom = -half;
     camera.updateProjectionMatrix();
-    camera.projectionMatrix.elements[9] = -captionHeight / h;
+    // Center the oval above the footer notices.
+    camera.projectionMatrix.elements[13] = captionHeight / h;
     camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
     camera.updateMatrixWorld();
     // Keep the whole ball and its touch target inside this cropped camera view.
@@ -197,8 +178,8 @@ export function createMeadow(host: HTMLDivElement) {
     const verticalScale = 1 - (topInset + bottomInset) / h;
     const verticalCenter = (bottomInset - topInset) / h;
     safeProjection.elements[5] /= verticalScale;
-    safeProjection.elements[9] =
-      (safeProjection.elements[9] + verticalCenter) / verticalScale;
+    safeProjection.elements[13] =
+      (safeProjection.elements[13] - verticalCenter) / verticalScale;
     const frustum = new THREE.Frustum().setFromProjectionMatrix(
       safeProjection.multiply(camera.matrixWorldInverse),
     );
@@ -281,9 +262,7 @@ export function createMeadow(host: HTMLDivElement) {
     lift = Math.min(
       1.4,
       (Math.max(0, startY - e.clientY) / host.clientHeight) *
-        (2 *
-          camera.position.length() *
-          Math.tan(THREE.MathUtils.degToRad(camera.fov / 2))) *
+        (camera.top - camera.bottom) *
         0.7,
     );
     physics.hold(point.x + offset.x, point.z + offset.y, catchHeight + lift);

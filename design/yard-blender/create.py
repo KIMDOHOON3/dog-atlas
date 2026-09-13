@@ -5,7 +5,7 @@ OUT=Path('C:/Users/김도훈/Desktop/강아지')
 # Rebuild the active playground from this source; run in its dedicated Blender file.
 for ob in list(bpy.data.objects):bpy.data.objects.remove(ob,do_unlink=True)
 for material in list(bpy.data.materials):bpy.data.materials.remove(material)
-s=bpy.data.scenes.new('Atlas diorama');bpy.context.window.scene=s
+s=bpy.data.scenes.new('Atlas open lawn');bpy.context.window.scene=s
 def mat(name,color,rough=.8,metal=0):
     m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True
     p=next(n for n in m.node_tree.nodes if n.type=='BSDF_PRINCIPLED');p.inputs['Base Color'].default_value=(*color,1);p.inputs['Roughness'].default_value=rough;p.inputs['Metallic'].default_value=metal
@@ -114,29 +114,23 @@ for ob in s.objects:
     elif ob.name.startswith('Soft bone chew'):
         ob.location.x-=5.95;ob.location.y+=4.15
 
-# Rounded diorama platform, with its top at the existing play height.
-def diorama_platform():
-    top_mat=mat('Diorama ivory',(.80,.75,.64),.94)
-    side_mat=mat('Diorama sand',(.57,.48,.35),.92)
-    verts=[];faces=[];steps=12
-    rings=[(6.92,4.92,1.02,-.44),(7,5,1.1,-.36),(7,5,1.1,-.08),(6.92,4.92,1.02,0)]
-    for hx,hy,r,z in rings:
-        for cx,cy,start in [(hx-r,hy-r,0),(-hx+r,hy-r,90),(-hx+r,-hy+r,180),(hx-r,-hy+r,270)]:
-            for i in range(steps+1):
-                a=math.radians(start+i*90/steps)
-                verts.append((-1+cx+r*math.cos(a),.5+cy+r*math.sin(a),z))
-    n=4*(steps+1)
-    faces.append(tuple(reversed(range(n))))
-    for ring in range(3):
-        for i in range(n):
-            j=(i+1)%n;faces.append((ring*n+i,ring*n+j,(ring+1)*n+j,(ring+1)*n+i))
-    faces.append(tuple(range(3*n,4*n)))
-    mesh=bpy.data.meshes.new('Rounded platform');mesh.from_pydata(verts,[],faces);mesh.update()
-    ob=bpy.data.objects.new('Diorama plinth',mesh);s.collection.objects.link(ob)
-    mesh.materials.append(side_mat);mesh.materials.append(top_mat)
-    for p in mesh.polygons:p.material_index=1 if p.index==len(mesh.polygons)-1 else 0
+# Original thin lawn edge: a low, softened lip instead of a raised tray.
+turf=mat('Lawn surface',(.32,.41,.245),1)
+border=mat('Lawn edge',(.48,.50,.35),.95)
+# Subtle close-view surface grain for the editable Cycles scene.
+for material,scale,strength,distance in [(turf,150,.18,.012),(oak,7,.12,.008)]:
+    nodes=material.node_tree.nodes;links=material.node_tree.links
+    noise=nodes.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=scale
+    noise.inputs['Detail'].default_value=2
+    bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=strength;bump.inputs['Distance'].default_value=distance
+    links.new(noise.outputs['Fac'],bump.inputs['Height'])
+    links.new(bump.outputs['Normal'],next(n for n in nodes if n.type=='BSDF_PRINCIPLED').inputs['Normal'])
+def oval(name,profile,material):
+    ob=lathe(name,profile,(0,0,0),material,160)
+    ob.scale.x=9.2;ob.scale.y=6.1
     return ob
-diorama_platform()
+oval('Lawn surface',[(0,-.05),(1,-.05),(1,0),(0,0)],turf)
+oval('Lawn edge',[(.998,-.08),(1.007,-.08),(1.010,-.05),(1.008,-.014),(1.003,-.008),(.998,-.015)],border)
 
 # Merge by material to keep static draw calls low.
 for material in [oak,edge,iron,bolt,cream,rust,sage,ceramic,clay,water]:
@@ -161,9 +155,8 @@ s.world=bpy.data.worlds.new('Soft daylight');s.world.use_nodes=True
 next(n for n in s.world.node_tree.nodes if n.type=='BACKGROUND').inputs[0].default_value=(.82,.86,.91,1)
 next(n for n in s.world.node_tree.nodes if n.type=='BACKGROUND').inputs[1].default_value=.45
 cam=bpy.data.objects.new('Playground camera',bpy.data.cameras.new('Playground camera'));s.collection.objects.link(cam)
-target=Vector((-1,.5,.6));cam.location=target+Vector((-5,-14,9)).normalized()*24
-cam.rotation_euler=(target-cam.location).to_track_quat('-Z','Y').to_euler()
-cam.data.type='PERSP';cam.data.lens=32;s.camera=cam
+cam.location=(0,-13,12);cam.rotation_euler=(Vector((0,0,0))-cam.location).to_track_quat('-Z','Y').to_euler()
+cam.data.type='ORTHO';cam.data.ortho_scale=20;s.camera=cam
 s.render.engine='CYCLES';s.cycles.samples=32;s.cycles.use_denoising=True
 s.render.resolution_x=1400;s.render.resolution_y=900;s.render.resolution_percentage=100
 s.render.film_transparent=True;s.view_settings.view_transform='AgX'

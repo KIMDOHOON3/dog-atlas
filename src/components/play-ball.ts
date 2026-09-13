@@ -78,6 +78,21 @@ export function createPlayBall() {
   const contain = (bounce: boolean, position = body.position) => {
     // Clip horizontally at the current height; airborne balls remain catchable.
     for (let pass = 0; pass < 8; pass++) {
+      const radius = Math.hypot(position.x / halfWidth, position.z / depth);
+      if (radius > 1) {
+        position.x /= radius;
+        position.z /= radius;
+        const nx = position.x / (halfWidth * halfWidth);
+        const nz = position.z / (depth * depth);
+        const length = Math.hypot(nx, nz);
+        const ux = nx / length,
+          uz = nz / length;
+        const outward = body.velocity.x * ux + body.velocity.z * uz;
+        if (bounce && outward > 0) {
+          body.velocity.x -= 1.55 * outward * ux;
+          body.velocity.z -= 1.55 * outward * uz;
+        }
+      }
       for (const plane of bounds) {
         const d =
           plane.x * position.x +

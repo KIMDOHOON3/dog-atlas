@@ -1,12 +1,5 @@
-/** The ball stays inset from the miniature's rounded platform edges. */
-export const YARD = {
-  halfWidth: 7,
-  halfDepth: 5,
-  centerX: -1,
-  centerZ: -0.5,
-  ballX: 5.4,
-  ballZ: 3.6,
-};
+/** Shared world-space dimensions for the lawn, ball bounds and furniture. */
+export const YARD = { radiusX: 9.2, radiusZ: 6.1, ballX: 8.85, ballZ: 5.75 };
 export const YARD_OBSTACLES = [
   { x: -4.4, z: -3.4, width: 2.7, depth: 1.15, height: 1.3 },
   { x: -1.7, z: -4.0, width: 2.05, depth: 1.05, height: 0.4 },

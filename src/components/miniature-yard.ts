@@ -3,7 +3,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 import { YARD, YARD_OBSTACLES } from "./yard-layout";
 
-/** Rounded miniature platform and furniture with shadows on the white page. */
+/** Static turf plus locally authored Blender furniture, loaded only with the yard. */
 export function addMiniatureYard(
   scene: THREE.Scene,
   onReady: () => void = () => {},
@@ -18,52 +18,105 @@ export function addMiniatureYard(
     seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
     return seed / 4294967296;
   };
-  const woodTexture = () => {
+  const texture = (wood = false) => {
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 512;
     const ctx = canvas.getContext("2d")!;
-    ctx.fillStyle = "#a87647";
+    ctx.fillStyle = wood ? "#a87647" : "#879c70";
     ctx.fillRect(0, 0, 512, 512);
-    for (let i = 0; i < 10000; i++) {
-      ctx.fillStyle = `rgba(65,35,15,${random() * 0.055})`;
-      ctx.fillRect(random() * 512, random() * 512, 30 + random() * 100, 0.5);
+    for (let i = 0; i < (wood ? 10000 : 12000); i++) {
+      const shade = Math.floor(random() * 20);
+      ctx.fillStyle = wood
+        ? `rgba(65,35,15,${random() * 0.055})`
+        : `rgba(${113 + shade},${133 + shade},${91 + shade},.06)`;
+      ctx.fillRect(
+        random() * 512,
+        random() * 512,
+        wood ? 30 + random() * 100 : 1 + random() * 2,
+        wood ? 0.5 : 1 + random() * 2,
+      );
     }
     const map = keep(new THREE.CanvasTexture(canvas));
     map.colorSpace = THREE.SRGBColorSpace;
     map.wrapS = map.wrapT = THREE.RepeatWrapping;
-    map.repeat.set(1, 1);
+    map.repeat.set(wood ? 1 : 2, wood ? 1 : 2);
     map.anisotropy = 4;
     return map;
   };
-  // Only shadows are drawn; the page background remains identical above and below.
-  const floorMaterial = keep(
-    new THREE.ShadowMaterial({
-      color: 0x655c50,
-      opacity: 0.18,
-      depthWrite: false,
+  const turfMap = texture();
+  const turf = keep(
+    new THREE.MeshStandardMaterial({
+      map: turfMap,
+      bumpMap: turfMap,
+      bumpScale: 0.002,
+      roughness: 1,
+      color: 0xffffff,
     }),
   );
-  const topGeometry = keep(new THREE.PlaneGeometry(80, 80));
-  const top = new THREE.Mesh(topGeometry, floorMaterial);
-  top.rotation.x = -Math.PI / 2;
-  top.position.y = -0.48;
+  const rim = keep(
+    new THREE.MeshStandardMaterial({ color: 0xb5bba0, roughness: 1 }),
+  );
+  const profile = [
+    new THREE.Vector2(0.998, -0.08),
+    new THREE.Vector2(1.007, -0.08),
+    new THREE.Vector2(1.01, -0.05),
+    new THREE.Vector2(1.008, -0.014),
+    new THREE.Vector2(1.003, -0.008),
+    new THREE.Vector2(0.998, -0.015),
+  ];
+  const baseGeometry = keep(new THREE.LatheGeometry(profile, 160));
+  const base = new THREE.Mesh(baseGeometry, rim);
+  base.scale.set(YARD.radiusX, 1, YARD.radiusZ);
+  scene.add(base);
+  const topGeometry = keep(new THREE.CylinderGeometry(1, 1, 0.045, 128));
+  const top = new THREE.Mesh(topGeometry, turf);
+  top.scale.set(YARD.radiusX, 1, YARD.radiusZ);
+  top.position.y = -0.0225;
   top.receiveShadow = true;
   scene.add(top);
-  const platform = new THREE.Mesh(
-    keep(
-      new RoundedBoxGeometry(
-        YARD.halfWidth * 2,
-        0.44,
-        YARD.halfDepth * 2,
-        4,
-        0.2,
-      ),
+  // Short tapered fibres give the lawn a real silhouette and grazing-light texture.
+  const bladeGeo = keep(new THREE.BufferGeometry());
+  bladeGeo.setAttribute(
+    "position",
+    new THREE.Float32BufferAttribute(
+      [-0.008, 0, 0, 0.008, 0, 0, 0.004, 0.035, 0.003, 0, 0.065, 0.013],
+      3,
     ),
-    keep(new THREE.MeshStandardMaterial({ color: 0xede4d2, roughness: 0.9 })),
   );
-  platform.position.set(YARD.centerX, -0.22, YARD.centerZ);
-  platform.castShadow = platform.receiveShadow = true;
-  scene.add(platform);
+  bladeGeo.setIndex([0, 1, 2, 0, 2, 3]);
+  bladeGeo.computeVertexNormals();
+  const bladeMat = keep(
+    new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide }),
+  );
+  const bladeCount = matchMedia("(max-width:767px)").matches ? 10000 : 22000;
+  const fibres = new THREE.InstancedMesh(bladeGeo, bladeMat, bladeCount);
+  resources.push(fibres);
+  const fibre = new THREE.Object3D(),
+    color = new THREE.Color();
+  for (let i = 0; i < bladeCount; i++) {
+    const angle = random() * Math.PI * 2,
+      r = Math.sqrt(random()) * 0.996;
+    const x = Math.cos(angle) * r * YARD.radiusX,
+      z = Math.sin(angle) * r * YARD.radiusZ;
+    fibre.position.set(x, 0, z);
+    fibre.rotation.y = random() * Math.PI * 2;
+    const underObject = YARD_OBSTACLES.some(
+      (o) => Math.abs(x - o.x) < o.width / 2 && Math.abs(z - o.z) < o.depth / 2,
+    );
+    const height = 0.25 + random() * 0.24;
+    fibre.scale.set(
+      underObject ? 0 : 1,
+      underObject ? 0 : height,
+      underObject ? 0 : 1,
+    );
+    fibre.updateMatrix();
+    fibres.setMatrixAt(i, fibre.matrix);
+    const variation = random();
+    color.set(0x8b9e77).multiplyScalar(0.97 + variation * 0.06);
+    fibres.setColorAt(i, color);
+  }
+  fibres.receiveShadow = true;
+  scene.add(fibres);
   const shadowCanvas = document.createElement("canvas");
   shadowCanvas.width = shadowCanvas.height = 128;
   const ctx = shadowCanvas.getContext("2d")!;
@@ -82,9 +135,14 @@ export function addMiniatureYard(
     }),
   );
   const shadowGeo = keep(new THREE.PlaneGeometry(1, 1));
+  const shadow = new THREE.Mesh(shadowGeo, shadowMat);
+  shadow.rotation.x = -Math.PI / 2;
+  shadow.scale.set(20, 14, 1);
+  shadow.position.set(0.1, -0.095, 0.1);
+  scene.add(shadow);
   const wood = keep(
     new THREE.MeshStandardMaterial({
-      map: woodTexture(),
+      map: texture(true),
       roughness: 0.85,
       color: 0xf7e5c5,
     }),
@@ -140,7 +198,7 @@ export function addMiniatureYard(
     });
   };
   new GLTFLoader().load(
-    "/models/yard-furniture.glb?v=diorama-5",
+    "/models/yard-furniture.glb?v=restored-oval-6",
     (gltf) => {
       if (disposed) {
         releaseModel(gltf.scene);
@@ -150,8 +208,18 @@ export function addMiniatureYard(
       furniture.name = "Blender playground furniture";
       furniture.traverse((object) => {
         if (!(object instanceof THREE.Mesh)) return;
-        object.castShadow = true;
+        const lawn =
+          object.name === "Lawn_surface" || object.name === "Lawn surface";
+        const edge = object.name === "Lawn_edge" || object.name === "Lawn edge";
+        object.castShadow = !lawn && !edge;
         object.receiveShadow = true;
+        if (lawn || edge) {
+          const original = Array.isArray(object.material)
+            ? object.material
+            : [object.material];
+          original.forEach((material) => material.dispose());
+          object.material = (lawn ? turf : rim).clone();
+        }
         if (
           object.material instanceof THREE.MeshStandardMaterial &&
           object.material.name === "Yard oak"
@@ -164,7 +232,8 @@ export function addMiniatureYard(
         }
       });
       bench.visible = false;
-      platform.visible = false;
+      base.visible = false;
+      top.visible = false;
       scene.add(furniture);
       onReady();
     },
