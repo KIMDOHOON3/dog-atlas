@@ -2,11 +2,13 @@
   "meshCount": 11,
   "triangles": 32104,
   "finiteVertices": true,
-  "glbBytes": 983924,
+  "glbBytes": 983820,
   "groundSize": [
     80,
     80
   ],
   "camera": "Perspective, diagonal view; runtime responsive fit",
-  "trajectoryRemoved": true
+  "trajectoryRemoved": true,
+  "surface": "Neutral white in Blender; transparent shadow floor on web",
+  "grassInstances": 0
 }

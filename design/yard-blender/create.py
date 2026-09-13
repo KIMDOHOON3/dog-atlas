@@ -5,7 +5,7 @@ OUT=Path('C:/Users/김도훈/Desktop/강아지')
 # Rebuild the active playground from this source; run in its dedicated Blender file.
 for ob in list(bpy.data.objects):bpy.data.objects.remove(ob,do_unlink=True)
 for material in list(bpy.data.materials):bpy.data.materials.remove(material)
-s=bpy.data.scenes.new('Atlas open lawn');bpy.context.window.scene=s
+s=bpy.data.scenes.new('Atlas open courtyard');bpy.context.window.scene=s
 def mat(name,color,rough=.8,metal=0):
     m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True
     p=next(n for n in m.node_tree.nodes if n.type=='BSDF_PRINCIPLED');p.inputs['Base Color'].default_value=(*color,1);p.inputs['Roughness'].default_value=rough;p.inputs['Metallic'].default_value=metal
@@ -114,17 +114,17 @@ for ob in s.objects:
     elif ob.name.startswith('Soft bone chew'):
         ob.location.x-=5.95;ob.location.y+=4.15
 
-# A continuous lawn extends beyond the camera crop.
-turf=mat('Lawn surface',(.32,.41,.245),1)
+# A neutral floor extends beyond the camera crop; the browser renders shadows only.
+floor=mat('Floor surface',(1,1,1),1)
 # Subtle close-view surface grain for the editable Cycles scene.
-for material,scale,strength,distance in [(turf,150,.18,.012),(oak,7,.12,.008)]:
+for material,scale,strength,distance in [(oak,7,.12,.008)]:
     nodes=material.node_tree.nodes;links=material.node_tree.links
     noise=nodes.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=scale
     noise.inputs['Detail'].default_value=2
     bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=strength;bump.inputs['Distance'].default_value=distance
     links.new(noise.outputs['Fac'],bump.inputs['Height'])
     links.new(bump.outputs['Normal'],next(n for n in nodes if n.type=='BSDF_PRINCIPLED').inputs['Normal'])
-block('Lawn surface',(0,0,-.05),(80,80,.10),turf,.01)
+block('Floor surface',(0,0,-.05),(80,80,.10),floor,.01)
 
 # Merge by material to keep static draw calls low.
 for material in [oak,edge,iron,bolt,cream,rust,sage,ceramic,clay,water]:

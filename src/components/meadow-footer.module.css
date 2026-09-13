@@ -30,7 +30,7 @@
   height: clamp(420px, 47vw, 650px);
   margin: 32px auto 0;
   overflow: hidden;
-  background: #a4b786;
+  background: transparent;
   touch-action: pan-y;
 }
 .field canvas {
@@ -45,7 +45,7 @@
   left: 0;
   width: 100%;
   z-index: 1;
-  color: #39452f;
+  color: #665344;
 }
 .bottom {
   margin: 0 auto;
@@ -55,14 +55,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  border-top: 1px solid #46523a26;
+  border-top: 1px solid #eee8df;
   font-size: 11px;
 }
 .bottom p {
   margin: 0;
   padding-right: 56px;
   line-height: 1.7;
-  color: #39452f;
+  color: #806f60;
   word-break: keep-all;
 }
 .copyright {
@@ -96,7 +96,7 @@
   margin: 0 20px 14px;
   text-align: center;
   font-size: 10px;
-  color: #46523a;
+  color: #806f60;
   pointer-events: none;
   z-index: 1;
 }
