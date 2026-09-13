@@ -16,7 +16,7 @@ export function createMeadow(host: HTMLDivElement) {
     powerPreference: "low-power",
   });
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.15;
+  renderer.toneMappingExposure = 0.95;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
   renderer.shadowMap.autoUpdate = false;
@@ -29,8 +29,9 @@ export function createMeadow(host: HTMLDivElement) {
   const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 120);
   camera.position.set(0, 12, 13);
   camera.lookAt(0, 0, 0);
-  scene.add(new THREE.HemisphereLight(0xfffcf4, 0xb6b9a2, 2.0));
-  const sun = new THREE.DirectionalLight(0xfff6e6, 2.0);
+  // Lower the fill so wood, grass and equipment retain their colour and depth.
+  scene.add(new THREE.HemisphereLight(0xfffcf4, 0x819073, 1.05));
+  const sun = new THREE.DirectionalLight(0xfff6e6, 2.2);
   sun.position.set(-4, 8, 6);
   sun.castShadow = true;
   sun.shadow.mapSize.set(mobile ? 1024 : 2048, mobile ? 1024 : 2048);
@@ -148,11 +149,14 @@ export function createMeadow(host: HTMLDivElement) {
       h = host.clientHeight;
     width = w;
     height = h;
+    if (!w || !h) return;
+    // Resolve fine edges on Retina screens without an unbounded GPU buffer.
+    // The former 650k cap even undersampled a 1440px-wide desktop canvas.
     renderer.setPixelRatio(
       Math.min(
         devicePixelRatio,
-        mobile ? 1.25 : 1.5,
-        Math.sqrt(650000 / (w * h)),
+        2,
+        Math.sqrt((mobile ? 1400000 : 3000000) / (w * h)),
       ),
     );
     renderer.setSize(w, h);
