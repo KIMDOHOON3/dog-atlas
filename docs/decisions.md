@@ -697,7 +697,7 @@ The user requested tiny butterflies moving automatically around the bench. Add t
 
 ## 2026-09-12 — Cotton-round puppy appearance study
 
-The user reopened the idea of a puppy after ending the previous dog animation work, selected a round cotton-candy appearance and supplied a small white fluffy puppy image. Create an original seated Blender appearance study with tiny ears, short muzzle and a soft coat. Store the blend, GLB and actual rendered preview under `design/cotton-puppy`; this is a design artifact and does not add an animal to the live footer. Appearance approval and runtime optimization remain separate from the earlier rejected locomotion work.
+The user reopened the idea of a puppy after ending the previous dog animation work, selected a round cotton-candy appearance and supplied a small white fluffy puppy image. Create an original seated Blender appearance study with tiny ears, short muzzle and a soft coat. The blend, GLB and rendered previews were kept as an offline design study. On 2026-09-13 the user cancelled retention and all study files and generation scripts were deleted; no animal was added to the live footer. Appearance approval and runtime optimization remain separate from the earlier rejected locomotion work.
 
 ## 2026-09-12 — Stop the puppy addition
 
