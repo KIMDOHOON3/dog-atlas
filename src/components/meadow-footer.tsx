@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import styles from "./meadow-footer.module.css";
 
 export function MeadowFooter() {
@@ -49,8 +50,16 @@ export function MeadowFooter() {
         <div
           ref={field}
           className={styles.field}
-          aria-label="벤치, 물그릇, 낮은 허들과 던질 수 있는 장난감이 놓인 타원형 강아지 운동장"
+          aria-label="파라솔과 테이블, 원목 울타리, 장소 안내판과 던질 수 있는 장난감이 놓인 애견카페 운동장"
         >
+          <Link
+            href="/places"
+            prefetch={false}
+            className={styles.sign}
+            data-yard-sign
+          >
+            함께 갈 곳 <span aria-hidden="true">↗</span>
+          </Link>
           <div className={styles.caption} data-yard-caption>
             <span className={styles.hint}>
               <span className={styles.desktopHint}>

@@ -156,6 +156,35 @@
   outline: 2px solid #a75d32;
   outline-offset: 2px;
 }
+.sign {
+  position: absolute;
+  left: 29%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 0 9px;
+  border: 1px solid #b28052;
+  border-radius: 5px;
+  background: #fff2d9;
+  color: #51351f;
+  font-size: clamp(10px, 1vw, 14px);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 2px 4px #422c241c;
+}
+.sign:hover {
+  background: #fffbef;
+}
+.sign:focus-visible {
+  outline: 3px solid #a75d32;
+  outline-offset: 4px;
+}
 .field:not([data-renderer="three"]) .reset {
   display: none;
 }

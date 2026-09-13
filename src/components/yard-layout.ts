@@ -13,6 +13,17 @@ export const YARD_OBSTACLES: ReadonlyArray<{
   height: number;
   y?: number;
 }> = [
+  { x: 0, z: -4.85, width: 8.2, depth: 0.12, height: 1.16 },
+  { x: 3.15, z: -3.1, width: 1.5, depth: 1.5, height: 0.09, y: 0.965 },
+  { x: 3.15, z: -3.1, width: 0.15, depth: 0.15, height: 2.8 },
+  ...[2.03, 4.27].map((x) => ({
+    x,
+    z: -2.9,
+    width: 0.65,
+    depth: 0.65,
+    height: 1.08,
+  })),
+  { x: -6.6, z: -2.6, width: 1.72, depth: 0.15, height: 1.68 },
   { x: -4.4, z: -3.4, width: 2.7, depth: 1.15, height: 1.3 },
   { x: -1.7, z: -4.0, width: 2.05, depth: 1.05, height: 0.4 },
   // Hurdle posts and crossbar, leaving room underneath.

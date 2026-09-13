@@ -101,7 +101,7 @@ describe("playground ball", () => {
   });
   it("rebounds from the feeding station instead of rolling through the bowls", () => {
     const p = createPlayBall();
-    const station = YARD_OBSTACLES[1];
+    const station = YARD_OBSTACLES.find((o) => o.x === -1.7 && o.z === -4)!;
     p.hold(station.x, station.z + 1.2, BALL_RADIUS);
     p.launch(0, -4, 0);
     let rebounded = false;

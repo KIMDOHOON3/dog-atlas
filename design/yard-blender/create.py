@@ -157,6 +157,40 @@ for i in range(3):
     tube('Weave pole',[(x,y,.08),(x,y,1.25)],.065,white)
     tube('Weave sleeve',[(x,y,.65),(x,y,1.0)],.067,yellow)
 
+# A small cafe corner leaves the middle of the lawn open for play.
+for x in [-4,-2,0,2,4]:
+    block('Fence post',(x,4.85,.58),(.12,.12,1.16),oak,.035)
+for h in [.38,.84]:block('Rear fence rail',(0,4.85,h),(8.1,.09,.10),oak,.025)
+# Round table, two low chairs and a sewn eight-panel parasol.
+cx,cy=3.15,3.1
+lathe('Cafe table',[(0,0),(.72,0),(.75,.04),(.72,.09),(0,.09)],(cx,cy,.92),oak,48)
+tube('Table stem',[(cx,cy,.12),(cx,cy,.94)],.055,iron)
+for a in [0,2.094,4.189]:tube('Table foot',[(cx,cy,.2),(cx+.48*math.cos(a),cy+.48*math.sin(a),.06)],.035,iron)
+for x in [cx-1.12,cx+1.12]:
+    block('Cafe chair seat',(x,cy-.2,.50),(.61,.61,.075),oak,.055)
+    block('Cafe chair back',(x,cy+.07,.86),(.61,.08,.43),oak,.05)
+    for dx in [-.23,.23]:
+        for dy in [-.23,.23]:tube('Cafe chair leg',[(x+dx,cy-.2+dy,.5),(x+dx*1.16,cy-.2+dy*1.16,.04)],.032,iron)
+tube('Parasol mast',[(cx,cy,.08),(cx,cy,2.8)],.038,edge)
+lathe('Parasol base',[(0,0),(.3,0),(.32,.06),(.27,.12),(0,.12)],(cx,cy,0),ceramic,32)
+for panel in range(8):
+    vertices=[(cx,cy,2.82)];faces=[]
+    for ring,(r,z) in enumerate([(.75,2.64),(1.6,2.23),(1.6,2.14)]):
+        for j in range(5):
+            a=(panel+j/4)*math.pi/4
+            vertices.append((cx+r*math.cos(a),cy+r*math.sin(a),z-(.055*math.sin(j*math.pi/4) if ring else 0)))
+    for j in range(4):faces.append((0,1+j,2+j))
+    for ring in range(2):
+        for j in range(4):
+            a=1+ring*5+j;faces.append((a,a+5,a+6,a+1))
+    mesh=bpy.data.meshes.new('Canopy panel');mesh.from_pydata(vertices,[],faces);mesh.update()
+    ob=bpy.data.objects.new('Canopy panel',mesh);s.collection.objects.link(ob);mesh.materials.append(white if panel%2 else ceramic)
+    m=ob.modifiers.new('Cotton thickness','SOLIDIFY');m.thickness=.015;bpy.context.view_layer.objects.active=ob;ob.select_set(True);bpy.ops.object.modifier_apply(modifier=m.name);ob.select_set(False)
+    a=panel*math.pi/4;tube('Parasol seam',[(cx,cy,2.83),(cx+.75*math.cos(a),cy+.75*math.sin(a),2.65),(cx+1.6*math.cos(a),cy+1.6*math.sin(a),2.24)],.009,cream)
+# A timber sign at the open front-left entrance. Its accessible label is HTML.
+for x in [-7.05,-6.15]:block('Sign leg',(x,2.6,.70),(.09,.11,1.4),edge,.02)
+block('Place sign board',(-6.6,2.6,1.35),(1.72,.13,.65),oak,.07)
+
 # Deep rounded ivory foundation under the lawn.
 
 turf=mat('Lawn surface',(.32,.41,.245),1)

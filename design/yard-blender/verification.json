@@ -1,8 +1,8 @@
 {
-  "meshCount": 17,
-  "triangles": 37432,
+  "meshCount": 18,
+  "triangles": 41648,
   "finiteVertices": true,
-  "glbBytes": 1136504,
+  "glbBytes": 1359480,
   "lawnRadii": [
     9.2,
     6.1
@@ -15,6 +15,9 @@
   ],
   "equipment": [
     "hurdle",
-    "weave poles"
+    "weave poles",
+    "rear fence",
+    "parasol table and two chairs",
+    "place sign"
   ]
 }

@@ -710,3 +710,8 @@ The user found the yard small and visually untidy and approved a visible Blender
 ## 2026-09-13 — Fill the footer with lawn and use perspective
 
 The user approved the quieter lawn and requested more three-dimensional framing, no ball trajectory and a scene filling the screen instead of a circle. Replace the oval/rim with continuous Blender terrain cropped to the footer canvas and use a lower diagonal perspective camera. Remove all trajectory drawing/computation. Keep throws catchable by clipping ball movement against inset camera boundaries at its current height and synchronize poses after resize. Retain pet furniture, butterflies, semantic copy, reduced motion and render budgets.
+# 2026-09-14 — 애견카페 마당과 사진 없는 장소 탐색 재개
+
+- 사용자 승인으로 뒤쪽 부분 원목 울타리, 크림 파라솔/원형 테이블/의자 두 개와 장소 안내판을 추가한다. 중앙 놀이 영역, 기존 잔디 반응·장난감 조작을 보존한다.
+- 앞서 제거했던 장소 범위를 명시적으로 재개한다. 안내판은 `/places`의 한국관광공사 반려동물 동반여행 API 목록·상세로 연결한다. 기존 서버 환경 키를 사용하며 사진은 조회·표시하지 않고 제공된 나머지 텍스트 정보는 보존한다. 지도 SDK·병원 연동은 포함하지 않는다.
+- 상세 조회는 공통·소개·반복·동반 정보를 결합하며, 일부 실패와 미제공을 구분한다. 출처 표시, 키 비공개, 캐시·요청 제한·안전한 텍스트 출력을 적용한다. 구현/검증은 `pet-places.md`를 따른다.

@@ -6,7 +6,7 @@ The oval lawn has a rounded ivory foundation, a low striped hurdle and three wea
 
 ## Asset and layout
 
-- Lawn radii 9.2 × 6.1; base depth 0.5. GLB 1,136,504 bytes, 17 mesh objects, 37,432 triangles.
+- Lawn radii 9.2 × 6.1; base depth 0.5. GLB 1,359,480 bytes, 18 mesh objects, 41,648 triangles.
 - Web camera looks from the front at about 26° desktop / 28° mobile above the ground (previously 40° / 51°). Aim at height 0.25 and tighten vertical framing to show the furniture fronts while retaining the lawn top and full oval. The existing camera-derived interaction bounds follow the new view. The offline Blender preview retains its studio camera.
 - `Throw_tug`, `Throw_disc`, `Throw_bone` are independent roots with local pivots. Each pickup is consolidated by material without being merged into static furniture.
 - Shared world coordinates and static collision boxes are in `yard-layout.ts`. Toys sit along the near edge with separate 48px touch targets.
@@ -25,8 +25,8 @@ The oval lawn has a rounded ivory foundation, a low striped hurdle and three wea
 - The exported Blender lawn has no texture coordinates. The loader now supplies planar X/Z UVs before applying the turf material; previously the colour and bump maps sampled one texel, making the lawn appear flat. The loading fallback already has UVs. Geometry, gameplay and the sharper drawing buffer remain unchanged.
 - For the reported bright speckles on phone startup, individual grass blades start hidden and are enabled only when their maximum projected height reaches 1.5 CSS pixels. Smaller views keep mipmapped turf colour/bump detail without subpixel triangles. Larger views use rough Standard shading and a lower-contrast blade palette. Camera resize reevaluates detail before drawing. Regression coverage checks startup, mobile/desktop/mobile transitions and disposal; the supplied physical phone has not been retested.
 - Static load failure retains the fallback bench, lawn and playable ball; additional toy controls become available once their Blender models load.
-- Playground-directory navigation has no specified destination yet; this change adds the scene and interaction only.
+- A timber entrance sign links to the photo-free public pet-place directory at `/places`. Its accessible HTML label follows the camera projection; keyboard activation and WebGL fallback remain available. A cream eight-panel parasol, round table, two chairs and partial rear fence form the cafe corner. New simplified collision boxes share the layout; the central play space stays open.
 
 ## Verification
 
-Finite vertices, independent pickup roots and triangle/file counts are in `verification.json`. Blender render inspected. Desktop1440/mobile320px: separate bone/disc/tug drags and releases, reset, readable controls, no horizontal overflow/browser errors. ESLint, TypeScript, 55 test files/1,675 tests and production build pass. Added tests cover toy-specific settling/cancellation, spinning disc, inter-item collision, keyboard/reset/disposal and reduced motion. These are browser viewport checks, not physical-device performance measurements.
+Finite vertices, independent pickup roots and triangle/file counts are in `verification.json`. Blender render inspected. Desktop1440/mobile320px: separate bone/disc/tug drags and releases, reset, readable controls, no horizontal overflow/browser errors. ESLint, TypeScript, 59 test files/1,690 tests and production build pass. Added tests cover toy-specific settling/cancellation, spinning disc, inter-item collision, keyboard/reset/disposal and reduced motion. These are browser viewport checks, not physical-device performance measurements.

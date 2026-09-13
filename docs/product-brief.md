@@ -22,4 +22,6 @@ Someone who wants a dog but has limited knowledge and may currently choose mainl
 
 ## Product voice
 
+An optional playground sign leads to sourced, photo-free pet-friendly place information, helping visitors plan a shared outing and check conditions before visiting. This was explicitly reopened on 2026-09-14.
+
 Curiosity and cuteness invite the user in. Clear, sourced information supports a responsible decision. Delaying adoption is a valid outcome.
