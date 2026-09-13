@@ -1,8 +1,8 @@
 {
   "meshCount": 17,
-  "triangles": 47264,
+  "triangles": 37432,
   "finiteVertices": true,
-  "glbBytes": 1358240,
+  "glbBytes": 1136504,
   "lawnRadii": [
     9.2,
     6.1
@@ -14,7 +14,6 @@
     "Throw_bone"
   ],
   "equipment": [
-    "tunnel",
     "hurdle",
     "weave poles"
   ]

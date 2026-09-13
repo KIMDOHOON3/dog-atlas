@@ -1,13 +1,13 @@
 # Interactive dog playground — Blender source
 
-The oval lawn has a deeper rounded ivory foundation and three pieces of dog-agility equipment: an open-ended tunnel, a low striped hurdle and three weave poles. The bench and feeding station remain at the back, with a clear central play area.
+The oval lawn has a rounded ivory foundation, a low striped hurdle and three weave poles. The large tunnel was removed from the Blender source, export and collision layout at the user's request. The bench and feeding station remain at the back, with an open central play area.
 
 `playground.blend` is the editable source; `create.py` rebuilds this dedicated workspace, clearing existing objects/materials. `preview.png` is a Cycles render. No downloaded models or textures are used.
 
 ## Asset and layout
 
-- Lawn radii 9.2 × 6.1; base depth 0.5. GLB 1,358,240 bytes, 17 mesh objects, 47,264 triangles.
-- Web camera looks from the front at about 26° desktop / 28° mobile above the ground (previously 40° / 51°). Aim at height 0.25 and tighten vertical framing to show the bench/tunnel fronts while retaining the lawn top and full oval. The existing camera-derived interaction bounds follow the new view. The offline Blender preview retains its studio camera.
+- Lawn radii 9.2 × 6.1; base depth 0.5. GLB 1,136,504 bytes, 17 mesh objects, 37,432 triangles.
+- Web camera looks from the front at about 26° desktop / 28° mobile above the ground (previously 40° / 51°). Aim at height 0.25 and tighten vertical framing to show the furniture fronts while retaining the lawn top and full oval. The existing camera-derived interaction bounds follow the new view. The offline Blender preview retains its studio camera.
 - `Throw_tug`, `Throw_disc`, `Throw_bone` are independent roots with local pivots. Each pickup is consolidated by material without being merged into static furniture.
 - Shared world coordinates and static collision boxes are in `yard-layout.ts`. Toys sit along the near edge with separate 48px touch targets.
 - Static furniture casts cached shadows; moving items use lightweight contact shadows so their starting positions do not leave baked shadows behind.

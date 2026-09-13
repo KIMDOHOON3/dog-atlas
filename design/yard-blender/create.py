@@ -144,22 +144,6 @@ for root in [o for o in s.objects if o.name.startswith('Throw_')]:
 blue=mat('Agility blue',(.22,.39,.44),.78)
 yellow=mat('Agility ochre',(.60,.40,.14),.8)
 white=mat('Agility cream',(.84,.78,.65),.9)
-# Open-ended tunnel with a solid shell and evenly spaced reinforcement ribs.
-verts=[];faces=[]
-for j in range(13):
-    for i in range(49):
-        a=math.pi*i/48;verts.append((3+1.1*math.cos(a),2+j*.2,.12+1.5*math.sin(a)))
-for j in range(12):
-    for i in range(48):
-        k=j*49+i;faces.append((k,k+1,k+50,k+49))
-mesh=bpy.data.meshes.new('Open tunnel shell');mesh.from_pydata(verts,[],faces);mesh.update()
-o=bpy.data.objects.new('Agility tunnel',mesh);s.collection.objects.link(o);mesh.materials.append(blue)
-for face in mesh.polygons:face.use_smooth=True
-bpy.context.view_layer.objects.active=o
-mod=o.modifiers.new('Fabric shell','SOLIDIFY');mod.thickness=.055;bpy.ops.object.modifier_apply(modifier=mod.name)
-for j in range(9):
-    tube('Tunnel rib',[(3+1.13*math.cos(math.pi*i/48),2+j*.3,.12+1.53*math.sin(math.pi*i/48)) for i in range(49)],.032,white if j in [0,8] else blue)
-for x in [1.94,4.06]:block('Tunnel foot',(x,3.2,.08),(.30,2.6,.16),blue,.07)
 # A low jump with broad feet and a striped removable rail.
 for x in [-1.7,.7]:
     block('Jump foot',(x,1.2,.07),(.42,.65,.14),white,.06)

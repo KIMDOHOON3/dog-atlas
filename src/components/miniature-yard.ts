@@ -219,7 +219,7 @@ export function addMiniatureYard(
     });
   };
   new GLTFLoader().load(
-    "/models/yard-furniture.glb?v=agility-play-7",
+    "/models/yard-furniture.glb?v=open-yard-8",
     (gltf) => {
       if (disposed) {
         releaseModel(gltf.scene);

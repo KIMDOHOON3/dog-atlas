@@ -49,7 +49,7 @@ export function MeadowFooter() {
         <div
           ref={field}
           className={styles.field}
-          aria-label="터널, 허들, 지그재그 봉과 던질 수 있는 장난감이 놓인 타원형 강아지 운동장"
+          aria-label="벤치, 물그릇, 낮은 허들과 던질 수 있는 장난감이 놓인 타원형 강아지 운동장"
         >
           <div className={styles.caption} data-yard-caption>
             <span className={styles.hint}>
