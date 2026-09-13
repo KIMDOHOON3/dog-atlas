@@ -44,7 +44,7 @@ export function createPlaygroundWorld() {
     obstacle.position.set(object.x, object.y ?? object.height / 2, object.z);
     world.addBody(obstacle);
   }
-  return { world, turf };
+  return { world, turf, floor };
 }
 export function createPlayBall(
   options: { kind?: PlayItemKind; x?: number; z?: number } = {},

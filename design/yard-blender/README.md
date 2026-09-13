@@ -14,6 +14,8 @@ The oval lawn has a deeper rounded ivory foundation and three pieces of dog-agil
 
 ## Interaction
 
+- Ground-contact motion drives a shared 128×96 direction/pressure texture. The four toys use different contact widths; the turf shader changes its nap/shading and readable grass blades bend in the travel direction. Pressure recovers exponentially and stops uploading/rendering after recovery. Only actual Cannon floor contacts produce marks, so airborne arcs, sleeping objects and reset jumps do not paint trails. Reset and reduced motion clear the field. This is visual grass response, not two-way soft-body physics.
+- The user confirmed the preceding mobile bright-speckle fix. Keep subpixel blades disabled on small screens; grass response there uses the textured ground instead. CPU regression tests include actual rolling floor contacts, opposing directions, no airborne bridging, full recovery, reset/teleport handling and different footprint widths.
 - Ball, bone, disc and tug share a single Cannon world. Shape proxies are a sphere, compound bone, shallow cylinder and compound rope loop respectively. Collisions are rigid-body approximations; cloth deformation and aerodynamic lift are not simulated.
 - Per-item controls support drag/lift/throw, airborne catches, keyboard activation and pointer cancellation. The disc spins around its face. Each item uses its own resting height and edge inset.
 - A reset button returns all items to their initial positions. Touch outside an item retains normal page scrolling.

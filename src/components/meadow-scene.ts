@@ -120,16 +120,54 @@ export function createMeadow(host: HTMLDivElement) {
     const ballMoving = items.some((item) => item.physics.body.sleepState !== 2);
     environment.world.step(1 / 60, dt, 3);
     for (const item of items) item.physics.step(dt, false);
+    const grassMoving = yard.updateGrass(
+      dt,
+      items.map((item) => {
+        const { body, kind } = item.physics;
+        const grounded =
+          !item.held &&
+          environment.world.contacts.some(
+            (contact) =>
+              (contact.bi === body && contact.bj === environment.floor) ||
+              (contact.bj === body && contact.bi === environment.floor),
+          );
+        return {
+          id: kind,
+          x: body.position.x,
+          z: body.position.z,
+          vx: body.velocity.x,
+          vz: body.velocity.z,
+          grounded,
+          radius:
+            kind === "ball"
+              ? 0.24
+              : kind === "disc"
+                ? 0.48
+                : kind === "tug"
+                  ? 0.4
+                  : 0.32,
+        };
+      }),
+    );
     const fluttering = butterflies.update(dt);
     last = now;
-    if (dirty || ballMoving || fluttering || items.some((item) => item.held))
+    if (
+      dirty ||
+      ballMoving ||
+      grassMoving ||
+      fluttering ||
+      items.some((item) => item.held)
+    )
       draw();
     frame = requestAnimationFrame(tick);
   };
   const sync = () => {
     cancelAnimationFrame(frame);
     frame = 0;
-    if (reduced.matches) butterflies.rest();
+    if (reduced.matches) {
+      butterflies.rest();
+      yard.resetGrass();
+    }
     if (!visible || document.hidden || reduced.matches)
       for (const item of items) item.cancel();
     host.dataset.motion =
@@ -215,6 +253,7 @@ export function createMeadow(host: HTMLDivElement) {
   mobileQuery.addEventListener("change", changeMode);
   const reset = () => {
     for (const item of items) item.reset();
+    yard.resetGrass();
     if (visible) draw();
   };
   host.addEventListener("yard-reset", reset);

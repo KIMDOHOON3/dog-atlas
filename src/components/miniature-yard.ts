@@ -2,6 +2,8 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 import { YARD, YARD_OBSTACLES } from "./yard-layout";
+import { createGrassResponse, type GrassContact } from "./grass-response";
+import { applyGrassResponse } from "./grass-response-material";
 
 /** Static turf plus locally authored Blender furniture, loaded only with the yard. */
 export function addMiniatureYard(
@@ -44,6 +46,16 @@ export function addMiniatureYard(
     return map;
   };
   const turfMap = texture();
+  const grassResponse = createGrassResponse();
+  const responseMap = keep(
+    new THREE.DataTexture(
+      grassResponse.data,
+      grassResponse.width,
+      grassResponse.height,
+    ),
+  );
+  responseMap.minFilter = responseMap.magFilter = THREE.LinearFilter;
+  responseMap.needsUpdate = true;
   const turf = keep(
     new THREE.MeshStandardMaterial({
       map: turfMap,
@@ -56,6 +68,7 @@ export function addMiniatureYard(
   const rim = keep(
     new THREE.MeshStandardMaterial({ color: 0xf1e2c6, roughness: 1 }),
   );
+  applyGrassResponse(turf, responseMap);
   const profile = [
     new THREE.Vector2(0, -0.5),
     new THREE.Vector2(0.97, -0.5),
@@ -94,6 +107,7 @@ export function addMiniatureYard(
     }),
   );
   const bladeCount = matchMedia("(max-width:767px)").matches ? 16000 : 34000;
+  applyGrassResponse(bladeMat, responseMap, true);
   const fibres = new THREE.InstancedMesh(bladeGeo, bladeMat, bladeCount);
   // Stay hidden until the first camera resize has selected readable detail.
   fibres.visible = false;
@@ -241,6 +255,7 @@ export function addMiniatureYard(
             : [object.material];
           original.forEach((material) => material.dispose());
           object.material = (lawn ? turf : rim).clone();
+          if (lawn) applyGrassResponse(object.material, responseMap);
         }
         if (
           object.material instanceof THREE.MeshStandardMaterial &&
@@ -270,6 +285,15 @@ export function addMiniatureYard(
     },
   );
   return {
+    updateGrass(dt: number, contacts: readonly GrassContact[]) {
+      const changed = grassResponse.update(dt, contacts);
+      if (changed) responseMap.needsUpdate = true;
+      return changed;
+    },
+    resetGrass() {
+      grassResponse.reset();
+      responseMap.needsUpdate = true;
+    },
     setViewScale(pixelsPerUnit: number) {
       // Subpixel blades shimmer like particles. The mipmapped turf and bump
       // textures retain the lawn's grain when individual blades are too small.
