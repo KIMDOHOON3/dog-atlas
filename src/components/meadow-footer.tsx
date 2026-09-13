@@ -51,21 +51,23 @@ export function MeadowFooter() {
           className={styles.field}
           aria-label="벤치, 밥그릇과 물그릇, 원반과 장난감이 놓인 넓은 잔디 운동장"
         >
-          <span className={styles.hint}>
-            <span className={styles.desktopHint}>
-              살살 굴리고, 위로 던지고, 다시 잡아보세요.
+          <div className={styles.caption} data-yard-caption>
+            <span className={styles.hint}>
+              <span className={styles.desktopHint}>
+                살살 굴리고, 위로 던지고, 다시 잡아보세요.
+              </span>
+              <span className={styles.mobileHint}>
+                공을 잡고 끌어 던져보세요.
+              </span>
             </span>
-            <span className={styles.mobileHint}>
-              공을 잡고 끌어 던져보세요.
-            </span>
-          </span>
+            <div className={styles.bottom}>
+              <span className={styles.copyright}>
+                © {new Date().getFullYear()} 견종도감.
+              </span>
+              <p>견종 정보는 일반적인 경향이며, 개체마다 다를 수 있습니다.</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className={styles.bottom}>
-        <span className={styles.copyright}>
-          © {new Date().getFullYear()} 견종도감.
-        </span>
-        <p>견종 정보는 일반적인 경향이며, 개체마다 다를 수 있습니다.</p>
       </div>
     </footer>
   );

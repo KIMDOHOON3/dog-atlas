@@ -46,22 +46,6 @@ export function createMeadow(host: HTMLDivElement) {
   sun.shadow.radius = 3;
   scene.add(sun);
   const butterflies = addYardButterflies(scene, mobile);
-  let butterfliesEnabled = true;
-  const butterflyToggle = document.createElement("button");
-  butterflyToggle.type = "button";
-  butterflyToggle.dataset.butterfliesToggle = "true";
-  const updateButterflyControl = () => {
-    butterflyToggle.textContent = butterfliesEnabled
-      ? "나비 멈춤"
-      : "나비 재생";
-    butterflyToggle.setAttribute(
-      "aria-label",
-      butterfliesEnabled ? "나비 움직임 멈추기" : "나비 움직임 재생하기",
-    );
-    butterflyToggle.hidden = reduced.matches;
-  };
-  updateButterflyControl();
-  host.appendChild(butterflyToggle);
   const tennis = createTennisBall();
   const ball = tennis.ball;
   const physics = createPlayBall();
@@ -128,7 +112,7 @@ export function createMeadow(host: HTMLDivElement) {
     const dt = Math.min((now - last) / 1000, 0.05);
     const ballMoving = physics.body.sleepState !== 2;
     physics.step(dt);
-    const fluttering = butterfliesEnabled && butterflies.update(dt);
+    const fluttering = butterflies.update(dt);
     last = now;
     if (dirty || ballMoving || fluttering || held !== null) draw();
     frame = requestAnimationFrame(tick);
@@ -137,7 +121,6 @@ export function createMeadow(host: HTMLDivElement) {
     cancelAnimationFrame(frame);
     frame = 0;
     ballTarget.disabled = reduced.matches;
-    updateButterflyControl();
     if (reduced.matches) butterflies.rest();
     if ((!visible || document.hidden || reduced.matches) && held !== null) {
       const pointerId = held;
@@ -158,14 +141,7 @@ export function createMeadow(host: HTMLDivElement) {
       }
     }
   };
-  const toggleButterflies = () => {
-    butterfliesEnabled = !butterfliesEnabled;
-    updateButterflyControl();
-    if (!butterfliesEnabled) butterflies.rest();
-    dirty = true;
-    if (visible && !document.hidden) draw();
-  };
-  butterflyToggle.addEventListener("click", toggleButterflies);
+  const caption = host.querySelector<HTMLElement>("[data-yard-caption]");
   const resize = () => {
     const w = host.clientWidth,
       h = host.clientHeight;
@@ -195,7 +171,14 @@ export function createMeadow(host: HTMLDivElement) {
     // Keep the whole ball and its touch target inside this cropped camera view.
     const safeProjection = camera.projectionMatrix.clone();
     safeProjection.elements[0] /= 1 - Math.max(0.06, 56 / w);
-    safeProjection.elements[5] /= 1 - Math.max(0.1, 84 / h);
+    // Reserve the caption below the play area, including the 48px touch target.
+    const topInset = Math.max(28, h * 0.05);
+    const bottomInset = Math.min(h * 0.55, (caption?.offsetHeight ?? 0) + 28);
+    const verticalScale = 1 - (topInset + bottomInset) / h;
+    const verticalCenter = (bottomInset - topInset) / h;
+    safeProjection.elements[5] /= verticalScale;
+    safeProjection.elements[9] =
+      (safeProjection.elements[9] + verticalCenter) / verticalScale;
     const frustum = new THREE.Frustum().setFromProjectionMatrix(
       safeProjection.multiply(camera.matrixWorldInverse),
     );
@@ -211,6 +194,7 @@ export function createMeadow(host: HTMLDivElement) {
   };
   const observer = new ResizeObserver(resize);
   observer.observe(host);
+  if (caption) observer.observe(caption);
   resize();
   const ray = new THREE.Raycaster(),
     point = new THREE.Vector3();
@@ -359,8 +343,6 @@ export function createMeadow(host: HTMLDivElement) {
         resource.dispose();
       tennis.dispose();
       butterflies.dispose();
-      butterflyToggle.removeEventListener("click", toggleButterflies);
-      butterflyToggle.remove();
       ballTarget.remove();
       disposeYard();
       renderer.dispose();
