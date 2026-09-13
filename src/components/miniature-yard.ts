@@ -22,13 +22,13 @@ export function addMiniatureYard(
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 512;
     const ctx = canvas.getContext("2d")!;
-    ctx.fillStyle = wood ? "#a87647" : "#518744";
+    ctx.fillStyle = wood ? "#a87647" : "#7d895f";
     ctx.fillRect(0, 0, 512, 512);
-    for (let i = 0; i < (wood ? 10000 : 12000); i++) {
+    for (let i = 0; i < (wood ? 10000 : 42000); i++) {
       const shade = Math.floor(random() * 20);
       ctx.fillStyle = wood
         ? `rgba(65,35,15,${random() * 0.055})`
-        : `rgba(${62 + shade},${116 + shade},${48 + shade},.09)`;
+        : `rgba(${75 + shade},${91 + shade},${49 + shade},.5)`;
       ctx.fillRect(
         random() * 512,
         random() * 512,
@@ -39,7 +39,7 @@ export function addMiniatureYard(
     const map = keep(new THREE.CanvasTexture(canvas));
     map.colorSpace = THREE.SRGBColorSpace;
     map.wrapS = map.wrapT = THREE.RepeatWrapping;
-    map.repeat.set(wood ? 1 : 2, wood ? 1 : 2);
+    map.repeat.set(wood ? 1 : 4, wood ? 1 : 2);
     map.anisotropy = 4;
     return map;
   };
@@ -48,7 +48,7 @@ export function addMiniatureYard(
     new THREE.MeshStandardMaterial({
       map: turfMap,
       bumpMap: turfMap,
-      bumpScale: 0.002,
+      bumpScale: 0.012,
       roughness: 1,
       color: 0xffffff,
     }),
@@ -89,7 +89,7 @@ export function addMiniatureYard(
   const bladeMat = keep(
     new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide }),
   );
-  const bladeCount = matchMedia("(max-width:767px)").matches ? 10000 : 22000;
+  const bladeCount = matchMedia("(max-width:767px)").matches ? 16000 : 34000;
   const fibres = new THREE.InstancedMesh(bladeGeo, bladeMat, bladeCount);
   resources.push(fibres);
   const fibre = new THREE.Object3D(),
@@ -104,7 +104,7 @@ export function addMiniatureYard(
     const underObject = YARD_OBSTACLES.some(
       (o) => Math.abs(x - o.x) < o.width / 2 && Math.abs(z - o.z) < o.depth / 2,
     );
-    const height = 0.25 + random() * 0.24;
+    const height = 0.38 + random() * 0.42;
     fibre.scale.set(
       underObject ? 0 : 1,
       underObject ? 0 : height,
@@ -113,7 +113,7 @@ export function addMiniatureYard(
     fibre.updateMatrix();
     fibres.setMatrixAt(i, fibre.matrix);
     const variation = random();
-    color.set(0x60944d).multiplyScalar(0.94 + variation * 0.12);
+    color.set(0x85916b).multiplyScalar(0.88 + variation * 0.2);
     fibres.setColorAt(i, color);
   }
   fibres.receiveShadow = true;
@@ -214,6 +214,21 @@ export function addMiniatureYard(
         const edge = object.name === "Lawn_edge" || object.name === "Lawn edge";
         object.castShadow = !lawn && !edge;
         object.receiveShadow = true;
+        if (lawn && !object.geometry.getAttribute("uv")) {
+          // The Blender lawn has no UVs; without these the grass/bump maps
+          // sample a single texel and the entire surface looks painted flat.
+          object.geometry.computeBoundingBox();
+          const bounds = object.geometry.boundingBox!;
+          const positions = object.geometry.getAttribute("position");
+          const uv = new Float32Array(positions.count * 2);
+          const spanX = Math.max(bounds.max.x - bounds.min.x, 0.001);
+          const spanZ = Math.max(bounds.max.z - bounds.min.z, 0.001);
+          for (let i = 0; i < positions.count; i++) {
+            uv[i * 2] = (positions.getX(i) - bounds.min.x) / spanX;
+            uv[i * 2 + 1] = (positions.getZ(i) - bounds.min.z) / spanZ;
+          }
+          object.geometry.setAttribute("uv", new THREE.BufferAttribute(uv, 2));
+        }
         if (lawn || edge) {
           const original = Array.isArray(object.material)
             ? object.material
