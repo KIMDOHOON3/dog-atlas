@@ -89,7 +89,7 @@ export function createMeadow(host: HTMLDivElement) {
     renderer.render(scene, camera);
     dirty = false;
   };
-  const disposeYard = addMiniatureYard(scene, (models) => {
+  const yard = addMiniatureYard(scene, (models) => {
     YARD_TOYS.forEach((toy, i) => {
       const model = models.get(toy.id);
       if (model) items[i + 1].setModel(model);
@@ -170,6 +170,7 @@ export function createMeadow(host: HTMLDivElement) {
     camera.right = (half * w) / h;
     camera.top = half;
     camera.bottom = -half;
+    yard.setViewScale(w / (camera.right - camera.left));
     camera.updateProjectionMatrix();
     // Center the oval above the footer notices.
     camera.projectionMatrix.elements[13] = captionHeight / h;
@@ -245,7 +246,7 @@ export function createMeadow(host: HTMLDivElement) {
       for (const item of items) item.dispose();
       tennis.dispose();
       butterflies.dispose();
-      disposeYard();
+      yard.dispose();
       renderer.dispose();
       renderer.forceContextLoss();
       renderer.domElement.remove();

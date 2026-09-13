@@ -87,10 +87,16 @@ export function addMiniatureYard(
   bladeGeo.setIndex([0, 1, 2, 0, 2, 3]);
   bladeGeo.computeVertexNormals();
   const bladeMat = keep(
-    new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide }),
+    new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      roughness: 1,
+      side: THREE.DoubleSide,
+    }),
   );
   const bladeCount = matchMedia("(max-width:767px)").matches ? 16000 : 34000;
   const fibres = new THREE.InstancedMesh(bladeGeo, bladeMat, bladeCount);
+  // Stay hidden until the first camera resize has selected readable detail.
+  fibres.visible = false;
   resources.push(fibres);
   const fibre = new THREE.Object3D(),
     color = new THREE.Color();
@@ -113,7 +119,7 @@ export function addMiniatureYard(
     fibre.updateMatrix();
     fibres.setMatrixAt(i, fibre.matrix);
     const variation = random();
-    color.set(0x85916b).multiplyScalar(0.88 + variation * 0.2);
+    color.set(0x738155).multiplyScalar(0.92 + variation * 0.12);
     fibres.setColorAt(i, color);
   }
   fibres.receiveShadow = true;
@@ -263,12 +269,19 @@ export function addMiniatureYard(
       /* The lightweight procedural bench remains usable offline. */
     },
   );
-  return () => {
-    disposed = true;
-    if (furniture) {
-      scene.remove(furniture);
-      releaseModel(furniture);
-    }
-    resources.forEach((resource) => resource.dispose());
+  return {
+    setViewScale(pixelsPerUnit: number) {
+      // Subpixel blades shimmer like particles. The mipmapped turf and bump
+      // textures retain the lawn's grain when individual blades are too small.
+      fibres.visible = pixelsPerUnit * 0.065 * 0.8 >= 1.5;
+    },
+    dispose() {
+      disposed = true;
+      if (furniture) {
+        scene.remove(furniture);
+        releaseModel(furniture);
+      }
+      resources.forEach((resource) => resource.dispose());
+    },
   };
 }
