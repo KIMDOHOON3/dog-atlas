@@ -219,7 +219,7 @@ export function addMiniatureYard(
     });
   };
   new GLTFLoader().load(
-    "/models/yard-furniture.glb?v=cafe-yard-10",
+    "/models/yard-furniture.glb?v=quiet-cafe-11",
     (gltf) => {
       if (disposed) {
         releaseModel(gltf.scene);

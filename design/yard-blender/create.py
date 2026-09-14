@@ -121,8 +121,8 @@ for ob in s.objects:
 bpy.context.view_layer.update()
 for key,prefixes,old,target in [
     ('tug',('Braided cotton tug','Tug fringe'),(-6.1,2.5,.09),(-5.6,-1.5,.09)),
-    ('disc',('Flying disc','Disc grip ring'),(-4.7,1.9,.08),(-2,-3,.08)),
-    ('bone',('Soft bone chew',),(-2.8,2.65,.145),(2,-2.5,.145))]:
+    ('disc',('Flying disc','Disc grip ring'),(-4.7,1.9,.08),(-3.5,-3.6,.08)),
+    ('bone',('Soft bone chew',),(-2.8,2.65,.145),(4,-3.3,.145))]:
     root=bpy.data.objects.new('Throw_'+key,None);s.collection.objects.link(root);root.location=target
     bpy.context.view_layer.update()
     for ob in list(s.objects):
@@ -144,23 +144,11 @@ for root in [o for o in s.objects if o.name.startswith('Throw_')]:
 blue=mat('Agility blue',(.22,.39,.44),.78)
 yellow=mat('Agility ochre',(.60,.40,.14),.8)
 white=mat('Agility cream',(.84,.78,.65),.9)
-# A low jump with broad feet and a striped removable rail.
-for x in [-1.7,.7]:
-    block('Jump foot',(x,1.2,.07),(.42,.65,.14),white,.06)
-    block('Jump upright',(x,1.2,.75),(.14,.14,1.4),blue,.05)
-    for h in [.5,.9,1.25]:block('Jump height marker',(x,1.11,h),(.20,.06,.045),white,.012)
-for i in range(6):tube('Jump rail',[(-1.7+i*.4,1.2,.9),(-1.7+(i+1)*.4,1.2,.9)],.07,yellow if i%2 else white)
-# Three small weave poles.
-for i in range(3):
-    x=5.5+i*.3;y=2.6-i*1.1
-    block('Weave foot',(x,y,.055),(.46,.46,.11),blue,.08)
-    tube('Weave pole',[(x,y,.08),(x,y,1.25)],.065,white)
-    tube('Weave sleeve',[(x,y,.65),(x,y,1.0)],.067,yellow)
 
 # A small cafe corner leaves the middle of the lawn open for play.
-for x in [-4,-2,0,2,4]:
+for x in [-3,0,3]:
     block('Fence post',(x,4.85,.58),(.12,.12,1.16),oak,.035)
-for h in [.38,.84]:block('Rear fence rail',(0,4.85,h),(8.1,.09,.10),oak,.025)
+for h in [.38,.84]:block('Rear fence rail',(0,4.85,h),(6.1,.09,.10),oak,.025)
 # Round table, two low chairs and a sewn eight-panel parasol.
 cx,cy=3.15,3.1
 lathe('Cafe table',[(0,0),(.72,0),(.75,.04),(.72,.09),(0,.09)],(cx,cy,.92),oak,48)

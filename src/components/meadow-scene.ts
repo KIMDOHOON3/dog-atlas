@@ -155,12 +155,14 @@ export function createMeadow(host: HTMLDivElement) {
       }),
     );
     const fluttering = butterflies.update(dt);
+    const signGlowing = sign.update(dt);
     last = now;
     if (
       dirty ||
       ballMoving ||
       grassMoving ||
       fluttering ||
+      signGlowing ||
       items.some((item) => item.held)
     )
       draw();
@@ -172,6 +174,7 @@ export function createMeadow(host: HTMLDivElement) {
     if (reduced.matches) {
       butterflies.rest();
       yard.resetGrass();
+      sign.update(0, true);
     }
     if (!visible || document.hidden || reduced.matches)
       for (const item of items) item.cancel();

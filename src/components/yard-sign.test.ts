@@ -78,11 +78,26 @@ it("supports a forgiving touch target, touch cancellation and visible 3D keyboar
   expect(click).toHaveBeenCalledOnce();
   link.dispatchEvent(new FocusEvent("focus"));
   expect(
-    (sign.board.material as THREE.MeshStandardMaterial).emissive.getHex(),
-  ).not.toBe(0);
+    (sign.board.material as THREE.MeshStandardMaterial).emissiveIntensity,
+  ).toBe(0.25);
   link.dispatchEvent(new FocusEvent("blur"));
   expect(
-    (sign.board.material as THREE.MeshStandardMaterial).emissive.getHex(),
-  ).toBe(0);
+    (sign.board.material as THREE.MeshStandardMaterial).emissiveIntensity,
+  ).toBe(0.025);
   sign.dispose();
+});
+
+it("gently brightens without pointer input and stays still with reduced motion", () => {
+  const { sign } = setup();
+  const material = sign.board.material as THREE.MeshStandardMaterial;
+  expect(sign.update(2.8)).toBe(true);
+  expect(material.emissiveIntensity).toBeCloseTo(0.13);
+  sign.update(2.8);
+  expect(material.emissiveIntensity).toBeCloseTo(0.025);
+  sign.update(0, true);
+  expect(material.emissiveIntensity).toBe(0.08);
+  expect(sign.update(4, true)).toBe(false);
+  expect(material.emissiveIntensity).toBe(0.08);
+  sign.dispose();
+  expect(sign.update(1)).toBe(false);
 });

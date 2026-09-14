@@ -1,12 +1,13 @@
 # Interactive dog playground — Blender source
 
-The oval lawn has a rounded ivory foundation, a low striped hurdle and three weave poles. The large tunnel was removed from the Blender source, export and collision layout at the user's request. The bench and feeding station remain at the back, with an open central play area.
+The oval lawn has a rounded ivory foundation and a quiet cafe layout. The tunnel, hurdle and weave poles were removed from the Blender source, export and collision layout at the user's request. The bench/feeding station sit at the rear left, the parasol/table/chairs at the rear right, and a short fence provides a background. Toys flank a central Three.js entrance sign.
 
 `playground.blend` is the editable source; `create.py` rebuilds this dedicated workspace, clearing existing objects/materials. `preview.png` is a Cycles render. No downloaded models or textures are used.
 
 ## Asset and layout
 
-- Lawn radii 9.2 × 6.1; base depth 0.5. GLB 1,330,920 bytes, 18 mesh objects, 41,084 triangles.
+- Lawn radii 9.2 × 6.1; base depth 0.5. GLB 1,143,420 bytes, 16 mesh objects, 38,072 triangles.
+- The cream Three.js sign is at front center with dark painted lettering. A 5.6-second subtle surface brightness cycle runs on PC and mobile in the existing visible-only update loop; reduced motion uses steady brightness. No additional RAF loop or bloom pass is introduced.
 - Web camera looks from the front at about 26° desktop / 28° mobile above the ground (previously 40° / 51°). Aim at height 0.25 and tighten vertical framing to show the furniture fronts while retaining the lawn top and full oval. The existing camera-derived interaction bounds follow the new view. The offline Blender preview retains its studio camera.
 - `Throw_tug`, `Throw_disc`, `Throw_bone` are independent roots with local pivots. Each pickup is consolidated by material without being merged into static furniture.
 - Shared world coordinates and static collision boxes are in `yard-layout.ts`. Toys sit along the near edge with separate 48px touch targets.

@@ -177,11 +177,12 @@ describe("throwable playground toys", () => {
   );
   it("spins the disc around its face and collides with another item in the shared world", () => {
     const environment = createPlaygroundWorld();
-    const disc = createPlayBall({ kind: "disc", x: 0, z: 3 }, environment);
+    // Keep the collision experiment in open grass, away from the entrance sign.
+    const disc = createPlayBall({ kind: "disc", x: 0, z: 0 }, environment);
     disc.launch(0, 0, 1);
     expect(disc.body.angularVelocity.y).toBe(12);
     disc.cancel();
-    const ball = createPlayBall({ x: -2, z: 3 }, environment);
+    const ball = createPlayBall({ x: -2, z: 0 }, environment);
     ball.launch(5, 0, 0);
     let collided = false;
     for (let i = 0; i < 90; i++) {

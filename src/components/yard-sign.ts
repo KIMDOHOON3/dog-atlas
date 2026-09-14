@@ -10,11 +10,13 @@ export function addYardSign(
 ) {
   const root = new THREE.Group();
   root.name = "Pet place timber sign";
-  root.position.set(-6.6, 0, -2.6);
-  root.rotation.y = 0.12;
+  root.position.set(0, 0, 2.9);
+  root.scale.x = 1.2;
   scene.add(root);
   const wood = new THREE.MeshStandardMaterial({
-    color: 0x996033,
+    color: 0xf4e3bc,
+    emissive: 0xffdfad,
+    emissiveIntensity: 0.025,
     roughness: 0.88,
   });
   const endGrain = new THREE.MeshStandardMaterial({
@@ -78,12 +80,12 @@ export function addYardSign(
   let disposed = false;
   const drawLetters = () => {
     context.clearRect(0, 0, 1024, 384);
-    context.fillStyle = "#fff2d6";
+    context.fillStyle = "#503722";
     context.textAlign = "center";
     context.textBaseline = "middle";
     context.font = '700 166px Arial, "Malgun Gothic", sans-serif';
     context.fillText("함께 갈 곳", 460, 192);
-    context.strokeStyle = "#fff2d6";
+    context.strokeStyle = "#503722";
     context.lineWidth = 16;
     context.lineCap = "round";
     context.beginPath();
@@ -128,7 +130,7 @@ export function addYardSign(
     );
     const pixelsPerUnit = rect.width / (camera.right - camera.left);
     touchTarget.scale.set(
-      Math.max(2.55, 44 / pixelsPerUnit),
+      Math.max(2.55, 44 / (pixelsPerUnit * root.scale.x)),
       Math.max(0.94, 50 / pixelsPerUnit),
       1,
     );
@@ -141,8 +143,16 @@ export function addYardSign(
   };
   let focused = false,
     hovered = false;
+  let phase = 0;
+  let ambient = 0.025;
+  const applyLight = () => {
+    wood.emissiveIntensity = Math.max(
+      ambient,
+      focused ? 0.25 : hovered ? 0.19 : 0,
+    );
+  };
   const highlight = () => {
-    wood.emissive.setHex(focused ? 0x604522 : hovered ? 0x251608 : 0);
+    applyLight();
     invalidate();
   };
   let press: { x: number; y: number; id: number } | null = null;
@@ -224,6 +234,18 @@ export function addYardSign(
   return {
     root,
     board,
+    // Shares the meadow's visible-only 30Hz loop on mouse and touch devices.
+    // Reduced motion keeps a steady, softly lit surface instead of pulsing.
+    update(dt: number, reduced = false) {
+      if (disposed) return false;
+      const previous = wood.emissiveIntensity;
+      if (!reduced) phase = (phase + Math.max(0, dt)) % 5.6;
+      ambient = reduced
+        ? 0.08
+        : 0.025 + (0.105 * (1 - Math.cos((phase / 5.6) * Math.PI * 2))) / 2;
+      applyLight();
+      return Math.abs(wood.emissiveIntensity - previous) > 0.000001;
+    },
     dispose() {
       disposed = true;
       controller.abort();

@@ -1,8 +1,8 @@
 {
-  "meshCount": 18,
-  "triangles": 41084,
+  "meshCount": 16,
+  "triangles": 38072,
   "finiteVertices": true,
-  "glbBytes": 1330920,
+  "glbBytes": 1143420,
   "lawnRadii": [
     9.2,
     6.1
@@ -14,10 +14,9 @@
     "Throw_bone"
   ],
   "equipment": [
-    "hurdle",
-    "weave poles",
-    "rear fence",
-    "parasol table and two chairs"
+    "short rear fence",
+    "parasol table and two chairs",
+    "bench and bowls"
   ],
   "runtimeEquipment": [
     "Three.js timber sign with painted text"
