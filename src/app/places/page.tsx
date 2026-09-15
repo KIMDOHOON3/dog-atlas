@@ -8,6 +8,8 @@ import { PLACE_TYPES } from "@/lib/pet-tour";
 import styles from "./places.module.css";
 import NearbyPlaces from "@/components/nearby-places";
 import PlaceIcon from "@/components/place-icon";
+import OutingSketch from "@/components/outing-sketch";
+import journal from "./outing-journal.module.css";
 
 export const metadata = {
   title: "함께 갈 곳",
@@ -28,40 +30,51 @@ export default async function PlacesPage({
   const pageUrl = (page: number) =>
     `/places?${new URLSearchParams({ ...filters, page: String(page) })}`;
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${journal.page}`}>
       <Link href="/" className={styles.back}>
         ← 견종도감으로
       </Link>
-      <header className={styles.hero}>
-        <span className={styles.eyebrow}>함께 나서는 하루</span>
-        <h1>
-          오늘은 <em>함께</em>
-          <br />
-          어디로 갈까요?
-        </h1>
-        <p>
-          산책할 곳부터 잠시 쉬어 갈 카페까지.
-          <br />
-          우리 강아지와 함께할 수 있는 장소를 살펴보세요.
-        </p>
+      <header className={journal.hero}>
+        <div className={journal.chapter}>
+          <span>견종도감의 산책 수첩</span>
+          <span aria-hidden="true">함께 갈 곳 ↗</span>
+        </div>
+        <div className={journal.cover}>
+          <div>
+            <h1>
+              도감 밖으로,
+              <br />
+              <em>함께 한 걸음.</em>
+            </h1>
+            <p>
+              산책길, 쉬어 갈 카페, 하룻밤 머물 곳.
+              <br />
+              우리 강아지와 함께할 다음 장소를 찾아보세요.
+            </p>
+          </div>
+          <div className={journal.sketch}>
+            <OutingSketch />
+            <span>목줄 챙겼나요? 이제 출발해요.</span>
+          </div>
+        </div>
       </header>
       <NearbyPlaces />
       <div className={styles.sectionHeading} id="region-search">
         <div>
-          <span className={styles.eyebrow}>마음에 드는 장소를 찾아요</span>
-          <h2 className={styles.regionTitle}>어떤 하루를 보내고 싶나요?</h2>
+          <span className={styles.eyebrow}>오늘 펼쳐 볼 곳</span>
+          <h2 className={styles.regionTitle}>어떤 산책을 떠날까요?</h2>
         </div>
         <span className={styles.smallNote}>
           동반 조건까지 확인하고 출발해요
         </span>
       </div>
-      <nav className={styles.categories} aria-label="장소 종류 빠른 선택">
+      <nav className={journal.categories} aria-label="장소 종류 빠른 선택">
         {[
-          ["12", "산책·관광"],
-          ["39", "카페·음식점"],
-          ["32", "숙박"],
-          ["", "모든 장소"],
-        ].map(([type, label]) => (
+          ["12", "산책·관광", "바깥 공기 한 모금"],
+          ["39", "카페·음식점", "잠깐, 쉬어 가요"],
+          ["32", "숙박", "하루 더 함께"],
+          ["", "모든 장소", "발길 닿는 곳으로"],
+        ].map(([type, label, caption]) => (
           <Link
             key={type}
             prefetch={false}
@@ -69,7 +82,10 @@ export default async function PlacesPage({
             aria-current={filters.type === type ? "page" : undefined}
           >
             <PlaceIcon type={type} />
-            <span>{label}</span>
+            <span>
+              <strong>{label}</strong>
+              <small>{caption}</small>
+            </span>
           </Link>
         ))}
       </nav>
@@ -118,30 +134,36 @@ export default async function PlacesPage({
             <span>{filters.page}페이지 · 이름순</span>
           </div>
           {result.items.length ? (
-            <ul className={styles.list}>
-              {result.items.map((p) => (
+            <ul className={journal.places}>
+              {result.items.map((p, index) => (
                 <li key={p.contentid}>
                   <Link
                     prefetch={false}
                     href={`/places/${p.contentid}`}
-                    className={styles.card}
+                    className={journal.entry}
                   >
-                    <div className={styles.cardTop}>
-                      <span className={styles.placeIcon}>
-                        <PlaceIcon type={p.contenttypeid} />
-                      </span>
-                      <span className={styles.tag}>
+                    <span className={journal.number} aria-hidden="true">
+                      {String((filters.page - 1) * 20 + index + 1).padStart(
+                        2,
+                        "0",
+                      )}
+                    </span>
+                    <div className={journal.entryBody}>
+                      <span className={journal.kind}>
                         {PLACE_TYPES[p.contenttypeid] ?? "함께 갈 곳"}
                       </span>
+                      <h2>{p.title}</h2>
+                      <p>
+                        {[p.addr1, p.addr2].filter(Boolean).join(" ") ||
+                          "주소 미제공"}
+                      </p>
+                      {p.tel && <p>{p.tel}</p>}
+                      <span className={journal.entryMore}>
+                        동반 조건 · 이용 정보
+                      </span>
                     </div>
-                    <h2>{p.title}</h2>
-                    <p>
-                      {[p.addr1, p.addr2].filter(Boolean).join(" ") ||
-                        "주소 미제공"}
-                    </p>
-                    {p.tel && <p>{p.tel}</p>}
-                    <span className={styles.cardFoot}>
-                      동반 조건 · 이용 정보 <PlaceIcon type="arrow" />
+                    <span className={journal.entryArrow}>
+                      <PlaceIcon type="arrow" />
                     </span>
                   </Link>
                 </li>
