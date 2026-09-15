@@ -1,0 +1,237 @@
+.page {
+  max-width: 1080px;
+}
+.header {
+  padding: 12px 0 24px;
+}
+.header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.04em;
+  margin: 0 0 8px;
+}
+.header p {
+  color: #7a7169;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+.nearbyDisclosure {
+  border-block: 1px solid #e9e3dc;
+  margin-bottom: 24px;
+}
+.nearbyDisclosure > summary {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  padding: 12px 0;
+  min-height: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  list-style: none;
+}
+.nearbyDisclosure > summary::-webkit-details-marker {
+  display: none;
+}
+.nearbyDisclosure > summary > svg {
+  width: 18px;
+  height: 18px;
+  color: #a76035;
+}
+.nearbyDisclosure > summary::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid #8d7c6e;
+  border-bottom: 1px solid #8d7c6e;
+  transform: rotate(45deg);
+  margin: -4px 5px 0 4px;
+}
+.nearbyDisclosure[open] > summary::after {
+  transform: rotate(225deg);
+  margin-top: 4px;
+}
+.disclosureHint {
+  margin-left: auto;
+  color: #8c8177;
+  font-size: 12px;
+  font-weight: 400;
+}
+.nearbyDisclosure > section {
+  margin: 0;
+  border: 0;
+  padding: 0 0 20px;
+}
+.nearbyDisclosure > section > div:first-child {
+  display: none;
+}
+.nearbyDisclosure > section > div:nth-child(2) {
+  margin-top: 4px;
+}
+.categories {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid #e8e1d9;
+  margin: 0;
+  scroll-margin-top: 84px;
+}
+.categories a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 46px;
+  padding: 8px 2px 12px;
+  color: #80766c;
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.categories a[aria-current="page"] {
+  color: #302a26;
+  font-weight: 650;
+  border-color: #a76035;
+}
+.categories a:hover {
+  color: #a76035;
+}
+.form.form {
+  padding: 16px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  gap: 10px;
+}
+.form label {
+  gap: 5px;
+}
+.form input,
+.form select,
+.form button {
+  min-height: 44px;
+  border-radius: 6px;
+}
+.count.count {
+  margin: 12px 0 0;
+  padding-bottom: 12px;
+}
+.count.count strong {
+  color: #51443a;
+}
+.places {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #dcd3c9;
+}
+.places > li {
+  border-bottom: 1px solid #eee8e1;
+}
+.entry {
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 0;
+  text-decoration: none;
+}
+.entryBody {
+  display: grid;
+  grid-template-columns: 100px minmax(200px, 1fr) minmax(250px, 1.3fr);
+  column-gap: 22px;
+  align-items: baseline;
+}
+.kind {
+  color: #8b7a6a;
+  font-size: 12px;
+}
+.entry h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.5;
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+.entry p {
+  margin: 0;
+  font-size: 13px;
+  color: #80756a;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.entry p + p {
+  grid-column: 3;
+  padding-top: 4px;
+}
+.entryArrow {
+  color: #a08773;
+}
+.entryArrow svg {
+  width: 19px;
+  height: 19px;
+}
+.entry:hover h2 {
+  color: #a76035;
+}
+@media (max-width: 800px) {
+  .entryBody {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .entry p + p {
+    grid-column: auto;
+    padding-top: 0;
+  }
+  .kind {
+    font-size: 11px;
+  }
+}
+@media (max-width: 620px) {
+  .header {
+    padding: 4px 0 20px;
+  }
+  .header h1 {
+    font-size: 27px;
+    margin-bottom: 6px;
+  }
+  .header p {
+    font-size: 12px;
+  }
+  .nearbyDisclosure {
+    margin-bottom: 16px;
+  }
+  .categories {
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .categories a {
+    font-size: 13px;
+    min-height: 44px;
+    padding: 8px 0 10px;
+  }
+  .form.form {
+    padding: 12px 0 16px;
+    gap: 10px 8px;
+  }
+  .form.form input,
+  .form.form select {
+    font-size: 16px;
+  }
+  .count.count {
+    margin-top: 0;
+    padding-bottom: 10px;
+  }
+  .entry {
+    padding: 16px 0;
+    gap: 14px;
+  }
+  .entry h2 {
+    font-size: 18px;
+  }
+  .entry p {
+    font-size: 12px;
+  }
+}

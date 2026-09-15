@@ -8,8 +8,7 @@ import { PLACE_TYPES } from "@/lib/pet-tour";
 import styles from "./places.module.css";
 import NearbyPlaces from "@/components/nearby-places";
 import PlaceIcon from "@/components/place-icon";
-import OutingSketch from "@/components/outing-sketch";
-import journal from "./outing-journal.module.css";
+import browse from "./place-browse.module.css";
 
 export const metadata = {
   title: "함께 갈 곳",
@@ -30,66 +29,47 @@ export default async function PlacesPage({
   const pageUrl = (page: number) =>
     `/places?${new URLSearchParams({ ...filters, page: String(page) })}`;
   return (
-    <main className={`${styles.page} ${journal.page}`}>
+    <main className={`${styles.page} ${browse.page}`}>
       <Link href="/" className={styles.back}>
         ← 견종도감으로
       </Link>
-      <header className={journal.hero}>
-        <div className={journal.chapter}>
-          <span>견종도감의 산책 수첩</span>
-          <span aria-hidden="true">함께 갈 곳 ↗</span>
-        </div>
-        <div className={journal.cover}>
-          <div>
-            <h1>
-              도감 밖으로,
-              <br />
-              <em>함께 한 걸음.</em>
-            </h1>
-            <p>
-              산책길, 쉬어 갈 카페, 하룻밤 머물 곳.
-              <br />
-              우리 강아지와 함께할 다음 장소를 찾아보세요.
-            </p>
-          </div>
-          <div className={journal.sketch}>
-            <OutingSketch />
-            <span>목줄 챙겼나요? 이제 출발해요.</span>
-          </div>
-        </div>
+      <header className={browse.header}>
+        <h1>함께 갈 곳</h1>
+        <p>장소를 찾고, 반려견 동반 조건을 확인하세요.</p>
       </header>
-      <NearbyPlaces />
-      <div className={styles.sectionHeading} id="region-search">
-        <div>
-          <span className={styles.eyebrow}>오늘 펼쳐 볼 곳</span>
-          <h2 className={styles.regionTitle}>어떤 산책을 떠날까요?</h2>
-        </div>
-        <span className={styles.smallNote}>
-          동반 조건까지 확인하고 출발해요
-        </span>
-      </div>
-      <nav className={journal.categories} aria-label="장소 종류 빠른 선택">
+      <details className={browse.nearbyDisclosure}>
+        <summary>
+          <PlaceIcon type="locate" />
+          <span>내 주변에서 찾기</span>
+          <span className={browse.disclosureHint}>위치로 검색</span>
+        </summary>
+        <NearbyPlaces />
+      </details>
+      <nav
+        id="region-search"
+        className={browse.categories}
+        aria-label="장소 종류 빠른 선택"
+      >
         {[
-          ["12", "산책·관광", "바깥 공기 한 모금"],
-          ["39", "카페·음식점", "잠깐, 쉬어 가요"],
-          ["32", "숙박", "하루 더 함께"],
-          ["", "모든 장소", "발길 닿는 곳으로"],
-        ].map(([type, label, caption]) => (
+          ["12", "산책·관광"],
+          ["39", "카페·음식점"],
+          ["32", "숙박"],
+          ["", "전체"],
+        ].map(([type, label]) => (
           <Link
             key={type}
             prefetch={false}
             href={`/places?${new URLSearchParams({ ...filters, type, page: "1" })}#region-search`}
             aria-current={filters.type === type ? "page" : undefined}
           >
-            <PlaceIcon type={type} />
-            <span>
-              <strong>{label}</strong>
-              <small>{caption}</small>
-            </span>
+            {label}
           </Link>
         ))}
       </nav>
-      <form action="/places" className={styles.form}>
+      <form
+        action="/places#region-search"
+        className={`${styles.form} ${browse.form}`}
+      >
         <label className={styles.search}>
           장소 이름
           <input
@@ -126,30 +106,23 @@ export default async function PlacesPage({
       </form>
       {result ? (
         <>
-          <div className={styles.count}>
+          <div className={`${styles.count} ${browse.count}`}>
             <p>
-              함께 갈 수 있는{" "}
               <strong>{result.total.toLocaleString("ko-KR")}곳</strong>
             </p>
             <span>{filters.page}페이지 · 이름순</span>
           </div>
           {result.items.length ? (
-            <ul className={journal.places}>
-              {result.items.map((p, index) => (
+            <ul className={browse.places}>
+              {result.items.map((p) => (
                 <li key={p.contentid}>
                   <Link
                     prefetch={false}
                     href={`/places/${p.contentid}`}
-                    className={journal.entry}
+                    className={browse.entry}
                   >
-                    <span className={journal.number} aria-hidden="true">
-                      {String((filters.page - 1) * 20 + index + 1).padStart(
-                        2,
-                        "0",
-                      )}
-                    </span>
-                    <div className={journal.entryBody}>
-                      <span className={journal.kind}>
+                    <div className={browse.entryBody}>
+                      <span className={browse.kind}>
                         {PLACE_TYPES[p.contenttypeid] ?? "함께 갈 곳"}
                       </span>
                       <h2>{p.title}</h2>
@@ -158,11 +131,8 @@ export default async function PlacesPage({
                           "주소 미제공"}
                       </p>
                       {p.tel && <p>{p.tel}</p>}
-                      <span className={journal.entryMore}>
-                        동반 조건 · 이용 정보
-                      </span>
                     </div>
-                    <span className={journal.entryArrow}>
+                    <span className={browse.entryArrow}>
                       <PlaceIcon type="arrow" />
                     </span>
                   </Link>
