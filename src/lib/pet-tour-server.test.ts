@@ -5,7 +5,7 @@ const fetchMock = vi.fn();
 beforeEach(() => {
   vi.stubGlobal("fetch", fetchMock);
   fetchMock.mockReset();
-  vi.stubEnv("PUBLIC_DATA_PET_TOUR_SERVICE_KEY", "test%2Bkey");
+  vi.stubEnv("DATA_PET_TOUR_SERVICE_KEY", "test%2Bkey");
 });
 const ok = (item: unknown) => ({
   ok: true,

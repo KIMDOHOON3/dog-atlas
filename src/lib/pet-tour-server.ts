@@ -13,7 +13,7 @@ type Method =
 const queryTour = unstable_cache(
   async (method: Method, params: Record<string, string>) => {
     try {
-      const rawKey = process.env.PUBLIC_DATA_PET_TOUR_SERVICE_KEY?.trim();
+      const rawKey = process.env.DATA_PET_TOUR_SERVICE_KEY?.trim();
       if (!rawKey) throw new Error("Missing configuration");
       const url = new URL(
         `https://apis.data.go.kr/B551011/KorPetTourService2/${method}`,
