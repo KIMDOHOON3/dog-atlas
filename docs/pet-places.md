@@ -37,3 +37,5 @@ Blender에 8패널 크림 파라솔, 원형 원목 테이블, 의자 2개, 뒤�
 - 실조회: 서울시청 근사 좌표에서 5km 산책·관광 13곳, 음식점 1곳. 가평카페109의 아메리카노/라떼 메뉴, 10~17시, 야외 테라스 동반 조건과 전화 확인. 320/390px 및 PC, 주소 복사, 이미지 0개 확인. 실제 사용자의 위치 권한을 자동 승인하거나 전화 발신하지 않았으며 권한/거부/경쟁 응답은 단위 테스트로 검증했다. lint/typecheck/build 및 64파일·1,707테스트 통과.
 
 근거: [Kakao 지도 URL](https://apis.map.kakao.com/web/guide/#routeurl), [Kakao 자동차 길찾기 인증](https://developers.kakaomobility.com/guide/navi-api/start).
+
+공개 배포 검증: 기능 커밋 `ae4dcd4`의 Vercel 성공과 공개 목록의 주변 검색, 가평카페109의 메뉴·동반 조건·전화·카카오 URL을 확인했다. 공개 주변 API도 서울시청 근사 좌표에서 HTTP 200·13곳, private/no-store로 응답했다.
