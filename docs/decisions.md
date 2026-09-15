@@ -32,7 +32,6 @@ Next cards sit behind the current card. A departing card lifts and moves sideway
 
 The user still found pagination and flip controls unnatural. Start visual selection at accepted input instead of the covered card midpoint. Use one persistent underline moving between number positions; retain aria-current for the actually visible card. Replace the reset-on-finish 360-degree icon keyframe with a retained, reversible half-turn and a balanced two-arrow glyph. Start the destination label at flip intent, fade the old copy out before the new copy enters, and keep width fixed. Reduced motion removes all new transitions. The renderer, artwork and card gesture remain unchanged.
 
-
 ## 2026-09-05 — Expand the giant collection to eight
 
 The user subsequently requested Irish Wolfhound, Tibetan Mastiff, Kangal Shepherd Dog, Caucasian Shepherd and Mongolian Bankhar. The current homepage collection now covers eight giant dogs with ten additional reference-guided paintings. Preserve short history, one shared renderer, nearby-image preloading and a horizontally scrollable mobile number strip. Bankhar lifespan remains unknown; geographic origins without a single country flag use a mountain mark. Details and other size groups remain outside this change.
@@ -209,6 +208,7 @@ The next inclusion policy should consider well-documented regional landraces suc
 Adopt `docs/catalog-inclusion-policy.md` as the editorial basis for distinguishing internationally registered breeds, nationally protected heritage dogs, nationally registered populations, verified landraces, documented candidates, and unverified names. FCI absence is not an exclusion criterion, and online name repetition is not sufficient evidence for inclusion.
 
 Treat Gyeongju Donggyeongi as a nationally protected heritage dog and the Mongolian Bankhar as a candidate verified landrace. Preserve registration and evidence provenance in the UI and content instead of forcing every population into a single standardized-breed model. Schema and UI support remain follow-up work; do not present the proposed categories as already implemented.
+
 # 2026-08-10 — Publish Mongolian Bankhar as the first verified landrace case
 
 Add Mongolian Bankhar as a source-backed detailed catalog entry, while describing it as a regional livestock-guardian landrace rather than a standardized international breed. Keep the current `non-fci` registry value until the inclusion-type schema is implemented, state that limitation in the editorial policy, avoid fixed conformation and lifespan claims, and center the detail page and visual assets on pastoral working context, population variation, experienced management, and heat-safe care.
@@ -667,7 +667,6 @@ The user approved snow-crystal and mountain-ridge ideas for the Great Pyrenees f
 
 Precompute static surface geometry into a build-time RGB data map and use a compact shader for moving light. Cap physical tilt near 60Hz and foil draws near 30Hz, reduce only the coating canvas, remove per-frame CSS gradient repaint and coalesce pointer input. Preserve the separate high-resolution artwork, semantic text and interactive reveals. Stop work when off, idle, hidden or offscreen. Retain an opt-in DOM-only `?profile=1` diagnostic for repeatable local comparisons; no analytics or product debug panel. See [measurements and limits](research/foil-card-performance-2026-09-05.md).
 
-
 # 2026-09-06 — Merge extra-small into small in public navigation
 
 The user approved four public size groups: small, medium, large and giant. Merge extra-small at the service presentation layer, including variety labels, discovery filtering and legacy URL parsing. Preserve source measurements and internal calculation classes. The three existing extra-small cards now belong to small.
@@ -685,7 +684,6 @@ The user found the meadow weedy and requested a playground with ball physics. Re
 ## 2026-09-12 — Remove 3D dogs; focus on pet objects
 
 The user ended the dog-modeling experiments and requested deletion of all project dog 3D assets, rigs, animation/following code, and previews. Keep breed editorial content and the existing yard, bench, rope toy and interactive ball. Future decorative work should use Blender-made pet objects; no replacement animal is planned. Download archives outside the project and Git history are outside this cleanup.
-
 
 ## 2026-09-12 — Expand the playground and add Blender pet objects
 
@@ -710,6 +708,7 @@ The user found the yard small and visually untidy and approved a visible Blender
 ## 2026-09-13 — Fill the footer with lawn and use perspective
 
 The user approved the quieter lawn and requested more three-dimensional framing, no ball trajectory and a scene filling the screen instead of a circle. Replace the oval/rim with continuous Blender terrain cropped to the footer canvas and use a lower diagonal perspective camera. Remove all trajectory drawing/computation. Keep throws catchable by clipping ball movement against inset camera boundaries at its current height and synchronize poses after resize. Retain pet furniture, butterflies, semantic copy, reduced motion and render budgets.
+
 ## 2026-09-14 — 애견카페 마당과 사진 없는 장소 탐색 재개
 
 - 사용자 승인으로 뒤쪽 부분 원목 울타리, 크림 파라솔/원형 테이블/의자 두 개와 장소 안내판을 추가한다. 중앙 놀이 영역, 기존 잔디 반응·장난감 조작을 보존한다.
@@ -723,3 +722,7 @@ The user approved the quieter lawn and requested more three-dimensional framing,
 ## 2026-09-14 — 안내판 중심의 배치와 자동 강조
 
 사용자가 소품이 복잡하다고 지적한 뒤 제안한 정원 배치를 승인하고 PC·모바일 자동 밝기 변화를 요청했다. 허들과 세로 막대를 빼고 울타리를 줄이며, 안내판을 앞 중앙에 독립 배치한다. 뒤쪽 양옆에 벤치/급수와 파라솔 세트를 묶고 장난감은 가장자리로 옮긴다. 크림 판과 갈색 글씨로 대비를 주고 표면만 5.6초 주기로 부드럽게 밝힌다. 화면 밖 정지와 동작 감소 시 고정 밝기를 적용한다.
+
+## 2026-09-15 — 장소 탐색을 방문 판단과 이동으로 연결
+
+사용자가 메뉴·규모·실제 이용 조건·전화·길찾기·현재 위치에서의 거리/시간·가까운 장소를 원했다. 제공되는 메뉴/규모/동반 조건을 상세 상단에 정리하고 전화·주소·카카오 이동 행동을 제공한다. 위치 권한은 사용자 버튼 후에만 요청하며 거리순 검색은 등록된 장소 범위와 직선거리임을 표시한다. 실시간 입장/영업 및 누락된 규모를 추측하지 않는다. 카카오 이동시간 API는 현재 키 인증이 실패했으므로 직접 시간 표시는 후속이며 현 단계는 카카오맵 길찾기 연결이다.

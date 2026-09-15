@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { petPlaceDetail } from "@/lib/pet-tour-server";
 import { FIELD_LABELS, PLACE_TYPES, type TourRecord } from "@/lib/pet-tour";
 import styles from "../places.module.css";
+import { kakaoPlaceLinks, phoneLink, visitSummary } from "@/lib/place-visit";
+import CopyAddress from "@/components/place-visit-actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "장소 안내" };
@@ -22,7 +24,14 @@ function Facts({
         .map(([key, value]) => (
           <div key={key}>
             <dt>{FIELD_LABELS[key] ?? key}</dt>
-            <dd>{value}</dd>
+            <dd>
+              {/^(tel|infocenter|sponsor\d+tel)/.test(key) &&
+              phoneLink(value) ? (
+                <a href={phoneLink(value)!}>{value}</a>
+              ) : (
+                value
+              )}
+            </dd>
           </div>
         ))}
     </dl>
@@ -58,6 +67,10 @@ export default async function PlacePage({
   const { common, groups } = data;
   const display = { ...common };
   delete display.title;
+  const visit = visitSummary(common, groups);
+  const phone = phoneLink(visit.phone);
+  const links = kakaoPlaceLinks(common);
+  const address = [common.addr1, common.addr2].filter(Boolean).join(" ");
   return (
     <main className={styles.page}>
       <Link href="/places" className={styles.back}>
@@ -68,8 +81,54 @@ export default async function PlacePage({
           {PLACE_TYPES[common.contenttypeid] ?? "함께 갈 곳"}
         </span>
         <h1>{common.title}</h1>
-        <p>함께 가기 전에, 동반 조건과 이용 시간을 확인해 주세요.</p>
+        <p>{address || "주소 정보 없음"}</p>
+        <div className={styles.actions}>
+          {phone && (
+            <a href={phone} className={styles.primaryAction}>
+              전화로 문의하기
+            </a>
+          )}
+          <a
+            href={links.directions || links.map}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.primaryAction}
+          >
+            {links.directions ? "이동시간·길찾기 ↗" : "카카오맵에서 검색 ↗"}
+          </a>
+          <a
+            href={links.map}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.secondaryAction}
+          >
+            지도에서 보기 ↗
+          </a>
+          {address && <CopyAddress address={address} />}
+        </div>
+        <p className={styles.resultNote}>
+          {visit.phone ? `문의 ${visit.phone}` : "전화번호 정보가 없어요."}
+          <br />
+          실제 이동시간과 교통수단별 경로는 카카오맵에서 확인할 수 있어요.
+        </p>
       </header>
+      <section className={styles.section} aria-labelledby="visit-summary">
+        <h2 id="visit-summary">가기 전에 한눈에</h2>
+        <p className={styles.resultNote}>
+          제공된 동반 조건과 운영 정보예요. 실시간 입장 가능 여부·영업 상태를
+          확인한 것은 아니므로 방문 전에 문의해 주세요.
+        </p>
+        <dl className={styles.visitGrid}>
+          {visit.facts.map((fact) => (
+            <div key={fact.label}>
+              <dt>{fact.label}</dt>
+              <dd className={!fact.value ? styles.missing : undefined}>
+                {fact.value || "제공된 정보가 없어요."}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
       <section className={styles.section}>
         <h2>장소 정보</h2>
         <Facts item={display} />

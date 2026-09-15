@@ -6,6 +6,7 @@ import {
 } from "@/lib/pet-tour-server";
 import { PLACE_TYPES } from "@/lib/pet-tour";
 import styles from "./places.module.css";
+import NearbyPlaces from "@/components/nearby-places";
 
 export const metadata = {
   title: "함께 갈 곳",
@@ -39,6 +40,10 @@ export default async function PlacesPage({
           우리 강아지와 함께할 수 있는 장소를 살펴보세요.
         </p>
       </header>
+      <NearbyPlaces />
+      <h2 id="region-search" className={styles.regionTitle}>
+        지역과 이름으로 찾아보기
+      </h2>
       <form action="/places" className={styles.form}>
         <label className={styles.search}>
           장소 이름

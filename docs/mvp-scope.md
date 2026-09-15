@@ -1,10 +1,10 @@
 # MVP scope
 
-## Current scope — 2026-09-14
+## Current scope — 2026-09-15
 
 Keep the card homepage (sixteen small, twelve medium, thirteen large and eight giant cards), all discovery/search/filter behavior, every breed detail and its content/assets. Preserve the preparation guide linked from details. All four size groups now have cards; detail redesign remains future work.
 
-The user reopened photo-free pet-place browsing on 2026-09-14: the cafe-yard sign links to `/places` and its detail pages, backed by the existing Korean Tourism Organization pet-tour API key on the server. Include all available textual detail groups and source attribution. See `pet-places.md`. Keep discontinued games, postcards, Kakao maps, hospital integration and old-home-only sections removed. Preserve shared dependencies and editorial provenance for retained breeds. API environment files are unchanged. No database, login, CMS, community or collection economy.
+The user reopened photo-free pet-place browsing on 2026-09-14: the cafe-yard sign links to `/places` and its detail pages, backed by the existing Korean Tourism Organization pet-tour API key on the server. Include all available textual detail groups and source attribution. See `pet-places.md`. The user approved visit planning on 2026-09-15: key visit facts, phone/address actions, Kakao map/directions links, and opt-in nearby search of registered pet-tour places. In-page route duration is pending valid routing API authorization; do not infer time from straight-line distance or assert live opening/admission status. No embedded map SDK yet. Keep discontinued games, postcards, hospital integration and old-home-only sections removed. Preserve shared dependencies and editorial provenance for retained breeds. API environment files are unchanged. No database, login, CMS, community or collection economy.
 
 ## Detailed collection: 101 breeds and gated expansion
 
