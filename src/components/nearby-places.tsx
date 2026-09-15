@@ -5,6 +5,7 @@ import Link from "next/link";
 import { PLACE_TYPES, type TourRecord } from "@/lib/pet-tour";
 import { distanceLabel, kakaoPlaceLinks } from "@/lib/place-visit";
 import styles from "@/app/places/places.module.css";
+import PlaceIcon from "./place-icon";
 
 type Result = { items: TourRecord[]; total: number };
 export default function NearbyPlaces() {
@@ -95,17 +96,20 @@ export default function NearbyPlaces() {
     <section className={styles.nearby} aria-labelledby="nearby-title">
       <div className={styles.nearbyHeading}>
         <div>
-          <span className={styles.eyebrow}>가까운 곳부터</span>
-          <h2 id="nearby-title">우리 동네에서는 어디로 갈까요?</h2>
+          <span className={styles.eyebrow}>
+            <PlaceIcon type="locate" /> 가까운 곳부터
+          </span>
+          <h2 id="nearby-title">
+            멀리 가지 않아도,
+            <br />
+            함께라서 좋은 곳.
+          </h2>
         </div>
         <a href="#region-search" className={styles.back}>
           지역으로 찾기 ↓
         </a>
       </div>
-      <p>
-        등록된 장소 중 가까운 순서로 찾아보세요. 위치는 주변 검색에만 사용하며
-        이 페이지를 떠나면 지워져요.
-      </p>
+      <p>우리 동네 산책길과 카페를 가까운 순서로 찾아보세요.</p>
       <div className={styles.nearbyControls}>
         <label>
           찾을 장소
@@ -144,6 +148,7 @@ export default function NearbyPlaces() {
           disabled={busy}
           onClick={search}
         >
+          <PlaceIcon type="locate" />
           {busy ? "찾는 중…" : "내 주변 가까운 곳 찾기"}
         </button>
         {hasPosition && !busy && (
@@ -160,6 +165,9 @@ export default function NearbyPlaces() {
           </button>
         )}
       </div>
+      <p className={styles.privacyNote}>
+        위치는 주변 검색에만 사용하고, 페이지를 떠나면 지워져요.
+      </p>
       <p role="status" aria-live="polite">
         {status}
       </p>

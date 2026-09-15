@@ -5,6 +5,7 @@ import { FIELD_LABELS, PLACE_TYPES, type TourRecord } from "@/lib/pet-tour";
 import styles from "../places.module.css";
 import { kakaoPlaceLinks, phoneLink, visitSummary } from "@/lib/place-visit";
 import CopyAddress from "@/components/place-visit-actions";
+import PlaceIcon from "@/components/place-icon";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "장소 안내" };
@@ -76,15 +77,19 @@ export default async function PlacePage({
       <Link href="/places" className={styles.back}>
         ← 함께 갈 곳
       </Link>
-      <header className={styles.hero}>
-        <span className={styles.eyebrow}>
+      <header className={`${styles.hero} ${styles.detailHero}`}>
+        <span className={styles.tag}>
+          <PlaceIcon type={common.contenttypeid} />
           {PLACE_TYPES[common.contenttypeid] ?? "함께 갈 곳"}
         </span>
         <h1>{common.title}</h1>
-        <p>{address || "주소 정보 없음"}</p>
+        <div className={styles.addressRow}>
+          <p>{address || "주소 정보 없음"}</p>
+          {address && <CopyAddress address={address} />}
+        </div>
         <div className={styles.actions}>
           {phone && (
-            <a href={phone} className={styles.primaryAction}>
+            <a href={phone} className={styles.secondaryAction}>
               전화로 문의하기
             </a>
           )}
@@ -104,7 +109,6 @@ export default async function PlacePage({
           >
             지도에서 보기 ↗
           </a>
-          {address && <CopyAddress address={address} />}
         </div>
         <p className={styles.resultNote}>
           {visit.phone ? `문의 ${visit.phone}` : "전화번호 정보가 없어요."}
@@ -112,46 +116,81 @@ export default async function PlacePage({
           실제 이동시간과 교통수단별 경로는 카카오맵에서 확인할 수 있어요.
         </p>
       </header>
+      <nav className={styles.detailNav} aria-label="장소 정보 바로가기">
+        <a href="#visit-summary">방문 전 확인</a>
+        <a href="#place-story">장소 소개</a>
+        <a href="#place-full-info">전체 이용 정보</a>
+      </nav>
       <section className={styles.section} aria-labelledby="visit-summary">
+        <span className={styles.eyebrow}>우리 강아지와 함께 가려면</span>
         <h2 id="visit-summary">가기 전에 한눈에</h2>
         <p className={styles.resultNote}>
           제공된 동반 조건과 운영 정보예요. 실시간 입장 가능 여부·영업 상태를
           확인한 것은 아니므로 방문 전에 문의해 주세요.
         </p>
         <dl className={styles.visitGrid}>
-          {visit.facts.map((fact) => (
-            <div key={fact.label}>
-              <dt>{fact.label}</dt>
-              <dd className={!fact.value ? styles.missing : undefined}>
-                {fact.value || "제공된 정보가 없어요."}
-              </dd>
-            </div>
-          ))}
+          {visit.facts
+            .filter((fact) => fact.value)
+            .map((fact) => (
+              <div
+                key={fact.label}
+                className={
+                  /동반|준비/.test(fact.label) ? styles.petFact : undefined
+                }
+              >
+                <dt>{fact.label}</dt>
+                <dd className={!fact.value ? styles.missing : undefined}>
+                  {fact.value || "제공된 정보가 없어요."}
+                </dd>
+              </div>
+            ))}
         </dl>
+        {visit.facts.some((fact) => !fact.value) && (
+          <details className={styles.missingDetails}>
+            <summary>
+              아직 제공되지 않은 정보{" "}
+              <span>{visit.facts.filter((fact) => !fact.value).length}</span>
+            </summary>
+            <p>
+              {visit.facts
+                .filter((fact) => !fact.value)
+                .map((fact) => fact.label)
+                .join(" · ")}
+            </p>
+            <p>이 항목은 장소에 직접 문의해 주세요.</p>
+          </details>
+        )}
       </section>
-      <section className={styles.section}>
+      <section className={styles.section} id="place-story">
         <h2>장소 정보</h2>
         <Facts item={display} />
       </section>
-      {[groups[2], groups[0], groups[1]].map((group) => (
-        <section key={group.title} className={styles.section}>
-          <h2>{group.title}</h2>
-          {group.unavailable ? (
-            <p>
-              이 정보를 불러오지 못했어요.{" "}
-              <Link prefetch={false} href={`/places/${id}`}>
-                다시 확인
-              </Link>
-            </p>
-          ) : group.items.some((item) =>
-              Object.entries(item).some(([k, v]) => v && !codes.test(k)),
-            ) ? (
-            group.items.map((item, i) => <Facts key={i} item={item} />)
-          ) : (
-            <p>제공된 정보가 없어요.</p>
-          )}
-        </section>
-      ))}
+      <div id="place-full-info" className={styles.fullInfo}>
+        <h2>전체 이용 정보</h2>
+        {[groups[2], groups[0], groups[1]].map((group) => (
+          <details
+            key={group.title}
+            className={styles.section}
+            open={group.unavailable || undefined}
+          >
+            <summary>{group.title}</summary>
+            {group.unavailable ? (
+              <p>
+                이 정보를 불러오지 못했어요.{" "}
+                <Link prefetch={false} href={`/places/${id}`}>
+                  다시 확인
+                </Link>
+              </p>
+            ) : group.items.some((item) =>
+                Object.entries(item).some(([k, v]) => v && !codes.test(k)),
+              ) ? (
+              group.items.map((item, i) => <Facts key={i} item={item} />)
+            ) : (
+              <p>제공된 정보가 없어요.</p>
+            )}
+          </details>
+        ))}
+      </div>
       <details className={styles.section}>
         <summary>출처와 데이터 정보</summary>
         <Facts item={common} technical />

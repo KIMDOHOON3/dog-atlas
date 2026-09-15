@@ -7,6 +7,7 @@ import {
 import { PLACE_TYPES } from "@/lib/pet-tour";
 import styles from "./places.module.css";
 import NearbyPlaces from "@/components/nearby-places";
+import PlaceIcon from "@/components/place-icon";
 
 export const metadata = {
   title: "함께 갈 곳",
@@ -33,7 +34,11 @@ export default async function PlacesPage({
       </Link>
       <header className={styles.hero}>
         <span className={styles.eyebrow}>함께 나서는 하루</span>
-        <h1>오늘은 어디로 갈까요?</h1>
+        <h1>
+          오늘은 <em>함께</em>
+          <br />
+          어디로 갈까요?
+        </h1>
         <p>
           산책할 곳부터 잠시 쉬어 갈 카페까지.
           <br />
@@ -41,9 +46,33 @@ export default async function PlacesPage({
         </p>
       </header>
       <NearbyPlaces />
-      <h2 id="region-search" className={styles.regionTitle}>
-        지역과 이름으로 찾아보기
-      </h2>
+      <div className={styles.sectionHeading} id="region-search">
+        <div>
+          <span className={styles.eyebrow}>마음에 드는 장소를 찾아요</span>
+          <h2 className={styles.regionTitle}>어떤 하루를 보내고 싶나요?</h2>
+        </div>
+        <span className={styles.smallNote}>
+          동반 조건까지 확인하고 출발해요
+        </span>
+      </div>
+      <nav className={styles.categories} aria-label="장소 종류 빠른 선택">
+        {[
+          ["12", "산책·관광"],
+          ["39", "카페·음식점"],
+          ["32", "숙박"],
+          ["", "모든 장소"],
+        ].map(([type, label]) => (
+          <Link
+            key={type}
+            prefetch={false}
+            href={`/places?${new URLSearchParams({ ...filters, type, page: "1" })}#region-search`}
+            aria-current={filters.type === type ? "page" : undefined}
+          >
+            <PlaceIcon type={type} />
+            <span>{label}</span>
+          </Link>
+        ))}
+      </nav>
       <form action="/places" className={styles.form}>
         <label className={styles.search}>
           장소 이름
@@ -81,9 +110,13 @@ export default async function PlacesPage({
       </form>
       {result ? (
         <>
-          <p className={styles.count}>
-            {result.total.toLocaleString("ko-KR")}곳 · {filters.page}페이지
-          </p>
+          <div className={styles.count}>
+            <p>
+              함께 갈 수 있는{" "}
+              <strong>{result.total.toLocaleString("ko-KR")}곳</strong>
+            </p>
+            <span>{filters.page}페이지 · 이름순</span>
+          </div>
           {result.items.length ? (
             <ul className={styles.list}>
               {result.items.map((p) => (
@@ -93,17 +126,23 @@ export default async function PlacesPage({
                     href={`/places/${p.contentid}`}
                     className={styles.card}
                   >
-                    <span className={styles.tag}>
-                      {PLACE_TYPES[p.contenttypeid] ?? "함께 갈 곳"}
-                    </span>
-                    <h2>
-                      {p.title} <span aria-hidden="true">↗</span>
-                    </h2>
+                    <div className={styles.cardTop}>
+                      <span className={styles.placeIcon}>
+                        <PlaceIcon type={p.contenttypeid} />
+                      </span>
+                      <span className={styles.tag}>
+                        {PLACE_TYPES[p.contenttypeid] ?? "함께 갈 곳"}
+                      </span>
+                    </div>
+                    <h2>{p.title}</h2>
                     <p>
                       {[p.addr1, p.addr2].filter(Boolean).join(" ") ||
                         "주소 미제공"}
                     </p>
                     {p.tel && <p>{p.tel}</p>}
+                    <span className={styles.cardFoot}>
+                      동반 조건 · 이용 정보 <PlaceIcon type="arrow" />
+                    </span>
                   </Link>
                 </li>
               ))}

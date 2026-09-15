@@ -39,3 +39,5 @@ Blender에 8패널 크림 파라솔, 원형 원목 테이블, 의자 2개, 뒤�
 근거: [Kakao 지도 URL](https://apis.map.kakao.com/web/guide/#routeurl), [Kakao 자동차 길찾기 인증](https://developers.kakaomobility.com/guide/navi-api/start).
 
 공개 배포 검증: 기능 커밋 `ae4dcd4`의 Vercel 성공과 공개 목록의 주변 검색, 가평카페109의 메뉴·동반 조건·전화·카카오 URL을 확인했다. 공개 주변 API도 서울시청 근사 좌표에서 HTTP 200·13곳, private/no-store로 응답했다.
+
+UI 개편: 기존 도감의 공통 헤더·흰 배경·갈색 강조, 산세리프 제목과 카드 체계를 적용했다. 종류 빠른 선택은 이름/지역 필터를 보존하고 페이지를 1로 되돌린다. 상세의 제공된 정보는 먼저 표시하고 미제공 항목 및 전체 정보는 펼치기로 유지하며 부분 실패는 펼쳐 표시한다. 위치 검색·API·사진 제외 정책은 유지한다.
