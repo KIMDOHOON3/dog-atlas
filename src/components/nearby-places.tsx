@@ -95,21 +95,19 @@ export default function NearbyPlaces() {
   return (
     <section className={styles.nearby} aria-labelledby="nearby-title">
       <div className={styles.nearbyHeading}>
-        <div>
-          <span className={styles.eyebrow}>
-            <PlaceIcon type="locate" /> 가까운 곳부터
+        <div className={styles.nearbyTitle}>
+          <span className={styles.nearbyMark}>
+            <PlaceIcon type="locate" />
           </span>
-          <h2 id="nearby-title">
-            멀리 가지 않아도,
-            <br />
-            함께라서 좋은 곳.
-          </h2>
+          <div>
+            <h2 id="nearby-title">내 주변에서 찾기</h2>
+            <p>가까운 장소부터</p>
+          </div>
         </div>
         <a href="#region-search" className={styles.back}>
           지역으로 찾기 ↓
         </a>
       </div>
-      <p>우리 동네 산책길과 카페를 가까운 순서로 찾아보세요.</p>
       <div className={styles.nearbyControls}>
         <label>
           찾을 장소
