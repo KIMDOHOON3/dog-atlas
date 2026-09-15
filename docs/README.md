@@ -1,5 +1,7 @@
 # Dog Atlas 문서 안내
 
+- [배포 저장공간](deployment-storage.md) — 문서 변경 빌드 생략, 실제 코드 배포 보존, 저장공간 조사와 검증 범위.
+
 - [함께 갈 곳](pet-places.md) — 애견카페 마당 안내판, 사진 없는 공공데이터 목록·상세, 서버 키와 검증.
 
 - [iOS 카드 렌더링 보완](ios-card-rendering.md) — 투명 합성·캡처 크기·검색 확대 수정과 실기기 검증 한계.
@@ -53,8 +55,6 @@
 - [`research/foil-card-performance-2026-09-05.md`](research/foil-card-performance-2026-09-05.md) — 사용자 렉 피드백 후 카드 셰이더 계산·렌더링 빈도 최적화와 측정 한계
 
 - [`research/foil-card-study-2026-09-05.md`](research/foil-card-study-2026-09-05.md) — 도감 복귀 후 그레이트 피레니즈 한 장의 WebGL 홀로그램 질감·기울기 실험
-
-
 
 - [`content-copy-guide.md`](content-copy-guide.md) — 단정적 추천을 피하는 카피 규칙과 검수 기준
 - [`breed-detail-production-gate.md`](breed-detail-production-gate.md) — 새 견종 상세를 추가할 때 이름·수치·고유 원고·이미지 싱크·화면·자동 검사를 한 제작 과정에서 통과시키는 필수 완료 조건
