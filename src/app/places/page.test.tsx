@@ -76,7 +76,7 @@ it("keeps uncommon place types visible and selected", async () => {
   render(await PlacesPage({ searchParams: Promise.resolve({ type: "14" }) }));
   const culture = screen.getByRole("link", { name: "문화시설" });
   expect(culture).toHaveAttribute("aria-current", "page");
-  expect(culture.closest("details")).toHaveAttribute("open");
+  expect(culture).toBeVisible();
 });
 it("resets edited fields when navigation changes the applied search", async () => {
   const { rerender } = render(

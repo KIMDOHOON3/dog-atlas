@@ -6,6 +6,7 @@ import {
 } from "@/lib/pet-tour-server";
 import { PLACE_TYPES } from "@/lib/pet-tour";
 import NearbyPlaces from "@/components/nearby-places";
+import PlaceCard from "@/components/place-card";
 import PlaceIcon from "@/components/place-icon";
 import styles from "./places.module.css";
 import browse from "./place-browse.module.css";
@@ -15,7 +16,7 @@ export const metadata = {
   description:
     "반려동물과 함께 갈 수 있는 장소의 주소, 이용 정보와 동반 조건을 확인하세요.",
 };
-const mainTypes = ["12", "39", "32", ""];
+const categoryTypes = ["12", "39", "32", "14", "28", "38", "15", "25", ""];
 export default async function PlacesPage({
   searchParams,
 }: {
@@ -34,6 +35,21 @@ export default async function PlacesPage({
     options.find((region) => region.code === filters.region)?.name || "전국";
   const url = (changes: Record<string, string> = {}, hash = "place-search") =>
     `/places?${new URLSearchParams({ ...filters, page: "1", mode, ...changes })}#${hash}`;
+  const categoryNavigation = (
+    <nav className={browse.categories} aria-label="장소 종류">
+      {categoryTypes.map((type) => (
+        <Link
+          key={type}
+          prefetch={false}
+          href={url({ type })}
+          aria-current={filters.type === type ? "page" : undefined}
+        >
+          <PlaceIcon type={type || "all"} />
+          <span>{PLACE_TYPES[type] || "전체"}</span>
+        </Link>
+      ))}
+    </nav>
+  );
   return (
     <main className={`${styles.page} ${browse.page}`}>
       <Link href="/" className={styles.back}>
@@ -60,40 +76,8 @@ export default async function PlacesPage({
             <PlaceIcon type="locate" />내 주변
           </Link>
         </nav>
-        <nav className={browse.categories} aria-label="장소 종류">
-          {mainTypes.map((type) => (
-            <Link
-              key={type}
-              prefetch={false}
-              href={url({ type })}
-              aria-current={filters.type === type ? "page" : undefined}
-            >
-              {PLACE_TYPES[type] || "전체"}
-            </Link>
-          ))}
-          <details
-            className={browse.moreTypes}
-            open={!mainTypes.includes(filters.type) || undefined}
-          >
-            <summary>다른 종류</summary>
-            <div>
-              {Object.entries(PLACE_TYPES)
-                .filter(([type]) => !mainTypes.includes(type))
-                .map(([type, label]) => (
-                  <Link
-                    key={type}
-                    prefetch={false}
-                    href={url({ type })}
-                    aria-current={filters.type === type ? "page" : undefined}
-                  >
-                    {label}
-                  </Link>
-                ))}
-            </div>
-          </details>
-        </nav>
         {mode === "nearby" ? (
-          <NearbyPlaces type={filters.type} />
+          <NearbyPlaces type={filters.type}>{categoryNavigation}</NearbyPlaces>
         ) : (
           <>
             <form
@@ -123,8 +107,12 @@ export default async function PlacesPage({
                   maxLength={80}
                 />
               </label>
-              <button type="submit">검색</button>
+              <button type="submit">
+                <PlaceIcon type="search" />
+                <span>검색</span>
+              </button>
             </form>
+            {categoryNavigation}
             <section
               id="place-results"
               className={browse.results}
@@ -154,30 +142,7 @@ export default async function PlacesPage({
                   {result.items.length ? (
                     <ul className={browse.places}>
                       {result.items.map((place) => (
-                        <li key={place.contentid}>
-                          <Link
-                            prefetch={false}
-                            href={`/places/${place.contentid}`}
-                            className={browse.entry}
-                          >
-                            <div className={browse.entryBody}>
-                              <span className={browse.kind}>
-                                {PLACE_TYPES[place.contenttypeid] ||
-                                  "함께 갈 곳"}
-                              </span>
-                              <h3>{place.title}</h3>
-                              <p>
-                                {[place.addr1, place.addr2]
-                                  .filter(Boolean)
-                                  .join(" ") || "주소 미제공"}
-                              </p>
-                              {place.tel && <p>{place.tel}</p>}
-                            </div>
-                            <span className={browse.entryArrow}>
-                              <PlaceIcon type="arrow" />
-                            </span>
-                          </Link>
-                        </li>
+                        <PlaceCard key={place.contentid} place={place} />
                       ))}
                     </ul>
                   ) : (

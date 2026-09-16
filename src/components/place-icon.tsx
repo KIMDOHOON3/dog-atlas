@@ -1,5 +1,52 @@
 export default function PlaceIcon({ type = "pin" }: { type?: string }) {
   const paths: Record<string, React.ReactNode> = {
+    all: (
+      <>
+        <rect x="3" y="3" width="7" height="7" rx="2" />
+        <rect x="14" y="3" width="7" height="7" rx="2" />
+        <rect x="3" y="14" width="7" height="7" rx="2" />
+        <rect x="14" y="14" width="7" height="7" rx="2" />
+      </>
+    ),
+    "14": (
+      <>
+        <path d="m3 8 9-5 9 5H3Zm2 3v7m5-7v7m4-7v7m5-7v7M3 21h18" />
+      </>
+    ),
+    "15": (
+      <>
+        <path d="M4 9h16v12H4ZM3 5h18v4H3Zm9 0v16" />
+        <path d="M12 5C4 6 6-2 12 5Zm0 0c8 1 6-7 0 0Z" />
+      </>
+    ),
+    "25": (
+      <>
+        <path d="m9 3 6 3 6-3v16l-6 3-6-3-6 3V6Zm0 0v16m6-13v16" />
+      </>
+    ),
+    "28": (
+      <>
+        <path d="m3 19 6-10 4 6 3-5 5 9H3Z" />
+        <circle cx="16" cy="5" r="2" />
+      </>
+    ),
+    "38": (
+      <>
+        <path d="M5 7h14l2 14H3ZM9 7V5a3 3 0 0 1 6 0v2" />
+      </>
+    ),
+    search: (
+      <>
+        <circle cx="10.5" cy="10.5" r="6.5" />
+        <path d="m16 16 5 5" />
+      </>
+    ),
+    directions: (
+      <>
+        <path d="m12 2 10 10-10 10L2 12Z" />
+        <path d="M8 15v-4h8m-3-3 3 3-3 3" />
+      </>
+    ),
     "12": (
       <>
         <path d="m12 3-6 8h3l-4 6h14l-4-6h3Z" />

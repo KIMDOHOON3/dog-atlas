@@ -1,19 +1,23 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { PLACE_TYPES, type TourRecord } from "@/lib/pet-tour";
-import { distanceLabel, kakaoPlaceLinks } from "@/lib/place-visit";
+import PlaceCard from "./place-card";
 import styles from "@/app/places/places.module.css";
 import PlaceIcon from "./place-icon";
 import browse from "@/app/places/place-browse.module.css";
 
 type Result = { items: TourRecord[]; total: number };
-export default function NearbyPlaces({ type = "12" }: { type?: string }) {
+type Props = { type?: string; children?: React.ReactNode };
+export default function NearbyPlaces({ type = "12", children }: Props) {
   // A new category discards results, in-flight work, and the old position.
-  return <NearbySearch key={type} type={type} />;
+  return (
+    <NearbySearch key={type} type={type}>
+      {children}
+    </NearbySearch>
+  );
 }
-function NearbySearch({ type }: { type: string }) {
+function NearbySearch({ type, children }: Props & { type: string }) {
   const [radius, setRadius] = useState(5000);
   const [result, setResult] = useState<Result | null>(null);
   const [status, setStatus] = useState("");
@@ -142,6 +146,7 @@ function NearbySearch({ type }: { type: string }) {
         검색할 때 위치 권한을 요청해요. 위치는 페이지를 떠나거나 종류를 바꾸면
         지워져요.
       </p>
+      {children}
       <p role="status" aria-live="polite">
         {status}
       </p>
@@ -161,56 +166,15 @@ function NearbySearch({ type }: { type: string }) {
             실제 이동시간은 카카오맵 길찾기에서 확인해 주세요.
           </p>
           {result.items.length ? (
-            <ul className={styles.list}>
-              {result.items.map((place, index) => {
-                const links = kakaoPlaceLinks(place);
-                const distance = Number(place.dist);
-                return (
-                  <li key={place.contentid} className={styles.nearbyCard}>
-                    <span className={styles.tag}>
-                      {index === 0 ? "검색 결과 중 가장 가까워요 · " : ""}
-                      {PLACE_TYPES[place.contenttypeid] || "함께 갈 곳"}
-                    </span>
-                    <Link
-                      prefetch={false}
-                      href={`/places/${place.contentid}`}
-                      className={styles.resultTitle}
-                    >
-                      {place.title} ↗
-                    </Link>
-                    {place.dist?.trim() &&
-                      Number.isFinite(distance) &&
-                      distance >= 0 && (
-                        <strong className={styles.distance}>
-                          직선거리 {distanceLabel(distance)}
-                        </strong>
-                      )}
-                    <p>
-                      {[place.addr1, place.addr2].filter(Boolean).join(" ") ||
-                        "주소 정보 없음"}
-                    </p>
-                    <div className={styles.actions}>
-                      <Link
-                        prefetch={false}
-                        href={`/places/${place.contentid}`}
-                        className={styles.secondaryAction}
-                      >
-                        동반 조건·이용 정보
-                      </Link>
-                      <a
-                        href={links.directions || links.map}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.secondaryAction}
-                      >
-                        {links.directions
-                          ? "이동시간·길찾기 ↗"
-                          : "카카오맵 검색 ↗"}
-                      </a>
-                    </div>
-                  </li>
-                );
-              })}
+            <ul className={browse.places}>
+              {result.items.map((place, index) => (
+                <PlaceCard
+                  key={place.contentid}
+                  place={place}
+                  nearby
+                  closest={index === 0}
+                />
+              ))}
             </ul>
           ) : (
             <div className={styles.notice}>
