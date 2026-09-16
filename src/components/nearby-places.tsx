@@ -6,10 +6,14 @@ import { PLACE_TYPES, type TourRecord } from "@/lib/pet-tour";
 import { distanceLabel, kakaoPlaceLinks } from "@/lib/place-visit";
 import styles from "@/app/places/places.module.css";
 import PlaceIcon from "./place-icon";
+import browse from "@/app/places/place-browse.module.css";
 
 type Result = { items: TourRecord[]; total: number };
-export default function NearbyPlaces() {
-  const [type, setType] = useState("12");
+export default function NearbyPlaces({ type = "12" }: { type?: string }) {
+  // A new category discards results, in-flight work, and the old position.
+  return <NearbySearch key={type} type={type} />;
+}
+function NearbySearch({ type }: { type: string }) {
   const [radius, setRadius] = useState(5000);
   const [result, setResult] = useState<Result | null>(null);
   const [status, setStatus] = useState("");
@@ -93,37 +97,8 @@ export default function NearbyPlaces() {
     }
   }
   return (
-    <section className={styles.nearby} aria-labelledby="nearby-title">
-      <div className={styles.nearbyHeading}>
-        <div className={styles.nearbyTitle}>
-          <span className={styles.nearbyMark}>
-            <PlaceIcon type="locate" />
-          </span>
-          <div>
-            <h2 id="nearby-title">내 주변에서 찾기</h2>
-            <p>가까운 장소부터</p>
-          </div>
-        </div>
-        <a href="#region-search" className={styles.back}>
-          지역으로 찾기 ↓
-        </a>
-      </div>
-      <div className={styles.nearbyControls}>
-        <label>
-          찾을 장소
-          <select
-            value={type}
-            onChange={(e) => {
-              clearResults();
-              setType(e.target.value);
-            }}
-          >
-            <option value="12">산책·관광</option>
-            <option value="39">카페·음식점</option>
-            <option value="32">숙박</option>
-            <option value="">모든 장소</option>
-          </select>
-        </label>
+    <section className={browse.nearby} aria-label="내 주변 장소 검색">
+      <div className={browse.nearbyControls}>
         <label>
           주변 범위
           <select
@@ -164,13 +139,21 @@ export default function NearbyPlaces() {
         )}
       </div>
       <p className={styles.privacyNote}>
-        위치는 주변 검색에만 사용하고, 페이지를 떠나면 지워져요.
+        검색할 때 위치 권한을 요청해요. 위치는 페이지를 떠나거나 종류를 바꾸면
+        지워져요.
       </p>
       <p role="status" aria-live="polite">
         {status}
       </p>
       {result && (
         <>
+          <div className={browse.resultHeading}>
+            <h2>
+              내 주변<span> · {PLACE_TYPES[type] || "모든 장소"}</span>
+              <strong>{result.total.toLocaleString("ko-KR")}</strong>
+            </h2>
+            <span>가까운 순</span>
+          </div>
           <p className={styles.resultNote}>
             반경 {radius / 1000}km · 등록된{" "}
             {result.total.toLocaleString("ko-KR")}곳 중 가까운{" "}
@@ -237,6 +220,11 @@ export default function NearbyPlaces() {
             </div>
           )}
         </>
+      )}
+      {!result && !busy && !status && (
+        <p className={browse.nearbyPrompt}>
+          반경을 고르고 검색하면 등록된 장소를 가까운 순서로 보여드려요.
+        </p>
       )}
     </section>
   );

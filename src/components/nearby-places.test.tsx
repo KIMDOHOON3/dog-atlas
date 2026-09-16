@@ -16,26 +16,24 @@ it("only requests location after a click, sends rounded coordinates by POST and 
     success({ coords: { latitude: 37.56651234, longitude: 126.9781234 } }),
   );
   vi.stubGlobal("navigator", { geolocation: { getCurrentPosition: locate } });
-  const fetcher = vi
-    .fn()
-    .mockResolvedValue({
-      ok: true,
-      json: async () => ({
-        total: 1,
-        items: [
-          {
-            contentid: "12",
-            title: "가까운 공원",
-            contenttypeid: "12",
-            dist: "1519",
-            mapy: "37.57",
-            mapx: "126.96",
-          },
-        ],
-      }),
-    });
+  const fetcher = vi.fn().mockResolvedValue({
+    ok: true,
+    json: async () => ({
+      total: 1,
+      items: [
+        {
+          contentid: "12",
+          title: "가까운 공원",
+          contenttypeid: "12",
+          dist: "1519",
+          mapy: "37.57",
+          mapx: "126.96",
+        },
+      ],
+    }),
+  });
   vi.stubGlobal("fetch", fetcher);
-  render(<NearbyPlaces />);
+  const { rerender } = render(<NearbyPlaces />);
   expect(locate).not.toHaveBeenCalled();
   fireEvent.click(
     screen.getByRole("button", { name: "내 주변 가까운 곳 찾기" }),
@@ -49,10 +47,15 @@ it("only requests location after a click, sends rounded coordinates by POST and 
   expect(
     screen.getByRole("link", { name: "이동시간·길찾기 ↗" }),
   ).toHaveAttribute("href", expect.stringContaining("map.kakao.com/link/to/"));
-  fireEvent.change(screen.getByLabelText("찾을 장소"), {
-    target: { value: "39" },
-  });
+  rerender(<NearbyPlaces type="39" />);
   expect(screen.queryByText("직선거리 약 1.5km")).not.toBeInTheDocument();
+  expect(locate).toHaveBeenCalledTimes(1);
+  expect(fetcher).toHaveBeenCalledTimes(1);
+  fireEvent.click(
+    screen.getByRole("button", { name: "내 주변 가까운 곳 찾기" }),
+  );
+  await waitFor(() => expect(fetcher).toHaveBeenCalledTimes(2));
+  expect(JSON.parse(fetcher.mock.calls[1][1].body).type).toBe("39");
 });
 it("offers regional search on permission denial without fetching or retrying automatically", async () => {
   vi.stubGlobal("navigator", {
@@ -89,14 +92,12 @@ it("ignores a result arriving after the user changes the selected category", asy
       }),
   );
   vi.stubGlobal("fetch", fetcher);
-  render(<NearbyPlaces />);
+  const { rerender } = render(<NearbyPlaces />);
   fireEvent.click(
     screen.getByRole("button", { name: "내 주변 가까운 곳 찾기" }),
   );
   await waitFor(() => expect(fetcher).toHaveBeenCalled());
-  fireEvent.change(screen.getByLabelText("찾을 장소"), {
-    target: { value: "39" },
-  });
+  rerender(<NearbyPlaces type="39" />);
   resolve({
     ok: true,
     json: async () => ({
