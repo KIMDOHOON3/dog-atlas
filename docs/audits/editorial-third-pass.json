@@ -1,0 +1,476 @@
+{
+  "reviewedAt": "2026-10-24",
+  "scope": "12종 공개 배경 제목·본문과 원본 도입부, 추가 3종의 원본 도입부: 신규 대조 38곳 및 기존 유지 판단 재검토 1곳. 원고 전체 검수 또는 권리 승인이 아니다.",
+  "entries": [
+    {
+      "slug": "whippet",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "영국에서 작은 사냥감 추적과 직선 경주에 쓰였어요.",
+      "sha256": "9e36161b6b2fdd253bd9ffa60158ac8aabdb9dcacdf8564ac10679c8d2b39253",
+      "source": "https://www.fci.be/Nomenclature/Standards/162g10-en.pdf",
+      "supportingSources": [
+        "https://www.akc.org/expert-advice/dog-breeds/whippet-history/"
+      ],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "whippet",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "휘펫은 19세기 영국에서 뚜렷한 견종으로 자리 잡았어요. 작은 사냥감을 쫓는 일과 짧은 직선 경주에서 빠른 가속이 중요했어요.",
+      "sha256": "c986bf568a98d528c0b25d867b04ad93284caeea87c1232d6e425a28840dd73e",
+      "source": "https://www.fci.be/Nomenclature/Standards/162g10-en.pdf",
+      "supportingSources": [
+        "https://www.akc.org/expert-advice/dog-breeds/whippet-history/"
+      ],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "whippet",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "휘핏은 영국에서 발달한 시각 하운드입니다. 작은 사냥감을 쫓거나 직선 코스를 달리는 데 쓰였으며, 긴 다리와 깊은 가슴을 지닌 체형이 특징입니다.",
+      "sha256": "aa6f36a6fb6604bb71ea124be4532d2129fa76ae685a3e3dd9b3597049e1550b",
+      "source": "https://www.fci.be/Nomenclature/Standards/162g10-en.pdf",
+      "supportingSources": [
+        "https://www.akc.org/expert-advice/dog-breeds/whippet-history/"
+      ],
+      "decision": "rewritten",
+      "reason": "평가적인 수식어를 줄이고 확인 가능한 역할과 외형을 구분했다."
+    },
+    {
+      "slug": "pyrenean-mountain-dog",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "피레네산맥에서 가축 무리를 지키던 보호견이에요.",
+      "sha256": "362c85f1e6a1ece99496c4fdf934e07cd0aabbb5d2cdf5dc37581ceb3e210469",
+      "source": "https://www.fci.be/Nomenclature/Standards/137g02-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "pyrenean-mountain-dog",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "그레이트 피레니즈는 산악 목초지에서 가축 곁을 지키고 위험한 접근을 살피는 역할을 했어요. 사람의 즉각적인 지시 없이 주변을 판단해야 했어요.",
+      "sha256": "d9a07e6c27e3af8c245e9cecdb87c298555e343a37721f8d479175d12cc99252",
+      "source": "https://www.fci.be/Nomenclature/Standards/137g02-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "pyrenean-mountain-dog",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "그레이트 피레니즈는 피레네산맥에서 가축 무리를 지키던 대형 보호견입니다. 오래전부터 성과 목초지의 경비에 쓰였다는 기록이 남아 있고, 크기만큼 스스로 상황을 판단하는 능력이 중요했습니다.",
+      "sha256": "3cf3455d667612abb27505420391e4f83bec30ab9d51e37a2373fcdb147f231c",
+      "source": "https://www.fci.be/Nomenclature/Standards/137g02-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "basenji",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "중앙아프리카에서 시각과 후각으로 사냥을 도왔어요.",
+      "sha256": "a59a77e81b3d0ec60c063a4172bcf65472dcb5408185d04d9239b8fd8840a5fe",
+      "source": "https://www.fci.be/Nomenclature/Standards/043g05-en.pdf",
+      "supportingSources": [
+        "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/basenji/"
+      ],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "basenji",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "바센지는 중앙아프리카에서 시각과 후각을 함께 사용해 사냥감을 찾고 사람의 사냥을 돕던 견종이에요. 영국에서는 콩고 지역에서 온 개들을 바탕으로 정립됐어요.",
+      "sha256": "7138b41568ba2be3671c6753f32af627d849e616bb283fd5f8fa0423ea9bbc99",
+      "source": "https://www.fci.be/Nomenclature/Standards/043g05-en.pdf",
+      "supportingSources": [
+        "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/basenji/"
+      ],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "basenji",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "바센지는 중앙아프리카의 사냥견으로, 시각과 후각을 함께 사용해 사냥을 도왔습니다. 가벼운 체형과 곧게 선 귀, 말린 꼬리가 특징입니다.",
+      "sha256": "201806cf0553961f0a296f7f8a68b915d18fdc8872365e23155bae78804d293c",
+      "source": "https://www.fci.be/Nomenclature/Standards/043g05-en.pdf",
+      "supportingSources": [
+        "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/basenji/"
+      ],
+      "decision": "rewritten",
+      "reason": "귀와 꼬리 모양을 사냥 능력의 원인처럼 연결하지 않고 역할과 외형을 나눴다."
+    },
+    {
+      "slug": "bernese-mountain-dog",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "스위스 베른 지역 농장에서 여러 일을 도왔어요.",
+      "sha256": "d3087e4a019761fbf1c9429ff2d3204f57c9fc54d2c62ecfee448b783ead08e1",
+      "source": "https://www.fci.be/Nomenclature/Standards/045g02-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "bernese-mountain-dog",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "버니즈 마운틴 독은 베른 주변과 스위스 알프스 산기슭 농장에서 가축을 몰고 수레를 끌며 농장을 지키는 데 쓰였어요. 튼튼한 몸과 사람 곁의 협업이 중요했어요.",
+      "sha256": "0818bf5ec87dd8004df9e8fd1c313cce040b6a06b2cb98073f8f2237c3d2cabd",
+      "source": "https://www.fci.be/Nomenclature/Standards/045g02-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "bernese-mountain-dog",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "버니즈 마운틴 독은 스위스 베른 주변 농가에서 여러 일을 맡았던 장모 삼색 견종입니다. 가축을 몰고 농장을 지키며 수레를 끄는 역할을 함께 했습니다.",
+      "sha256": "a77437599788f5457d9a808d43caad50f1872dd35fbc27b33f6f3c8dd3e5e142",
+      "source": "https://www.fci.be/Nomenclature/Standards/045g02-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "대조 자료에 명시되지 않은 운반 품목과 산악 환경에 대한 추론을 줄였다."
+    },
+    {
+      "slug": "shetland-sheepdog",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "셰틀랜드 제도에서 양을 돌보던 작은 목양견이에요.",
+      "sha256": "5e083a309bb6dec6ef737b2ccdb4dc79583211c1c99baa4bf9338aa37aec4913",
+      "source": "https://www.fci.be/Nomenclature/Standards/088g01-en.pdf",
+      "supportingSources": [
+        "https://www.akc.org/dog-breeds/shetland-sheepdog/"
+      ],
+      "decision": "rewritten",
+      "reason": "확인한 원산 지역과 목양 역할에 집중했다."
+    },
+    {
+      "slug": "shetland-sheepdog",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "셔틀랜드 시프독은 스코틀랜드 셰틀랜드 제도에서 발달한 목양견이에요. 작은 체격과 긴 털을 지녔으며, 양을 돌보는 일에서 사람과 협력했어요.",
+      "sha256": "d8417c0152de384d9d61eb97a3af79defefb31e9b04d5b07323cf8368033ed50",
+      "source": "https://www.fci.be/Nomenclature/Standards/088g01-en.pdf",
+      "supportingSources": [
+        "https://www.akc.org/dog-breeds/shetland-sheepdog/"
+      ],
+      "decision": "rewritten",
+      "reason": "여러 작은 가축과 경보 역할을 포괄하던 설명을 확인한 범위로 좁혔다."
+    },
+    {
+      "slug": "shetland-sheepdog",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "셔틀랜드 시프독은 스코틀랜드 북쪽 셰틀랜드 제도에서 발달한 작은 목양견입니다. 긴 털을 지닌 작업견으로, 양을 돌보는 역할을 해 왔습니다.",
+      "sha256": "7edef0462f8dde9d640f3ce1ab0ac370d154d041acd50e8c0cae6aba2759d0f9",
+      "source": "https://www.fci.be/Nomenclature/Standards/088g01-en.pdf",
+      "supportingSources": [
+        "https://www.akc.org/dog-breeds/shetland-sheepdog/"
+      ],
+      "decision": "rewritten",
+      "reason": "섬의 기후와 자원 부족이 체형·신호 반응을 결정했다는 인과 설명을 제거했다."
+    },
+    {
+      "slug": "australian-shepherd",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "미국에서 여러 가축을 움직이는 목장견으로 정립됐어요.",
+      "sha256": "05ccef64bf03521fac6e62236aa906beb402422b67028e18cd7cd0d712f9d935",
+      "source": "https://www.fci.be/Nomenclature/Standards/342g01-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "australian-shepherd",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "이름과 달리 오늘날의 오스트레일리안 셰퍼드는 미국에서 정립됐어요. 넓은 목장에서 여러 가축의 흐름을 읽고 사람의 신호에 맞춰 방향을 바꾸는 일을 했어요.",
+      "sha256": "2716db601e40e4dfe7074d79ac316c5dbd1660b3495169e43375b5942371a08b",
+      "source": "https://www.fci.be/Nomenclature/Standards/342g01-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "australian-shepherd",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "오스트레일리안 셰퍼드는 이름과 달리 미국에서 정립된 목양견입니다. 미국 서부의 목장 생활 속에서 가축을 다루고 여러 목장 일을 돕는 견종으로 발전했습니다.",
+      "sha256": "1379ef07678ea52426bb294384c685c07628f2a1d239bd32424094981f8455fb",
+      "source": "https://www.fci.be/Nomenclature/Standards/342g01-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "복잡한 이동 역사와 불필요한 연대 범위를 빼고 정립 지역과 역할만 남겼다."
+    },
+    {
+      "slug": "english-cocker-spaniel",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "덤불에서 새를 찾아 날아오르게 하고 회수했어요.",
+      "sha256": "b9004cd0417856cd253710d48b749a62b4f0a59a25402bfde6983d4be01829f8",
+      "source": "https://www.fci.be/Nomenclature/Standards/005g08-en.pdf",
+      "supportingSources": [
+        "https://images.akc.org/pdf/events/hunting_tests/spaniels/hunting_style/english_cocker_spaniel.pdf"
+      ],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "english-cocker-spaniel",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "잉글리시 코커 스패니얼은 영국의 랜드 스패니얼 계통에서 정립된 조렵견이에요. 낮은 덤불을 누비며 새를 찾아 올리고 사람에게 회수하는 일을 도왔어요.",
+      "sha256": "2839a43fde19b9fbb0d113ca607841fb465d3df905b7bc5bfb4b661f71bee5a5",
+      "source": "https://www.fci.be/Nomenclature/Standards/005g08-en.pdf",
+      "supportingSources": [
+        "https://images.akc.org/pdf/events/hunting_tests/spaniels/hunting_style/english_cocker_spaniel.pdf"
+      ],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "english-cocker-spaniel",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "잉글리시 코커 스패니얼은 영국에서 새 사냥을 돕던 랜드 스패니얼 계통의 조렵견입니다. 낮은 덤불을 누비며 새를 찾아 날아오르게 하고 회수하는 역할이 오늘의 체형과 활동 방식을 이해하는 출발점이 됩니다.",
+      "sha256": "1b895863cd9cb857c530a3c1ffbb48ee391423c447a890d123e2908efd1fb313",
+      "source": "https://www.fci.be/Nomenclature/Standards/005g08-en.pdf",
+      "supportingSources": [
+        "https://images.akc.org/pdf/events/hunting_tests/spaniels/hunting_style/english_cocker_spaniel.pdf"
+      ],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "english-springer-spaniel",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "덤불 속 새를 찾아 날아오르게 하고 회수했어요.",
+      "sha256": "d9343d6ab97132fe515147496a8782b76ae8fbb9598ebcc3c77868a38528c847",
+      "source": "https://www.fci.be/Nomenclature/Standards/125g08-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "english-springer-spaniel",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "잉글리시 스프링거 스패니얼은 영국의 랜드 스패니얼에서 발달했어요. 수풀 속 사냥감을 찾아 날아오르게 하고 회수하는 일을 맡았어요.",
+      "sha256": "e783a75488d36208d8331a4ef7702f06022ec4a2d54de3a91e89ac2623c38bd2",
+      "source": "https://www.fci.be/Nomenclature/Standards/125g08-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "이번 표준 대조에서 확인한 탐색·플러싱·회수 역할로 정리하고 세부 이동 패턴은 뺐다."
+    },
+    {
+      "slug": "english-springer-spaniel",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "잉글리시 스프링거 스패니얼은 영국의 랜드 스패니얼 계통에서 발달했습니다. 이름처럼 덤불의 새를 찾아 날아오르게 하는 작업을 맡았습니다.",
+      "sha256": "3e66ee9f336b859f61de28083db54362d961c371af39c1e11d3fb5a93422ac66",
+      "source": "https://www.fci.be/Nomenclature/Standards/125g08-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "havanese",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "쿠바에서 가족 곁을 지키는 소형 반려견으로 발달했어요.",
+      "sha256": "f1e64f6963d4bbfa301b0ed9b21c0949ac18b8e83c8d6e115ac49eeed1084f7a",
+      "source": "https://www.fci.be/Nomenclature/Standards/250g09-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "havanese",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "하바니즈는 서지중해의 비숑 계통과 연결되며 쿠바에서 고유한 견종으로 발달했어요. 가정 안에서 사람과 가까이 생활한 반려견의 역사를 지녔어요.",
+      "sha256": "459491a507ad3407f816afcb8c2208773c017f4b0c8e00bece5ab72adb8f615b",
+      "source": "https://www.fci.be/Nomenclature/Standards/250g09-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "havanese",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "하바니즈는 쿠바에서 고유하게 발달한 소형 반려견입니다. 부드러운 장모와 탄력 있는 걸음, 사람 가까이 지내온 역사를 지녔습니다.",
+      "sha256": "fc9a71440f598bc4cff7e253514cedbdd0445b3fd61754ed52932942e81d9a67",
+      "source": "https://www.fci.be/Nomenclature/Standards/250g09-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "schnauzer",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "마구간에서 설치류를 찾고 주변을 지키던 개였어요.",
+      "sha256": "02d1a765616c96ec364f3a7d602093e56e27c5486a62be505c1947aba59c9c83",
+      "source": "https://www.fci.be/Nomenclature/Standards/182g02-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "schnauzer",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "스탠더드 슈나우저는 독일 남부의 마구간에서 말과 함께 지내며 설치류를 잡고 주변을 지키던 견종이에요. 거친 털과 수염이 특징인 중형 작업견이에요.",
+      "sha256": "1bf31c02a7a8c0fdad7f6caf0020b2e6761ca9f7eec84d0e37ee6f4e92272486",
+      "source": "https://www.fci.be/Nomenclature/Standards/182g02-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "설치류 사냥에서 유래한 래틀러와 별도 등록명인 거친 털 핀셔를 같은 유래로 설명하던 문장을 고쳤다."
+    },
+    {
+      "slug": "schnauzer",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "스탠더드 슈나우저는 독일에서 발달한 중형 작업견입니다. 마구간에서 설치류를 잡고 주변을 지키는 역할을 했으며, 사각 체형과 거친 털, 수염과 눈썹이 특징입니다.",
+      "sha256": "06c9f5d7988298cbcf52305e9a7bf32413409e7e776badafdf19cc0d2bda9116",
+      "source": "https://www.fci.be/Nomenclature/Standards/182g02-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "다른 크기 견종과의 정립 순서 대신 확인한 용도와 체형을 설명했다."
+    },
+    {
+      "slug": "boxer",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "불렌바이서 계통에서 독일의 경비·작업견으로 정립됐어요.",
+      "sha256": "6aaa0552c567e41a81c898f2b2974aac3e93afe803b371d10f06e6c549614292",
+      "source": "https://www.fci.be/Nomenclature/Standards/144g02-en.pdf",
+      "supportingSources": [
+        "https://www.akc.org/expert-advice/dog-breeds/boxer-history/"
+      ],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "boxer",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "복서는 19세기 말 독일에서 정립된 작업견이에요. 선조인 불렌바이서 계통에는 큰 사냥감을 붙잡고 가축 상인과 정육업자를 돕던 역사가 있어요.",
+      "sha256": "d27b5bf40394e57a01abc26bcdd0e470cf0e04badc32c23ecb509921c11a952f",
+      "source": "https://www.fci.be/Nomenclature/Standards/144g02-en.pdf",
+      "supportingSources": [
+        "https://www.akc.org/expert-advice/dog-breeds/boxer-history/"
+      ],
+      "decision": "rewritten",
+      "reason": "선조 계통의 역할과 현대 복서의 정립을 구분했다."
+    },
+    {
+      "slug": "boxer",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "복서는 큰 사냥감을 붙잡던 불렌바이서 계통을 바탕으로 독일에서 정립된 견종입니다. 오늘날의 품종 표준은 반려·경비·작업 역할을 함께 다룹니다.",
+      "sha256": "6b1b1d9129c2f5e495414b79ae47ebe40df9435a4961d7a00abba3289eae6763",
+      "source": "https://www.fci.be/Nomenclature/Standards/144g02-en.pdf",
+      "supportingSources": [
+        "https://www.akc.org/expert-advice/dog-breeds/boxer-history/"
+      ],
+      "decision": "rewritten",
+      "reason": "정립입니다라는 조합 오류와 같은 계통의 반복을 고치고 선조와 현재 용도를 구분했다."
+    },
+    {
+      "slug": "newfoundland",
+      "surface": "standard",
+      "field": "story.steps.0.title",
+      "text": "뉴펀들랜드 섬에서 무거운 짐과 물가의 일을 도왔어요.",
+      "sha256": "3ca8b9a31b0f2287668e99bb5b513e022658d8b66043d8c4b639fe013dba71e9",
+      "source": "https://www.fci.be/Nomenclature/Standards/050g02-en.pdf",
+      "supportingSources": [],
+      "decision": "retained-limited-facts-not-full-clearance",
+      "reason": "공식 자료와 대조한 짧은 원산·역할·외형 설명으로 유지한다. 출처의 전체 서술이나 개체의 성향을 보장하는 내용이 아니며 전체 견종 검수·권리 승인과 구분한다."
+    },
+    {
+      "slug": "newfoundland",
+      "surface": "standard",
+      "field": "story.steps.0.body",
+      "text": "뉴펀들랜드는 캐나다 뉴펀들랜드 섬의 어업 생활과 함께 발달했어요. 육지에서 무거운 짐을 끌고 물에서는 구조를 돕는 등 힘과 수영 능력을 활용하는 일을 했어요.",
+      "sha256": "212a452b5784abf3d83250c2a473db545d6d23621dc14125e6d6ca757fc1b146",
+      "source": "https://www.fci.be/Nomenclature/Standards/050g02-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "이번 표준에서 확인한 어업 배경·운반·수상 구조에 집중했다."
+    },
+    {
+      "slug": "newfoundland",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "뉴펀들랜드는 캐나다 뉴펀들랜드 섬에서 발달한 대형 작업견입니다. 육지의 무거운 짐을 끄는 일과 수상 구조에 쓰였으며, 물에서 움직이는 능력이 중요한 견종입니다.",
+      "sha256": "29f5cda7b87268487eb23de30083d63d71540be209116ffabe9b00a81d8329d1",
+      "source": "https://www.fci.be/Nomenclature/Standards/050g02-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "특정 항구 환경과 운반 장비에 대한 세부 묘사를 확인한 용도로 바꿨다."
+    },
+    {
+      "slug": "rottweiler",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "롯트와일러는 독일 남부 로트바일 지역에서 가축 몰이와 경비를 맡았던 작업견입니다. 가축과 재산을 지키고 짐을 끄는 일에도 쓰였습니다.",
+      "sha256": "38e696b7d8434b0f42a006363555051d5a23d09793098694971c751c393e82f0",
+      "source": "https://www.fci.be/Nomenclature/Standards/147g02-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "정립입니다라는 조합 오류를 고치고 짧은 지역·역할 설명으로 정리했다."
+    },
+    {
+      "slug": "great-dane",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "그레이트 덴은 독일에서 정립된 대형 견종으로, 큰 사냥감을 쫓던 사냥견과 마스티프형 개의 계통을 지녔습니다. 현재 품종 표준에서는 반려·경비 역할을 다룹니다.",
+      "sha256": "6ee01db8c69e2b49ace8a071c10fcbdaf48db304d21dcaad302ed997b347ef78",
+      "source": "https://www.fci.be/Nomenclature/Standards/235g02-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "정립입니다라는 조합 오류를 고치고 역사적 계통과 현재 용도를 구분했다."
+    },
+    {
+      "slug": "jack-russell-terrier",
+      "surface": "breed",
+      "field": "story.opening",
+      "text": "잭 러셀 테리어는 19세기 영국의 폭스테리어 계통에서 발달하고 호주에서도 발전한 작업 테리어입니다. 사냥 무리를 따라 달리고 굴속에서 여우를 찾는 역할을 했습니다.",
+      "sha256": "27fa65999252ab91d075332e88940ef3a89f06a31b19fd8ce0064903e1aa8865",
+      "source": "https://www.fci.be/Nomenclature/Standards/345g03-en.pdf",
+      "supportingSources": [],
+      "decision": "rewritten",
+      "reason": "발달입니다라는 조합 오류를 고치고 원산지와 발달 지역을 구분했다."
+    }
+  ],
+  "supersededDecisions": [
+    {
+      "slug": "australian-shepherd",
+      "field": "story.opening",
+      "sha256": "6410134d9a48fd263788c405a3b2cdb9882053c05db2236f507f80d0c60151ab",
+      "source": "https://www.fci.be/Nomenclature/Standards/342g01-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "status": "retained-limited-facts-not-full-clearance",
+      "reason": "Short factual context retained after checking the cited source; this is not permission or a full-breed review."
+    }
+  ]
+}

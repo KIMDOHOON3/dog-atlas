@@ -6,7 +6,11 @@ The oval lawn has a rounded ivory foundation and a quiet cafe layout. The tunnel
 
 ## Asset and layout
 
-- Lawn radii 9.2 × 6.1; base depth 0.5. GLB 1,143,420 bytes, 16 mesh objects, 38,072 triangles.
+- Lawn radii 9.2 × 6.1; base depth 0.5. Source GLB 1,143,420 bytes, 16 mesh objects, 38,072 triangles.
+
+### Lossless delivery export — 2026-10-24
+
+`yard-furniture.source.glb` preserves the original Blender export (SHA-256 `211577bb42c6fc3dbee831779d16c7b5a1db7efe2f0202314b003e6f99f29f88`). Run `pnpm assets:yard` after exporting from Blender. This generates `public/models/yard-furniture.glb` using KHR_meshopt_compression: 633,616 bytes, or 357,581 bytes with gzip (original gzip: 480,664). No vertex quantization, mesh simplification, index reordering, texture resize or material changes are performed. The script verifies all 59 decoded buffers byte for byte; the asset regression test compares geometry, materials and transforms through the real Three.js loader. The browser uses the decoder already bundled with Three.js; meshoptimizer is a pinned development-only encoder dependency. Its MIT notice is included in the software notices.
 - The cream Three.js sign is at front center with dark painted lettering. A 5.6-second subtle surface brightness cycle runs on PC and mobile in the existing visible-only update loop; reduced motion uses steady brightness. No additional RAF loop or bloom pass is introduced.
 - Web camera looks from the front at about 26° desktop / 28° mobile above the ground (previously 40° / 51°). Aim at height 0.25 and tighten vertical framing to show the furniture fronts while retaining the lawn top and full oval. The existing camera-derived interaction bounds follow the new view. The offline Blender preview retains its studio camera.
 - `Throw_tug`, `Throw_disc`, `Throw_bone` are independent roots with local pivots. Each pickup is consolidated by material without being merged into static furniture.

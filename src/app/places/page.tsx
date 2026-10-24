@@ -3,13 +3,13 @@ import {
   listPetPlaces,
   placeFilters,
   placeRegions,
-} from "@/lib/pet-tour-server";
-import { PLACE_TYPES } from "@/lib/pet-tour";
-import NearbyPlaces from "@/components/nearby-places";
-import PlaceCard from "@/components/place-card";
-import PlaceIcon from "@/components/place-icon";
-import styles from "./places.module.css";
-import browse from "./place-browse.module.css";
+} from "@/features/places/pet-tour-server";
+import { PLACE_TYPES } from "@/features/places/pet-tour";
+import NearbyPlaces from "@/features/places/nearby-places";
+import PlaceCard from "@/features/places/place-card";
+import PlaceIcon from "@/features/places/place-icon";
+import styles from "../../features/places/places.module.css";
+import browse from "../../features/places/place-browse.module.css";
 
 export const metadata = {
   title: "함께 갈 곳",

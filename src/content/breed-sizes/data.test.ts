@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { breeds } from "@/content/breeds/data";
-import { resolveBreedSize } from "@/lib/breed-size";
+import { resolveBreedSize } from "@/lib/breeds/breed-size";
 import { breedSizeAudit, breedSizeProfiles, getBreedSizeProfile, parseLegacyMeasurement } from "./data";
 
 describe("breed size migration registry", () => {

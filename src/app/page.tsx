@@ -1,4 +1,4 @@
-import { FoilCard } from "@/components/foil-card/foil-card";
+import { FoilCard } from "@/features/cards/foil-card";
 import { createPageMetadata, SITE_NAME } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({

@@ -2,29 +2,30 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
-import { StandardBreedDetailExperience } from "@/components/breed-detail-standard";
-import { StandardRealityCards } from "@/components/breed-detail-standard-interactions";
-import { toRealityClientData } from "@/lib/breed-detail-client-data";
-import { BeginnerGuideLink } from "@/components/beginner-guide-link";
+import { StandardBreedDetailExperience } from "@/features/breed-detail/breed-detail-standard";
+import { StandardRealityCards } from "@/features/breed-detail/breed-detail-standard-interactions";
+import { toRealityClientData } from "@/lib/breeds/breed-detail-client-data";
+import { BeginnerGuideLink } from "@/features/guide/beginner-guide-link";
 import { LegalCareNotice } from "@/components/legal-care-notice";
-import { LifestyleProductIcon } from "@/components/lifestyle-product-icon";
-import { PoodleDetailExperience } from "@/components/poodle-detail";
+import { LifestyleProductIcon } from "@/features/breed-detail/lifestyle-product-icon";
+import { PoodleDetailExperience } from "@/features/breed-detail/poodle-detail";
 import { SiteHeader } from "@/components/site-header";
 import { getBreedFeatures } from "@/content/breed-features/data";
 import { getBreedGrowthGuide } from "@/content/breed-growth-guides/data";
 import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
 import type { Breed } from "@/content/breeds/schema";
+import { getHealthScreeningSources, healthScreeningGuidance } from "@/content/breeds/health-screening";
 import { poodleDetail } from "@/content/poodle-detail/data";
 import { getStandardBreedDetail } from "@/content/standard-breed-detail/data";
 import {
   getBreedLifePresentation,
-} from "@/lib/breed-life-presentation";
-import { getBreedLifespanDisplay } from "@/lib/breed-fact-presentation";
-import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
-import { getBreedRoleFacts } from "@/lib/breed-role-presentation";
-import { getBreedSizePresentation, type BreedSizePresentation } from "@/lib/breed-size-presentation";
+} from "@/lib/breeds/breed-life-presentation";
+import { getBreedLifespanDisplay } from "@/lib/breeds/breed-fact-presentation";
+import { isKoreanManagedBreed } from "@/lib/breeds/breed-legal-care";
+import { getBreedRoleFacts } from "@/lib/breeds/breed-role-presentation";
+import { getBreedSizePresentation, type BreedSizePresentation } from "@/lib/breeds/breed-size-presentation";
 import { createPageMetadata } from "@/lib/site-metadata";
-import { getBreedCardImage } from "@/lib/breed-image-assets";
+import { getBreedCardImage } from "@/lib/breeds/breed-image-assets";
 import { withObjectParticle } from "@/lib/korean-particles";
 import styles from "./page.module.css";
 
@@ -176,7 +177,7 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
       {breed.historyVisibility !== "hidden" && (
         <section className={styles.malteseStory} aria-labelledby="breed-story-title">
           {breed.historyVisual && <BreedVisual breed={breed} variant="history" />}
-          <div className={styles.malteseStoryCopy}>
+          <div>
             <p className={styles.eyebrow}>역사에서 오늘까지</p>
             <h2 id="breed-story-title">{breed.nameKo}의 과거가 오늘의 생활로 이어져요.</h2>
             <p className={styles.malteseStoryLead}>{breed.story.opening}</p>
@@ -233,8 +234,9 @@ export default async function BreedDetail({ params }: PageProps) {
   const isStandardDetail = breed.slug === "poodle" || Boolean(standardDetail);
   const related = isStandardDetail ? getRelatedBreeds(breed) : [];
   const growthGuide = getBreedGrowthGuide(breed.slug);
+  const healthSources = getHealthScreeningSources(breed.slug);
   const allSources = breed.slug === "poodle"
-    ? poodleDetail.sources
+    ? [...poodleDetail.sources, ...healthSources.filter((source) => !poodleDetail.sources.some((existing) => existing.url === source.url))]
     : [...new Map(
       [...breed.sources, ...(growthGuide?.sources ?? []), ...behaviorContextSources].map((source) => [source.url, source]),
     ).values()];
@@ -306,12 +308,22 @@ export default async function BreedDetail({ params }: PageProps) {
           ) : (
             <BreedDetailExperience breed={breed} />
           )}
-          {!isStandardDetail && (
+          {healthSources.length > 0 && (
             <details className={styles.sources}>
-              <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개 · {allSources[0].checkedAt} 확인</small></summary>
-              <div><p>현재 편집 중이며 수의학·행동 전문가 검수 전인 정보입니다. 품종의 일반적 경향이 개별 강아지의 건강과 행동을 보장하지는 않습니다.</p><ul>{allSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} — {source.title}</a><span>확인일 {source.checkedAt}</span></li>)}</ul></div>
+              <summary><span>유전 질환과 검사 기록</span><small>확인할 점</small></summary>
+              <div>
+                <p>{breed.healthEditorialNote}</p>
+                <p>{healthScreeningGuidance.purpose}</p>
+                <p>{healthScreeningGuidance.records}</p>
+                <p>{healthScreeningGuidance.limits}</p>
+                <p>근거 자료와 확인일은 아래 ‘정보 출처와 편집 안내’에서 볼 수 있어요.</p>
+              </div>
             </details>
           )}
+          <details className={styles.sources}>
+            <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개</small></summary>
+            <div><p>현재 편집 중이며 수의학·행동 전문가 검수 전인 정보입니다. 품종의 일반적 경향이 개별 강아지의 건강과 행동을 보장하지는 않습니다.</p><ul>{allSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} — {source.title}</a><span>확인일 {source.checkedAt}</span></li>)}</ul></div>
+          </details>
         </article>
       </main>
     </>

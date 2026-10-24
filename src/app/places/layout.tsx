@@ -1,5 +1,5 @@
 import { SiteHeader } from "@/components/site-header";
-import styles from "./places.module.css";
+import styles from "../../features/places/places.module.css";
 
 export default function PlacesLayout({
   children,

@@ -331,7 +331,7 @@ export const bulldogDetail = standardBreedDetailSchema.parse({
     {
       id: "shaded-route",
       title: "긴 햇볕 길보다 짧은 그늘 길을 먼저 선택해요.",
-      body: "덥거나 습한 시간은 피하고, 산책 전부터 짧고 그늘진 경로와 돌아올 지점을 정해주세요. 걷는 속도나 회복이 평소와 다르면 더 진행하지 않아요.",
+      body: "덥거나 습할 때는 야외 활동을 줄이고, 호흡이나 회복이 평소와 다르면 운동을 멈추고 수의사에게 문의해요. 숨 쉬기 힘들어하거나 쓰러지면 그늘에서 회복을 기다리지 말고 즉시 응급 진료를 받아요.",
       image: "/illustrations/v4/bulldog-feature-shaded-route.webp",
       imageAlt: "햇볕이 드는 긴 길 대신 나무 그늘의 짧은 길로 방향을 바꾸는 보호자와 성견 불독 삽화",
     },

@@ -20,7 +20,7 @@
 
 ## 수정할 때
 
-카드 문구·이미지를 변경하면 새 페이지 로드에서 현재 DOM을 다시 캡처하므로 별도 이미지 재생성이 필요 없다. 캡처 코드는 `src/lib/card-texture.ts`, 변형/캐시는 `src/lib/card-transition.ts`, 조작/수명 관리는 `src/components/foil-card/foil-card.tsx`에 있다.
+카드 문구·이미지를 변경하면 새 페이지 로드에서 현재 DOM을 다시 캡처하므로 별도 이미지 재생성이 필요 없다. 캡처 코드는 `src/features/cards/card-texture.ts`, 변형/캐시는 `src/features/cards/card-transition.ts`, 조작/수명 관리는 `src/features/cards/foil-card.tsx`에 있다.
 
 [MDN WebGL best practices](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_best_practices)의 버텍스 계산·버퍼 예산·텍스처 업로드 분리·자원 해제 지침을 참고했다.
 

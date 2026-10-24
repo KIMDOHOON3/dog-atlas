@@ -1,0 +1,964 @@
+[
+  {
+    "slug": "akita",
+    "field": "story.opening",
+    "after": "아키타는 일본을 원산지로 하는 대형 스피츠형 견종입니다. FCI는 현재 용도를 반려견으로 분류합니다. 과거의 사냥·투견 기록을 오늘의 개체에게 기대할 역할로 받아들이지 않는 것이 중요합니다.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/255g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "c3af15a6d8afa7dadb91639a73ff95ed42f981dee7c951f32a314780b1f6eaad",
+    "afterHash": "52c198a12628dbffefe7a21686687eef3804d5bf6b6806c76eb14ae7ec2f79a6"
+  },
+  {
+    "slug": "akita",
+    "field": "story.roleToHome",
+    "after": "큰 몸이 집 안에서 돌아서고 쉬는 공간부터 살펴보세요. 사람이나 다른 개와 어떤 거리를 편안해하는지 관찰하고, 낯선 상황을 서둘러 통과시키기보다 안정적으로 적응할 경험을 마련하는 편이 좋습니다.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/255g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "b7983b8b761e5ad9ca210f390a1356c9affcec4af8cdb59c6dc74c4f6f0d605c",
+    "afterHash": "7c7869d4a304a8ad60f19b239e6cfc7f19fc91d197b9afd1ab5bd00e48914b9b"
+  },
+  {
+    "slug": "cavalier-king-charles-spaniel",
+    "field": "story.opening",
+    "after": "캐벌리어 킹 찰스 스패니얼은 영국에서 정립된 토이 스패니얼입니다. FCI의 반려견 그룹에 속하며, 작은 스패니얼의 체형과 귀의 장식털이 특징입니다. 오래된 회화 속 모습과 지금 함께 살 개의 생활 필요는 구분해서 살펴보세요.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/136g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "853af70039aca4543b853623dfeceb565e8a37f631daeccb7e2e9909e1d2849e",
+    "afterHash": "a0ba0255037fd39569c622b9823c048fddb81d747d9f98e3c53f841a2d2f57f3"
+  },
+  {
+    "slug": "cavalier-king-charles-spaniel",
+    "field": "story.roleToHome",
+    "after": "사람 곁에 머무는 시간과 스스로 탐색할 시간을 함께 마련해 보세요. 안고 이동하는 것만으로 하루를 채우기보다 바닥에서 냄새를 맡고 편히 쉬는 모습을 관찰하며 생활 리듬을 맞추는 것이 좋습니다.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/136g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "ec58b33a63e5a975017411a6626a7d702c2268e080dcfb748f5b942f3d61a3fc",
+    "afterHash": "cc02d300dfcfd16c7cc470e2e2e48fce8557938c81adea8e4614cd749b932571"
+  },
+  {
+    "slug": "pug",
+    "field": "story.opening",
+    "after": "퍼그는 중국을 기원으로 기록하며 영국이 표준 관리에 관여하는 작은 반려견입니다. 이동 경로나 왕실의 일화를 나열하는 것보다, 현재의 짧은 얼굴과 단단한 체구가 일상에서 어떤 돌봄을 필요로 하는지 살펴보는 편이 도움이 됩니다.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/253g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "a416e52a67605eb15cf0b3e6afd2d1b90f7ea0d03693f4bf6053e9e5e6dc9ec3",
+    "afterHash": "a23ad8456963a0b81ebffcb5a65ad1a273849b6b66767cb73f93efd6fa27a153"
+  },
+  {
+    "slug": "pug",
+    "field": "story.roleToHome",
+    "after": "함께하는 활동은 길이나 횟수보다 편안한 호흡과 회복을 기준으로 조절해 보세요. 눈과 얼굴을 살피고 서늘한 휴식 자리를 마련하는 일도 중요합니다. 외형의 특징을 과장해서 귀엽게 보는 시선이 불편함의 신호를 가리지 않도록 해 주세요.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/253g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "da9ce43919bdb95f835915b0ec97ecd15bb6e75cebb7d6b83aed3bc40e4a636b",
+    "afterHash": "19d3e343ea02f66214029e35910c576a2215ac98b6b08bdc1731f800b5571293"
+  },
+  {
+    "slug": "yakutian-laika",
+    "field": "story.opening",
+    "after": "야쿠티안 라이카는 러시아 북동부의 썰매·사냥 작업과 연결된 견종입니다. FCI도 이 두 역할을 용도로 기록합니다. 추운 지역에서 일하던 배경은 지금의 활동 환경과 피모 관리를 생각할 때 참고할 단서입니다.",
+    "file": "src/content/breeds/detail-batch-k.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/365g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "79f07aca3042ccf6e2e45d0b7841718bd9e9ac44f9c9425a0a0e84b18a96788b",
+    "afterHash": "8f2c7f35432980d00c2c535cbb5c84bef7cac5e7d890a09586185d40b98128b5"
+  },
+  {
+    "slug": "yakutian-laika",
+    "field": "story.roleToHome",
+    "after": "함께 살 때는 오래 움직일 수 있다는 평판만으로 운동을 늘리지 마세요. 기온과 몸 상태를 살피며 활동과 휴식을 나누고, 털을 말리고 관리할 시간까지 포함해 하루를 계획하는 편이 좋습니다.",
+    "file": "src/content/breeds/detail-batch-k.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/365g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "f485f033212b98ee03f08cedf31a52f89f7f6a25778f78832a7bb33528ead359",
+    "afterHash": "3ac707c7ecb6dbe303384516dd8877fa0c504b4806cd3c67ea6e17afd6a8c1c1"
+  },
+  {
+    "slug": "bull-terrier",
+    "field": "standard.story.steps[0].body",
+    "after": "불테리어의 배경에는 투견의 역사와 제임스 힝크스가 전람회에 선보일 외형을 정립한 과정이 함께 있어요. 과거의 역할을 오늘의 개체에게 기대하기보다, 큰 움직임을 안전하게 조절할 환경과 서로 편안한 거리를 살펴보세요.",
+    "file": "src/content/standard-breed-detail/data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/011g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "42b8eb5dd0d657f3f29a34203c822e1e055453b95d64019cf92051547fd0d8a0",
+    "afterHash": "d2db8310931d1b7c85e950e950d13376de4d3d0d8a8d1e2888f69acffff7b364"
+  },
+  {
+    "slug": "eurasier",
+    "field": "standard.story.steps[0].body",
+    "after": "유라시어는 여러 스피츠 계통을 바탕으로 독일에서 반려 생활을 위해 정립된 견종이에요. 부모 계통의 특징을 더해 성격을 예측하기보다 실제로 사람과 거리를 조절하는 모습을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-200-batch-04-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/291g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "ea4c36eb33669ad833d1854a2b9512b762e3fe1ea869aacfc636799f98c4dfd9",
+    "afterHash": "b039906e54c00b782cb9a01b633b249c19abd1756a177b19d0917331b202b5a7"
+  },
+  {
+    "slug": "cesky-terrier",
+    "field": "standard.story.steps[0].body",
+    "after": "체스키 테리어는 여우·오소리 사냥에 쓰이던 배경과 오늘의 반려 역할을 함께 가진 체코의 작은 테리어예요. 가정에서는 살아 있는 동물을 쫓게 하기보다 안전한 탐색과 종료 경험으로 연결해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-200-batch-08-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/246g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "5595af5e3a0496c64cb0082bd91014d54fb65a500753183c7434b53b176c837c",
+    "afterHash": "026291c2b40f12b9f3bfb47605af107ecf6a8fd94fd0f76a0a656d9df713bd84"
+  },
+  {
+    "slug": "braque-saint-germain",
+    "field": "standard.story.steps[0].body",
+    "after": "브라크 생제르맹은 새의 흔적을 찾고 위치를 알리던 프랑스의 포인팅견이에요. 반려 생활에서는 사람과 탐색 범위를 맞추고 멈추는 경험을 마련해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-200-batch-09-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/115g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "b45da87a5ee025031a2b764ace15c570cc100e6d86c5be16b9576d47747c3f42",
+    "afterHash": "adfe8a93814666e171677eb6e143423b545212e46e372cd024059a7365b6ccf0"
+  },
+  {
+    "slug": "russian-toy",
+    "field": "standard.story.steps[0].body",
+    "after": "러시안 토이는 러시아에서 정립된 작은 반려견으로 단모와 장모 유형이 있어요. 어느 유형인지 확인하는 일과 별개로, 작은 몸이 안전하게 움직일 통로와 피모에 맞는 관리 시간을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-01-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/352g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "5959c64336e6995f3cf381195abc6a5bee11c7284e071369f027a11bde4e70cf",
+    "afterHash": "e33b59cb324d8ffd18b18cf9aebf151131acf01de6973747e31233edc888be06"
+  },
+  {
+    "slug": "tornjak",
+    "field": "standard.story.steps[0].body",
+    "after": "토르냐크는 보스니아 헤르체고비나와 크로아티아의 가축·농장 보호견이에요. 무리 곁을 지키던 배경을 알되, 가정에서는 방문객과의 거리와 안전한 경계를 사람이 준비해야 한다는 점을 먼저 생각해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-04-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/355g02-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "60df14630d54b7b73aa82e8c8b24cfb2e88eeb6bfe4d2ab9bf7f74d9e9309e9a",
+    "afterHash": "4c0f9b17242fc6fef73809cf5e9834ff64476cd0aab1f6c5c5f68221693dd129"
+  },
+  {
+    "slug": "large-munsterlander",
+    "field": "standard.story.steps[0].body",
+    "after": "라지 뮌스터랜더는 독일의 장모 포인팅견 계열로, 1909년 모색 기준에 따른 계통 분리가 독자적인 번식으로 이어지는 계기였어요. 들과 물가의 탐색·회수 배경을 참고하되, 오늘의 활동에서는 환경에 맞춰 시작과 종료를 함께 연습해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-07-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/118g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "f323bf61d7499e47978076ba6c6ce6a941f150b5456976e6a1308989916d0c23",
+    "afterHash": "1c79aad7173a08e0028fb9aa77e0c184bcad735f2214abbab7a379388eeb47d8"
+  },
+  {
+    "slug": "irish-red-and-white-setter",
+    "field": "standard.story.steps[0].body",
+    "after": "아이리시 레드 앤 화이트 세터는 아일랜드의 포인팅견으로, 개체 수가 줄어든 뒤 1920년대에 보존 노력이 이어졌어요. 들판에서 새의 위치를 찾던 배경을 이해하고, 오늘의 생활에서는 넓은 탐색과 안전한 복귀를 함께 준비해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-07-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/330g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "580d2de3fcdd895dd5519e1f4cdd99c969fa2234a9d7388e35727e253f7e93e9",
+    "afterHash": "6bdd8476b16b15723f89f19364e108cc6cd0f1d16bb5e5e6801d287dcefd3e51"
+  },
+  {
+    "slug": "saarloos-wolfdog",
+    "field": "standard.story.steps[0].body",
+    "after": "사르로스 울프도그는 네덜란드에서 1975년 인정된 견종이며, FCI 표준은 특정 작업 임무를 전제로 하지 않는 반려 역할을 설명해요. 늑대를 닮은 외형으로 능력을 기대하기보다 낯선 상황에서 편안한 거리를 확보하는지를 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-07-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/311g01-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "5d9a4b9eb07a95ceabbdcf1121d4e8bea88e12de9632ac68cb3a142e0edfe75b",
+    "afterHash": "2163cf5824110a541bda5a06e924b49b13a139d1c3ea687358fe046688231488"
+  },
+  {
+    "slug": "black-russian-terrier",
+    "field": "standard.story.steps[0].body",
+    "after": "블랙 러시안 테리어는 러시아에서 정립된 대형 작업·경비견으로, 이름과 달리 FCI에서는 핀셔·슈나우저 계열로 분류해요. 가정에서는 큰 몸이 움직일 동선과 낯선 상황에 적응할 시간을 함께 준비해야 해요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-07-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/327g02-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Remove sequential source-history retelling; retain limited origin/role facts and independently framed reader context.",
+    "beforeHash": "ce7e9571b17ea38611a1ad11baa2a84d53fe54be82704197de1cf29de1ca4a02",
+    "afterHash": "01549c7415759e17865c8e644b6458a5dd2cc2e7573928c55fc9402dfb06fd59"
+  },
+  {
+    "slug": "norrbottenspets",
+    "field": "heroStatement",
+    "after": "노르보텐스펫츠는 스웨덴 북부의 사냥 생활과 이어지는 작은 스피츠예요. 단단한 체구와 밝은 바탕의 패치 무늬 뒤에 어떤 탐색 욕구가 있는지 함께 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-05-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/276g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "00b7eb94cb7d0dc40a7088a2fed9ea8970ec2adb6192d3ecb44f7b72cfbe2af1",
+    "afterHash": "fac5a5844712a83f8aaeb6545761484c2cb9a00e998b50ac8a58aafb0a6fa0ec"
+  },
+  {
+    "slug": "spinone-italiano",
+    "field": "story.steps.0.body",
+    "after": "이탈리아의 옛 그림과 문헌에는 스피노네의 조상으로 여겨지는 거친 털 사냥개가 등장해요. 오래된 기록 속 모습과 지금 만나는 개의 체력·경험을 구분하고, 편안히 탐색할 환경부터 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-06-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/165g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "039975e308a39cf20f6145738902a537aadaaab42b5935e78fa045da6b74dd60",
+    "afterHash": "3de0843855e0c7cd9c91ea7f253ac287aa9c6b70067c2cae37717868e2e57fff"
+  },
+  {
+    "slug": "french-bulldog",
+    "field": "story.opening",
+    "after": "프렌치 불도그는 프랑스에서 정립된 반려견으로, 파리의 생활 속에서 오늘날의 품종 형태가 자리 잡았습니다. 영국 불도그와 이어지는 계통의 역사와 현재 개체의 생활 필요를 구분하고, 함께 지낼 환경과 돌봄 부담을 살펴보세요.",
+    "file": "src/content/breeds/detail-batch-b.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/101g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "130ffe606dc7271edc12f726fe8313f68ca9ee75e17b21493b659be828c7d969",
+    "afterHash": "7e42eae4ca665e767a5be4403253b3a3b582900376c7e9e5063ef380cbffd205"
+  },
+  {
+    "slug": "japanese-terrier",
+    "field": "heroStatement",
+    "after": "재패니즈 테리어는 약 2mm의 매우 짧은 털과 가벼운 몸을 가진 일본의 소형견이에요. 사람 곁에서 지내 온 배경과 함께, 차가운 바닥이나 거친 접촉을 피할 생활 환경을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-04-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/259g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "1e59140428f449300908cb8b1fd9485596c349e722d1f6d0f0909ee3544b60ba",
+    "afterHash": "626cbf155e099b41e67aaedf2c89138c69b477321658599c3102e406261bbc06"
+  },
+  {
+    "slug": "broholmer",
+    "field": "story.steps.0.body",
+    "after": "브로홀머의 과거 역할에는 사슴 사냥과 농장 경비가 있었고, 오늘날 FCI는 반려·경비견으로 소개해요. 집에서는 경계 행동에 맡기기보다 사람이 방문객과의 거리와 안전한 출입을 관리해야 해요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-03-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/315g02-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "27dc39d4ace6b39bb2bbaaad79cce3dbeee1677efa82af9a3d60744a45c92226",
+    "afterHash": "f68c8b2e1624623a9b622ae6f4c0b4115e2ddb34a9cdfbea9ce9490e575e2bae"
+  },
+  {
+    "slug": "tyrolean-hound",
+    "field": "heroStatement",
+    "after": "티롤리안 하운드는 오스트리아 산림에서 냄새를 따라 사냥하던 중형 하운드예요. 붉은색 또는 검정·황갈색 털의 모습과 함께, 탐색을 이어가려는 순간의 안전한 동선을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-06-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/068g06-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "3dc3ee86fc49699dcb6220b01467937d0be194ad62abb6a7c6261314ea2842af",
+    "afterHash": "b099780a4a4dc7927edcba3e2547693b2a59bcea8f71a9e86c7f418947fb2f76"
+  },
+  {
+    "slug": "tyrolean-hound",
+    "field": "story.steps.0.body",
+    "after": "티롤리안 하운드는 산토끼·여우를 쫓거나 다친 사냥감의 흔적을 찾는 일에 쓰였어요. 가정에서는 살아 있는 동물을 쫓는 대신, 통제된 장소에서 냄새를 찾고 사람에게 돌아오는 경험으로 연결해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-06-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/068g06-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "4a549c2b3c7aaf5be932090643b22c2d909d9de1c181fd5cd1d5d1ef52760986",
+    "afterHash": "969f5d1f5113542156c880c988801c8bf9c5a8d4b81d1f4373a68b51a7e4c366"
+  },
+  {
+    "slug": "russian-european-laika",
+    "field": "story.steps.0.body",
+    "after": "러시안 유러피안 라이카는 여러 북방 사냥개 계통을 바탕으로 정립됐고 1952년 품종 표준이 승인됐어요. 과거의 역할을 그대로 재현하기보다, 일상에서는 냄새를 찾는 활동과 안전한 종료를 함께 준비해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-05-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/304g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "4eb1f579f1c555e101bfa23126be5433a7a6c35654c073c3e14f5d9561ef6c51",
+    "afterHash": "6f6795396ce0d68bc7def363808377c56344b9195c4472dcc847d5780571492a"
+  },
+  {
+    "slug": "tornjak",
+    "field": "heroStatement",
+    "after": "토르냐크는 보스니아 헤르체고비나와 크로아티아의 가축·농장을 지키던 큰 보호견이에요. 풍성한 털과 패치 무늬뿐 아니라, 낯선 사람을 마주칠 때 확보할 거리와 출입 공간을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-04-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/355g02-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "4f3af62cc7c0d88f94759cb8b5023b9ea626208ea132913cb1c3072195b02a10",
+    "afterHash": "b334c05ee5e0bb45ee57163f04dd3325904b43626720fbcac7c2b0b71b6cfc9e"
+  },
+  {
+    "slug": "miniature-schnauzer",
+    "field": "story.opening",
+    "after": "미니어처 슈나우저는 독일에서 정립된 소형 반려견입니다. 수염과 거친 털, 단단한 체구가 눈에 띄지만 작은 크기만으로 돌봄 부담을 판단하기는 어렵습니다. 털을 관리할 시간과 주변 자극에 반응하는 모습을 함께 살펴보세요.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/183g02-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "67e6e99695a2d65d29aa922ef41c94663012a3a07fbc78d71adc6e4e07084c9a",
+    "afterHash": "647b5e74c4beb97ab11a7e79904a75ba2f619b4bfbeb8670634723e79f86b618"
+  },
+  {
+    "slug": "spinone-italiano",
+    "field": "heroStatement",
+    "after": "스피노네 이탈리아노는 거친 털과 튼튼한 몸을 가진 이탈리아의 포인팅견이에요. 들과 물가에서 탐색·회수를 하던 배경을 일상의 활동과 피모 관리에 연결해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-06-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/165g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "6f678408e2591c07d07943ba0648f302383082a49159a6da09f6b2d3def96389",
+    "afterHash": "942ed920b81bad061b737373f1acb8707a86b4902e6063a99c61b1e0a50ae6c7"
+  },
+  {
+    "slug": "hovawart",
+    "field": "heroStatement",
+    "after": "호바바르트는 농장과 영지를 지키던 배경이 이름에 남은 독일의 장모 작업견이에요. 사람과 함께할 활동뿐 아니라 방문객을 맞이할 공간과 경계도 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-03-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/190g02-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "7d15d4d726e787c43d2b218afe9ac85e3d1f75aa91352da2035af3a03c7265e5",
+    "afterHash": "5b87eda4c3a1ebfecff94aa22a29f552fd2afce1ae05cf252b23e16143801740"
+  },
+  {
+    "slug": "german-stichelhaar",
+    "field": "story.steps.0.body",
+    "after": "저먼 스티헬하르는 독일의 오래된 거친 털 포인팅견 계통을 이어가는 견종이에요. 여러 사냥 작업에 참여한 배경을 참고하되, 반려 생활에서는 낯선 지형을 무리하게 통과시키기보다 안전한 탐색과 회복 시간을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-06-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/232g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "89b547cbb93aba9f1beae7958e15f4c0ec4c6a0bfe177a2e1663a559b7e9ec69",
+    "afterHash": "71e8a6674837960e4c9dba8ad3cb07a6d7e83ad801eadbb734269f13203edcbf"
+  },
+  {
+    "slug": "transylvanian-hound",
+    "field": "story.steps.0.body",
+    "after": "트란실바니안 하운드는 산림에서 냄새를 추적하던 헝가리 하운드로, 품종 보존을 위한 번식이 1968년 재개됐어요. 오늘의 생활에서는 먼 곳까지 추적하려는 순간에도 사람과 연결을 유지할 환경을 준비해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-06-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/241g06-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "8a9ab2c2c35024122338f50835f295aaa203eb6281d6fb72e5977c2d3b10f41c",
+    "afterHash": "c03344d36bcf3891ac9a2a30d15ef25bf8109cccdc1b4cee98ee7a56b14ea09e"
+  },
+  {
+    "slug": "west-siberian-laika",
+    "field": "story.steps.0.body",
+    "after": "웨스트 시베리안 라이카는 한티·만시의 사냥개 계통을 바탕으로 정립된 러시아의 스피츠예요. 산림 사냥의 배경을 개체의 능력 보장으로 여기기보다, 탐색을 마치고 쉬는 과정을 함께 익히도록 도와주세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-05-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/306g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "8c37f8a3caf2d4f51346b62aace2bbebe38cdf3a43891c68a3c84bc9b06476d8",
+    "afterHash": "f9fdd20703444fe0bb3a57dd78923a8e44ff0bc0052cf3db347693117c986648"
+  },
+  {
+    "slug": "german-long-haired-pointer",
+    "field": "story.steps.0.body",
+    "after": "저먼 롱헤어드 포인터는 독일에서 들판·물·숲의 여러 사냥 작업에 맞춰 발전한 장모 견종이에요. 반려 생활에서는 활동 종류를 늘리는 것만큼, 지형이 바뀔 때 편안히 움직이고 회복할 수 있는지도 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-200-batch-09-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/117g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "8c4df3b1a6286cdc7a7288eaa1183712d9f962a6dc31da92ef7138373112c370",
+    "afterHash": "abb4a596ccd6611516e8220dee87710ffffb8a2d16f55d8c3429111ceea475a5"
+  },
+  {
+    "slug": "lowchen",
+    "field": "heroStatement",
+    "after": "뢰첸은 사자처럼 다듬은 털의 모습으로 알려진 프랑스의 작은 반려견이에요. 옛 태피스트리에도 등장하는 외형과 별개로, 오늘의 생활에서는 긴 털을 편안히 관리할 시간을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-02-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/233g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "91029e572cfdf6ef7b0f26a156020353927e132a7bca15fafef79d2a82c793e7",
+    "afterHash": "63254cbc60f4cfbd17656de2e47c5f4e4166bee8dc939c01c9478672df117d5a"
+  },
+  {
+    "slug": "russian-european-laika",
+    "field": "heroStatement",
+    "after": "러시안 유러피안 라이카는 러시아 유럽 지역 산림의 사냥견에서 발전한 스피츠예요. 검정과 흰색 피모, 단단한 체구와 함께 탐색을 충분히 마치고 쉴 수 있는 일상을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-05-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/304g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "9703986250f64a9d6a011a9f6b95ee6baf1f75c58e9e0a3edde92281f87363e3",
+    "afterHash": "feca69626278b40c33b012cc116c4556d453e1808d2623e51fc9f0d9e9e51aa8"
+  },
+  {
+    "slug": "japanese-terrier",
+    "field": "story.steps.0.body",
+    "after": "재패니즈 테리어는 고베와 요코하마 같은 항구 도시에서 반려견으로 길러졌어요. 이름의 테리어 분류만으로 생활을 예상하기보다, 작은 몸으로 집 안을 오가고 사람과 교류할 때 필요한 배려를 생각해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-04-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/259g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "9c368dbf008fa1a0fd05be5f3c0fca4209ad59f67b4409c922f8a97e14d87b69",
+    "afterHash": "96c489fb10680923aaf66bdc28ef53932aac62fb79fe2230864ea05af99335fa"
+  },
+  {
+    "slug": "american-staffordshire-terrier",
+    "field": "story.steps.0.body",
+    "after": "아메리칸 스태포드셔 테리어는 미국에서 정립된 불 타입 테리어로, 단단한 체구와 민첩한 움직임을 함께 가진 견종이에요. 가정에서는 외형으로 성격을 판단하기보다 서로 편안한 거리와 안전하게 활동할 환경을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-200-batch-04-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/286g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "b4e358573fad9a51add8058d51e803d52801e817e46655ab31c0d1b38473d142",
+    "afterHash": "098ad5eb4ab5ab668fe43601b1b40b5fca2d27165ebca2b1f6efa28dc5b55791"
+  },
+  {
+    "slug": "dunker",
+    "field": "heroStatement",
+    "after": "둥케르는 노르웨이의 중형 후각하운드로, 긴 몸통과 일부 개체의 청회색 대리석 무늬가 눈에 띄어요. 산토끼의 흔적을 따라가던 배경을 이해하고 일상의 탐색과 복귀를 함께 준비해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-06-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/203g06-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "b507a56c3e64ec082b727f4162752b76547a6013c0f7bd0dc3c2714ed9973393",
+    "afterHash": "bf3fd3bcc223ddbf6e79126aa573dc2cfc76ac436718bf8ab03996ec50389ad6"
+  },
+  {
+    "slug": "gascon-saintongeois",
+    "field": "heroStatement",
+    "after": "가스콩 생통주아는 큰형과 작은형이 있는 프랑스의 후각하운드예요. 무리 사냥에 쓰이던 배경과 길게 늘어진 귀, 각 유형의 체격을 실제 생활 환경과 함께 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-200-batch-08-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/021g06-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "baa0a6079ad20148df9f5ffe8ca32af3023dc47a0faff2c2a5fbc8dc512eb6ca",
+    "afterHash": "2a47fcb0fe1df91573d8384f7dcf4b23719167145aac9238bc3d8d42d1f3ae21"
+  },
+  {
+    "slug": "hungarian-greyhound",
+    "field": "story.steps.0.body",
+    "after": "헝가리안 그레이하운드는 시각으로 사냥감을 쫓던 헝가리의 시각하운드예요. 경주와 추적의 배경을 참고하되, 가정에서는 빠르게 달릴 기회와 멈춘 뒤 안정적으로 쉴 환경을 함께 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-02-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/240g10-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "be000bff62f92b2225e3e335ca456e885a45d1a03df2e6cf5b0a59a506ff03bc",
+    "afterHash": "3e92d8c2bbb5fbf8d35ecf560beb8537f6fbb67905b332653327401f47a6d96d"
+  },
+  {
+    "slug": "norrbottenspets",
+    "field": "story.steps.0.body",
+    "after": "노르보텐스펫츠는 보존 활동을 거쳐 1967년 스웨덴 등록부에 다시 오른 사냥견이에요. 반려 생활에서는 작은 몸집만 보고 활동 범위를 정하기보다, 냄새와 움직임에 집중할 때 안전하게 돌아오는 경험을 준비해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-05-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/276g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "c39fe02c886327d7c47bd84d32a595c29dbbca96c8b337613df2395ae1538536",
+    "afterHash": "ef92598b25f7b65bb8ae980581cd577ed2cfa218e655a972f6614ab7ac05be37"
+  },
+  {
+    "slug": "boston-terrier",
+    "field": "story.steps.0.body",
+    "after": "보스턴 테리어는 미국 보스턴 지역에서 불도그·테리어 계통을 바탕으로 정립된 반려견이에요. 짧은 얼굴과 작은 몸집만으로 생활을 예상하기보다, 개체가 편안히 움직이고 쉬는 모습을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/data.ts",
+    "source": "https://www.akc.org/expert-advice/dog-breeds/boston-terrier-history/",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "d056d28da7d80d42d72283e9abc2bcd5dddeb447c1936933c0f181d18567ae98",
+    "afterHash": "ad71efb62817e9295e1185066b33369c30123a729281741046d4a565d2ae0178"
+  },
+  {
+    "slug": "broholmer",
+    "field": "heroStatement",
+    "after": "브로홀머는 넓은 가슴과 큰 머리가 눈에 띄는 덴마크의 마스티프형 견종이에요. 농장과 영지를 지키던 배경을 참고하면서, 큰 몸이 이동하고 쉴 공간을 먼저 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-03-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/315g02-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "d6a5dae56724f3755473d9ade64a60b2f3349b27b7fff8d9e14a6a8df8498412",
+    "afterHash": "1cd6e065de6bf1bb321b7bb93741b7c8a1e0058a2861cb88e6a08979863150c3"
+  },
+  {
+    "slug": "pyrenean-sheepdog",
+    "field": "story.steps.0.body",
+    "after": "피레니안 셰퍼드는 프랑스 피레네의 농장과 목초지에서 양을 몰던 견종이에요. 계곡마다 체형과 피모가 달랐던 배경을 참고하되, 지금 함께할 개의 움직임과 주변 자극에 반응하는 방식을 개별적으로 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-07-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/141g01-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "dbc3cf3792a1dec56ef2132eaa1acc56a93cd6ca09a5928e1edbf2f815be0f31",
+    "afterHash": "899fffa3849710b8c5b8e653dc969ff6a5199d66f379950786916180fc36e7cf"
+  },
+  {
+    "slug": "dunker",
+    "field": "story.steps.0.body",
+    "after": "둥케르라는 이름은 이 견종을 정립한 빌헬름 콘라트 둥케르에게서 왔어요. 노르웨이 하운드의 사냥 배경을 참고하면서도, 지금 함께할 개의 탐색 반응과 편안히 활동할 수 있는 범위를 관찰해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-06-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/203g06-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "e072ef6f49e3e3b7724fba48252cbe556c4eb909b9691d50a9747fe36438e710",
+    "afterHash": "1b747822e06f4b8b60c6860d3fcea0f86504c584275e5d5fd6880080c309c436"
+  },
+  {
+    "slug": "blue-picardy-spaniel",
+    "field": "story.steps.0.body",
+    "after": "블루 피카디 스패니얼은 프랑스 피카디 지역의 포인팅견으로, 푸른빛이 도는 피모로 다른 피카디 스패니얼과 구분돼요. 사람 가까이에서 탐색하던 작업 배경을 일상에서도 살려, 이동 범위를 맞추고 돌아오는 경험을 마련해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-01-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/106g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "ecac111f8d8ef1889d1680a24bba7f66b7462f5b1e91ea12d0625f8b5a2da92f",
+    "afterHash": "06a29c7dde596f32e139404c62c7b03ca2af5a701b0a118fa920d4111931477b"
+  },
+  {
+    "slug": "russian-toy",
+    "field": "heroStatement",
+    "after": "러시안 토이는 가느다란 다리와 작은 체구를 가진 러시아의 반려견이에요. 단모와 장모가 있으며, 1958년의 장모 개체는 장모형 발전의 계기가 됐어요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-01-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/352g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "f2129f6faefbb419663da8c5400c11356341ac9ae71bf6c70d9e3286c8627190",
+    "afterHash": "cf841f9078477a153797eaa409d580621b7a2b7ca750dd507ec602bdae3744e4"
+  },
+  {
+    "slug": "gascon-saintongeois",
+    "field": "story.steps.0.body",
+    "after": "가스콩 생통주아의 작은형은 큰형에서 작은 개체를 선발해 산토끼 사냥에 맞춘 계통이에요. 이름이 같아도 체격과 활동 반응을 개별적으로 확인하고, 냄새를 따라 움직일 안전한 공간을 준비해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-200-batch-08-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/021g06-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "f5f88c62e17b7bd0b229f8d0f9967925fcff21cdea606a4413ee0df4485ac5d7",
+    "afterHash": "440135ac7d3d1e411d04b0a7287f1576250a443ed073f5eb0661d036523b4f11"
+  },
+  {
+    "slug": "braque-saint-germain",
+    "field": "heroStatement",
+    "after": "브라크 생제르맹은 흰색·주황색의 짧은 털을 가진 프랑스의 포인팅견이에요. 왕실 견사와 연결된 형성 배경을 참고하며, 오늘의 생활에서는 탐색·회수와 편안한 휴식의 균형을 살펴보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-200-batch-09-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/115g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace a compressed source-history sequence with limited identifying facts and independently framed living context.",
+    "beforeHash": "f668db21bad5a8d621b3f7868c6874f46ba28464dfffc38f2422786f49a9ea65",
+    "afterHash": "1691d6cb7186b82668ef0a2fe798447671a685d39cb442fda69601267eab80fa"
+  },
+  {
+    "slug": "berger-picard",
+    "field": "story.steps.0.body",
+    "after": "피카르디 셰퍼드는 프랑스의 목양·경비견으로, 1863년 전람회에도 모습을 보인 거친 털 견종이에요. 전시 기록과 별개로, 가정에서는 주변의 움직임을 살피는 개가 편안히 활동하고 쉬도록 공간과 자극을 조절해 보세요.",
+    "file": "src/content/standard-breed-detail/expansion-to-300-batch-07-data.ts",
+    "source": "https://fci.be/Nomenclature/Standards/176g01-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "FCI www endpoint failed; equivalent official apex-domain PDF was retrieved. Keep one exhibition fact rather than the source chronology, with independently framed living context.",
+    "beforeHash": "5792c8ea193d27f9e6f9111c57e31463f6f517c35ca18974d70e72e2c3f77269",
+    "afterHash": "e2d80e1908a26d031f994b6a97eefc86cf515bf7a3bb0c065f9a7ccc91a7806c"
+  },
+  {
+    "slug": "japanese-spitz",
+    "field": "story.opening",
+    "after": "재패니즈 스피츠는 20세기 일본에서 여러 흰 스피츠 계통을 바탕으로 형성됐습니다. 흰 피모와 선 귀, 등 위로 말린 꼬리를 함께 살펴보면 이 견종의 외형을 이해하는 데 도움이 됩니다.",
+    "file": "src/content/breeds/data.ts",
+    "source": "https://www.ukcdogs.com/breed-groups/japanese-spitz",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "26645f1b4b0f0bdc44ef8a8828d6a156468c32820fdfd84fa67fd08780a8edf1",
+    "afterHash": "c0ce63d76b555c7619fc4b48e4d3398e5d568c5f67967879297ba370b8bfc21a"
+  },
+  {
+    "slug": "greyhound",
+    "field": "story.opening",
+    "after": "그레이하운드는 영국에서 정립된 시각하운드입니다. 먼 곳의 움직임을 보고 추적하던 작업을 바탕으로, 달릴 때의 긴 보폭과 깊은 가슴을 함께 이해할 수 있습니다.",
+    "file": "src/content/breeds/data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/158g10-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "d8d865800a7ea179e700c39f22eb1e2d33e75dca9648a27abc34f41b035b59d2",
+    "afterHash": "bf6118c514e827d8c0fa31c1d4411cae3c38b6c93d23daba33690eb404a3965d"
+  },
+  {
+    "slug": "greyhound",
+    "field": "story.roleToHome",
+    "after": "사냥과 경주의 역사가 모든 개체의 생활을 같게 만들지는 않습니다. 가정에서는 움직이는 대상에 대한 실제 반응을 살피고, 안전하게 활동하는 시간과 편안히 쉬는 자리를 함께 준비해 보세요.",
+    "file": "src/content/breeds/data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/158g10-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "83b7670da839e76c232a7bbcc58513f2d9aa7d0047ed95f89e996f6d60e4c296",
+    "afterHash": "d34b9ddeccc929bf4180124af1fdad8f72db22a619813128732d8bfb4f63fa24"
+  },
+  {
+    "slug": "chihuahua",
+    "field": "story.opening",
+    "after": "치와와는 멕시코를 원산지로 하는 작은 반려견이며, 이름은 치와와주에서 왔습니다. 옛 개와 닮았다는 기록만으로 오늘날 견종까지의 계보가 모두 입증되는 것은 아닙니다.",
+    "file": "src/content/breeds/detail-batch-a.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/218g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "4c8fb24eaf5d9c3ad9c3b7ad5af58f376c40e92e32eac8cecf7b374f84efe5c7",
+    "afterHash": "22295a1521ad2542089e4d8e62e11197a58bdc4bfc1619bbc3ae42fdebaf4838"
+  },
+  {
+    "slug": "chihuahua",
+    "field": "story.roleToHome",
+    "after": "치와와에는 단모와 장모가 있습니다. 같은 견종 안에서도 피모와 생활 경험이 다르므로, 작은 몸집만으로 필요한 돌봄이나 사람과 지내는 방식을 예상하지 마세요.",
+    "file": "src/content/breeds/detail-batch-a.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/218g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "3b20097a12439d13899888070ab12bd071ba1f5c7fd4845c003419917d2c1bfd",
+    "afterHash": "acffced9e72cbac9022849566fb105f2c3fd422d80faa81568f0dc0996dae0e2"
+  },
+  {
+    "slug": "yorkshire-terrier",
+    "field": "story.opening",
+    "after": "요크셔 테리어는 영국에서 형성된 작은 테리어입니다. 오늘날에는 반려견으로 분류되지만, 움직이는 대상을 찾고 뒤쫓는 테리어의 작업 배경도 함께 살펴볼 수 있습니다.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/086g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "e27af2f1da4866de4478f91156bc6f40540a8c759d998875f27c14924e7efa0a",
+    "afterHash": "6ae8a143ec139f25b1a9757012666edfebf59563890c374ea84e87510674edf9"
+  },
+  {
+    "slug": "yorkshire-terrier",
+    "field": "story.roleToHome",
+    "after": "긴 피모를 가진 작은 반려견의 모습과 탐색을 즐기는 행동은 함께 나타날 수 있습니다. 장난감이나 주변 움직임에 얼마나 집중하는지 관찰하고, 놀이의 강도와 쉬는 시간을 개체에 맞춰 조절해 보세요.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/086g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "7c2cce1c9f747ca0317f53fb245d7ec44bf6143db9de6ba5e297f19c5d6694ce",
+    "afterHash": "124ee23803609c630a61ba8ab1613c47a68a42a3a23c188700a1a1850ffa347e"
+  },
+  {
+    "slug": "yorkshire-terrier",
+    "field": "story.steps.0.body",
+    "after": "요크셔 테리어는 영국에서 형성된 작은 테리어예요. 오늘날의 반려 생활에서도 장난감이나 움직이는 대상을 찾는 모습이 나타날 수 있지만, 관심의 강도는 개체마다 달라요.",
+    "file": "src/content/standard-breed-detail/familiar-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/086g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "647a90071244563296f8167494689912b6d77bc23ad9959aae095fad10b7f244",
+    "afterHash": "8d3e1d6ce5915f4471813ec1b0722e7d9bb5efd981c7aaab65c83fbe06937df3"
+  },
+  {
+    "slug": "german-spitz",
+    "field": "story.opening",
+    "after": "저먼 스피츠는 독일 원산의 스피츠형 견종으로, 주변을 살피는 역할과 반려 역할을 함께 지녔습니다. 포메라니안은 이 견종에 포함되는 작은 바라이어티이며, 저먼 스피츠 전체를 같은 체격으로 보면 안 됩니다.",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/097g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "b99dcedc7c92f0877aa840f497bf0f9c966ffaa7848bd5a224d590931614382a",
+    "afterHash": "7f6b175a55c6df15631018da1450862de01823ad4884d1ff288776145e4a885f"
+  },
+  {
+    "slug": "german-spitz",
+    "field": "story.roleToHome",
+    "after": "울프스피츠부터 포메라니안까지 여러 크기가 하나의 표준에 포함됩니다. 생활을 준비할 때는 바라이어티를 먼저 확인하고, 성견의 체격과 피모 관리, 주변 자극에 대한 반응을 각각 살펴보세요.",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/097g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "11e37bc026cb56731db01318e766d4015d75bd9b84759cc65c362906bab9a958",
+    "afterHash": "b05554658de9a7e900ed44499b09fb6cff7cea0a21b5871719ec9c20a1cb600a"
+  },
+  {
+    "slug": "french-bulldog",
+    "field": "story.steps.0.body",
+    "after": "프렌치 불도그는 19세기 파리에서 반려견으로 정립됐어요. 영국 불도그와 계통상 연결되지만, 조상의 역할을 지금 만나는 개의 성격이나 생활 필요와 같게 보지는 않아요.",
+    "file": "src/content/standard-breed-detail/familiar-data.ts",
+    "source": "https://www.fci.be/Nomenclature/Standards/101g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+    "beforeHash": "0945ddb448d5331bd6577c06cb1bf9565a2c9bfcc49685ed6fc93f735fb31272",
+    "afterHash": "ae19f7daf297ea3f43829b5fe58e36ed87a52f4ae1af5742fc90c6205b16b021"
+  },
+  {
+    "slug": "boston-terrier",
+    "field": "story.opening",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "after": "보스턴 테리어는 미국에서 정립된 반려견입니다. 짧은 얼굴과 작은 체형만으로 생활을 예상하기보다, 함께 지낼 개체의 움직임과 휴식을 직접 살펴보세요.",
+    "source": "https://www.fci.be/Nomenclature/Standards/140g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "reason": "Replace grammatically broken assembled opening with a full independently written introduction; retain US origin and companion role.",
+    "beforeHash": "e5d6f677c7b06c926c89ebc42198b355eaf8000af8a23866f9894ee6e3b61c8b",
+    "afterHash": "dfe48245358b5d606526abda4a92873213208e6af2a0fe6b95db68c8c5f68dc9"
+  },
+  {
+    "slug": "whippet",
+    "field": "story.opening",
+    "after": "휘핏은 영국에서 발달한 시각 하운드입니다. 작은 사냥감을 쫓거나 직선 코스를 달리는 데 쓰였으며, 긴 다리와 깊은 가슴을 지닌 체형이 특징입니다.",
+    "file": "src/content/breeds/detail-batch-b.ts",
+    "files": [
+      "src/content/breeds/detail-batch-b.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/162g10-en.pdf",
+    "supportingSources": [
+      "https://www.akc.org/expert-advice/dog-breeds/whippet-history/"
+    ],
+    "reviewedAt": "2026-10-24",
+    "reason": "평가적인 수식어를 줄이고 확인 가능한 역할과 외형을 구분했다.",
+    "beforeHash": "9205cf1fa6e21ed69513dc0c461cb3f1bff07e759a335f8e82e2edeb5c2e3187",
+    "afterHash": "aa6f36a6fb6604bb71ea124be4532d2129fa76ae685a3e3dd9b3597049e1550b"
+  },
+  {
+    "slug": "basenji",
+    "field": "story.opening",
+    "after": "바센지는 중앙아프리카의 사냥견으로, 시각과 후각을 함께 사용해 사냥을 도왔습니다. 가벼운 체형과 곧게 선 귀, 말린 꼬리가 특징입니다.",
+    "file": "src/content/breeds/detail-batch-b.ts",
+    "files": [
+      "src/content/breeds/detail-batch-b.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/043g05-en.pdf",
+    "supportingSources": [
+      "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/hound/basenji/"
+    ],
+    "reviewedAt": "2026-10-24",
+    "reason": "귀와 꼬리 모양을 사냥 능력의 원인처럼 연결하지 않고 역할과 외형을 나눴다.",
+    "beforeHash": "313095f1e80f1eaa0b34dfa7ff9a69d4f22ea5295f5afefeca30aba177d682b2",
+    "afterHash": "201806cf0553961f0a296f7f8a68b915d18fdc8872365e23155bae78804d293c"
+  },
+  {
+    "slug": "bernese-mountain-dog",
+    "field": "story.opening",
+    "after": "버니즈 마운틴 독은 스위스 베른 주변 농가에서 여러 일을 맡았던 장모 삼색 견종입니다. 가축을 몰고 농장을 지키며 수레를 끄는 역할을 함께 했습니다.",
+    "file": "src/content/breeds/detail-batch-c.ts",
+    "files": [
+      "src/content/breeds/detail-batch-c.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/045g02-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "대조 자료에 명시되지 않은 운반 품목과 산악 환경에 대한 추론을 줄였다.",
+    "beforeHash": "dd54a151ed13bfed585e1fb5793913b954d951b326d1ceba626dd20c2e7f8c1e",
+    "afterHash": "a77437599788f5457d9a808d43caad50f1872dd35fbc27b33f6f3c8dd3e5e142"
+  },
+  {
+    "slug": "shetland-sheepdog",
+    "field": "story.steps.0.title",
+    "after": "셰틀랜드 제도에서 양을 돌보던 작은 목양견이에요.",
+    "file": "src/content/standard-breed-detail/data.ts",
+    "files": [
+      "src/content/standard-breed-detail/data.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/088g01-en.pdf",
+    "supportingSources": [
+      "https://www.akc.org/dog-breeds/shetland-sheepdog/"
+    ],
+    "reviewedAt": "2026-10-24",
+    "reason": "확인한 원산 지역과 목양 역할에 집중했다.",
+    "beforeHash": "5a233305ba8da811bfca5d0e5b0516209fc1334dd005621910a0ea33ac9729d1",
+    "afterHash": "5e083a309bb6dec6ef737b2ccdb4dc79583211c1c99baa4bf9338aa37aec4913"
+  },
+  {
+    "slug": "shetland-sheepdog",
+    "field": "story.steps.0.body",
+    "after": "셔틀랜드 시프독은 스코틀랜드 셰틀랜드 제도에서 발달한 목양견이에요. 작은 체격과 긴 털을 지녔으며, 양을 돌보는 일에서 사람과 협력했어요.",
+    "file": "src/content/standard-breed-detail/data.ts",
+    "files": [
+      "src/content/standard-breed-detail/data.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/088g01-en.pdf",
+    "supportingSources": [
+      "https://www.akc.org/dog-breeds/shetland-sheepdog/"
+    ],
+    "reviewedAt": "2026-10-24",
+    "reason": "여러 작은 가축과 경보 역할을 포괄하던 설명을 확인한 범위로 좁혔다.",
+    "beforeHash": "518d7793ffa536afd88d4e1b7fe37e99baf0500068ca095a0c4ba944b227ede7",
+    "afterHash": "d8417c0152de384d9d61eb97a3af79defefb31e9b04d5b07323cf8368033ed50"
+  },
+  {
+    "slug": "shetland-sheepdog",
+    "field": "story.opening",
+    "after": "셔틀랜드 시프독은 스코틀랜드 북쪽 셰틀랜드 제도에서 발달한 작은 목양견입니다. 긴 털을 지닌 작업견으로, 양을 돌보는 역할을 해 왔습니다.",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "files": [
+      "src/content/breeds/detail-batch-d.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/088g01-en.pdf",
+    "supportingSources": [
+      "https://www.akc.org/dog-breeds/shetland-sheepdog/"
+    ],
+    "reviewedAt": "2026-10-24",
+    "reason": "섬의 기후와 자원 부족이 체형·신호 반응을 결정했다는 인과 설명을 제거했다.",
+    "beforeHash": "77173bc7a53a06a3ee5d165f6532a0bc458ab62ebfa210e49024ef87fc50fe87",
+    "afterHash": "7edef0462f8dde9d640f3ce1ab0ac370d154d041acd50e8c0cae6aba2759d0f9"
+  },
+  {
+    "slug": "australian-shepherd",
+    "field": "story.opening",
+    "after": "오스트레일리안 셰퍼드는 이름과 달리 미국에서 정립된 목양견입니다. 미국 서부의 목장 생활 속에서 가축을 다루고 여러 목장 일을 돕는 견종으로 발전했습니다.",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "files": [
+      "src/content/breeds/detail-batch-d.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/342g01-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "복잡한 이동 역사와 불필요한 연대 범위를 빼고 정립 지역과 역할만 남겼다.",
+    "beforeHash": "6410134d9a48fd263788c405a3b2cdb9882053c05db2236f507f80d0c60151ab",
+    "afterHash": "1379ef07678ea52426bb294384c685c07628f2a1d239bd32424094981f8455fb"
+  },
+  {
+    "slug": "english-springer-spaniel",
+    "field": "story.steps.0.body",
+    "after": "잉글리시 스프링거 스패니얼은 영국의 랜드 스패니얼에서 발달했어요. 수풀 속 사냥감을 찾아 날아오르게 하고 회수하는 일을 맡았어요.",
+    "file": "src/content/standard-breed-detail/data.ts",
+    "files": [
+      "src/content/standard-breed-detail/data.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/125g08-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "이번 표준 대조에서 확인한 탐색·플러싱·회수 역할로 정리하고 세부 이동 패턴은 뺐다.",
+    "beforeHash": "8078133c6c7efb36dbf5afdd22736af63e5c61fa9a1a806a98bebc5ff1ee94bc",
+    "afterHash": "e783a75488d36208d8331a4ef7702f06022ec4a2d54de3a91e89ac2623c38bd2"
+  },
+  {
+    "slug": "schnauzer",
+    "field": "story.steps.0.body",
+    "after": "스탠더드 슈나우저는 독일 남부의 마구간에서 말과 함께 지내며 설치류를 잡고 주변을 지키던 견종이에요. 거친 털과 수염이 특징인 중형 작업견이에요.",
+    "file": "src/content/standard-breed-detail/data.ts",
+    "files": [
+      "src/content/standard-breed-detail/data.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/182g02-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "설치류 사냥에서 유래한 래틀러와 별도 등록명인 거친 털 핀셔를 같은 유래로 설명하던 문장을 고쳤다.",
+    "beforeHash": "29b94fe9f0e00185199e71a81d3917a8f92f26c17d819ddd537f17cb537c2dae",
+    "afterHash": "1bf31c02a7a8c0fdad7f6caf0020b2e6761ca9f7eec84d0e37ee6f4e92272486"
+  },
+  {
+    "slug": "schnauzer",
+    "field": "story.opening",
+    "after": "스탠더드 슈나우저는 독일에서 발달한 중형 작업견입니다. 마구간에서 설치류를 잡고 주변을 지키는 역할을 했으며, 사각 체형과 거친 털, 수염과 눈썹이 특징입니다.",
+    "file": "src/content/breeds/detail-batch-i.ts",
+    "files": [
+      "src/content/breeds/detail-batch-i.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/182g02-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "다른 크기 견종과의 정립 순서 대신 확인한 용도와 체형을 설명했다.",
+    "beforeHash": "42874367c313b922f14b286931445322021558689702ba460b8ace030326b28d",
+    "afterHash": "06c9f5d7988298cbcf52305e9a7bf32413409e7e776badafdf19cc0d2bda9116"
+  },
+  {
+    "slug": "boxer",
+    "field": "story.steps.0.body",
+    "after": "복서는 19세기 말 독일에서 정립된 작업견이에요. 선조인 불렌바이서 계통에는 큰 사냥감을 붙잡고 가축 상인과 정육업자를 돕던 역사가 있어요.",
+    "file": "src/content/standard-breed-detail/data.ts",
+    "files": [
+      "src/content/standard-breed-detail/data.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/144g02-en.pdf",
+    "supportingSources": [
+      "https://www.akc.org/expert-advice/dog-breeds/boxer-history/"
+    ],
+    "reviewedAt": "2026-10-24",
+    "reason": "선조 계통의 역할과 현대 복서의 정립을 구분했다.",
+    "beforeHash": "2cdbb6f6957fecff0af1ad13f40a4064fd3298a48ece99d354a85f1ce10975ec",
+    "afterHash": "d27b5bf40394e57a01abc26bcdd0e470cf0e04badc32c23ecb509921c11a952f"
+  },
+  {
+    "slug": "boxer",
+    "field": "story.opening",
+    "after": "복서는 큰 사냥감을 붙잡던 불렌바이서 계통을 바탕으로 독일에서 정립된 견종입니다. 오늘날의 품종 표준은 반려·경비·작업 역할을 함께 다룹니다.",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "files": [
+      "src/content/breeds/detail-batch-d.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/144g02-en.pdf",
+    "supportingSources": [
+      "https://www.akc.org/expert-advice/dog-breeds/boxer-history/"
+    ],
+    "reviewedAt": "2026-10-24",
+    "reason": "정립입니다라는 조합 오류와 같은 계통의 반복을 고치고 선조와 현재 용도를 구분했다.",
+    "beforeHash": "160f577362ca33e27148fd10ab6976cceee8003f0b1150e65c9548d598d33842",
+    "afterHash": "6b1b1d9129c2f5e495414b79ae47ebe40df9435a4961d7a00abba3289eae6763"
+  },
+  {
+    "slug": "newfoundland",
+    "field": "story.steps.0.body",
+    "after": "뉴펀들랜드는 캐나다 뉴펀들랜드 섬의 어업 생활과 함께 발달했어요. 육지에서 무거운 짐을 끌고 물에서는 구조를 돕는 등 힘과 수영 능력을 활용하는 일을 했어요.",
+    "file": "src/content/standard-breed-detail/data.ts",
+    "files": [
+      "src/content/standard-breed-detail/data.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/050g02-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "이번 표준에서 확인한 어업 배경·운반·수상 구조에 집중했다.",
+    "beforeHash": "f997cafd38ab1be052ddfe076188bb21bf8541f50178105cf6d25cf29e751e49",
+    "afterHash": "212a452b5784abf3d83250c2a473db545d6d23621dc14125e6d6ca757fc1b146"
+  },
+  {
+    "slug": "newfoundland",
+    "field": "story.opening",
+    "after": "뉴펀들랜드는 캐나다 뉴펀들랜드 섬에서 발달한 대형 작업견입니다. 육지의 무거운 짐을 끄는 일과 수상 구조에 쓰였으며, 물에서 움직이는 능력이 중요한 견종입니다.",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "files": [
+      "src/content/breeds/detail-batch-d.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/050g02-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "특정 항구 환경과 운반 장비에 대한 세부 묘사를 확인한 용도로 바꿨다.",
+    "beforeHash": "9bb7953a5c7ac429d1d507e59724b88ed9e8b4912e30ad47f3c3c9666f23b6a5",
+    "afterHash": "29f5cda7b87268487eb23de30083d63d71540be209116ffabe9b00a81d8329d1"
+  },
+  {
+    "slug": "rottweiler",
+    "field": "story.opening",
+    "after": "롯트와일러는 독일 남부 로트바일 지역에서 가축 몰이와 경비를 맡았던 작업견입니다. 가축과 재산을 지키고 짐을 끄는 일에도 쓰였습니다.",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "files": [
+      "src/content/breeds/detail-batch-d.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/147g02-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "정립입니다라는 조합 오류를 고치고 짧은 지역·역할 설명으로 정리했다.",
+    "beforeHash": "5da6504bd7986d3c955a397bb4d661b22ee0cedf6acd29450dd7f0305b31e3a1",
+    "afterHash": "38e696b7d8434b0f42a006363555051d5a23d09793098694971c751c393e82f0"
+  },
+  {
+    "slug": "great-dane",
+    "field": "story.opening",
+    "after": "그레이트 덴은 독일에서 정립된 대형 견종으로, 큰 사냥감을 쫓던 사냥견과 마스티프형 개의 계통을 지녔습니다. 현재 품종 표준에서는 반려·경비 역할을 다룹니다.",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "files": [
+      "src/content/breeds/detail-batch-d.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/235g02-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "정립입니다라는 조합 오류를 고치고 역사적 계통과 현재 용도를 구분했다.",
+    "beforeHash": "254dded91255d4268e65ddf339222e776b1623b8ffaff40fd1d3152da0be006d",
+    "afterHash": "6ee01db8c69e2b49ace8a071c10fcbdaf48db304d21dcaad302ed997b347ef78"
+  },
+  {
+    "slug": "jack-russell-terrier",
+    "field": "story.opening",
+    "after": "잭 러셀 테리어는 19세기 영국의 폭스테리어 계통에서 발달하고 호주에서도 발전한 작업 테리어입니다. 사냥 무리를 따라 달리고 굴속에서 여우를 찾는 역할을 했습니다.",
+    "file": "src/content/breeds/detail-batch-d.ts",
+    "files": [
+      "src/content/breeds/detail-batch-d.ts"
+    ],
+    "source": "https://www.fci.be/Nomenclature/Standards/345g03-en.pdf",
+    "supportingSources": [],
+    "reviewedAt": "2026-10-24",
+    "reason": "발달입니다라는 조합 오류를 고치고 원산지와 발달 지역을 구분했다.",
+    "beforeHash": "c93d02b0f68b2ad3966807e876d8e983f342304b2243d4a44624af52e25d9936",
+    "afterHash": "27fa65999252ab91d075332e88940ef3a89f06a31b19fd8ce0064903e1aa8865"
+  }
+]

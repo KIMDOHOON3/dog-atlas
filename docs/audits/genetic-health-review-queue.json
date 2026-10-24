@@ -1,0 +1,2327 @@
+[
+  {
+    "slug": "japanese-spitz",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "maltese",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "border-collie",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "greyhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "samoyed",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "chihuahua",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "shih-tzu",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "poodle",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "dachshund",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "beagle",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "english-cocker-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "labrador-retriever",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "golden-retriever",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-shepherd-dog",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "korea-jindo-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "siberian-husky",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "whippet",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pyrenean-mountain-dog",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "french-bulldog",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "basenji",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "welsh-corgi-pembroke",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "miniature-schnauzer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "yorkshire-terrier",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "shiba",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "akita",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bichon-frise",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "cavalier-king-charles-spaniel",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote",
+      "breed.careNotes.0"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pug",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bernese-mountain-dog",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "dobermann",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote",
+      "breed.careNotes.0"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-spitz",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "shetland-sheepdog",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "australian-shepherd",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "rottweiler",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "boxer",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "great-dane",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "alaskan-malamute",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "jack-russell-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "boston-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "newfoundland",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "dalmatian",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "italian-sighthound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "continental-toy-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "chow-chow",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "saint-bernard",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "weimaraner",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "nova-scotia-duck-tolling-retriever",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "old-english-sheepdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "cane-corso",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bull-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "australian-kelpie",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "miniature-pinscher",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "airedale-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "welsh-corgi-cardigan",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "finnish-spitz",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "basset-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-short-haired-pointing-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "english-springer-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "havanese",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "borzoi",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "australian-cattle-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "giant-schnauzer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "scottish-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "norwegian-elkhound-grey",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bloodhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "vizsla",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "flat-coated-retriever",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "coton-de-tulear",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "afghan-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "lhasa-apso",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "beauceron",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bullmastiff",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "border-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "icelandic-sheepdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "rhodesian-ridgeback",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "english-setter",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "chesapeake-bay-retriever",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "portuguese-water-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "chinese-crested-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "saluki",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "dutch-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "briard",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "collie-rough",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "puli",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "schnauzer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "shar-pei",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "mastiff",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "leonberger",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "west-highland-white-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "staffordshire-bull-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "soft-coated-wheaten-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "karelian-bear-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "norwegian-lundehund",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "xoloitzcuintle",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "otterhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "brittany-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "irish-red-setter",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "lagotto-romagnolo",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pekingese",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "irish-wolfhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "belgian-groenendael",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "belgian-laekenois",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "belgian-malinois",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "belgian-tervueren",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "czechoslovakian-wolfdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bearded-collie",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "white-swiss-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bouvier-des-flandres",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "miniature-american-shepherd",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "dogo-argentino",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "dogue-de-bordeaux",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bulldog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "neapolitan-mastiff",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "tibetan-mastiff",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "continental-bulldog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "smooth-fox-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "wire-fox-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "kerry-blue-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "cairn-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "norfolk-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "norwich-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "miniature-bull-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "american-staffordshire-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "australian-silky-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "finnish-lapponian-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "swedish-vallhund",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "italian-volpino",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "eurasier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "american-akita",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "hokkaido",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "kai",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "kishu",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "shikoku",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "canaan-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "yakutian-laika",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "harrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "english-foxhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "petit-basset-griffon-vendeen",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "finnish-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "alpine-dachsbracke",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bavarian-mountain-scent-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-wire-haired-pointing-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "italian-pointing-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "small-munsterlander",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "wire-haired-pointing-griffon-korthals",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "english-pointer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "curly-coated-retriever",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "clumber-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "american-cocker-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "barbet",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "irish-water-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "spanish-water-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "american-water-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bolognese",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "tibetan-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "tibetan-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "japanese-chin",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "prague-ratter",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "azawakh",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "sloughi",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "galgo-espanol",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bergamasco-shepherd",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "mudi",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "schipperke",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "slovakian-cuvac",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "polish-lowland-sheepdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "appenzeller-cattle-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "entlebucher-mountain-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "greater-swiss-mountain-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-pinscher",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "kangal-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bedlington-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "parson-russell-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "sealyham-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "manchester-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "cesky-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "thai-ridgeback",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "portuguese-podengo",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "greenland-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "peruvian-hairless-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "cirneco-dell-etna",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "gascon-saintongeois",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "grand-basset-griffon-vendeen",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "schweizer-laufhund",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "porcelaine",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "petit-bleu-de-gascogne",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "gordon-setter",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-long-haired-pointer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "french-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "braque-saint-germain",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "blue-picardy-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "field-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "sussex-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "wetterhoun",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "kooikerhondje",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "drentsche-patrijshond",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "griffon-bruxellois",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "petit-brabancon",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "russian-toy",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "lowchen",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "english-toy-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "scottish-deerhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "hungarian-greyhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "catalan-sheepdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "croatian-sheepdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "komondor",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "kuvasz",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "schapendoes",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "portuguese-sheepdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "maremma-sheepdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "polish-tatra-sheepdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "romanian-mioritic-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "romanian-carpathian-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "broholmer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "fila-brasileiro",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "hovawart",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "landseer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pyrenean-mastiff",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "sarplaninac",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "tosa",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "tornjak",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "central-asian-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "spanish-mastiff",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "australian-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "irish-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "lakeland-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "skye-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "dandie-dinmont-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "glen-of-imaal-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "japanese-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-hunting-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "norwegian-buhund",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "russian-european-laika",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "east-siberian-laika",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "west-siberian-laika",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "norrbottenspets",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "jamthund",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "ariegeois",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "anglo-francais-de-petite-venerie",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "billy",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "briquet-griffon-vendeen",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "dunker",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "halden-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "hygen-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "transylvanian-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "tyrolean-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "braque-francais-type-gascogne",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "braque-d-auvergne",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-stichelhaar",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "spinone-italiano",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "large-munsterlander",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "irish-red-and-white-setter",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "hungarian-wirehaired-vizsla",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "berger-picard",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pumi",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pyrenean-sheepdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "lancashire-heeler",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "saarloos-wolfdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "aidi",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "caucasian-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "presa-canario",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "black-russian-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "austrian-pinscher",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "danish-swedish-farmdog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "estrela-mountain-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "welsh-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "brazilian-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "english-toy-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pharaoh-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "ibizan-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "lapponian-herder",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "swedish-lapphund",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "podenco-canario",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "austrian-black-and-tan-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "styrian-coarse-haired-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "slovakian-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "posavac-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bosnian-broken-haired-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "serbian-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "montenegrin-mountain-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "greek-harehound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "italian-segugio",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "spanish-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "grand-bleu-de-gascogne",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "basset-bleu-de-gascogne",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "basset-fauve-de-bretagne",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "basset-artesien-normand",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "poitevin",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "hamiltonstovare",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "schillerstovare",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "smaland-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "drever",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "old-danish-pointer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "slovakian-wirehaired-pointer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "burgos-pointer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "picardy-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pont-audemer-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "stabyhoun",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "welsh-springer-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "affenpinscher",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "kromfohrlander",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "biewer-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "polish-greyhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "smooth-collie",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bouvier-des-ardennes",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "majorca-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "south-russian-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "chodsky-pes",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "dutch-smoushond",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "saint-miguel-cattle-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "majorca-mastiff",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "cimarron-uruguayo",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "castro-laboreiro-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "rafeiro-do-alentejo",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "romanian-bucovina-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "karst-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "canadian-eskimo-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "norwegian-elkhound-black",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "thai-bangkaew-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "taiwan-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "brazilian-tracker",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "french-tricolour-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "french-white-and-black-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "french-white-and-orange-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "great-anglo-french-tricolour-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "great-anglo-french-white-and-black-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "great-anglo-french-white-and-orange-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "polish-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "american-foxhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "black-and-tan-coonhound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "beagle-harrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "griffon-blue-gascony",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "griffon-fauve-de-bretagne",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "griffon-nivernais",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "hellenic-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "serbian-tricolour-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "westphalian-dachsbracke",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "small-swiss-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "hanoverian-scent-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "artois-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "istrian-short-haired-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "istrian-wire-haired-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "braque-francais-type-pyrenees",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "braque-bourbonnais",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "ariege-pointing-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "portuguese-pointing-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pudelpointer",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bohemian-wire-haired-pointing-griffon",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "german-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "king-charles-spaniel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "griffon-belge",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "eesti-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "kintamani-bali-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "kazakh-tazy",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "ratonero-bodeguero-andaluz",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "valencian-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "romanian-raven-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "tatra-hound",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "transmontano-mastiff",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "brazilian-campeiro-bulldog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "segugio-dell-appennino",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "sabueso-fino-colombiano",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "macedonian-shepherd-dog-karaman",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "sapsaree",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "pungsan-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "donggyeongi",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "jeju-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "american-pit-bull-terrier",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "american-bully",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "mongolian-bankhar",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "goldendoodle",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote",
+      "breed.careNotes.2"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "maltipoo",
+    "status": "selected-claims-reviewed-not-full-clearance",
+    "reviewedFields": [
+      "breed.healthEditorialNote",
+      "breed.careNotes.2",
+      "standard.realities.1.body"
+    ],
+    "expertReviewed": false
+  },
+  {
+    "slug": "boerboel",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "anatolian-shepherd-dog",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  },
+  {
+    "slug": "bulgae",
+    "status": "pending-breed-specific-review",
+    "reviewedFields": [],
+    "expertReviewed": false
+  }
+]

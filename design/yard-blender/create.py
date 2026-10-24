@@ -207,7 +207,8 @@ for material in [oak,edge,iron,bolt,cream,rust,sage,ceramic,clay,water,blue,yell
 bpy.ops.object.select_all(action='DESELECT')
 for ob in s.objects:
     if ob.type=='MESH' or ob.name.startswith('Throw_'):ob.select_set(True)
-bpy.ops.export_scene.gltf(filepath=str(OUT/'public/models/yard-furniture.glb'),export_format='GLB',use_selection=True,export_apply=True)
+# Preserve the export, then run `pnpm assets:yard` for lossless web delivery.
+bpy.ops.export_scene.gltf(filepath=str(OUT/'design/yard-blender/yard-furniture.source.glb'),export_format='GLB',use_selection=True,export_apply=True)
 
 # Studio setup is retained in Blender, excluded from the web asset.
 def area(name,location,power,size):

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Breed } from "@/content/breeds/schema";
-import { getBreedCardImage } from "@/lib/breed-image-assets";
+import { getBreedCardImage } from "@/lib/breeds/breed-image-assets";
 import styles from "./breed-visual.module.css";
 
 type Variant = "hero" | "card" | "landscape" | "portrait" | "tile" | "detail" | "history";

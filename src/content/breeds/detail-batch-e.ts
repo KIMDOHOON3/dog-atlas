@@ -28,6 +28,7 @@ type Level = Breed["tendencies"][keyof Breed["tendencies"]]["label"];
 type DayStep = Breed["daySnapshot"][number];
 
 type BatchESeed = {
+  health?: string;
   slug: string;
   nameKo: string;
   nameEn: string;
@@ -58,6 +59,7 @@ type BatchESeed = {
 const seeds: BatchESeed[] = [
   {
     slug: "dalmatian",
+    health: "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 미국 DCA의 건강 성명에는 고관절 평가와 선천성 난청을 살피는 BAER 청력 검사, 갑상선 또는 안과 평가 중 선택 항목이 제시돼요. 오래된 성명에 적힌 CHIC 등록 요건은 신청 시 최신 기준을 다시 확인해야 해요. 청력 평가 결과를 모든 유전 질환이나 평생 건강에 대한 보증으로 읽지 않아요.",
     nameKo: "달마시안",
     nameEn: "Dalmatian",
     tagline: "반점 무늬보다 먼저, 이동하는 사람과 마차 곁을 따르던 활동의 배경을 살펴보세요.",
@@ -346,7 +348,7 @@ export const detailBatchE = seeds.map((seed) => ({
     grooming: { label: seed.levels[5], note: seed.levels[5] === "높은 편" ? "피부까지 확인하는 규칙적인 빗질과 피모 관리 시간이 필요합니다." : "정기적인 빗질과 피부·발·귀 상태 확인이 필요합니다." },
   },
   careNotes: seed.care,
-  healthEditorialNote: "건강 항목은 공식 견종 자료를 바탕으로 정리한 편집 초안이며 수의학 검수 전입니다. 품종만으로 질환을 단정하지 않고 개별 진료를 대신하지 않습니다.",
+  healthEditorialNote: seed.health ?? "건강 항목은 공식 견종 자료를 바탕으로 정리한 편집 초안이며 수의학 검수 전입니다. 품종만으로 질환을 단정하지 않고 개별 진료를 대신하지 않습니다.",
   daySnapshot: seed.days,
   related: seed.related.map(([slug, reason]) => ({ slug, reason })),
   sources: [

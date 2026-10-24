@@ -12,7 +12,7 @@ const server = await createServer({ root, configFile: false, resolve: { alias: {
 try {
   const { breeds } = await server.ssrLoadModule("/src/content/breeds/data.ts");
   const { getMasterBreed } = await server.ssrLoadModule("/src/content/breeds/master-catalog.ts");
-  const { createBreedSearchIndex, normalizeBreedQuery: normalize, searchBreedIndex } = await server.ssrLoadModule("/src/lib/breed-search-index.ts");
+  const { createBreedSearchIndex, normalizeBreedQuery: normalize, searchBreedIndex } = await server.ssrLoadModule("/src/lib/breeds/breed-search-index.ts");
   const options = breeds.map(({ slug, nameKo, nameEn, illustration }) => {
     const master = getMasterBreed(slug);
     return { slug, nameKo, nameEn, imageSrc: illustration, aliases: [...(master?.aliasesKo ?? []), ...(master?.aliasesEn ?? [])] };

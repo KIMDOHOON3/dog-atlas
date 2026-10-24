@@ -76,7 +76,7 @@ try {
     for (const value of Object.values(contentModule)) collectData(value, `evaluated:${origin}`);
   }
   const { breeds } = await server.ssrLoadModule("/src/content/breeds/data.ts");
-  const { getBreedCardImage } = await server.ssrLoadModule("/src/lib/breed-image-assets.ts");
+  const { getBreedCardImage } = await server.ssrLoadModule("/src/lib/breeds/breed-image-assets.ts");
   for (const breed of breeds) collectString(getBreedCardImage(breed.slug), "runtime:getBreedCardImage");
 } finally {
   await server.close();

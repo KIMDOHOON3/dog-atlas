@@ -68,7 +68,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "몰이와 움직임",
         title: "움직이는 대상을 먼저 읽고 따라갈 수 있어요.",
-        description: "양 떼의 방향을 읽고 모으던 목양견이에요. 달리는 사람이나 아이에게 시선이 고정되면 거리를 두고 보호자에게 돌아오는 신호를 연습해 주세요.",
+        description: "달리는 사람이나 아이에게 시선이 고정될 수 있어요. 추적하거나 몸을 대기 전에 거리를 확보하고 보호자에게 주의를 돌리는 행동을 보상하며, 물려는 행동이 있으면 전문적인 도움을 받아요.",
         image: "/illustrations/v4/border-collie-feature-herding-focus.webp",
         alt: "공원에서 멀리 지나가는 사람과 자전거를 알아차린 뒤 보호자를 바라보는 성견 보더콜리 삽화",
         sourceUrls: ["https://images.akc.org/pdf/breeds/standards/Border_Collie.pdf", "https://www.akc.org/expert-advice/dog-breeds/border-collie-right-for-you/"],
@@ -594,7 +594,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "얼굴과 귀 관리",
         title: "주름 사이의 습기와 큰 귀 안쪽을 나누어 살펴요.",
-        description: "얼굴 주름과 귀는 겉에서 보기 어려운 자극이나 습기가 남을 수 있어요. 부드럽게 닦은 뒤 완전히 말리고, 냄새·붉어짐·불편함이 반복되면 가정 관리만 이어가지 말고 진료를 받아주세요.",
+        description: "주름은 부드럽게 닦고 물기를 제거하되, 귀 안에 면봉을 넣거나 임의로 세정하지 않아요. 귀에서 냄새·붉어짐·통증이 보이면 반복될 때까지 기다리지 말고 수의사와 상의해요.",
         image: "/illustrations/v4/french-bulldog-feature-face-care.webp",
         alt: "미끄럼 방지 매트 위에서 보호자가 황갈색 성견 프렌치 불도그의 얼굴 주름과 큰 귀를 부드럽게 살피는 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/101g09-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/utility/french-bulldog/"],
@@ -864,7 +864,7 @@ export const breedFeatureSets = breedFeatureCollectionSchema.parse([
       {
         eyebrow: "얼굴 주름과 눈",
         title: "주름 속 습기와 돌출된 눈의 변화를 매일 확인해요.",
-        description: "얼굴 주름에는 습기와 이물질이 남기 쉽고 큰 눈은 주변 자극에 노출될 수 있어요. 부드럽게 닦고 완전히 말린 뒤, 붉어짐·눈물·불편함이 반복되면 진료를 받아주세요.",
+        description: "얼굴 주름은 부드럽게 관리하고 물기를 닦되 눈 표면을 문지르지 않아요. 눈이 붉어지거나 눈물·분비물이 늘면 진료를 문의하고, 눈을 감거나 아파하면 신속히 진료를 받아요.",
         image: "/illustrations/v4/pug-feature-face-eye-care.webp",
         alt: "미끄럼 방지 매트에서 보호자가 황갈색 성견 퍼그의 얼굴 주름을 닦고 눈 상태를 살피는 삽화",
         sourceUrls: ["https://www.fci.be/Nomenclature/Standards/253g09-en.pdf", "https://www.royalkennelclub.com/search/breeds-a-to-z/breeds/toy/pug/"],

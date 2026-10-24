@@ -148,12 +148,12 @@ slug별 정확한 원문과 출처 위치는 `breedSizeProfiles`의 `evidence`�
 
 이번 단계에서는 아래 파일을 수정하지 않았다. 부족·충돌 데이터 검수 후 공통 결과를 연결해야 한다.
 
-- `src/lib/breed-filters.ts`
-- `src/lib/discover-breeds.ts`
-- `src/components/discover-explorer.tsx`
-- `src/components/discover-explorer.module.css`
+- `src/lib/breeds/breed-filters.ts`
+- `src/features/discovery/discover-breeds.ts`
+- `src/features/discovery/discover-explorer.tsx`
+- `src/features/discovery/discover-explorer.module.css`
 - `src/app/breeds/[slug]/page.tsx`
-- `src/components/breed-detail-standard-interactions.tsx`
+- `src/features/breed-detail/breed-detail-standard-interactions.tsx`
 - `src/app/beginner-guide/page.tsx`
 - `src/content/home-curiosity.ts`
 - 관련 필터·발견·상세·홈 테스트

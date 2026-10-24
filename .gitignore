@@ -34,9 +34,11 @@ dev-design-audit*.log
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # Temporary research, local attachments and interrupted data snapshots
 /tmp/
+/.playwright-cli/
 /.codex-remote-attachments/
 *.json.pending
 
@@ -46,6 +48,3 @@ dev-design-audit*.log
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-.vercel
-.env*

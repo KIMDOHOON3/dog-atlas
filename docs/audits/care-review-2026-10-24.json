@@ -1,0 +1,631 @@
+{
+  "reviewedAt": "2026-10-24",
+  "scope": "성격·활동·일상 관리와 건강 이상 시 대응의 선택 문구 대조. 질병별 검사·유병률·품종 전체 또는 전문가 검수 완료가 아니다.",
+  "sources": {
+    "breathing": {
+      "title": "Recognizing and responding to canine respiratory distress",
+      "organization": "Cornell University College of Veterinary Medicine",
+      "url": "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/recognizing-and-responding-canine-respiratory-distress",
+      "checkedAt": "2026-10-24"
+    },
+    "eyes": {
+      "title": "Eye problems in dogs",
+      "organization": "PDSA",
+      "url": "https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/symptoms/eye-problems-in-dogs",
+      "checkedAt": "2026-10-24"
+    },
+    "ears": {
+      "title": "How to clean a dog’s ears",
+      "organization": "PDSA",
+      "url": "https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/other-veterinary-advice/how-to-clean-a-dog-s-ears",
+      "checkedAt": "2026-10-24"
+    },
+    "skin": {
+      "title": "Hot spots",
+      "organization": "Cornell University College of Veterinary Medicine",
+      "url": "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/hot-spots",
+      "checkedAt": "2026-10-24"
+    },
+    "dental": {
+      "title": "Recommending home oral hygiene and products",
+      "organization": "American Animal Hospital Association",
+      "url": "https://www.aaha.org/resources/2019-aaha-dental-care-guidelines-for-dogs-and-cats/recommending-products/",
+      "checkedAt": "2026-10-24"
+    },
+    "allergy": {
+      "title": "Pet Allergy",
+      "organization": "American Academy of Allergy, Asthma & Immunology",
+      "url": "https://www.aaaai.org/conditions-treatments/allergies/pet-allergy",
+      "checkedAt": "2026-10-24"
+    },
+    "exercise": {
+      "title": "Exercising your dog",
+      "organization": "PDSA",
+      "url": "https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/puppies-dogs/how-much-exercise-does-your-dog-need",
+      "checkedAt": "2026-10-24"
+    },
+    "alone": {
+      "title": "Separation Anxiety in Pets: Signs, Causes, and Solutions",
+      "organization": "American Animal Hospital Association",
+      "url": "https://www.aaha.org/resources/separation-anxiety-in-pets/",
+      "checkedAt": "2026-10-24"
+    },
+    "behavior": {
+      "title": "Ancestry-inclusive dog genomics challenges popular breed stereotypes — research abstract",
+      "organization": "Broad Institute / Science",
+      "url": "https://www.broadinstitute.org/publications/broad1131786",
+      "checkedAt": "2026-10-24"
+    },
+    "reward": {
+      "title": "Aversive training methods",
+      "organization": "British Small Animal Veterinary Association",
+      "url": "https://bsava.com/position-statement/aversive-training-methods/",
+      "checkedAt": "2026-10-24"
+    }
+  },
+  "entries": [
+    {
+      "slug": "french-bulldog",
+      "surface": "standard",
+      "field": "story.steps.2.title",
+      "text": "활동을 마친 뒤 편안한 숨으로 돌아오는지 확인해요.",
+      "sha256": "6f97f656500d016e88ebca5ee7e7b92b14a8b828b160ce1af961ec5c5ef8c617",
+      "beforeHash": "b680e37611acb2f3674b62422169974a16272201e14a14e1e96722fd6421bcb1",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "breathing"
+      ],
+      "reason": "회복할 때까지 기다리라는 제목을 관찰 안내로 바꿨다.",
+      "files": [
+        "src/content/standard-breed-detail/familiar-data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "french-bulldog",
+      "surface": "standard",
+      "field": "story.steps.2.body",
+      "text": "짧게 움직인 뒤에는 서늘하고 조용한 자리에서 쉬게 하며, 호흡이 평소와 다르거나 회복이 늦으면 수의사에게 문의해요. 힘겹게 숨 쉬거나 잇몸이 파래지거나 쓰러지면 기다리지 말고 즉시 응급 진료를 받아요.",
+      "sha256": "4513b5f08bbc09f23bc8813d2ed081a1541cce61c0fce527d40a59e74b44a2d5",
+      "beforeHash": "1cf3efd79a4ec34ae9d594745f268d6f6bbee1f7122379969e5a4c6caed28e05",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "breathing"
+      ],
+      "reason": "단순 휴식과 진료가 필요한 호흡 이상을 구분했다.",
+      "files": [
+        "src/content/standard-breed-detail/familiar-data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "pug",
+      "surface": "standard",
+      "field": "story.steps.2.body",
+      "text": "짧은 활동 뒤 서늘한 자리에서 쉬게 하되, 호흡이 평소와 다르거나 회복이 늦으면 수의사에게 문의해요. 숨을 힘겹게 쉬거나 잇몸이 파래지거나 쓰러지면 쉬면서 기다리지 말고 즉시 응급 진료를 받아요.",
+      "sha256": "aab917e51d3612bb9984bd0b30ee567d6bbf04bee63d39531312a969565a5d53",
+      "beforeHash": "46e774bb95471692029d701135fb4406a4ac20c28d76a8f61f8618d35410b551",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "breathing"
+      ],
+      "reason": "일정을 줄이는 것만으로 호흡 이상에 대응하지 않도록 수정했다.",
+      "files": [
+        "src/content/standard-breed-detail/familiar-data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "bulldog",
+      "surface": "standard",
+      "field": "realities.0.body",
+      "text": "덥거나 습할 때는 야외 활동을 줄이고, 호흡이나 회복이 평소와 다르면 운동을 멈추고 수의사에게 문의해요. 숨 쉬기 힘들어하거나 쓰러지면 그늘에서 회복을 기다리지 말고 즉시 응급 진료를 받아요.",
+      "sha256": "dcc7b1abe998d9e586ba230c53c5e218e2c3af257c1138b3d29c60f786adee2e",
+      "beforeHash": "137c74bd80cc9d04720de7de95c3aa3d83775d8d9da4e487a79c79022a97f87e",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "breathing",
+        "exercise"
+      ],
+      "reason": "호흡곤란 시 활동 중단만 권하던 문장을 보완했다.",
+      "files": [
+        "src/content/standard-breed-detail/expansion-to-200-batch-01-data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "boston-terrier",
+      "surface": "breed",
+      "field": "careNotes.2",
+      "text": "평소와 다른 호흡음은 수의사와 상의하고, 힘겹게 숨 쉬거나 쓰러지면 즉시 응급 진료를 받으세요.",
+      "sha256": "3eacbdc0f24d086ba4919edb5fdfccaf3ed75c999a634fca7561f7fca751ea16",
+      "beforeHash": "6862448889dfcd69f2c37a782b60f3c1572f1c98e82235d0468df50d3bf44ab1",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "breathing"
+      ],
+      "reason": "관찰과 응급 대응을 구분했다.",
+      "files": [
+        "src/content/breeds/detail-batch-d.ts"
+      ]
+    },
+    {
+      "slug": "french-bulldog",
+      "surface": "breed",
+      "field": "careNotes.0",
+      "text": "덥거나 습할 때는 활동을 줄이세요. 호흡 변화는 수의사와 상의하고, 숨을 힘겹게 쉬거나 쓰러지면 즉시 응급 진료를 받으세요.",
+      "sha256": "f87a14dc1ce6780f2794dc306c446b5960de52a67d0fd7291a8866ad50c40522",
+      "beforeHash": "3c700a98ef92836cc2e13006a1dcc94c8b2a0c5e4169c7000e83805b99369b56",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "breathing",
+        "exercise"
+      ],
+      "reason": "휴식 뒤 문의로 응급 대응을 늦추지 않도록 정리했다.",
+      "files": [
+        "src/content/breeds/detail-batch-b.ts"
+      ]
+    },
+    {
+      "slug": "pug",
+      "surface": "breed",
+      "field": "careNotes.0",
+      "text": "거친 호흡이나 회복 지연은 수의사와 상의하세요. 힘겹게 숨 쉬거나 쓰러지면 즉시 응급 진료를 받으세요.",
+      "sha256": "d1a3259a2494b3bb031ea72b2643deda54b0c52d3d6199ef0a1d0a4b0a0cd1d6",
+      "beforeHash": "811b9d699cb0162241d2c697eb5ded7c01da7a8b62f9eaff3fb9f7d5d43a00cd",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "breathing"
+      ],
+      "reason": "정상으로 단정하지 말라는 안내에 실제 대응을 덧붙였다.",
+      "files": [
+        "src/content/breeds/detail-batch-c.ts"
+      ]
+    },
+    {
+      "slug": "pug",
+      "surface": "standard",
+      "field": "realities.1.body",
+      "text": "얼굴 주름은 부드럽게 관리하고 물기를 닦되 눈 표면을 문지르지 않아요. 눈이 붉어지거나 눈물·분비물이 늘면 진료를 문의하고, 눈을 감거나 아파하면 신속히 진료를 받아요.",
+      "sha256": "10c170910e056a95ddcd9add620514da0f0c4d139f13c438f1e1886986e7819f",
+      "beforeHash": "4d501d7892cc4aba1d351cd797ebe28626a6bd954f79588111a81ccee7c950a9",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "eyes"
+      ],
+      "reason": "눈 이상이 반복될 때까지 기다리지 않도록 바꿨다.",
+      "files": [
+        "src/content/breed-features/data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "french-bulldog",
+      "surface": "standard",
+      "field": "realities.1.body",
+      "text": "주름은 부드럽게 닦고 물기를 제거하되, 귀 안에 면봉을 넣거나 임의로 세정하지 않아요. 귀에서 냄새·붉어짐·통증이 보이면 반복될 때까지 기다리지 말고 수의사와 상의해요.",
+      "sha256": "9ab37e08b5a0f872c09a53d5f861a580e47f3d25cc7d011dfa94fc18cadb4285",
+      "beforeHash": "0d276702cca180b2fc2dea4fde0f7d2bc792c920c52aab6b86bddd2fca172d59",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "ears",
+        "skin"
+      ],
+      "reason": "주름 관리와 귀 세정을 구분하고 이상 시 진료를 안내했다.",
+      "files": [
+        "src/content/breed-features/data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "english-cocker-spaniel",
+      "surface": "standard",
+      "field": "realities.1.body",
+      "text": "산책 뒤 귀와 발, 장식털에 풀씨나 습기·엉킴이 없는지 살펴요. 귀에 냄새·붉어짐·통증이 있으면 면봉이나 임의 세정으로 해결하려 하지 말고 수의사에게 문의해요.",
+      "sha256": "8e2b32fc16ee78d701aecdbe9b0d4f12621b70db891582f56a04e53e0619f705",
+      "beforeHash": "2ed9aab6647769f02b3643c21152f75bef3f62c46ca960317ae5f1bcec5b6c66",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "ears"
+      ],
+      "reason": "귀 확인과 치료 목적의 세정을 구분했다.",
+      "files": [
+        "src/content/standard-breed-detail/data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "ariegeois",
+      "surface": "standard",
+      "field": "realities.1.body",
+      "text": "귀의 바깥면과 접힌 가장자리의 물기를 확인하고 귓속에 면봉을 넣지 마세요. 냄새·붉어짐·통증이 있으면 세정하기 전에 수의사와 상의해요.",
+      "sha256": "b5197e675fef720c99ce94503c8dcb4d8ebc6bb204eb0e0abd477cca704cdce3",
+      "beforeHash": "b7a007e729d55e9d7bd053ce7d8af772cac31580eddebe7bd98aa189245b1957",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "ears"
+      ],
+      "reason": "면봉을 얕게 넣어도 된다는 해석을 막고 세정 전 진료 기준을 추가했다.",
+      "files": [
+        "src/content/standard-breed-detail/expansion-to-300-batch-05-data.ts"
+      ],
+      "publicStandard": false
+    },
+    {
+      "slug": "continental-bulldog",
+      "surface": "standard",
+      "field": "realities.1.body",
+      "text": "산책 뒤 겨드랑이와 배, 발가락 사이의 피부를 살펴요. 붉어진 곳을 계속 핥거나 아파하거나 진물이 나면 문지르거나 임의로 약을 바르지 말고 수의사에게 문의해요.",
+      "sha256": "5f8a1588c17063bd91698b5a74465a159c1d92fe7da1e56f1de01f3661b7b18f",
+      "beforeHash": "f837a25b82eb77ff25315699fab20bc9ba122d7ed7175d103be9f8da81da49ec",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "skin"
+      ],
+      "reason": "피부 이상을 가정의 건조 관리만으로 해결하는 듯한 표현을 수정했다.",
+      "files": [
+        "src/content/standard-breed-detail/expansion-to-200-batch-03-data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "newfoundland",
+      "surface": "breed",
+      "field": "careNotes.1",
+      "text": "물에서 나온 뒤 속털 사이의 물기를 충분히 말리세요. 피부를 계속 핥거나 붉어짐·통증이 보이면 건조 관리만 이어가지 말고 수의사와 상의하세요.",
+      "sha256": "b59b52ed975e4b3b4043716783f98d7467e5ab1c7cc568339cf6f040891cb44a",
+      "beforeHash": "b6a775693c97a6616b239b57e5a0ae946e771baa464b94548d5cc4f77d5e4639",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "skin"
+      ],
+      "reason": "건조만으로 습진을 예방한다는 인상을 줄이고 이상 시 대응을 추가했다.",
+      "files": [
+        "src/content/breeds/detail-batch-d.ts"
+      ]
+    },
+    {
+      "slug": "maltipoo",
+      "surface": "breed",
+      "field": "careNotes.1",
+      "text": "편안하게 받아들이는 단계부터 매일 양치하는 습관을 들이세요. 잇몸이 붓거나 아파하면 억지로 닦지 말고 진료받고, 양치와 별도로 정기 구강 검진을 이어가세요.",
+      "sha256": "ccecca07033afed55c981b5f75bba31ae810f8e7080b22505e11519d3c6650b7",
+      "beforeHash": "d8b5f371e51ea66d6dc8f21ed6f677b7b69bff12223af5cb143b6cdad47ccc7f",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "dental"
+      ],
+      "reason": "양치 적응·통증 시 중단·전문 검진을 구분했다.",
+      "files": [
+        "src/content/breeds/detail-batch-r.ts"
+      ]
+    },
+    {
+      "slug": "yorkshire-terrier",
+      "surface": "breed",
+      "field": "careNotes.1",
+      "text": "양치에 천천히 적응시켜 매일 관리하되 잇몸이 붓거나 아파하면 억지로 닦지 말고 진료받으세요. 가정 양치가 정기 구강 검진을 대신하지는 않습니다.",
+      "sha256": "9543f3eb3ee085ef0e591865caaf4a346053e3417e9c03628cccdaa0c47925a0",
+      "beforeHash": "472c77cf95918007a6867602e429cafb78d04f1f5312c1656d24597dc02aacb7",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "dental"
+      ],
+      "reason": "막연한 치아 확인을 구체적인 일상 관리와 진료 기준으로 바꿨다.",
+      "files": [
+        "src/content/breeds/detail-batch-c.ts"
+      ]
+    },
+    {
+      "slug": "goldendoodle",
+      "surface": "breed",
+      "field": "careNotes.0",
+      "text": "털 빠짐이 적어도 알레르기가 없다고 보장할 수 없습니다. 가족에게 알레르기가 있거나 의심되면 직접 접촉해 시험하기보다 입양 전 알레르기 전문의와 상의하세요.",
+      "sha256": "132014ffdc7d7c98fe578f2797d6568608ee2cfc9f7b606c93ebf40521afa0cf",
+      "beforeHash": "30408bb0aa1904fa3a48b95c342cbb33756c500b77e47408f3bed910a4ae0773",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "allergy"
+      ],
+      "reason": "개체 접촉을 통한 자가 알레르기 시험으로 읽히지 않게 바꿨다.",
+      "files": [
+        "src/content/breeds/detail-batch-r.ts"
+      ]
+    },
+    {
+      "slug": "border-collie",
+      "surface": "breed",
+      "field": "tendencies.activity.note",
+      "text": "활동 요구가 높은 경향이 있지만, 나이·건강·체력에 맞춰 산책과 놀이의 강도와 휴식을 조절하세요.",
+      "sha256": "3c77b30269295025ef25f7a3711e94c3a8ffdf0cd3be8d95406e095efd0d2ad8",
+      "beforeHash": "396f75e6e19bed385a29d04d67d99b93ed505aabb42606dcfa2d2bba3bfa8b77",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "exercise"
+      ],
+      "reason": "높은 활동 경향과 개체별 운동 계획을 구분했다.",
+      "files": [
+        "src/content/breeds/data.ts"
+      ]
+    },
+    {
+      "slug": "australian-cattle-dog",
+      "surface": "breed",
+      "field": "story.reality",
+      "text": "중형 체격만으로 생활 부담이 작다고 판단하기 어렵습니다. 나이와 건강, 체력에 맞는 산책과 학습·탐색을 마련하고 활동 뒤 회복을 살펴보세요.",
+      "sha256": "588324caa9765f03d90325a7e7085480c63758d20540bd8f3c99998564c7ff88",
+      "beforeHash": "4976d6d218308c8742f8a1cb15493a8ed03c7eb2376672354ab83d3b2cdd5e89",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "exercise"
+      ],
+      "reason": "매일 강도 높은 운동을 해야 한다는 단정을 제거했다.",
+      "files": [
+        "src/content/breeds/detail-batch-g.ts"
+      ]
+    },
+    {
+      "slug": "greyhound",
+      "surface": "breed",
+      "field": "tendencies.activity.note",
+      "text": "질주를 모든 개체의 필수 운동으로 보지 말고, 나이·건강·체력에 맞는 산책과 휴식을 계획하세요.",
+      "sha256": "17c5f0a795ea46e9650b3374a0edb3bcf33debd56c54103d4b5f029efd508116",
+      "beforeHash": "bcb9d6f4eff69409372303509e477ee690d3cb5d6e71023206ec743875c1446b",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "exercise"
+      ],
+      "reason": "품종만으로 질주를 의무화하지 않도록 했다.",
+      "files": [
+        "src/content/breeds/data.ts"
+      ]
+    },
+    {
+      "slug": "whippet",
+      "surface": "breed",
+      "field": "tendencies.activity.note",
+      "text": "산책과 놀이 강도는 나이·건강·체력에 맞춰 조절하세요. 달리기는 안전한 공간에서 무리 없이 참여할 수 있을 때 선택해요.",
+      "sha256": "7ccc9e802dd926277e2f6dfc84a9b653ada623f856f100a089133f27335c2a2f",
+      "beforeHash": "9f00bc233f1bed012f245136431eb309998a6e00ead56ec616e9a2a8576ad431",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "exercise"
+      ],
+      "reason": "고속 운동의 조건과 선택 가능성을 명시했다.",
+      "files": [
+        "src/content/breeds/detail-batch-b.ts"
+      ]
+    },
+    {
+      "slug": "labrador-retriever",
+      "surface": "breed",
+      "field": "tendencies.activity.note",
+      "text": "체격만으로 운동량을 정하지 말고 나이·건강·체력과 활동 뒤 회복을 보며 강도와 시간을 조절하세요.",
+      "sha256": "f500bc9e313169fade73d38eba0d5f822256cbbffc7fe13fac3d15e042d8b799",
+      "beforeHash": "3e7c884a45f46d168311e09c46e69c2357faee82ebe92932df469b60218c5b18",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "exercise"
+      ],
+      "reason": "체격만을 운동 계획의 근거로 쓰지 않도록 했다.",
+      "files": [
+        "src/content/breeds/detail-batch-a.ts"
+      ]
+    },
+    {
+      "slug": "greater-swiss-mountain-dog",
+      "surface": "standard",
+      "field": "story.caution",
+      "text": "수레를 끌던 역사가 집에서 몸에 무게를 달아도 된다는 뜻은 아니에요. 운동은 나이와 건강·체력에 맞추고, 새로운 활동을 시작하기 전에는 수의사와 상의해요.",
+      "sha256": "c48190f6aa157b4f8859749f128b7fe571af8abf6bbc5d7fb21df9fa639ed469",
+      "beforeHash": "e76854c8ec3f9ff76846e5a43bfc13b0710fa29ccc4326a025556b960bb5a7f3",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "exercise"
+      ],
+      "reason": "가벼운 저항 없이라는 모순된 표현과 작업 이력에 따른 부하 운동 해석을 제거했다.",
+      "files": [
+        "src/content/standard-breed-detail/expansion-to-200-batch-07-data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "havanese",
+      "surface": "standard",
+      "field": "story.steps.2.body",
+      "text": "보호자와 잠시 떨어져도 편안한 시간부터 시작하고 불안해하면 거리와 시간을 줄여요. 짖음·서성임·탈출 시도가 이어지면 혼자 버티게 하지 말고 수의사와 행동 상담을 받아요.",
+      "sha256": "7a25631f434741feae2fc8761b635fbd8c01e05da6bdf8cfa269559c2d8eb6f3",
+      "beforeHash": "a6960880892c15c8b0afddc5af37832f3a7a12d48da7883118354311c413ada3",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "alone"
+      ],
+      "reason": "분리 연습의 중단·조절 기준과 도움 요청을 구체화했다.",
+      "files": [
+        "src/content/standard-breed-detail/data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "cavalier-king-charles-spaniel",
+      "surface": "breed",
+      "field": "careNotes.2",
+      "text": "혼자 있어도 편안한 짧은 시간부터 연습하고 불안해하면 시간을 줄이세요. 서성임이나 탈출 시도가 이어지면 수의사와 상담하세요.",
+      "sha256": "94387842e1b6572b559d597aa6255e54dc9ecfcf9cd8ba444c7bcf7e09a3cb9a",
+      "beforeHash": "b9c0da1dc61016a9c490447faa0b2108ae4c975b4a167da73ab7742f09e5eac3",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "alone"
+      ],
+      "reason": "불안 신호 없이의 모호함을 관찰과 조절 행동으로 바꿨다.",
+      "files": [
+        "src/content/breeds/detail-batch-c.ts"
+      ]
+    },
+    {
+      "slug": "japanese-spitz",
+      "surface": "breed",
+      "field": "careNotes.2",
+      "text": "혼자 쉬기는 편안한 짧은 시간부터 연습하고 불안해하면 시간을 줄이세요. 짖음이나 탈출 시도가 이어지면 참게 두지 말고 수의사와 상담하세요.",
+      "sha256": "638f66fd1b7eafd27cd131f2272efec00cdffa8bb3737c4e63452bc22395b5d3",
+      "beforeHash": "ec0b1c1f4fbe18d8df2e07bf2e6f6b30f5490d63eddab0fb8d558d52aef5ba27",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "alone"
+      ],
+      "reason": "점진적 연습이 충분하지 않은 경우의 상담 기준을 추가했다.",
+      "files": [
+        "src/content/breeds/data.ts"
+      ]
+    },
+    {
+      "slug": "maltese",
+      "surface": "breed",
+      "field": "tendencies.independence.note",
+      "text": "사람을 따르는 모습만으로 혼자 쉬는 능력을 판단하지 말고, 떨어져 있을 때 편안한지 실제 반응을 확인하세요.",
+      "sha256": "3ae8ff70f54be4a3fa66966df21ecf050e5cf4ba7b85630f19a4f271e66c2122",
+      "beforeHash": "7c49aeec38ac6bb4da09219f26624793ed26c48479b37a7065c9fee37ff3c282",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "behavior",
+        "alone"
+      ],
+      "reason": "교감 선호와 혼자 있는 문제를 직접 연결하는 단정을 줄였다.",
+      "files": [
+        "src/content/breeds/data.ts"
+      ]
+    },
+    {
+      "slug": "border-collie",
+      "surface": "standard",
+      "field": "story.steps.1.body",
+      "text": "달리는 사람이나 아이에게 시선이 고정될 수 있어요. 추적하거나 몸을 대기 전에 거리를 확보하고 보호자에게 주의를 돌리는 행동을 보상하며, 물려는 행동이 있으면 전문적인 도움을 받아요.",
+      "sha256": "0697b424a20f51b8f83af6bf9b70b3d0b7e9dc61405e01f5ab21305971f4a849",
+      "beforeHash": "e1d6c3fd14fba6c8784ae0dfdf1b5fcdd4a1ee54e0d1824838f880914aa70a05",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "reward",
+        "behavior"
+      ],
+      "reason": "목양 배경으로 현재 행동을 단정하지 않고 안전거리와 보상에 초점을 맞췄다.",
+      "files": [
+        "src/content/breed-features/data.ts"
+      ],
+      "publicStandard": true
+    },
+    {
+      "slug": "siberian-husky",
+      "surface": "breed",
+      "field": "behaviorClues.today",
+      "text": "이동이나 탐색에 적극적으로 참여할 수 있지만 다른 개와 잘 지내는지, 출입구에서 어떻게 반응하는지는 개체의 경험과 현재 상황을 직접 살펴야 해요.",
+      "sha256": "1108a32b5284c25a9b9bd74d052410f9ed5a7c4a7c288523b9862b5ecef4c84b",
+      "beforeHash": "d23977015eb277c6de84e28fd306e9d08fac183e3586fbeeab1d49a9f21f4326",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "behavior"
+      ],
+      "reason": "무리 작업 배경에서 사회성을 추론하는 문장을 실제 관찰 중심으로 바꿨다.",
+      "files": [
+        "src/content/breeds/detail-batch-b.ts"
+      ]
+    },
+    {
+      "slug": "rottweiler",
+      "surface": "breed",
+      "field": "behaviorClues.today",
+      "text": "낯선 상황을 신중히 관찰하거나 몸으로 공간을 통제할 수 있으나 품종만으로 공격성을 예측할 수는 없어요.",
+      "sha256": "6b72b71e6716134e489edfa0e5b67805dad2dc13429a733323ad909172dc424d",
+      "decision": "retained-limited-review",
+      "sourceKeys": [
+        "behavior"
+      ],
+      "reason": "품종만으로 공격성을 예측하지 않는 설명을 유지한다."
+    },
+    {
+      "slug": "goldendoodle",
+      "surface": "breed",
+      "field": "story.roleToHome",
+      "text": "두 부모견 모두 사람과 협력해 온 배경이 있지만, 그 조합이 모든 골든두들에게 같은 성격이나 학습 반응을 보장하지는 않습니다. 실제 개체의 회복 속도와 자극 반응을 살펴야 합니다.",
+      "sha256": "ce4dc06efd32ab31b634e43134ce832d6ba91a0ccfbc089eb055813f72547799",
+      "decision": "retained-limited-review",
+      "sourceKeys": [
+        "behavior"
+      ],
+      "reason": "부모 계통의 결합이 성격을 보장하지 않는다는 설명을 유지한다."
+    },
+    {
+      "slug": "border-collie",
+      "surface": "breed",
+      "field": "careNotes.0",
+      "text": "달리기만 반복하기보다 냄새 탐색과 문제 해결, 휴식 교육을 균형 있게 구성하세요.",
+      "sha256": "c9aff86e047be94ac4cef8d60686c897a6165434547d43b988e071d65396ff4e",
+      "decision": "retained-limited-review",
+      "sourceKeys": [
+        "exercise",
+        "reward"
+      ],
+      "reason": "달리기만 반복하지 않고 탐색·학습·휴식을 함께 구성하는 방향을 유지한다."
+    },
+    {
+      "slug": "continental-bulldog",
+      "surface": "standard",
+      "field": "realities.0.body",
+      "text": "미끄럽지 않은 평지에서 냄새를 맡을 여유를 주며 규칙적으로 걷고, 운동량을 갑자기 늘리기보다 몸 상태와 회복에 맞춰 조금씩 조절해주세요.",
+      "sha256": "69172e099309600b24ad254cc6a569556888295d695711c739ca1e2aee12e210",
+      "decision": "retained-limited-review",
+      "sourceKeys": [
+        "exercise"
+      ],
+      "reason": "운동량을 갑자기 늘리지 않고 회복에 따라 조절하는 문장을 유지한다.",
+      "publicStandard": true
+    },
+    {
+      "slug": "havanese",
+      "surface": "breed",
+      "field": "tendencies.activity.note",
+      "text": "개체의 체력에 맞춘 규칙적인 산책과 놀이가 필요합니다.",
+      "sha256": "ed58d204903be583ef6d1930601abaf208e460b08212f4076a679c8e367b333f",
+      "decision": "retained-limited-review",
+      "sourceKeys": [
+        "exercise"
+      ],
+      "reason": "개체의 체력에 맞추는 산책·놀이 설명을 유지한다."
+    },
+    {
+      "slug": "french-bulldog",
+      "surface": "breed",
+      "field": "tendencies.activity.note",
+      "text": "긴 격한 운동보다 기온과 호흡 상태를 보며 짧고 규칙적으로 움직이는 편이 좋아요.",
+      "sha256": "eada3b9a4dd3fce8cf23fa5601952311cb70aa280f9c29ed3710da7f7327b6b1",
+      "decision": "retained-limited-review",
+      "sourceKeys": [
+        "exercise"
+      ],
+      "reason": "기온·호흡 상태에 맞춰 운동을 조절하는 설명을 유지한다."
+    },
+    {
+      "slug": "rottweiler",
+      "surface": "standard",
+      "field": "realities.0.body",
+      "text": "낯선 상황을 신중히 보는 개체는 가까운 인사를 강요받을 때 부담이 커질 수 있어요. 안전문과 충분한 거리를 두고 보호자에게 돌아오는 행동을 보상하세요.",
+      "sha256": "66179c5f0990670a5f987377a622c121cd558b856fc5eb63f9fcf35393d5485e",
+      "decision": "retained-limited-review",
+      "sourceKeys": [
+        "reward"
+      ],
+      "reason": "강제 인사 대신 거리와 안전문, 보상을 사용하는 방향을 유지한다.",
+      "publicStandard": true
+    },
+    {
+      "slug": "cavalier-king-charles-spaniel",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 품종 경향만으로 질환을 예측하거나 진단하지 않으며, 호흡·보행·피부·눈·심장 등 개체의 변화는 수의사 검진으로 확인하세요.",
+      "sha256": "9d32c16104f83555a60c1e4f63eb8debf9c172aa3f87e183d4df008a056f7803",
+      "decision": "retained-limited-review",
+      "sourceKeys": [],
+      "reason": "검수 전 편집 초안이며 개체 변화는 수의 진료로 확인한다는 편집 상태 문구다. 질병 목록 전체의 별도 검수로 세지 않는다.",
+      "supersededBy": "genetic-health-review-2026-10-24"
+    }
+  ]
+}

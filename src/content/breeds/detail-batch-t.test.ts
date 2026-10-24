@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { breeds } from "./data";
 import { detailBatchT } from "./detail-batch-t";
 import { getMasterBreed } from "./master-catalog";
-import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
+import { getBreedSizePresentation } from "@/lib/breeds/breed-size-presentation";
 
 describe("detail batch T", () => {
   it("publishes the AKC-registered Anatolian Shepherd separately from the FCI Kangal", () => {

@@ -1,6 +1,9 @@
 import "@testing-library/jest-dom/vitest";
 import { cleanup } from "@testing-library/react";
-import { afterEach } from "vitest";
+import { afterEach, vi } from "vitest";
+
+// The server-only boundary is enforced by Next's production compiler.
+vi.mock("server-only", () => ({}));
 
 const localStorageEntries = new Map<string, string>();
 const testLocalStorage: Storage = {

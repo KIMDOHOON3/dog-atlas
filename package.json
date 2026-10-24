@@ -11,30 +11,35 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "audit:images": "node scripts/audit-image-assets.mjs"
+    "assets:yard": "node scripts/optimize-yard-model.mjs",
+    "audit:images": "node scripts/audit-image-assets.mjs",
+    "audit:rights": "node scripts/audit-rights.mjs",
+    "audit:editorial": "node scripts/audit-editorial.mjs",
+    "notices:generate": "node scripts/generate-third-party-notices.mjs"
   },
   "dependencies": {
     "cannon-es": "^0.20.0",
-    "next": "16.2.12",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "server-only": "0.0.1",
     "three": "^0.185.1",
-    "zod": "^4.4.3"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^7.0.0",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@types/three": "^0.185.4",
-    "@vitejs/plugin-react": "^4.6.0",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.12",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.4.3",
     "jsdom": "^26.1.0",
-    "prettier": "^3.9.6",
-    "typescript": "^5",
-    "vitest": "^3.2.4"
+    "meshoptimizer": "1.1.1",
+    "prettier": "^3.9.10",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
   }
 }

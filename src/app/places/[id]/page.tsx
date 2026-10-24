@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { petPlaceDetail } from "@/lib/pet-tour-server";
-import { FIELD_LABELS, PLACE_TYPES, type TourRecord } from "@/lib/pet-tour";
-import styles from "../places.module.css";
-import { kakaoPlaceLinks, phoneLink, visitSummary } from "@/lib/place-visit";
-import CopyAddress from "@/components/place-visit-actions";
-import PlaceIcon from "@/components/place-icon";
+import { petPlaceDetail } from "@/features/places/pet-tour-server";
+import { FIELD_LABELS, PLACE_TYPES, type TourRecord } from "@/features/places/pet-tour";
+import styles from "../../../features/places/places.module.css";
+import { kakaoPlaceLinks, phoneLink, visitSummary } from "@/features/places/place-visit";
+import CopyAddress from "@/features/places/place-visit-actions";
+import PlaceIcon from "@/features/places/place-icon";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "장소 안내" };
@@ -24,7 +24,7 @@ function Facts({
         .filter(([key, value]) => value && codes.test(key) === technical)
         .map(([key, value]) => (
           <div key={key}>
-            <dt>{FIELD_LABELS[key] ?? key}</dt>
+            <dt>{Object.hasOwn(FIELD_LABELS, key) ? FIELD_LABELS[key] : key}</dt>
             <dd>
               {/^(tel|infocenter|sponsor\d+tel)/.test(key) &&
               phoneLink(value) ? (

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { DiscoverExplorer } from "@/components/discover-explorer";
-import { DiscoverSearch } from "@/components/discover-search";
-import { FamiliarBreedStart } from "@/components/familiar-breed-start";
+import { DiscoverExplorer } from "@/features/discovery/discover-explorer";
+import { DiscoverSearch } from "@/features/discovery/discover-search";
+import { FamiliarBreedStart } from "@/features/discovery/familiar-breed-start";
 import { SiteHeader } from "@/components/site-header";
 import { breeds } from "@/content/breeds/data";
 import { getMasterBreed } from "@/content/breeds/master-catalog";
-import { toDiscoverBreed } from "@/lib/discover-breeds";
+import { toDiscoverBreed } from "@/features/discovery/discover-breeds";
 import { createPageMetadata } from "@/lib/site-metadata";
 import styles from "./page.module.css";
 

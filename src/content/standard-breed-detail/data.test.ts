@@ -195,7 +195,7 @@ describe("standard breed detail editorial data", () => {
   });
 
   it.each([
-    ["tornjak", "1067년", "quiet-boundary-return", "visitor-buffer-double-gate"],
+    ["tornjak", "가축·농장", "quiet-boundary-return", "visitor-buffer-double-gate"],
     ["central-asian-shepherd-dog", "카라반", "boundary-disengage-return", "reinforced-offset-court"],
     ["spanish-mastiff", "메리노", "broad-track-steady-walk", "wide-vehicle-ramp"],
     ["australian-terrier", "개척지", "shed-edge-scent-return", "rigid-gap-screen-check"],
@@ -1765,10 +1765,11 @@ describe("standard breed detail editorial data", () => {
     expect(JSON.stringify(curly)).not.toContain("열린 두 손");
   });
 
-  it("states the Boston Terrier's early fighting ancestry before companion refinement", () => {
+  it("states the Boston Terrier's breed ancestry, place of development and companion role", () => {
     const history = getStandardBreedDetail("boston-terrier")!.story.steps[0];
 
-    expect(history.body).toContain("투견");
+    expect(history.body).toContain("불도그·테리어");
+    expect(history.body).toContain("보스턴");
     expect(history.body).toContain("반려견");
     expect(history.title).toContain("불도그·테리어");
   });

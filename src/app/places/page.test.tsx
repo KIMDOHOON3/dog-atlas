@@ -7,9 +7,9 @@ import {
 } from "@testing-library/react";
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import PlacesPage from "./page";
-import { listPetPlaces, placeRegions } from "@/lib/pet-tour-server";
-vi.mock("@/lib/pet-tour-server", async (importOriginal) => ({
-  ...(await importOriginal<typeof import("@/lib/pet-tour-server")>()),
+import { listPetPlaces, placeRegions } from "@/features/places/pet-tour-server";
+vi.mock("@/features/places/pet-tour-server", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@/features/places/pet-tour-server")>()),
   listPetPlaces: vi.fn(),
   placeRegions: vi.fn(),
 }));

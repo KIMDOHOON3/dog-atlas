@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { breeds } from "./data";
 import { detailBatchS } from "./detail-batch-s";
 import { getMasterBreed } from "./master-catalog";
-import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
+import { getBreedSizePresentation } from "@/lib/breeds/breed-size-presentation";
 
 describe("detail batch S", () => {
   it("publishes the source-backed Boerboel entry", () => {

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { breeds } from "./data";
 import { detailBatchR } from "./detail-batch-r";
 import { getMasterBreed } from "./master-catalog";
-import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
+import { getBreedSizePresentation } from "@/lib/breeds/breed-size-presentation";
 
 describe("detail batch R designer crosses", () => {
   it("publishes Goldendoodle and Maltipoo without presenting them as registered breeds", () => {

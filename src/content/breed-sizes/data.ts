@@ -2,8 +2,8 @@ import { breeds } from "@/content/breeds/data";
 import type { Breed } from "@/content/breeds/schema";
 import { poodleDetail } from "@/content/poodle-detail/data";
 import { getAllAuthoredStandardBreedDetails } from "@/content/standard-breed-detail/data";
-import { getBreedFactOverrideForSizeAudit } from "@/lib/breed-fact-presentation";
-import { DOG_ATLAS_SIZE_ORDER, getSizeClassGap, resolveBreedSize } from "@/lib/breed-size";
+import { getBreedFactOverrideForSizeAudit } from "@/lib/breeds/breed-fact-presentation";
+import { DOG_ATLAS_SIZE_ORDER, getSizeClassGap, resolveBreedSize } from "@/lib/breeds/breed-size";
 import { sizeConflictReviewBySlug, sizeConflictReviews } from "./conflict-reviews";
 import { externalBreedSizeSupplementBySlug, externalBreedSizeSupplements } from "./external-data";
 import {

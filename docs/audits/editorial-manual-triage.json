@@ -1,0 +1,128 @@
+[
+  {
+    "slug": "hovawart",
+    "field": "story.steps.0.title",
+    "sha256": "124e019e7fcc800efcda555ab275a6cab079216f426539dbe7993832ccf49755",
+    "source": "https://www.fci.be/Nomenclature/Standards/190g02-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short factual context retained after checking the cited source; this is not permission or a full-breed review."
+  },
+  {
+    "slug": "cesky-terrier",
+    "field": "heroStatement",
+    "sha256": "2d99ab9301425860fa1b95ce0fa2e686cfb0d066c96359c71dd832038e5efa84",
+    "source": "https://www.fci.be/Nomenclature/Standards/246g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short factual context retained after checking the cited source; this is not permission or a full-breed review."
+  },
+  {
+    "slug": "braque-saint-germain",
+    "field": "metadataDescription",
+    "sha256": "38f22804efec0107922fd6022a58d23b69ba434f44f56f72ad83687b6ca8f9bd",
+    "source": "https://www.fci.be/Nomenclature/Standards/115g07-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short factual context retained after checking the cited source; this is not permission or a full-breed review."
+  },
+  {
+    "slug": "american-pit-bull-terrier",
+    "field": "story.opening",
+    "sha256": "4357a72d792e87923e7218ef3a5dde69ce5c42e6745e56bc06a68fa6c6d197c8",
+    "source": "https://www.ukcdogs.com/american-pit-bull-terrier",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short factual context retained after checking the cited source; this is not permission or a full-breed review."
+  },
+  {
+    "slug": "dogo-argentino",
+    "field": "story.steps.0.body",
+    "sha256": "4d42aea2dd0d659bd02a715d97c379623d31c721b0a499b8c0a20213350c1e00",
+    "source": "https://www.akc.org/expert-advice/dog-breeds/dogo-argentino-history/",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short factual context retained after checking the cited source; this is not permission or a full-breed review."
+  },
+  {
+    "slug": "american-pit-bull-terrier",
+    "field": "story.steps.0.body",
+    "sha256": "9e779649a0b3b0839b0d94b6879cc53f27107309223c220944ab3e9ebd43bcc3",
+    "source": "https://www.ukcdogs.com/american-pit-bull-terrier",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short factual context retained after checking the cited source; this is not permission or a full-breed review."
+  },
+  {
+    "slug": "bull-terrier",
+    "field": "story.steps.0.title",
+    "sha256": "a87a966e21be020c1d6a64053af3478e522786f19a099b90ff5ef472f6cc3a54",
+    "source": "https://www.fci.be/Nomenclature/Standards/011g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short factual context retained after checking the cited source; this is not permission or a full-breed review."
+  },
+  {
+    "slug": "bull-terrier",
+    "field": "historyVisual.alt",
+    "sha256": "aae75de6793a84a3db0f9002040fe49e4aa1bf9f4c54674c2c0b97e3f1539e4d",
+    "source": "https://www.fci.be/Nomenclature/Standards/011g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short editorial illustration description, not a reproduced historical passage."
+  },
+  {
+    "slug": "bull-terrier",
+    "field": "story.steps.0.imageAlt",
+    "sha256": "ca239f29257f22156594cb8c83e12f172bd66e7998ff8e77df6772a00711dd7a",
+    "source": "https://www.fci.be/Nomenclature/Standards/011g03-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short editorial illustration description, not a reproduced historical passage."
+  },
+  {
+    "slug": "saarloos-wolfdog",
+    "field": "metadataDescription",
+    "sha256": "d23a0e8d35acaa1ebc76c3e27ddadf1ff3af443c1f0a721dbdc76bc11b358744",
+    "source": "https://www.fci.be/Nomenclature/Standards/311g01-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Short factual context retained after checking the cited source; this is not permission or a full-breed review."
+  },
+  {
+    "slug": "japanese-spitz",
+    "field": "story.steps.0.body",
+    "sha256": "3f6e84f3c8e053592624a72a87563b64c9da325e1ddaaf123d40ce68c20f324e",
+    "source": "https://www.ukcdogs.com/breed-groups/japanese-spitz",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Second pass: short origin/role fact or editorial observation; no long historical sequence retained. No whole-breed, medical or legal clearance."
+  },
+  {
+    "slug": "greyhound",
+    "field": "story.steps.0.body",
+    "sha256": "4b8aea15ea0f35ac50008e377f59f46105c5178285bd13529f53ebbc5fd32430",
+    "source": "https://www.fci.be/Nomenclature/Standards/158g10-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Second pass: short origin/role fact or editorial observation; no long historical sequence retained. No whole-breed, medical or legal clearance."
+  },
+  {
+    "slug": "chihuahua",
+    "field": "story.steps.0.body",
+    "sha256": "8ff7e37513d6d6cf708c1a969d854f3ab72802ad1a67b315982ed29ea8219313",
+    "source": "https://www.fci.be/Nomenclature/Standards/218g09-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Second pass: short origin/role fact or editorial observation; no long historical sequence retained. No whole-breed, medical or legal clearance."
+  },
+  {
+    "slug": "german-spitz",
+    "field": "story.steps.0.body",
+    "sha256": "4860a02be03a67e69d124efeeee3427f398410c5770ebba59b792c11c506bfef",
+    "source": "https://www.fci.be/Nomenclature/Standards/097g05-en.pdf",
+    "reviewedAt": "2026-10-24",
+    "status": "retained-limited-facts-not-full-clearance",
+    "reason": "Second pass: short origin/role fact or editorial observation; no long historical sequence retained. No whole-breed, medical or legal clearance."
+  }
+]

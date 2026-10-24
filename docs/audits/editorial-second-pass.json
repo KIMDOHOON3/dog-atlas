@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-24",
+  "scope": "Seven breeds: selected raw introductions/role paragraphs and public first-story bodies only. Not all content or veterinary advice.",
+  "reviews": [
+    {
+      "slug": "japanese-spitz",
+      "field": "story.opening",
+      "after": "재패니즈 스피츠는 20세기 일본에서 여러 흰 스피츠 계통을 바탕으로 형성됐습니다. 흰 피모와 선 귀, 등 위로 말린 꼬리를 함께 살펴보면 이 견종의 외형을 이해하는 데 도움이 됩니다.",
+      "file": "src/content/breeds/data.ts",
+      "source": "https://www.ukcdogs.com/breed-groups/japanese-spitz",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "26645f1b4b0f0bdc44ef8a8828d6a156468c32820fdfd84fa67fd08780a8edf1",
+      "afterHash": "c0ce63d76b555c7619fc4b48e4d3398e5d568c5f67967879297ba370b8bfc21a",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "greyhound",
+      "field": "story.opening",
+      "after": "그레이하운드는 영국에서 정립된 시각하운드입니다. 먼 곳의 움직임을 보고 추적하던 작업을 바탕으로, 달릴 때의 긴 보폭과 깊은 가슴을 함께 이해할 수 있습니다.",
+      "file": "src/content/breeds/data.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/158g10-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "d8d865800a7ea179e700c39f22eb1e2d33e75dca9648a27abc34f41b035b59d2",
+      "afterHash": "bf6118c514e827d8c0fa31c1d4411cae3c38b6c93d23daba33690eb404a3965d",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "greyhound",
+      "field": "story.roleToHome",
+      "after": "사냥과 경주의 역사가 모든 개체의 생활을 같게 만들지는 않습니다. 가정에서는 움직이는 대상에 대한 실제 반응을 살피고, 안전하게 활동하는 시간과 편안히 쉬는 자리를 함께 준비해 보세요.",
+      "file": "src/content/breeds/data.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/158g10-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "83b7670da839e76c232a7bbcc58513f2d9aa7d0047ed95f89e996f6d60e4c296",
+      "afterHash": "d34b9ddeccc929bf4180124af1fdad8f72db22a619813128732d8bfb4f63fa24",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "chihuahua",
+      "field": "story.opening",
+      "after": "치와와는 멕시코를 원산지로 하는 작은 반려견이며, 이름은 치와와주에서 왔습니다. 옛 개와 닮았다는 기록만으로 오늘날 견종까지의 계보가 모두 입증되는 것은 아닙니다.",
+      "file": "src/content/breeds/detail-batch-a.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/218g09-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "4c8fb24eaf5d9c3ad9c3b7ad5af58f376c40e92e32eac8cecf7b374f84efe5c7",
+      "afterHash": "22295a1521ad2542089e4d8e62e11197a58bdc4bfc1619bbc3ae42fdebaf4838",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "chihuahua",
+      "field": "story.roleToHome",
+      "after": "치와와에는 단모와 장모가 있습니다. 같은 견종 안에서도 피모와 생활 경험이 다르므로, 작은 몸집만으로 필요한 돌봄이나 사람과 지내는 방식을 예상하지 마세요.",
+      "file": "src/content/breeds/detail-batch-a.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/218g09-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "3b20097a12439d13899888070ab12bd071ba1f5c7fd4845c003419917d2c1bfd",
+      "afterHash": "acffced9e72cbac9022849566fb105f2c3fd422d80faa81568f0dc0996dae0e2",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "yorkshire-terrier",
+      "field": "story.opening",
+      "after": "요크셔 테리어는 영국에서 형성된 작은 테리어입니다. 오늘날에는 반려견으로 분류되지만, 움직이는 대상을 찾고 뒤쫓는 테리어의 작업 배경도 함께 살펴볼 수 있습니다.",
+      "file": "src/content/breeds/detail-batch-c.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/086g03-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "e27af2f1da4866de4478f91156bc6f40540a8c759d998875f27c14924e7efa0a",
+      "afterHash": "6ae8a143ec139f25b1a9757012666edfebf59563890c374ea84e87510674edf9",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "yorkshire-terrier",
+      "field": "story.roleToHome",
+      "after": "긴 피모를 가진 작은 반려견의 모습과 탐색을 즐기는 행동은 함께 나타날 수 있습니다. 장난감이나 주변 움직임에 얼마나 집중하는지 관찰하고, 놀이의 강도와 쉬는 시간을 개체에 맞춰 조절해 보세요.",
+      "file": "src/content/breeds/detail-batch-c.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/086g03-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "7c2cce1c9f747ca0317f53fb245d7ec44bf6143db9de6ba5e297f19c5d6694ce",
+      "afterHash": "124ee23803609c630a61ba8ab1613c47a68a42a3a23c188700a1a1850ffa347e",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "yorkshire-terrier",
+      "field": "story.steps.0.body",
+      "after": "요크셔 테리어는 영국에서 형성된 작은 테리어예요. 오늘날의 반려 생활에서도 장난감이나 움직이는 대상을 찾는 모습이 나타날 수 있지만, 관심의 강도는 개체마다 달라요.",
+      "file": "src/content/standard-breed-detail/familiar-data.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/086g03-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "647a90071244563296f8167494689912b6d77bc23ad9959aae095fad10b7f244",
+      "afterHash": "8d3e1d6ce5915f4471813ec1b0722e7d9bb5efd981c7aaab65c83fbe06937df3",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "german-spitz",
+      "field": "story.opening",
+      "after": "저먼 스피츠는 독일 원산의 스피츠형 견종으로, 주변을 살피는 역할과 반려 역할을 함께 지녔습니다. 포메라니안은 이 견종에 포함되는 작은 바라이어티이며, 저먼 스피츠 전체를 같은 체격으로 보면 안 됩니다.",
+      "file": "src/content/breeds/detail-batch-d.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/097g05-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "b99dcedc7c92f0877aa840f497bf0f9c966ffaa7848bd5a224d590931614382a",
+      "afterHash": "7f6b175a55c6df15631018da1450862de01823ad4884d1ff288776145e4a885f",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "german-spitz",
+      "field": "story.roleToHome",
+      "after": "울프스피츠부터 포메라니안까지 여러 크기가 하나의 표준에 포함됩니다. 생활을 준비할 때는 바라이어티를 먼저 확인하고, 성견의 체격과 피모 관리, 주변 자극에 대한 반응을 각각 살펴보세요.",
+      "file": "src/content/breeds/detail-batch-d.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/097g05-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "11e37bc026cb56731db01318e766d4015d75bd9b84759cc65c362906bab9a958",
+      "afterHash": "b05554658de9a7e900ed44499b09fb6cff7cea0a21b5871719ec9c20a1cb600a",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "french-bulldog",
+      "field": "story.steps.0.body",
+      "after": "프렌치 불도그는 19세기 파리에서 반려견으로 정립됐어요. 영국 불도그와 계통상 연결되지만, 조상의 역할을 지금 만나는 개의 성격이나 생활 필요와 같게 보지는 않아요.",
+      "file": "src/content/standard-breed-detail/familiar-data.ts",
+      "source": "https://www.fci.be/Nomenclature/Standards/101g09-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Second pass: retain limited origin/role facts; replace sequential source-history or unsupported causal framing with independent editorial wording. Not expert or legal clearance.",
+      "beforeHash": "0945ddb448d5331bd6577c06cb1bf9565a2c9bfcc49685ed6fc93f735fb31272",
+      "afterHash": "ae19f7daf297ea3f43829b5fe58e36ed87a52f4ae1af5742fc90c6205b16b021",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "boston-terrier",
+      "field": "story.opening",
+      "file": "src/content/breeds/detail-batch-d.ts",
+      "after": "보스턴 테리어는 미국에서 정립된 반려견입니다. 짧은 얼굴과 작은 체형만으로 생활을 예상하기보다, 함께 지낼 개체의 움직임과 휴식을 직접 살펴보세요.",
+      "source": "https://www.fci.be/Nomenclature/Standards/140g09-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "reason": "Replace grammatically broken assembled opening with a full independently written introduction; retain US origin and companion role.",
+      "beforeHash": "e5d6f677c7b06c926c89ebc42198b355eaf8000af8a23866f9894ee6e3b61c8b",
+      "afterHash": "dfe48245358b5d606526abda4a92873213208e6af2a0fe6b95db68c8c5f68dc9",
+      "decision": "rewritten"
+    },
+    {
+      "slug": "japanese-spitz",
+      "field": "story.steps.0.body",
+      "sha256": "3f6e84f3c8e053592624a72a87563b64c9da325e1ddaaf123d40ce68c20f324e",
+      "source": "https://www.ukcdogs.com/breed-groups/japanese-spitz",
+      "reviewedAt": "2026-10-24",
+      "status": "retained-limited-facts-not-full-clearance",
+      "reason": "Second pass: short origin/role fact or editorial observation; no long historical sequence retained. No whole-breed, medical or legal clearance.",
+      "decision": "retained"
+    },
+    {
+      "slug": "greyhound",
+      "field": "story.steps.0.body",
+      "sha256": "4b8aea15ea0f35ac50008e377f59f46105c5178285bd13529f53ebbc5fd32430",
+      "source": "https://www.fci.be/Nomenclature/Standards/158g10-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "status": "retained-limited-facts-not-full-clearance",
+      "reason": "Second pass: short origin/role fact or editorial observation; no long historical sequence retained. No whole-breed, medical or legal clearance.",
+      "decision": "retained"
+    },
+    {
+      "slug": "chihuahua",
+      "field": "story.steps.0.body",
+      "sha256": "8ff7e37513d6d6cf708c1a969d854f3ab72802ad1a67b315982ed29ea8219313",
+      "source": "https://www.fci.be/Nomenclature/Standards/218g09-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "status": "retained-limited-facts-not-full-clearance",
+      "reason": "Second pass: short origin/role fact or editorial observation; no long historical sequence retained. No whole-breed, medical or legal clearance.",
+      "decision": "retained"
+    },
+    {
+      "slug": "german-spitz",
+      "field": "story.steps.0.body",
+      "sha256": "4860a02be03a67e69d124efeeee3427f398410c5770ebba59b792c11c506bfef",
+      "source": "https://www.fci.be/Nomenclature/Standards/097g05-en.pdf",
+      "reviewedAt": "2026-10-24",
+      "status": "retained-limited-facts-not-full-clearance",
+      "reason": "Second pass: short origin/role fact or editorial observation; no long historical sequence retained. No whole-breed, medical or legal clearance.",
+      "decision": "retained"
+    }
+  ]
+}

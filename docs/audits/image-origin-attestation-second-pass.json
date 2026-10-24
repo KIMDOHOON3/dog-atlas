@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-24",
+  "evidenceType": "direct-user-statement",
+  "question": "제작 기록이 아직 부족한 19장(생활 아이콘 12장, 카드 조작 아이콘 4장, 크기 실루엣·준비 체크리스트·포메라니안 놀이 그림 각 1장)도 생성 AI로 새로 만든 그림이었어? 다운로드하거나 다른 그림을 편집한 것이 섞였는지 확인이 필요해.",
+  "answer": "전부 생성 AI로 새로 만들었어",
+  "scope": "Only the 19 explicitly queried current files, bound to SHA-256. Creator statement is distinct from generation receipts, provider terms, or rights in references.",
+  "assets": [
+    {
+      "path": "public/illustrations/ui/action-icons/readiness-checklist-3d.png",
+      "sha256": "5920e4de91b44b9daeb26c93489209fff3359b420cbf67681ec756d721f6d4eb"
+    },
+    {
+      "path": "public/illustrations/v4/german-spitz-feature-cooperative-play.webp",
+      "sha256": "826517ef0a0c2d6a6afd12b8a916fc1f33e7680656d8e8d1317a528c72be993d"
+    },
+    {
+      "path": "public/images/card-controls/collapse-paper-v2.webp",
+      "sha256": "cf4bda3cd54ff12e83af8ffdb8e7702d021e3ee9f180e91f8a68edabf3747186"
+    },
+    {
+      "path": "public/images/card-controls/detail-paper-v2.webp",
+      "sha256": "ebc949008dcd72bb7eefa36e398de62adcfa3b166928e1f7cfee1d42791be46a"
+    },
+    {
+      "path": "public/images/card-controls/expand-paper-v2.webp",
+      "sha256": "b102b00a47cf363ec3ca2480af65e7b9a8fa0364111244546496c6d819617191"
+    },
+    {
+      "path": "public/images/card-controls/flip-paper-v2.webp",
+      "sha256": "d6220f60bf784f5c3c6263c80f7f1af91154d7c83fa1a38153d7501ce036e1fc"
+    },
+    {
+      "path": "public/images/lifestyle-icons/calm-alert.png",
+      "sha256": "5bfffe67e5a7caf2951bb0b8bc78b4d5e833a9e3d964d9889c37b1af5e4e8c3d"
+    },
+    {
+      "path": "public/images/lifestyle-icons/climate.png",
+      "sha256": "707b5a8966775ae4d69871f55620f48bf44070da1d64debe4d26b5c48dfb214c"
+    },
+    {
+      "path": "public/images/lifestyle-icons/connection.png",
+      "sha256": "e9db79ca88ba20be7718d64f6734f2c2ed379ca1ef01bbf92f845151a0795092"
+    },
+    {
+      "path": "public/images/lifestyle-icons/enrichment.png",
+      "sha256": "8d408eb56cedafe77fdf61f89eb26a4c6d6db7cd156f6b9ecf4cb7d9de76280a"
+    },
+    {
+      "path": "public/images/lifestyle-icons/feeding.png",
+      "sha256": "af6ecac6eb02b8f0bdf5184abf0d569e718e653bdc7a2d89a52c5480afa723aa"
+    },
+    {
+      "path": "public/images/lifestyle-icons/grooming.png",
+      "sha256": "56f395d3051cf462cf7785dafdf7ca366f6a12e5e1ad574cce361025b01f416c"
+    },
+    {
+      "path": "public/images/lifestyle-icons/health-check.png",
+      "sha256": "8972ac7ff59f4a4c91d18527404a4000f5510e0b8dd94f8b308f794edbd9f6b3"
+    },
+    {
+      "path": "public/images/lifestyle-icons/hygiene.png",
+      "sha256": "44b6e23adeba9709824b45e1adb607052f3fbf833162fb5466eb5c5c1a8986db"
+    },
+    {
+      "path": "public/images/lifestyle-icons/rest.png",
+      "sha256": "ba03a3575b1a790ff6d299ec2fc1fd9eb9b7c72773acb33acf26792842048472"
+    },
+    {
+      "path": "public/images/lifestyle-icons/safety.png",
+      "sha256": "9b61624611eac2ff532fe628bd2d10ab9a6daa509b5e6d20b0702376b7d61044"
+    },
+    {
+      "path": "public/images/lifestyle-icons/sofa-rest.png",
+      "sha256": "c2dc6e1688158fe33cd5eaf766217d06cace79b199d55bb89081186c13124dd2"
+    },
+    {
+      "path": "public/images/lifestyle-icons/walk.png",
+      "sha256": "ad990b5deddf848cc0efea1e78fd744c62be49a7940f500dfdb86ecfa1176847"
+    },
+    {
+      "path": "public/images/size-icons/approved-silhouettes.webp",
+      "sha256": "1e516a43b21870b55e44234cdcabd8d4764679fdc37dc3020e27004c56af02e2"
+    }
+  ]
+}

@@ -1,0 +1,3017 @@
+{
+  "date": "2026-10-24",
+  "evidenceType": "direct-user-statement",
+  "question": "초기 견종 카드·역사 그림(v2/v3)을 만들 때, 생성 AI로 새로 만든 그림만 사용했는지 기억나?",
+  "answer": "생성 AI로 새로 만든 그림만 사용했어",
+  "scope": "Current v2/v3 files at this review, bound to SHA-256. This is creator-supplied provenance, not a provider license receipt or a warranty about reference inputs.",
+  "assets": [
+    {
+      "path": "public/illustrations/v2/affenpinscher-card.webp",
+      "sha256": "65a5dc254903f5dc6df617ac4240020bba8e528847c91cfec6b9a583cbc1fc30"
+    },
+    {
+      "path": "public/illustrations/v2/afghan-hound-card.webp",
+      "sha256": "fbf13ae409d1fc9fe3019e2312d49fec637476955624b565f975ea1bb786e00e"
+    },
+    {
+      "path": "public/illustrations/v2/aidi-card.webp",
+      "sha256": "708b52c40011fec9dc92b6830bd3fa0ba00454c8db864e5801bfe83b184abfa9"
+    },
+    {
+      "path": "public/illustrations/v2/airedale-terrier-card.webp",
+      "sha256": "f1faed534b17a7a4cbbed1a2e042401324b2379b7d9dd65a8cd546e007ce5111"
+    },
+    {
+      "path": "public/illustrations/v2/akita-card-front.webp",
+      "sha256": "68fb5b81855231db6645e8546366884acd995da0bbd5b1fc3b515ad13e004df0"
+    },
+    {
+      "path": "public/illustrations/v2/alaskan-malamute-card.webp",
+      "sha256": "17d0433263c96a0c1648796f83452075df5c7150a50f90e99624abde268ba310"
+    },
+    {
+      "path": "public/illustrations/v2/alpine-dachsbracke-card.webp",
+      "sha256": "63d6e328c85e76bd488a72f08a3e9206a07a71cd022acf0f45b995f0e0d5b0e7"
+    },
+    {
+      "path": "public/illustrations/v2/american-akita-card.webp",
+      "sha256": "01a147723940c38d51322bc63aa780a470ccba3ef0269b70f2fc91d6b4a5b6cb"
+    },
+    {
+      "path": "public/illustrations/v2/american-bully-card.webp",
+      "sha256": "dec638bd280a3f4cb40d98984a69f9b5d9e19fb99431a912265da1f3c6a844b9"
+    },
+    {
+      "path": "public/illustrations/v2/american-cocker-spaniel-card.webp",
+      "sha256": "e3212ee3ad7ff84071590748497317573e96829096ec14ed8bd454079081ac8c"
+    },
+    {
+      "path": "public/illustrations/v2/american-foxhound-card.webp",
+      "sha256": "6bb07a69da24519aca9e09a2d3732fbf9656bfd2c0c2cc3af909e50da5404d53"
+    },
+    {
+      "path": "public/illustrations/v2/american-pit-bull-terrier-card.webp",
+      "sha256": "a1e4cd021af22fc52decbf2543f9550dd1491b5cbf3d32178c03af966cff8c73"
+    },
+    {
+      "path": "public/illustrations/v2/american-staffordshire-terrier-card.webp",
+      "sha256": "3536ff3e8bd7bf0522d8b5dbce52c0a9504e7422d09859f6e36fa6f0688b9c03"
+    },
+    {
+      "path": "public/illustrations/v2/american-water-spaniel-card.webp",
+      "sha256": "f1d15c2bc1b01e2ff8407c39de13adc62789ea67010304f98341e150f4708964"
+    },
+    {
+      "path": "public/illustrations/v2/anatolian-shepherd-dog-card.webp",
+      "sha256": "0f403ddc90c0e7c0aadc53e92c3dfbf65dde82bc018a129568911f42519cd8bf"
+    },
+    {
+      "path": "public/illustrations/v2/anglo-francais-de-petite-venerie-card.webp",
+      "sha256": "d9a5f1735d3a17619e5576b3a69fb0d582ba52d9e462377fec2dcb0c38010762"
+    },
+    {
+      "path": "public/illustrations/v2/appenzeller-cattle-dog-card.webp",
+      "sha256": "2483cbb2795bfe2037a1ffc821c03185b71da440fb60e10d261168ef9d92c404"
+    },
+    {
+      "path": "public/illustrations/v2/ariege-pointing-dog-card.webp",
+      "sha256": "ca04930a85aa435c58dcfdf318b7182dffc882e0ae67d6b8548a734fd570d5ff"
+    },
+    {
+      "path": "public/illustrations/v2/ariegeois-card.webp",
+      "sha256": "e41d519f9d37e9691d8cdaabf2ff6b5ae00a0a3f46600ae1bacabc8e56ad5e5d"
+    },
+    {
+      "path": "public/illustrations/v2/artois-hound-card.webp",
+      "sha256": "0c65d5d718785766a8620a1066c9b95acee22c053e49cd61577b0ae1de5f8853"
+    },
+    {
+      "path": "public/illustrations/v2/australian-cattle-dog-card.webp",
+      "sha256": "7753686c417d5147fa4930b52b52c389d6ef1c0158f67c0e1a180e549d8f9240"
+    },
+    {
+      "path": "public/illustrations/v2/australian-kelpie-card.webp",
+      "sha256": "0de159eecec1450dbd82a85530cc8c31201d282498352d9769aa030ba88c70f8"
+    },
+    {
+      "path": "public/illustrations/v2/australian-shepherd-card.webp",
+      "sha256": "617bf1fa0c8f404f7268c51b4450b9eebfa6ed588655d37c184e6863dd758370"
+    },
+    {
+      "path": "public/illustrations/v2/australian-silky-terrier-card.webp",
+      "sha256": "dd324f1b913f05aad89c2d70a08228ea3a35a3b97396646836bbb2956daa25b8"
+    },
+    {
+      "path": "public/illustrations/v2/australian-terrier-card.webp",
+      "sha256": "f1c638c69612949ac378905e9ac2bee3374b5bd384f014028cd6cfd958b9dee4"
+    },
+    {
+      "path": "public/illustrations/v2/austrian-black-and-tan-hound-card.webp",
+      "sha256": "304e7a22bbb822ec594ea6a9d4bf6a51856a029b91b88d9e7d9f2922efe0b9cb"
+    },
+    {
+      "path": "public/illustrations/v2/austrian-pinscher-card.webp",
+      "sha256": "ef6e686e15c3767f039d5255976ebad4ade0c35ca8b5b797eb2e313f062c30c0"
+    },
+    {
+      "path": "public/illustrations/v2/azawakh-card.webp",
+      "sha256": "f2f793eac4115e3b1fbe5f6791d0d18b7bedc72525e05323a398b62a6562d3c3"
+    },
+    {
+      "path": "public/illustrations/v2/barbet-card.webp",
+      "sha256": "2c3b7733c44cf381eb812d2258c3c026665b64bf20977754972209c073e906f8"
+    },
+    {
+      "path": "public/illustrations/v2/basenji-card.webp",
+      "sha256": "34848cea5320e7ff224cd6bde73458d0a62dfe02af7297780d954e06a9c9bfd5"
+    },
+    {
+      "path": "public/illustrations/v2/basset-artesien-normand-card.webp",
+      "sha256": "05cfc40b018f0bd875e9be4fa27815d00dae68c9fccf6adfb155dc57cd913b08"
+    },
+    {
+      "path": "public/illustrations/v2/basset-bleu-de-gascogne-card.webp",
+      "sha256": "aae9890af0f52bc4d8b4b9f669d59ae5ad0e679ce773aed85d440deb5854af3b"
+    },
+    {
+      "path": "public/illustrations/v2/basset-fauve-de-bretagne-card.webp",
+      "sha256": "522aae378e25a965e51ac90b9de45cc9bff5f56f8d2227a66613cb3917d1a2f6"
+    },
+    {
+      "path": "public/illustrations/v2/basset-hound-card.webp",
+      "sha256": "5821e1b93f41f69eb6fd4bdf2ed492bd3422e0d0eecb00c30539eced6c77206c"
+    },
+    {
+      "path": "public/illustrations/v2/bavarian-mountain-scent-hound-card.webp",
+      "sha256": "da2add5f4e8661beaaa50077f1750a8ddf6cca9c42f5751b2cfbecd67e4155a5"
+    },
+    {
+      "path": "public/illustrations/v2/beagle-card.webp",
+      "sha256": "e01ed9e4f419ae1f5c58051ebdf3087d9b3c6a2aa74cafa5e0d4b741199cbe4f"
+    },
+    {
+      "path": "public/illustrations/v2/beagle-harrier-card.webp",
+      "sha256": "af6b6a0064c6653571f1a4db230fd77b2e4926b8f4e64df3e8174e7dffc91988"
+    },
+    {
+      "path": "public/illustrations/v2/bearded-collie-card.webp",
+      "sha256": "9657e956a3b82e61952735401acfb32887c9ea21afad124e22f0b4fd47813cbd"
+    },
+    {
+      "path": "public/illustrations/v2/beauceron-card.webp",
+      "sha256": "0a53fb87ab4e5857b73e3d1da6e5ea2b8ba0bd2f29abd8c1f74ba5874fbec577"
+    },
+    {
+      "path": "public/illustrations/v2/bedlington-terrier-card.webp",
+      "sha256": "45b417cb2ae69b37aebf5bac8d25bdf219b53be9a5102623ba890b14496bafdb"
+    },
+    {
+      "path": "public/illustrations/v2/belgian-groenendael-card.webp",
+      "sha256": "a4c40adedf16f1cb9ba89de2ab90be4a5c9f62f87822208582fabaa52753ea94"
+    },
+    {
+      "path": "public/illustrations/v2/belgian-laekenois-card.webp",
+      "sha256": "62777e92f71bd1f94a42f80fbe9daa523097f616beb152a58e6e2f8949c7d128"
+    },
+    {
+      "path": "public/illustrations/v2/belgian-malinois-card.webp",
+      "sha256": "7941db5e95534f44d35c0dfa6ffb1b07c732f46d754057ae62835eca20c17868"
+    },
+    {
+      "path": "public/illustrations/v2/belgian-tervueren-card.webp",
+      "sha256": "5083cf758f72d4f708e64d98442aab5ff83315446c46eb27864027ff90dcc34e"
+    },
+    {
+      "path": "public/illustrations/v2/bergamasco-shepherd-card.webp",
+      "sha256": "e8dc06273206fe532488482c4eaf757618f179de5f6e12ae6fd47b24f73fce77"
+    },
+    {
+      "path": "public/illustrations/v2/berger-picard-card.webp",
+      "sha256": "834865f8a4456588687771174cb268dde22421cb10c63485428901e35cc58ed7"
+    },
+    {
+      "path": "public/illustrations/v2/bernese-mountain-dog-card-front.webp",
+      "sha256": "513f2a2f530f8dcb7ef0b9b7b39b6d7148dc2d9d265fb76e5f61527e0cd24cba"
+    },
+    {
+      "path": "public/illustrations/v2/bichon-frise-card-front.webp",
+      "sha256": "19577be3d1f83137868848623696d706f58172e3854401841346c31209bf4148"
+    },
+    {
+      "path": "public/illustrations/v2/biewer-terrier-card.webp",
+      "sha256": "a24b5847983bb6ab3bbca39f4b8d989d6bb7ba519f7be64fe2b61ddd2897e9c3"
+    },
+    {
+      "path": "public/illustrations/v2/billy-card.webp",
+      "sha256": "61b202f91b883307847a05c1771943b123c4f33ebb8ec9551790df234d2f19e1"
+    },
+    {
+      "path": "public/illustrations/v2/black-and-tan-coonhound-card.webp",
+      "sha256": "ca1d20015b5e41815ecda128b6be6f61f09368764221b59a4d4a2720d415a3ce"
+    },
+    {
+      "path": "public/illustrations/v2/black-russian-terrier-card.webp",
+      "sha256": "870685a386c0b362620e690486bea575e8657fef7f3a502ef495c53fe5d38738"
+    },
+    {
+      "path": "public/illustrations/v2/bloodhound-card.webp",
+      "sha256": "52a43b1134deb141ef24176a6c49f81b68b2e0d91d6858af8dda866792c1ee55"
+    },
+    {
+      "path": "public/illustrations/v2/blue-picardy-spaniel-card.webp",
+      "sha256": "21fd49f034f765ce1c1688d20f67d4e0597afd99b0017886ef213b8d340338fe"
+    },
+    {
+      "path": "public/illustrations/v2/boerboel-card.webp",
+      "sha256": "0ed2e67a23e01162470aa6633d2a37f56096fb948073bb959759f8a428076cf7"
+    },
+    {
+      "path": "public/illustrations/v2/bohemian-wire-haired-pointing-griffon-card.webp",
+      "sha256": "05a0b5a1f7cf4229713f62a9d8215ad83ed53e4b570b71e24b0241e50b1be32b"
+    },
+    {
+      "path": "public/illustrations/v2/bolognese-card.webp",
+      "sha256": "e8dd667da5fd381a40145cb63692a15956af77488eaa290c3e114c0fcd8f935e"
+    },
+    {
+      "path": "public/illustrations/v2/border-collie-card.webp",
+      "sha256": "cd6d96b7d00f748a2b501e95188f7c46dab2b860d411f19b83316319b4563102"
+    },
+    {
+      "path": "public/illustrations/v2/border-terrier-card.webp",
+      "sha256": "3f3f880998bed276ebd59c7531c65f471d8de6c64de19e964057f4715113fbb0"
+    },
+    {
+      "path": "public/illustrations/v2/borzoi-card.webp",
+      "sha256": "b710e88282d3b1e7731946b057ec71032517b5bb9b3fde71876943dd05853d64"
+    },
+    {
+      "path": "public/illustrations/v2/bosnian-broken-haired-hound-card.webp",
+      "sha256": "0ff2f51f0522a638d2446f0fd621246f19d143d4a242c92cc0304b5ef26be4c2"
+    },
+    {
+      "path": "public/illustrations/v2/boston-terrier-card.webp",
+      "sha256": "c991305508a20221d4619a9b1b332b2021bcd9812d23d9e3a6751e664b5a00a4"
+    },
+    {
+      "path": "public/illustrations/v2/bouvier-des-ardennes-card.webp",
+      "sha256": "183547532fc146f8a61e838a5709628dc3c8534bbb0a76439159d2be00a21336"
+    },
+    {
+      "path": "public/illustrations/v2/bouvier-des-flandres-card.webp",
+      "sha256": "6cdd4c65512b7ae3498dda8d9a1eefda0b2b975e723b353054c7c0e43efa3575"
+    },
+    {
+      "path": "public/illustrations/v2/boxer-card.webp",
+      "sha256": "157c767ec314c658b7bd0b0d449ec58f73496300ac581b7f7b5328efda7cad8c"
+    },
+    {
+      "path": "public/illustrations/v2/braque-bourbonnais-card.webp",
+      "sha256": "265cc8c991b33b5a10af4f84ebf55c17d8e37f323999bab32c5a17089f3a950e"
+    },
+    {
+      "path": "public/illustrations/v2/braque-d-auvergne-card.webp",
+      "sha256": "1ccedf707cd3c5e92784960fdd250f3e55d6f8dd241ca03f5e749920c32d18a7"
+    },
+    {
+      "path": "public/illustrations/v2/braque-francais-type-gascogne-card.webp",
+      "sha256": "ccc3b3ded5e47424a2c004f96fc073316d10887cd261101fb61350ff5a6b8747"
+    },
+    {
+      "path": "public/illustrations/v2/braque-francais-type-pyrenees-card.webp",
+      "sha256": "0a78befc3524c4f7173e4b3a07bed06701d83997e343fb7f8e9c89c99f74fdb9"
+    },
+    {
+      "path": "public/illustrations/v2/braque-saint-germain-card.webp",
+      "sha256": "9a48df4e8ab1cfcd64fe3063b0bebf84262922fe4ba52932429d2a8a9e1f3361"
+    },
+    {
+      "path": "public/illustrations/v2/brazilian-campeiro-bulldog-card.webp",
+      "sha256": "e0c4e25f5846691f7154ee692915ca8ab54d7feebd6a48d0431b82d43eed5462"
+    },
+    {
+      "path": "public/illustrations/v2/brazilian-terrier-card.webp",
+      "sha256": "982eb14e31680b78122a65892c23e53e880149b3272b332beb39ede32308431b"
+    },
+    {
+      "path": "public/illustrations/v2/brazilian-tracker-card.webp",
+      "sha256": "4dbdd3e1709db6744853674fa1f90971f6c94d0eb5fe8436e0a8cf69f375d1c5"
+    },
+    {
+      "path": "public/illustrations/v2/briard-card.webp",
+      "sha256": "3365992abcfe589d7a4f6db77a404524829602e22ebbb4302f7bc1f6775e6b60"
+    },
+    {
+      "path": "public/illustrations/v2/briquet-griffon-vendeen-card.webp",
+      "sha256": "d560e94793e8949e0ae695b8cb26c25f066249a2362057441a246e8672282c71"
+    },
+    {
+      "path": "public/illustrations/v2/brittany-spaniel-card.webp",
+      "sha256": "ed990fbfe7b29d324967be6bd7649cc786d72fb0d4473d685541154c1d534b04"
+    },
+    {
+      "path": "public/illustrations/v2/broholmer-card.webp",
+      "sha256": "976ac97f057252c88f230430ca9afcb5ff32acbc4c1a5d82f0a21146ed1f8568"
+    },
+    {
+      "path": "public/illustrations/v2/bulgae-card.webp",
+      "sha256": "47a5785f2c004b6f4cbef35f2f6c5fff50614b41f036648fd8e020c763001930"
+    },
+    {
+      "path": "public/illustrations/v2/bull-terrier-card.webp",
+      "sha256": "878c525a3f1d6498c97ea75719297fd84a6c1c897bd2344bf8fe36fcb10de348"
+    },
+    {
+      "path": "public/illustrations/v2/bulldog-card.webp",
+      "sha256": "21ac2a7ee557310feb6830a9ed32e611e4d71e23a8abdfc8ca40b16671508d9d"
+    },
+    {
+      "path": "public/illustrations/v2/bullmastiff-card.webp",
+      "sha256": "05a0aadad1062eb02c36ffdeb559beec229c653d331b0e39a36155d7a290da1a"
+    },
+    {
+      "path": "public/illustrations/v2/burgos-pointer-card.webp",
+      "sha256": "3b4745238823e545f4bced238ff1fb1f23d355b06d39531b606555814011a69e"
+    },
+    {
+      "path": "public/illustrations/v2/cairn-terrier-card.webp",
+      "sha256": "d85f719f0d8cb29c953599d6aae06d2685c567c169ef308127118e57a6212260"
+    },
+    {
+      "path": "public/illustrations/v2/canaan-dog-card.webp",
+      "sha256": "d9c5204d8f426ad37630f69447d8e94d59a3f2370e08c849be8de80c1c8d1f92"
+    },
+    {
+      "path": "public/illustrations/v2/canadian-eskimo-dog-card.webp",
+      "sha256": "ba2aea59a27c8a14995e48f38fa46940f244a0085a60da6390850faa69fea787"
+    },
+    {
+      "path": "public/illustrations/v2/cane-corso-card.webp",
+      "sha256": "b34cc5dbdbd11ad4cba3b433e0485c811f8d712ac7b9cb49b24b42b1cccbd208"
+    },
+    {
+      "path": "public/illustrations/v2/castro-laboreiro-dog-card.webp",
+      "sha256": "df40e50a5b50d3c4b2ff926d8e05bf2735aac723e107307d832a989ecb2ddd48"
+    },
+    {
+      "path": "public/illustrations/v2/catalan-sheepdog-card.webp",
+      "sha256": "cd135b4fc8ca8346e57d2564c60dd70f3af6748bd8cf9b6c58a3cc1268ea464f"
+    },
+    {
+      "path": "public/illustrations/v2/caucasian-shepherd-dog-card.webp",
+      "sha256": "24987b8f49d82de43a2fbff6830ad50ef3f33ffa642eed434d6ca852cbf466c3"
+    },
+    {
+      "path": "public/illustrations/v2/cavalier-king-charles-spaniel-card-front.webp",
+      "sha256": "dfac48d88272c89b3465de5990de14b5757c9951462c9b7c40cf30aeb603b2ce"
+    },
+    {
+      "path": "public/illustrations/v2/central-asian-shepherd-dog-card.webp",
+      "sha256": "edb162a6dbcf9b0bdaa1664cc530ef36eb66c2ea4bdb5f10d74e9c59fa18a6c5"
+    },
+    {
+      "path": "public/illustrations/v2/cesky-terrier-card.webp",
+      "sha256": "bc875a72b286931af1af68c946450be5546c5e07e624e44e9c6dc2ea874933fc"
+    },
+    {
+      "path": "public/illustrations/v2/chesapeake-bay-retriever-card.webp",
+      "sha256": "5f57c88a2d310802d6e95c0862242589c0181daa9655faaadbc7c519febf0257"
+    },
+    {
+      "path": "public/illustrations/v2/chihuahua-card.webp",
+      "sha256": "dd57790edf0597cf71609268277839a6fe4204904b2f6c8c4aef6ecf1f9e68e6"
+    },
+    {
+      "path": "public/illustrations/v2/chinese-crested-dog-card.webp",
+      "sha256": "76d4ab73874b1dba2afeb1ba280e751eb31845c024289d1b2a33ae7d5e0f233c"
+    },
+    {
+      "path": "public/illustrations/v2/chodsky-pes-card.webp",
+      "sha256": "810edb8e7f767a6c5dbf75ee1cad5cc04149d9097cf6a8bce597719baddc85e7"
+    },
+    {
+      "path": "public/illustrations/v2/chow-chow-card.webp",
+      "sha256": "ab8604821ce4b1985634cbf66c013ec4d0eab4fe24f038ea58ac0a19fe2daab0"
+    },
+    {
+      "path": "public/illustrations/v2/cimarron-uruguayo-card.webp",
+      "sha256": "1457dea1a12788917ede15224c0b38f96725267b9aa09ffd7c49969167de3bde"
+    },
+    {
+      "path": "public/illustrations/v2/cirneco-dell-etna-card.webp",
+      "sha256": "5913e92e5b316308ea81e5736bf763650309d3a1ed1000fbf91a6817884c94ba"
+    },
+    {
+      "path": "public/illustrations/v2/clumber-spaniel-card.webp",
+      "sha256": "f68cca18117079d49c9484ee1f2b1d82312e264ed7deb867c60fe81514ab8b94"
+    },
+    {
+      "path": "public/illustrations/v2/collie-rough-card.webp",
+      "sha256": "92f0cc6b3166648d06edf07abd18260cc45f1b9582a220ea92b61904d574b338"
+    },
+    {
+      "path": "public/illustrations/v2/continental-bulldog-card.webp",
+      "sha256": "1ac680349ec6ff20bf9901b703466016776b4bbf0b710cedfc652fd5f05dde73"
+    },
+    {
+      "path": "public/illustrations/v2/continental-toy-spaniel-card.webp",
+      "sha256": "eb3dd5512120689adcb7a78187e636332ad39ad3aef32e1569e04137d52ab9f1"
+    },
+    {
+      "path": "public/illustrations/v2/coton-de-tulear-card.webp",
+      "sha256": "be05d208d2c25bd7f5fc794131007cfe4be08eda1135030ac9556d4d828ad9f1"
+    },
+    {
+      "path": "public/illustrations/v2/croatian-sheepdog-card.webp",
+      "sha256": "70f71e6634926e73d30845cd307a9926ed5d0189a402206ea880fdc88a758bad"
+    },
+    {
+      "path": "public/illustrations/v2/curly-coated-retriever-card.webp",
+      "sha256": "afa2a256ef63a5c24932e0f13e557f2a0508f557e4455f408eadde4552c55cd7"
+    },
+    {
+      "path": "public/illustrations/v2/czechoslovakian-wolfdog-card.webp",
+      "sha256": "f9ff9ffc5f4100f2fce29cf0daf94a13f1363fa62d7611359cd75b451fcdf501"
+    },
+    {
+      "path": "public/illustrations/v2/dachshund-card.webp",
+      "sha256": "608054e5daa47c53d5be0f6cc055a29019055b79c133dfb9cf287e9bc9a74cd1"
+    },
+    {
+      "path": "public/illustrations/v2/dalmatian-card.webp",
+      "sha256": "9b3d40c06ad0c1ad72b3c46ce142fcedd911d9631d288b944ab8603866728f29"
+    },
+    {
+      "path": "public/illustrations/v2/dandie-dinmont-terrier-card.webp",
+      "sha256": "9d89c36deed81866daa1670fdb0169449a310445e72a80b7d159960e51839f4e"
+    },
+    {
+      "path": "public/illustrations/v2/danish-swedish-farmdog-card.webp",
+      "sha256": "2ff4f4225f22fc204b8e358b7a9dceec03798c11572b598172c32dec37a36e42"
+    },
+    {
+      "path": "public/illustrations/v2/dobermann-card-front.webp",
+      "sha256": "1984d95128b58065fd61167b14247f5e7218aa05b8095351b7dd843b07ce3d33"
+    },
+    {
+      "path": "public/illustrations/v2/dogo-argentino-card.webp",
+      "sha256": "f7ca2d573a59eb1b72e33857a791d96dd3849da1302c9f523fbfc067f55a2663"
+    },
+    {
+      "path": "public/illustrations/v2/dogue-de-bordeaux-card.webp",
+      "sha256": "ba8332eec83a2c042aea87761bc74a8dad168d08c8702fa248a7c146f362b420"
+    },
+    {
+      "path": "public/illustrations/v2/donggyeongi-card.webp",
+      "sha256": "4eff305ca6f360bfac4cbef4b511ef836d86e6b5efa37a1f8c5bda96808a370e"
+    },
+    {
+      "path": "public/illustrations/v2/drentsche-patrijshond-card.webp",
+      "sha256": "1151309bf3323e5f1d77ecfdd58b71df588039289dc242fe4e43551da6a273e1"
+    },
+    {
+      "path": "public/illustrations/v2/drever-card.webp",
+      "sha256": "bbbf2e2afa48f2d549d758fd90a6dbb483a2dc3d755f1878cca6658b741fa455"
+    },
+    {
+      "path": "public/illustrations/v2/dunker-card.webp",
+      "sha256": "a2ecb3bce08fa28e6c738bb03189ffcce8a8940d76a8f33a6da0d35f99fc016e"
+    },
+    {
+      "path": "public/illustrations/v2/dutch-shepherd-dog-card.webp",
+      "sha256": "40930a0555e9b72d1955ff05b69a06a35becd47fc8f0a3a8c5f69fcff4ca50c1"
+    },
+    {
+      "path": "public/illustrations/v2/dutch-smoushond-card.webp",
+      "sha256": "98413368952be68094e585e552663750d9863b47d9703bd07d6a749e295e09e4"
+    },
+    {
+      "path": "public/illustrations/v2/east-siberian-laika-card.webp",
+      "sha256": "8738fd00f3b7c8a84c9b2e2ec8f782de329630c686f900d0801ef7122a9335e3"
+    },
+    {
+      "path": "public/illustrations/v2/eesti-hound-card.webp",
+      "sha256": "ea65f443b2162d6886ac57b7e652b1e78340a2008aae29e452bcbb3b1f1d5d86"
+    },
+    {
+      "path": "public/illustrations/v2/english-cocker-spaniel-card.webp",
+      "sha256": "4cea6367e62ef6b2ac1413580802f3c9a7495440aa9c38f8ba83883a67493d45"
+    },
+    {
+      "path": "public/illustrations/v2/english-foxhound-card.webp",
+      "sha256": "054e1aec6bb736407bf4c39540bcb6edfc20dd470f561b7dfac39dbd87a03779"
+    },
+    {
+      "path": "public/illustrations/v2/english-pointer-card.webp",
+      "sha256": "f31c0043ba0d9bf2a54f15cd866e65132f2e0094d645d087f3ed4c1e16d170b5"
+    },
+    {
+      "path": "public/illustrations/v2/english-setter-card.webp",
+      "sha256": "c4f4fdcc2a58ee936b5545b4200466f0418412ec2063daf8dc0c46db3c18262e"
+    },
+    {
+      "path": "public/illustrations/v2/english-springer-spaniel-card.webp",
+      "sha256": "0dac5bfcd61c8d7fa7e5666d968adcdf840f4282299b3eb40c680377378ded77"
+    },
+    {
+      "path": "public/illustrations/v2/english-toy-spaniel-card.webp",
+      "sha256": "26d949afba0315eb4d4a089f474becba88bf09a056227bd4fb06536afeaeeb16"
+    },
+    {
+      "path": "public/illustrations/v2/english-toy-terrier-card.webp",
+      "sha256": "b9f8d67e8436e2959291b8ad6c85a50f7c13cab2399412e85960f2a5b7c3ba58"
+    },
+    {
+      "path": "public/illustrations/v2/entlebucher-mountain-dog-card.webp",
+      "sha256": "e2c0ab3c7078a8e5d20cc01c7be65f9fb02c2f0e21e2afbefd43db131c6ace23"
+    },
+    {
+      "path": "public/illustrations/v2/estrela-mountain-dog-card.webp",
+      "sha256": "81e4ab59f169c3fea4cbc900eb0e64782adc822c26d808ffd82f410a8a0017e5"
+    },
+    {
+      "path": "public/illustrations/v2/eurasier-card.webp",
+      "sha256": "977d9baa21b274da0308f4d1ec9ff730ca414c1a10f2b422f0099b1e3735e26d"
+    },
+    {
+      "path": "public/illustrations/v2/field-spaniel-card.webp",
+      "sha256": "962ed88c6301cfa66c6d84a13ea249e955b2d2a69c38ea66e2cc036c3ef256d3"
+    },
+    {
+      "path": "public/illustrations/v2/fila-brasileiro-card.webp",
+      "sha256": "a8709a6e97b053075e360cbedecdfbabcce83b4fef755990e9bc28a8cde1e630"
+    },
+    {
+      "path": "public/illustrations/v2/finnish-hound-card.webp",
+      "sha256": "630b71b54326ae8c1bb115607f72900ae9fd21a507cab8b3f12d535e09d8caf0"
+    },
+    {
+      "path": "public/illustrations/v2/finnish-lapponian-dog-card.webp",
+      "sha256": "8f677eb049a10b968643226fce4a54dd44ca47a42bb408047b267f8ebaf375fc"
+    },
+    {
+      "path": "public/illustrations/v2/finnish-spitz-card.webp",
+      "sha256": "6cd27fb227265d4d755eb0c801d4baaf3457b9bc07a788787dc9e6a5a4c91f82"
+    },
+    {
+      "path": "public/illustrations/v2/flat-coated-retriever-card.webp",
+      "sha256": "d45a55deabee7355cfa4b1000276ca067e572955c914e0ef495828c6b67398fa"
+    },
+    {
+      "path": "public/illustrations/v2/french-bulldog-card.webp",
+      "sha256": "180262196756e3c977584268d59726e729d2c69c4539b3da739236d8f3290107"
+    },
+    {
+      "path": "public/illustrations/v2/french-spaniel-card.webp",
+      "sha256": "9e5822fea4c6bd4920614caacc3a656ba7f8c9cbddad8f2bfa2f647e7b26a3bf"
+    },
+    {
+      "path": "public/illustrations/v2/french-tricolour-hound-card.webp",
+      "sha256": "38b0e3f0e77f50d83b61831d51e44aa573aa59653073af2710a352865a0a4655"
+    },
+    {
+      "path": "public/illustrations/v2/french-white-and-black-hound-card.webp",
+      "sha256": "cb7c747b923979b20656b1b2f2d2dfe28b3a720d34552889ed79518b10ac3cb7"
+    },
+    {
+      "path": "public/illustrations/v2/french-white-and-orange-hound-card.webp",
+      "sha256": "ba03bdf3bbe993989e06e3b3f4b3006f6c4824a19e35ad9204d5de8a1a5efed5"
+    },
+    {
+      "path": "public/illustrations/v2/galgo-espanol-card.webp",
+      "sha256": "ad7d847d0b943cf6bf29eccb19a17d9cbad0b4693cb5a9b47fe5e27886aa4d80"
+    },
+    {
+      "path": "public/illustrations/v2/gascon-saintongeois-card.webp",
+      "sha256": "8ec17ca0c98b82f14faad9e2edc0c44c664e62e042ba8f77be3d951106b3d8aa"
+    },
+    {
+      "path": "public/illustrations/v2/german-hound-card.webp",
+      "sha256": "9e0bf3cb22536aaf73362c95fc5e95d201ddba570bad7f79481814332b90c31c"
+    },
+    {
+      "path": "public/illustrations/v2/german-hunting-terrier-card.webp",
+      "sha256": "cd14701a70f3f9f28aa0e978fc66c03ad16740701f0abae11634967acb000037"
+    },
+    {
+      "path": "public/illustrations/v2/german-long-haired-pointer-card.webp",
+      "sha256": "97c38d8fea33e046192d1c7d15b4fa8c9a7f67b9376f6e517f0c68acbf985b7e"
+    },
+    {
+      "path": "public/illustrations/v2/german-pinscher-card.webp",
+      "sha256": "3e44bd260c8bb9cfdefd3912ce06a94b447797975a04294d34814e4077070280"
+    },
+    {
+      "path": "public/illustrations/v2/german-shepherd-dog-card.webp",
+      "sha256": "d6cd3cf9bc970286aa74c83d2a1cfb50654865dbcf7f544907fcfa7db2bf945b"
+    },
+    {
+      "path": "public/illustrations/v2/german-short-haired-pointing-dog-card.webp",
+      "sha256": "af234b66a534f139feb6410eb3975a3e3a364d078d1a9ba1739d09ad1f510720"
+    },
+    {
+      "path": "public/illustrations/v2/german-spaniel-card.webp",
+      "sha256": "c0aae6fc5c70cfe22abad58802565a3dce6eee40c7660e5e89e00fd0a7be4927"
+    },
+    {
+      "path": "public/illustrations/v2/german-spitz-card.webp",
+      "sha256": "05e43caee3e9577cbec2420dcec4ac127eec55ff528eb6e3904d020ca99bda83"
+    },
+    {
+      "path": "public/illustrations/v2/german-stichelhaar-card.webp",
+      "sha256": "ce41eedf78b9f76a854dd687ec20f69291c320b22a2a0ea1f365a43d296c42da"
+    },
+    {
+      "path": "public/illustrations/v2/german-wire-haired-pointing-dog-card.webp",
+      "sha256": "59dc56416eb02036c9629dd5c2453fd97d6b386006af31621e9ff4e77fc0d65c"
+    },
+    {
+      "path": "public/illustrations/v2/giant-schnauzer-card.webp",
+      "sha256": "f2a2c8a1792216cb4062bb2c56855cc51680789fad229a749bd4eadc8b1abdb2"
+    },
+    {
+      "path": "public/illustrations/v2/glen-of-imaal-terrier-card.webp",
+      "sha256": "9fc2aa2c317e9c0a609590a2449bb194dbda4ab345b1441fdb74167ca02142b8"
+    },
+    {
+      "path": "public/illustrations/v2/golden-retriever-card.webp",
+      "sha256": "0827ace42da6edd33fbe7e260998ff976079c2839b8f3d1d8c7769e1837eeecc"
+    },
+    {
+      "path": "public/illustrations/v2/goldendoodle-card.webp",
+      "sha256": "3148954ac1b1aac988cbd4df83cf160dd78f134594b7184c98f8fa55ea3f2a45"
+    },
+    {
+      "path": "public/illustrations/v2/gordon-setter-card.webp",
+      "sha256": "753137815eea008c0971fcf2feba8ca04f86c4c8f62ce090f433fc7f916405a7"
+    },
+    {
+      "path": "public/illustrations/v2/grand-basset-griffon-vendeen-card.webp",
+      "sha256": "0bba85e371b656cd35669ff3d34c3c130e1953b7a5d45d207d64008916663c83"
+    },
+    {
+      "path": "public/illustrations/v2/grand-bleu-de-gascogne-card.webp",
+      "sha256": "35dbe6c644635f9581ec91848b26f0b7df5c940b996744b4166f6575e7d564ef"
+    },
+    {
+      "path": "public/illustrations/v2/great-anglo-french-tricolour-hound-card.webp",
+      "sha256": "ac33a839dbc3f69b0c065ca19c0e150458e836daa9a28d46c201bf160e0f30ed"
+    },
+    {
+      "path": "public/illustrations/v2/great-anglo-french-white-and-black-hound-card.webp",
+      "sha256": "7dedbec4bb7ccb2aa0dd468003fa4337e408f6dc741e56b1afdee79c8b55312c"
+    },
+    {
+      "path": "public/illustrations/v2/great-anglo-french-white-and-orange-hound-card.webp",
+      "sha256": "2da203f43f321958ae29fbc5d14d02eecb364a647da0f372ab781c9b48ada29f"
+    },
+    {
+      "path": "public/illustrations/v2/great-dane-card.webp",
+      "sha256": "ee0fa32c25d88ae23bde00e724f94a17ef955b871914e8176b06e8df42980c4c"
+    },
+    {
+      "path": "public/illustrations/v2/greater-swiss-mountain-dog-card.webp",
+      "sha256": "f0e411226c98fb8f1e0d650e779ecd02e277b69bbd1894adc562291f81d35ad0"
+    },
+    {
+      "path": "public/illustrations/v2/greek-harehound-card.webp",
+      "sha256": "4a5d2229065acddc8035ed35d2473fafbfd618e6efcce7ca050f3de06c75932e"
+    },
+    {
+      "path": "public/illustrations/v2/greenland-dog-card.webp",
+      "sha256": "66f696b216781e96130cf183eb2e02bfe697dde9a54b328c128800e83d4472be"
+    },
+    {
+      "path": "public/illustrations/v2/greyhound-card.webp",
+      "sha256": "e3ec4b31714b81abde72285e6bc362ac64290c4303df488d0ecbb112171f1ae9"
+    },
+    {
+      "path": "public/illustrations/v2/griffon-belge-card.webp",
+      "sha256": "562e4e34a47b536b4c402ad984974a138142dd2e1cc308a783e9f1d300b8f198"
+    },
+    {
+      "path": "public/illustrations/v2/griffon-blue-gascony-card.webp",
+      "sha256": "3ba0aadd2e8b7766819644111f46dfedb50f69fe18721e77e80dc5fba4a6eedd"
+    },
+    {
+      "path": "public/illustrations/v2/griffon-bruxellois-card.webp",
+      "sha256": "5e0ee0087e0b1026508fb5ceb8eab54b9e2e96f44d7e59f0ef48273351ef092e"
+    },
+    {
+      "path": "public/illustrations/v2/griffon-fauve-de-bretagne-card.webp",
+      "sha256": "f91716044d4fe8400272ee111de68b13e5e5a9220d8948ae6d17bab28cfe4a0e"
+    },
+    {
+      "path": "public/illustrations/v2/griffon-nivernais-card.webp",
+      "sha256": "ff9e45aa1ef705079f6edab47de09fbac59ba777d7f857f4e1677bbde598879e"
+    },
+    {
+      "path": "public/illustrations/v2/halden-hound-card.webp",
+      "sha256": "6db7081a0ae8f1d1f8f02fb37587dfff1e3bfafecfc8ff854e93ce7d822c391d"
+    },
+    {
+      "path": "public/illustrations/v2/hamiltonstovare-card.webp",
+      "sha256": "5e00abeca6e82750bd9110b61f38d05b9f0250986d3bb80a10be5e8373cbde27"
+    },
+    {
+      "path": "public/illustrations/v2/hanoverian-scent-hound-card.webp",
+      "sha256": "27dcef304a0f11cd7963078ceb0889d4f11216d8b214d593ad6004cbdae93a1a"
+    },
+    {
+      "path": "public/illustrations/v2/harrier-card.webp",
+      "sha256": "adaf0fd045bbf3cc27a21d0a1708d446857aabf50a0b630da1f225f1b7779e05"
+    },
+    {
+      "path": "public/illustrations/v2/havanese-card.webp",
+      "sha256": "1bff13afe5036265cd044d959b850cd4f2f356568604caa64eb086780f03ec27"
+    },
+    {
+      "path": "public/illustrations/v2/hellenic-hound-card.webp",
+      "sha256": "aaa24d4156b989700a4f4df654f923b66ffb9eaedab469d852840a0978137da2"
+    },
+    {
+      "path": "public/illustrations/v2/hokkaido-card.webp",
+      "sha256": "0e710e956967e8337df453802411a2ecbead6720ca05734ff1e1f5f043036eec"
+    },
+    {
+      "path": "public/illustrations/v2/hovawart-card.webp",
+      "sha256": "52b455a55cd24cc7e0e075eaf5c9c9545b8c5bbfd9c9c6b025d7511ae8cead1f"
+    },
+    {
+      "path": "public/illustrations/v2/hungarian-greyhound-card.webp",
+      "sha256": "f46b3272e0590db5b18149f4067c696dc27b18716b86959729b824e85f041d22"
+    },
+    {
+      "path": "public/illustrations/v2/hungarian-wirehaired-vizsla-card.webp",
+      "sha256": "65f1e6c19a09a3d10abedcf478b66bd31a1034cd5bf108a1857a953a4d0f1001"
+    },
+    {
+      "path": "public/illustrations/v2/hygen-hound-card.webp",
+      "sha256": "6ffe394f0d8d2cb5cf9ccaa6c3b07875fc6a12c40e4108a0176d4597cb978bcb"
+    },
+    {
+      "path": "public/illustrations/v2/ibizan-hound-card.webp",
+      "sha256": "a2b786bf1ea97dd188705871b2c5f1ce7591265160c7003deffad819263f7378"
+    },
+    {
+      "path": "public/illustrations/v2/icelandic-sheepdog-card.webp",
+      "sha256": "80b38ffb2172212ad238cbb81b75849d472049b494445a87a0dad02039575503"
+    },
+    {
+      "path": "public/illustrations/v2/irish-red-and-white-setter-card.webp",
+      "sha256": "a39b7fe83f9708adfca1af5d07d50323b7ffd60267f853d7f8a0fa1aa2c128fc"
+    },
+    {
+      "path": "public/illustrations/v2/irish-red-setter-card.webp",
+      "sha256": "dbe35e7e7d2e7247c9b6a619a687f4c041777fbd78a269a95f1ce359e9437edc"
+    },
+    {
+      "path": "public/illustrations/v2/irish-terrier-card.webp",
+      "sha256": "3edfdf3891fd871f99c843c77ccee3c032f6087c7c0df04d71fdad004ea4b31b"
+    },
+    {
+      "path": "public/illustrations/v2/irish-water-spaniel-card.webp",
+      "sha256": "4582d231454e1d22b2689bf4bea8889fbc0a2acce2d2370156b6d9e3dc5e51f3"
+    },
+    {
+      "path": "public/illustrations/v2/irish-wolfhound-card.webp",
+      "sha256": "e5e8aa10bba1f17c50fe0f8670d795d591442899cfa2446996c585f0b89c890c"
+    },
+    {
+      "path": "public/illustrations/v2/istrian-short-haired-hound-card.webp",
+      "sha256": "04448d2b8b7e29dc6522a2c33fbef255f1f86f80f4cc19ef6354142e997235f8"
+    },
+    {
+      "path": "public/illustrations/v2/istrian-wire-haired-hound-card.webp",
+      "sha256": "1e3b61271fad8f594280b4998282ccccf631c5c3c361c99c4678cedf4ef49347"
+    },
+    {
+      "path": "public/illustrations/v2/italian-pointing-dog-card.webp",
+      "sha256": "af1ab62db2332d374b2dc410d6a1ef84b6b32a7139b1c827c9b2809d2aa733a2"
+    },
+    {
+      "path": "public/illustrations/v2/italian-segugio-card.webp",
+      "sha256": "2cf2d9d9cc2c6b816c62644f222831759b4983f6f89331bf74b9bf663ddcf186"
+    },
+    {
+      "path": "public/illustrations/v2/italian-sighthound-card.webp",
+      "sha256": "26459691241a88f394a769f0cb98f6c649fd7e41bd3c685a57a8acd9c774c12e"
+    },
+    {
+      "path": "public/illustrations/v2/italian-volpino-card.webp",
+      "sha256": "865524ba8f068f894f6e3f25beec4fb1fba38d4d3cb1eca4e16d9149cc120e8f"
+    },
+    {
+      "path": "public/illustrations/v2/jack-russell-terrier-card.webp",
+      "sha256": "ccd40b8777da9791bcc85f44422311ff0d80c9f59051ad1f83ccf3277602ee96"
+    },
+    {
+      "path": "public/illustrations/v2/jamthund-card.webp",
+      "sha256": "cb81b1dad7e183d9102c9c7c0633ed463c8a5a3743db3416f26251f66d10dc8e"
+    },
+    {
+      "path": "public/illustrations/v2/japanese-chin-card.webp",
+      "sha256": "d4a284b61cc7fee792a86468bc83e2741334ef9c6c7a74aee84a8a0bc51692ad"
+    },
+    {
+      "path": "public/illustrations/v2/japanese-spitz-card.webp",
+      "sha256": "56113e979d195fa37bf89e0e0e39a46aa432d3e8afc7742ab7b723392b7d10a4"
+    },
+    {
+      "path": "public/illustrations/v2/japanese-terrier-card.webp",
+      "sha256": "a9731f36cbfad24c04455ae4ec9c1308a1112a4d752e764ab72bf8bba25f23c8"
+    },
+    {
+      "path": "public/illustrations/v2/jeju-dog-card.webp",
+      "sha256": "496f2615de6710969784de396c621a5b6bc7ee55f161f323e87a21797ddfce8b"
+    },
+    {
+      "path": "public/illustrations/v2/kai-card.webp",
+      "sha256": "0946dfe8ad62568306b0617cce83695144645e18b825b1b34fb7c6ba53e22477"
+    },
+    {
+      "path": "public/illustrations/v2/kangal-shepherd-dog-card.webp",
+      "sha256": "57a349f7d4607356bea98b6d9cd6215c7ea0bb82ad7e6dff633588b9cfb0c5fe"
+    },
+    {
+      "path": "public/illustrations/v2/karelian-bear-dog-card.webp",
+      "sha256": "9a70e46b84f858b732dfce10d143964ff5d2c480191f2b3b7c24d48ea739ce26"
+    },
+    {
+      "path": "public/illustrations/v2/karst-shepherd-dog-card.webp",
+      "sha256": "f0889d70cc190d778ada25e7f3db5d8f329242fb120d8d305b01a4cf3fd061ed"
+    },
+    {
+      "path": "public/illustrations/v2/kazakh-tazy-card.webp",
+      "sha256": "08c5c31b0b2dbcb1a267caac31ab51eb17caa1e860ee78e8dfddd6d0330c222c"
+    },
+    {
+      "path": "public/illustrations/v2/kerry-blue-terrier-card.webp",
+      "sha256": "7e020d803c76a0fe42aeceb706f2d9a79c9b6dd8f33a7daa0454bb8a8c0d161a"
+    },
+    {
+      "path": "public/illustrations/v2/king-charles-spaniel-card.webp",
+      "sha256": "7f81dd2cad4e90f3ad9be2c91ee788aab4563635aa91309e3bc4ff74ecf96178"
+    },
+    {
+      "path": "public/illustrations/v2/kintamani-bali-dog-card.webp",
+      "sha256": "574030c61a07d7f3e6abbd72d667f4017ac85cbcff4ef6389e8b913a15c750bc"
+    },
+    {
+      "path": "public/illustrations/v2/kishu-card.webp",
+      "sha256": "782ff418f09cd312cff6b5cab429db6c06c37388c6138d6248beb602fde63b6b"
+    },
+    {
+      "path": "public/illustrations/v2/komondor-card.webp",
+      "sha256": "53212950917e79a8238579f5cb75bf250551d98c4883e687729356e836e862a9"
+    },
+    {
+      "path": "public/illustrations/v2/kooikerhondje-card.webp",
+      "sha256": "c39335f7437ea355d732d2e9fd421be25fbb4550dbeb03d5b07286d040afc9c5"
+    },
+    {
+      "path": "public/illustrations/v2/korea-jindo-dog-card.webp",
+      "sha256": "f28176745dea7d6e508c9ac9a4bdbc2bc8d018fdf1b254c559a51df66c5f03aa"
+    },
+    {
+      "path": "public/illustrations/v2/kromfohrlander-card.webp",
+      "sha256": "1b31c7db017245906592d97457fdd94e1abec93c4bec706f388ec5248d3c16dc"
+    },
+    {
+      "path": "public/illustrations/v2/kuvasz-card.webp",
+      "sha256": "346ae318d929b43cb8e780d3c624ad08c74663f2cfdc6555c5f362c63b3e0531"
+    },
+    {
+      "path": "public/illustrations/v2/labrador-retriever-card.webp",
+      "sha256": "0317e2d7362bae017f6801d53f17ff5b58664b3291cb066ca434ad03053812cd"
+    },
+    {
+      "path": "public/illustrations/v2/lagotto-romagnolo-card.webp",
+      "sha256": "a3192f3be5e05c5bfc41d4a38f7ccf6d219d9f412a1dbd8c4cfac0dd49dfab72"
+    },
+    {
+      "path": "public/illustrations/v2/lakeland-terrier-card.webp",
+      "sha256": "c72baec961145eb2fd1e44e9089c84238eef925fad84682ff6380e650930a3a7"
+    },
+    {
+      "path": "public/illustrations/v2/lancashire-heeler-card.webp",
+      "sha256": "13cf7e7d0de7ce5edc3c12f92819572aec9848d8e24e09727577029e7b991d20"
+    },
+    {
+      "path": "public/illustrations/v2/landseer-card.webp",
+      "sha256": "137f6a89ec27b93a315a98924e9c9b8b0737f8fc284535c664616ec8303b624d"
+    },
+    {
+      "path": "public/illustrations/v2/lapponian-herder-card.webp",
+      "sha256": "62fc5bfa2234eed36bb2a14a88d817d05badd5d6968dafb9c9fa4bed81ed54d0"
+    },
+    {
+      "path": "public/illustrations/v2/large-munsterlander-card.webp",
+      "sha256": "869076218052d98a2e7ae82a13df5d9fd72bc1f6c222a08af8df09ce1ec430c1"
+    },
+    {
+      "path": "public/illustrations/v2/leonberger-card.webp",
+      "sha256": "43bb0af9486b23e674c197203dfd347e92e435fcc5aaa161a7a7ae1fb20e2568"
+    },
+    {
+      "path": "public/illustrations/v2/lhasa-apso-card.webp",
+      "sha256": "0042334a0051dd641af4c2438dadffaf7525c6d468e5be9a062eedfbbcd686f7"
+    },
+    {
+      "path": "public/illustrations/v2/lowchen-card.webp",
+      "sha256": "47cd383a82b89c7a91f8f561ea6f7aec4a75ab47f8008fb59d2560999ee89a87"
+    },
+    {
+      "path": "public/illustrations/v2/macedonian-shepherd-dog-karaman-card.webp",
+      "sha256": "9aff36e556c465661527818d128fe03901466e32b79ad02be95bd5ac1c6640c1"
+    },
+    {
+      "path": "public/illustrations/v2/majorca-mastiff-card.webp",
+      "sha256": "0508bf99e60ad11d5f8a65006dc839f2334cf89eeb941ba73c93c1bd3c55d201"
+    },
+    {
+      "path": "public/illustrations/v2/majorca-shepherd-dog-card.webp",
+      "sha256": "0b00d250650da96a749e23b032abb0286788df8bc9f28902d746a457ad0d1586"
+    },
+    {
+      "path": "public/illustrations/v2/maltese-card.webp",
+      "sha256": "b135088476e30fbfea9c970499551d1c842548d584d2fe3e17c75e5efe22b99a"
+    },
+    {
+      "path": "public/illustrations/v2/maltipoo-card.webp",
+      "sha256": "d4d8a88f68b96fa6cae41e2018e825a2b274b6d1e349b3a3efe56bf8bb045600"
+    },
+    {
+      "path": "public/illustrations/v2/manchester-terrier-card.webp",
+      "sha256": "63abce1ad06c06e273fed95112fe09ac6f96ec09a79454786dfb7bc12f0c0b39"
+    },
+    {
+      "path": "public/illustrations/v2/maremma-sheepdog-card.webp",
+      "sha256": "ebae3883066e97d0546261d4f0ca372f9e6801f9f2ff253b64e57a2e00659aaa"
+    },
+    {
+      "path": "public/illustrations/v2/mastiff-card.webp",
+      "sha256": "b67c2a4ece1ebc05fc5b376919a20baa98a019f835208d30dc4de2b13748bb03"
+    },
+    {
+      "path": "public/illustrations/v2/miniature-american-shepherd-card.webp",
+      "sha256": "d40cdb442750799c0cc022f81bc158b7e5ce5d252e8d90daeb76c2bd59c21789"
+    },
+    {
+      "path": "public/illustrations/v2/miniature-bull-terrier-card.webp",
+      "sha256": "1f1571038a5db43b97754189f49ccb88b683c96afc2e29c7072953c8de67f5b7"
+    },
+    {
+      "path": "public/illustrations/v2/miniature-pinscher-card.webp",
+      "sha256": "12e95b3f150b36984d8a0d251cbf2218b0f18616e73cf0411ff15be8b9ce36e0"
+    },
+    {
+      "path": "public/illustrations/v2/miniature-schnauzer-card.webp",
+      "sha256": "4f5cb094f4c3846c844c98fa84be16dff3f799c265df02aa3e9bc4eddd16022c"
+    },
+    {
+      "path": "public/illustrations/v2/mongolian-bankhar-card.webp",
+      "sha256": "620b9e5187649784364eeab81ff6774ad17d2becce28c1b23da67f734e7fd123"
+    },
+    {
+      "path": "public/illustrations/v2/montenegrin-mountain-hound-card.webp",
+      "sha256": "23a6f1392c66fcd336f121668b26461d2725ad97d7faa584d6e1615392e8145e"
+    },
+    {
+      "path": "public/illustrations/v2/mudi-card.webp",
+      "sha256": "ec073f631d72a5802d64b2cc9023804eb2283fa63c9897f461968b0902e608c1"
+    },
+    {
+      "path": "public/illustrations/v2/neapolitan-mastiff-card.webp",
+      "sha256": "1b3a5f51c6412dab35580941ffaa39f0e56461a7eed7228c5c0298bb41b88472"
+    },
+    {
+      "path": "public/illustrations/v2/newfoundland-card.webp",
+      "sha256": "c94549871c4644ad28a205170452883bbfeaa829dba8c56933fadc72edb320e3"
+    },
+    {
+      "path": "public/illustrations/v2/norfolk-terrier-card.webp",
+      "sha256": "7a0859f032355e0bdf464374fc59450637a0a7d419b5ed65289a3b0f35cc0906"
+    },
+    {
+      "path": "public/illustrations/v2/norrbottenspets-card.webp",
+      "sha256": "57549caf1d2dbf877dfa02d5a428a7dcf86225f72cc90e573141aaf868465091"
+    },
+    {
+      "path": "public/illustrations/v2/norwegian-buhund-card.webp",
+      "sha256": "4dda79d652537b6b20f6412b3dc56c90ec95a5319feae00d38f218e01ed472a7"
+    },
+    {
+      "path": "public/illustrations/v2/norwegian-elkhound-black-card.webp",
+      "sha256": "cbb53ddb80e5de5c3c91c31780412cba41ae3aa14b1acece6e2c0880a16cf45a"
+    },
+    {
+      "path": "public/illustrations/v2/norwegian-elkhound-grey-card.webp",
+      "sha256": "c748cd0013f32e3c8680b9432184effa97178eeb7e1d20344f5049fad22f25f0"
+    },
+    {
+      "path": "public/illustrations/v2/norwegian-lundehund-card.webp",
+      "sha256": "fd5c78496c0eb645d716e0a973122d56b6362478915650efed42d50bda51e1e5"
+    },
+    {
+      "path": "public/illustrations/v2/norwich-terrier-card.webp",
+      "sha256": "299193860d7fbfc22c0f33cc55dc89e02f0437ed1c6565af0a7e2b88d044f1e4"
+    },
+    {
+      "path": "public/illustrations/v2/nova-scotia-duck-tolling-retriever-card.webp",
+      "sha256": "e6b426cd735001e6071beb0043bb71d23631ce6f48e7f519328296f507640360"
+    },
+    {
+      "path": "public/illustrations/v2/old-danish-pointer-card.webp",
+      "sha256": "727107ded2d464ad964002a24fd1929146a9cd4fa4b8685d7bcfde107c26165a"
+    },
+    {
+      "path": "public/illustrations/v2/old-english-sheepdog-card.webp",
+      "sha256": "5de7b230d031b120e577a419f7f5bb16178bd7e3c73c723b2a11965f891a47b6"
+    },
+    {
+      "path": "public/illustrations/v2/otterhound-card.webp",
+      "sha256": "2f853e3bdfc9c7965b9f96117bbf812f6c4a2b013288611be6bcbfdf2c4858bc"
+    },
+    {
+      "path": "public/illustrations/v2/parson-russell-terrier-card.webp",
+      "sha256": "667858b1588eaa3a769c0bfd68970e9d1d65668420cd11fef5d351551d23f167"
+    },
+    {
+      "path": "public/illustrations/v2/pekingese-card.webp",
+      "sha256": "c62e49df5e3959b91c14103a1ab74033845b9c527749be4a614189fffcbf5379"
+    },
+    {
+      "path": "public/illustrations/v2/peruvian-hairless-dog-card.webp",
+      "sha256": "0b5c51c3fa6864da4d0cec80d4fba83fcf16aa71a8a74682caa78bb485eb8f55"
+    },
+    {
+      "path": "public/illustrations/v2/petit-basset-griffon-vendeen-card.webp",
+      "sha256": "e390da40617442511e90074a4698dca807dc9c073c5a2a732f16b145087663e5"
+    },
+    {
+      "path": "public/illustrations/v2/petit-bleu-de-gascogne-card.webp",
+      "sha256": "68627b7154380b111c0dee0c3e1209cff5ae529c34ea2b9cbab573ecd6e80be0"
+    },
+    {
+      "path": "public/illustrations/v2/petit-brabancon-card.webp",
+      "sha256": "6422aa2d241d886aad4ab337941d8e5a019dcaefb8aaef3e2c7ba4c66e0d81ac"
+    },
+    {
+      "path": "public/illustrations/v2/pharaoh-hound-card.webp",
+      "sha256": "7a6bd393da25d4d5aa3a30fdb32d633e48935ee9daa94b112af9b5b29eef8e29"
+    },
+    {
+      "path": "public/illustrations/v2/picardy-spaniel-card.webp",
+      "sha256": "a1dac1cb5ccc730fff29f6a91f603d638a2113c8f1a0722faf59236ba268d3d2"
+    },
+    {
+      "path": "public/illustrations/v2/podenco-canario-card.webp",
+      "sha256": "926cde11229185f3dcebe1ab8c50a35557c848ecc3889af85a7a50653b4bec03"
+    },
+    {
+      "path": "public/illustrations/v2/poitevin-card.webp",
+      "sha256": "5c0497887ba820e19345315156504ee4dc67bcdb40d629a00423ff65d70fcff2"
+    },
+    {
+      "path": "public/illustrations/v2/polish-greyhound-card.webp",
+      "sha256": "6e86210e2d352f65fd824d74afa492ee872d5e5f31288f6c1943a7f99a68e6e3"
+    },
+    {
+      "path": "public/illustrations/v2/polish-hound-card.webp",
+      "sha256": "736fc60e41e5da36102de2a5f9da40a1be17ac5677fc41bfda52921fbeaabd05"
+    },
+    {
+      "path": "public/illustrations/v2/polish-lowland-sheepdog-card.webp",
+      "sha256": "d61b80174f931018a1639642ef482f42167df5191b61bbd902e6b4b82bbf5030"
+    },
+    {
+      "path": "public/illustrations/v2/polish-tatra-sheepdog-card.webp",
+      "sha256": "63863600fc3a54039dc04de7b13c6091f3607b2ba4acfd92bbab001031d42671"
+    },
+    {
+      "path": "public/illustrations/v2/pont-audemer-spaniel-card.webp",
+      "sha256": "5332ef3e594a254a7730c4d59b70ec604de136a802d5cece10a76047221c333a"
+    },
+    {
+      "path": "public/illustrations/v2/poodle-card.webp",
+      "sha256": "932b23e08a1962218bc9ffc34e4462039a2d68649c02d53db5bad536ccaf36c9"
+    },
+    {
+      "path": "public/illustrations/v2/porcelaine-card.webp",
+      "sha256": "dc26e0089a9ea9d522b77ae95fa7c1abaa5f66b445181cc4dbae1954171bbade"
+    },
+    {
+      "path": "public/illustrations/v2/portuguese-podengo-card.webp",
+      "sha256": "409f49ab7fce98cfc7e65382947c8ae18756d8ee628aa69b68ae0b07424e3b75"
+    },
+    {
+      "path": "public/illustrations/v2/portuguese-pointing-dog-card.webp",
+      "sha256": "721f964cfa921cb5f13cb45fa00dc0d6ccd6d7c39262e381470c6a7b38faaba5"
+    },
+    {
+      "path": "public/illustrations/v2/portuguese-sheepdog-card.webp",
+      "sha256": "aa94483b069d742b3578fd79553afbbab0a489acd72688b26afb5c9eab776355"
+    },
+    {
+      "path": "public/illustrations/v2/portuguese-water-dog-card.webp",
+      "sha256": "111b532587c3ea69e27d60ecee18128adc36e9190ff409bbb819b0e27c8634b1"
+    },
+    {
+      "path": "public/illustrations/v2/posavac-hound-card.webp",
+      "sha256": "9f107db83047bc742a35c41ad19ffa3bb4b808cdc6b87ccc8d0168eefc05cb56"
+    },
+    {
+      "path": "public/illustrations/v2/prague-ratter-card.webp",
+      "sha256": "aae3f2aa6eed6e31e21c07b193cb36e2487dd7821d36c8de348bcbdfc4569b68"
+    },
+    {
+      "path": "public/illustrations/v2/presa-canario-card.webp",
+      "sha256": "d45672b80a948ad7db41f2d674cfa01ebf4e7c8d9bc564a4a968c2cd2ef3d619"
+    },
+    {
+      "path": "public/illustrations/v2/pudelpointer-card.webp",
+      "sha256": "8c030b8d3c72f9aa4c087b573eb6356ae8982bf8cd51c1ed2d055bfc07f7e79f"
+    },
+    {
+      "path": "public/illustrations/v2/pug-card-front.webp",
+      "sha256": "89a1c054884802a17fffcfbafc767f991aa714401edb69f6f7f807b1839c185b"
+    },
+    {
+      "path": "public/illustrations/v2/puli-card.webp",
+      "sha256": "39edd08d8342107c6aa8bc31ef5a3592d21d05d99c57b9e29f0562b8d7749280"
+    },
+    {
+      "path": "public/illustrations/v2/pumi-card.webp",
+      "sha256": "4e814fb139442c6b3961801669059b40967617499d6802e92b8322ddd86f3d69"
+    },
+    {
+      "path": "public/illustrations/v2/pungsan-dog-card.webp",
+      "sha256": "21ff6631c85d0322b79b9fd6fd7cb152b177928a0928b9fab8a544996b361b15"
+    },
+    {
+      "path": "public/illustrations/v2/pyrenean-mastiff-card.webp",
+      "sha256": "bfb37a5cdc3bf403b079cd73ba80c222a800d65230825e0dd6548d981cba445b"
+    },
+    {
+      "path": "public/illustrations/v2/pyrenean-mountain-dog-card.webp",
+      "sha256": "47346d373a3453851cda9f0593d68f166fabe3434a8ed2a3db46b5ac8da99e7f"
+    },
+    {
+      "path": "public/illustrations/v2/pyrenean-sheepdog-card.webp",
+      "sha256": "df3cf1157d2d9fb105b483153d081d0458ff4310f388202fbe024592b53fcbb8"
+    },
+    {
+      "path": "public/illustrations/v2/rafeiro-do-alentejo-card.webp",
+      "sha256": "dcfbcfd1f405dd4bb850de493b4303717e7f20eaa05225952a4f7ffe5248a94b"
+    },
+    {
+      "path": "public/illustrations/v2/ratonero-bodeguero-andaluz-card.webp",
+      "sha256": "869aeb1d8227f78f55480792c58d1270f29ae9303e108b9ae9e9e24753c547b8"
+    },
+    {
+      "path": "public/illustrations/v2/rhodesian-ridgeback-card.webp",
+      "sha256": "1871018dd3ebe82fd1528c1b15a72db0d16c6021a88f1bc30af5cab3ce05e2f0"
+    },
+    {
+      "path": "public/illustrations/v2/romanian-bucovina-shepherd-dog-card.webp",
+      "sha256": "aa6ff5b23b190507ed5144baf679f4100d6030ba509b0b189c40b2e3493ae194"
+    },
+    {
+      "path": "public/illustrations/v2/romanian-carpathian-shepherd-dog-card.webp",
+      "sha256": "3464663cc50164439d02f2a9647b071e35b0f247e842101c96bdd2f3059bb27d"
+    },
+    {
+      "path": "public/illustrations/v2/romanian-mioritic-shepherd-dog-card.webp",
+      "sha256": "69c9b122d95e4dcc100dd6c648dbee4ad9da9a7d5c4e65ed492fe82f573b2a02"
+    },
+    {
+      "path": "public/illustrations/v2/romanian-raven-shepherd-dog-card.webp",
+      "sha256": "04e63071b45ecf6a0eb2641ace81230ce67a3153f9bb6fb5de80d0ccd031ffa0"
+    },
+    {
+      "path": "public/illustrations/v2/rottweiler-card.webp",
+      "sha256": "d5f6f73805b46285b90b4e831db8723ad6c16bbd72dfb1fc2ae823c7f0b78ae0"
+    },
+    {
+      "path": "public/illustrations/v2/russian-european-laika-card.webp",
+      "sha256": "ab84f40bd71185796acac10775e41cbb47585f0d59e8181d0840cfd6af734cd6"
+    },
+    {
+      "path": "public/illustrations/v2/russian-toy-card.webp",
+      "sha256": "c16a60b6756b882dc242aac7a1d21294550178a59f78ca283e877fc036fb6f3b"
+    },
+    {
+      "path": "public/illustrations/v2/saarloos-wolfdog-card.webp",
+      "sha256": "e661562879f0618b6a8fb36e7492f654b368797a7e8c25e09c93a9bc454717d7"
+    },
+    {
+      "path": "public/illustrations/v2/sabueso-fino-colombiano-card.webp",
+      "sha256": "b93b301476c53d40f7840d5f3236628325eaca324745278b1ec721ebc4e81c39"
+    },
+    {
+      "path": "public/illustrations/v2/saint-bernard-card.webp",
+      "sha256": "1a9dd0ebeeea5bac06d05c8cfccc01e0a2ab0468c4a59a1a80c9c8b3f16f0336"
+    },
+    {
+      "path": "public/illustrations/v2/saint-miguel-cattle-dog-card.webp",
+      "sha256": "fc146d573d745814a98b2b4d476cdd55aa0f4a517f241a7767243c63435f868a"
+    },
+    {
+      "path": "public/illustrations/v2/saluki-card.webp",
+      "sha256": "fe2c50149e895e442b1c962d2f13c8853545463b8b3834f6a0bea71ff7258f6f"
+    },
+    {
+      "path": "public/illustrations/v2/samoyed-card.webp",
+      "sha256": "7142244367e36204d5c31aab72a001b33c58f99f0b782072b3aac9fd827a296d"
+    },
+    {
+      "path": "public/illustrations/v2/sapsaree-card.webp",
+      "sha256": "ab96319f19fc7b81de4d5e3a051b29ffc2a24fdc6dcd02cc945b7ce55fef73f2"
+    },
+    {
+      "path": "public/illustrations/v2/sarplaninac-card.webp",
+      "sha256": "c7e70e13a5f6d429dcaed2753533e3e99bceba73e46b8b89222b713193c8b662"
+    },
+    {
+      "path": "public/illustrations/v2/schapendoes-card.webp",
+      "sha256": "49e50c1c0be1f96fab8fa9a75306215285a7f12547170e56cd641e2c1b6b35cc"
+    },
+    {
+      "path": "public/illustrations/v2/schillerstovare-card.webp",
+      "sha256": "08edc3306681fadda71aaf22285315939ec6612cf94b025b7d6c08719e9142a8"
+    },
+    {
+      "path": "public/illustrations/v2/schipperke-card.webp",
+      "sha256": "2b0b5cb5eacf584da508d48100bb0acaa9c2c1bbd85ffd3cabf95a9fb303ce56"
+    },
+    {
+      "path": "public/illustrations/v2/schnauzer-card.webp",
+      "sha256": "dd4a621bec2bb6d4760dbfe112d30edb5db8179b02838803c849d35d15ac8ae6"
+    },
+    {
+      "path": "public/illustrations/v2/schweizer-laufhund-card.webp",
+      "sha256": "d92ea3c9712e65c5481cd1f29d61510496e54f7694e7f37d5b9a79f461276549"
+    },
+    {
+      "path": "public/illustrations/v2/scottish-deerhound-card.webp",
+      "sha256": "59bbb844df99d2331027c21e3a2d99c579d7e3c2be885265e647a3c9ed2851c5"
+    },
+    {
+      "path": "public/illustrations/v2/scottish-terrier-card.webp",
+      "sha256": "aac460da3eb3b7b83f71f1d3541b19df96721d66f089ef0979a345a69b1545de"
+    },
+    {
+      "path": "public/illustrations/v2/sealyham-terrier-card.webp",
+      "sha256": "d1b0db9bdc3b96831b147b9e80d4e01acf69291230eb37c9b9ef63cb062a0a89"
+    },
+    {
+      "path": "public/illustrations/v2/segugio-dell-appennino-card.webp",
+      "sha256": "d477b99642151656bc836f6797549fed8f574f77ef67bd60c66bbdca6dded756"
+    },
+    {
+      "path": "public/illustrations/v2/serbian-hound-card.webp",
+      "sha256": "560cb5f380b85f5667b4440050dcb87139f90e721e307eb7dc49c8175810fc97"
+    },
+    {
+      "path": "public/illustrations/v2/serbian-tricolour-hound-card.webp",
+      "sha256": "4096dc6a9118ece8a8b00095db75d1017701ea5b25ad7cd2ab810daca1e0746c"
+    },
+    {
+      "path": "public/illustrations/v2/shar-pei-card.webp",
+      "sha256": "3e9ec1658c7eceb9dfe1cc5592edb9c29bfa6fa58060de5c83ca0182da59b99a"
+    },
+    {
+      "path": "public/illustrations/v2/shetland-sheepdog-card.webp",
+      "sha256": "c10d38c8f68d31e3f7f79f7b65a17508126bc04101054e4623ccdb0f838f6c42"
+    },
+    {
+      "path": "public/illustrations/v2/shiba-card-front.webp",
+      "sha256": "5e405f251cac249a0c8d348d478c8d074659e76caf29fd809617af698dbd3460"
+    },
+    {
+      "path": "public/illustrations/v2/shih-tzu-card.webp",
+      "sha256": "431aca11ce4b710885b80bb850c793fd5ff41755b5ef3c30763d6fb984b89c1a"
+    },
+    {
+      "path": "public/illustrations/v2/shikoku-card.webp",
+      "sha256": "1a1f353102402b52aa9858bdc044e27a26c8c2c2562337dcef58d8ebb1e6fdde"
+    },
+    {
+      "path": "public/illustrations/v2/siberian-husky-card.webp",
+      "sha256": "69a18f3f5cad5a97bc7ecb931c9ed62c075b50649930e466c297268456116c82"
+    },
+    {
+      "path": "public/illustrations/v2/skye-terrier-card.webp",
+      "sha256": "7c7cedfc9227c1bd6fb81b02f713370235eee3f9992c804c251f1de3d46d9839"
+    },
+    {
+      "path": "public/illustrations/v2/sloughi-card.webp",
+      "sha256": "281bd23e25e7c0e1a822f9f513237d41bcc5ceab241182c1f43fcd3a44f6a58c"
+    },
+    {
+      "path": "public/illustrations/v2/slovakian-cuvac-card.webp",
+      "sha256": "051aa4e8d3e29401bc2656ee7744fe89a16c3ac0a0993f9fd912ddaa3d8bd2bd"
+    },
+    {
+      "path": "public/illustrations/v2/slovakian-hound-card.webp",
+      "sha256": "deb1753b95ad08967051dc4e05ca51d33cf114f6f80a8b8b2900c92f11d0f82c"
+    },
+    {
+      "path": "public/illustrations/v2/slovakian-wirehaired-pointer-card.webp",
+      "sha256": "f4eb631686d36abf760e9b125f0d8a62c33fd600ebb13d4be7d9bc864b6ab369"
+    },
+    {
+      "path": "public/illustrations/v2/smaland-hound-card.webp",
+      "sha256": "f75717f04abedb7d8ad8d6c4147f4151185a4f52511474aac69efbbc19af6a68"
+    },
+    {
+      "path": "public/illustrations/v2/small-munsterlander-card.webp",
+      "sha256": "f4ece0dbdaedcea985947a864e6ab2c663f8df28d2ae5e8e836425885309d528"
+    },
+    {
+      "path": "public/illustrations/v2/small-swiss-hound-card.webp",
+      "sha256": "fedeeb3981d4ff94c6d3f6f02b00ccd3a068df044361ae179d7233d4db2e5c80"
+    },
+    {
+      "path": "public/illustrations/v2/smooth-collie-card.webp",
+      "sha256": "c4f125623a87f1f27e172f74535104dda68cc76526ab5df4f59870127035b601"
+    },
+    {
+      "path": "public/illustrations/v2/smooth-fox-terrier-card.webp",
+      "sha256": "00e686807743cd3b7e74d69a262c5312eb4f6e11a95a9e39b456803bb437a096"
+    },
+    {
+      "path": "public/illustrations/v2/soft-coated-wheaten-terrier-card.webp",
+      "sha256": "a1e346e5f4166c5f6967c606a6ef87a35451a135f4d6b2556721da870cd38fc3"
+    },
+    {
+      "path": "public/illustrations/v2/south-russian-shepherd-dog-card.webp",
+      "sha256": "1f79ebc545b0e5cd280d701b0b4460f0e731fecb34dfc5eae8ff605b9bef49d0"
+    },
+    {
+      "path": "public/illustrations/v2/spanish-hound-card.webp",
+      "sha256": "6248c418118d8c18f4befc3d5645c3badba51cf15ef6cf0e6096acf77a5e0be6"
+    },
+    {
+      "path": "public/illustrations/v2/spanish-mastiff-card.webp",
+      "sha256": "a0521a8731caa5e2e03f9b7d375f8335b561d2675301e96e77c320831d5e7a66"
+    },
+    {
+      "path": "public/illustrations/v2/spanish-water-dog-card.webp",
+      "sha256": "9ca0e34b14f3d2d9f807663282f0ccf3e6b3c84d4e9d94d2abafefe55d6fbdc4"
+    },
+    {
+      "path": "public/illustrations/v2/spinone-italiano-card.webp",
+      "sha256": "401b1d6e45a66a5dab68dd73217a13165e66f23391228f586b75143cb18d61ed"
+    },
+    {
+      "path": "public/illustrations/v2/stabyhoun-card.webp",
+      "sha256": "63106f9afaae7dc464751c55fc68d0f54a1e325cc4cba373141f7c8f04a8ce14"
+    },
+    {
+      "path": "public/illustrations/v2/staffordshire-bull-terrier-card.webp",
+      "sha256": "b94512043de500c49c74f579eb14f9d96ffe6b1c1b5fee3f11496f007746bf99"
+    },
+    {
+      "path": "public/illustrations/v2/styrian-coarse-haired-hound-card.webp",
+      "sha256": "6ca1f717560e0721bc27672fd3c1b8da6e09662b2e01fa1aae05b9568aaf7cf9"
+    },
+    {
+      "path": "public/illustrations/v2/sussex-spaniel-card.webp",
+      "sha256": "c148e0db2afe6fed5f38859adca5646271dc18f55af6fe849f7b1ab075596eca"
+    },
+    {
+      "path": "public/illustrations/v2/swedish-lapphund-card.webp",
+      "sha256": "842f79cf3d38fa74deb6cbde42e13dba41be8f5a66f5376c28d78211fa5ce388"
+    },
+    {
+      "path": "public/illustrations/v2/swedish-vallhund-card.webp",
+      "sha256": "91665d30d6f0478c6b0aa9c4d3a7c08a3cac53843f053dc3785f80f353db5a0c"
+    },
+    {
+      "path": "public/illustrations/v2/taiwan-dog-card.webp",
+      "sha256": "73d7d0f96e2f3e51b70198557b14f3271b758bcfc91f2df1d7fdac49735edd4b"
+    },
+    {
+      "path": "public/illustrations/v2/tatra-hound-card.webp",
+      "sha256": "0d2e665953da62eacbbc934d7c2becb9bcde88f992e30ca3d489f3dc6599f1a4"
+    },
+    {
+      "path": "public/illustrations/v2/thai-bangkaew-dog-card.webp",
+      "sha256": "ce3e51b1ea19d31ae3014ceab3b72a0e4cbe39320742e501727ca092a41c6fe5"
+    },
+    {
+      "path": "public/illustrations/v2/thai-ridgeback-card.webp",
+      "sha256": "749d7505780cf91826ed64cf81fb3ebcfedb43eec490b7ae0a07f9aa28c34046"
+    },
+    {
+      "path": "public/illustrations/v2/tibetan-mastiff-card.webp",
+      "sha256": "0a62cd1fe6e296dd8a93c524c0a057d9fd34592657190d7ee1b6c29e7dfa44d3"
+    },
+    {
+      "path": "public/illustrations/v2/tibetan-spaniel-card.webp",
+      "sha256": "1fedb90efbded98c241e4f85796a93a670bb8cd7ffe1f059f3a9469bfe2def7a"
+    },
+    {
+      "path": "public/illustrations/v2/tibetan-terrier-card.webp",
+      "sha256": "37230b444df3e51b1b67132caa776d6e1390253b2d0d7bd1afacda725a819b5e"
+    },
+    {
+      "path": "public/illustrations/v2/tornjak-card.webp",
+      "sha256": "80fff324f6e219014139028e7e23930dbb64ea3362ceadc40bb2337b9ac0115c"
+    },
+    {
+      "path": "public/illustrations/v2/tosa-card.webp",
+      "sha256": "aec4e9d1e63e163deafe0fb93ea2cfe91f469b15cd986dbb3c9bc88c69156694"
+    },
+    {
+      "path": "public/illustrations/v2/transmontano-mastiff-card.webp",
+      "sha256": "7666c0d1c358dada13d33dfa8ab975ce0f7f021a26d5e253b34dfa06d159bdde"
+    },
+    {
+      "path": "public/illustrations/v2/transylvanian-hound-card.webp",
+      "sha256": "6fc6d8e72fcc486cf9f849aa61782955f9d211159e7b49e59153da2a09597af8"
+    },
+    {
+      "path": "public/illustrations/v2/tyrolean-hound-card.webp",
+      "sha256": "c401af5729439162eacd111aa50613441c4cb896aab551c2b3103d447cf4a7f0"
+    },
+    {
+      "path": "public/illustrations/v2/valencian-terrier-card.webp",
+      "sha256": "bc9838e87e22ba8c1c0b4961e338b9d0f983bb16468d5cffe340fdd53ed7b62f"
+    },
+    {
+      "path": "public/illustrations/v2/vizsla-card.webp",
+      "sha256": "6e6cc1e4cd161037fc0c2945540420fa2ad3b17b45a804509cf0e38b218b821f"
+    },
+    {
+      "path": "public/illustrations/v2/weimaraner-card.webp",
+      "sha256": "1e173ded26818d99f3d65841ec06c2f48e3039aa69a41ed902955e16139365a7"
+    },
+    {
+      "path": "public/illustrations/v2/welsh-corgi-cardigan-card.webp",
+      "sha256": "cfa4ce8cd65f2594cba6d6c71cbd729a065d79db30506458f88333321dbed54b"
+    },
+    {
+      "path": "public/illustrations/v2/welsh-corgi-pembroke-card.webp",
+      "sha256": "8f20d6e1d262ecd0b2e367735f574ef828f0b41bbe3ff4b9ce44c9012cca5040"
+    },
+    {
+      "path": "public/illustrations/v2/welsh-springer-spaniel-card.webp",
+      "sha256": "1acc0e974d1fd3d21a5eeba971d971c24d4db6087f241ced78c05494fcdb38d2"
+    },
+    {
+      "path": "public/illustrations/v2/welsh-terrier-card.webp",
+      "sha256": "d97318af31b0aa91a7c4a2c1bccce9e815e3e2640a2c99a2f843f8f19b5adecd"
+    },
+    {
+      "path": "public/illustrations/v2/west-highland-white-terrier-card.webp",
+      "sha256": "a22693b0b486cc5b626596f0c65b18fcf6edcf1d64ff9715d78e26f4e4824f45"
+    },
+    {
+      "path": "public/illustrations/v2/west-siberian-laika-card.webp",
+      "sha256": "94c04a7acaa60f83672f81a39ca90005dc804cd4ffdcbb7a66ff9d80860b6e18"
+    },
+    {
+      "path": "public/illustrations/v2/westphalian-dachsbracke-card.webp",
+      "sha256": "4b4102f19e1c594089a882a851ce74de1f72d2ae848c8eac32fc0327c4bed91a"
+    },
+    {
+      "path": "public/illustrations/v2/wetterhoun-card.webp",
+      "sha256": "ed2ca1f891ee6d07427d5a1b7ce25e7e141a0b3ae7181713de88a4fc675366fa"
+    },
+    {
+      "path": "public/illustrations/v2/whippet-card.webp",
+      "sha256": "c75fe8e899e8617518d43f271980e14ec7b510ef1076b2482481ede9653abb6f"
+    },
+    {
+      "path": "public/illustrations/v2/white-swiss-shepherd-dog-card.webp",
+      "sha256": "7d4349d97e408594c3de24fcee33825e48af45b2710b6c1050b57bf240cfd3e7"
+    },
+    {
+      "path": "public/illustrations/v2/wire-fox-terrier-card.webp",
+      "sha256": "d76c8953e36ba744c7a154574188472bf1ce549c6f6d535e20c7b2772bfe70c3"
+    },
+    {
+      "path": "public/illustrations/v2/wire-haired-pointing-griffon-korthals-card.webp",
+      "sha256": "434310caeee52f8d244b9aa0e690043811d1f374e9b695619376abb8ea03a60b"
+    },
+    {
+      "path": "public/illustrations/v2/xoloitzcuintle-card.webp",
+      "sha256": "aab9ca22ca7ed3b7bab10e2ae0db1067f004eac5ab19686ccff4637d7b1c03bf"
+    },
+    {
+      "path": "public/illustrations/v2/yakutian-laika-card.webp",
+      "sha256": "dee10a8da05394e15ca2f784deb64ec7ad09acd85faca0ba465b1b041321496c"
+    },
+    {
+      "path": "public/illustrations/v2/yorkshire-terrier-card.webp",
+      "sha256": "3b3a3bc0d8f7a1e7cc93498b6080032fa6d2ff8d8902402da0a64815a7ea7952"
+    },
+    {
+      "path": "public/illustrations/v3/affenpinscher-history.webp",
+      "sha256": "8715567c4a9d0e7f54a88d9a81f7c562f6b0fbdf6b1c0ab1061f2fdb4bab58f8"
+    },
+    {
+      "path": "public/illustrations/v3/afghan-hound-history.webp",
+      "sha256": "886fe1000bf7e8fa51b04104e36eda581805f9df07e0d8d33f0f80286dc40906"
+    },
+    {
+      "path": "public/illustrations/v3/aidi-history.webp",
+      "sha256": "c8be1496e514fba3ba678c644779cea481732bd701f8d131ba1f3cc9a47a7a7d"
+    },
+    {
+      "path": "public/illustrations/v3/airedale-terrier-history.webp",
+      "sha256": "07337eabfb739aec63e3ca4c11f1f96cc5c00d49d65b677b005e634a01940305"
+    },
+    {
+      "path": "public/illustrations/v3/akita-history.webp",
+      "sha256": "ccb888d532e38e12b10c1707aa24e9a2c8d63e487aaf11e028d97c5e1815aaac"
+    },
+    {
+      "path": "public/illustrations/v3/alaskan-malamute-history.webp",
+      "sha256": "7364ed42001773d26a325faa9f56d074ed3f8b1411022f122fdf1af4af9236fe"
+    },
+    {
+      "path": "public/illustrations/v3/alpine-dachsbracke-history.webp",
+      "sha256": "4580d6be02d32e5a5298447937ca2c6cada1c02776a11e0afbc5109f174c9d6e"
+    },
+    {
+      "path": "public/illustrations/v3/american-akita-history.webp",
+      "sha256": "abd8f292ecfdbd67fb4f39d794b686b663e0052c7f48fcb93a021cfa8eef5353"
+    },
+    {
+      "path": "public/illustrations/v3/american-bully-history.webp",
+      "sha256": "55dcc0f879e40b74df14ce0889782fd11ddb32c477ce17fa193fb7213f35a756"
+    },
+    {
+      "path": "public/illustrations/v3/american-cocker-spaniel-history.webp",
+      "sha256": "ca32d525edbd1da77fec2195d3ccb5745a29b065b6d59c5df1b0cc204c125a2f"
+    },
+    {
+      "path": "public/illustrations/v3/american-foxhound-history.webp",
+      "sha256": "20722e50a893fd60547239d3dbc46aaee6af30769c87e5bb26e292e126054603"
+    },
+    {
+      "path": "public/illustrations/v3/american-pit-bull-terrier-history.webp",
+      "sha256": "3b2109f490b2a08b74712e7c9a3491c93dd358a123ec2bade21618c72384c628"
+    },
+    {
+      "path": "public/illustrations/v3/american-staffordshire-terrier-history.webp",
+      "sha256": "ac78dda7455ff15d2f0ad24c9ba94870684ba227d389cbb877b0bb016b6a2e13"
+    },
+    {
+      "path": "public/illustrations/v3/american-water-spaniel-history.webp",
+      "sha256": "431ede9b763e2f4efb712ef192f653d8db8b9d90fc2ed8aa907c276a297afa5f"
+    },
+    {
+      "path": "public/illustrations/v3/anatolian-shepherd-dog-history.webp",
+      "sha256": "8cb0e7911d25cac3d558187b45fec91c52247fcc57e5bc239e233be24069de91"
+    },
+    {
+      "path": "public/illustrations/v3/anglo-francais-de-petite-venerie-history.webp",
+      "sha256": "73e45558de2f6d26a312ba5dcfe8e2717c9ee918c9e2b816855c70702f49e128"
+    },
+    {
+      "path": "public/illustrations/v3/appenzeller-cattle-dog-history.webp",
+      "sha256": "768e3dea20fde186e63f00eb72487cae616cb12a2182e411307b0ee51ba3334c"
+    },
+    {
+      "path": "public/illustrations/v3/ariege-pointing-dog-history.webp",
+      "sha256": "5f2064a79778479e96526dfe60e225cf19f02ab80c422b8dc7547f95bffef9b7"
+    },
+    {
+      "path": "public/illustrations/v3/ariegeois-history.webp",
+      "sha256": "6a7e0b93d5a0c737873c9c9e27a8befa792d17bad269bff19f999aad129d26de"
+    },
+    {
+      "path": "public/illustrations/v3/artois-hound-history.webp",
+      "sha256": "eca95c2e560082b5813311aa99bfebbf645317435cb67def268d7b48abf7a936"
+    },
+    {
+      "path": "public/illustrations/v3/australian-cattle-dog-history.webp",
+      "sha256": "8fc96bc7b0bf1b8387a43caa25d180d7b8623ab45cf50540f11ade18a06c1405"
+    },
+    {
+      "path": "public/illustrations/v3/australian-kelpie-history.webp",
+      "sha256": "4a0a51f5848f21d92e845c03789a611dda1ba891f63d5245ac79f2fec537baf1"
+    },
+    {
+      "path": "public/illustrations/v3/australian-shepherd-history.webp",
+      "sha256": "a075a965ab9c14e6d2d877df731cba6b4afdb3a920e7b913548bbd6fbf63ddb9"
+    },
+    {
+      "path": "public/illustrations/v3/australian-silky-terrier-history.webp",
+      "sha256": "b01d1b5ea3ea74e7a36b0906ee643733907b70210092f1a7834f65672fed93c3"
+    },
+    {
+      "path": "public/illustrations/v3/australian-terrier-history.webp",
+      "sha256": "50e7cfb2949a484c919866eb74154f7a3b0e1320f22e3154cc795a67fdec4e34"
+    },
+    {
+      "path": "public/illustrations/v3/austrian-black-and-tan-hound-history.webp",
+      "sha256": "c9abc2ba74ceca8c4fd983d676451a7eb2fc45e952f09fc48ed14deccf2f3337"
+    },
+    {
+      "path": "public/illustrations/v3/austrian-pinscher-history.webp",
+      "sha256": "a27ac0ff0cb024b64cce902ba1927748ad2788a517ae69593744dbcbe0473351"
+    },
+    {
+      "path": "public/illustrations/v3/azawakh-history.webp",
+      "sha256": "87ddf28632ed0308a0dd6777a111b4d0e37a25b93a38a19f6030e57d6bc71daf"
+    },
+    {
+      "path": "public/illustrations/v3/barbet-history.webp",
+      "sha256": "aa0c5ddb322b2651872128e7d540d028bc7b20f09b2be3ef05c6cb28d0054bc7"
+    },
+    {
+      "path": "public/illustrations/v3/basenji-history.webp",
+      "sha256": "6bbf524f3217371109ff7031de05ff8adaaa3d0abe0faef87a65d561933f245d"
+    },
+    {
+      "path": "public/illustrations/v3/basset-artesien-normand-history.webp",
+      "sha256": "66683be923c983e8cba515bdb9c14dc1b2ad65eecaf9716377cf239455b20b31"
+    },
+    {
+      "path": "public/illustrations/v3/basset-bleu-de-gascogne-history.webp",
+      "sha256": "1a9b08af1a0a3e23d2d332dc6ba350ca34ffe2cdfc00d3c1dbae6fd520370763"
+    },
+    {
+      "path": "public/illustrations/v3/basset-fauve-de-bretagne-history.webp",
+      "sha256": "9f5ca2d4f8aa8ab94efe41dc9069298a6459dcc8bf50b524e0a481b5674c0b94"
+    },
+    {
+      "path": "public/illustrations/v3/basset-hound-history.webp",
+      "sha256": "146a8288a475ae485ad45d2443511f91d18a98e62056dba17612d1125c69231d"
+    },
+    {
+      "path": "public/illustrations/v3/bavarian-mountain-scent-hound-history.webp",
+      "sha256": "d1d6db01de514644a1278eb7e391bb190c3d318da03de0537a6d5169711bf1d4"
+    },
+    {
+      "path": "public/illustrations/v3/beagle-harrier-history.webp",
+      "sha256": "5ef443dfc0e6cfcd2f24d6baa2d39a07f1aa1d0356c3574769969f03fadaf229"
+    },
+    {
+      "path": "public/illustrations/v3/beagle-history.webp",
+      "sha256": "0e6759be007710a678f4008ee187feb6430b1bd9baaf12109df2707e86ef3444"
+    },
+    {
+      "path": "public/illustrations/v3/bearded-collie-history.webp",
+      "sha256": "3d1af3c58c8c67cc51b5ec53d756d5f9ed605fc62bb154444df9ea5fca28dd82"
+    },
+    {
+      "path": "public/illustrations/v3/beauceron-history.webp",
+      "sha256": "1689dd2e8d448e4948b9249dfbfccf46814c1e49119bca957d2461e87f5f2368"
+    },
+    {
+      "path": "public/illustrations/v3/bedlington-terrier-history.webp",
+      "sha256": "d69f2db5d6dc40cdfa69602cbcf987c59794f94b43b034c4c2a6966cf29fbf19"
+    },
+    {
+      "path": "public/illustrations/v3/belgian-groenendael-history.webp",
+      "sha256": "c407cec12d70d566abd0064748c5edd5ea3382b62f1d20a52a67a3b600fbed7e"
+    },
+    {
+      "path": "public/illustrations/v3/belgian-laekenois-history.webp",
+      "sha256": "b2547764b240fe1c7b17137ae37ccf235259bb42e2a2133391436399598c37ff"
+    },
+    {
+      "path": "public/illustrations/v3/belgian-malinois-history.webp",
+      "sha256": "c11f23843693511c9cc00663e40454f958e6ab6e1a4cf0324c6e4d9392431f22"
+    },
+    {
+      "path": "public/illustrations/v3/belgian-tervueren-history.webp",
+      "sha256": "edf7a83a3c5f4c23925c01b425a356d7900642c6857088e88d86000862e9de1b"
+    },
+    {
+      "path": "public/illustrations/v3/bergamasco-shepherd-history.webp",
+      "sha256": "92e45779e05b80a2a142eeba64546df209d612541b20af7326940b6a3a92cdcc"
+    },
+    {
+      "path": "public/illustrations/v3/berger-picard-history.webp",
+      "sha256": "59602b98db52095d555bb1b27da0bfa625304b5194c80e2fe545dd6b198ddbe7"
+    },
+    {
+      "path": "public/illustrations/v3/bernese-mountain-dog-history.webp",
+      "sha256": "08194a7e316284b258775f7e6e55fbc113b2e531aab3ff0f838af2106973d896"
+    },
+    {
+      "path": "public/illustrations/v3/bichon-frise-history.webp",
+      "sha256": "639e243761a56799a71883a938f33cd2635b29fcce5aca35893bd0bffa8ff924"
+    },
+    {
+      "path": "public/illustrations/v3/biewer-terrier-history.webp",
+      "sha256": "ef5482b20c112dad85c49f7edd9d55c6c87010e3783c4e41d71f8912eacf1566"
+    },
+    {
+      "path": "public/illustrations/v3/billy-history.webp",
+      "sha256": "bc0b5d166cf62333031cc92b05d7fd46c134829c159b1614af7b667e80412837"
+    },
+    {
+      "path": "public/illustrations/v3/black-and-tan-coonhound-history.webp",
+      "sha256": "ac0069397c8b821d589dd1e4ec6098dd7f0a7d857fe809e739a85c56016f0e61"
+    },
+    {
+      "path": "public/illustrations/v3/black-russian-terrier-history.webp",
+      "sha256": "056268c24eedf3f3bc8d4939b6034d5d74f84816064ba5d40e53471cedafe0a2"
+    },
+    {
+      "path": "public/illustrations/v3/bloodhound-history.webp",
+      "sha256": "b8bb7ff42a008511caca1ba5aba0fa169ae45ed9214b6d05d61afb0a41f653ba"
+    },
+    {
+      "path": "public/illustrations/v3/blue-picardy-spaniel-history.webp",
+      "sha256": "a652ce15e195f803b19eb523a5e756810c88a31acb45ed071fe68600740594dd"
+    },
+    {
+      "path": "public/illustrations/v3/boerboel-history.webp",
+      "sha256": "a725bcb4bca95c306707949c97d6d2d9fe286a2ce11f89f751137e4b56e06e75"
+    },
+    {
+      "path": "public/illustrations/v3/bohemian-wire-haired-pointing-griffon-history.webp",
+      "sha256": "bf9c5f21c6b9c32d34b3ace43f307d9e1fb4a54996d1668e3d4c49ba38fde460"
+    },
+    {
+      "path": "public/illustrations/v3/bolognese-history.webp",
+      "sha256": "e9775072ee215f8fb6ed6b855d8d160b260f74d3bb1be59982f67c9fa2ec5cea"
+    },
+    {
+      "path": "public/illustrations/v3/border-collie-history.webp",
+      "sha256": "fabc758041f8351007d72bed0a990d6fa660792935133057f065eb01f33121da"
+    },
+    {
+      "path": "public/illustrations/v3/border-terrier-history.webp",
+      "sha256": "fb321a5ad1ca43474210ca07a8db79df160ebbe8d188f929bdef44000b97d7b5"
+    },
+    {
+      "path": "public/illustrations/v3/borzoi-history.webp",
+      "sha256": "96518b3c8a5f8b3ffd02a038127085296149e0e292a2b0e7844ed870464c9526"
+    },
+    {
+      "path": "public/illustrations/v3/bosnian-broken-haired-hound-history.webp",
+      "sha256": "bc9d77b5f7700997bff1bb6bd3ee1d2942fafe77cbb4f1fc6656ecff0b611605"
+    },
+    {
+      "path": "public/illustrations/v3/boston-terrier-history.webp",
+      "sha256": "fcc2040f9c57d0674e20bd715405c600262095bead49a5ff5763496868bdc0c5"
+    },
+    {
+      "path": "public/illustrations/v3/bouvier-des-ardennes-history.webp",
+      "sha256": "412f38167c157436f9df460aa3a392c71a546904c4436a2f4d91ae7a7b08c6af"
+    },
+    {
+      "path": "public/illustrations/v3/bouvier-des-flandres-history.webp",
+      "sha256": "a622ad4c0d104604d32a80ae36f12fabb60c8d217110cb5930a2876c9303f06b"
+    },
+    {
+      "path": "public/illustrations/v3/boxer-history.webp",
+      "sha256": "8e8fc92093390f35e6c210b7afa3722631528d9d01e3ff4ba84f6100f00c2953"
+    },
+    {
+      "path": "public/illustrations/v3/braque-bourbonnais-history.webp",
+      "sha256": "51b8a0b9a2252e5608890a790b8349564f17364a00e561e51fc7400009c724c0"
+    },
+    {
+      "path": "public/illustrations/v3/braque-d-auvergne-history.webp",
+      "sha256": "20df249f376d814a41bc8c4d9c7b4aa888a91aa82ce263a90d03b44c3b265d51"
+    },
+    {
+      "path": "public/illustrations/v3/braque-francais-type-gascogne-history.webp",
+      "sha256": "7774211571b99c5d645049be8ce8377bf4c9db7a09b63a32dc4595f8cd128bc5"
+    },
+    {
+      "path": "public/illustrations/v3/braque-francais-type-pyrenees-history.webp",
+      "sha256": "5c47a1eb59b8e41be4409c247c0f4c048cb2455a3c713d2ecaac5015ec94dff1"
+    },
+    {
+      "path": "public/illustrations/v3/braque-saint-germain-history.webp",
+      "sha256": "a3b0ca5c35fcb80771f6f751dd5b65765d7adf5c0452074d690d60ffa9d5a765"
+    },
+    {
+      "path": "public/illustrations/v3/brazilian-campeiro-bulldog-history.webp",
+      "sha256": "6f7c22d3a9dfb889c6e562cee00a4909fb5b381c5844a1354e1b49d367609afe"
+    },
+    {
+      "path": "public/illustrations/v3/brazilian-terrier-history.webp",
+      "sha256": "90b14d1e6729d863d534ba7c6b3a901cc351a7a3e6b79bea1157d99a7eb539f1"
+    },
+    {
+      "path": "public/illustrations/v3/brazilian-tracker-history.webp",
+      "sha256": "e5a80a17256addebbd51a5b79c5c9d79c72c03ac66a6fb0df5a2c9dd3235c263"
+    },
+    {
+      "path": "public/illustrations/v3/briard-history.webp",
+      "sha256": "566eff8d1213595617775391c9f5472c2eeef6e343ba3c4a27eee4f77c3cdafb"
+    },
+    {
+      "path": "public/illustrations/v3/briquet-griffon-vendeen-history.webp",
+      "sha256": "636c11d2df722e95e446d071542c73ccfa156c28c2f7cba1585dd8f4fd958a30"
+    },
+    {
+      "path": "public/illustrations/v3/brittany-spaniel-history.webp",
+      "sha256": "2bd19bd17af3f9d8fd7eb5b125cf5e47d11a959af607ac1e656a3d5fcc236893"
+    },
+    {
+      "path": "public/illustrations/v3/broholmer-history.webp",
+      "sha256": "b884b93ba99e206a448b99f8c77c744e7b223a5fdf31cb7428dc764ae8dbfeba"
+    },
+    {
+      "path": "public/illustrations/v3/bulgae-history.webp",
+      "sha256": "bbd910d0717f179fa32eede92e3b6fdc0bb2787195340da75e0f68cd0c2c9e8a"
+    },
+    {
+      "path": "public/illustrations/v3/bull-terrier-history.webp",
+      "sha256": "8405c53e8170d2fc0ae4dd31a75e5f033b61605ac17883ca0fe40efef70e896d"
+    },
+    {
+      "path": "public/illustrations/v3/bulldog-history.webp",
+      "sha256": "d15dfbcb9b2281785ebfef82d27aedc3c156b172988a037de9c4df9f7f1c1b73"
+    },
+    {
+      "path": "public/illustrations/v3/bullmastiff-history.webp",
+      "sha256": "f0de20b68bba8a27531dc7ad6cdb891cdbe1c4b441c940d557d80ac128fb73c8"
+    },
+    {
+      "path": "public/illustrations/v3/burgos-pointer-history.webp",
+      "sha256": "8142c4bf11b0767545a183c23c4525e9e1520b6b64abe5e9ad0d72c64a819ad1"
+    },
+    {
+      "path": "public/illustrations/v3/cairn-terrier-history.webp",
+      "sha256": "ecefb0af0577256752da040ea93fc6a9ebfa4a2525856eb95d462b7bc106808c"
+    },
+    {
+      "path": "public/illustrations/v3/canaan-dog-history.webp",
+      "sha256": "0bcaa3763ec6d97bae2f6f4f6d7096f1a9ce08dcf44e5f736502d81c8925c646"
+    },
+    {
+      "path": "public/illustrations/v3/canadian-eskimo-dog-history.webp",
+      "sha256": "d6691ede64c980e14220531b161cf731fb294fead8995347e4e68d1e54e67268"
+    },
+    {
+      "path": "public/illustrations/v3/cane-corso-history.webp",
+      "sha256": "c84162293be1cfa4cef87c1f15d9e9e54fc6ed29dcd7426d262ec6251282bad3"
+    },
+    {
+      "path": "public/illustrations/v3/castro-laboreiro-dog-history.webp",
+      "sha256": "c4cee9bd70c369de8aed798f17c64618d1fd33827a5bf7b64c7d0a47d26aa601"
+    },
+    {
+      "path": "public/illustrations/v3/catalan-sheepdog-history.webp",
+      "sha256": "53c3f6ceec703deef406b2c25b753193b828a23f31146d00705b93630aa42fdd"
+    },
+    {
+      "path": "public/illustrations/v3/caucasian-shepherd-dog-history.webp",
+      "sha256": "093b186170c975a287aa81923a1778a1d700e70b319e08dc5579da02bc63fffb"
+    },
+    {
+      "path": "public/illustrations/v3/cavalier-king-charles-spaniel-history.webp",
+      "sha256": "6efa3bb25a6b348f3a2864fcf278ff886c4b33352922a82cc3801dd08c5969a7"
+    },
+    {
+      "path": "public/illustrations/v3/central-asian-shepherd-dog-history.webp",
+      "sha256": "8edd895b6e4365a06881248948c0c9fb197bc5d6f5a3991750573237a22aff55"
+    },
+    {
+      "path": "public/illustrations/v3/cesky-terrier-history.webp",
+      "sha256": "7715e01904570edc70549cf6b36ffb55e4cd9e72e1941b2a0ef73df4fdf23484"
+    },
+    {
+      "path": "public/illustrations/v3/chesapeake-bay-retriever-history.webp",
+      "sha256": "9d3d8e20b8de8a469969a88e8553b40517790b763a35be207bd331edcf1ba9ad"
+    },
+    {
+      "path": "public/illustrations/v3/chihuahua-history.webp",
+      "sha256": "bcc42ae91913685c70defb9b0651d66d6d4d02d6fc2f139c1792ded8ce5204ed"
+    },
+    {
+      "path": "public/illustrations/v3/chinese-crested-dog-history.webp",
+      "sha256": "e4b3f3f131824a2665c6677080120d70b33e33ac44489af8faaa9221d451d28f"
+    },
+    {
+      "path": "public/illustrations/v3/chodsky-pes-history.webp",
+      "sha256": "2f144708790f5f11922809e119f9783fd901badfad011a58b6ed627816eed65e"
+    },
+    {
+      "path": "public/illustrations/v3/chow-chow-history.webp",
+      "sha256": "017c6beda97e4dbc4854c30d5f2d16c2603779a5ca36657a21136fb1cfad8bf6"
+    },
+    {
+      "path": "public/illustrations/v3/cimarron-uruguayo-history.webp",
+      "sha256": "0619e194f478fe861bb739e988023b60eb0c0e426ce1389b58f18df2d29e092f"
+    },
+    {
+      "path": "public/illustrations/v3/cirneco-dell-etna-history.webp",
+      "sha256": "5a7b1d8e214dfe5a08d9339a9b2018847b10b3586ae4770180ebe05cde015c2c"
+    },
+    {
+      "path": "public/illustrations/v3/clumber-spaniel-history.webp",
+      "sha256": "85c5e8502f258f1ce1e4ab71b4c9419c04cc6fc5ae53e617381e6a5cde8be294"
+    },
+    {
+      "path": "public/illustrations/v3/collie-rough-history.webp",
+      "sha256": "3323432e657a28689d76bec5b5e5702a205802f552131143796b196b49a7342f"
+    },
+    {
+      "path": "public/illustrations/v3/continental-bulldog-history.webp",
+      "sha256": "0f5c913387895f95b40d3385908a736bf72ca1b376e7dd9a277dc8c27503324a"
+    },
+    {
+      "path": "public/illustrations/v3/continental-toy-spaniel-history.webp",
+      "sha256": "d817637dff9e41f8ffd5d594b8971d90a610df3b18fe91d9f01c81a487185102"
+    },
+    {
+      "path": "public/illustrations/v3/coton-de-tulear-history.webp",
+      "sha256": "66f2bf6d2d704513f768ab54a45deffa2541623f71b91e1a3c36e9fe46263335"
+    },
+    {
+      "path": "public/illustrations/v3/croatian-sheepdog-history.webp",
+      "sha256": "0446d7426ac4fe7c4d1edce363d58d5a6cbfde655a5283678043d50c43c4c164"
+    },
+    {
+      "path": "public/illustrations/v3/curly-coated-retriever-history.webp",
+      "sha256": "2f6ab4836e0cf4080413f2c51a3b4623b708b2ac3a0858e0f023a677b3d33db3"
+    },
+    {
+      "path": "public/illustrations/v3/czechoslovakian-wolfdog-history.webp",
+      "sha256": "0b216d14f772e497feb745776526df555f169b2296dcc238d68367c058ad67e5"
+    },
+    {
+      "path": "public/illustrations/v3/dachshund-history.webp",
+      "sha256": "ad631c64648d9fad980a465c7504fe0e2f617d1aeeaf01d094738e1d677cb9ac"
+    },
+    {
+      "path": "public/illustrations/v3/dalmatian-history.webp",
+      "sha256": "7e7a91f8b89ee1b6c734ac372997e2916ac828c205d81a7e126281c438485568"
+    },
+    {
+      "path": "public/illustrations/v3/dandie-dinmont-terrier-history.webp",
+      "sha256": "845ead2b388c5f2c7e9a5bdeabc6a9ac1fcbf0d12852055937101b84d8853c61"
+    },
+    {
+      "path": "public/illustrations/v3/danish-swedish-farmdog-history.webp",
+      "sha256": "f979133652f7a6828955bee31307ef8aeffe86020cc4ec9cb19b3c99bf240fb4"
+    },
+    {
+      "path": "public/illustrations/v3/dobermann-history.webp",
+      "sha256": "cf5279ed96fd91e8611483f6b649eda4224ed991eac807103316303f45c2f030"
+    },
+    {
+      "path": "public/illustrations/v3/dogo-argentino-history.webp",
+      "sha256": "fb8766cda498eb8c45a67c8e5d7b7516ab64567464df4d06e13417ce7f2ee032"
+    },
+    {
+      "path": "public/illustrations/v3/dogue-de-bordeaux-history.webp",
+      "sha256": "a7fa1b472ce904e86822b1460b49605b2e47e4d3ca60875a5a5eeb88bc3edd9e"
+    },
+    {
+      "path": "public/illustrations/v3/donggyeongi-history.webp",
+      "sha256": "181b1d2a86c1fb6ddab9920351d22627f8246948b9f2ab916812cf236af54cfc"
+    },
+    {
+      "path": "public/illustrations/v3/drentsche-patrijshond-history.webp",
+      "sha256": "9812a5c5e766ac0c01a1950f691100cbd8c57e65bd0635f8546cf330b80f3c9f"
+    },
+    {
+      "path": "public/illustrations/v3/drever-history.webp",
+      "sha256": "b308ee0f037d1611b152b0ddc3931d3eb069e8c72172ed74906ec9796a5c1225"
+    },
+    {
+      "path": "public/illustrations/v3/dunker-history.webp",
+      "sha256": "0e3db783b2c9f7c55f289e87b103a7b6e157f6b7ade78731af9249d44d96db68"
+    },
+    {
+      "path": "public/illustrations/v3/dutch-shepherd-dog-history.webp",
+      "sha256": "1bfafb143e47d98222e6e0f3e818866cac2b6a2f521a27e0f83e96864a1fd872"
+    },
+    {
+      "path": "public/illustrations/v3/dutch-smoushond-history.webp",
+      "sha256": "9ef57359b57489581c1d2c75b009e81fe6de4e87056665446777026c31076103"
+    },
+    {
+      "path": "public/illustrations/v3/east-siberian-laika-history.webp",
+      "sha256": "446fcab8f0aa82da1b4e2f0a323947281d886ba7ff23159efb950cafef268163"
+    },
+    {
+      "path": "public/illustrations/v3/eesti-hound-history.webp",
+      "sha256": "9185500bbf874bc74ee08348b881ab2ba3cb65c9b4ce410fb0cac8f712b92b56"
+    },
+    {
+      "path": "public/illustrations/v3/english-cocker-spaniel-history.webp",
+      "sha256": "2afd3fa72109679823ce8adbc46048342b489758235524c1ab9adf943ff7fb2a"
+    },
+    {
+      "path": "public/illustrations/v3/english-foxhound-history.webp",
+      "sha256": "e1d4592107b7ed1e61d39b12dfdd28a81ca38bacacd0d09129432f93c1e3d789"
+    },
+    {
+      "path": "public/illustrations/v3/english-pointer-history.webp",
+      "sha256": "61e35e947203037dc9551f4283ba36620779b40bdd668a9276d0c56bf4b60802"
+    },
+    {
+      "path": "public/illustrations/v3/english-setter-history.webp",
+      "sha256": "163bf574f358bf5676a482eafd91aa8a1e6da74a1a661b02dd30fa5c04c1f5bd"
+    },
+    {
+      "path": "public/illustrations/v3/english-springer-spaniel-history.webp",
+      "sha256": "3cf67cc4dc9eee7c5dcb5aa44ac2a7f66043482f82f8b40cd2960efac8dc19c4"
+    },
+    {
+      "path": "public/illustrations/v3/english-toy-spaniel-history.webp",
+      "sha256": "22f94607bbaa0e5456a3b96178964f5c6c5774d1c341deba538d3f265112c4a7"
+    },
+    {
+      "path": "public/illustrations/v3/english-toy-terrier-history.webp",
+      "sha256": "f191cfa1438608cf6958a1a345b1c9205c0849e72603f7715f8d844110f5d198"
+    },
+    {
+      "path": "public/illustrations/v3/entlebucher-mountain-dog-history.webp",
+      "sha256": "04a9b73b4bccdbd6ce0c2777a629c909c10554b9c8223a551806cfd2432c3934"
+    },
+    {
+      "path": "public/illustrations/v3/estrela-mountain-dog-history.webp",
+      "sha256": "6467bba3539bac3ce77d783cac3db1feaac2b685fdacc0fda9f214eb386ce363"
+    },
+    {
+      "path": "public/illustrations/v3/eurasier-history.webp",
+      "sha256": "77a6d3a9877093229df0764e4df9549972a8d8efced8f6e132d5fc3e622f964b"
+    },
+    {
+      "path": "public/illustrations/v3/field-spaniel-history.webp",
+      "sha256": "8ebb953a3af01bb776aed7b784a0938c93b6dda99726e55c48ffeb75e12e64b2"
+    },
+    {
+      "path": "public/illustrations/v3/fila-brasileiro-history.webp",
+      "sha256": "b1a1eada87905c0f1d6fafd751e2cfffac887f1d231287399a47106f640bc2c8"
+    },
+    {
+      "path": "public/illustrations/v3/finnish-hound-history.webp",
+      "sha256": "1f38f185662801afa582155b7c685bfbd6c4227d8b820dd88a430bae7688a8df"
+    },
+    {
+      "path": "public/illustrations/v3/finnish-lapponian-dog-history.webp",
+      "sha256": "259248e09f5108e857c7622debef6ba5a32bbbdc98002363e0b6e8143ab3c1a5"
+    },
+    {
+      "path": "public/illustrations/v3/finnish-spitz-history.webp",
+      "sha256": "e32b1b9522a4014c1945b780a54c678e0c067c7b5e9ec31179fd8167473e0eec"
+    },
+    {
+      "path": "public/illustrations/v3/flat-coated-retriever-history.webp",
+      "sha256": "0363818e496836d11464159ebedbffdc4c76e71f68ffe9f45e2b85496eec36ac"
+    },
+    {
+      "path": "public/illustrations/v3/french-bulldog-history.webp",
+      "sha256": "1177f1a399257e04452fe375d75ea5e9219a77d7ea6f92696fd1e28de08f57aa"
+    },
+    {
+      "path": "public/illustrations/v3/french-spaniel-history.webp",
+      "sha256": "b03768c869453aeab5d85e2b92076a1b62cbb0fef0a12f6dfcdd0c0e71b5a9d7"
+    },
+    {
+      "path": "public/illustrations/v3/french-tricolour-hound-history.webp",
+      "sha256": "62db6d5d921e61f30eda40b8a8692b5bdb670cd81c1548559df837d99d8a2cdd"
+    },
+    {
+      "path": "public/illustrations/v3/french-white-and-black-hound-history.webp",
+      "sha256": "985e972a705ba8226adb7e4a9ff07802ee942c9580fd412bb36f16367565ba6e"
+    },
+    {
+      "path": "public/illustrations/v3/french-white-and-orange-hound-history.webp",
+      "sha256": "338176cdd8b50472e14e335c28f4ed12eaaf6d7d111b7c336fbcfa3b3aac82b5"
+    },
+    {
+      "path": "public/illustrations/v3/galgo-espanol-history.webp",
+      "sha256": "2c1447bbdfdfb34415f40034fcebe3bf7b00c0d85a09e92b13af161e0a9481fc"
+    },
+    {
+      "path": "public/illustrations/v3/gascon-saintongeois-history.webp",
+      "sha256": "5170d0b6e4812fb8ee013178dc2badc6af4aefa8721a206e661a4eb767b1f3f4"
+    },
+    {
+      "path": "public/illustrations/v3/german-hound-history.webp",
+      "sha256": "3457dcf6a1e0d4139b8b1412837979586ff09133f3214da61067d2ee0425a86e"
+    },
+    {
+      "path": "public/illustrations/v3/german-hunting-terrier-history.webp",
+      "sha256": "78c1ffc959f2fd9e929c6ac0f6c6bb4ac77ded5f68afc518e877f09b1e6aae03"
+    },
+    {
+      "path": "public/illustrations/v3/german-long-haired-pointer-history.webp",
+      "sha256": "94747eca7a16a939874249430bcb3934931a67a5c0f58c1915481288fd69e535"
+    },
+    {
+      "path": "public/illustrations/v3/german-pinscher-history.webp",
+      "sha256": "47d590a4a44939cf0d1d5758b725b4713311a9809438fa2499dbe5b59c94e42d"
+    },
+    {
+      "path": "public/illustrations/v3/german-shepherd-dog-history.webp",
+      "sha256": "b391cbbd0d44ca34dd5e72cc489189bade65d745c85453664474e40062c99f7c"
+    },
+    {
+      "path": "public/illustrations/v3/german-short-haired-pointing-dog-history.webp",
+      "sha256": "1bd298f57e49d579cbc024e6163532174d1e5f71a0dc0b56dd0875f3816a9dce"
+    },
+    {
+      "path": "public/illustrations/v3/german-spaniel-history.webp",
+      "sha256": "cb7ebba5d8fee219c70474f6ff6bff9481e0d3891d06fc1b374bbae70e9ea2d6"
+    },
+    {
+      "path": "public/illustrations/v3/german-spitz-history.webp",
+      "sha256": "8190d9eda74b8081c037c82eb58ec11c5f8424c9e7735ba0f18eeb5c8f27b337"
+    },
+    {
+      "path": "public/illustrations/v3/german-stichelhaar-history.webp",
+      "sha256": "af328e8861743da9ab9f2d39d7f775750541cec5bd20e2d28edc48e850ef9a86"
+    },
+    {
+      "path": "public/illustrations/v3/german-wire-haired-pointing-dog-history.webp",
+      "sha256": "59ebaf7e6532f933bf2b24214249967da4ac639e5a41347196fe0f6c7c716e31"
+    },
+    {
+      "path": "public/illustrations/v3/giant-schnauzer-history.webp",
+      "sha256": "ec0531bf9b144958f68b537a6b56339247c1100e13d8e88f2a56c19f320e2e2c"
+    },
+    {
+      "path": "public/illustrations/v3/glen-of-imaal-terrier-history.webp",
+      "sha256": "82d7ac64211f9998296166af6c38b483916d04af6494702e0670bae59bed2b28"
+    },
+    {
+      "path": "public/illustrations/v3/golden-retriever-history.webp",
+      "sha256": "b9b9a25eda807f0739d90d2d63f443fecce96d3358629ce506a1aec34b4a025b"
+    },
+    {
+      "path": "public/illustrations/v3/goldendoodle-history.webp",
+      "sha256": "35c2cd3e6abc407b6b60cad3d2cef46e37ecca8ac547a703bfca55f126f92a41"
+    },
+    {
+      "path": "public/illustrations/v3/gordon-setter-history.webp",
+      "sha256": "8071ac89ae4490aea93947d32607fd59dbc4ef75160f3cbb642db14611e62c95"
+    },
+    {
+      "path": "public/illustrations/v3/grand-basset-griffon-vendeen-history.webp",
+      "sha256": "732e50b993600bc5c80b9a02082bc513a594b461b2defcf52a8404bb36ea296d"
+    },
+    {
+      "path": "public/illustrations/v3/grand-bleu-de-gascogne-history.webp",
+      "sha256": "b387df189978e16d9d478c0c02387361fab90235fd39b53bb5d4b879b64e427b"
+    },
+    {
+      "path": "public/illustrations/v3/great-anglo-french-tricolour-hound-history.webp",
+      "sha256": "cc82aac68a67386797218922dbc8adc1855aaf878b617c0d174054cc745089de"
+    },
+    {
+      "path": "public/illustrations/v3/great-anglo-french-white-and-black-hound-history.webp",
+      "sha256": "9c5d239263ec914082ab5240cb0aa98d52faef3f4c887ea87538aa1a0bfd4b7d"
+    },
+    {
+      "path": "public/illustrations/v3/great-anglo-french-white-and-orange-hound-history.webp",
+      "sha256": "956a915c5fdf0a35e9de526eae370dcbcc56fd0f202bb01cc476f441b54e8ff5"
+    },
+    {
+      "path": "public/illustrations/v3/great-dane-history.webp",
+      "sha256": "798d90134bed9385dae4e7b8353bcd4afa105f0b50376e73a97787ba58415538"
+    },
+    {
+      "path": "public/illustrations/v3/greater-swiss-mountain-dog-history.webp",
+      "sha256": "ca27c74f957b2ec6a659bfa5878ee646a8a00e9c61f1375dcbce4d9f5fe96135"
+    },
+    {
+      "path": "public/illustrations/v3/greek-harehound-history.webp",
+      "sha256": "529d7a5c663cc9be8d4fd3d78feb5920346996fb785da331d1bc08e116066b59"
+    },
+    {
+      "path": "public/illustrations/v3/greenland-dog-history.webp",
+      "sha256": "8cf1de0b565769248c962c8213a8a5600dd90ba2587d08098b9e9156b8f68a6b"
+    },
+    {
+      "path": "public/illustrations/v3/greyhound-history.webp",
+      "sha256": "565e2ee1e0630aad96c615ec69239e41deac1f4d516275d8e9c3080405752d50"
+    },
+    {
+      "path": "public/illustrations/v3/griffon-belge-history.webp",
+      "sha256": "2bd9956e7a4e30b83d9b0ca650b0e6e07a375b5dfc41815260b13a6c94112bc9"
+    },
+    {
+      "path": "public/illustrations/v3/griffon-blue-gascony-history.webp",
+      "sha256": "1d3dc528e6bc0f53d7ba3091b97dac5dd2aadc0f9905c8e0751afded0d9cbe68"
+    },
+    {
+      "path": "public/illustrations/v3/griffon-bruxellois-history.webp",
+      "sha256": "bb19ed4e20e17b19c36330cd267011fcdbf60256a76e6a29111ce4f4fa2f486a"
+    },
+    {
+      "path": "public/illustrations/v3/griffon-fauve-de-bretagne-history.webp",
+      "sha256": "a06e85fcb26d785d695df6de87c1b8647b07aaf55556a2a7e11424fe12587c43"
+    },
+    {
+      "path": "public/illustrations/v3/griffon-nivernais-history.webp",
+      "sha256": "340d57f948cd5c321113e4c80e7d6f31477445cf247646f4e0841808bc9a2b40"
+    },
+    {
+      "path": "public/illustrations/v3/halden-hound-history.webp",
+      "sha256": "2e04f10e25de24884299cc93b65de8b170eabd2a699cd1b50b53517550b32bcb"
+    },
+    {
+      "path": "public/illustrations/v3/hamiltonstovare-history.webp",
+      "sha256": "a86dc6cbd73193e8a58f06d66f84075cb920167853daa058cf0b195391514b27"
+    },
+    {
+      "path": "public/illustrations/v3/hanoverian-scent-hound-history.webp",
+      "sha256": "66809fc7ad4a37a5dd5444ac4e810b5aeedb8ae478dadf31400721e9091c350d"
+    },
+    {
+      "path": "public/illustrations/v3/harrier-history.webp",
+      "sha256": "723306bf3e8603ca325beb2aaabab42ab1eae4112670614ec0f1346f23721bfa"
+    },
+    {
+      "path": "public/illustrations/v3/havanese-history.webp",
+      "sha256": "d5e6ef4aa052fc6998feea9eb2e57ac02db1624177a0e668188101a4af065cd8"
+    },
+    {
+      "path": "public/illustrations/v3/hellenic-hound-history.webp",
+      "sha256": "7b697a5ef158e43a8718b84585f4ef960db7380fab5c6bcec138218529efca37"
+    },
+    {
+      "path": "public/illustrations/v3/hokkaido-history.webp",
+      "sha256": "b67ce0654f81553ce5ee5b74521ec677ee113d5c9e28a82569b58f7cc09272e7"
+    },
+    {
+      "path": "public/illustrations/v3/hovawart-history.webp",
+      "sha256": "135fba1c1d3039ade0dd95e8c90060877b5f663ea13955f9f41cea1aa500090f"
+    },
+    {
+      "path": "public/illustrations/v3/hungarian-greyhound-history.webp",
+      "sha256": "1c7e42be18743df9c1172076e90fb751afd313aee9c7b161692e49e9159c18b9"
+    },
+    {
+      "path": "public/illustrations/v3/hungarian-wirehaired-vizsla-history.webp",
+      "sha256": "9959cbc61993a34ca5b1b1c47ea0654efe111f8a0c808a5b97d6446a6aeb60de"
+    },
+    {
+      "path": "public/illustrations/v3/hygen-hound-history.webp",
+      "sha256": "ca0fa505cb9964c75f9d0773c05e9f6ac2da8e293efd3c8983119c9bc4d75d4f"
+    },
+    {
+      "path": "public/illustrations/v3/ibizan-hound-history.webp",
+      "sha256": "e5b58e3490b57375006af1c42b2f8c4e6a0524e4085d7e6e6c32a34e27aa234c"
+    },
+    {
+      "path": "public/illustrations/v3/icelandic-sheepdog-history.webp",
+      "sha256": "34741eb6b13b47b432e204d9cf8eaaf6a88c202beaf8ea54678c2ac1f8017759"
+    },
+    {
+      "path": "public/illustrations/v3/irish-red-and-white-setter-history.webp",
+      "sha256": "c9f859bbcf48d3e8fb13118dd10b5df914337887ba80db153389940b70d63752"
+    },
+    {
+      "path": "public/illustrations/v3/irish-red-setter-history.webp",
+      "sha256": "2072382a3beb49106a4570ef23233cda77c36efcdba0b2de9a1d875f153c4090"
+    },
+    {
+      "path": "public/illustrations/v3/irish-terrier-history.webp",
+      "sha256": "5b12f5e06c4855294cc413f3f207f8033f73e4b48af4caa3a25edace9994dfb6"
+    },
+    {
+      "path": "public/illustrations/v3/irish-water-spaniel-history.webp",
+      "sha256": "7f115d0617f988a235f6aeaf46caec079b2cdef91ad1bd128d94e79b97beecc8"
+    },
+    {
+      "path": "public/illustrations/v3/irish-wolfhound-history.webp",
+      "sha256": "8fd22a135339fbf58ef09e8a29054d888f8f7dad43ca52e8c866fb10cb077234"
+    },
+    {
+      "path": "public/illustrations/v3/istrian-short-haired-hound-history.webp",
+      "sha256": "f40d0d180e31e5f0451dbaaca6443e382680548852aa666666cdef59655a5217"
+    },
+    {
+      "path": "public/illustrations/v3/istrian-wire-haired-hound-history.webp",
+      "sha256": "47074256d4eda955fdd7b8881543b758ecfd67723f80eeeaf2cb655f8e7f50c8"
+    },
+    {
+      "path": "public/illustrations/v3/italian-pointing-dog-history.webp",
+      "sha256": "a621cbe5b4f719b81eb195fd8fdedf397b5d839086bca924954abe28f0b7a37f"
+    },
+    {
+      "path": "public/illustrations/v3/italian-segugio-history.webp",
+      "sha256": "ab5ec3154fdbe89905dbcc1de79fedcd401ada52f9748c929628542d27be0de6"
+    },
+    {
+      "path": "public/illustrations/v3/italian-sighthound-history.webp",
+      "sha256": "d65bd74256fd222d5d34339a9ccf1107595216e845cbfe29825d695adb580f21"
+    },
+    {
+      "path": "public/illustrations/v3/italian-volpino-history.webp",
+      "sha256": "4cd403a574068bb3ec8719ebde4479debef4dc616b4d5c19ce24abb378a514ae"
+    },
+    {
+      "path": "public/illustrations/v3/jack-russell-terrier-history.webp",
+      "sha256": "1c6526c11166bc431466f21c4f30bbc67faabe36fa2b7c758d7a1fadab16fe6f"
+    },
+    {
+      "path": "public/illustrations/v3/jamthund-history.webp",
+      "sha256": "ff547113172426227af52528b01187754cf3e05fa96b2cba73a0022c2c4f5c70"
+    },
+    {
+      "path": "public/illustrations/v3/japanese-chin-history.webp",
+      "sha256": "5e4655984c6efde3f9964e5baf588d4afe8b317f4a05ec7adcdaf8c4f664abd4"
+    },
+    {
+      "path": "public/illustrations/v3/japanese-spitz-history.webp",
+      "sha256": "eb6e69f22c705b1821d1d3e17a107682dc2bd6cc33f904264fa6d0027b9b2af4"
+    },
+    {
+      "path": "public/illustrations/v3/japanese-terrier-history.webp",
+      "sha256": "5d17431707753ba75f3a6a4a8a733d291b7439ff8187d21721424870bf4dac0c"
+    },
+    {
+      "path": "public/illustrations/v3/jeju-dog-history.webp",
+      "sha256": "fa54c912d180a5890b34e705787590ff13c68dc058e15ab78b668e3585b5b7de"
+    },
+    {
+      "path": "public/illustrations/v3/kai-history.webp",
+      "sha256": "63304c00bc2462642e74a7cedf483b885dc7a5cf879f5936e773237481cbaed6"
+    },
+    {
+      "path": "public/illustrations/v3/kangal-shepherd-dog-history.webp",
+      "sha256": "b4d6f4587c07537432c722b60dcd0dc170b0e05a1ac7cf2acafc7210573529e4"
+    },
+    {
+      "path": "public/illustrations/v3/karelian-bear-dog-history.webp",
+      "sha256": "7deb0c286bb817ab507ff48b3560216907636496c55146d0e9e4e65f01c416ff"
+    },
+    {
+      "path": "public/illustrations/v3/karst-shepherd-dog-history.webp",
+      "sha256": "638f37295a506ec43a2d92d563c60d264c44acfecbc4f5019067c5ee4d5173d2"
+    },
+    {
+      "path": "public/illustrations/v3/kazakh-tazy-history.webp",
+      "sha256": "4cf4d075a7da045dce176b2ffec6859f457e3daf8a5e092b74dc0571cd14dc38"
+    },
+    {
+      "path": "public/illustrations/v3/kerry-blue-terrier-history.webp",
+      "sha256": "9ba3a60323569cd5cf16bd97a94079c02ac216e669379b7dfb68c531a6e48111"
+    },
+    {
+      "path": "public/illustrations/v3/king-charles-spaniel-history.webp",
+      "sha256": "093a7775fc665246579d1b2fda8e3efcb315efdae7ae478245af7b91b2a30c74"
+    },
+    {
+      "path": "public/illustrations/v3/kintamani-bali-dog-history.webp",
+      "sha256": "0345bd627e3f980803d6411764e008b61686a590b1f1d76a6498280b7c10449c"
+    },
+    {
+      "path": "public/illustrations/v3/kishu-history.webp",
+      "sha256": "a117db04950a724cc82846e06fe9fca3f7d49133d4a524f4540289f9d50d7dce"
+    },
+    {
+      "path": "public/illustrations/v3/komondor-history.webp",
+      "sha256": "927c4fae941929a6312093e0b08e8de79adc6602836aad79ba408f7257e2599a"
+    },
+    {
+      "path": "public/illustrations/v3/kooikerhondje-history.webp",
+      "sha256": "e9c588f263042bf0dae1c9c4de4378f37d0c82cfe4328647b95b6f871ed8f0cb"
+    },
+    {
+      "path": "public/illustrations/v3/korea-jindo-dog-history.webp",
+      "sha256": "9f5f00ec17ee8d7249994e9ee08b00ef43d922e694578bea8eb9a63c7f24fda5"
+    },
+    {
+      "path": "public/illustrations/v3/kromfohrlander-history.webp",
+      "sha256": "d845efbd7af0e3394fdbe02cd78311c57b27083984192b9ac544ceaa4168675c"
+    },
+    {
+      "path": "public/illustrations/v3/kuvasz-history.webp",
+      "sha256": "03a1a62ed0c759cb85caf40642c53cde5f793c74513a5bfdce04731b9b2f2e52"
+    },
+    {
+      "path": "public/illustrations/v3/labrador-retriever-history.webp",
+      "sha256": "c907ffa697f585f04d2d5181ed064853e8aeb9289c3ddaf11704701f6ad492f1"
+    },
+    {
+      "path": "public/illustrations/v3/lagotto-romagnolo-history.webp",
+      "sha256": "4f644fe612f291378e330535699290742c7b5b119bef6450e01aa0caaa478e69"
+    },
+    {
+      "path": "public/illustrations/v3/lakeland-terrier-history.webp",
+      "sha256": "a8707ab91eb763734e0e378b5d268d7488b95aaffb3c25b5892c4e25677d7cc2"
+    },
+    {
+      "path": "public/illustrations/v3/lancashire-heeler-history.webp",
+      "sha256": "7e13a0a612d8dc281b9be28bd5d7a7c0bb2955946ce813952480a62fdc32294b"
+    },
+    {
+      "path": "public/illustrations/v3/landseer-history.webp",
+      "sha256": "bc3b58bf84f08bb64e39868ae8cc0206df998ea1c0ab5dea642d4ed16d5d0c59"
+    },
+    {
+      "path": "public/illustrations/v3/lapponian-herder-history.webp",
+      "sha256": "ab62e5c97b703c6c77a9a836e01af23fb030e90fd595c9a65010fa468bf54680"
+    },
+    {
+      "path": "public/illustrations/v3/large-munsterlander-history.webp",
+      "sha256": "858bade2866fa1b58dbf0da5edcf0cb2fdcacef9ebb37268d3aca928a420b9b1"
+    },
+    {
+      "path": "public/illustrations/v3/leonberger-history.webp",
+      "sha256": "f0cab9f81dba8ab90b6c4cfbe393cccdf31d07730caa145c5214e505d181a17b"
+    },
+    {
+      "path": "public/illustrations/v3/lhasa-apso-history.webp",
+      "sha256": "ce624172fecac604b9b877b21a368c6de16b1c464a272f6b4662fead266a41cd"
+    },
+    {
+      "path": "public/illustrations/v3/lowchen-history.webp",
+      "sha256": "b6842aff6d89bd3e6cad7d300aad534f1159e513b62cd1a905575fc08648e6a0"
+    },
+    {
+      "path": "public/illustrations/v3/macedonian-shepherd-dog-karaman-history.webp",
+      "sha256": "d151b74c9a94091aca188f9decf5c75af0ac5340c084c755b849893bbda61555"
+    },
+    {
+      "path": "public/illustrations/v3/majorca-mastiff-history.webp",
+      "sha256": "912834a5168c812685383401aa0f00f54c653e43cf350c18346b1a401a766e87"
+    },
+    {
+      "path": "public/illustrations/v3/majorca-shepherd-dog-history.webp",
+      "sha256": "f55bd82af061b1420c69c98556ede15e9de76aee361fdd04d09653adb779fe9e"
+    },
+    {
+      "path": "public/illustrations/v3/maltese-history.webp",
+      "sha256": "626321691660bd29ec1bf0ec64a42302825f761d465a326be3abf1409081e7b9"
+    },
+    {
+      "path": "public/illustrations/v3/maltipoo-history.webp",
+      "sha256": "c31ce19ddb58fe73ba1cde1ab2a2cc7f5cecd660aa9500e8f7280b5e6a4b3979"
+    },
+    {
+      "path": "public/illustrations/v3/manchester-terrier-history.webp",
+      "sha256": "15dedc050ee0fea013f094b2f3fe45ee85abc415786387affef02e156697b10e"
+    },
+    {
+      "path": "public/illustrations/v3/maremma-sheepdog-history.webp",
+      "sha256": "459bf6141c7673f59af5912ec4a261d69bcc17620123cf50f5c574c58bb3dd62"
+    },
+    {
+      "path": "public/illustrations/v3/mastiff-history.webp",
+      "sha256": "895131bc5a938a02a3bafc58c391839ae73a132329af28c914939e7300cc8ec7"
+    },
+    {
+      "path": "public/illustrations/v3/miniature-american-shepherd-history.webp",
+      "sha256": "6630476c034d0c78dc5ab624d30c5093222684b4532a3cf715e1c4c81bc51dbe"
+    },
+    {
+      "path": "public/illustrations/v3/miniature-bull-terrier-history.webp",
+      "sha256": "1ba0e06b78193f2275255c551afd2c6456b88bd2c37a9b33e9a57e5f956023f4"
+    },
+    {
+      "path": "public/illustrations/v3/miniature-pinscher-history.webp",
+      "sha256": "f78b1a3623f88714db7d866fe1fb20fac44a580ec9cb3e2d170d9f40ff50f32b"
+    },
+    {
+      "path": "public/illustrations/v3/miniature-schnauzer-history.webp",
+      "sha256": "85b73ea2589923cfada314c874235bb7a2f2bd1e2dec63c5d62269adf5b4c766"
+    },
+    {
+      "path": "public/illustrations/v3/mongolian-bankhar-history.webp",
+      "sha256": "f36424eaf98fd8472a6a059fbfca68e499797ffe1e2bdf035e2449082bd6027c"
+    },
+    {
+      "path": "public/illustrations/v3/montenegrin-mountain-hound-history.webp",
+      "sha256": "4128f43751c0ed793559aa38dcd52834d0a57d8189a91eb7f8e239986c84ecff"
+    },
+    {
+      "path": "public/illustrations/v3/mudi-history.webp",
+      "sha256": "b19028c24a68fd8bf268dd346971b146d1ded7c48ce20e2eb0564af6830b72bd"
+    },
+    {
+      "path": "public/illustrations/v3/neapolitan-mastiff-history.webp",
+      "sha256": "f31020759b1773e02fdca4f770f4c6e470baa309e2468f7c65b47e4781fcc4c0"
+    },
+    {
+      "path": "public/illustrations/v3/newfoundland-history.webp",
+      "sha256": "f55c27dbdcacc057e02cad10177be78832580c5fdc26d3ddb226d20b969f337e"
+    },
+    {
+      "path": "public/illustrations/v3/norfolk-terrier-history.webp",
+      "sha256": "782ec62c91eaa8855fa3ecdd0fcdab4820bf3e09ec9a55919ca1ff6162f7adc2"
+    },
+    {
+      "path": "public/illustrations/v3/norrbottenspets-history.webp",
+      "sha256": "53df1ebd6ee52511c44e7d185daf433b9ff905923481b2f88a45857aac4dbf2c"
+    },
+    {
+      "path": "public/illustrations/v3/norwegian-buhund-history.webp",
+      "sha256": "735846777256f64cfb266eb4ce4516fe6ed69de2f2b7e0fe621449b53adc2b69"
+    },
+    {
+      "path": "public/illustrations/v3/norwegian-elkhound-black-history.webp",
+      "sha256": "011901b842d4e6d49e4a5ae9832f10c4426bde3a26aa5336f1be1f394076ac6d"
+    },
+    {
+      "path": "public/illustrations/v3/norwegian-elkhound-grey-history.webp",
+      "sha256": "1a0de782bf36087d13bc36ddd30db544eda1ebce77885f5d6695c71c333d513d"
+    },
+    {
+      "path": "public/illustrations/v3/norwegian-lundehund-history.webp",
+      "sha256": "503032dce388d62503ffb986ba6177211c381f72b6d3909f3351bd560ad6e048"
+    },
+    {
+      "path": "public/illustrations/v3/norwich-terrier-history.webp",
+      "sha256": "b53f2018be2b39c2bf0d26182e1417cf8334df0d5f9f30314d7829fa4dfce3b1"
+    },
+    {
+      "path": "public/illustrations/v3/nova-scotia-duck-tolling-retriever-history.webp",
+      "sha256": "68e235de9b2cf71db9662c776a7812122a0540a11d4c3e789b3c1291519a0c10"
+    },
+    {
+      "path": "public/illustrations/v3/old-danish-pointer-history.webp",
+      "sha256": "b9b4af9208812ee44b27e5139e4515a23c6d924391e56684f2400d0baaf110d6"
+    },
+    {
+      "path": "public/illustrations/v3/old-english-sheepdog-history.webp",
+      "sha256": "c0efcab871d8cbe8dddb16e01f201b100f7610bf272603a81abc65cb87339a79"
+    },
+    {
+      "path": "public/illustrations/v3/otterhound-history.webp",
+      "sha256": "1668e038acae544d9be7465efdb46d4b4cf7cc57dd7e1f947d320adcf156f7fd"
+    },
+    {
+      "path": "public/illustrations/v3/parson-russell-terrier-history.webp",
+      "sha256": "19b0b405d09938e3cf95801098e60cdd4a2a3c9400f603036f02b270961a31f3"
+    },
+    {
+      "path": "public/illustrations/v3/pekingese-history.webp",
+      "sha256": "4996fbeff8d71b114f8d04c77a43054d506af8a9e0c1cac3831e71da569d41f6"
+    },
+    {
+      "path": "public/illustrations/v3/peruvian-hairless-dog-history.webp",
+      "sha256": "658cf82dc97a88113451e5a4e6427e6b943a3feaece77aea2e0f849231f060e1"
+    },
+    {
+      "path": "public/illustrations/v3/petit-basset-griffon-vendeen-history.webp",
+      "sha256": "f751bdda09ee58557fea41776a07180e3a8f21a0223d5122b456bfa8036fbd19"
+    },
+    {
+      "path": "public/illustrations/v3/petit-bleu-de-gascogne-history.webp",
+      "sha256": "fb8ae109de114f89bd73958971ea62aa846d748cc51cbd788cc1ffdf08ba720d"
+    },
+    {
+      "path": "public/illustrations/v3/petit-brabancon-history.webp",
+      "sha256": "df0b6a79b0fd8d50b34cb2ee895f9d815722914b684723c420487059e0991b87"
+    },
+    {
+      "path": "public/illustrations/v3/pharaoh-hound-history.webp",
+      "sha256": "2fab621c15e774a98fad01db5893937394521e95c20a796523206e317215cfdf"
+    },
+    {
+      "path": "public/illustrations/v3/picardy-spaniel-history.webp",
+      "sha256": "66fbee8d2b8904afbb446ea585818db904dd3eaec303c49c0b75d514e54e480c"
+    },
+    {
+      "path": "public/illustrations/v3/podenco-canario-history.webp",
+      "sha256": "a69b13b41ebd1499a22cb7ba10f18c99653b691c2b94fff668d89b2a665cae10"
+    },
+    {
+      "path": "public/illustrations/v3/poitevin-history.webp",
+      "sha256": "2cb1c31aa8b45010e3058b428af23225f4f293c43830aa07b38c0c6e0dc640d1"
+    },
+    {
+      "path": "public/illustrations/v3/polish-greyhound-history.webp",
+      "sha256": "eca3501bf104152903bddec135f956c4f2529c10a4d030f39b2c6da4de57a7ff"
+    },
+    {
+      "path": "public/illustrations/v3/polish-hound-history.webp",
+      "sha256": "aacf958d5a1cdd16ad77af71afc7741207eb20b33daecaf99140619392fbe8b3"
+    },
+    {
+      "path": "public/illustrations/v3/polish-lowland-sheepdog-history.webp",
+      "sha256": "a7b6f5603e931fcdebdf4511564df0fe68aad9f8f3057279d8a6522e336fb09d"
+    },
+    {
+      "path": "public/illustrations/v3/polish-tatra-sheepdog-history.webp",
+      "sha256": "15707c0d601e5ac534271660d62f950605b4fb46201afb5d73b9365f18275006"
+    },
+    {
+      "path": "public/illustrations/v3/pont-audemer-spaniel-history.webp",
+      "sha256": "6c3427a02cdaac69e1f421df5566d7febacd2e2ed9e6d058dfbbc85d278d88c3"
+    },
+    {
+      "path": "public/illustrations/v3/poodle-history.webp",
+      "sha256": "748481378d2f9164f5626590bed8168bbde4e736aac013e81d2b9c337b4e6f82"
+    },
+    {
+      "path": "public/illustrations/v3/porcelaine-history.webp",
+      "sha256": "333525f7de289c821dd230fd8d1eb69dd2ddd0204ebecb6b0dd3f48f44b33354"
+    },
+    {
+      "path": "public/illustrations/v3/portuguese-podengo-history.webp",
+      "sha256": "ad56a4d0bd90b2a6344a08a8d4b93e70281f0639774f9892d50920c79f38ccbb"
+    },
+    {
+      "path": "public/illustrations/v3/portuguese-pointing-dog-history.webp",
+      "sha256": "edbdcabb204d7cf3db7454ddfcf12d3598019c5d812dbf18f56c86b4fa2f078b"
+    },
+    {
+      "path": "public/illustrations/v3/portuguese-sheepdog-history.webp",
+      "sha256": "3966fec6a48f4384b53f272d90dcb37378ca894d3fb1b39ca08149e1b077e245"
+    },
+    {
+      "path": "public/illustrations/v3/portuguese-water-dog-history.webp",
+      "sha256": "72701e0bef284b95ef8d0d5cf62f2d9b1ba077683f26c545860c3f7e3b3be15e"
+    },
+    {
+      "path": "public/illustrations/v3/posavac-hound-history.webp",
+      "sha256": "9ab86957f12291471ed448445a9dac38e1d9a3dd4c4b80d1f2a357068fb0e537"
+    },
+    {
+      "path": "public/illustrations/v3/prague-ratter-history.webp",
+      "sha256": "7f0cfed7b734871af588180291f1cbc2a8473839fe19bbd4623b09d1fa738273"
+    },
+    {
+      "path": "public/illustrations/v3/presa-canario-history.webp",
+      "sha256": "af2e14697e08cceb9dec69fe7ed4a385002cdcb2a9edc077a160befcf7065856"
+    },
+    {
+      "path": "public/illustrations/v3/pudelpointer-history.webp",
+      "sha256": "ab4683faf7209a08f59211f7a7292275eeda37ef056433f3681fdbb91d0dce52"
+    },
+    {
+      "path": "public/illustrations/v3/pug-history.webp",
+      "sha256": "eeec362f308085ab2ed815b9e17a3553a682e4f108155f022a352688e5d718f1"
+    },
+    {
+      "path": "public/illustrations/v3/puli-history.webp",
+      "sha256": "6605293989cc46c6555d8cf9ae9dd5d7671c7fa480b51c11426c612b0ae57d11"
+    },
+    {
+      "path": "public/illustrations/v3/pumi-history.webp",
+      "sha256": "1af03838ab12e6f6dbb54eb230cbd2fd2b07b94c0eeb7d1465fcb1629e3fbf88"
+    },
+    {
+      "path": "public/illustrations/v3/pungsan-dog-history.webp",
+      "sha256": "d91f0fe6da30f95084c41dff4d138f736e0f7b9d92e0546b348d7f76fc67f355"
+    },
+    {
+      "path": "public/illustrations/v3/pyrenean-mastiff-history.webp",
+      "sha256": "179db288e826c4e26f3111a06fd351b441b3baa56e47b59fabb33a9123ba3ec4"
+    },
+    {
+      "path": "public/illustrations/v3/pyrenean-mountain-dog-history.webp",
+      "sha256": "410fe8325afbe8145704132b64f366e6f4b96bfe6b3c73c1eece1c3f7b3e5c17"
+    },
+    {
+      "path": "public/illustrations/v3/pyrenean-sheepdog-history.webp",
+      "sha256": "8f27a830eead529e205a2d65b47c165fe56af23cafbea35dde9ec2de8a6ecc09"
+    },
+    {
+      "path": "public/illustrations/v3/rafeiro-do-alentejo-history.webp",
+      "sha256": "d2a40eca36dfd79d2a26140ddac1d57388b027a69f15c63f6c4822909ad3b395"
+    },
+    {
+      "path": "public/illustrations/v3/ratonero-bodeguero-andaluz-history.webp",
+      "sha256": "c537356dfe056c8b2c488dcb7f8e98f49f0ddcd0c20a6a45c978739b5ba1fcad"
+    },
+    {
+      "path": "public/illustrations/v3/rhodesian-ridgeback-history.webp",
+      "sha256": "72d870c5a668ba57adae5eb83c8ee523f74ab719ab1442f6390d3a625cf00d0c"
+    },
+    {
+      "path": "public/illustrations/v3/romanian-bucovina-shepherd-dog-history.webp",
+      "sha256": "ff64be15fd0e78c11cdd7af5a7da9210a67f8898825fe5d2d6bb2d670e2aed23"
+    },
+    {
+      "path": "public/illustrations/v3/romanian-carpathian-shepherd-dog-history.webp",
+      "sha256": "4a72217966fd9a575cf748cde55d45541a63c70f8d61fb7eabd5045be0b6ef7a"
+    },
+    {
+      "path": "public/illustrations/v3/romanian-mioritic-shepherd-dog-history.webp",
+      "sha256": "ff01af4b22e9b3d4f1f141b07835392a9e5b37b8388d233d6286d3aa740acd2e"
+    },
+    {
+      "path": "public/illustrations/v3/romanian-raven-shepherd-dog-history.webp",
+      "sha256": "8c49686e353b47cef7ad9b855ab3137e36e237f03df24f3efd5335e89904ee34"
+    },
+    {
+      "path": "public/illustrations/v3/rottweiler-history.webp",
+      "sha256": "df908a3218e3d8ce868a2af9cfca2b49e249ec0dffeb16ba9c00619e9da94e51"
+    },
+    {
+      "path": "public/illustrations/v3/russian-european-laika-history.webp",
+      "sha256": "2b720b9bf332befab5fc225566363899cb22b5189bacfbcf3b0863f00a9622c4"
+    },
+    {
+      "path": "public/illustrations/v3/russian-toy-history.webp",
+      "sha256": "91f578fa3ded87c944224c9ffcd1b3785ffc7da7fa0f05e709d31a91e72c3b01"
+    },
+    {
+      "path": "public/illustrations/v3/saarloos-wolfdog-history.webp",
+      "sha256": "1decc9a2314aaae7ad9e1968171b5ccfa5076b81927ed8652aff9654f17d095b"
+    },
+    {
+      "path": "public/illustrations/v3/sabueso-fino-colombiano-history.webp",
+      "sha256": "4a1cf92a831a1f20789c4db2601e36d006d17f6265332898a7b7adef567462d3"
+    },
+    {
+      "path": "public/illustrations/v3/saint-bernard-history.webp",
+      "sha256": "b4507ee0fe9afcd12523efa8f7eaeae7dd61f74515d1b97f5d50ab411d283037"
+    },
+    {
+      "path": "public/illustrations/v3/saint-miguel-cattle-dog-history.webp",
+      "sha256": "41bb9255c5c57d9e53f34c601d065df2be794ee36d3f618659560ca6871d6229"
+    },
+    {
+      "path": "public/illustrations/v3/saluki-history.webp",
+      "sha256": "1586ec9d5c353be22709845fe5c91b6247f958089720ad112fc49dfb9e91b92d"
+    },
+    {
+      "path": "public/illustrations/v3/samoyed-history.webp",
+      "sha256": "c4d48e1004fa713732dec1030e16c5526356f6a35601d44ac61e28c700dee4c9"
+    },
+    {
+      "path": "public/illustrations/v3/sapsaree-history.webp",
+      "sha256": "85dd46af2b78e690b4897c7e7627b8b110df1e7ade3c17bb9fa10e8877caafd5"
+    },
+    {
+      "path": "public/illustrations/v3/sarplaninac-history.webp",
+      "sha256": "29e667ed50e1eb20b6e5b9863e9f41a8f5ada4c331095e037d0e37be5fc63f0f"
+    },
+    {
+      "path": "public/illustrations/v3/schapendoes-history.webp",
+      "sha256": "9ec5ed78d84a51f1d85f14c85a39a1469734e391a69d7b09c0689f253b6f53cc"
+    },
+    {
+      "path": "public/illustrations/v3/schillerstovare-history.webp",
+      "sha256": "04336269012b7ea2a575c30342d071789b00922d3420bad8de9b19a19fdb2134"
+    },
+    {
+      "path": "public/illustrations/v3/schipperke-history.webp",
+      "sha256": "a5092af88bb2cbee6c4b79f6662e00cc0eae0d3dcaadeaae989a4b5018b44cce"
+    },
+    {
+      "path": "public/illustrations/v3/schnauzer-history.webp",
+      "sha256": "28f0ba9a862b18a0f58b4ea2943643cf088a43903dcbd2e8224fe402a4c1ed00"
+    },
+    {
+      "path": "public/illustrations/v3/schweizer-laufhund-history.webp",
+      "sha256": "05f69c91f228e815b1be7ad8a685113cca3b233dfda2eeda2e57c4fb0976f6a7"
+    },
+    {
+      "path": "public/illustrations/v3/scottish-deerhound-history.webp",
+      "sha256": "ecec46e2910ba6e80bda115f8a6e7264655f4fc9a844161428b7c998d9089652"
+    },
+    {
+      "path": "public/illustrations/v3/scottish-terrier-history.webp",
+      "sha256": "4f11e4e41347165b2cbdb9252e7d6ea68df6308f3c0c02a857a6b7a372075eb6"
+    },
+    {
+      "path": "public/illustrations/v3/sealyham-terrier-history.webp",
+      "sha256": "ef2fdd7ae2a3563562b24100ff7c225488c54367fb3bea6633cd11d7b67dcb15"
+    },
+    {
+      "path": "public/illustrations/v3/segugio-dell-appennino-history.webp",
+      "sha256": "107af1be4fde3c86bbee8842da621fcbcea39a75c09fce56716ad129547617fc"
+    },
+    {
+      "path": "public/illustrations/v3/serbian-hound-history.webp",
+      "sha256": "76590b67a959431ecf4d4d453be8083cf0addd05d5c3acb485421fa79760a19c"
+    },
+    {
+      "path": "public/illustrations/v3/serbian-tricolour-hound-history.webp",
+      "sha256": "01ab718877004b1a05911cba448b0823fb26ee4451d06aaf8b1fcec21bf12e51"
+    },
+    {
+      "path": "public/illustrations/v3/shar-pei-history.webp",
+      "sha256": "8a02a59f6a6a709882d598f6176c904e4bae367977cc96b6cb020089384f2690"
+    },
+    {
+      "path": "public/illustrations/v3/shetland-sheepdog-history.webp",
+      "sha256": "92c652907e0ca24ef5c8145549b19d0500b38eb53406f7e3b6390a228f86cacf"
+    },
+    {
+      "path": "public/illustrations/v3/shiba-history.webp",
+      "sha256": "c88096da01b8d306fa39057254def462eadc32c71631e6ab54e9e23620f839e7"
+    },
+    {
+      "path": "public/illustrations/v3/shih-tzu-history.webp",
+      "sha256": "de732b0578567f6583db8cb81615b8de4e65e35669973eee41d81967e2e8bc67"
+    },
+    {
+      "path": "public/illustrations/v3/shikoku-history.webp",
+      "sha256": "5e9b7baba13575abdd065af8ff58ce63c56ba5f3a57866150014de314e039079"
+    },
+    {
+      "path": "public/illustrations/v3/siberian-husky-history.webp",
+      "sha256": "a711328afd545d74140a1ce36e4d5e47d88661881dc2ac87220ee0e3c42a8cf7"
+    },
+    {
+      "path": "public/illustrations/v3/skye-terrier-history.webp",
+      "sha256": "356f35651940d6cd4149964f1359e8ebb8f90f0dbc3a7af74eae6c54f8e37d61"
+    },
+    {
+      "path": "public/illustrations/v3/sloughi-history.webp",
+      "sha256": "08cb7568da95969713b34ec716be6568b106f8a18543e6161af626d7f5d63a5f"
+    },
+    {
+      "path": "public/illustrations/v3/slovakian-cuvac-history.webp",
+      "sha256": "5e747335c3d5a61de738744a904b24769ded95709b1974b5ee3586a95e4702fd"
+    },
+    {
+      "path": "public/illustrations/v3/slovakian-hound-history.webp",
+      "sha256": "0f80dddda3c167a0522d543fb67250727fc2505844ab5f4f94248e9919421820"
+    },
+    {
+      "path": "public/illustrations/v3/slovakian-wirehaired-pointer-history.webp",
+      "sha256": "2111ffccc41b8aaab4fd06dc0c2ab0761352ac87d20d6469d8a76ab9a92b6866"
+    },
+    {
+      "path": "public/illustrations/v3/smaland-hound-history.webp",
+      "sha256": "abb6494109b5559bb46a406a4004387b1baae70bbc0c00bc5bfa3e4d800e4e68"
+    },
+    {
+      "path": "public/illustrations/v3/small-munsterlander-history.webp",
+      "sha256": "8f4bbe52ffc13170326320afe1825763bb46ccdb36e30aa0a5703fd794b374c3"
+    },
+    {
+      "path": "public/illustrations/v3/small-swiss-hound-history.webp",
+      "sha256": "1fcd559d257a1651df9210ae96be1439fafcb71f27ef2b50edfe4e89edd18fc0"
+    },
+    {
+      "path": "public/illustrations/v3/smooth-collie-history.webp",
+      "sha256": "26f6618729c9608f9f0fab61157c9208bac98637e22c4f723c0b844734a637ce"
+    },
+    {
+      "path": "public/illustrations/v3/smooth-fox-terrier-history.webp",
+      "sha256": "00f354df81821ece37e1ed5755c02df61a28d18f100c6202fdffa6085d5cd6da"
+    },
+    {
+      "path": "public/illustrations/v3/soft-coated-wheaten-terrier-history.webp",
+      "sha256": "086b562bf0812e7b0cc995fe2faf7ddee7b2a9542dbf7ae24750c2dda63a7d84"
+    },
+    {
+      "path": "public/illustrations/v3/south-russian-shepherd-dog-history.webp",
+      "sha256": "004962be845fc69fd7ed47768a46274b62f256a4f20c3ea04f61aa55b79e369d"
+    },
+    {
+      "path": "public/illustrations/v3/spanish-hound-history.webp",
+      "sha256": "e19fea26a3002eabbd2ef8b9ae1de6ed577f50c50deac07408ada40ddfedb885"
+    },
+    {
+      "path": "public/illustrations/v3/spanish-mastiff-history.webp",
+      "sha256": "7fb68c5b46b77f4815f9726fbcbd8343f7ef06003b5cc7414e61bbc728ab408c"
+    },
+    {
+      "path": "public/illustrations/v3/spanish-water-dog-history.webp",
+      "sha256": "8469bd1602c3ebb4868c1085a8f05911fe397fbf73900e003b3f21551930a0f6"
+    },
+    {
+      "path": "public/illustrations/v3/spinone-italiano-history.webp",
+      "sha256": "2739e1e91440e9f20dc614c8ea18d7ef9d4167a7f60b5c4d683111e9367b1232"
+    },
+    {
+      "path": "public/illustrations/v3/stabyhoun-history.webp",
+      "sha256": "0e34b88181d9ebfd4e8570b15b2b45aa7ac2927af0683b690036addba70b9901"
+    },
+    {
+      "path": "public/illustrations/v3/staffordshire-bull-terrier-history.webp",
+      "sha256": "90a52f8cd3ba507913ee39ad7b31eb6feb9b4554effb755b08ae4242275776ef"
+    },
+    {
+      "path": "public/illustrations/v3/styrian-coarse-haired-hound-history.webp",
+      "sha256": "c0c9871b72502bec16239664b975c03e700847b73e339e092b681dd159997b32"
+    },
+    {
+      "path": "public/illustrations/v3/sussex-spaniel-history.webp",
+      "sha256": "8bfa8cb5ff0fc47aa7896c18d9875cbed1a29300b3d09da02b9eeb6ca2c8205a"
+    },
+    {
+      "path": "public/illustrations/v3/swedish-lapphund-history.webp",
+      "sha256": "eed05b0c6951e3e3220c204477559859149022383bab7c76701afd143c6a4b46"
+    },
+    {
+      "path": "public/illustrations/v3/swedish-vallhund-history.webp",
+      "sha256": "11c1ee9773abe91b4005cb2a203871b82613be1258ed9f15911c3c0398cc7e63"
+    },
+    {
+      "path": "public/illustrations/v3/taiwan-dog-history.webp",
+      "sha256": "1f3f5c02551a34a1b6621a0734e0f0a6a843b6ddcceecc2225120da04c995aaf"
+    },
+    {
+      "path": "public/illustrations/v3/tatra-hound-history.webp",
+      "sha256": "e1b905b392c292431059b52854ce6734e4c17fc79b7b708311c0f8c66b3589e3"
+    },
+    {
+      "path": "public/illustrations/v3/thai-bangkaew-dog-history.webp",
+      "sha256": "3fdc87d554a29f558c2cea0a5b54243fa88b8adda07a55acb80cf6ba4b48113a"
+    },
+    {
+      "path": "public/illustrations/v3/thai-ridgeback-history.webp",
+      "sha256": "1c3db26ecc17eff17821d29c4144df964c2ef4b77b9e83116b0e1da95e02c076"
+    },
+    {
+      "path": "public/illustrations/v3/tibetan-mastiff-history.webp",
+      "sha256": "f9297791cd568b24ebd1efe3a5a06f8fe4deae18193eb10f9607b0f7f141f921"
+    },
+    {
+      "path": "public/illustrations/v3/tibetan-spaniel-history.webp",
+      "sha256": "93fa6d97dcf2fe8b5b285469820785f36ca05d4d5961473e0785c979569fafcd"
+    },
+    {
+      "path": "public/illustrations/v3/tibetan-terrier-history.webp",
+      "sha256": "a1c1997065e44b9873c8d75bf8f883c0386fa1e139133a8f656a12f6d9f6181e"
+    },
+    {
+      "path": "public/illustrations/v3/tornjak-history.webp",
+      "sha256": "6dfca84d5ab2539ff31c1be65a9f3a806b0bb4cae114ac0bed834f6a4efcba0c"
+    },
+    {
+      "path": "public/illustrations/v3/tosa-history.webp",
+      "sha256": "4129802c4b6f21601154c8a6cbde0a97b5f6d02079898ab4dc0df2cd3011dab5"
+    },
+    {
+      "path": "public/illustrations/v3/transmontano-mastiff-history.webp",
+      "sha256": "060a453cbc939859778e70bf534eaac99a2b6dfe2e08f3a3ef40722b558d1b93"
+    },
+    {
+      "path": "public/illustrations/v3/transylvanian-hound-history.webp",
+      "sha256": "2bc93513513424f8e4d2dcc67f8749f1138e7c6d6b3a7d4c16064da98f9b1c1b"
+    },
+    {
+      "path": "public/illustrations/v3/tyrolean-hound-history.webp",
+      "sha256": "ddccf4385347052fbc5457137bb0c9e81bf8634e18767834b70deaa1b782bc24"
+    },
+    {
+      "path": "public/illustrations/v3/valencian-terrier-history.webp",
+      "sha256": "b72456feefdb3229ee493d46cc19e70d6018a212fdf237e677ede36aef4b0f85"
+    },
+    {
+      "path": "public/illustrations/v3/vizsla-history.webp",
+      "sha256": "25792e976630bda5eb1d79bb471c9b4c4407bf98a427b9b4013d6929bf0f0bfe"
+    },
+    {
+      "path": "public/illustrations/v3/weimaraner-history.webp",
+      "sha256": "f15275b1c7a7e2e1077d758ff7db7d2bc6353e7215135d217c658eb31c0c4e8d"
+    },
+    {
+      "path": "public/illustrations/v3/welsh-corgi-cardigan-history.webp",
+      "sha256": "f1aa0320c762c7600806292469b03389c7fcde3f17b1768156b03c493f96563a"
+    },
+    {
+      "path": "public/illustrations/v3/welsh-corgi-pembroke-history.webp",
+      "sha256": "ea928f637309cde28464e6aba01afd3588fe9f84daa8062dd10c6c77a1b22e27"
+    },
+    {
+      "path": "public/illustrations/v3/welsh-springer-spaniel-history.webp",
+      "sha256": "178f082796f43235251d70fd47aad604a68d2cc1e41a4a6c6bafdf9e3f237afd"
+    },
+    {
+      "path": "public/illustrations/v3/welsh-terrier-history.webp",
+      "sha256": "1786dd17b7e901acee167d58b874040bfb64e4f376aba0b64fbc24a013096606"
+    },
+    {
+      "path": "public/illustrations/v3/west-highland-white-terrier-history.webp",
+      "sha256": "4ac42a2f9b801954a289932315d38984f4941a56ea2feb43912cca3cc3ac5b5e"
+    },
+    {
+      "path": "public/illustrations/v3/west-siberian-laika-history.webp",
+      "sha256": "563c682284479a5cd85b5c3416435f058823b35c6a51a55c3a79c91c56e84e12"
+    },
+    {
+      "path": "public/illustrations/v3/westphalian-dachsbracke-history.webp",
+      "sha256": "f09082a8c7ff7ea3929c64f8ede0ed1e11ee6392b5b5b5b42dcb577e2134d96a"
+    },
+    {
+      "path": "public/illustrations/v3/wetterhoun-history.webp",
+      "sha256": "33daed6d766be873dfcf325dd55d5e4e3d13c338963f11d54925956493fc87d6"
+    },
+    {
+      "path": "public/illustrations/v3/whippet-history.webp",
+      "sha256": "441cc8705a6c7a261bc239e840d99a7cc7557b76521c2fd7a69ffc20a114d932"
+    },
+    {
+      "path": "public/illustrations/v3/white-swiss-shepherd-dog-history.webp",
+      "sha256": "b79560a9704daaa16d734249e1bce59810b60f508857209d7802db727d88e89b"
+    },
+    {
+      "path": "public/illustrations/v3/wire-fox-terrier-history.webp",
+      "sha256": "381bb3a913ebb228f466765f4b1cb2ee336bf22ccf88b388067c53a4a2bc2898"
+    },
+    {
+      "path": "public/illustrations/v3/wire-haired-pointing-griffon-korthals-history.webp",
+      "sha256": "f9da1215f173c3580be4403522d88fe94c352c86020541a740702eeaaa096fb8"
+    },
+    {
+      "path": "public/illustrations/v3/xoloitzcuintle-history.webp",
+      "sha256": "17f35603a2a9c15000cd26f4388997dd41f972c63f8ff92ac47a17a34a4e6966"
+    },
+    {
+      "path": "public/illustrations/v3/yakutian-laika-history.webp",
+      "sha256": "890958b88ccc708b7da5169e069c33a64876f68b0c41f41784d8fe78d35556df"
+    },
+    {
+      "path": "public/illustrations/v3/yorkshire-terrier-history.webp",
+      "sha256": "120d0e18037929912001274959b49494577ac60ffc944b0f498f35f45ae9ef50"
+    }
+  ]
+}

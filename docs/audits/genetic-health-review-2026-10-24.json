@@ -1,0 +1,443 @@
+{
+  "reviewedAt": "2026-10-24",
+  "scope": "12종의 선택 건강 항목·부모견 검사 기록. 전체 유전 질환 목록이나 전문가 검수 완료가 아니다.",
+  "sources": {
+    "chic": {
+      "title": "CHIC Program — certification and its limits",
+      "organization": "Orthopedic Foundation for Animals",
+      "url": "https://ofa.org/chic-programs/",
+      "checkedAt": "2026-10-24"
+    },
+    "genetics": {
+      "title": "What Genetic Testing Can and Can’t Tell You About Your Pet",
+      "organization": "UC Davis School of Veterinary Medicine",
+      "url": "https://magazine.vetmed.ucdavis.edu/news-article-spring-2023/what-genetic-testing-can-and-cant-tell-you-about-your-pet",
+      "checkedAt": "2026-10-24"
+    },
+    "poodle": {
+      "title": "PCA Health Statement — December 11, 2024",
+      "organization": "Poodle Club of America",
+      "url": "https://poodleclubofamerica.org/wp-content/uploads/pca-health-statement-for-akc-december-11-2024-.pdf",
+      "checkedAt": "2026-10-24"
+    },
+    "maltese": {
+      "title": "Maltese Health Statement — January 8, 2018",
+      "organization": "American Maltese Association",
+      "url": "https://images.akc.org/pdf/Maltese_health_statement_2018.pdf",
+      "checkedAt": "2026-10-24"
+    },
+    "malteseCurrent": {
+      "title": "Toy Group Health Testing Requirements — Maltese",
+      "organization": "American Kennel Club",
+      "url": "https://www.akc.org/breeder-programs/breed-health-testing-requirements/toy-group-health-testing-requirements/",
+      "checkedAt": "2026-10-24"
+    },
+    "golden": {
+      "title": "Health Screenings for the Parents of a Litter",
+      "organization": "Golden Retriever Club of America",
+      "url": "https://grca.org/about-the-breed/health-research/health-screenings-for-the-parents-of-a-litter/",
+      "checkedAt": "2026-10-24"
+    },
+    "labrador": {
+      "title": "Health Issues — Recommended Health Clearances",
+      "organization": "The Labrador Retriever Club",
+      "url": "https://thelabradorclub.com/health-issues/",
+      "checkedAt": "2026-10-24"
+    },
+    "gana": {
+      "title": "Health Testing Standards",
+      "organization": "Goldendoodle Association of North America",
+      "url": "https://www.goldendoodleassociation.com/for-breeders/health-standards-and-ethical-breeding/",
+      "checkedAt": "2026-10-24"
+    },
+    "cavalierHeart": {
+      "title": "Heart Scheme for Cavalier King Charles Spaniels",
+      "organization": "The Royal Kennel Club",
+      "url": "https://www.royalkennelclub.com/health-and-dog-care/health-dog-care/health/getting-started-with-health-testing-and-screening/heart-scheme-for-cavalier-king-charles-spaniels/",
+      "checkedAt": "2026-10-24"
+    },
+    "cmsm": {
+      "title": "Chiari malformation and syringomyelia scheme",
+      "organization": "British Veterinary Association",
+      "url": "https://www.bva.co.uk/canine-health-schemes/cmsm-scheme/",
+      "checkedAt": "2026-10-24"
+    },
+    "dcm": {
+      "title": "Dilated cardiomyopathy",
+      "organization": "Cornell University College of Veterinary Medicine",
+      "url": "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/dilated-cardiomyopathy",
+      "checkedAt": "2026-10-24"
+    },
+    "dcmDna": {
+      "title": "Dilated Cardiomyopathy 1 and 2 in Doberman Pinschers",
+      "organization": "UC Davis Veterinary Genetics Laboratory",
+      "url": "https://vgl.vetmed.ucdavis.edu/test/dcm1-2-doberman",
+      "checkedAt": "2026-10-24"
+    },
+    "basenji": {
+      "title": "Basenji Health — recommended testing and Fanconi DNA tests",
+      "organization": "Basenji Club of America",
+      "url": "https://basenji.org/basenji/health/",
+      "checkedAt": "2026-10-24"
+    },
+    "ivdd": {
+      "title": "IVDD Scheme for Dachshunds",
+      "organization": "The Royal Kennel Club / Dachshund Health UK",
+      "url": "https://www.royalkennelclub.com/health-and-dog-care/health-dog-care/health/getting-started-with-health-testing-and-screening/ivdd-scheme-for-dachshunds/",
+      "checkedAt": "2026-10-24"
+    },
+    "mdr1": {
+      "title": "Drug sensitivity: MDR1",
+      "organization": "Cornell University College of Veterinary Medicine",
+      "url": "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/health-info/drug-sensitivity-mdr1",
+      "checkedAt": "2026-10-24"
+    },
+    "mdr1Dna": {
+      "title": "Multidrug Sensitivity (MDR1)",
+      "organization": "UC Davis Veterinary Genetics Laboratory",
+      "url": "https://vgl.vetmed.ucdavis.edu/test/multidrug-sensitivity-mdr1",
+      "checkedAt": "2026-10-24"
+    }
+  },
+  "guidance": [
+    {
+      "field": "purpose",
+      "text": "아래 해외 협회의 번식 전 선별 기준은 부모견 기록을 읽는 참고자료예요. 국내 모든 반려견의 필수 검사 목록은 아니며, 실제 검진은 나이·증상·가족력과 진료 소견에 맞춰 수의사와 정해요.",
+      "sha256": "5ba34059530933024190e4d6996799271474fb91d1801c849faef60734013a6e",
+      "sourceKeys": [
+        "chic",
+        "genetics"
+      ]
+    },
+    {
+      "field": "records",
+      "text": "검사표의 개체 식별정보, 검사명·날짜·검사 당시 나이와 실제 결과를 함께 확인해요. OFA의 CHIC 번호는 필요한 검사와 결과 공개를 뜻하며, 모든 결과가 정상이라는 인증은 아니에요.",
+      "sha256": "9395cb9bac39db30bf873a3612a48a6bda2cdfd124f6779dda842b4007a71612",
+      "sourceKeys": [
+        "chic"
+      ]
+    },
+    {
+      "field": "limits",
+      "text": "DNA 검사는 대상으로 삼은 변이를 확인해요. 결과가 정상이어도 검사하지 않은 질환까지 없다는 뜻은 아니며, 보인자·위험 변이의 의미는 질환마다 달라요. 부모 기록을 구할 수 없으면 건강함이나 질병을 단정하지 말고 현재 진료부터 계획해요.",
+      "sha256": "9fccf120e5df0f09892cfb75560582724a298d2a95a6dd2adac9808ee04987d9",
+      "sourceKeys": [
+        "chic",
+        "genetics"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "slug": "poodle",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 바라이어티별로 점검할 항목과 권장 검사가 다를 수 있으므로 크기와 가족력을 확인해 담당 동물병원과 예방 계획을 세우세요.",
+      "beforeHash": "a074c19acc26376611c879b1b1c9bec579cb9ef17ea83c15791a8cc831438683",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. PCA의 2024년 번식견 지침은 토이에 prcd-PRA 유전자·안과·슬개골 검사, 미니어처에는 여기에 고관절 평가를 더해 안내해요. 스탠더드는 고관절·안과·갑상선 평가와 NEwS·vWD1 유전 기록을 구분하고 심장·피지선염 검사는 선택 항목으로 제시해요. 이 목록은 미국의 크기 분류 기준이며, 반려견에게 필요한 검사는 가족력과 진료 소견에 맞춰 정해요.",
+      "sha256": "67adf4da96cbb62eff67061ff7c9cf52967cc4d902ee6a05f1fa8a51300e6443",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "poodle"
+      ],
+      "reason": "날짜가 있는 공식 성명서를 적용하고 크기·국가 분류와 번식 목적을 구분했다.",
+      "files": [
+        "src/content/breeds/detail-batch-a.ts"
+      ]
+    },
+    {
+      "slug": "maltese",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 MVP 초안입니다. 치아를 포함한 개별 관리 계획은 동물병원과 상의해야 합니다.",
+      "beforeHash": "27556ea62414cdad4fe21f8b3aae8b9aed929217edf4ada0779847c369e804bf",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 미국 말티즈 협회의 번식견 건강 안내는 슬개골·선천성 심장 평가를 제시하고, 간 건강을 살피는 담즙산 검사도 권고해요. 각 검사는 평가하는 대상이 달라요. 부모견 기록과 실제 개체의 상태를 수의사와 확인하고, 검사 하나로 모든 유전 질환이 없다고 판단하지 않아요.",
+      "sha256": "da8649ae6bc09d6db21228137021db6c53711fd79718b1eadb3e8803881b809c",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "maltese",
+        "malteseCurrent",
+        "chic"
+      ],
+      "reason": "무조건 건강하다는 설명 없이 검사별 목적과 한계를 보완했다.",
+      "files": [
+        "src/content/breeds/data.ts"
+      ]
+    },
+    {
+      "slug": "maltipoo",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "말티푸라는 이름만으로 질환이나 건강함을 예측할 수 없습니다. 수의학 자료는 치과 질환, 슬개골과 눈 문제를 주의 항목으로 소개하며 부모견 검사 기록과 개별 검진이 우선입니다.",
+      "beforeHash": "bc399f37ff02fe617fd928687d5029f9dfdd3bb3fe27b16343732edac7eed15b",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 말티푸에 모든 개체가 공유하는 단일 검사 목록을 적용하지 않아요. 부모 말티즈의 슬개골·심장·담즙산 기록과, 부모 푸들의 크기별 검사 기준을 각각 확인할 수 있어요. 이는 부모 계통 지침을 확인하는 출발점이며 말티푸의 공식 공통 기준은 아니에요. 부모 결과가 정상이더라도 자견의 평생 건강을 보장하지 않으므로 개별 검진을 이어가요.",
+      "sha256": "e5546736263c88a2cc3eb723209a41512d4ed45c3cc8073560472f9c61ddc9b4",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "maltese",
+        "malteseCurrent",
+        "poodle",
+        "chic"
+      ],
+      "reason": "말티즈·푸들 모두 눈·슬개골로 묶던 안내를 부모 계통별로 구분했다.",
+      "files": [
+        "src/content/breeds/detail-batch-r.ts"
+      ]
+    },
+    {
+      "slug": "goldendoodle",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "골든두들이 교배견이라는 사실만으로 더 건강하다고 단정할 수 없습니다. GANA는 번식견의 관절·심장·눈·슬개골과 부모 계통 관련 유전질환 검사를 요구하며, 개별 결과를 직접 확인해야 합니다.",
+      "beforeHash": "a208582ca03a278cbcd234de67ceeea1a9328f98be00cd2b8748381dd82da5a8",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 교배견이라는 이유로 더 건강하다고 단정하지 않아요. GANA 기준은 해당 협회 회원의 번식견에 적용되며 출생일·회원 가입 조건·검사 등급과 부모 계통에 따라 확인할 항목이 달라요. 관절·눈·심장 등 실제 검사 결과를 개체 식별정보와 대조하고, 회원 로고나 교배 세대 표기를 건강 보증으로 읽지 않아요.",
+      "sha256": "1f0e1f7caf3502659ee97760b2bf1a5ce59d488c4b1a20825533dceaa130795e",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "gana",
+        "chic"
+      ],
+      "reason": "특정 협회의 적용 범위를 모든 골든두들의 공통 의무로 확대하지 않았다.",
+      "files": [
+        "src/content/breeds/detail-batch-r.ts"
+      ]
+    },
+    {
+      "slug": "golden-retriever",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 관절·눈·심장과 가족력 등 공식 권장 검사의 세부 범위는 전문가 검토 뒤 보강하며, 개별 예방 계획은 담당 동물병원과 세워야 합니다.",
+      "beforeHash": "3c73dabd49faa2658dd4ce05d10c27244152eeb3df8107aad59ca559a64c8c99",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 미국 GRCA는 번식 전 부모견의 고관절·팔꿈치·안과·심장 검사와 결과 공개를 안내해요. 관절 평가에는 영상 검사가 쓰이며 DNA 패널만으로 대신할 수 없어요. 부모 결과가 정상이어도 자견에게 질환이 없다고 보장하지는 않아요. 반려견의 검진 시기와 범위는 나이·증상·가족력을 바탕으로 수의사와 정해요.",
+      "sha256": "82dbe89c45dfd357f0cf7ad00867df8516cbec100742c6436ae134610fcf57d3",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "golden",
+        "chic"
+      ],
+      "reason": "일반적인 관절·눈·심장 언급을 번식 전 기록 확인과 개인 진료로 나눴다.",
+      "files": [
+        "src/content/breeds/detail-batch-a.ts"
+      ]
+    },
+    {
+      "slug": "labrador-retriever",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 관절·눈·체중과 가족력에 관한 확인은 질환을 예측하는 진단이 아니며, 성장 단계별 검진과 운동 계획을 전문가와 상의하세요.",
+      "beforeHash": "b4dbf0b1d0c9fc5a0f463e1129155c700235e641c5967081d3c2bd6e57f94169",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 미국 LRC의 번식견 안내에는 고관절·팔꿈치 평가, 안과 검사와 운동유발성 허탈(EIC) DNA 검사 등이 포함돼요. EIC 검사는 해당 유전 위험을 확인하는 검사이며 모든 실신·운동 불내성의 원인을 판별하지는 않아요. 이는 전체 검사 목록이 아니며 부모 기록의 실제 결과를 확인하고 반려견의 검진은 수의사와 계획해요.",
+      "sha256": "c5d5b49ca82adc24506aeeef2902846a829dfb401b6cddfee91fbecfddd98cd4",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "labrador",
+        "genetics"
+      ],
+      "reason": "핵심 검사 예시와 진단 한계를 구분하며 선택 검사를 필수로 바꾸지 않았다.",
+      "files": [
+        "src/content/breeds/detail-batch-a.ts"
+      ]
+    },
+    {
+      "slug": "cavalier-king-charles-spaniel",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 품종 경향만으로 질환을 예측하거나 진단하지 않으며, 호흡·보행·피부·눈·심장 등 개체의 변화는 수의사 검진으로 확인하세요.",
+      "beforeHash": "9d32c16104f83555a60c1e4f63eb8debf9c172aa3f87e183d4df008a056f7803",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 승모판 질환과 키아리 유사 기형·척수공동증(CM/SM)은 따로 확인할 건강 문제예요. 영국 RKC 심장 선별과 BVA/RKC의 MRI 기반 CM/SM 선별은 번식 판단에 쓰이는 별개의 제도예요. 부모견 결과는 검사 당시 나이와 함께 읽고, 반려견의 심장 평가나 MRI 필요 여부는 증상·진찰에 따라 수의사와 정해요.",
+      "sha256": "25c6d85447fd50922e48115b319edd4a444f0ddf9e43d31acbd825adfcaebc6d",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "cavalierHeart",
+        "cmsm",
+        "chic"
+      ],
+      "reason": "이전의 편집 상태 안내를 유지하면서 심장·신경계와 선별·진단 목적을 구체화했다.",
+      "files": [
+        "src/content/breeds/detail-batch-c.ts"
+      ]
+    },
+    {
+      "slug": "dobermann",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 품종 경향만으로 질환을 예측하거나 진단하지 않으며, 호흡·보행·피부·눈·심장 등 개체의 변화는 수의사 검진으로 확인하세요.",
+      "beforeHash": "9d32c16104f83555a60c1e4f63eb8debf9c172aa3f87e183d4df008a056f7803",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 확장성 심근병증(DCM)은 겉으로 증상이 없을 때도 진행할 수 있어요. 관련 DNA 검사에서 변이가 나오지 않아도 DCM을 배제할 수 없고, 변이가 있어도 발병을 확정하지는 않아요. 수의사와 심장초음파·홀터 심전도 등 선별 검사와 추적 계획을 상의해요.",
+      "sha256": "da06f0987012dc99345018906c95e3dc3f1a9537dbab4189656cbaec9f9f99d5",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "dcm",
+        "dcmDna"
+      ],
+      "reason": "유전자 검사와 임상 심장 선별을 구분하고 음성·양성 결과의 과도한 해석을 막았다.",
+      "files": [
+        "src/content/breeds/detail-batch-c.ts"
+      ]
+    },
+    {
+      "slug": "basenji",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 유전 질환 검사를 포함한 번식·입양 기록과 눈·신장·관절 등 개별 건강 상태를 수의사와 확인하고, 품종의 평균 정보로 진단하지 마세요.",
+      "beforeHash": "69617fc811e389c21b10a7be57dc91a205db1d8761b17368cf9ea3abe59c3ef8",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 미국 BCOA는 부모견의 판코니 증후군 직접 DNA 검사와 PRA-BJ1 검사, 안과 평가 등을 안내해요. PRA-BJ1은 진행성 망막 위축의 일부 원인만 확인하므로 음성 결과가 정기 안과 검사를 대신하지 않아요. 오래된 판코니 연관표지자 검사와 직접 DNA 검사 기록도 구분해 확인해요.",
+      "sha256": "98aa8cabb91d71b69658a197a04626951f6a0b81e17d862de97eb386c638e754",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "basenji"
+      ],
+      "reason": "유전 질환이라는 포괄 표현 대신 검사 종류·범위·구형 검사와의 차이를 명시했다.",
+      "files": [
+        "src/content/breeds/detail-batch-b.ts"
+      ]
+    },
+    {
+      "slug": "dachshund",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 긴 몸과 짧은 다리만으로 질환을 진단할 수 없으며, 체중·점프 동선·움직임 변화에 관한 개별 관리 계획은 담당 동물병원과 상의하세요.",
+      "beforeHash": "a5fe706a6ca3bb7cf5e84f5b621e69942f6ababbe02be545d8d7fe5f2ad6e7f2",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 추간판 질환(IVDD)의 위험에는 유전과 생활 요인이 함께 관여해요. 영국 RKC/Dachshund Health UK는 번식 판단을 위해 생후 24~48개월의 X선 석회화 평가를 운영해요. 이 선별 제도는 모든 반려견에게 같은 시기에 검사를 받으라는 뜻이나 평생 무발병 보증이 아니에요. 통증·보행 변화가 있으면 검사 연령을 기다리지 말고 진료받아요.",
+      "sha256": "4611d91bd5d146420b54ea20f9fe49d1b4fbcf4be080578812cff00ad25c9a61",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "ivdd"
+      ],
+      "reason": "외형만의 문제가 아님과 특정 연령 선별 기준을 증상 진료 대기로 오해하지 않도록 정리했다.",
+      "files": [
+        "src/content/breeds/detail-batch-a.ts"
+      ]
+    },
+    {
+      "slug": "australian-shepherd",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 품종 경향만으로 질환을 예측하거나 진단하지 않으며, 개체의 호흡·보행·피부·눈·심장 변화를 발견하면 수의사와 상의하세요.",
+      "beforeHash": "86bab555c5e9595de645754afebc2fedc21fa574b4644b48b0772ec0846d30de",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 일부 개체에는 특정 약물에 대한 민감성을 높이는 ABCB1(MDR1) 변이가 있어요. 견종이나 겉모습만으로 보유 여부를 판단하지 말고 검사 필요성과 결과를 수의사와 상의해요. 한 사본을 가진 개체도 영향을 받을 수 있어요. 결과를 처방 시 공유하되 예방약을 임의로 끊거나 용량을 바꾸지 않아요.",
+      "sha256": "644cbf42c05ad1faeb15960558d87296181712665bc4f6a7e209c3d4c1553f5e",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "mdr1",
+        "mdr1Dna"
+      ],
+      "reason": "유전적 약물 민감성의 검사 활용과 보호자의 임의 투약 변경을 구분했다.",
+      "files": [
+        "src/content/breeds/detail-batch-d.ts"
+      ]
+    },
+    {
+      "slug": "shetland-sheepdog",
+      "surface": "breed",
+      "field": "healthEditorialNote",
+      "beforeText": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 품종 경향만으로 질환을 예측하거나 진단하지 않으며, 개체의 호흡·보행·피부·눈·심장 변화를 발견하면 수의사와 상의하세요.",
+      "beforeHash": "86bab555c5e9595de645754afebc2fedc21fa574b4644b48b0772ec0846d30de",
+      "text": "건강 항목은 수의학 전문가 검수 전인 편집 초안입니다. 셰틀랜드 쉽독에서도 ABCB1(MDR1) 변이가 보고돼요. 관련 DNA 검사는 특정 약물 민감성 위험을 확인하는 데 도움이 되지만 모든 약물 부작용을 예측하지는 않아요. 검사 결과를 수의사에게 알려 처방에 반영하고, 음성 결과만 믿고 사람 약을 주거나 처방약을 임의로 조절하지 않아요.",
+      "sha256": "0a4c6fe2f492d7e8c4a067f17f25dc5849ed7f4e0cb7a1a52a1272c1df9fd694",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "mdr1",
+        "mdr1Dna"
+      ],
+      "reason": "약물 반응을 품종 전체로 단정하지 않고 검사 범위와 실제 처방을 구분했다.",
+      "files": [
+        "src/content/breeds/detail-batch-d.ts"
+      ]
+    },
+    {
+      "slug": "goldendoodle",
+      "surface": "breed",
+      "field": "careNotes.2",
+      "beforeText": "부모견의 고관절·팔꿈치·심장·눈과 유전질환 검사 결과가 공개되어 있는지 교배 세대 설명과 함께 확인하세요.",
+      "beforeHash": "23cedb0a864635cd3aee061b8ea089bf251976f91e349f72369187858ed70a0b",
+      "text": "부모견 검사표에서 관절·심장·눈 등 실제 결과와 개체 식별정보를 확인하세요. GANA 회원 번식견의 기준은 적용 조건과 검사 등급을 함께 확인하고, 교배 세대만으로 건강을 판단하지 마세요.",
+      "sha256": "83a93ff427437317f6090692fc1d53e2a4e3ffbb1e3f27fc72ade575f411f0fb",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "gana",
+        "chic"
+      ],
+      "reason": "협회 기준과 실제 검사 결과의 확인을 분리했다.",
+      "files": [
+        "src/content/breeds/detail-batch-r.ts"
+      ]
+    },
+    {
+      "slug": "maltipoo",
+      "surface": "breed",
+      "field": "careNotes.2",
+      "beforeText": "부모 말티즈와 푸들의 슬개골·눈 등 권장 건강검사 결과가 실제 부모견 이름으로 공개되는지 확인하세요.",
+      "beforeHash": "555bfe26a5ac19afc5e329af57aecb4c90327cd91d2d72592e75e053420fdbb9",
+      "text": "부모견 이름·식별정보와 검사 기록이 맞는지 확인하세요. 말티즈와 푸들의 검사 기준은 다르며, 부모 푸들의 크기도 확인해 수의사와 기록을 검토하세요.",
+      "sha256": "4b67fa5bbee569a28e4c1fd087ca6f5be33423e969dfe9bd641bf1dcb640074e",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "maltese",
+        "poodle",
+        "chic"
+      ],
+      "reason": "두 부모 계통을 같은 검사 목록으로 묶지 않았다.",
+      "files": [
+        "src/content/breeds/detail-batch-r.ts"
+      ]
+    },
+    {
+      "slug": "cavalier-king-charles-spaniel",
+      "surface": "breed",
+      "field": "careNotes.0",
+      "beforeText": "정기 검진에서 심장 청진과 운동 중 호흡·피로 변화를 확인하세요.",
+      "beforeHash": "9cae73c1d11bc9a6ae810899f233fb84430b00509691a01977fe35b52b478547",
+      "text": "정기 검진에서 심장 상태와 검사 계획을 상의하세요. 부모견 심장·CM/SM 선별 기록은 검사 당시 나이와 결과를 함께 확인하고, 지금의 건강을 보증하는 자료로 보지 마세요.",
+      "sha256": "2cab7b49efd6649b643a9b66f4f522dbf101b92347698032f32d1f12bf266fb5",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "cavalierHeart",
+        "cmsm",
+        "chic"
+      ],
+      "reason": "청진만으로 모든 선별이 끝나는 듯한 인상을 줄였다.",
+      "files": [
+        "src/content/breeds/detail-batch-c.ts"
+      ]
+    },
+    {
+      "slug": "dobermann",
+      "surface": "breed",
+      "field": "careNotes.0",
+      "beforeText": "운동 중 실신, 비정상적 피로와 호흡 변화가 보이면 즉시 수의사와 상담하세요.",
+      "beforeHash": "b104b48c42476434c400f22a9754d159097d08b412f6c592fea79def8c5908df",
+      "text": "증상이 없어도 심장 검사 계획을 수의사와 상의하세요. 실신하거나 힘겹게 숨 쉬면 즉시 진료받고, 이전 DNA 검사 결과가 정상이었다는 이유로 기다리지 마세요.",
+      "sha256": "a067c6ba7d09212a7c0a39b5b4aca02110eebe17f7a3bbc7a17f8f02f8de778b",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "dcm",
+        "dcmDna"
+      ],
+      "reason": "증상 관찰에만 의존하지 않게 하고 검사 음성 결과로 진료를 늦추지 않도록 했다.",
+      "files": [
+        "src/content/breeds/detail-batch-c.ts"
+      ]
+    },
+    {
+      "slug": "maltipoo",
+      "surface": "standard",
+      "field": "realities.1.body",
+      "beforeText": "작은 몸은 높은 가구에서의 점프와 미끄러운 바닥에 더 세심한 준비가 필요할 수 있어요. 부모견의 건강검사 기록과 실제 성견 크기도 함께 확인해야 해요.",
+      "beforeHash": "e5739624244267cc82bde8f445e03fbe31eeec6521db581a3832a3d0eb0aee6a",
+      "text": "높은 가구와 미끄러운 바닥에 맞는 안전한 동선을 마련해요. 부모견의 검사표는 말티즈·푸들 계통과 푸들의 크기를 구분해 확인하고, 정상 결과를 평생 건강 보증으로 읽지 않아요.",
+      "sha256": "c38e41d34e56a509218ff1ea30d97a6c9d3c5631c023a0907e1da5f71a015870",
+      "decision": "rewritten",
+      "sourceKeys": [
+        "maltese",
+        "poodle",
+        "chic"
+      ],
+      "reason": "공개 표준 원고의 막연한 부모견 검사 확인을 구체화했다.",
+      "files": [
+        "src/content/standard-breed-detail/familiar-data.ts"
+      ],
+      "publicStandard": true
+    }
+  ]
+}

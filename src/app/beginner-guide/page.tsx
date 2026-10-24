@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { BeginnerGuide } from "@/components/beginner-guide";
+import { BeginnerGuide } from "@/features/guide/beginner-guide";
 import { BreedVisual } from "@/components/breed-visual";
 import { SiteHeader } from "@/components/site-header";
 import { LegalCareNotice } from "@/components/legal-care-notice";
-import { JapaneseSpitzReadiness } from "@/components/japanese-spitz-readiness";
+import { JapaneseSpitzReadiness } from "@/features/breed-detail/japanese-spitz-readiness";
 import { getBreed } from "@/content/breeds/data";
-import { isKoreanManagedBreed } from "@/lib/breed-legal-care";
-import { getBreedSizePresentation } from "@/lib/breed-size-presentation";
+import { isKoreanManagedBreed } from "@/lib/breeds/breed-legal-care";
+import { getBreedSizePresentation } from "@/lib/breeds/breed-size-presentation";
 import { createPageMetadata } from "@/lib/site-metadata";
-import { getBreedCardImage } from "@/lib/breed-image-assets";
+import { getBreedCardImage } from "@/lib/breeds/breed-image-assets";
 import styles from "./page.module.css";
 
 export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {

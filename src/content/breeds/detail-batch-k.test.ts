@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { getBreedCardImage } from "@/lib/breed-image-assets";
+import { getBreedCardImage } from "@/lib/breeds/breed-image-assets";
 import { breeds } from "./data";
 import { detailBatchK, detailBatchKSlugs } from "./detail-batch-k";
 import { getMasterBreed } from "./master-catalog";

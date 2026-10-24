@@ -113,10 +113,10 @@
 ## 8. 현재 코드 구조
 
 - `src/app/breeds/[slug]/page.tsx`: 공통 상세 진입점이다. 현재는 `breed.slug === "poodle"` 조건으로 푸들 히어로와 푸들 전용 경험을 분기한다.
-- `src/components/breed-detail-standard.tsx`: 국내 익숙한 32종이 공유하는 01~04 섹션 구조를 조합한다.
-- `src/components/breed-detail-standard-interactions.tsx`: 공용 단계 탭, 모바일 스냅 캐러셀, 이미지 생활 카드, 선택형 크기 비교와 체크리스트 상태를 담당한다.
-- `src/components/poodle-detail.tsx`와 `src/components/poodle-detail-interactions.tsx`: 공용 구조에 푸들 전용 네 크기 선택 카드를 연결한다.
-- `src/components/poodle-detail.module.css`: 현재 기준 상세들이 공유하는 레이아웃, 반응형, 전환, 모션 감소 규칙을 담는다. 파일명은 후속 정리 대상이다.
+- `src/features/breed-detail/breed-detail-standard.tsx`: 국내 익숙한 32종이 공유하는 01~04 섹션 구조를 조합한다.
+- `src/features/breed-detail/breed-detail-standard-interactions.tsx`: 공용 단계 탭, 모바일 스냅 캐러셀, 이미지 생활 카드, 선택형 크기 비교와 체크리스트 상태를 담당한다.
+- `src/features/breed-detail/poodle-detail.tsx`와 `src/features/breed-detail/poodle-detail-interactions.tsx`: 공용 구조에 푸들 전용 네 크기 선택 카드를 연결한다.
+- `src/features/breed-detail/poodle-detail.module.css`: 현재 기준 상세들이 공유하는 레이아웃, 반응형, 전환, 모션 감소 규칙을 담는다. 파일명은 후속 정리 대상이다.
 - `src/content/poodle-detail/data.ts`: Zod로 검증하는 히어로 문장, 네 크기, 세 단계 이야기, 두 생활 현실, 세 질문, 관련 견종 차이, 내부 출처 데이터다.
 - `src/content/standard-breed-detail/schema.ts`와 `data.ts`: 공용 Zod 구조, 앞선 개별 적용 데이터와 전체 조회 경계를 제공한다.
 - `src/content/standard-breed-detail/familiar-data.ts`: 국내 익숙한 28종 추가 적용의 공용 팩토리, 전용 카드가 없던 9종의 편집 데이터와 닥스훈트처럼 특정 견종에만 필요한 크기 비교 데이터를 제공한다.
