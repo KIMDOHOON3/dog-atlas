@@ -868,7 +868,15 @@ export function FoilCard() {
         />
       </SiteHeader>
       <main id="main" className={styles.main} aria-label={`${size} 카드 도감`}>
-        <h1 className={styles.srOnly}>살아 있는 견종도감</h1>
+        <div className={styles.intro}>
+          <h1>그림으로 만나는 견종도감</h1>
+          <p>
+            견종의 역사와 성격, 돌봄을 알아보고
+            <br />
+            함께할 일상을 차근차근 준비해요.
+          </p>
+          <span>카드를 뒤집어 이야기를 읽어보세요.</span>
+        </div>
         <div
           className={styles.viewSwitch}
           role="group"

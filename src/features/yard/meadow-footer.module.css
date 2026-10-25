@@ -175,12 +175,18 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0 4px;
-  margin: -8px 8px 8px;
+  gap: 10px;
+  width: min(calc(100% - 32px), 600px);
+  margin: 0 auto 18px;
 }
 .viewControls {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  width: min(100%, 330px);
+  overflow: hidden;
+  border: 1px solid #d8c9b8;
+  border-radius: 12px;
+  background: #f7f1e8;
 }
 .viewControls button {
   min-width: 44px;
@@ -188,9 +194,25 @@
   padding: 8px;
   border: 0;
   background: transparent;
-  color: #6b5b4c;
+  color: #604b39;
   font-size: 12px;
   cursor: pointer;
+}
+.viewControls button + button {
+  border-left: 1px solid #d8c9b8;
+}
+.viewControls button:nth-child(2) {
+  background: #fffdf9;
+}
+@media (hover: hover) {
+  .viewControls button:hover,
+  .reset:hover {
+    background: #eee3d4;
+  }
+}
+.viewControls button:active,
+.reset:active {
+  background: #e4d5c3;
 }
 .viewControls button:focus-visible {
   outline: 2px solid #a75d32;
@@ -214,7 +236,7 @@
   }
   .field {
     margin-top: 0;
-    height: clamp(340px, 95vw, 460px);
+    height: calc(clamp(340px, 95vw, 460px) + 74px);
   }
   .bottom {
     flex-direction: column;
@@ -243,11 +265,12 @@
 .reset {
   display: block;
   margin: 0;
-  padding: 8px;
+  padding: 8px 14px;
   min-height: 44px;
-  border: 0;
-  background: transparent;
-  color: #806f60;
+  border: 1px solid #d8c9b8;
+  border-radius: 12px;
+  background: #f7f1e8;
+  color: #604b39;
   font-size: 12px;
   cursor: pointer;
 }

@@ -140,14 +140,13 @@ export function MeadowFooter() {
               >
                 <button
                   type="button"
-                  aria-label="왼쪽에서 둘러보기"
                   onClick={() =>
                     field.current?.dispatchEvent(
                       new CustomEvent("yard-view-step", { detail: -1 }),
                     )
                   }
                 >
-                  ←
+                  <span aria-hidden="true">←</span> 왼쪽 보기
                 </button>
                 <button
                   type="button"
@@ -159,14 +158,13 @@ export function MeadowFooter() {
                 </button>
                 <button
                   type="button"
-                  aria-label="오른쪽에서 둘러보기"
                   onClick={() =>
                     field.current?.dispatchEvent(
                       new CustomEvent("yard-view-step", { detail: 1 }),
                     )
                   }
                 >
-                  →
+                  오른쪽 보기 <span aria-hidden="true">→</span>
                 </button>
               </div>
               <button
@@ -176,7 +174,7 @@ export function MeadowFooter() {
                   field.current?.dispatchEvent(new Event("yard-reset"))
                 }
               >
-                장난감 제자리로
+                <span aria-hidden="true">↺</span> 장난감 제자리로
               </button>
             </div>
             <div className={styles.bottom}>
