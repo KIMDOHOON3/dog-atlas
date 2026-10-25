@@ -1,5 +1,5 @@
 .footer {
-  margin-top: 36px;
+  margin-top: 16px;
   color: #665344;
   background: #fff;
 }
@@ -11,11 +11,11 @@
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 28px 20px 0;
+  padding: 12px 20px 0;
   pointer-events: none;
 }
 .copy p {
-  margin: 15px 0 0;
+  margin: 0;
   font-family: var(--font-serif);
   font-size: clamp(19px, 2.5vw, 34px);
   font-weight: 400;
@@ -25,26 +25,61 @@
   overflow-wrap: break-word;
 }
 .field {
+  container-type: size;
+  --yard-caption-height: 145px;
   position: relative;
   width: 100%;
   height: clamp(420px, 47vw, 650px);
-  margin: 32px auto 0;
+  margin: 12px auto 0;
   overflow: hidden;
   background: transparent;
   touch-action: pan-y;
 }
 .field canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   display: block;
   width: 100%;
   height: 100%;
   pointer-events: none;
+  opacity: 0;
+}
+.preview {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+.preview img {
+  position: absolute;
+  left: 50%;
+  top: calc((100% - var(--yard-caption-height)) / 2);
+  transform: translate(-50%, -50%);
+  display: block;
+  /* Same orthographic scale as meadow-scene: keep a 24px vertical inset. */
+  width: min(
+    100cqw,
+    calc(max(140px, 100cqh - var(--yard-caption-height) - 24px) / 7.6 * 19.4)
+  );
+  height: auto;
+}
+.field[data-ready="true"] canvas {
+  opacity: 1;
+}
+.field[data-ready="true"] .preview {
+  opacity: 0;
+}
+.field:not([data-ready="true"]) [data-play-item] {
+  visibility: hidden;
 }
 .caption {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   color: #665344;
 }
 .bottom {
@@ -79,10 +114,26 @@
   padding: 0;
   touch-action: none;
   cursor: grab;
-  z-index: 2;
+  z-index: 3;
 }
 .field [data-play-item][data-held="true"] {
   cursor: grabbing;
+  outline: 1px solid #a75d3270;
+  background: #fff9e61a;
+}
+.field [data-play-item][data-held="true"]::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #fffdf5ed;
+  color: #51351f;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
 }
 .field [data-play-item]:focus-visible {
   outline: 2px solid #a75d32;
@@ -95,13 +146,13 @@
   display: block;
   margin: 0 20px 14px;
   text-align: center;
-  font-size: 10px;
-  color: #806f60;
+  font-size: 12px;
+  color: #6b5b4c;
   pointer-events: none;
   z-index: 1;
 }
-.field:not([data-renderer="three"]) .hint {
-  display: none;
+.field:not([data-ready="true"]) .hint {
+  visibility: hidden;
 }
 .mobileHint {
   display: none;
@@ -116,10 +167,10 @@
 }
 @media (max-width: 767px) {
   .copy {
-    padding: 22px 20px 0;
+    padding: 8px 20px 0;
   }
   .field {
-    margin-top: 12px;
+    margin-top: 0;
     height: clamp(340px, 95vw, 460px);
   }
   .bottom {
@@ -137,7 +188,11 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .hint {
-    display: none;
+    visibility: hidden;
+  }
+  .preview,
+  .field canvas {
+    transition: none;
   }
 }
 
@@ -149,7 +204,7 @@
   border: 0;
   background: transparent;
   color: #806f60;
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
 }
 .reset:focus-visible {
@@ -157,20 +212,27 @@
   outline-offset: 2px;
 }
 .sign {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
   min-height: 44px;
   padding: 0 9px;
-  margin: 12px auto;
+  margin: 0 auto;
   color: #51351f;
-  font-size: clamp(10px, 1vw, 14px);
+  background: #fffdf5ed;
+  border-radius: 8px;
+  font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
   text-decoration: none;
 }
-.field[data-renderer="three"] .sign {
+.field[data-ready="true"] .sign {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -185,6 +247,6 @@
   outline: 3px solid #a75d32;
   outline-offset: 4px;
 }
-.field:not([data-renderer="three"]) .reset {
-  display: none;
+.field:not([data-ready="true"]) .reset {
+  visibility: hidden;
 }

@@ -4,6 +4,61 @@ import { createPlayBall } from "./play-ball";
 import { createYardItem } from "./yard-item-interaction";
 
 describe("yard item controls", () => {
+  it("lifts a toy on pickup and restores it on cancellation without throwing", () => {
+    const host = document.createElement("div");
+    vi.spyOn(host, "getBoundingClientRect").mockReturnValue({
+      left: 0,
+      top: 0,
+      width: 400,
+      height: 300,
+    } as DOMRect);
+    const camera = new THREE.OrthographicCamera(-10, 10, 7.5, -7.5, 0.1, 100);
+    camera.position.set(0, 7, 13);
+    camera.lookAt(0, 0, 0);
+    camera.updateMatrixWorld();
+    const physics = createPlayBall({ kind: "tug", x: 0, z: 0 });
+    const item = createYardItem(
+      host,
+      new THREE.Scene(),
+      camera,
+      physics,
+      "tug",
+      "터그",
+      { matches: false } as MediaQueryList,
+      vi.fn(),
+    );
+    item.setModel(new THREE.Group());
+    const button = host.querySelector("button")!;
+    button.setPointerCapture = vi.fn();
+    button.hasPointerCapture = () => true;
+    button.releasePointerCapture = vi.fn();
+    const pointer = (type: string) => {
+      const event = new MouseEvent(type, {
+        clientX: 200,
+        clientY: 150,
+        button: 0,
+      });
+      Object.defineProperty(event, "pointerId", { value: 1 });
+      button.dispatchEvent(event);
+    };
+    pointer("pointerdown");
+    expect(item.held).toBe(true);
+    expect(physics.body.position.y).toBeCloseTo(physics.restHeight + 0.28);
+    expect(button.dataset.held).toBe("true");
+    pointer("pointercancel");
+    expect(item.held).toBe(false);
+    expect(button.dataset.held).toBe("false");
+    expect(physics.body.position.y).toBe(physics.restHeight);
+    expect(physics.body.velocity.length()).toBe(0);
+    expect(button.releasePointerCapture).toHaveBeenCalledWith(1);
+    physics.hold(0, 0, 2);
+    pointer("pointerdown");
+    expect(physics.body.position.y).toBe(2);
+    item.reset();
+    expect(item.held).toBe(false);
+    expect(physics.body.position.y).toBe(physics.restHeight);
+    item.dispose();
+  });
   it("loads an independent keyboard target, resets it and cleans up", () => {
     const host = document.createElement("div"),
       scene = new THREE.Scene(),

@@ -15,6 +15,26 @@ afterEach(() => {
   vi.clearAllMocks();
 });
 
+it("retains the static yard and places link when WebGL cannot start", async () => {
+  vi.stubGlobal("IntersectionObserver", undefined);
+  mocks.load.mockResolvedValue(new ArrayBuffer(0));
+  mocks.create.mockImplementationOnce(() => {
+    throw new Error("WebGL unavailable");
+  });
+  const view = render(<MeadowFooter />);
+  const link = view.getByRole("link", { name: /함께 갈 곳/ });
+  const host = link.closest("[aria-label]")!;
+  await waitFor(() =>
+    expect(host.getAttribute("data-renderer")).toBe("fallback"),
+  );
+  expect(host.hasAttribute("data-ready")).toBe(false);
+  expect(link.getAttribute("href")).toBe("/places");
+  expect(host.querySelector("picture img")?.getAttribute("src")).toBe(
+    "/images/yard/preview-desktop.webp",
+  );
+  view.unmount();
+});
+
 it("prepares near the footer once, but keeps offscreen animation paused", async () => {
   const observers: {
     callback: IntersectionObserverCallback;

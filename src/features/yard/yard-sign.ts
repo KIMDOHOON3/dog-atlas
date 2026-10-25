@@ -11,7 +11,7 @@ export function addYardSign(
   const root = new THREE.Group();
   root.name = "Pet place timber sign";
   root.position.set(0, 0, 2.9);
-  root.scale.x = 1.2;
+  root.scale.set(1.4, 1.1, 1);
   scene.add(root);
   const wood = new THREE.MeshStandardMaterial({
     color: 0xf4e3bc,
@@ -80,10 +80,10 @@ export function addYardSign(
   let disposed = false;
   const drawLetters = () => {
     context.clearRect(0, 0, 1024, 384);
-    context.fillStyle = "#503722";
+    context.fillStyle = "#382515";
     context.textAlign = "center";
     context.textBaseline = "middle";
-    context.font = '700 166px Arial, "Malgun Gothic", sans-serif';
+    context.font = '700 190px Arial, "Malgun Gothic", sans-serif';
     context.fillText("함께 갈 곳", 460, 192);
     context.strokeStyle = "#503722";
     context.lineWidth = 16;
@@ -131,7 +131,7 @@ export function addYardSign(
     const pixelsPerUnit = rect.width / (camera.right - camera.left);
     touchTarget.scale.set(
       Math.max(2.55, 44 / (pixelsPerUnit * root.scale.x)),
-      Math.max(0.94, 50 / pixelsPerUnit),
+      Math.max(0.94, 50 / (pixelsPerUnit * root.scale.y)),
       1,
     );
     root.updateMatrixWorld(true);
@@ -148,7 +148,7 @@ export function addYardSign(
   const applyLight = () => {
     wood.emissiveIntensity = Math.max(
       ambient,
-      focused ? 0.25 : hovered ? 0.19 : 0,
+      press ? 0.38 : focused ? 0.25 : hovered ? 0.19 : 0,
     );
   };
   const highlight = () => {
@@ -165,6 +165,7 @@ export function addYardSign(
         event.isPrimary && event.button === 0 && hit(event)
           ? { x: event.clientX, y: event.clientY, id: event.pointerId }
           : null;
+      highlight();
     },
     options,
   );
@@ -174,8 +175,10 @@ export function addYardSign(
       if (
         press &&
         Math.hypot(event.clientX - press.x, event.clientY - press.y) > 8
-      )
+      ) {
         press = null;
+        highlight();
+      }
       if (event.pointerType === "touch") return;
       const next = hit(event);
       if (next !== hovered) {
@@ -194,6 +197,7 @@ export function addYardSign(
         Math.hypot(event.clientX - press.x, event.clientY - press.y) <= 8 &&
         hit(event);
       press = null;
+      highlight();
       if (activate) link?.click();
     },
     options,
@@ -202,6 +206,7 @@ export function addYardSign(
     "pointercancel",
     () => {
       press = null;
+      highlight();
     },
     options,
   );
@@ -234,6 +239,9 @@ export function addYardSign(
   return {
     root,
     board,
+    resize(mobile: boolean) {
+      root.scale.set(mobile ? 1.7 : 1.4, mobile ? 1.25 : 1.1, 1);
+    },
     // Shares the meadow's visible-only 30Hz loop on mouse and touch devices.
     // Reduced motion keeps a steady, softly lit surface instead of pulsing.
     update(dt: number, reduced = false) {

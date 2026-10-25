@@ -10,6 +10,20 @@ export function MeadowFooter() {
   useEffect(() => {
     const host = field.current;
     if (!host) return;
+    const caption = host.querySelector<HTMLElement>("[data-yard-caption]");
+    const measureCaption = () => {
+      if (caption)
+        host.style.setProperty(
+          "--yard-caption-height",
+          `${caption.offsetHeight}px`,
+        );
+    };
+    measureCaption();
+    const captionObserver =
+      typeof ResizeObserver === "undefined"
+        ? undefined
+        : new ResizeObserver(measureCaption);
+    if (caption) captionObserver?.observe(caption);
     let disposed = false;
     let starting = false;
     let visible = false;
@@ -63,6 +77,7 @@ export function MeadowFooter() {
       disposed = true;
       observer?.disconnect();
       prepare?.disconnect();
+      captionObserver?.disconnect();
       scene?.dispose();
     };
   }, []);
@@ -82,15 +97,30 @@ export function MeadowFooter() {
           className={styles.field}
           aria-label="파라솔과 테이블, 원목 울타리, 장소 안내판과 던질 수 있는 장난감이 놓인 애견카페 운동장"
         >
-          <Link
-            href="/places"
-            prefetch={false}
-            className={styles.sign}
-            data-yard-sign
-          >
-            함께 갈 곳 <span aria-hidden="true">↗</span>
-          </Link>
+          <picture className={styles.preview}>
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/yard/preview-mobile.webp"
+            />
+            {/* A render of this scene, including its camera framing. */}
+            <img
+              src="/images/yard/preview-desktop.webp"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width={1440}
+              height={668}
+            />
+          </picture>
           <div className={styles.caption} data-yard-caption>
+            <Link
+              href="/places"
+              prefetch={false}
+              className={styles.sign}
+              data-yard-sign
+            >
+              함께 갈 곳 <span aria-hidden="true">↗</span>
+            </Link>
             <span className={styles.hint}>
               <span className={styles.desktopHint}>
                 공·뼈다귀·원반·터그를 잡고 던져보세요.

@@ -16,6 +16,7 @@ export function createYardItem(
   const target = document.createElement("button");
   target.type = "button";
   target.dataset.playItem = id;
+  target.dataset.label = label;
   if (id === "ball") target.dataset.ball = "true";
   target.setAttribute("aria-label", `${label} 던지기`);
   target.title = `${label}${id === "bone" || id === "tug" ? "를" : "을"} 잡고 끌어 던져보세요`;
@@ -84,8 +85,12 @@ export function createYardItem(
       velocity.set(0, 0);
       startY = e.clientY;
       lift = 0;
-      catchHeight = physics.body.position.y;
-      plane.constant = -catchHeight;
+      plane.constant = -physics.body.position.y;
+      // Lift resting toys immediately; an airborne catch keeps its height.
+      catchHeight = Math.max(
+        physics.body.position.y,
+        physics.restHeight + 0.28,
+      );
       target.setPointerCapture(e.pointerId);
       if (hit(e)) {
         lastPoint.set(point.x, point.z);

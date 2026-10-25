@@ -73369,6 +73369,44 @@
     "permissionStatus": "not-cleared-by-inventory"
   },
   {
+    "path": "public/images/yard/preview-desktop.webp",
+    "bytes": 82294,
+    "sha256": "de61cb5d4609193f7300623e85a493bf85e809f03fce668fc5d90ff1c466cbec",
+    "records": [
+      "design/yard-blender/README.md"
+    ],
+    "rightsStatus": "record-found-permission-unverified",
+    "git": null,
+    "productionRecords": [
+      {
+        "record": "design/yard-blender/README.md",
+        "basis": "explicit-file-mention"
+      }
+    ],
+    "provenanceStatus": "production-record-linked-permission-pending",
+    "creatorStatement": null,
+    "permissionStatus": "not-cleared-by-inventory"
+  },
+  {
+    "path": "public/images/yard/preview-mobile.webp",
+    "bytes": 30282,
+    "sha256": "4f23b2bec2eeaa9664aa84ddbf738fb53ebdba8ecf2d416cfd1a26fab48012f8",
+    "records": [
+      "design/yard-blender/README.md"
+    ],
+    "rightsStatus": "record-found-permission-unverified",
+    "git": null,
+    "productionRecords": [
+      {
+        "record": "design/yard-blender/README.md",
+        "basis": "explicit-file-mention"
+      }
+    ],
+    "provenanceStatus": "production-record-linked-permission-pending",
+    "creatorStatement": null,
+    "permissionStatus": "not-cleared-by-inventory"
+  },
+  {
     "path": "public/models/yard-furniture.glb",
     "bytes": 633616,
     "sha256": "24664448946a3af378071de31116fb6c8a62e642c30be8afc956a488930ed203",
@@ -73379,16 +73417,54 @@
     "rightsStatus": "record-found-permission-unverified",
     "git": {
       "latest": {
-        "commit": "3f55d745ac72df927bd5ecbb72b60bb606937dad",
-        "date": "2026-09-14",
-        "subject": "Simplify cafe yard and gently illuminate its central sign",
+        "commit": "76a697000a0269dc6a40cd72ec881662626bbab1",
+        "date": "2026-10-24",
+        "subject": "Ship reviewed content and lossless yard loading optimization",
         "relatedRecords": [
           "design/yard-blender/README.md",
           "design/yard-blender/create.py",
-          "design/yard-blender/verification.json",
+          "docs/README.md",
+          "docs/audits/asset-rights-inventory.json",
+          "docs/audits/care-review-2026-10-24.json",
+          "docs/audits/content-rights-inventory.json",
+          "docs/audits/editorial-manual-triage.json",
+          "docs/audits/editorial-review-queue.json",
+          "docs/audits/editorial-rights-changes.json",
+          "docs/audits/editorial-screening.json",
+          "docs/audits/editorial-second-pass.json",
+          "docs/audits/editorial-third-pass.json",
+          "docs/audits/genetic-health-review-2026-10-24.json",
+          "docs/audits/genetic-health-review-queue.json",
+          "docs/audits/genetic-health-second-review-2026-10-24.json",
+          "docs/audits/image-origin-attestation-second-pass.json",
+          "docs/audits/image-origin-attestation.json",
+          "docs/audits/image-rights-followup-queue.json",
+          "docs/audits/image-second-pass-evidence.json",
+          "docs/audits/rights-summary.json",
+          "docs/audits/software-licenses.json",
+          "docs/breed-detail-standard.md",
+          "docs/breed-size-migration-audit.md",
+          "docs/card-transition.md",
+          "docs/care-review-2026-10-24.md",
+          "docs/code-structure.md",
+          "docs/copyright-sample-audit-2026-08-21.md",
           "docs/decisions.md",
-          "docs/pet-places.md",
-          "docs/project-status.md"
+          "docs/development.md",
+          "docs/genetic-health-review-2026-10-24.md",
+          "docs/genetic-health-second-review-2026-10-24.md",
+          "docs/project-status.md",
+          "docs/rights-followup-2026-10-24.md",
+          "docs/rights-second-pass-2026-10-24.md",
+          "docs/rights-third-pass-2026-10-24.md",
+          "docs/security-rights-review-2026-10-24.md",
+          "docs/yard-loading-performance.md",
+          "scripts/audit-editorial.mjs",
+          "scripts/audit-image-assets.mjs",
+          "scripts/audit-rights.mjs",
+          "scripts/benchmark-search.mjs",
+          "scripts/generate-third-party-notices.mjs",
+          "scripts/optimize-yard-model.mjs",
+          "scripts/rights-provenance.mjs"
         ]
       },
       "earliestObserved": {
@@ -73401,7 +73477,7 @@
           "docs/project-status.md"
         ]
       },
-      "matchesHeadBlob": false
+      "matchesHeadBlob": true
     },
     "productionRecords": [
       {

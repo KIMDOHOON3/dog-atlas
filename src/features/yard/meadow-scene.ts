@@ -88,6 +88,12 @@ export function createMeadow(host: HTMLDivElement) {
   const draw = () => {
     for (const item of items) item.draw(width, height);
     renderer.render(scene, camera);
+    // Reveal only after the complete furniture has actually been drawn.
+    if (
+      host.dataset.furniture === "blender" &&
+      host.dataset.renderer === "three"
+    )
+      host.dataset.ready = "true";
     dirty = false;
   };
   const sign = addYardSign(scene, host, camera, () => {
@@ -171,6 +177,7 @@ export function createMeadow(host: HTMLDivElement) {
   const sync = () => {
     cancelAnimationFrame(frame);
     frame = 0;
+    if (host.dataset.renderer === "fallback") visible = false;
     if (reduced.matches) {
       butterflies.rest();
       yard.resetGrass();
@@ -222,6 +229,8 @@ export function createMeadow(host: HTMLDivElement) {
     camera.projectionMatrix.elements[13] = captionHeight / h;
     camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
     camera.updateMatrixWorld();
+    sign.resize(mobile);
+    renderer.shadowMap.needsUpdate = true;
     // Keep the whole ball and its touch target inside this cropped camera view.
     const safeProjection = camera.projectionMatrix.clone();
     safeProjection.elements[0] /= 1 - Math.max(0.06, 56 / w);
@@ -270,6 +279,7 @@ export function createMeadow(host: HTMLDivElement) {
     visible = false;
     sync();
     host.dataset.renderer = "fallback";
+    delete host.dataset.ready;
   };
 
   renderer.domElement.addEventListener("webglcontextlost", lost);
@@ -298,6 +308,9 @@ export function createMeadow(host: HTMLDivElement) {
       renderer.dispose();
       renderer.forceContextLoss();
       renderer.domElement.remove();
+      delete host.dataset.ready;
+      delete host.dataset.renderer;
+      delete host.dataset.furniture;
     },
   };
 }

@@ -101,3 +101,18 @@ it("gently brightens without pointer input and stays still with reduced motion",
   sign.dispose();
   expect(sign.update(1)).toBe(false);
 });
+
+it("shows touch press feedback and clears it when a scroll cancels the tap", () => {
+  const { sign, pointer, click } = setup();
+  const material = sign.board.material as THREE.MeshStandardMaterial;
+  pointer("pointerdown", 0, 0, "touch");
+  expect(material.emissiveIntensity).toBe(0.38);
+  pointer("pointermove", 0, 20, "touch");
+  expect(material.emissiveIntensity).toBe(0.025);
+  pointer("pointerup", 0, 20, "touch");
+  expect(click).not.toHaveBeenCalled();
+  pointer("pointerdown", 0, 0, "touch");
+  pointer("pointercancel", 0, 0, "touch");
+  expect(material.emissiveIntensity).toBe(0.025);
+  sign.dispose();
+});
