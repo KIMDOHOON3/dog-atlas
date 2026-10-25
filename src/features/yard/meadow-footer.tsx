@@ -100,11 +100,11 @@ export function MeadowFooter() {
           <picture className={styles.preview}>
             <source
               media="(max-width: 767px)"
-              srcSet="/images/yard/preview-mobile.webp"
+              srcSet="/images/yard/preview-mobile.webp?v=2"
             />
             {/* A render of this scene, including its camera framing. */}
             <img
-              src="/images/yard/preview-desktop.webp"
+              src="/images/yard/preview-desktop.webp?v=2"
               alt=""
               loading="lazy"
               decoding="async"
@@ -128,16 +128,57 @@ export function MeadowFooter() {
               <span className={styles.mobileHint}>
                 공과 장난감을 잡고 던져보세요.
               </span>
+              <span className={styles.viewHint}>
+                빈 곳을 좌우로 끌어 둘러보세요.
+              </span>
             </span>
-            <button
-              type="button"
-              className={styles.reset}
-              onClick={() =>
-                field.current?.dispatchEvent(new Event("yard-reset"))
-              }
-            >
-              장난감 제자리로
-            </button>
+            <div className={styles.actions}>
+              <div
+                className={styles.viewControls}
+                role="group"
+                aria-label="운동장 시점"
+              >
+                <button
+                  type="button"
+                  aria-label="왼쪽에서 둘러보기"
+                  onClick={() =>
+                    field.current?.dispatchEvent(
+                      new CustomEvent("yard-view-step", { detail: -1 }),
+                    )
+                  }
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    field.current?.dispatchEvent(new Event("yard-view-reset"))
+                  }
+                >
+                  시점 초기화
+                </button>
+                <button
+                  type="button"
+                  aria-label="오른쪽에서 둘러보기"
+                  onClick={() =>
+                    field.current?.dispatchEvent(
+                      new CustomEvent("yard-view-step", { detail: 1 }),
+                    )
+                  }
+                >
+                  →
+                </button>
+              </div>
+              <button
+                type="button"
+                className={styles.reset}
+                onClick={() =>
+                  field.current?.dispatchEvent(new Event("yard-reset"))
+                }
+              >
+                장난감 제자리로
+              </button>
+            </div>
             <div className={styles.bottom}>
               <span className={styles.copyright}>
                 © {new Date().getFullYear()} 견종도감.

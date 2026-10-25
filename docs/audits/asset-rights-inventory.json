@@ -73370,13 +73370,37 @@
   },
   {
     "path": "public/images/yard/preview-desktop.webp",
-    "bytes": 82294,
-    "sha256": "de61cb5d4609193f7300623e85a493bf85e809f03fce668fc5d90ff1c466cbec",
+    "bytes": 56110,
+    "sha256": "c3eb0fa5ff771db0de18864192a5af9328d53a9b5309a5e03177adc8d241b0f6",
     "records": [
       "design/yard-blender/README.md"
     ],
     "rightsStatus": "record-found-permission-unverified",
-    "git": null,
+    "git": {
+      "latest": {
+        "commit": "5388bce8aece087b457615266025f096605c6b97",
+        "date": "2026-10-25",
+        "subject": "Improve home readability and yard loading feedback",
+        "relatedRecords": [
+          "design/yard-blender/README.md",
+          "docs/audits/asset-rights-inventory.json",
+          "docs/audits/rights-summary.json",
+          "docs/project-status.md"
+        ]
+      },
+      "earliestObserved": {
+        "commit": "5388bce8aece087b457615266025f096605c6b97",
+        "date": "2026-10-25",
+        "subject": "Improve home readability and yard loading feedback",
+        "relatedRecords": [
+          "design/yard-blender/README.md",
+          "docs/audits/asset-rights-inventory.json",
+          "docs/audits/rights-summary.json",
+          "docs/project-status.md"
+        ]
+      },
+      "matchesHeadBlob": false
+    },
     "productionRecords": [
       {
         "record": "design/yard-blender/README.md",
@@ -73389,13 +73413,37 @@
   },
   {
     "path": "public/images/yard/preview-mobile.webp",
-    "bytes": 30282,
-    "sha256": "4f23b2bec2eeaa9664aa84ddbf738fb53ebdba8ecf2d416cfd1a26fab48012f8",
+    "bytes": 19360,
+    "sha256": "949a3cca821f0c80e1b91c80ce8e48aa4dec409b6ccc25b61c354ae2d29c9c85",
     "records": [
       "design/yard-blender/README.md"
     ],
     "rightsStatus": "record-found-permission-unverified",
-    "git": null,
+    "git": {
+      "latest": {
+        "commit": "5388bce8aece087b457615266025f096605c6b97",
+        "date": "2026-10-25",
+        "subject": "Improve home readability and yard loading feedback",
+        "relatedRecords": [
+          "design/yard-blender/README.md",
+          "docs/audits/asset-rights-inventory.json",
+          "docs/audits/rights-summary.json",
+          "docs/project-status.md"
+        ]
+      },
+      "earliestObserved": {
+        "commit": "5388bce8aece087b457615266025f096605c6b97",
+        "date": "2026-10-25",
+        "subject": "Improve home readability and yard loading feedback",
+        "relatedRecords": [
+          "design/yard-blender/README.md",
+          "docs/audits/asset-rights-inventory.json",
+          "docs/audits/rights-summary.json",
+          "docs/project-status.md"
+        ]
+      },
+      "matchesHeadBlob": false
+    },
     "productionRecords": [
       {
         "record": "design/yard-blender/README.md",

@@ -1,9 +1,51 @@
 import { describe, it, expect, vi } from "vitest";
 import * as THREE from "three";
 import { createPlayBall } from "./play-ball";
-import { createYardItem } from "./yard-item-interaction";
+import { createYardItem, routeYardPickups } from "./yard-item-interaction";
 
 describe("yard item controls", () => {
+  it("routes overlapping mobile targets to the nearest toy and removes routing on dispose", () => {
+    const host = document.createElement("div");
+    const items = [0, 1].map((index) => {
+      const target = document.createElement("button");
+      target.dataset.playItem = String(index);
+      host.appendChild(target);
+      const top = index * 20;
+      vi.spyOn(target, "getBoundingClientRect").mockReturnValue({
+        left: 0,
+        right: 48,
+        top,
+        bottom: top + 48,
+        width: 48,
+        height: 48,
+      } as DOMRect);
+      const pick = vi.fn();
+      target.addEventListener("pointerdown", pick);
+      return { target, pick };
+    });
+    const dispose = routeYardPickups(host, items);
+    const click = (y: number) =>
+      items[1].target.dispatchEvent(
+        new MouseEvent("pointerdown", {
+          clientX: 24,
+          clientY: y,
+          bubbles: true,
+        }),
+      );
+    click(24);
+    expect(items[0].pick).toHaveBeenCalledOnce();
+    expect(items[1].pick).not.toHaveBeenCalled();
+    click(44);
+    expect(items[1].pick).toHaveBeenCalledOnce();
+    items[0].target.disabled = true;
+    click(24);
+    expect(items[0].pick).toHaveBeenCalledOnce();
+    expect(items[1].pick).toHaveBeenCalledTimes(2);
+    dispose();
+    items[0].target.disabled = false;
+    click(24);
+    expect(items[1].pick).toHaveBeenCalledTimes(3);
+  });
   it("lifts a toy on pickup and restores it on cancellation without throwing", () => {
     const host = document.createElement("div");
     vi.spyOn(host, "getBoundingClientRect").mockReturnValue({

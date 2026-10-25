@@ -30,7 +30,7 @@ it("retains the static yard and places link when WebGL cannot start", async () =
   expect(host.hasAttribute("data-ready")).toBe(false);
   expect(link.getAttribute("href")).toBe("/places");
   expect(host.querySelector("picture img")?.getAttribute("src")).toBe(
-    "/images/yard/preview-desktop.webp",
+    "/images/yard/preview-desktop.webp?v=2",
   );
   view.unmount();
 });

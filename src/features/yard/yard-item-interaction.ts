@@ -76,40 +76,34 @@ export function createYardItem(
   };
   const abort = new AbortController(),
     signal = abort.signal;
-  target.addEventListener(
-    "pointerdown",
-    (e) => {
-      if (reduced.matches || held !== null || e.button !== 0) return;
-      held = e.pointerId;
-      moved = false;
-      velocity.set(0, 0);
-      startY = e.clientY;
-      lift = 0;
-      plane.constant = -physics.body.position.y;
-      // Lift resting toys immediately; an airborne catch keeps its height.
-      catchHeight = Math.max(
-        physics.body.position.y,
-        physics.restHeight + 0.28,
+  const pick = (e: PointerEvent) => {
+    if (reduced.matches || held !== null || e.button !== 0) return;
+    held = e.pointerId;
+    moved = false;
+    velocity.set(0, 0);
+    startY = e.clientY;
+    lift = 0;
+    plane.constant = -physics.body.position.y;
+    // Lift resting toys immediately; an airborne catch keeps its height.
+    catchHeight = Math.max(physics.body.position.y, physics.restHeight + 0.28);
+    target.setPointerCapture(e.pointerId);
+    if (hit(e)) {
+      lastPoint.set(point.x, point.z);
+      offset.set(
+        physics.body.position.x - point.x,
+        physics.body.position.z - point.z,
       );
-      target.setPointerCapture(e.pointerId);
-      if (hit(e)) {
-        lastPoint.set(point.x, point.z);
-        offset.set(
-          physics.body.position.x - point.x,
-          physics.body.position.z - point.z,
-        );
-        physics.hold(
-          physics.body.position.x,
-          physics.body.position.z,
-          catchHeight,
-        );
-      }
-      lastMove = performance.now();
-      target.dataset.held = "true";
-      invalidate();
-    },
-    { signal },
-  );
+      physics.hold(
+        physics.body.position.x,
+        physics.body.position.z,
+        catchHeight,
+      );
+    }
+    lastMove = performance.now();
+    target.dataset.held = "true";
+    invalidate();
+  };
+  target.addEventListener("pointerdown", pick, { signal });
   target.addEventListener(
     "pointermove",
     (e) => {
@@ -166,6 +160,8 @@ export function createYardItem(
     { signal },
   );
   return {
+    target,
+    pick,
     physics,
     get held() {
       return held !== null;
@@ -217,4 +213,47 @@ export function createYardItem(
         });
     },
   };
+}
+
+/** Overlapping 48px targets should choose the nearest toy, not DOM paint order. */
+export function routeYardPickups(
+  host: HTMLDivElement,
+  items: readonly Pick<ReturnType<typeof createYardItem>, "target" | "pick">[],
+) {
+  const controller = new AbortController();
+  host.addEventListener(
+    "pointerdown",
+    (event) => {
+      if (!(event.target instanceof Element)) return;
+      const hit = event.target.closest("[data-play-item]");
+      if (!hit) return;
+      let nearest: (typeof items)[number] | undefined;
+      let distance = Infinity;
+      for (const item of items) {
+        if (item.target.hidden || item.target.disabled) continue;
+        const r = item.target.getBoundingClientRect();
+        if (
+          event.clientX < r.left ||
+          event.clientX > r.right ||
+          event.clientY < r.top ||
+          event.clientY > r.bottom
+        )
+          continue;
+        const d = Math.hypot(
+          event.clientX - r.left - r.width / 2,
+          event.clientY - r.top - r.height / 2,
+        );
+        if (d < distance) {
+          nearest = item;
+          distance = d;
+        }
+      }
+      if (nearest && nearest.target !== hit) {
+        event.stopPropagation();
+        nearest.pick(event);
+      }
+    },
+    { capture: true, signal: controller.signal },
+  );
+  return () => controller.abort();
 }

@@ -1,11 +1,12 @@
 import * as THREE from "three";
 import { addMiniatureYard } from "./miniature-yard";
 import { createPlayBall, createPlaygroundWorld } from "./play-ball";
-import { createYardItem } from "./yard-item-interaction";
+import { createYardItem, routeYardPickups } from "./yard-item-interaction";
 import { YARD_TOYS } from "./yard-layout";
 import { createTennisBall } from "./tennis-ball";
 import { addYardButterflies } from "./yard-butterflies";
 import { addYardSign } from "./yard-sign";
+import { createYardViewControls } from "./yard-view-controls";
 
 export function createMeadow(host: HTMLDivElement) {
   const mobileQuery = matchMedia("(max-width: 767px)");
@@ -17,7 +18,7 @@ export function createMeadow(host: HTMLDivElement) {
     powerPreference: "low-power",
   });
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.95;
+  renderer.toneMappingExposure = 1;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
   renderer.shadowMap.autoUpdate = false;
@@ -28,11 +29,12 @@ export function createMeadow(host: HTMLDivElement) {
   host.dataset.renderer = "three";
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-10, 10, 4, -4, 0.1, 120);
-  camera.position.set(0, 6.5, 13);
-  camera.lookAt(0, 0.25, 0);
-  // Lower the fill so wood, grass and equipment retain their colour and depth.
-  scene.add(new THREE.HemisphereLight(0xfffcf4, 0x819073, 1.05));
-  const sun = new THREE.DirectionalLight(0xfff6e6, 2.2);
+  // Soft neutral fill opens shadows without washing out lit surfaces.
+  scene.add(new THREE.HemisphereLight(0xfffdf6, 0xaab5a0, 1.6));
+  const fill = new THREE.DirectionalLight(0xeaf3ff, 0.65);
+  fill.position.set(6, 4, 8);
+  scene.add(fill);
+  const sun = new THREE.DirectionalLight(0xfff6e6, 2);
   sun.position.set(-4, 8, 6);
   sun.castShadow = true;
   sun.shadow.mapSize.set(mobile ? 1024 : 2048, mobile ? 1024 : 2048);
@@ -75,6 +77,7 @@ export function createMeadow(host: HTMLDivElement) {
       ),
     ),
   ];
+  const stopPickupRouting = routeYardPickups(host, items);
   let visible = false,
     disposed = false,
     frame = 0,
@@ -82,7 +85,8 @@ export function createMeadow(host: HTMLDivElement) {
     nextRender = 0;
   let width = host.clientWidth,
     height = host.clientHeight,
-    dirty = true;
+    dirty = true,
+    yaw = 0;
 
   items[0].setModel(tennis.ball);
   const draw = () => {
@@ -178,6 +182,7 @@ export function createMeadow(host: HTMLDivElement) {
     cancelAnimationFrame(frame);
     frame = 0;
     if (host.dataset.renderer === "fallback") visible = false;
+    if (!visible || document.hidden) viewControls.cancel();
     if (reduced.matches) {
       butterflies.rest();
       yard.resetGrass();
@@ -197,26 +202,18 @@ export function createMeadow(host: HTMLDivElement) {
     }
   };
   const caption = host.querySelector<HTMLElement>("[data-yard-caption]");
-  const resize = () => {
-    const w = host.clientWidth,
-      h = host.clientHeight;
-    width = w;
-    height = h;
+  const updateCamera = () => {
+    const w = width,
+      h = height;
     if (!w || !h) return;
-    // Resolve fine edges on Retina screens without an unbounded GPU buffer.
-    // The former 650k cap even undersampled a 1440px-wide desktop canvas.
-    renderer.setPixelRatio(
-      Math.min(
-        devicePixelRatio,
-        2,
-        Math.sqrt((mobile ? 1400000 : 3000000) / (w * h)),
-      ),
-    );
-    renderer.setSize(w, h);
     const captionHeight = caption?.offsetHeight ?? 0;
     const playHeight = Math.max(140, h - captionHeight - 24);
     // A low front view exposes the equipment faces while retaining the lawn top.
-    camera.position.set(0, mobile ? 7.2 : 6.5, 13);
+    camera.position.set(
+      Math.sin(yaw) * 13,
+      mobile ? 5.5 : 4.9,
+      Math.cos(yaw) * 13,
+    );
     camera.lookAt(0, 0.25, 0);
     const half = Math.max((3.8 * h) / playHeight, (9.7 * h) / w);
     camera.left = (-half * w) / h;
@@ -229,8 +226,6 @@ export function createMeadow(host: HTMLDivElement) {
     camera.projectionMatrix.elements[13] = captionHeight / h;
     camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
     camera.updateMatrixWorld();
-    sign.resize(mobile);
-    renderer.shadowMap.needsUpdate = true;
     // Keep the whole ball and its touch target inside this cropped camera view.
     const safeProjection = camera.projectionMatrix.clone();
     safeProjection.elements[0] /= 1 - Math.max(0.06, 56 / w);
@@ -253,6 +248,27 @@ export function createMeadow(host: HTMLDivElement) {
     }));
     for (const item of items) item.physics.setViewBounds(bounds);
     if (visible) draw();
+  };
+  const viewControls = createYardViewControls(host, (angle) => {
+    yaw = angle;
+    updateCamera();
+  });
+  const resize = () => {
+    viewControls.cancel();
+    width = host.clientWidth;
+    height = host.clientHeight;
+    if (!width || !height) return;
+    renderer.setPixelRatio(
+      Math.min(
+        devicePixelRatio,
+        2,
+        Math.sqrt((mobile ? 1400000 : 3000000) / (width * height)),
+      ),
+    );
+    renderer.setSize(width, height);
+    sign.resize(mobile);
+    renderer.shadowMap.needsUpdate = true;
+    updateCamera();
   };
   const observer = new ResizeObserver(resize);
   observer.observe(host);
@@ -294,6 +310,8 @@ export function createMeadow(host: HTMLDivElement) {
       disposed = true;
       cancelAnimationFrame(frame);
       observer.disconnect();
+      viewControls.dispose();
+      stopPickupRouting();
 
       document.removeEventListener("visibilitychange", sync);
       reduced.removeEventListener("change", sync);

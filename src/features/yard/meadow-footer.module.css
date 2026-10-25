@@ -33,7 +33,13 @@
   margin: 12px auto 0;
   overflow: hidden;
   background: transparent;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
+}
+.field[data-rotating="true"] {
+  cursor: grabbing !important;
+}
+.field[data-ready="true"] {
+  cursor: grab;
 }
 .field canvas {
   position: absolute;
@@ -75,6 +81,7 @@
   visibility: hidden;
 }
 .caption {
+  cursor: auto;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -157,6 +164,42 @@
 .mobileHint {
   display: none;
 }
+.viewHint {
+  display: block;
+  margin-top: 4px;
+  color: #806f60;
+  font-size: 11px;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 4px;
+  margin: -8px 8px 8px;
+}
+.viewControls {
+  display: flex;
+  align-items: center;
+}
+.viewControls button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  color: #6b5b4c;
+  font-size: 12px;
+  cursor: pointer;
+}
+.viewControls button:focus-visible {
+  outline: 2px solid #a75d32;
+  outline-offset: -2px;
+  border-radius: 6px;
+}
+.field:not([data-ready="true"]) .viewControls {
+  visibility: hidden;
+}
 @media (min-width: 901px) {
   .bottom {
     font-size: 14px;
@@ -187,7 +230,8 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hint {
+  .hint .desktopHint,
+  .hint .mobileHint {
     visibility: hidden;
   }
   .preview,
@@ -198,8 +242,8 @@
 
 .reset {
   display: block;
-  margin: -8px auto 8px;
-  padding: 8px 12px;
+  margin: 0;
+  padding: 8px;
   min-height: 44px;
   border: 0;
   background: transparent;
