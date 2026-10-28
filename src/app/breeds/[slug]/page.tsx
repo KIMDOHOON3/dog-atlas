@@ -310,6 +310,10 @@ export default async function BreedDetail({ params }: PageProps) {
             <BreedDetailExperience breed={breed} />
           )}
         </article>
+        <nav className={styles.continueNavigation} aria-label="다른 견종 둘러보기">
+          <Link href="/discover">견종 발견에서 더 찾아보기 <span aria-hidden="true">→</span></Link>
+          <Link href="/">견종 카드 둘러보기 <span aria-hidden="true">→</span></Link>
+        </nav>
       </main>
       <PlacesInvitation />
     </>

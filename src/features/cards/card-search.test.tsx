@@ -1,6 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { CardSearch, type CardSearchEntry } from "./card-search";
+import { getBreedSearchOptions } from "@/lib/breeds/breed-search-options";
+import { getHomeCardGroups } from "@/lib/breeds/home-card-data";
+import { cardSizes } from "./size-selector";
 
 const push = vi.fn();
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push }) }));
@@ -15,6 +18,37 @@ const entry: CardSearchEntry = {
 };
 
 describe("card search focus", () => {
+  it("opens each of the 49 cards and routes the other 327 catalog breeds to their own detail", () => {
+    const groups = getHomeCardGroups();
+    const entries = cardSizes.flatMap((size) => groups[size].map((card, index) => ({
+      name: card.name, nameEn: card.nameEn, slug: card.slug, size, index, image: card.front.src,
+    })));
+    const breeds = getBreedSearchOptions();
+    const onSelect = vi.fn();
+    render(<CardSearch size="소형견" entries={entries} breeds={breeds} disabled={false} onSize={vi.fn()} onSelect={onSelect} />);
+    const input = screen.getByRole("textbox", { name: "견종 이름 검색" });
+    let cardsOpened = 0;
+    let detailsOpened = 0;
+    for (const breed of breeds) {
+      push.mockClear();
+      onSelect.mockClear();
+      const card = entries.find((entry) => entry.slug === breed.slug);
+      fireEvent.change(input, { target: { value: breed.nameKo } });
+      const name = card ? `${card.name} ${card.size}` : `${breed.nameKo} 상세 보기`;
+      fireEvent.click(screen.getByRole("button", { name }));
+      if (card) {
+        expect(onSelect).toHaveBeenCalledWith(card);
+        expect(push).not.toHaveBeenCalled();
+        cardsOpened++;
+      } else {
+        expect(push).toHaveBeenCalledWith(`/breeds/${breed.slug}`);
+        expect(onSelect).not.toHaveBeenCalled();
+        detailsOpened++;
+      }
+    }
+    expect(cardsOpened).toBe(49);
+    expect(detailsOpened).toBe(327);
+  }, 15000);
   it("opens a non-card breed by its catalog alias when Enter submits the search", () => {
     push.mockClear();
     const onSelect = vi.fn();

@@ -19,6 +19,31 @@
 }
 .detailNavigation a { min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; }
 .detailNavigation a:hover { color: var(--moss); }
+.continueNavigation {
+  width: min(calc(100% - var(--page-inline)), 1080px);
+  margin: 32px auto 48px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.continueNavigation a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex: 1 1 240px;
+  min-height: 52px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--moss);
+  background: var(--paper);
+  text-decoration: none;
+  font-size: 0.9rem;
+  word-break: keep-all;
+}
+.continueNavigation a:hover { background: var(--paper-deep); }
+.continueNavigation a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .varietyNote { margin: 12px 0 0; color: var(--ink-soft); font-size: 0.85rem; line-height: 1.65; word-break: keep-all; }
 .hero > figure {
   grid-area: visual;
