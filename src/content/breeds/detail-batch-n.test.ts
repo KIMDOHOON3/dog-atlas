@@ -38,7 +38,7 @@ describe("detail batch N mapping", () => {
 
   it("maps every card and history scene to a real WebP file", () => {
     for (const breed of detailBatchN) {
-      expect(breed.illustration).toBe(getBreedCardImage(breed.slug));
+      expect(existsSync(join(process.cwd(), "public", getBreedCardImage(breed.slug)))).toBe(true);
       for (const assetPath of [breed.illustration, breed.historyVisual!.src]) {
         expect(assetPath).toMatch(/\.webp$/);
         const filePath = join(process.cwd(), "public", assetPath.slice(1));

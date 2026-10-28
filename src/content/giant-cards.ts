@@ -1,3 +1,4 @@
+import { cardFrontArt } from "./card-front-art";
 import { z } from "zod";
 
 const art = z.object({
@@ -75,12 +76,7 @@ export const giantCards = z.array(cardSchema).parse([
     weight: "39–54",
     lifespan: "10–12",
     theme: "alpine",
-    front: {
-      src: directory + "great-pyrenees-alpine-v1.webp",
-      alt: "눈 덮인 피레네산맥 앞에 서 있는 하얀 그레이트 피레니즈 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["pyrenean-mountain-dog"],
     back: {
       src: directory + "great-pyrenees-human-back-people-v3.webp",
       alt: "같은 눈밭에 나란히 선 어른과 그레이트 피레니즈. 강아지의 어깨가 사람의 허벅지 높이에 닿는 크기 차이를 그린 수채화",
@@ -106,12 +102,7 @@ export const giantCards = z.array(cardSchema).parse([
     weight: "54–82",
     lifespan: "8–10",
     theme: "alpine",
-    front: {
-      src: directory + "saint-bernard-hospice-v1.webp",
-      alt: "알프스의 돌로 지은 여행자 쉼터와 눈길 앞에 서 있는 갈색과 흰색 세인트 버나드 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["saint-bernard"],
     back: {
       src: directory + "saint-bernard-human-regional-people-v3.webp",
       alt: "알프스 눈길에서 울 망토와 재킷을 입은 관리인과 세인트 버나드가 나란히 선 크기 비교 수채화",
@@ -137,12 +128,7 @@ export const giantCards = z.array(cardSchema).parse([
     weight: "50–79",
     lifespan: "7–10",
     theme: "woodland",
-    front: {
-      src: directory + "great-dane-woodland-v2.webp",
-      alt: "독일의 숲과 저택 앞에 긴 다리와 곧게 선 귀, 흰 가슴 무늬가 보이는 검은 그레이트 데인 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["great-dane"],
     back: {
       src: directory + "great-dane-human-back-people-v3.webp",
       alt: "저택 앞 숲길에 나란히 선 어른과 곧게 선 귀, 흰 가슴 무늬의 검은 그레이트 데인 전신을 보여주는 크기 비교 수채화",
@@ -168,12 +154,7 @@ export const giantCards = z.array(cardSchema).parse([
     weight: "52–82",
     lifespan: "6–8",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/irish-wolfhound-landscape-v1.webp",
-      alt: "돌담과 탑이 보이는 아일랜드 황야의 회색 거친 털 아이리시 울프하운드 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["irish-wolfhound"],
     back: {
       src: "/illustrations/card-studies/irish-wolfhound-human-back-people-v3.webp",
       alt: "돌담과 탑이 보이는 아일랜드 황야의 회색 거친 털 아이리시 울프하운드와 어른이 같은 땅에 나란히 선 크기 비교 수채화",
@@ -200,12 +181,7 @@ export const giantCards = z.array(cardSchema).parse([
     weight: "36–72",
     lifespan: "12–15",
     theme: "alpine",
-    front: {
-      src: "/illustrations/card-studies/tibetan-mastiff-landscape-v1.webp",
-      alt: "티베트 고원의 수도원과 천막 앞 검은색과 황갈색의 풍성한 목털을 가진 티베탄 마스티프 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["tibetan-mastiff"],
     back: {
       src: "/illustrations/card-studies/tibetan-mastiff-human-regional-people-v3.webp",
       alt: "티베트 고원에서 갈색 추바와 장화를 착용한 목축인과 티베탄 마스티프가 나란히 선 크기 비교 수채화",
@@ -231,12 +207,7 @@ export const giantCards = z.array(cardSchema).parse([
     weight: "40–60",
     lifespan: "10+",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/kangal-shepherd-dog-landscape-v1.webp",
-      alt: "양 떼가 있는 아나톨리아 목초지의 검은 주둥이와 황갈색 털을 가진 캉갈 셰퍼드 도그 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["kangal-shepherd-dog"],
     back: {
       src: "/illustrations/card-studies/kangal-shepherd-dog-human-regional-people-v3.webp",
       alt: "아나톨리아 목초지에서 밝은 펠트 목동 망토를 걸친 목동과 캉갈 셰퍼드 도그가 나란히 선 크기 비교 수채화",
@@ -263,12 +234,7 @@ export const giantCards = z.array(cardSchema).parse([
     weight: "45–77",
     lifespan: "10–12",
     theme: "alpine",
-    front: {
-      src: "/illustrations/card-studies/caucasian-shepherd-dog-landscape-v1.webp",
-      alt: "코카서스 산악지대의 돌탑과 능선 앞 풍성한 회갈색 털과 자연스럽게 처진 귀의 코카시안 셰퍼드 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["caucasian-shepherd-dog"],
     back: {
       src: "/illustrations/card-studies/caucasian-shepherd-dog-human-regional-people-v3.webp",
       alt: "코카서스 산악지대에서 짙은 모직 망토를 걸친 목동과 코카시안 셰퍼드가 나란히 선 크기 비교 수채화",
@@ -297,12 +263,7 @@ export const giantCards = z.array(cardSchema).parse([
     lifespan: null,
     backNote: "토착 개체군이라 크기 차이가 커요. 그림은 비교 예시예요.",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/mongolian-bankhar-landscape-v1.webp",
-      alt: "게르와 가축이 보이는 몽골 초원의 검은색과 황갈색 털 몽골 방카르 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["mongolian-bankhar"],
     back: {
       src: "/illustrations/card-studies/mongolian-bankhar-human-regional-people-v3.webp",
       alt: "몽골 초원에서 청회색 델과 허리띠를 착용한 유목민과 몽골 방카르가 나란히 선 크기 비교 수채화",

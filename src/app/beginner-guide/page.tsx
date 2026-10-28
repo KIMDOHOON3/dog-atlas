@@ -10,7 +10,7 @@ import { getBreed } from "@/content/breeds/data";
 import { isKoreanManagedBreed } from "@/lib/breeds/breed-legal-care";
 import { getBreedSizePresentation } from "@/lib/breeds/breed-size-presentation";
 import { createPageMetadata } from "@/lib/site-metadata";
-import { getBreedCardImage } from "@/lib/breeds/breed-image-assets";
+import { getBreedCardImage, getBreedCardImageAlt } from "@/lib/breeds/breed-image-assets";
 import styles from "./page.module.css";
 
 export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
@@ -22,7 +22,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
     description: "강아지를 데려오기 전부터 첫 생활과 보호자의 마음가짐까지 꼭 필요한 준비를 차례로 확인합니다.",
     path: `/beginner-guide?breed=${encodeURIComponent(breed.slug)}`,
     image: getBreedCardImage(breed.slug),
-    imageAlt: `${breed.nameKo} 맞이 준비 가이드의 견종 일러스트`,
+    imageAlt: getBreedCardImageAlt(breed.slug, breed.nameKo),
   });
 }
 

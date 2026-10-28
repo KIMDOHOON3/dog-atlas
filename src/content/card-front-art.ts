@@ -1,0 +1,305 @@
+// The homepage, discovery and detail pages share these approved card fronts.
+// Keep this module free of card copy and schema dependencies for discovery clients.
+export type CardFrontArt = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+export const cardFrontArt: Readonly<Record<string, CardFrontArt>> = {
+  chihuahua: {
+    src: "/illustrations/card-studies/chihuahua-front-v1.webp",
+    alt: "멕시코의 따뜻한 돌마당에 서 있는 황갈색 치와와 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "german-spitz": {
+    src: "/illustrations/card-studies/german-spitz-front-v1.webp",
+    alt: "독일 벽돌집 정원 앞에 선 주황빛 포메라니안 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "yorkshire-terrier": {
+    src: "/illustrations/card-studies/yorkshire-terrier-front-v1.webp",
+    alt: "영국 돌집 작업장 앞에 선 푸른빛 털의 요크셔 테리어 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  maltese: {
+    src: "/illustrations/card-studies/maltese-front-v1.webp",
+    alt: "지중해의 항구와 집 배경에 선 말티즈 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  poodle: {
+    src: "/illustrations/card-studies/toy-poodle-silver-front-petite-v2.webp",
+    alt: "프랑스 돌마당에 작고 아담한 체구로 서 있는 실버 토이푸들 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "bichon-frise": {
+    src: "/illustrations/card-studies/bichon-frise-front-v1.webp",
+    alt: "유럽의 집과 정원 배경에 선 비숑 프리제 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "shih-tzu": {
+    src: "/illustrations/card-studies/shih-tzu-front-v1.webp",
+    alt: "중국의 궁정과 안뜰 배경에 선 시츄 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  dachshund: {
+    src: "/illustrations/card-studies/miniature-dachshund-front-v1.webp",
+    alt: "독일의 숲과 굴 배경에 선 미니어처 닥스훈트 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "miniature-schnauzer": {
+    src: "/illustrations/card-studies/miniature-schnauzer-front-v1.webp",
+    alt: "독일의 농가와 마당 배경에 선 미니어처 슈나우저 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "continental-toy-spaniel": {
+    src: "/illustrations/card-studies/continental-toy-spaniel-front-v1.webp",
+    alt: "유럽의 저택과 정원 배경에 선 파피용 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  maltipoo: {
+    src: "/illustrations/card-studies/maltipoo-front-v1.webp",
+    alt: "사람과 함께하는 일상의 정원 배경에 선 말티푸 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  pug: {
+    src: "/illustrations/card-studies/pug-small-front-v1.webp",
+    alt: "중국의 궁정과 정원을 배경으로 서 있는 퍼그 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  pekingese: {
+    src: "/illustrations/card-studies/pekingese-small-front-v1.webp",
+    alt: "베이징의 궁정 정원을 배경으로 서 있는 페키니즈 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "italian-sighthound": {
+    src: "/illustrations/card-studies/italian-greyhound-small-front-v1.webp",
+    alt: "이탈리아의 저택과 테라스을 배경으로 서 있는 이탈리안 그레이하운드 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "coton-de-tulear": {
+    src: "/illustrations/card-studies/coton-de-tulear-small-front-v1.webp",
+    alt: "마다가스카르의 해안 마을을 배경으로 서 있는 꼬똥 드 툴레아 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "miniature-pinscher": {
+    src: "/illustrations/card-studies/miniature-pinscher-small-front-v1.webp",
+    alt: "독일의 집과 마구간을 배경으로 서 있는 미니어처 핀셔 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "korea-jindo-dog": {
+    src: "/illustrations/card-studies/korea-jindo-dog-medium-front-v1.webp",
+    alt: "진도의 돌담과 바닷길 배경에 선 진돗개 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  shiba: {
+    src: "/illustrations/card-studies/shiba-medium-front-v1.webp",
+    alt: "일본의 산길과 숲 배경에 선 시바견 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "welsh-corgi-pembroke": {
+    src: "/illustrations/card-studies/welsh-corgi-pembroke-medium-front-v1.webp",
+    alt: "웨일스의 목장 배경에 선 웰시 코기 펨브로크 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  beagle: {
+    src: "/illustrations/card-studies/beagle-medium-front-v1.webp",
+    alt: "영국의 들판과 오솔길 배경에 선 비글 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "border-collie": {
+    src: "/illustrations/card-studies/border-collie-medium-front-v1.webp",
+    alt: "영국 접경 지역의 양 목장 배경에 선 보더콜리 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "english-cocker-spaniel": {
+    src: "/illustrations/card-studies/english-cocker-spaniel-medium-front-v1.webp",
+    alt: "영국 숲 가장자리 배경에 선 잉글리시 코커 스패니얼 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "japanese-spitz": {
+    src: "/illustrations/card-studies/japanese-spitz-medium-front-v1.webp",
+    alt: "일본 주택 정원에 선 재패니즈 스피츠 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "french-bulldog": {
+    src: "/illustrations/card-studies/french-bulldog-medium-front-v1.webp",
+    alt: "파리의 골목과 집 배경에 선 프렌치 불도그 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "boston-terrier": {
+    src: "/illustrations/card-studies/boston-terrier-medium-front-v1.webp",
+    alt: "보스턴의 벽돌집 골목 배경에 선 보스턴 테리어 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  bulldog: {
+    src: "/illustrations/card-studies/bulldog-medium-front-v1.webp",
+    alt: "영국의 벽돌집 정원 배경에 선 불도그 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "shetland-sheepdog": {
+    src: "/illustrations/card-studies/shetland-sheepdog-medium-front-v1.webp",
+    alt: "셔틀랜드 제도의 목초지 배경에 선 셔틀랜드 쉽독 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "american-cocker-spaniel": {
+    src: "/illustrations/card-studies/american-cocker-spaniel-medium-front-v1.webp",
+    alt: "미국의 숲 가장자리 배경에 선 아메리칸 코커 스패니얼 성견의 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "golden-retriever": {
+    src: "/illustrations/card-studies/golden-retriever-large-front-v1.webp",
+    alt: "스코틀랜드의 호숫가 배경에 선 골든 리트리버 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "labrador-retriever": {
+    src: "/illustrations/card-studies/labrador-retriever-large-front-v1.webp",
+    alt: "뉴펀들랜드의 어촌 배경에 선 래브라도 리트리버 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  samoyed: {
+    src: "/illustrations/card-studies/samoyed-large-front-v1.webp",
+    alt: "북부 시베리아의 생활 터전 배경에 선 사모예드 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "siberian-husky": {
+    src: "/illustrations/card-studies/siberian-husky-large-front-v1.webp",
+    alt: "시베리아 북동부의 설원 배경에 선 시베리안 허스키 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "german-shepherd-dog": {
+    src: "/illustrations/card-studies/german-shepherd-dog-large-front-v1.webp",
+    alt: "독일의 양 목초지 배경에 선 저먼 셰퍼드 독 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  dobermann: {
+    src: "/illustrations/card-studies/dobermann-large-front-v1.webp",
+    alt: "독일 튀링겐의 마을 길 배경에 선 도베르만 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  rottweiler: {
+    src: "/illustrations/card-studies/rottweiler-large-front-v1.webp",
+    alt: "독일 남부의 가축 시장 배경에 선 롯트와일러 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  dalmatian: {
+    src: "/illustrations/card-studies/dalmatian-large-front-v1.webp",
+    alt: "달마티아의 시골길 배경에 선 달마시안 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "alaskan-malamute": {
+    src: "/illustrations/card-studies/alaskan-malamute-large-front-v1.webp",
+    alt: "알래스카의 눈 덮인 해안 배경에 선 알래스칸 말라뮤트 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "bernese-mountain-dog": {
+    src: "/illustrations/card-studies/bernese-mountain-dog-large-front-v1.webp",
+    alt: "스위스 베른의 농장 배경에 선 버니즈 마운틴 독 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  akita: {
+    src: "/illustrations/card-studies/akita-large-front-v1.webp",
+    alt: "일본 아키타의 산간 마을 배경에 선 아키타 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "chow-chow": {
+    src: "/illustrations/card-studies/chow-chow-large-front-v1.webp",
+    alt: "중국의 오래된 마을 배경에 선 차우차우 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "collie-rough": {
+    src: "/illustrations/card-studies/collie-rough-large-front-v1.webp",
+    alt: "스코틀랜드의 목초지 배경에 선 러프 콜리 성견 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "pyrenean-mountain-dog": {
+    src: "/illustrations/card-studies/great-pyrenees-alpine-v1.webp",
+    alt: "눈 덮인 피레네산맥 앞에 서 있는 하얀 그레이트 피레니즈 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "saint-bernard": {
+    src: "/illustrations/card-studies/saint-bernard-hospice-v1.webp",
+    alt: "알프스의 돌로 지은 여행자 쉼터와 눈길 앞에 서 있는 갈색과 흰색 세인트 버나드 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "great-dane": {
+    src: "/illustrations/card-studies/great-dane-woodland-v2.webp",
+    alt: "독일의 숲과 저택 앞에 긴 다리와 곧게 선 귀, 흰 가슴 무늬가 보이는 검은 그레이트 데인 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "irish-wolfhound": {
+    src: "/illustrations/card-studies/irish-wolfhound-landscape-v1.webp",
+    alt: "돌담과 탑이 보이는 아일랜드 황야의 회색 거친 털 아이리시 울프하운드 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "tibetan-mastiff": {
+    src: "/illustrations/card-studies/tibetan-mastiff-landscape-v1.webp",
+    alt: "티베트 고원의 수도원과 천막 앞 검은색과 황갈색의 풍성한 목털을 가진 티베탄 마스티프 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "kangal-shepherd-dog": {
+    src: "/illustrations/card-studies/kangal-shepherd-dog-landscape-v1.webp",
+    alt: "양 떼가 있는 아나톨리아 목초지의 검은 주둥이와 황갈색 털을 가진 캉갈 셰퍼드 도그 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "caucasian-shepherd-dog": {
+    src: "/illustrations/card-studies/caucasian-shepherd-dog-landscape-v1.webp",
+    alt: "코카서스 산악지대의 돌탑과 능선 앞 풍성한 회갈색 털과 자연스럽게 처진 귀의 코카시안 셰퍼드 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+  "mongolian-bankhar": {
+    src: "/illustrations/card-studies/mongolian-bankhar-landscape-v1.webp",
+    alt: "게르와 가축이 보이는 몽골 초원의 검은색과 황갈색 털 몽골 방카르 전신 수채화",
+    width: 1254,
+    height: 1254,
+  },
+};

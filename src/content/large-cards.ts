@@ -1,3 +1,4 @@
+import { cardFrontArt } from "./card-front-art";
 import { z } from "zod";
 import { cardSchema } from "./giant-cards";
 export const largeCards = z.array(cardSchema).parse([
@@ -20,12 +21,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/golden-retriever-large-front-v1.webp",
-      alt: "스코틀랜드의 호숫가 배경에 선 골든 리트리버 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["golden-retriever"],
     back: {
       src: "/illustrations/card-studies/golden-retriever-large-back-v1.webp",
       alt: "스코틀랜드의 호숫가에서 지역의 성인과 함께 선 골든 리트리버. 체구 비교를 위한 수채화 예시",
@@ -53,12 +49,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/labrador-retriever-large-front-v1.webp",
-      alt: "뉴펀들랜드의 어촌 배경에 선 래브라도 리트리버 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["labrador-retriever"],
     back: {
       src: "/illustrations/card-studies/labrador-retriever-large-back-v1.webp",
       alt: "뉴펀들랜드의 어촌에서 지역의 성인과 함께 선 래브라도 리트리버. 체구 비교를 위한 수채화 예시",
@@ -86,12 +77,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "alpine",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/samoyed-large-front-v1.webp",
-      alt: "북부 시베리아의 생활 터전 배경에 선 사모예드 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["samoyed"],
     back: {
       src: "/illustrations/card-studies/samoyed-large-back-v1.webp",
       alt: "북부 시베리아의 생활 터전에서 지역의 성인과 함께 선 사모예드. 체구 비교를 위한 수채화 예시",
@@ -119,12 +105,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "alpine",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/siberian-husky-large-front-v1.webp",
-      alt: "시베리아 북동부의 설원 배경에 선 시베리안 허스키 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["siberian-husky"],
     back: {
       src: "/illustrations/card-studies/siberian-husky-large-back-v1.webp",
       alt: "시베리아 북동부의 설원에서 지역의 성인과 함께 선 시베리안 허스키. 체구 비교를 위한 수채화 예시",
@@ -152,12 +133,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/german-shepherd-dog-large-front-v1.webp",
-      alt: "독일의 양 목초지 배경에 선 저먼 셰퍼드 독 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["german-shepherd-dog"],
     back: {
       src: "/illustrations/card-studies/german-shepherd-dog-large-back-v1.webp",
       alt: "독일의 양 목초지에서 지역의 성인과 함께 선 저먼 셰퍼드 독. 체구 비교를 위한 수채화 예시",
@@ -184,12 +160,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/dobermann-large-front-v1.webp",
-      alt: "독일 튀링겐의 마을 길 배경에 선 도베르만 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["dobermann"],
     back: {
       src: "/illustrations/card-studies/dobermann-large-back-v1.webp",
       alt: "독일 튀링겐의 마을 길에서 지역의 성인과 함께 선 도베르만. 체구 비교를 위한 수채화 예시",
@@ -217,12 +188,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/rottweiler-large-front-v1.webp",
-      alt: "독일 남부의 가축 시장 배경에 선 롯트와일러 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["rottweiler"],
     back: {
       src: "/illustrations/card-studies/rottweiler-large-back-v1.webp",
       alt: "독일 남부의 가축 시장에서 지역의 성인과 함께 선 롯트와일러. 체구 비교를 위한 수채화 예시",
@@ -249,12 +215,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/dalmatian-large-front-v1.webp",
-      alt: "달마티아의 시골길 배경에 선 달마시안 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["dalmatian"],
     back: {
       src: "/illustrations/card-studies/dalmatian-large-back-v1.webp",
       alt: "달마티아의 시골길에서 지역의 성인과 함께 선 달마시안. 체구 비교를 위한 수채화 예시",
@@ -282,12 +243,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "alpine",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/alaskan-malamute-large-front-v1.webp",
-      alt: "알래스카의 눈 덮인 해안 배경에 선 알래스칸 말라뮤트 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["alaskan-malamute"],
     back: {
       src: "/illustrations/card-studies/alaskan-malamute-large-back-v1.webp",
       alt: "미국 · 알래스카의 지역 생활복을 입은 성인과 나란히 선 알래스칸 말라뮤트 체구 비교 수채화",
@@ -315,12 +271,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/bernese-mountain-dog-large-front-v1.webp",
-      alt: "스위스 베른의 농장 배경에 선 버니즈 마운틴 독 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["bernese-mountain-dog"],
     back: {
       src: "/illustrations/card-studies/bernese-mountain-dog-large-back-v1.webp",
       alt: "스위스의 지역 생활복을 입은 성인과 나란히 선 버니즈 마운틴 독 체구 비교 수채화",
@@ -348,12 +299,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/akita-large-front-v1.webp",
-      alt: "일본 아키타의 산간 마을 배경에 선 아키타 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["akita"],
     back: {
       src: "/illustrations/card-studies/akita-large-back-v1.webp",
       alt: "일본의 지역 생활복을 입은 성인과 나란히 선 아키타 체구 비교 수채화",
@@ -381,12 +327,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/chow-chow-large-front-v1.webp",
-      alt: "중국의 오래된 마을 배경에 선 차우차우 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["chow-chow"],
     back: {
       src: "/illustrations/card-studies/chow-chow-large-back-v1.webp",
       alt: "중국의 지역 생활복을 입은 성인과 나란히 선 차우차우 체구 비교 수채화",
@@ -414,12 +355,7 @@ export const largeCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/collie-rough-large-front-v1.webp",
-      alt: "스코틀랜드의 목초지 배경에 선 러프 콜리 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["collie-rough"],
     back: {
       src: "/illustrations/card-studies/collie-rough-large-back-v1.webp",
       alt: "영국 · 스코틀랜드의 지역 생활복을 입은 성인과 나란히 선 러프 콜리 체구 비교 수채화",

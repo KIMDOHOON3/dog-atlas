@@ -1,3 +1,4 @@
+import { cardFrontArt } from "./card-front-art";
 import { z } from "zod";
 import { cardSchema } from "./giant-cards";
 
@@ -21,12 +22,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "FIELD EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/korea-jindo-dog-medium-front-v1.webp",
-      alt: "진도의 돌담과 바닷길 배경에 선 진돗개 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["korea-jindo-dog"],
     back: {
       src: "/illustrations/card-studies/korea-jindo-dog-medium-back-v1.webp",
       alt: "대한민국 · 진도의 성인과 같은 바닥에 나란히 선 진돗개. 체구를 비교하는 수채화 예시",
@@ -53,12 +49,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "FIELD EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/shiba-medium-front-v1.webp",
-      alt: "일본의 산길과 숲 배경에 선 시바견 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["shiba"],
     back: {
       src: "/illustrations/card-studies/shiba-medium-back-v1.webp",
       alt: "일본의 성인과 같은 바닥에 나란히 선 시바견. 체구를 비교하는 수채화 예시",
@@ -85,12 +76,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "FIELD EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/welsh-corgi-pembroke-medium-front-v1.webp",
-      alt: "웨일스의 목장 배경에 선 웰시 코기 펨브로크 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["welsh-corgi-pembroke"],
     back: {
       src: "/illustrations/card-studies/welsh-corgi-pembroke-medium-back-v1.webp",
       alt: "영국 · 웨일스의 성인과 같은 바닥에 나란히 선 웰시 코기 펨브로크. 체구를 비교하는 수채화 예시",
@@ -117,12 +103,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "FIELD EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/beagle-medium-front-v1.webp",
-      alt: "영국의 들판과 오솔길 배경에 선 비글 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["beagle"],
     back: {
       src: "/illustrations/card-studies/beagle-medium-back-v1.webp",
       alt: "영국의 성인과 같은 바닥에 나란히 선 비글. 체구를 비교하는 수채화 예시",
@@ -150,12 +131,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "FIELD EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/border-collie-medium-front-v1.webp",
-      alt: "영국 접경 지역의 양 목장 배경에 선 보더콜리 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["border-collie"],
     back: {
       src: "/illustrations/card-studies/border-collie-medium-back-v1.webp",
       alt: "영국 · 잉글랜드와 스코틀랜드 접경의 성인과 같은 바닥에 나란히 선 보더콜리. 체구를 비교하는 수채화 예시",
@@ -182,12 +158,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "FIELD EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/english-cocker-spaniel-medium-front-v1.webp",
-      alt: "영국 숲 가장자리 배경에 선 잉글리시 코커 스패니얼 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["english-cocker-spaniel"],
     back: {
       src: "/illustrations/card-studies/english-cocker-spaniel-medium-back-v1.webp",
       alt: "영국의 성인과 같은 바닥에 나란히 선 잉글리시 코커 스패니얼. 체구를 비교하는 수채화 예시",
@@ -215,12 +186,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "GARDEN EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/japanese-spitz-medium-front-v1.webp",
-      alt: "일본 주택 정원에 선 재패니즈 스피츠 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["japanese-spitz"],
     back: {
       src: "/illustrations/card-studies/japanese-spitz-medium-back-v1.webp",
       alt: "일본인 여성 보호자와 같은 바닥에 선 작은 재패니즈 스피츠의 체구 비교 수채화",
@@ -248,12 +214,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/french-bulldog-medium-front-v1.webp",
-      alt: "파리의 골목과 집 배경에 선 프렌치 불도그 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["french-bulldog"],
     back: {
       src: "/illustrations/card-studies/french-bulldog-medium-back-v1.webp",
       alt: "프랑스의 일상복을 입은 성인 곁 프렌치 불도그의 체구 비교 수채화 예시",
@@ -281,12 +242,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/boston-terrier-medium-front-v1.webp",
-      alt: "보스턴의 벽돌집 골목 배경에 선 보스턴 테리어 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["boston-terrier"],
     back: {
       src: "/illustrations/card-studies/boston-terrier-medium-back-v1.webp",
       alt: "미국의 일상복을 입은 성인 곁 보스턴 테리어의 체구 비교 수채화 예시",
@@ -314,12 +270,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/bulldog-medium-front-v1.webp",
-      alt: "영국의 벽돌집 정원 배경에 선 불도그 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["bulldog"],
     back: {
       src: "/illustrations/card-studies/bulldog-medium-back-v1.webp",
       alt: "영국의 일상복을 입은 성인 곁 불도그의 체구 비교 수채화 예시",
@@ -347,12 +298,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/shetland-sheepdog-medium-front-v1.webp",
-      alt: "셔틀랜드 제도의 목초지 배경에 선 셔틀랜드 쉽독 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["shetland-sheepdog"],
     back: {
       src: "/illustrations/card-studies/shetland-sheepdog-medium-back-v1.webp",
       alt: "영국 · 스코틀랜드의 일상복을 입은 성인 곁 셔틀랜드 쉽독의 체구 비교 수채화 예시",
@@ -380,12 +326,7 @@ export const mediumCards = z.array(cardSchema).parse([
     edition: "HERITAGE EDITION",
     theme: "woodland",
     heightLabel: "어깨 높이 · 약",
-    front: {
-      src: "/illustrations/card-studies/american-cocker-spaniel-medium-front-v1.webp",
-      alt: "미국의 숲 가장자리 배경에 선 아메리칸 코커 스패니얼 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["american-cocker-spaniel"],
     back: {
       src: "/illustrations/card-studies/american-cocker-spaniel-medium-back-v1.webp",
       alt: "미국의 일상복을 입은 성인 곁 아메리칸 코커 스패니얼의 체구 비교 수채화 예시",

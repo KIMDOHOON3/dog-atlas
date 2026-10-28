@@ -25,7 +25,7 @@ import { isKoreanManagedBreed } from "@/lib/breeds/breed-legal-care";
 import { getBreedRoleFacts } from "@/lib/breeds/breed-role-presentation";
 import { getBreedSizePresentation, type BreedSizePresentation } from "@/lib/breeds/breed-size-presentation";
 import { createPageMetadata } from "@/lib/site-metadata";
-import { getBreedCardImage } from "@/lib/breeds/breed-image-assets";
+import { getBreedCardImage, getBreedCardImageAlt } from "@/lib/breeds/breed-image-assets";
 import { withObjectParticle } from "@/lib/korean-particles";
 import styles from "./page.module.css";
 
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: slug === "poodle" ? poodleDetail.metadataDescription : standardDetail?.metadataDescription ?? `${breed.tagline} ${descriptionTopics}을 살펴봅니다.`,
     path: `/breeds/${breed.slug}`,
     image: getBreedCardImage(breed.slug),
-    imageAlt: `${breed.nameKo}의 대표적인 체형과 피모가 보이는 전신 일러스트`,
+    imageAlt: getBreedCardImageAlt(breed.slug, breed.nameKo),
   });
 }
 

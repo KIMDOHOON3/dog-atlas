@@ -1,3 +1,4 @@
+import { cardFrontArt } from "./card-front-art";
 import { z } from "zod";
 import { cardSchema } from "./giant-cards";
 
@@ -21,12 +22,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "1–3",
     lifespan: "14–16",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/chihuahua-front-v1.webp",
-      alt: "멕시코의 따뜻한 돌마당에 서 있는 황갈색 치와와 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["chihuahua"],
     back: {
       src: "/illustrations/card-studies/chihuahua-back-people-v3.webp",
       alt: "멕시코 마당에 앉은 여성의 신발 옆에 서 있는 작은 치와와. 같은 바닥에서 체구를 비교하는 수채화",
@@ -52,12 +48,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "1.4–3.2",
     lifespan: "12–16",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/german-spitz-front-v1.webp",
-      alt: "독일 벽돌집 정원 앞에 선 주황빛 포메라니안 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["german-spitz"],
     back: {
       src: "/illustrations/card-studies/german-spitz-back-people-v3.webp",
       alt: "독일 정원 벤치에 앉은 성인의 신발 옆에 선 포메라니안 크기 비교 수채화",
@@ -84,12 +75,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "2.7–3.2",
     lifespan: "14–16",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/yorkshire-terrier-front-v1.webp",
-      alt: "영국 돌집 작업장 앞에 선 푸른빛 털의 요크셔 테리어 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["yorkshire-terrier"],
     back: {
       src: "/illustrations/card-studies/yorkshire-terrier-back-people-v3.webp",
       alt: "영국 돌집 앞 의자에 앉은 성인의 신발 옆에 선 요크셔 테리어 크기 비교 수채화",
@@ -115,12 +101,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "3–4",
     lifespan: "12–15",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/maltese-front-v1.webp",
-      alt: "지중해의 항구와 집 배경에 선 말티즈 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["maltese"],
     back: {
       src: "/illustrations/card-studies/maltese-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 말티즈. 체구를 비교하는 수채화 예시",
@@ -146,12 +127,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "1.8–2.7",
     lifespan: "10–18",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/toy-poodle-silver-front-petite-v2.webp",
-      alt: "프랑스 돌마당에 작고 아담한 체구로 서 있는 실버 토이푸들 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["poodle"],
     back: {
       src: "/illustrations/card-studies/toy-poodle-silver-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 토이푸들. 체구를 비교하는 수채화 예시",
@@ -178,12 +154,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "5.4–8.2",
     lifespan: "14–15",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/bichon-frise-front-v1.webp",
-      alt: "유럽의 집과 정원 배경에 선 비숑 프리제 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["bichon-frise"],
     back: {
       src: "/illustrations/card-studies/bichon-frise-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 비숑 프리제. 체구를 비교하는 수채화 예시",
@@ -209,12 +180,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "4.1–7.3",
     lifespan: "14–16",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/shih-tzu-front-v1.webp",
-      alt: "중국의 궁정과 안뜰 배경에 선 시츄 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["shih-tzu"],
     back: {
       src: "/illustrations/card-studies/shih-tzu-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 시츄. 체구를 비교하는 수채화 예시",
@@ -240,12 +206,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "≤5",
     lifespan: "12–16",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/miniature-dachshund-front-v1.webp",
-      alt: "독일의 숲과 굴 배경에 선 미니어처 닥스훈트 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["dachshund"],
     back: {
       src: "/illustrations/card-studies/miniature-dachshund-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 미니어처 닥스훈트. 체구를 비교하는 수채화 예시",
@@ -271,12 +232,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "4–8",
     lifespan: "12–15",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/miniature-schnauzer-front-v1.webp",
-      alt: "독일의 농가와 마당 배경에 선 미니어처 슈나우저 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["miniature-schnauzer"],
     back: {
       src: "/illustrations/card-studies/miniature-schnauzer-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 미니어처 슈나우저. 체구를 비교하는 수채화 예시",
@@ -303,12 +259,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "1.5–5",
     lifespan: "12–15",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/continental-toy-spaniel-front-v1.webp",
-      alt: "유럽의 저택과 정원 배경에 선 파피용 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["continental-toy-spaniel"],
     back: {
       src: "/illustrations/card-studies/continental-toy-spaniel-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 파피용. 체구를 비교하는 수채화 예시",
@@ -336,12 +287,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     theme: "woodland",
     sizeNote: "부모견에 따라\n체구가 달라요.",
     backNote: "그림은 한 개체의 예시예요. 털과 크기는 부모견에 따라 달라요.",
-    front: {
-      src: "/illustrations/card-studies/maltipoo-front-v1.webp",
-      alt: "사람과 함께하는 일상의 정원 배경에 선 말티푸 성견 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["maltipoo"],
     back: {
       src: "/illustrations/card-studies/maltipoo-back-people-v3.webp",
       alt: "일상복을 입은 성인의 신발 옆에 선 말티푸. 체구를 비교하는 수채화 예시",
@@ -367,12 +313,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "6.3–8.1",
     lifespan: "10+",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/pug-small-front-v1.webp",
-      alt: "중국의 궁정과 정원을 배경으로 서 있는 퍼그 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["pug"],
     back: {
       src: "/illustrations/card-studies/pug-small-back-v1.webp",
       alt: "중국의 성인 보호자 신발 옆에 서 있는 퍼그의 체구 비교 수채화",
@@ -398,12 +339,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "≤6.4",
     lifespan: "12–14",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/pekingese-small-front-v1.webp",
-      alt: "베이징의 궁정 정원을 배경으로 서 있는 페키니즈 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["pekingese"],
     back: {
       src: "/illustrations/card-studies/pekingese-small-back-v1.webp",
       alt: "중국의 성인 보호자 신발 옆에 서 있는 페키니즈의 체구 비교 수채화",
@@ -430,12 +366,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "≤5",
     lifespan: "14–15",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/italian-greyhound-small-front-v1.webp",
-      alt: "이탈리아의 저택과 테라스을 배경으로 서 있는 이탈리안 그레이하운드 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["italian-sighthound"],
     back: {
       src: "/illustrations/card-studies/italian-greyhound-small-back-v1.webp",
       alt: "이탈리아의 성인 보호자 신발 옆에 서 있는 이탈리안 그레이하운드의 체구 비교 수채화",
@@ -461,12 +392,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "3.5–6",
     lifespan: "15–19",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/coton-de-tulear-small-front-v1.webp",
-      alt: "마다가스카르의 해안 마을을 배경으로 서 있는 꼬똥 드 툴레아 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["coton-de-tulear"],
     back: {
       src: "/illustrations/card-studies/coton-de-tulear-small-back-v1.webp",
       alt: "마다가스카르의 성인 보호자 신발 옆에 서 있는 꼬똥 드 툴레아의 체구 비교 수채화",
@@ -492,12 +418,7 @@ export const extraSmallCards = z.array(cardSchema).parse([
     weight: "4–6",
     lifespan: "12–16",
     theme: "woodland",
-    front: {
-      src: "/illustrations/card-studies/miniature-pinscher-small-front-v1.webp",
-      alt: "독일의 집과 마구간을 배경으로 서 있는 미니어처 핀셔 성견의 전신 수채화",
-      width: 1254,
-      height: 1254,
-    },
+    front: cardFrontArt["miniature-pinscher"],
     back: {
       src: "/illustrations/card-studies/miniature-pinscher-small-back-v1.webp",
       alt: "독일의 성인 보호자 신발 옆에 서 있는 미니어처 핀셔의 체구 비교 수채화",

@@ -38,7 +38,7 @@ describe("detail batch G", () => {
 
   it("links every card and history scene to an existing WebP asset", () => {
     for (const breed of detailBatchG) {
-      expect(breed.illustration).toBe(getBreedCardImage(breed.slug));
+      expect(existsSync(join(process.cwd(), "public", getBreedCardImage(breed.slug)))).toBe(true);
       expect(breed.illustration).toMatch(/\.webp$/);
       expect(breed.historyVisual?.src).toMatch(/\.webp$/);
       expect(existsSync(join(process.cwd(), "public", breed.illustration.slice(1)))).toBe(true);

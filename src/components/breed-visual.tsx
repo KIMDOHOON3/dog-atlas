@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Breed } from "@/content/breeds/schema";
-import { getBreedCardImage } from "@/lib/breeds/breed-image-assets";
+import { getBreedCardImage, getBreedCardImageAlt } from "@/lib/breeds/breed-image-assets";
 import styles from "./breed-visual.module.css";
 
 type Variant = "hero" | "card" | "landscape" | "portrait" | "tile" | "detail" | "history";
@@ -14,7 +14,7 @@ export function BreedVisual({ breed, variant, label, priority = false }: Props) 
   const src = isHistory
     ? breed.historyVisual!.src
     : getBreedCardImage(breed.slug);
-  const alt = isHistory ? breed.historyVisual!.alt : `${breed.nameKo}의 대표적인 체형과 피모가 보이는 전신 일러스트`;
+  const alt = isHistory ? breed.historyVisual!.alt : getBreedCardImageAlt(breed.slug, breed.nameKo);
 
   return (
     <figure className={`${styles.visual} ${styles[variant]}`}>
