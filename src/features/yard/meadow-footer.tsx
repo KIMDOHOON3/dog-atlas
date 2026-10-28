@@ -133,40 +133,6 @@ export function MeadowFooter() {
               </span>
             </span>
             <div className={styles.actions}>
-              <div
-                className={styles.viewControls}
-                role="group"
-                aria-label="운동장 시점"
-              >
-                <button
-                  type="button"
-                  onClick={() =>
-                    field.current?.dispatchEvent(
-                      new CustomEvent("yard-view-step", { detail: -1 }),
-                    )
-                  }
-                >
-                  <span aria-hidden="true">←</span> 왼쪽 보기
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    field.current?.dispatchEvent(new Event("yard-view-reset"))
-                  }
-                >
-                  시점 초기화
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    field.current?.dispatchEvent(
-                      new CustomEvent("yard-view-step", { detail: 1 }),
-                    )
-                  }
-                >
-                  오른쪽 보기 <span aria-hidden="true">→</span>
-                </button>
-              </div>
               <button
                 type="button"
                 className={styles.reset}

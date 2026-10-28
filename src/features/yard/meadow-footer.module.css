@@ -179,48 +179,13 @@
   width: min(calc(100% - 32px), 600px);
   margin: 0 auto 18px;
 }
-.viewControls {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr 1fr;
-  width: min(100%, 330px);
-  overflow: hidden;
-  border: 1px solid #d8c9b8;
-  border-radius: 12px;
-  background: #f7f1e8;
-}
-.viewControls button {
-  min-width: 44px;
-  min-height: 44px;
-  padding: 8px;
-  border: 0;
-  background: transparent;
-  color: #604b39;
-  font-size: 12px;
-  cursor: pointer;
-}
-.viewControls button + button {
-  border-left: 1px solid #d8c9b8;
-}
-.viewControls button:nth-child(2) {
-  background: #fffdf9;
-}
 @media (hover: hover) {
-  .viewControls button:hover,
   .reset:hover {
     background: #eee3d4;
   }
 }
-.viewControls button:active,
 .reset:active {
   background: #e4d5c3;
-}
-.viewControls button:focus-visible {
-  outline: 2px solid #a75d32;
-  outline-offset: -2px;
-  border-radius: 6px;
-}
-.field:not([data-ready="true"]) .viewControls {
-  visibility: hidden;
 }
 @media (min-width: 901px) {
   .bottom {
@@ -236,7 +201,7 @@
   }
   .field {
     margin-top: 0;
-    height: calc(clamp(340px, 95vw, 460px) + 74px);
+    height: calc(clamp(340px, 95vw, 460px) + 20px);
   }
   .bottom {
     flex-direction: column;

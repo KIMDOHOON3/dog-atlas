@@ -91,16 +91,15 @@ it.each(["pointercancel", "lostpointercapture", "blur", "second-touch"])(
     controls.dispose();
   },
 );
-it("supports bounded keyboard buttons, reset, and disposal without an animation loop", () => {
-  const { host, change, controls } = setup();
-  for (let i = 0; i < 8; i++)
-    host.dispatchEvent(new CustomEvent("yard-view-step", { detail: 1 }));
-  expect(host.dataset.viewAngle).toBe("24");
-  host.dispatchEvent(new Event("yard-view-reset"));
-  expect(change).toHaveBeenLastCalledWith(0);
+it("removes pointer listeners and angle state on disposal", () => {
+  const { host, change, controls, pointer } = setup();
+  pointer("pointerdown", 100, 100);
+  pointer("pointermove", 130, 100);
+  expect(change).toHaveBeenCalledOnce();
   controls.dispose();
   const count = change.mock.calls.length;
-  host.dispatchEvent(new CustomEvent("yard-view-step", { detail: 1 }));
+  pointer("pointerdown", 100, 100);
+  pointer("pointermove", 200, 100);
   expect(change).toHaveBeenCalledTimes(count);
   expect(host.dataset.viewAngle).toBeUndefined();
 });

@@ -91,17 +91,6 @@ export function createYardViewControls(
     },
     options,
   );
-  const step = (event: Event) => {
-    if (host.dataset.ready !== "true") return;
-    cancel();
-    apply(angle + ((event as CustomEvent<number>).detail * Math.PI) / 18);
-  };
-  const reset = () => {
-    cancel();
-    apply(0);
-  };
-  host.addEventListener("yard-view-step", step, options);
-  host.addEventListener("yard-view-reset", reset, options);
   window.addEventListener("blur", cancel, options);
   return {
     cancel,
