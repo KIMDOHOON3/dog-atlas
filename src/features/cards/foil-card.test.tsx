@@ -4,7 +4,7 @@ import { createCardTransitionRenderer } from "@/features/cards/card-transition";
 import { createFoilRenderer } from "@/features/cards/card-foil";
 import { FoilCard } from "./foil-card";
 
-vi.mock("next/navigation", () => ({ usePathname: () => "/" }));
+vi.mock("next/navigation", () => ({ usePathname: () => "/", useRouter: () => ({push:vi.fn()}) }));
 
 vi.mock("@/features/cards/card-transition", () => ({
   createCardTransitionRenderer: vi.fn(() => null),

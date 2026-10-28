@@ -1102,6 +1102,14 @@
 .lifespan {
   margin-top: 5cqw;
 }
+.sizeNumbers .sharedFactValue,
+.lifespan .sharedFactValue {
+  font-size: 5.3cqw;
+  letter-spacing: -0.2cqw;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
 .sizeNumbers strong[data-compact="true"],
 .lifespan strong[data-compact="true"] {
   font-size: 5.5cqw;

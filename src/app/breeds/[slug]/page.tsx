@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
 import { StandardBreedDetailExperience } from "@/features/breed-detail/breed-detail-standard";
@@ -26,6 +27,7 @@ import { getBreedRoleFacts } from "@/lib/breeds/breed-role-presentation";
 import { getBreedSizePresentation, type BreedSizePresentation } from "@/lib/breeds/breed-size-presentation";
 import { createPageMetadata } from "@/lib/site-metadata";
 import { getBreedCardImage, getBreedCardImageAlt } from "@/lib/breeds/breed-image-assets";
+import { getBreedCardVariety } from "@/lib/breeds/breed-card-variety";
 import { withObjectParticle } from "@/lib/korean-particles";
 import styles from "./page.module.css";
 
@@ -85,7 +87,9 @@ function SizeFactRows({ rows }: { rows: Array<{ label: string; value: string }> 
   );
 }
 
-function BreedSizeOverview({ size }: { size: BreedSizePresentation }) {
+function BreedSizeOverview({ size, slug }: { size: BreedSizePresentation; slug: string }) {
+  const focus = getBreedCardVariety(slug);
+  const primary = size.varieties?.find(variety => variety.id === focus?.id);
   const rows = [
     ...(size.height ? [{ label: "체고", value: size.height }] : []),
     ...(size.weight ? [{ label: "몸무게", value: size.weight }] : []),
@@ -94,12 +98,18 @@ function BreedSizeOverview({ size }: { size: BreedSizePresentation }) {
 
   if (size.varieties?.length) {
     return (
+      <>
+      {primary && <><strong>{focus!.label}</strong><SizeFactRows rows={[
+        ...(primary.height ? [{label:"체고", value:primary.height}] : []),
+        ...(primary.weight ? [{label:"몸무게", value:primary.weight}] : []),
+        ...(primary.otherMeasurement ? [{label:"유형 구분", value:primary.otherMeasurement}] : []),
+      ]} /></>}
       <details className={styles.poodleSizeDetails}>
         <summary>
-          <strong>{size.displayLabel}</strong>
-          <span className={styles.sizeDetailsAction}>유형별 체고·몸무게 보기</span>
+          {!primary && <strong>{size.displayLabel}</strong>}
+          <span className={styles.sizeDetailsAction}>{primary ? focus!.otherLabel : "유형별 체고·몸무게 보기"}</span>
         </summary>
-        <ul>{size.varieties.map((variety) => {
+        <ul>{size.varieties.filter(variety => variety.id !== primary?.id).map((variety) => {
           const values = [
             variety.height ? `체고 ${variety.height}` : undefined,
             variety.weight ? `몸무게 ${variety.weight}` : undefined,
@@ -109,6 +119,7 @@ function BreedSizeOverview({ size }: { size: BreedSizePresentation }) {
           return <li key={variety.id}><span>{variety.label}</span>{values && <strong>{values}</strong>}</li>;
         })}</ul>
       </details>
+      </>
     );
   }
 
@@ -216,11 +227,6 @@ function BreedDetailExperience({ breed }: { breed: Breed }) {
         </section>
       )}
 
-      <section className={styles.malteseDecision} aria-label={`${breed.nameKo} 다음 선택`}>
-        <div className={styles.malteseChoiceActions}>
-          <BeginnerGuideLink slug={breed.slug} nameKo={breed.nameKo} />
-        </div>
-      </section>
     </>
   );
 }
@@ -243,19 +249,22 @@ export default async function BreedDetail({ params }: PageProps) {
     <>
       <a className="skip-link" href="#breed-content">견종 정보로 바로가기</a>
       <SiteHeader />
-      <main id="breed-content" data-breed-theme={isStandardDetail ? "standard" : undefined}>
-        <section className={`${styles.hero} ${styles.malteseHero} ${isStandardDetail ? styles.poodleHero : ""}`} aria-labelledby="breed-title">
+      <main id="breed-content" data-breed-theme="standard">
+        <nav className={styles.detailNavigation} aria-label="견종 탐색 경로"><Link href="/discover">← 견종 발견</Link><Link href="/">견종 카드 보기</Link></nav>
+        <section className={`${styles.hero} ${styles.malteseHero} ${styles.poodleHero}`} aria-labelledby="breed-title">
           <BreedVisual breed={breed} variant="detail" priority />
           <div className={styles.profileSummary}>
             <div className={styles.summary}>
               <h1 id="breed-title">{breed.nameKo}</h1>
               <p className={styles.breedNameEn}>{breed.nameEn}</p>
+              {getBreedCardVariety(breed.slug) && <p className={styles.varietyNote}>{getBreedCardVariety(breed.slug)!.description}</p>}
             </div>
             {breed.slug === "poodle" && <p className={styles.poodleHeroStatement}>{poodleDetail.heroStatement}</p>}
             {standardDetail && <p className={styles.poodleHeroStatement}>{standardDetail.heroStatement}</p>}
+            {!isStandardDetail && <p className={styles.poodleHeroStatement}>{breed.tagline}</p>}
             <div className={styles.atAGlance}>
               <dl className={`${styles.facts} ${factCount % 2 === 1 ? styles.factsOdd : ""}`}>
-                {hasSizeFact && <div><dt>크기</dt><dd><BreedSizeOverview size={sizePresentation} /></dd></div>}
+                {hasSizeFact && <div><dt>크기</dt><dd><BreedSizeOverview size={sizePresentation} slug={breed.slug} /></dd></div>}
                 {lifespan && <div><dt>평균 수명</dt><dd>{lifespan}</dd></div>}
                 {isStandardDetail ? roleFacts.map((role) => (
                   <div key={role.label}><dt>{role.label}</dt><dd>{role.value}</dd></div>
@@ -289,7 +298,7 @@ export default async function BreedDetail({ params }: PageProps) {
 
         {isKoreanManagedBreed(breed.slug) && <LegalCareNotice breedName={breed.nameKo} />}
 
-        <article className={`${styles.content} ${isStandardDetail ? styles.poodleContent : ""}`}>
+        <article className={`${styles.content} ${styles.poodleContent}`}>
           {breed.slug === "poodle" ? (
             <PoodleDetailExperience related={related} />
           ) : standardDetail ? (
@@ -301,6 +310,11 @@ export default async function BreedDetail({ params }: PageProps) {
           ) : (
             <BreedDetailExperience breed={breed} />
           )}
+          <section className={styles.nextSteps} aria-label={`${breed.nameKo} 다음 선택`}>
+            <h2>함께할 첫 생활도 알아보세요</h2>
+            <BeginnerGuideLink slug={breed.slug} nameKo={breed.nameKo} />
+            <Link href="/discover">다른 견종도 살펴보기 →</Link>
+          </section>
         </article>
       </main>
       <PlacesInvitation />

@@ -53,6 +53,12 @@ export const cardSchema = z.object({
   theme: z.enum(["alpine", "woodland"]),
   front: art,
   back: art,
+  facts: z.object({
+    rows: z.array(z.object({ label: z.string(), value: z.string() })),
+    lifespan: z.string().optional(),
+    note: z.string().optional(),
+    variety: z.string().optional(),
+  }).optional(),
 });
 export type GiantCard = z.infer<typeof cardSchema>;
 const directory = "/illustrations/card-studies/";

@@ -8,6 +8,21 @@
   gap: 18px 42px;
   align-items: center;
 }
+.detailNavigation {
+  width: min(calc(100% - var(--page-inline)), var(--max));
+  margin: 22px auto 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+.detailNavigation a { min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; }
+.detailNavigation a:hover { color: var(--moss); }
+.varietyNote { margin: 12px 0 0; color: var(--ink-soft); font-size: 0.85rem; line-height: 1.65; word-break: keep-all; }
+.nextSteps { margin: 44px auto 0; padding: 32px 0; border-top: 1px solid var(--line); }
+.nextSteps h2 { font-size: 1.3rem; }
+.nextSteps > a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 14px; color: var(--moss); font-size: 0.9rem; text-decoration: none; }
 .hero > figure {
   grid-area: visual;
 }

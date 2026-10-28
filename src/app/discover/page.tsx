@@ -5,7 +5,7 @@ import { DiscoverSearch } from "@/features/discovery/discover-search";
 import { FamiliarBreedStart } from "@/features/discovery/familiar-breed-start";
 import { SiteHeader } from "@/components/site-header";
 import { breeds } from "@/content/breeds/data";
-import { getMasterBreed } from "@/content/breeds/master-catalog";
+import { getBreedSearchOptions } from "@/lib/breeds/breed-search-options";
 import { toDiscoverBreed } from "@/features/discovery/discover-breeds";
 import { createPageMetadata } from "@/lib/site-metadata";
 import styles from "./page.module.css";
@@ -17,10 +17,7 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function DiscoverPage() {
-  const breedOptions = breeds.map(({ slug, nameKo, nameEn, illustration }) => {
-    const master = getMasterBreed(slug);
-    return { slug, nameKo, nameEn, imageSrc: illustration, aliases: [...(master?.aliasesKo ?? []), ...(master?.aliasesEn ?? [])] };
-  });
+  const breedOptions = getBreedSearchOptions();
 
   return (
     <>

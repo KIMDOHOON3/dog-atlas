@@ -1,7 +1,14 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import {
+  createBreedSearchIndex,
+  normalizeBreedQuery,
+  searchBreedIndex,
+  type BreedSearchOption,
+} from "@/lib/breeds/breed-search-index";
 import { SizeSelector, type CardSize } from "./size-selector";
 import styles from "./card-search.module.css";
 
@@ -13,48 +20,59 @@ export type CardSearchEntry = {
   index: number;
   image: string;
 };
-const normalize = (text: string) =>
-  text.toLocaleLowerCase().replace(/[\s-]/g, "");
-const aliases: Record<string, string[]> = {
-  "miniature-pinscher": ["미니핀"],
-  "miniature-schnauzer": ["슈나우저"],
-  "pembroke-welsh-corgi": ["웰시코기", "코기"],
-  pomeranian: ["포메"],
-  "labrador-retriever": ["래브라도", "라브라도"],
-  "yorkshire-terrier": ["요키"],
-  "german-shepherd-dog": ["저먼셰퍼드", "독일셰퍼드"],
-};
 export function CardSearch({
   size,
   entries,
+  breeds,
   disabled,
   onSize,
   onSelect,
 }: {
   size: CardSize;
   entries: CardSearchEntry[];
+  breeds?: BreedSearchOption[];
   disabled: boolean;
   onSize: (size: CardSize) => void;
   onSelect: (entry: CardSearchEntry) => void;
 }) {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [category, setCategory] = useState(false);
   const input = useRef<HTMLInputElement>(null);
-  const matches = query.trim()
-    ? entries
-        .filter((e) =>
-          normalize(
-            [e.name, e.nameEn, ...(aliases[e.slug] ?? [])].join(" "),
-          ).includes(normalize(query)),
-        )
-        .slice(0, 8)
-    : [];
-  const choose = (entry: CardSearchEntry, restoreFocus = true) => {
+  const index = useMemo(
+    () =>
+      createBreedSearchIndex(
+        (
+          breeds ??
+          entries.map<BreedSearchOption>((entry) => ({
+            slug: entry.slug,
+            nameKo: entry.name,
+            nameEn: entry.nameEn,
+            imageSrc: entry.image,
+          }))
+        ).map((breed) => {
+          const card = entries.find((entry) => entry.slug === breed.slug);
+          return card
+            ? {
+                ...breed,
+                nameKo: card.name,
+                nameEn: card.nameEn,
+                aliases: [...(breed.aliases ?? []), breed.nameKo, breed.nameEn],
+              }
+            : breed;
+        }),
+      ),
+    [breeds, entries],
+  );
+  const matches = searchBreedIndex(index, normalizeBreedQuery(query));
+  const choose = (breed: BreedSearchOption, restoreFocus = true) => {
     setOpen(false);
     setQuery("");
     if (!restoreFocus) input.current?.blur();
-    onSelect(entry);
+    const entry = entries.find((entry) => entry.slug === breed.slug);
+    if (entry) onSelect(entry);
+    else router.push(`/breeds/${breed.slug}`);
     if (restoreFocus) input.current?.focus({ preventScroll: true });
   };
   return (
@@ -77,7 +95,7 @@ export function CardSearch({
       <form
         className={styles.bar}
         role="search"
-        aria-label="견종 카드 검색"
+        aria-label="전체 견종 검색"
         onSubmit={(e) => {
           e.preventDefault();
           if (matches[0] && !disabled) choose(matches[0]);
@@ -149,26 +167,31 @@ export function CardSearch({
       {open && query.trim() && (
         <div className={styles.panel} aria-label="검색 결과">
           <p role="status">
-            {matches.length ? "카드로 만나보기" : "일치하는 카드가 없어요"}
+            {matches.length
+              ? "카드 또는 상세 이야기로 만나보세요"
+              : "일치하는 견종이 없어요"}
           </p>
-          {matches.map((entry) => (
+          {matches.map((breed) => (
             <button
               type="button"
               data-search-result
-              key={entry.slug}
+              key={breed.slug}
               disabled={disabled}
-              onClick={(event) => choose(entry, event.detail === 0)}
+              onClick={(event) => choose(breed, event.detail === 0)}
             >
               <Image
-                src={entry.image}
+                src={breed.imageSrc}
                 alt=""
                 width={44}
                 height={44}
                 unoptimized
                 className={styles.thumbnail}
               />
-              <span>{entry.name}</span>
-              <small>{entry.size}</small>
+              <span>{breed.nameKo}</span>
+              <small>
+                {entries.find((entry) => entry.slug === breed.slug)?.size ??
+                  "상세 보기"}
+              </small>
             </button>
           ))}
           <Link href="/discover">견종 발견에서 더 찾아보기 ↗</Link>

@@ -1,15 +1,17 @@
 import { FoilCard } from "@/features/cards/foil-card";
 import { createPageMetadata, SITE_NAME } from "@/lib/site-metadata";
+import { getBreedSearchOptions } from "@/lib/breeds/breed-search-options";
+import { getHomeCardGroups } from "@/lib/breeds/home-card-data";
 
 export const metadata = createPageMetadata({
   title: SITE_NAME,
   description:
-    "빛에 따라 달라지는 수채화 카드로 만나는 견종도감. 초대형견 8종의 크기와 수명, 과거 역할을 살펴보세요.",
+    "49종의 수채화 카드와 376종 검색으로 만나는 견종도감. 크기와 수명, 역사와 함께 사는 생활을 살펴보세요.",
   path: "/",
   image: "/illustrations/card-studies/great-pyrenees-alpine-v1.webp",
   imageAlt: "눈 덮인 피레네산맥 앞에 서 있는 그레이트 피레니즈 수채화",
 });
 
 export default function Home() {
-  return <FoilCard />;
+  return <FoilCard cardGroups={getHomeCardGroups()} searchBreeds={getBreedSearchOptions()} />;
 }

@@ -8,6 +8,7 @@ import { flushSync } from "react-dom";
 import {
   useEffect,
   useCallback,
+  useMemo,
   useRef,
   useState,
   type PointerEvent,
@@ -28,6 +29,8 @@ import { CardBack } from "./card-back";
 import { cardSizes, type CardSize } from "./size-selector";
 import styles from "./foil-card.module.css";
 import { CardSearch, type CardSearchEntry } from "./card-search";
+import type { HomeCardGroups } from "@/lib/breeds/home-card-data";
+import type { BreedSearchOption } from "@/lib/breeds/breed-search-index";
 
 type Motion = {
   aim: (x: number, y: number) => void;
@@ -39,17 +42,12 @@ type Motion = {
   slide: (direction: number, commit: (animate: boolean) => void) => void;
 };
 const limit = (value: number) => Math.min(1, Math.max(-1, value));
-const cardsForSize = (size: CardSize) =>
-  size === "소형견"
-    ? extraSmallCards
-    : size === "중형견"
-      ? mediumCards
-      : size === "대형견"
-        ? largeCards
-        : giantCards;
+const defaultCardGroups: HomeCardGroups = { "소형견": extraSmallCards, "중형견": mediumCards, "대형견": largeCards, "초대형견": giantCards };
 
-const searchEntries = cardSizes.flatMap((size) =>
-  cardsForSize(size).map((card, index) => ({
+export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGroups?: HomeCardGroups; searchBreeds?: BreedSearchOption[]}) {
+  const cardsForSize = (size: CardSize) => cardGroups[size];
+  const searchEntries = useMemo(() => cardSizes.flatMap((size) =>
+  cardGroups[size].map((card, index) => ({
     name: card.name,
     nameEn: card.nameEn,
     image: card.front.src,
@@ -57,9 +55,7 @@ const searchEntries = cardSizes.flatMap((size) =>
     size,
     index,
   })),
-);
-
-export function FoilCard() {
+), [cardGroups]);
   const [searchOpen, setSearchOpen] = useState<{
     slug: string;
     id: number;
@@ -860,6 +856,7 @@ export function FoilCard() {
         <CardSearch
           size={size}
           entries={searchEntries}
+          breeds={searchBreeds}
           disabled={sliding || turning || viewChanging}
           onSize={(next) => void changeCollection(next)}
           onSelect={(entry: CardSearchEntry) =>
