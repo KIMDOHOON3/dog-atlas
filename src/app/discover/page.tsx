@@ -9,6 +9,7 @@ import { getBreedSearchOptions } from "@/lib/breeds/breed-search-options";
 import { toDiscoverBreed } from "@/features/discovery/discover-breeds";
 import { createPageMetadata } from "@/lib/site-metadata";
 import styles from "./page.module.css";
+import entrance from "@/components/page-entrance.module.css";
 
 export const metadata: Metadata = createPageMetadata({
   title: "견종 발견",
@@ -25,7 +26,7 @@ export default function DiscoverPage() {
       <SiteHeader wide />
       <main className={styles.main}>
         <div className={styles.introShell}>
-          <header className={styles.intro}>
+          <header className={`${styles.intro} ${entrance.title}`}>
             <h1>이름으로 찾거나,<br /><em>생활</em>에서 발견하세요.</h1>
             <span>아는 견종이 없다면 익숙한 이름과 생활 조건에서 시작해보세요.</span>
           </header>

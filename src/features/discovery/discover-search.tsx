@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SearchBox, type BreedOption } from "@/features/discovery/search-box";
 import styles from "./discover-search.module.css";
+import entrance from "@/components/page-entrance.module.css";
 
 export function DiscoverSearch({ breeds }: { breeds: BreedOption[] }) {
   const sourceRef = useRef<HTMLElement>(null);
@@ -24,7 +25,7 @@ export function DiscoverSearch({ breeds }: { breeds: BreedOption[] }) {
 
   return (
     <>
-      <section ref={sourceRef} className={styles.source} aria-labelledby="discover-search-title">
+      <section ref={sourceRef} className={`${styles.source} ${entrance.controls}`} aria-labelledby="discover-search-title">
         <h2 id="discover-search-title">견종 이름 검색</h2>
         <SearchBox id="discover-breed-search" breeds={breeds} />
       </section>

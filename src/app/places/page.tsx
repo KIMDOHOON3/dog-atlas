@@ -10,6 +10,7 @@ import PlaceCard from "@/features/places/place-card";
 import PlaceIcon from "@/features/places/place-icon";
 import styles from "../../features/places/places.module.css";
 import browse from "../../features/places/place-browse.module.css";
+import entrance from "@/components/page-entrance.module.css";
 
 export const metadata = {
   title: "함께 갈 곳",
@@ -55,11 +56,11 @@ export default async function PlacesPage({
       <Link href="/" className={styles.back}>
         ← 견종도감으로
       </Link>
-      <header className={browse.header}>
+      <header className={`${browse.header} ${entrance.title}`}>
         <h1>함께 갈 곳</h1>
         <p>반려견과 방문할 장소를 찾고, 동반 조건을 확인하세요.</p>
       </header>
-      <div id="place-search" className={browse.finder}>
+      <div id="place-search" className={`${browse.finder} ${entrance.content}`}>
         <nav className={browse.modes} aria-label="장소 검색 방식">
           <Link
             prefetch={false}

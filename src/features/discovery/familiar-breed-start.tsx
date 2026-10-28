@@ -3,6 +3,7 @@ import { BreedVisual } from "@/components/breed-visual";
 import type { Breed } from "@/content/breeds/schema";
 import { familiarKoreaBreeds } from "@/content/familiar-korea-breeds";
 import styles from "./familiar-breed-start.module.css";
+import entrance from "@/components/page-entrance.module.css";
 
 export function FamiliarBreedStart({ breeds }: { breeds: readonly Breed[] }) {
   const breedBySlug = new Map(breeds.map((breed) => [breed.slug, breed]));
@@ -14,7 +15,7 @@ export function FamiliarBreedStart({ breeds }: { breeds: readonly Breed[] }) {
   const more = entries.filter((entry) => entry.priority === "more");
 
   return (
-    <section className={styles.section} aria-labelledby="familiar-breeds-title">
+    <section className={`${styles.section} ${entrance.content}`} aria-labelledby="familiar-breeds-title">
       <header className={styles.header}>
         <h2 id="familiar-breeds-title"><em>익숙한 이름</em>에서 시작해보세요.</h2>
       </header>

@@ -6,6 +6,7 @@ import styles from "../../../features/places/places.module.css";
 import { kakaoPlaceLinks, phoneLink, visitSummary } from "@/features/places/place-visit";
 import CopyAddress from "@/features/places/place-visit-actions";
 import PlaceIcon from "@/features/places/place-icon";
+import entrance from "@/components/page-entrance.module.css";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "장소 안내" };
@@ -73,11 +74,11 @@ export default async function PlacePage({
   const links = kakaoPlaceLinks(common);
   const address = [common.addr1, common.addr2].filter(Boolean).join(" ");
   return (
-    <main className={styles.page}>
+    <main key={id} className={styles.page}>
       <Link href="/places" className={styles.back}>
         ← 함께 갈 곳
       </Link>
-      <header className={`${styles.hero} ${styles.detailHero}`}>
+      <header className={`${styles.hero} ${styles.detailHero} ${entrance.title}`}>
         <span className={styles.tag}>
           <PlaceIcon type={common.contenttypeid} />
           {PLACE_TYPES[common.contenttypeid] ?? "함께 갈 곳"}
@@ -116,12 +117,12 @@ export default async function PlacePage({
           실제 이동시간과 교통수단별 경로는 카카오맵에서 확인할 수 있어요.
         </p>
       </header>
-      <nav className={styles.detailNav} aria-label="장소 정보 바로가기">
+      <nav className={`${styles.detailNav} ${entrance.controls}`} aria-label="장소 정보 바로가기">
         <a href="#visit-summary">방문 전 확인</a>
         <a href="#place-story">장소 소개</a>
         <a href="#place-full-info">전체 이용 정보</a>
       </nav>
-      <section className={styles.section} aria-labelledby="visit-summary">
+      <section className={`${styles.section} ${entrance.content}`} aria-labelledby="visit-summary">
         <span className={styles.eyebrow}>우리 강아지와 함께 가려면</span>
         <h2 id="visit-summary">가기 전에 한눈에</h2>
         <p className={styles.resultNote}>

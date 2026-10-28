@@ -5,9 +5,9 @@ import styles from "./breed-visual.module.css";
 
 type Variant = "hero" | "card" | "landscape" | "portrait" | "tile" | "detail" | "history";
 type VisualBreed = Pick<Breed, "slug" | "nameKo"> & Partial<Pick<Breed, "historyVisual">>;
-type Props = { breed: VisualBreed; variant: Variant; label?: string; priority?: boolean };
+type Props = { breed: VisualBreed; variant: Variant; label?: string; priority?: boolean; className?: string };
 
-export function BreedVisual({ breed, variant, label, priority = false }: Props) {
+export function BreedVisual({ breed, variant, label, priority = false, className = "" }: Props) {
   if (variant === "history" && !breed.historyVisual) return null;
 
   const isHistory = variant === "history";
@@ -17,7 +17,7 @@ export function BreedVisual({ breed, variant, label, priority = false }: Props) 
   const alt = isHistory ? breed.historyVisual!.alt : getBreedCardImageAlt(breed.slug, breed.nameKo);
 
   return (
-    <figure className={`${styles.visual} ${styles[variant]}`}>
+    <figure className={`${styles.visual} ${styles[variant]} ${className}`}>
       <Image
         src={src}
         alt={alt}

@@ -29,6 +29,7 @@ import { getBreedCardImage, getBreedCardImageAlt } from "@/lib/breeds/breed-imag
 import { getBreedCardVariety } from "@/lib/breeds/breed-card-variety";
 import { withObjectParticle } from "@/lib/korean-particles";
 import styles from "./page.module.css";
+import entrance from "@/components/page-entrance.module.css";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -248,11 +249,11 @@ export default async function BreedDetail({ params }: PageProps) {
     <>
       <a className="skip-link" href="#breed-content">견종 정보로 바로가기</a>
       <SiteHeader />
-      <main id="breed-content" data-breed-theme="standard">
+      <main key={breed.slug} id="breed-content" data-breed-theme="standard">
         <nav className={styles.detailNavigation} aria-label="견종 탐색 경로"><Link href="/discover">← 견종 발견</Link><Link href="/">견종 카드 보기</Link></nav>
         <section className={`${styles.hero} ${styles.malteseHero} ${styles.poodleHero}`} aria-labelledby="breed-title">
-          <BreedVisual breed={breed} variant="detail" priority />
-          <div className={styles.profileSummary}>
+          <BreedVisual breed={breed} variant="detail" priority className={entrance.title} />
+          <div className={`${styles.profileSummary} ${entrance.content}`}>
             <div className={styles.summary}>
               <h1 id="breed-title">{breed.nameKo}</h1>
               <p className={styles.breedNameEn}>{breed.nameEn}</p>

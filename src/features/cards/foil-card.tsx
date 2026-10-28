@@ -29,6 +29,7 @@ import { CardBack } from "./card-back";
 import { cardSizes, type CardSize } from "./size-selector";
 import styles from "./foil-card.module.css";
 import { CardSearch, type CardSearchEntry } from "./card-search";
+import entrance from "@/components/page-entrance.module.css";
 import type { HomeCardGroups } from "@/lib/breeds/home-card-data";
 import type { BreedSearchOption } from "@/lib/breeds/breed-search-index";
 
@@ -63,6 +64,7 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
   const searchRequestId = useRef(0);
   const [size, setSize] = useState<CardSize>("소형견");
   const [view, setView] = useState<"single" | "spread">("single");
+  const [cardEntered, setCardEntered] = useState(false);
   const [viewChanging, setViewChanging] = useState(false);
   const viewLock = useRef(false);
   const cards = cardsForSize(size);
@@ -150,6 +152,7 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
 
   async function changeView(mode: "single" | "spread") {
     if (mode === view || viewLock.current || sliding || turning) return;
+    setCardEntered(true);
     setSearchOpen(null);
     motion.current?.stop();
     let committed = false;
@@ -816,6 +819,7 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
       viewLock.current
     )
       return;
+    setCardEntered(true);
     motion.current?.reset();
     if (view === "spread") {
       viewLock.current = true;
@@ -869,7 +873,7 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
         />
       </SiteHeader>
       <main id="main" className={styles.main} aria-label={`${size} 카드 도감`}>
-        <div className={styles.intro}>
+        <div className={`${styles.intro} ${entrance.title}`}>
           <h1>그림으로 만나는 견종도감</h1>
           <p>
             견종의 역사와 성격, 돌봄을 알아보고
@@ -879,7 +883,7 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
           <span>카드를 뒤집어 이야기를 읽어보세요.</span>
         </div>
         <div
-          className={styles.viewSwitch}
+          className={`${styles.viewSwitch} ${entrance.controls}`}
           role="group"
           aria-label="카드 보기 방식"
         >
@@ -922,7 +926,12 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
           </div>
         )}
         <div className={styles.collectionContent} hidden={view === "spread"}>
-          <div className={styles.exhibit}>
+          <div
+            className={`${styles.exhibit} ${cardEntered ? "" : entrance.visual}`}
+            onAnimationEnd={(event) => {
+              if (event.target === event.currentTarget) setCardEntered(true);
+            }}
+          >
             <div
               className={styles.stage}
               aria-busy={sliding}
