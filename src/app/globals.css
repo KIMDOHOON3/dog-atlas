@@ -75,18 +75,26 @@ p {
 }
 
 .skip-link {
-  position: fixed;
+  position: absolute;
   left: 12px;
   top: 12px;
   z-index: 100;
-  translate: 0 -160%;
   padding: 10px 14px;
   border-radius: 999px;
   color: white;
   background: var(--focus);
 }
+.skip-link:not(:focus) {
+  /* Keep the hidden link inside the page's scroll bounds during navigation. */
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .skip-link:focus {
-  translate: 0;
+  position: fixed;
 }
 
 @media (prefers-reduced-motion: reduce) {
