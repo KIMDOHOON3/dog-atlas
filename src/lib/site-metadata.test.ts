@@ -4,7 +4,6 @@ import { join } from "node:path";
 import { breeds } from "@/content/breeds/data";
 import sitemap from "@/app/sitemap";
 import { generateMetadata as breedMetadata } from "@/app/breeds/[slug]/page";
-import { generateMetadata as guideMetadata } from "@/app/beginner-guide/page";
 import {
   createPageMetadata,
   DEFAULT_SHARE_IMAGE,
@@ -109,24 +108,4 @@ describe("page sharing and canonical metadata", () => {
     }
   });
 
-  it("preserves breed-specific guide queries and skips invalid guides", async () => {
-    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://dogs.example");
-    const result = await guideMetadata({
-      searchParams: Promise.resolve({ breed: "poodle" }),
-    });
-    expect(result.alternates?.canonical).toBe(
-      "https://dogs.example/beginner-guide?breed=poodle",
-    );
-    expect(result.title).toBe("푸들 맞이 준비 가이드");
-    expect(
-      await guideMetadata({
-        searchParams: Promise.resolve({ breed: "invalid" }),
-      }),
-    ).toEqual({});
-    expect(
-      await guideMetadata({
-        searchParams: Promise.resolve({ breed: ["poodle", "bulldog"] }),
-      }),
-    ).toEqual({});
-  });
 });

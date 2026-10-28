@@ -7,7 +7,6 @@ import { StandardBreedDetailExperience } from "@/features/breed-detail/breed-det
 import { PlacesInvitation } from "@/components/places-invitation";
 import { StandardRealityCards } from "@/features/breed-detail/breed-detail-standard-interactions";
 import { toRealityClientData } from "@/lib/breeds/breed-detail-client-data";
-import { BeginnerGuideLink } from "@/features/guide/beginner-guide-link";
 import { LegalCareNotice } from "@/components/legal-care-notice";
 import { LifestyleProductIcon } from "@/features/breed-detail/lifestyle-product-icon";
 import { PoodleDetailExperience } from "@/features/breed-detail/poodle-detail";
@@ -310,11 +309,6 @@ export default async function BreedDetail({ params }: PageProps) {
           ) : (
             <BreedDetailExperience breed={breed} />
           )}
-          <section className={styles.nextSteps} aria-label={`${breed.nameKo} 다음 선택`}>
-            <h2>함께할 첫 생활도 알아보세요</h2>
-            <BeginnerGuideLink slug={breed.slug} nameKo={breed.nameKo} />
-            <Link href="/discover">다른 견종도 살펴보기 →</Link>
-          </section>
         </article>
       </main>
       <PlacesInvitation />

@@ -11,7 +11,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-[http://localhost:3000](http://localhost:3000)에서 확인합니다. 장소 API를 사용하려면 `.env.example`을 `.env.local`로 복사하고 본인의 서비스 키를 입력하세요. 키 없이도 견종 카드·검색·상세·준비 가이드는 사용할 수 있습니다.
+[http://localhost:3000](http://localhost:3000)에서 확인합니다. 장소 API를 사용하려면 `.env.example`을 `.env.local`로 복사하고 본인의 서비스 키를 입력하세요. 키 없이도 견종 카드·검색·상세는 사용할 수 있습니다.
 
 | 환경변수 | 용도 |
 | --- | --- |
@@ -27,7 +27,6 @@ pnpm dev
 | `/` | 네 크기 그룹의 양면 수채화 카드 49종, WebGL 카드 전환, 장난감을 던질 수 있는 3D 운동장 |
 | `/discover` | 전체 376종 검색·필터·발견 |
 | `/breeds/[slug]` | 견종 상세. 완성된 표준 상세와 제작 초안을 구분합니다. |
-| `/beginner-guide?breed=...` | 견종 상세에서 연결하는 맞이 준비 가이드 |
 | `/places` | 사진 없는 공공데이터 장소 목록, 지역·이름·종류·내 주변 검색 |
 | `/places/[id]` | 동반 조건·시설·방문 정보, 전화·주소 복사·카카오맵 길찾기 |
 

@@ -2,13 +2,13 @@
 
 ## Current scope — 2026-09-15
 
-Keep the card homepage (sixteen small, twelve medium, thirteen large and eight giant cards), all discovery/search/filter behavior, every breed detail and its content/assets. Preserve the preparation guide linked from details. All four size groups now have cards; detail redesign remains future work.
+Keep the card homepage (sixteen small, twelve medium, thirteen large and eight giant cards), all discovery/search/filter behavior, every breed detail and its content/assets. The preparation guide and its entry points are discontinued. All four size groups now have cards; detail redesign remains future work.
 
 The user reopened photo-free pet-place browsing on 2026-09-14: the cafe-yard sign links to `/places` and its detail pages, backed by the existing Korean Tourism Organization pet-tour API key on the server. Include all available textual detail groups and source attribution. See `pet-places.md`. The user approved visit planning on 2026-09-15: key visit facts, phone/address actions, Kakao map/directions links, and opt-in nearby search of registered pet-tour places. In-page route duration is pending valid routing API authorization; do not infer time from straight-line distance or assert live opening/admission status. No embedded map SDK yet. Keep discontinued games, postcards, hospital integration and old-home-only sections removed. Preserve shared dependencies and editorial provenance for retained breeds. API environment files are unchanged. No database, login, CMS, community or collection economy.
 
 ## Detailed collection: 101 breeds and gated expansion
 
-2026-10-28 scope change: breed-detail readiness checkboxes and the Japanese Spitz scored questionnaire are removed. The preparation guide remains as freely readable information; sequential locks, completion labels and stored progress are removed. Existing authored question text is retained as source material, not rendered as a survey or sent to a client interaction.
+2026-10-28 scope change: breed-detail readiness checkboxes and the Japanese Spitz scored questionnaire are removed. The preparation-guide route, components and entry points are also removed following the user’s clarification; do not restore them during refactoring. Existing authored question text is retained as source material, not rendered as a survey or sent to a client interaction.
 
 The original 100-breed milestone remains the reviewed baseline. Further breeds may be added one at a time only after passing [`breed-detail-production-gate.md`](breed-detail-production-gate.md). The first post-milestone addition is American Cocker Spaniel.
 
@@ -141,7 +141,7 @@ The original 100-breed milestone remains the reviewed baseline. Further breeds m
 
 ## First complete journey
 
-Card homepage → discovery/search → breed story detail → readiness guide.
+Card homepage → discovery/search → breed story detail → related breeds or pet-friendly places.
 
 ## Include
 

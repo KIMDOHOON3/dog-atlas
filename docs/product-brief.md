@@ -2,11 +2,11 @@
 
 ## Current product — 2026-09-15
 
-The homepage presents sixteen small, twelve medium, thirteen large and eight giant breeds as reversible watercolor cards, with short history, origin, size and lifespan. Small includes the approved Maltipoo cross, with variable-size copy rather than a fixed breed standard. Physical deck navigation replaces the shader wash. Discovery and ALL breed detail pages remain, including their shared assets and preparation guide. Discontinued games, postcards and old-home-only features remain removed. The reopened photo-free place directory supports visit decisions with sourced menus, scale and pet conditions where provided, contact/directions actions and opt-in nearby discovery.
+The homepage presents sixteen small, twelve medium, thirteen large and eight giant breeds as reversible watercolor cards, with short history, origin, size and lifespan. Small includes the approved Maltipoo cross, with variable-size copy rather than a fixed breed standard. Physical deck navigation replaces the shader wash. Discovery and ALL breed detail pages remain, including their shared assets. Discontinued games, postcards and old-home-only features remain removed. The reopened photo-free place directory supports visit decisions with sourced menus, scale and pet conditions where provided, contact/directions actions and opt-in nearby discovery.
 
 ## Product
 
-As of 2026-10-28, remove breed-detail readiness checkboxes and the scored eligibility-style questionnaire. Preparation guidance is freely readable information, without progress gates or completion judgments.
+As of 2026-10-28, remove breed-detail readiness checkboxes and the scored eligibility-style questionnaire. The preparation-guide route and all entry points are also removed at the user’s clarification. Do not restore them during shared-detail refactoring.
 
 Dog Atlas is a living breed atlas for people considering life with a dog.
 It helps visitors discover unfamiliar breeds, understand how history and original roles relate to behavioral tendencies and modern care needs, and narrow their search to realistic conditions and candidates.

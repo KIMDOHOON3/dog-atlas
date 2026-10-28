@@ -10,7 +10,6 @@
 | 홈 카드, 카드 검색, 덱 전환, 홀로그램 | `src/features/cards/` |
 | 견종 발견, 필터 화면, 검색 입력, 결과 목록 | `src/features/discovery/` |
 | 표준·푸들 상세, 이야기·크기·생활 정보 조작 | `src/features/breed-detail/` |
-| 설문 없이 읽는 맞이 준비 가이드 | `src/features/guide/` |
 | 장소 카드·상세 행동·주변 검색·공공 API | `src/features/places/` |
 | 운동장, Three.js 장면, 물리, 잔디, 안내판 | `src/features/yard/` |
 | 공통 헤더·스크롤 제어·견종 그림·주의 문구 | `src/components/` |
