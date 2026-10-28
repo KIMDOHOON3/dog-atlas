@@ -24,6 +24,7 @@ import { extraSmallCards } from "@/content/extra-small-cards";
 import { mediumCards } from "@/content/medium-cards";
 import { largeCards } from "@/content/large-cards";
 import { SpreadCard } from "./spread-card";
+import { SearchCardFeedback } from "./search-card-feedback";
 import { CardFront } from "./card-front";
 import { CardBack } from "./card-back";
 import { cardSizes, type CardSize } from "./size-selector";
@@ -60,6 +61,7 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
     slug: string;
     id: number;
   } | null>(null);
+  const searchRequestId = useRef(0);
   const [size, setSize] = useState<CardSize>("소형견");
   const [view, setView] = useState<"single" | "spread">("single");
   const [viewChanging, setViewChanging] = useState(false);
@@ -149,6 +151,7 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
 
   async function changeView(mode: "single" | "spread") {
     if (mode === view || viewLock.current || sliding || turning) return;
+    setSearchOpen(null);
     motion.current?.stop();
     let committed = false;
     const update = () => {
@@ -187,6 +190,7 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
 
   async function selectBreed(index: number) {
     if (index === active || selecting.current || !cards[index]) return;
+    setSearchOpen(null);
     const preparationStart = performance.now();
     selecting.current = true;
     setSliding(true);
@@ -780,6 +784,7 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
     motion.current?.point(event.clientX, event.clientY);
   }
   function flip() {
+    setSearchOpen(null);
     motion.current?.flip();
   }
   function keys(event: KeyboardEvent<HTMLDivElement>) {
@@ -843,8 +848,10 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
     settings.current.variant = foilVariant(cardsForSize(next)[index ?? 0].slug);
     setSize(next);
 
-    if (index !== undefined && view === "spread")
-      setSearchOpen({ slug: cardsForSize(next)[index].slug, id: Date.now() });
+    setSearchOpen(index === undefined ? null : {
+      slug: cardsForSize(next)[index].slug,
+      id: ++searchRequestId.current,
+    });
   }
 
   return (
@@ -927,6 +934,9 @@ export function FoilCard({cardGroups = defaultCardGroups, searchBreeds}: {cardGr
                 viewTransitionName: view === "single" ? "atlas-card" : "none",
               }}
             >
+              {view === "single" && searchOpen?.slug === breed.slug && (
+                <SearchCardFeedback key={searchOpen.id} />
+              )}
               <div className={styles.shadow} />
               <canvas
                 ref={transitionCanvas}

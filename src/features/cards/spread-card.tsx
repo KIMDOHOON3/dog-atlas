@@ -1,5 +1,6 @@
 "use client";
 import { CardActionIcon } from "./card-action-icon";
+import { SearchCardFeedback } from "./search-card-feedback";
 
 import {
   useEffect,
@@ -30,9 +31,10 @@ export function SpreadCard({
 }) {
   const [localExpanded, setLocalExpanded] = useState(false);
   const [dismissedRequest, setDismissedRequest] = useState<number>();
-  const expanded =
+  const expanded = !modal && (
     localExpanded ||
-    (openRequest !== undefined && openRequest !== dismissedRequest);
+    (openRequest !== undefined && openRequest !== dismissedRequest)
+  );
   function setExpanded(value: boolean) {
     setLocalExpanded(value);
     if (!value) setDismissedRequest(openRequest);
@@ -96,6 +98,7 @@ export function SpreadCard({
           }
         }}
       >
+        {modal && openRequest !== undefined && <SearchCardFeedback key={openRequest} />}
         <div
           className={styles.spreadScale}
           style={{ "--spread-scale": scale } as CSSProperties}
@@ -179,6 +182,7 @@ export function SpreadCard({
             <SpreadCard
               breed={breed}
               modal
+              openRequest={openRequest !== dismissedRequest ? openRequest : undefined}
               onClose={() => {
                 dialog.current?.close();
                 setExpanded(false);

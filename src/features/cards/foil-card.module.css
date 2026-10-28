@@ -1877,3 +1877,43 @@
     min-height: 36px;
   }
 }
+
+/* Search feedback stays outside the foil/flip transforms. */
+.searchFeedback {
+  position: absolute;
+  inset: -5px;
+  z-index: 8;
+  border: 2px solid #a76035;
+  border-radius: 23px;
+  box-shadow: 0 0 0 5px #a7603512;
+  pointer-events: none;
+  animation: searchFound 1200ms ease-out both;
+}
+@keyframes searchFound {
+  0% { opacity: 0; }
+  15%, 65% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.flipButton,
+.detailLink,
+.spreadActions > a,
+.expandCorner {
+  transition: scale 120ms ease-out, translate 120ms ease-out, background-color 160ms ease-out;
+}
+.flipButton:active:not(:disabled),
+.detailLink:active,
+.spreadActions > a:active,
+.expandCorner:active:not(:disabled) {
+  scale: 0.97;
+  translate: 0 1px;
+  background-color: #eee3d4;
+}
+@media (prefers-reduced-motion: reduce) {
+  .searchFeedback { animation: none; }
+  .flipButton, .detailLink, .spreadActions > a, .expandCorner { transition: none; }
+  .flipButton:active:not(:disabled), .detailLink:active,
+  .spreadActions > a:active, .expandCorner:active:not(:disabled) {
+    scale: none;
+    translate: none;
+  }
+}

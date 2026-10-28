@@ -282,3 +282,10 @@
 .field:not([data-ready="true"]) .reset {
   visibility: hidden;
 }
+
+.reset { transition: scale 120ms ease-out, translate 120ms ease-out, background-color 160ms ease-out; }
+.reset:active:not(:disabled) { scale: 0.97; translate: 0 1px; }
+@media (prefers-reduced-motion: reduce) {
+  .reset { transition: none; }
+  .reset:active:not(:disabled) { scale: none; translate: none; }
+}
