@@ -1,6 +1,6 @@
 # 코드 구조
 
-2026-10-24 로컬 정리 기준. 서비스 동작과 콘텐츠는 유지하고, 기능 단위로 파일을 모았다.
+2026-10-28 확인 기준. 서비스 동작과 콘텐츠는 유지하고, 기능 단위로 파일을 모았다.
 
 ## 수정할 위치
 
@@ -9,8 +9,8 @@
 | URL, 서버 페이지, 메타데이터, API 진입점 | `src/app/` |
 | 홈 카드, 카드 검색, 덱 전환, 홀로그램 | `src/features/cards/` |
 | 견종 발견, 필터 화면, 검색 입력, 결과 목록 | `src/features/discovery/` |
-| 표준·푸들 상세, 준비도 체크리스트, 상세 행동 | `src/features/breed-detail/` |
-| 맞이 준비 가이드와 진행 상태 | `src/features/guide/` |
+| 표준·푸들 상세, 이야기·크기·생활 정보 조작 | `src/features/breed-detail/` |
+| 설문 없이 읽는 맞이 준비 가이드 | `src/features/guide/` |
 | 장소 카드·상세 행동·주변 검색·공공 API | `src/features/places/` |
 | 운동장, Three.js 장면, 물리, 잔디, 안내판 | `src/features/yard/` |
 | 공통 헤더·스크롤 제어·견종 그림·주의 문구 | `src/components/` |
@@ -32,6 +32,8 @@
 ## 자산과 임시 파일
 
 `public/`은 브라우저에 제공하는 자산이고, `design/`은 Blender 원본·제작 스크립트·프롬프트·검증 기록이다. 원본을 서비스 코드의 import 여부만으로 삭제하지 않는다.
+
+대체되어 더 이상 배포하지 않는 승인 아이콘은 `design/brand/retired/`에 보관한다. `docs/project-status.md`는 현재 요약, `docs/project-history-through-2026-10-26.md`는 과거 기록이다. `docs/research/`는 조사, `docs/audits/`는 자산·원고 감사 데이터다. 기존 출처 링크를 유지하기 위해 문서 전체를 일괄 이동하지 않는다.
 
 `tmp/`에는 로컬 조사 결과·도구 런타임·검증 출력이 있다. Git에서 제외하지만 일괄 삭제하면 로컬 도구를 다시 설치해야 할 수 있다. `.next/`와 `node_modules/`도 코드 폴더 정리와 구분한다.
 

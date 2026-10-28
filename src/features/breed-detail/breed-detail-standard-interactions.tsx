@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import type { StandardBreedDetail } from "@/content/standard-breed-detail/schema";
 import { withAndParticle } from "@/lib/korean-particles";
@@ -9,7 +8,6 @@ import { useSnapCarousel } from "@/hooks/use-snap-carousel";
 import styles from "./poodle-detail.module.css";
 
 type StoryDetail = Pick<StandardBreedDetail, "slug" | "nameKo"> & { story: Pick<StandardBreedDetail["story"], "steps"> };
-type ReadinessDetail = Pick<StandardBreedDetail, "slug" | "nameKo" | "readinessQuestions">;
 
 export function StandardStorySteps({ detail }: { detail: StoryDetail }) {
   const [activeStep, setActiveStep] = useState(0);
@@ -226,44 +224,6 @@ export function StandardRealityCards({ detail, normalizedSizeVarieties }: {
             key={reality.id}
           />
         ))}
-      </div>
-    </div>
-  );
-}
-
-export function StandardReadinessChecklist({ detail }: { detail: ReadinessDetail }) {
-  const [checked, setChecked] = useState<boolean[]>(() => detail.readinessQuestions.map(() => false));
-  const completed = checked.filter(Boolean).length;
-  const allChecked = completed === checked.length;
-
-  function toggleQuestion(index: number) {
-    setChecked((current) => current.map((value, itemIndex) => itemIndex === index ? !value : value));
-  }
-
-  return (
-    <div className={styles.readinessChecklist}>
-      <ul aria-label={`${withAndParticle(detail.nameKo)} 살기 전 생활 조건 확인`}>
-        {detail.readinessQuestions.map((question, index) => (
-          <li key={question} data-checked={checked[index] || undefined}>
-            <label>
-              <input type="checkbox" checked={checked[index]} onChange={() => toggleQuestion(index)} />
-              <span aria-hidden="true">{checked[index] ? "✓" : ""}</span>
-              <strong>{question}</strong>
-            </label>
-          </li>
-        ))}
-      </ul>
-      <p className={styles.readinessProgress} aria-live="polite">
-        {allChecked ? "세 가지 생활 조건을 모두 확인했어요." : `세 가지 중 ${completed}가지를 확인했어요.`}
-      </p>
-      <div className={styles.readinessActionSlot} data-visible={allChecked || undefined} aria-hidden={!allChecked}>
-        <div>
-          {allChecked && (
-            <Link className={styles.readinessAction} href={`/beginner-guide?breed=${detail.slug}`}>
-              더 자세한 맞이 준비 보기 <span aria-hidden="true">→</span>
-            </Link>
-          )}
-        </div>
       </div>
     </div>
   );

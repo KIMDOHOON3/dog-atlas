@@ -72471,88 +72471,6 @@
     "permissionStatus": "not-cleared-by-inventory"
   },
   {
-    "path": "public/images/card-controls/detail-d10.webp",
-    "bytes": 6422,
-    "sha256": "e0de3092db108870bec8266ef5c76430b7927987273762e20b8023fa1e11eaaa",
-    "records": [
-      "design/brand/prompts.json",
-      "docs/brand-mark.md"
-    ],
-    "rightsStatus": "record-found-permission-unverified",
-    "git": {
-      "latest": {
-        "commit": "edb8f73f9e34f72f8e0685bc4f1be85ff218c5c2",
-        "date": "2026-09-06",
-        "subject": "Build watercolor card atlas with WebGL transitions and approved branding",
-        "relatedRecords": [
-          "design/brand/prompts.json",
-          "docs/README.md",
-          "docs/brand-mark.md",
-          "docs/card-transition.md",
-          "docs/decisions.md",
-          "docs/design-reference-shortlist.md",
-          "docs/design-visual-guide.md",
-          "docs/mvp-scope.md",
-          "docs/product-brief.md",
-          "docs/project-status.md",
-          "docs/research/foil-card-back-2026-09-05.md",
-          "docs/research/foil-card-performance-2026-09-05.md",
-          "docs/research/foil-card-study-2026-09-05.md",
-          "docs/research/foil-card-two-sided-motion-2026-09-05.md",
-          "docs/research/giant-card-art-prompts-2026-09-05.json",
-          "docs/research/giant-cards-2026-09-05.md",
-          "docs/research/giant-expansion-2026-09-05.md",
-          "docs/research/giant-expansion-art-2026-09-05.json",
-          "docs/research/great-dane-v2-art-prompts-2026-09-05.json",
-          "docs/research/great-pyrenees-alpine-art-2026-09-05.md",
-          "docs/research/great-pyrenees-human-back-art-2026-09-05.md",
-          "docs/research/icon-navigation-references-2026-09-04.md",
-          "scripts/generate-card-foil-map.mjs"
-        ]
-      },
-      "earliestObserved": {
-        "commit": "edb8f73f9e34f72f8e0685bc4f1be85ff218c5c2",
-        "date": "2026-09-06",
-        "subject": "Build watercolor card atlas with WebGL transitions and approved branding",
-        "relatedRecords": [
-          "design/brand/prompts.json",
-          "docs/README.md",
-          "docs/brand-mark.md",
-          "docs/card-transition.md",
-          "docs/decisions.md",
-          "docs/design-reference-shortlist.md",
-          "docs/design-visual-guide.md",
-          "docs/mvp-scope.md",
-          "docs/product-brief.md",
-          "docs/project-status.md",
-          "docs/research/foil-card-back-2026-09-05.md",
-          "docs/research/foil-card-performance-2026-09-05.md",
-          "docs/research/foil-card-study-2026-09-05.md",
-          "docs/research/foil-card-two-sided-motion-2026-09-05.md",
-          "docs/research/giant-card-art-prompts-2026-09-05.json",
-          "docs/research/giant-cards-2026-09-05.md",
-          "docs/research/giant-expansion-2026-09-05.md",
-          "docs/research/giant-expansion-art-2026-09-05.json",
-          "docs/research/great-dane-v2-art-prompts-2026-09-05.json",
-          "docs/research/great-pyrenees-alpine-art-2026-09-05.md",
-          "docs/research/great-pyrenees-human-back-art-2026-09-05.md",
-          "docs/research/icon-navigation-references-2026-09-04.md",
-          "scripts/generate-card-foil-map.mjs"
-        ]
-      },
-      "matchesHeadBlob": true
-    },
-    "productionRecords": [
-      {
-        "record": "design/brand/prompts.json",
-        "basis": "explicit-file-mention"
-      }
-    ],
-    "provenanceStatus": "production-record-linked-permission-pending",
-    "creatorStatement": null,
-    "permissionStatus": "not-cleared-by-inventory"
-  },
-  {
     "path": "public/images/card-controls/detail-paper-v2.webp",
     "bytes": 4922,
     "sha256": "ebc949008dcd72bb7eefa36e398de62adcfa3b166928e1f7cfee1d42791be46a",
@@ -72628,88 +72546,6 @@
       "date": "2026-10-24",
       "basis": "user-confirmed-new-ai-generation-current-hash"
     },
-    "permissionStatus": "not-cleared-by-inventory"
-  },
-  {
-    "path": "public/images/card-controls/flip-f08.webp",
-    "bytes": 9830,
-    "sha256": "9b7190eece1d5a41eeaf5d0f46b3405ad2dc5e4fb53fb4641fb207cee3da331d",
-    "records": [
-      "design/brand/prompts.json",
-      "docs/brand-mark.md"
-    ],
-    "rightsStatus": "record-found-permission-unverified",
-    "git": {
-      "latest": {
-        "commit": "edb8f73f9e34f72f8e0685bc4f1be85ff218c5c2",
-        "date": "2026-09-06",
-        "subject": "Build watercolor card atlas with WebGL transitions and approved branding",
-        "relatedRecords": [
-          "design/brand/prompts.json",
-          "docs/README.md",
-          "docs/brand-mark.md",
-          "docs/card-transition.md",
-          "docs/decisions.md",
-          "docs/design-reference-shortlist.md",
-          "docs/design-visual-guide.md",
-          "docs/mvp-scope.md",
-          "docs/product-brief.md",
-          "docs/project-status.md",
-          "docs/research/foil-card-back-2026-09-05.md",
-          "docs/research/foil-card-performance-2026-09-05.md",
-          "docs/research/foil-card-study-2026-09-05.md",
-          "docs/research/foil-card-two-sided-motion-2026-09-05.md",
-          "docs/research/giant-card-art-prompts-2026-09-05.json",
-          "docs/research/giant-cards-2026-09-05.md",
-          "docs/research/giant-expansion-2026-09-05.md",
-          "docs/research/giant-expansion-art-2026-09-05.json",
-          "docs/research/great-dane-v2-art-prompts-2026-09-05.json",
-          "docs/research/great-pyrenees-alpine-art-2026-09-05.md",
-          "docs/research/great-pyrenees-human-back-art-2026-09-05.md",
-          "docs/research/icon-navigation-references-2026-09-04.md",
-          "scripts/generate-card-foil-map.mjs"
-        ]
-      },
-      "earliestObserved": {
-        "commit": "edb8f73f9e34f72f8e0685bc4f1be85ff218c5c2",
-        "date": "2026-09-06",
-        "subject": "Build watercolor card atlas with WebGL transitions and approved branding",
-        "relatedRecords": [
-          "design/brand/prompts.json",
-          "docs/README.md",
-          "docs/brand-mark.md",
-          "docs/card-transition.md",
-          "docs/decisions.md",
-          "docs/design-reference-shortlist.md",
-          "docs/design-visual-guide.md",
-          "docs/mvp-scope.md",
-          "docs/product-brief.md",
-          "docs/project-status.md",
-          "docs/research/foil-card-back-2026-09-05.md",
-          "docs/research/foil-card-performance-2026-09-05.md",
-          "docs/research/foil-card-study-2026-09-05.md",
-          "docs/research/foil-card-two-sided-motion-2026-09-05.md",
-          "docs/research/giant-card-art-prompts-2026-09-05.json",
-          "docs/research/giant-cards-2026-09-05.md",
-          "docs/research/giant-expansion-2026-09-05.md",
-          "docs/research/giant-expansion-art-2026-09-05.json",
-          "docs/research/great-dane-v2-art-prompts-2026-09-05.json",
-          "docs/research/great-pyrenees-alpine-art-2026-09-05.md",
-          "docs/research/great-pyrenees-human-back-art-2026-09-05.md",
-          "docs/research/icon-navigation-references-2026-09-04.md",
-          "scripts/generate-card-foil-map.mjs"
-        ]
-      },
-      "matchesHeadBlob": true
-    },
-    "productionRecords": [
-      {
-        "record": "design/brand/prompts.json",
-        "basis": "explicit-file-mention"
-      }
-    ],
-    "provenanceStatus": "production-record-linked-permission-pending",
-    "creatorStatement": null,
     "permissionStatus": "not-cleared-by-inventory"
   },
   {
@@ -73378,13 +73214,14 @@
     "rightsStatus": "record-found-permission-unverified",
     "git": {
       "latest": {
-        "commit": "5388bce8aece087b457615266025f096605c6b97",
-        "date": "2026-10-25",
-        "subject": "Improve home readability and yard loading feedback",
+        "commit": "c8aaa0f1c40ac5d1eb06157dcb3f71fc2d4913b8",
+        "date": "2026-10-26",
+        "subject": "Brighten yard and add accessible horizontal view controls",
         "relatedRecords": [
           "design/yard-blender/README.md",
           "docs/audits/asset-rights-inventory.json",
           "docs/audits/rights-summary.json",
+          "docs/decisions.md",
           "docs/project-status.md"
         ]
       },
@@ -73399,7 +73236,7 @@
           "docs/project-status.md"
         ]
       },
-      "matchesHeadBlob": false
+      "matchesHeadBlob": true
     },
     "productionRecords": [
       {
@@ -73421,13 +73258,14 @@
     "rightsStatus": "record-found-permission-unverified",
     "git": {
       "latest": {
-        "commit": "5388bce8aece087b457615266025f096605c6b97",
-        "date": "2026-10-25",
-        "subject": "Improve home readability and yard loading feedback",
+        "commit": "c8aaa0f1c40ac5d1eb06157dcb3f71fc2d4913b8",
+        "date": "2026-10-26",
+        "subject": "Brighten yard and add accessible horizontal view controls",
         "relatedRecords": [
           "design/yard-blender/README.md",
           "docs/audits/asset-rights-inventory.json",
           "docs/audits/rights-summary.json",
+          "docs/decisions.md",
           "docs/project-status.md"
         ]
       },
@@ -73442,7 +73280,7 @@
           "docs/project-status.md"
         ]
       },
-      "matchesHeadBlob": false
+      "matchesHeadBlob": true
     },
     "productionRecords": [
       {

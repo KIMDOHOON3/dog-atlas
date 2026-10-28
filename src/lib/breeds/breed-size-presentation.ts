@@ -94,7 +94,7 @@ export function getBreedSizePresentation(slug: string): BreedSizePresentation {
     filterClasses: finalClass ? [serviceSize(finalClass)] : [],
     displayLabel: finalClass
       ? dogAtlasSizeLabels[finalClass]
-      : "크기 정보 보완 중",
+      : undefined,
     height: formatBreedMeasurement(profile.heightCm, "cm"),
     weight: formatBreedMeasurement(profile.weightKg, "kg"),
   };

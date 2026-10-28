@@ -56,7 +56,7 @@ docs/            제품·디자인·출처·작업 상태
 ```bash
 pnpm lint
 pnpm typecheck
-pnpm test --maxWorkers=4
+pnpm test --maxWorkers=2
 pnpm build
 pnpm audit:images
 pnpm audit:rights

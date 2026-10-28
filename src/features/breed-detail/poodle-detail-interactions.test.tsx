@@ -4,7 +4,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { PoodleRealityCards, PoodleSizePicker } from "./poodle-detail-interactions";
 
 import { poodleDetail } from "@/content/poodle-detail/data";
-import { StandardStorySteps, StandardReadinessChecklist } from "./breed-detail-standard-interactions";
+import { StandardStorySteps } from "./breed-detail-standard-interactions";
 const detail = { ...poodleDetail, slug: "poodle", nameKo: "푸들" };
 
 describe("Poodle detail interactions", () => {
@@ -60,16 +60,4 @@ describe("Poodle detail interactions", () => {
     expect(screen.getByRole("button", { name: "2번째 곱슬 피모 관리 보기" })).toBeInTheDocument();
   });
 
-  it("reveals the detailed readiness action only after all three checks", async () => {
-    const user = userEvent.setup();
-    render(<StandardReadinessChecklist detail={detail} />);
-
-    expect(screen.queryByRole("link", { name: /더 자세한 맞이 준비 보기/ })).not.toBeInTheDocument();
-    expect(screen.getByText("세 가지 중 0가지를 확인했어요.")).toBeVisible();
-
-    for (const checkbox of screen.getAllByRole("checkbox")) await user.click(checkbox);
-
-    expect(screen.getByText("세 가지 생활 조건을 모두 확인했어요.")).toBeVisible();
-    expect(screen.getByRole("link", { name: /더 자세한 맞이 준비 보기/ })).toHaveAttribute("href", "/beginner-guide?breed=poodle");
-  });
 });

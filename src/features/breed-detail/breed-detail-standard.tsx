@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 import { BreedVisual } from "@/components/breed-visual";
 import type { Breed } from "@/content/breeds/schema";
 import type { StandardBreedDetail } from "@/content/standard-breed-detail/schema";
-import { toReadinessClientData, toStoryClientData } from "@/lib/breeds/breed-detail-client-data";
-import { StandardReadinessChecklist, StandardStorySteps } from "./breed-detail-standard-interactions";
+import { toStoryClientData } from "@/lib/breeds/breed-detail-client-data";
+import { StandardStorySteps } from "./breed-detail-standard-interactions";
 import styles from "./poodle-detail.module.css";
 
 type RelatedBreed = { breed: Breed; reason: string };
@@ -15,8 +15,6 @@ type StandardExperienceDetail = Pick<
   | "nameKo"
   | "story"
   | "realitiesTitle"
-  | "readinessTitle"
-  | "readinessQuestions"
   | "relatedTitle"
   | "relatedDescription"
   | "relatedDifferences"
@@ -53,18 +51,10 @@ export function StandardBreedDetailExperience({
         {realityCards}
       </section>
 
-      <section className={styles.readiness} aria-labelledby={`${detail.slug}-readiness-title`}>
-        <header>
-          <p><b aria-hidden="true">03</b> 함께 살기 전에</p>
-          <h2 id={`${detail.slug}-readiness-title`}>{detail.readinessTitle}</h2>
-        </header>
-        <StandardReadinessChecklist detail={toReadinessClientData(detail)} />
-      </section>
-
-      {relatedBreeds.length > 0 && (
+{relatedBreeds.length > 0 && (
         <section className={styles.related} aria-labelledby={`${detail.slug}-related-title`}>
           <header>
-            <p><b aria-hidden="true">04</b> 다음으로 살펴보기</p>
+            <p><b aria-hidden="true">03</b> 다음으로 살펴보기</p>
             <h2 id={`${detail.slug}-related-title`}>{detail.relatedTitle}</h2>
             <span>{detail.relatedDescription}</span>
           </header>

@@ -6,6 +6,8 @@ The homepage presents sixteen small, twelve medium, thirteen large and eight gia
 
 ## Product
 
+As of 2026-10-28, remove breed-detail readiness checkboxes and the scored eligibility-style questionnaire. Preparation guidance is freely readable information, without progress gates or completion judgments.
+
 Dog Atlas is a living breed atlas for people considering life with a dog.
 It helps visitors discover unfamiliar breeds, understand how history and original roles relate to behavioral tendencies and modern care needs, and narrow their search to realistic conditions and candidates.
 

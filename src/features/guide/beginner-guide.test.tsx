@@ -1,89 +1,35 @@
-import { beforeEach, describe, expect, it } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { afterEach, describe, expect, it } from "vitest";
+import { render, screen } from "@testing-library/react";
 import { BeginnerGuide } from "./beginner-guide";
 import { BeginnerGuideLink } from "./beginner-guide-link";
-import { JapaneseSpitzReadiness } from "../breed-detail/japanese-spitz-readiness";
-import { getBeginnerGuideStorageKey } from "@/features/guide/beginner-guide-progress";
+import { StandardBreedDetailExperience } from "../breed-detail/breed-detail-standard";
+import { japaneseSpitzDetail } from "@/content/standard-breed-detail/data";
 
-describe("BeginnerGuide", () => {
-  beforeEach(() => localStorage.clear());
+afterEach(() => localStorage.clear());
 
-  it("unlocks the next step in order and stores breed-specific progress", async () => {
-    const user = userEvent.setup();
-    render(<BeginnerGuide slug="japanese-spitz" nameKo="재패니즈 스피츠" />);
-
-    const firstButton = await screen.findByRole("button", { name: "입양처에 확인했어요" });
-    await waitFor(() => expect(firstButton).toBeEnabled());
-    expect(screen.getAllByText("앞 단계를 확인하면 준비 목록이 열려요.")).toHaveLength(3);
-
-    await user.click(firstButton);
-    expect(screen.getByRole("button", { name: "첫날 준비를 마쳤어요" })).toBeEnabled();
-    expect(localStorage.getItem(getBeginnerGuideStorageKey("japanese-spitz"))).toBe("1");
-
-    await user.click(screen.getByRole("button", { name: "첫날 준비를 마쳤어요" }));
-    expect(screen.getByRole("button", { name: "첫 생활 가이드를 확인했어요" })).toBeEnabled();
-    await user.click(screen.getByRole("button", { name: "첫 생활 가이드를 확인했어요" }));
-    expect(screen.getByRole("button", { name: "보호자의 마음 준비를 확인했어요" })).toBeEnabled();
-    await user.click(screen.getByRole("button", { name: "보호자의 마음 준비를 확인했어요" }));
-
-    expect(screen.getByText("4 / 4 확인")).toBeVisible();
-    expect(localStorage.getItem(getBeginnerGuideStorageKey("japanese-spitz"))).toBe("4");
+describe("preparation information without assessment", () => {
+  it("shows every section immediately without questions, scoring or completion controls", () => {
+    render(<BeginnerGuide />);
+    expect(screen.getAllByRole("heading", { level: 2 })).toHaveLength(4);
+    expect(screen.getByText("예방접종·진료 기록")).toBeVisible();
+    expect(screen.getByText("강아지를 통제 대상이 아닌 감정과 선택이 있는 존재로 대하기")).toBeVisible();
+    expect(screen.queryByRole("button")).not.toBeInTheDocument();
+    expect(screen.queryByRole("checkbox")).not.toBeInTheDocument();
+    expect(screen.queryByText(/잠겨|진행률|확인 완료|점수/)).not.toBeInTheDocument();
   });
 
-  it("keeps the guardian mindset step locked until earlier preparation is complete", async () => {
-    render(<BeginnerGuide slug="maltese" nameKo="말티즈" />);
-    expect(await screen.findByRole("heading", { name: "보호자로서 마음 준비하기" })).toBeVisible();
-    expect(screen.queryByText("강아지를 통제 대상이 아닌 감정과 선택이 있는 존재로 대하기")).not.toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "동물병원에 바로 문의해야 할 신호" })).not.toBeInTheDocument();
-  });
-});
-
-describe("JapaneseSpitzReadiness", () => {
-  beforeEach(() => localStorage.clear());
-
-  it("shows the existing checklist only after all readiness questions are answered", async () => {
-    const user = userEvent.setup();
-    render(<JapaneseSpitzReadiness />);
-
-    expect(screen.getByText("1 / 20")).toBeVisible();
-    expect(screen.queryByRole("heading", { name: "이제 실제 맞이 준비를 차례로 확인해요." })).not.toBeInTheDocument();
-
-    for (let index = 0; index < 20; index += 1) {
-      await user.click(screen.getAllByRole("radio")[0]);
-      await user.click(screen.getByRole("button", { name: index === 19 ? /결과 확인하기/ : /다음 질문/ }));
-    }
-
-    expect(screen.getByText("100")).toBeVisible();
-    expect(screen.getByRole("heading", { name: "기본적인 맞이 준비를 갖춘 것 같아요." })).toBeVisible();
-    expect(screen.getByRole("heading", { name: "이제 실제 맞이 준비를 차례로 확인해요." })).toBeVisible();
-
-    await user.click(screen.getByRole("button", { name: "처음부터 다시 답하기" }));
-    expect(screen.getByText("1 / 20")).toBeVisible();
-  });
-
-  it("can skip the questions to preview the final result layout", async () => {
-    const user = userEvent.setup();
-    render(<JapaneseSpitzReadiness />);
-
-    await user.click(screen.getByRole("button", { name: "전체 질문 건너뛰고 결과 화면 보기 ↓" }));
-
-    expect(screen.getByText("결과 화면 미리보기 · 실제 응답 결과는 아니에요.")).toBeVisible();
-    expect(screen.getByText("잘 준비된 부분")).toBeVisible();
-    expect(screen.getByText("현재 걸리는 조건")).toBeVisible();
-    expect(screen.getByText("다음 준비 항목")).toBeVisible();
-  });
-});
-
-describe("BeginnerGuideLink", () => {
-  beforeEach(() => localStorage.clear());
-
-  it("reflects saved progress on a breed detail CTA", async () => {
-    localStorage.setItem(getBeginnerGuideStorageKey("japanese-spitz"), "2");
+  it("links directly to the guide regardless of previously saved progress", () => {
+    localStorage.setItem("dog-atlas:beginner-guide:v1:japanese-spitz", "4");
     render(<BeginnerGuideLink slug="japanese-spitz" nameKo="재패니즈 스피츠" />);
+    expect(screen.getByRole("link", { name: "맞이 준비 가이드 읽기" })).toHaveAttribute("href", "/beginner-guide?breed=japanese-spitz");
+    expect(screen.queryByText(/완료|계속하기/)).not.toBeInTheDocument();
+  });
 
-    const link = await screen.findByRole("link", { name: "맞이 준비 계속하기" });
-    expect(link).not.toHaveTextContent(/\d\/4/);
-    expect(link).toHaveAttribute("href", "/beginner-guide?breed=japanese-spitz");
+  it("keeps breed information without the life-condition checklist", () => {
+    render(<StandardBreedDetailExperience detail={japaneseSpitzDetail} related={[]} realityCards={<p>생활과 돌봄 안내</p>} />);
+    expect(screen.getByText("생활과 돌봄 안내")).toBeVisible();
+    expect(screen.getByRole("heading", { name: japaneseSpitzDetail.story.title })).toBeVisible();
+    expect(screen.queryByRole("checkbox")).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: japaneseSpitzDetail.readinessTitle })).not.toBeInTheDocument();
   });
 });

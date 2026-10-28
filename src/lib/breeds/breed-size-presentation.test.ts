@@ -42,6 +42,20 @@ describe("breed size service presentation", () => {
     expect(getBreedSizePresentation("scottish-deerhound")).toMatchObject({ status: "provisional", filterClasses: [] });
   });
 
+  it("omits unfinished size labels while retaining available measurements", () => {
+    const deerhound = getBreedSizePresentation("scottish-deerhound");
+    expect(deerhound.displayLabel).toBeUndefined();
+    expect(deerhound.height).toBeTruthy();
+    for (const breed of breeds) {
+      const size = getBreedSizePresentation(breed.slug);
+      expect(size.displayLabel ?? "").not.toContain("보완");
+      if (size.status === "provisional" || size.status === "conflict") {
+        expect(size.displayLabel).toBeUndefined();
+        expect(size.filterClasses).toEqual([]);
+      }
+    }
+  });
+
   it("keeps incomplete, variable-parentage, and missing profiles out of fixed filters", () => {
     expect(getBreedSizePresentation("goldendoodle")).toMatchObject({ status: "variable-parentage", filterClasses: [] });
     expect(getBreedSizePresentation("maltipoo")).toMatchObject({ status: "variable-parentage", filterClasses: [] });

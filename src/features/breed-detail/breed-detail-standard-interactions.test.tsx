@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeAll, describe, expect, it } from "vitest";
 import { getStandardBreedDetail, japaneseSpitzDetail } from "@/content/standard-breed-detail/data";
-import { StandardReadinessChecklist, StandardRealityCards, StandardStorySteps } from "./breed-detail-standard-interactions";
+import { StandardRealityCards, StandardStorySteps } from "./breed-detail-standard-interactions";
 
 describe("standard breed detail interactions", () => {
   beforeAll(() => {
@@ -47,17 +47,11 @@ describe("standard breed detail interactions", () => {
     );
   });
 
-  it("exposes two reality slides and reveals preparation only after all checks", async () => {
-    const user = userEvent.setup();
-    const { rerender } = render(<StandardRealityCards detail={japaneseSpitzDetail} />);
+  it("exposes two reality slides", () => {
+    render(<StandardRealityCards detail={japaneseSpitzDetail} />);
 
     expect(screen.getByRole("button", { name: /2번째 풍성한 이중모 관리 보기/ })).toBeInTheDocument();
     expect(screen.getAllByRole("img")).toHaveLength(2);
-
-    rerender(<StandardReadinessChecklist detail={japaneseSpitzDetail} />);
-    expect(screen.queryByRole("link", { name: /더 자세한 맞이 준비 보기/ })).not.toBeInTheDocument();
-    for (const checkbox of screen.getAllByRole("checkbox")) await user.click(checkbox);
-    expect(screen.getByRole("link", { name: /더 자세한 맞이 준비 보기/ })).toHaveAttribute("href", "/beginner-guide?breed=japanese-spitz");
   });
 
   it("switches the Dachshund size image and chest range", async () => {

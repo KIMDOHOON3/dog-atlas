@@ -1,5 +1,21 @@
 # Dog Atlas 문서 안내
 
+이 디렉터리의 문서는 작성 시점과 목적이 서로 다르다. 현재 상태를 파악할 때는 파일 이름순으로 읽지 말고 아래 순서를 따른다.
+
+## 모든 작업자가 먼저 읽을 문서
+
+1. [`project-status.md`](project-status.md) — 현재 제품, 디자인, 코드, 콘텐츠, 검증 상태의 단일 진입점
+2. [`product-brief.md`](product-brief.md) — 변하지 않는 제품 목적과 사용자 변화
+3. [`mvp-scope.md`](mvp-scope.md) — MVP 포함·제외 범위와 상세 콘텐츠 확장 기록
+4. [`decisions.md`](decisions.md) — 날짜별 주요 제품·기술 결정
+5. [`design-visual-guide.md`](design-visual-guide.md) — 이미지 역할, 시각 자산, 접근성 원칙
+
+긴 작업을 새 대화에서 이어받을 때는 [`next-thread-handoff.md`](next-thread-handoff.md)의 시작 순서와 확인할 항목을 함께 읽는다.
+
+현재 코드와 문서가 충돌하면 `project-status.md`에 차이를 기록하고, 코드와 테스트를 사실 확인의 기준으로 삼는다. 제품 원칙이 충돌하면 `product-brief.md`와 `decisions.md`를 우선한다.
+
+## 최근 기능·점검 기록
+
 - [운동장 초기 표시 최적화](yard-loading-performance.md) — 근접 시 준비, 병렬 요청, 모바일 잔디 계산 지연과 측정 한계.
 
 - [유전 질환·검사 기록 2차 점검](genetic-health-second-review-2026-10-24.md) — 추가 20종 건강 안내, 누적 32종의 선택 문장과 나머지 344종 점검 목록.
@@ -47,20 +63,6 @@
 - [초대형견 8종 확장](research/giant-expansion-2026-09-05.md) — 추가 5종의 사실 근거·그림 10장·탐색/로딩 변경.
 
 - [초대형견 카드 3종](research/giant-cards-2026-09-05.md) — 새 앞뒷면 자산·정보 근거·단일 렌더러 탐색 및 검증.
-
-이 디렉터리의 문서는 작성 시점과 목적이 서로 다르다. 현재 상태를 파악할 때는 파일 이름순으로 읽지 말고 아래 순서를 따른다.
-
-## 모든 작업자가 먼저 읽을 문서
-
-1. [`project-status.md`](project-status.md) — 현재 제품, 디자인, 코드, 콘텐츠, 검증 상태의 단일 진입점
-2. [`product-brief.md`](product-brief.md) — 변하지 않는 제품 목적과 사용자 변화
-3. [`mvp-scope.md`](mvp-scope.md) — MVP 포함·제외 범위와 상세 콘텐츠 확장 기록
-4. [`decisions.md`](decisions.md) — 날짜별 주요 제품·기술 결정
-5. [`design-visual-guide.md`](design-visual-guide.md) — 이미지 역할, 시각 자산, 접근성 원칙
-
-긴 작업을 새 대화에서 이어받을 때는 [`next-thread-handoff.md`](next-thread-handoff.md)의 현재 대기 목록과 복사 가능한 시작 문구를 함께 읽는다.
-
-현재 코드와 문서가 충돌하면 `project-status.md`에 차이를 기록하고, 코드와 테스트를 사실 확인의 기준으로 삼는다. 제품 원칙이 충돌하면 `product-brief.md`와 `decisions.md`를 우선한다.
 
 ## 분야별 참고 문서
 
@@ -125,6 +127,12 @@
 - [`image-prompts-expansion-to-300-batch-07-2026-08-31.md`](image-prompts-expansion-to-300-batch-07-2026-08-31.md) — 라지 뮌스터랜더부터 블랙 러시안 테리어까지 일곱 번째 제작 초안 10종의 공식 기준, 푸들풍 수채화로 교정한 신규 생활 장면 40개와 폐기 시안 기록
 
 배치 A·B 문서는 현재 전체 368종 자산 목록이 아니라 초기 제작 배치의 재현 기록이다. 최신 외형 점검 상태는 `breed-visual-audit.md`를 기준으로 본다.
+
+## 이전 상태와 작업 이력
+
+- [2026-10-26까지의 작업 이력](project-history-through-2026-10-26.md) — 기존 상태 문서의 원문 보존.
+- [2026-08-31 인수인계 보관본](handoff-2026-08-31.md) — 이전 제작 계획이며 현재 지시가 아님.
+- [2026-10-28 프로젝트 정리](project-cleanup-2026-10-28.md) — 정리 범위와 검증 결과.
 
 ## 문서 유지 규칙
 

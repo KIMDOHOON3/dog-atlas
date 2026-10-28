@@ -8,6 +8,8 @@ The user reopened photo-free pet-place browsing on 2026-09-14: the cafe-yard sig
 
 ## Detailed collection: 101 breeds and gated expansion
 
+2026-10-28 scope change: breed-detail readiness checkboxes and the Japanese Spitz scored questionnaire are removed. The preparation guide remains as freely readable information; sequential locks, completion labels and stored progress are removed. Existing authored question text is retained as source material, not rendered as a survey or sent to a client interaction.
+
 The original 100-breed milestone remains the reviewed baseline. Further breeds may be added one at a time only after passing [`breed-detail-production-gate.md`](breed-detail-production-gate.md). The first post-milestone addition is American Cocker Spaniel.
 
 ### Core editorial set

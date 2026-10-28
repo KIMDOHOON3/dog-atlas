@@ -12,9 +12,8 @@ import { PoodleDetailExperience } from "@/features/breed-detail/poodle-detail";
 import { SiteHeader } from "@/components/site-header";
 import { getBreedFeatures } from "@/content/breed-features/data";
 import { getBreedGrowthGuide } from "@/content/breed-growth-guides/data";
-import { behaviorContextSources, breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
+import { breeds, getBreed, getRelatedBreeds } from "@/content/breeds/data";
 import type { Breed } from "@/content/breeds/schema";
-import { getHealthScreeningSources, healthScreeningGuidance } from "@/content/breeds/health-screening";
 import { poodleDetail } from "@/content/poodle-detail/data";
 import { getStandardBreedDetail } from "@/content/standard-breed-detail/data";
 import {
@@ -106,13 +105,13 @@ function BreedSizeOverview({ size }: { size: BreedSizePresentation }) {
             variety.otherMeasurement,
             variety.sizeLabel,
           ].filter(Boolean).join(" · ");
-          return <li key={variety.id}><span>{variety.label}</span><strong>{values || "공식 수치 확인 중"}</strong></li>;
+          return <li key={variety.id}><span>{variety.label}</span>{values && <strong>{values}</strong>}</li>;
         })}</ul>
       </details>
     );
   }
 
-  return <><strong>{size.displayLabel}</strong>{rows.length > 0 && <SizeFactRows rows={rows} />}</>;
+  return <>{size.displayLabel && <strong>{size.displayLabel}</strong>}{rows.length > 0 && <SizeFactRows rows={rows} />}</>;
 }
 
 function BreedDetailExperience({ breed }: { breed: Breed }) {
@@ -233,13 +232,6 @@ export default async function BreedDetail({ params }: PageProps) {
   const standardDetail = getStandardBreedDetail(breed.slug);
   const isStandardDetail = breed.slug === "poodle" || Boolean(standardDetail);
   const related = isStandardDetail ? getRelatedBreeds(breed) : [];
-  const growthGuide = getBreedGrowthGuide(breed.slug);
-  const healthSources = getHealthScreeningSources(breed.slug);
-  const allSources = breed.slug === "poodle"
-    ? [...poodleDetail.sources, ...healthSources.filter((source) => !poodleDetail.sources.some((existing) => existing.url === source.url))]
-    : [...new Map(
-      [...breed.sources, ...(growthGuide?.sources ?? []), ...behaviorContextSources].map((source) => [source.url, source]),
-    ).values()];
   const lifespan = getBreedLifespanDisplay(breed);
   const sizePresentation = getBreedSizePresentation(breed.slug);
   const roleFacts = isStandardDetail ? getBreedRoleFacts(breed) : [];
@@ -308,22 +300,6 @@ export default async function BreedDetail({ params }: PageProps) {
           ) : (
             <BreedDetailExperience breed={breed} />
           )}
-          {healthSources.length > 0 && (
-            <details className={styles.sources}>
-              <summary><span>유전 질환과 검사 기록</span><small>확인할 점</small></summary>
-              <div>
-                <p>{breed.healthEditorialNote}</p>
-                <p>{healthScreeningGuidance.purpose}</p>
-                <p>{healthScreeningGuidance.records}</p>
-                <p>{healthScreeningGuidance.limits}</p>
-                <p>근거 자료와 확인일은 아래 ‘정보 출처와 편집 안내’에서 볼 수 있어요.</p>
-              </div>
-            </details>
-          )}
-          <details className={styles.sources}>
-            <summary><span>정보 출처와 편집 안내</span><small>출처 {allSources.length}개</small></summary>
-            <div><p>현재 편집 중이며 수의학·행동 전문가 검수 전인 정보입니다. 품종의 일반적 경향이 개별 강아지의 건강과 행동을 보장하지는 않습니다.</p><ul>{allSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} — {source.title}</a><span>확인일 {source.checkedAt}</span></li>)}</ul></div>
-          </details>
         </article>
       </main>
     </>

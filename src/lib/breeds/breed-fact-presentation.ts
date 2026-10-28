@@ -8,7 +8,7 @@ type BreedFactOverride = {
 };
 
 // Values below normalize measurements already supported by the official
-// breed sources linked from each detail page. They are presentation values,
+// authored breed source records. They are presentation values,
 // so source names and editorial caveats stay in the source section.
 const breedFactOverrides: Record<string, BreedFactOverride> = {
   "briquet-griffon-vendeen": { size: "암컷 48~53cm(±1cm) · 수컷 50~55cm(±1cm) · 고정 기준 없음", height: "암컷 48~53cm(±1cm) · 수컷 50~55cm(±1cm)", weight: "고정 기준 없음" },
