@@ -97,6 +97,15 @@ export function SiteHeader({
                   <strong>견종 발견</strong>
                   <span>견종을 검색하고 비교해 보세요.</span>
                 </Link>
+                <Link
+                  href="/places"
+                  prefetch={false}
+                  aria-current={pathname === "/places" ? "page" : undefined}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <strong>함께 갈 곳</strong>
+                  <span>반려견과 갈 장소의 동반 조건을 살펴보세요.</span>
+                </Link>
               </nav>
             )}
           </div>

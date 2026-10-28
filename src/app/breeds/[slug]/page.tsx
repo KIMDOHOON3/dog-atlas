@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { BreedVisual } from "@/components/breed-visual";
 import { StandardBreedDetailExperience } from "@/features/breed-detail/breed-detail-standard";
+import { PlacesInvitation } from "@/components/places-invitation";
 import { StandardRealityCards } from "@/features/breed-detail/breed-detail-standard-interactions";
 import { toRealityClientData } from "@/lib/breeds/breed-detail-client-data";
 import { BeginnerGuideLink } from "@/features/guide/beginner-guide-link";
@@ -302,6 +303,7 @@ export default async function BreedDetail({ params }: PageProps) {
           )}
         </article>
       </main>
+      <PlacesInvitation />
     </>
   );
 }
