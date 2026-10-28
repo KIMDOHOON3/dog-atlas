@@ -81,4 +81,6 @@ pnpm audit
 - 이미지 최적화는 `next.config.ts`에서 의도적으로 비활성화했습니다. 자산 정책은 [배포 저장공간](deployment-storage.md)을 참고하세요.
 - Vercel은 문서만 바뀐 커밋의 빌드를 생략합니다. 코드·이미지·설정 변경은 배포 대상입니다. 로컬 정리와 검증만 요청된 작업에서는 커밋·푸시·배포를 별도로 진행하지 않습니다.
 
+Git Credential Manager에 계정이 여러 개 저장되어 비대화형 푸시가 실패하면 `git credential-manager github list`로 계정 이름만 확인합니다. 이 저장소의 계정은 `KIMDOHOON3`이며, `git -c credential.username=KIMDOHOON3 -c credential.interactive=false push origin main`으로 계정을 명시해 푸시할 수 있습니다. 토큰을 출력하거나 원격 URL에 넣지 않습니다.
+
 README 개편과 추가 이미지·원고 대조 범위는 [2차 점검](rights-second-pass-2026-10-24.md)을 참고하세요.
